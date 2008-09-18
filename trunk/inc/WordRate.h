@@ -1,21 +1,46 @@
-/**
- * WordRate.h - Nessie, reconocedor óptico de texto en recortes de prensa escrita
- *
- * @author Eliezer Talón
- * @date 16/09/2008
- * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
- */
+///
+/// WordRate.h 
+///
 
 #if !defined(_WORDRATE_H)
 #define _WORDRATE_H
 
+#include <iostream>
+using namespace std;
 
+
+///
+/// Appearance rate of a word
+/// 
+/// This structure keeps the number of appearances of a single word
+/// in the recognized text from an clip.
+/// 
+/// @author Eliezer TalÃ³n (elitalon@gmail.com)
+/// @date 2008-09-18
 struct WordRate
 {
-public:
-	string word;
-	unsigned int rate = 0;
+	public:
+		///
+		/// The word itself
+		///
+		string word_;
+		
+		///
+		/// Number of appearances
+		///
+		unsigned int rate_;
+		
+		
+		
+		///
+		/// Constructor
+		///
+		WordRate ();
+		
+		///
+		/// Destructor
+		/// 
+		~WordRate ();
 };
 
 #endif  //_WORDRATE_H

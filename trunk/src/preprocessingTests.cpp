@@ -9,24 +9,10 @@ using namespace std;
 using namespace Magick;
 
 
-/**
- * @fn threshold(Image* image, double threshold)
- * @brief Apply thresholding over an image.
- *
- *	This method applies a threshold over each pixel on image.
- *
- *	@author: Eliezer Talón
- *	@date: 29/09/2008
- */
 void threshold(Image* image, double threshold);
 
 
 
-/** @file main.cpp
- * @brief Main program
- *
- * Detailed description
- */
 int main (int argc, char const *argv[])
 {
 	Image img;			/**< Magick++ object */

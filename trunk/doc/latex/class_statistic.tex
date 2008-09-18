@@ -1,0 +1,194 @@
+\hypertarget{class_statistic}{
+\section{Statistic Class Reference}
+\label{class_statistic}\index{Statistic@{Statistic}}
+}
+{\tt \#include $<$Statistic.h$>$}
+
+
+
+\subsection{Detailed Description}
+Statistics about a text and the recognition process. 
+
+This class stores a number of statistic data regarding the recognition process and the text produced.
+
+First, it store the elapsed time on every stage, accumulated internally in the critical processes. Then, it computes the number of words in the text and the appearance rate of every single word.
+
+\begin{Desc}
+\item[Author:]Eliezer TalÃ³n (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-17 \end{Desc}
+
+
+Definition at line 23 of file Statistic.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_statistic_00637756290a7a4c8444e7076c135466}{
+\hyperlink{class_statistic_00637756290a7a4c8444e7076c135466}{Statistic} ()}
+\label{class_statistic_00637756290a7a4c8444e7076c135466}
+
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hypertarget{class_statistic_273cc8bd352a4fa0c18006971c008424}{
+\hyperlink{class_statistic_273cc8bd352a4fa0c18006971c008424}{$\sim$Statistic} ()}
+\label{class_statistic_273cc8bd352a4fa0c18006971c008424}
+
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+\hypertarget{class_statistic_45c6f41931e1b8de9232d0a3c1092d9d}{
+double \textbf{extractingCharactersTime} ()}
+\label{class_statistic_45c6f41931e1b8de9232d0a3c1092d9d}
+
+\item 
+\hypertarget{class_statistic_777044749ab87f59ce98fd387826ede1}{
+double \textbf{buildingFeatureVectorsTime} ()}
+\label{class_statistic_777044749ab87f59ce98fd387826ede1}
+
+\item 
+\hypertarget{class_statistic_943ccf3d7a1477407cb22ddfaf184381}{
+double \textbf{classifyingTime} ()}
+\label{class_statistic_943ccf3d7a1477407cb22ddfaf184381}
+
+\item 
+\hypertarget{class_statistic_637b82e02987b9f479c25b0a185a5f1e}{
+double \textbf{thresholdingTime} ()}
+\label{class_statistic_637b82e02987b9f479c25b0a185a5f1e}
+
+\item 
+\hypertarget{class_statistic_9a4b017045026d78b64d1d81e51d7449}{
+double \textbf{floodFillingTime} ()}
+\label{class_statistic_9a4b017045026d78b64d1d81e51d7449}
+
+\item 
+\hypertarget{class_statistic_b7922360f4b2702f9e875f7cee5944c1}{
+double \textbf{partitioningTime} ()}
+\label{class_statistic_b7922360f4b2702f9e875f7cee5944c1}
+
+\item 
+\hypertarget{class_statistic_1ba62edb2d6d3eabd5ebac5e5ec529fe}{
+double \textbf{convertingToGrayscaleTime} ()}
+\label{class_statistic_1ba62edb2d6d3eabd5ebac5e5ec529fe}
+
+\item 
+\hypertarget{class_statistic_a77f106fbade23550a2244013475b572}{
+double \textbf{removingNoiseTime} ()}
+\label{class_statistic_a77f106fbade23550a2244013475b572}
+
+\item 
+\hypertarget{class_statistic_d3cd9e538f24a32da3e4df724bb6620c}{
+double \textbf{preprocessingTime} ()}
+\label{class_statistic_d3cd9e538f24a32da3e4df724bb6620c}
+
+\item 
+\hypertarget{class_statistic_45c5c82cfdc937761b4d4c13e672bd02}{
+\hyperlink{struct_word_rate}{WordRate} \textbf{wordRates} ()}
+\label{class_statistic_45c5c82cfdc937761b4d4c13e672bd02}
+
+\item 
+\hypertarget{class_statistic_1056cc930d5b0e222ad43ef57ef04bee}{
+unsigned int \textbf{nWords} ()}
+\label{class_statistic_1056cc930d5b0e222ad43ef57ef04bee}
+
+\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_statistic_86a8d462ac9a4b77a90f62c1445a1330}{
+void \textbf{nWords} (unsigned int \hyperlink{class_statistic_8d4db567c478f3bdda3afa9184f2f556}{nWords})}
+\label{class_statistic_86a8d462ac9a4b77a90f62c1445a1330}
+
+\item 
+\hypertarget{class_statistic_4c12b3a747fba53dfda0c096764bb440}{
+void \textbf{wordRates} (\hyperlink{struct_word_rate}{WordRate} wordRate)}
+\label{class_statistic_4c12b3a747fba53dfda0c096764bb440}
+
+\item 
+\hypertarget{class_statistic_9f28cd3e8945df26529530e6aa78b884}{
+void \textbf{preprocessingTime} (double removingNoiseTime, double convertingToGrayscaleTime)}
+\label{class_statistic_9f28cd3e8945df26529530e6aa78b884}
+
+\item 
+\hypertarget{class_statistic_0c0a7e6667240bc5524c51804bd0eaec}{
+void \textbf{partitioningTime} (double thresholdingTime, double floodFillingTime)}
+\label{class_statistic_0c0a7e6667240bc5524c51804bd0eaec}
+
+\item 
+\hypertarget{class_statistic_86cae7651e73d22f6c708f12406e1e5d}{
+void \textbf{classifyingTime} (double buildingFeatureVectorsTime, double extractingCharactersTime)}
+\label{class_statistic_86cae7651e73d22f6c708f12406e1e5d}
+
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+unsigned int \hyperlink{class_statistic_8d4db567c478f3bdda3afa9184f2f556}{nWords}
+\begin{CompactList}\small\item\em \hyperlink{_statistic_8cpp-source}{Statistic.cpp} - Nessie, reconocedor óptico de texto en recortes de prensa escrita. \item\end{CompactList}\item 
+\hypertarget{class_statistic_07cab110c101680c428c87e25ce9cce9}{
+double \textbf{classifyingTime}}
+\label{class_statistic_07cab110c101680c428c87e25ce9cce9}
+
+\item 
+\hypertarget{class_statistic_f964661a82c4d19b68fe5ae284f8a043}{
+\hyperlink{struct_word_rate}{WordRate} \textbf{wordRates}}
+\label{class_statistic_f964661a82c4d19b68fe5ae284f8a043}
+
+\item 
+\hypertarget{class_statistic_7916a955a04019a01d92743c71ef2c8e}{
+double \textbf{removingNoiseTime}}
+\label{class_statistic_7916a955a04019a01d92743c71ef2c8e}
+
+\item 
+\hypertarget{class_statistic_41c47faecb6731f37df425ca98940f59}{
+double \textbf{convertingToGrayscaleTime}}
+\label{class_statistic_41c47faecb6731f37df425ca98940f59}
+
+\item 
+\hypertarget{class_statistic_50b1cef0ccde608085fa07453352627f}{
+double \textbf{floodFillingTime}}
+\label{class_statistic_50b1cef0ccde608085fa07453352627f}
+
+\item 
+\hypertarget{class_statistic_5b03c3bf617d3f30f1c4abfcced24f5d}{
+double \textbf{thresholdingTime}}
+\label{class_statistic_5b03c3bf617d3f30f1c4abfcced24f5d}
+
+\item 
+\hypertarget{class_statistic_de2722f4a072164df9bcb226726a4d45}{
+double \textbf{buildingFeatureVectorsTime}}
+\label{class_statistic_de2722f4a072164df9bcb226726a4d45}
+
+\item 
+\hypertarget{class_statistic_2584e5beb32d9fabc2ac971437669852}{
+double \textbf{extractingCharactersTime}}
+\label{class_statistic_2584e5beb32d9fabc2ac971437669852}
+
+\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_statistic_af23e5fbe9c0dc5a9fa5bde06129db82}{
+class \textbf{recognizer}}
+\label{class_statistic_af23e5fbe9c0dc5a9fa5bde06129db82}
+
+\end{CompactItemize}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_statistic_8d4db567c478f3bdda3afa9184f2f556}{
+\index{Statistic@{Statistic}!nWords@{nWords}}
+\index{nWords@{nWords}!Statistic@{Statistic}}
+\subsubsection[nWords]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf Statistic::nWords}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_statistic_8d4db567c478f3bdda3afa9184f2f556}
+
+
+\hyperlink{_statistic_8cpp-source}{Statistic.cpp} - Nessie, reconocedor óptico de texto en recortes de prensa escrita. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón \end{Desc}
+\begin{Desc}
+\item[Date:]16/09/2008  2008  Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC) \end{Desc}
+
+
+Definition at line 49 of file Statistic.h.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+Statistic.h (107)\item 
+Statistic.cpp (107)\end{CompactItemize}

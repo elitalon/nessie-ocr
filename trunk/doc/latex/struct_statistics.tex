@@ -1,0 +1,129 @@
+\hypertarget{struct_statistics}{
+\section{Statistics Struct Reference}
+\label{struct_statistics}\index{Statistics@{Statistics}}
+}
+{\tt \#include $<$Statistics.h$>$}
+
+
+
+\subsection{Detailed Description}
+\hyperlink{struct_statistics}{Statistics} about a text and its recognition process. 
+
+This struct stores a number of statistic data regarding the recognition process and the text produced.
+
+First, it stores the elapsed time on every stage, accumulated internally in the critical processes (mostly, image processing algorithms). Second, it also stores the number of words in the text and the appearance rate of every single word.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 24 of file Statistics.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{struct_statistics_b68ede75479e44d5c35b78ec1284065b}{$\sim$Statistics} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Data Fields}
+\begin{CompactItemize}
+\item 
+\hypertarget{struct_statistics_b8aec77e19e962544468c569a8333d15}{
+unsigned int \hyperlink{struct_statistics_b8aec77e19e962544468c569a8333d15}{nWords}}
+\label{struct_statistics_b8aec77e19e962544468c569a8333d15}
+
+\begin{CompactList}\small\item\em Number of words in the recognized text. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}{
+list$<$ \hyperlink{struct_word_rate}{WordRate} $>$ \hyperlink{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}{wordRates}}
+\label{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}
+
+\begin{CompactList}\small\item\em List of appearance rates of every word in the recognized text. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_4a194feb4de2fc619d311b2adb2a7e74}{
+double \hyperlink{struct_statistics_4a194feb4de2fc619d311b2adb2a7e74}{noiseRemovalTime}}
+\label{struct_statistics_4a194feb4de2fc619d311b2adb2a7e74}
+
+\begin{CompactList}\small\item\em Elapsed time in the noise removal stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_fc22ca2705714cfc44c45c772475c1cb}{
+double \hyperlink{struct_statistics_fc22ca2705714cfc44c45c772475c1cb}{grayscaleConversionTime}}
+\label{struct_statistics_fc22ca2705714cfc44c45c772475c1cb}
+
+\begin{CompactList}\small\item\em Elapsed time in the grayscale conversion stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_6c2cd48482d1de181cb2dd32b3315449}{
+double \hyperlink{struct_statistics_6c2cd48482d1de181cb2dd32b3315449}{floodFillingTime}}
+\label{struct_statistics_6c2cd48482d1de181cb2dd32b3315449}
+
+\begin{CompactList}\small\item\em Elapsed time in the flood filling stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_e2c88c8b599b217ad3f316cca7a15a23}{
+double \hyperlink{struct_statistics_e2c88c8b599b217ad3f316cca7a15a23}{thresholdingTime}}
+\label{struct_statistics_e2c88c8b599b217ad3f316cca7a15a23}
+
+\begin{CompactList}\small\item\em Elapsed time in the thresholding stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_ae46d5f7b2a374dd79b15533facc9e6c}{
+double \hyperlink{struct_statistics_ae46d5f7b2a374dd79b15533facc9e6c}{featureVectorsBuildingTime}}
+\label{struct_statistics_ae46d5f7b2a374dd79b15533facc9e6c}
+
+\begin{CompactList}\small\item\em Elapsed time in the feature vectors building stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_1e09de36cf3a65ab2a471e877578257d}{
+double \hyperlink{struct_statistics_1e09de36cf3a65ab2a471e877578257d}{charactersExtractionTime}}
+\label{struct_statistics_1e09de36cf3a65ab2a471e877578257d}
+
+\begin{CompactList}\small\item\em Elapsed time in the characters extraction stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_7bfcefbca86812a13371f35f6ad2632c}{
+double \hyperlink{struct_statistics_7bfcefbca86812a13371f35f6ad2632c}{classificationTime}}
+\label{struct_statistics_7bfcefbca86812a13371f35f6ad2632c}
+
+\begin{CompactList}\small\item\em Returns the total time within the classification stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_f5afa8bf14678df2d5b869b6161a209f}{
+double \hyperlink{struct_statistics_f5afa8bf14678df2d5b869b6161a209f}{segmentationTime}}
+\label{struct_statistics_f5afa8bf14678df2d5b869b6161a209f}
+
+\begin{CompactList}\small\item\em Returns the total time within the segmentation stage. \item\end{CompactList}\item 
+\hypertarget{struct_statistics_57aa8970c666c415db6dcdd0cc3920f6}{
+double \hyperlink{struct_statistics_57aa8970c666c415db6dcdd0cc3920f6}{preprocessingTime}}
+\label{struct_statistics_57aa8970c666c415db6dcdd0cc3920f6}
+
+\begin{CompactList}\small\item\em Returns the total time within the preprocessing stage. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{
+\index{Statistics@{Statistics}!Statistics@{Statistics}}
+\index{Statistics@{Statistics}!Statistics@{Statistics}}
+\subsubsection[Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::Statistics ()}}
+\label{struct_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}
+
+
+Constructor. 
+
+Initializes a \hyperlink{struct_statistics}{Statistics} object with timers set to 0.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 10 of file Statistics.cpp.\hypertarget{struct_statistics_b68ede75479e44d5c35b78ec1284065b}{
+\index{Statistics@{Statistics}!$\sim$Statistics@{$\sim$Statistics}}
+\index{$\sim$Statistics@{$\sim$Statistics}!Statistics@{Statistics}}
+\subsubsection[$\sim$Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::$\sim$Statistics ()}}
+\label{struct_statistics_b68ede75479e44d5c35b78ec1284065b}
+
+
+Destructor. 
+
+Destroys a \hyperlink{struct_statistics}{Statistics} object.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-17 \end{Desc}
+
+
+Definition at line 32 of file Statistics.cpp.
+
+The documentation for this struct was generated from the following files:\begin{CompactItemize}
+\item 
+Statistics.h\item 
+Statistics.cpp\end{CompactItemize}

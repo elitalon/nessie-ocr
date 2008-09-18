@@ -1,0 +1,14 @@
+\begin{theindex}
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{3}
+  \item {main.cpp}, \hyperpage{3}
+    \subitem {main}, \hyperpage{3}
+    \subitem {threshold}, \hyperpage{3}
+
+  \indexspace
+
+  \item {threshold}
+    \subitem {main.cpp}, \hyperpage{3}
+
+\end{theindex}
