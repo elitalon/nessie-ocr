@@ -23,12 +23,12 @@ struct WordRate
 		///
 		/// The word itself
 		///
-		string word_;
+		string word;
 		
 		///
 		/// Number of appearances
 		///
-		unsigned int rate_;
+		unsigned int rate;
 		
 		
 		

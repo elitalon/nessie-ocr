@@ -7,7 +7,7 @@
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 /// 
-WordRate::WordRate() : word_(string()), rate_(0)
+WordRate::WordRate() : word(string()), rate(0)
 {
 	
 };

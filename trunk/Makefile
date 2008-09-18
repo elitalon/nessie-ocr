@@ -44,47 +44,46 @@ STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 
 # Final object files
 OBJECTS=$(WORD_RATE_OBJ) $(STATISTICS_OBJ) $(MAIN_OBJ)
-#OBJECTS=$(FLEX_OBJ) $(SYMBOL_TABLE_OBJ) $(GESTION_MEMORIA_OBJ) $(SINTACTICO_OBJ) 
 
 # Compiler options
 EXECUTABLE=test
 FLAGS=-Wall -O3 -I$(INC)
 
-# New line command
+# Formatted output commands
 NL=\n
+TAB=\t
 
 
 # Main rule
 main: $(OBJECTS)
 	@printf "** Linking and building the main rule:$(NL)"
-	@printf "\t- Linking...$(NL)"
+	@printf "$(TAB)- Linking...$(NL)"
 	@g++ $(FLAGS) $(MAGICK) $(OBJECTS) -o $(EXECUTABLE)
-	@printf "\t- Cleaning up...$(NL)"
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
 $(MAIN_OBJ): $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
-	@printf "\t- Compiling...$(NL)"
+	@printf "$(TAB)- Compiling...$(NL)"
 	@g++ $(FLAGS) -c $(MAIN_SRC) 
-	@printf "\t- Moving to $(SRC) directory...$(NL)"
+	@printf "$(TAB)- Moving to $(SRC) directory...$(NL)"
 	@mv main.o $(SRC)
-	@printf "\t- Finishing...$(NL)$(NL)"
+	@printf "$(NL)"
 
 $(WORD_RATE_OBJ): $(WORD_RATE)
 	@printf "** Making rule $(WORD_RATE_OBJ):$(NL)"
-	@printf "\t- Compiling...$(NL)"
+	@printf "$(TAB)- Compiling...$(NL)"
 	@g++ $(FLAGS) -c -I$(INC) $(WORD_RATE_SRC) 
-	@printf "\t- Moving to $(SRC) directory...$(NL)"
+	@printf "$(TAB)- Moving to $(SRC) directory...$(NL)"
 	@mv WordRate.o $(SRC)
-	@printf "\t- Finishing...$(NL)$(NL)"
+	@printf "$(NL)"
 
 $(STATISTICS_OBJ): $(WORD_RATE_OBJ) $(STATISTICS) 
 	@printf "** Making rule $(STATISTICS_OBJ):$(NL)"
-	@printf "\t- Compiling...$(NL)"
+	@printf "$(TAB)- Compiling...$(NL)"
 	@g++ $(FLAGS) -c -I$(INC) $(STATISTICS_SRC) 
-	@printf "\t- Moving to $(SRC) directory...$(NL)"
+	@printf "$(TAB)- Moving to $(SRC) directory...$(NL)"
 	@mv Statistics.o $(SRC)
-	@printf "\t- Finishing...$(NL)$(NL)"
+	@printf "$(NL)"
 
 
 # Makes everything
