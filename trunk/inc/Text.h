@@ -1,16 +1,13 @@
-/**
- * Text.h - Nessie, reconocedor óptico de texto en recortes de prensa escrita
- *
- * @author Eliezer Talón
- * @date 16/09/2008
- * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
- */
+///
+/// Text.h
+///
+
 
 #if !defined(_TEXT_H)
 #define _TEXT_H
 
 #include "Style.h"
+#include "FontProportionality.h"
 #include "WordRate.h"
 
 class Text
@@ -18,6 +15,7 @@ class Text
 private:
 	string content;
 	Style styles;
+	FontProportionality proportionality;
 	WordRate wordRates;
 public:
 	void Text();
@@ -29,6 +27,8 @@ public:
 	void style(unsigned int character, Style style);
 	unsigned int length();
 	WordRate wordRates();
+	FontProportionality proportionality();
+	void proportionality(FontProportionality proportionality);
 };
 
 #endif  //_TEXT_H

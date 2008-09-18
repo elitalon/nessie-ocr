@@ -59,40 +59,58 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Style.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00010"></a>00010 <span class="preprocessor">#if !defined(_STYLE_H)</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define _STYLE_H</span>
-<a name="l00012"></a>00012 <span class="preprocessor"></span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include "FontWeight.h"</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include "FontProportionality.h"</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">class </span>Style
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018 <span class="keyword">private</span>:
-<a name="l00019"></a>00019     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size;
-<a name="l00020"></a>00020     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color;
-<a name="l00021"></a>00021     FontWeight weight;
-<a name="l00022"></a>00022     FontProportionality proportionality;
-<a name="l00023"></a>00023 <span class="keyword">public</span>:
-<a name="l00024"></a>00024     <span class="keywordtype">bool</span> isBold();
-<a name="l00025"></a>00025     <span class="keywordtype">bool</span> isItalic();
-<a name="l00026"></a>00026     <span class="keywordtype">bool</span> isUnderlined();
-<a name="l00027"></a>00027     <span class="keywordtype">bool</span> isNormal();
-<a name="l00028"></a>00028     <span class="keywordtype">bool</span> isMonospaced();
-<a name="l00029"></a>00029     <span class="keywordtype">bool</span> isProportional();
-<a name="l00030"></a>00030     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size();
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);
-<a name="l00032"></a>00032     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color();
-<a name="l00033"></a>00033     <span class="keywordtype">void</span> color(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color);
-<a name="l00034"></a>00034     FontWeight weight();
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> weight(FontWeight weight);
-<a name="l00036"></a>00036     FontProportionality proportionality();
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> proportionality(FontProportionality proportionality);
-<a name="l00038"></a>00038 };
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#endif  //_STYLE_H</span>
+<h1>Style.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#if !defined(_STYLE_H)</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _STYLE_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="_font_weight_8h.html">FontWeight.h</a>"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include "FontColor.h"</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00019"></a><a class="code" href="class_style.html">00019</a> <span class="keyword">class </span><a class="code" href="class_style.html" title="Font style of a character.">Style</a>
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     <span class="keyword">public</span>:
+<a name="l00022"></a>00022     
+<a name="l00026"></a>00026         <a class="code" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a" title="Constructor.">Style</a> ();
+<a name="l00027"></a>00027     
+<a name="l00031"></a>00031         <a class="code" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a" title="Constructor.">Style</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_, <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> color_, <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> weight_);
+<a name="l00032"></a>00032     
+<a name="l00036"></a>00036         <a class="code" href="class_style.html#7c798ef9b77bc94719542feade497725" title="Destructor.">~Style</a> ();
+<a name="l00037"></a>00037     
+<a name="l00041"></a>00041         <span class="keywordtype">bool</span> <a class="code" href="class_style.html#7f1c573688f781a3d6081194c84affba" title="Returns true if the font weight is bold.">isBold</a> ();
+<a name="l00042"></a>00042     
+<a name="l00046"></a>00046         <span class="keywordtype">bool</span> <a class="code" href="class_style.html#a1f4e590f1d15f37fddda4d1a7efeb51" title="Returns true if the font weight is italic.">isItalic</a> ();
+<a name="l00047"></a>00047     
+<a name="l00051"></a>00051         <span class="keywordtype">bool</span> <a class="code" href="class_style.html#25d84b39fcd4fb608a1b323c99ea8678" title="Returns true if the font weight is underlined.">isUnderlined</a> ();
+<a name="l00052"></a>00052     
+<a name="l00056"></a>00056         <span class="keywordtype">bool</span> <a class="code" href="class_style.html#07721a2c2c852f4281368731d22d74b7" title="Returns true if the font weight is normal.">isNormal</a> ();
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_style.html#7797f0204f6af51911d887f970d9fbeb" title="Returns the font size.">getSize</a> ();
+<a name="l00062"></a>00062     
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_style.html#b5044902245b464966c13ed6daccb4f3" title="Sets the font size.">setSize</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_);
+<a name="l00067"></a>00067 
+<a name="l00071"></a>00071         <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> <a class="code" href="class_style.html#0cc67191ece90fc438835a20f2047669" title="Returns the font color.">getColor</a> ();
+<a name="l00072"></a>00072     
+<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c" title="Sets the font color.">setColor</a> (<a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> color_);
+<a name="l00077"></a>00077     
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c" title="Sets the font color.">setColor</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> red_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> green_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blue_);
+<a name="l00082"></a>00082     
+<a name="l00086"></a>00086         <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> <a class="code" href="class_style.html#39e6b6db6483c8f8baee630230fa8386" title="Returns the font weight.">getWeight</a> ();
+<a name="l00087"></a>00087 
+<a name="l00091"></a>00091         <span class="keywordtype">void</span> <a class="code" href="class_style.html#75f1eaa59c2aff7c52df467c0d9157b1" title="Sets the font weight.">setWeight</a> (<a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> weight_);
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094     <span class="keyword">private</span>:
+<a name="l00095"></a>00095     
+<a name="l00099"></a><a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447">00099</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447" title="Size of the character in points.">size</a>;
+<a name="l00100"></a>00100     
+<a name="l00104"></a><a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e">00104</a>         <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> <a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a>;
+<a name="l00105"></a>00105     
+<a name="l00109"></a><a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9">00109</a>         <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> <a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>;      
+<a name="l00110"></a>00110 };
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="preprocessor">#endif  //_STYLE_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 11:25:12 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 17:36:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

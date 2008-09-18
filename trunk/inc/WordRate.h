@@ -1,7 +1,3 @@
-///
-/// WordRate.h 
-///
-
 #if !defined(_WORDRATE_H)
 #define _WORDRATE_H
 
@@ -17,9 +13,11 @@ using namespace std;
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
+/// 
 struct WordRate
 {
 	public:
+		
 		///
 		/// The word itself
 		///
@@ -29,7 +27,6 @@ struct WordRate
 		/// Number of appearances
 		///
 		unsigned int rate;
-		
 		
 		
 		///

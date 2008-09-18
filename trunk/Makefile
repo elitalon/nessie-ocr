@@ -28,22 +28,38 @@ MAIN_SRC=$(SRC)main.cpp
 WORD_RATE_SRC=$(SRC)WordRate.cpp
 WORD_RATE_INC=$(INC)WordRate.h
 
-# Source files of 'Statistics' class
+# Source files of 'Statistics' struct
 STATISTICS_SRC=$(SRC)Statistics.cpp
 STATISTICS_INC=$(INC)Statistics.h
+
+# Source files of 'FontWeight' enumeration
+FONT_WEIGHT_INC=$(INC)FontWeight.h
+
+# Source files of 'FontColor' struct
+FONT_COLOR_SRC=$(SRC)FontColor.cpp
+FONT_COLOR_INC=$(INC)FontColor.h
+
+# Source files of 'Style' class
+STYLE_SRC=$(SRC)Style.cpp
+STYLE_INC=$(INC)Style.h
 
 # Object files
 MAIN_OBJ=$(SRC)main.o
 WORD_RATE_OBJ=$(SRC)WordRate.o
 STATISTICS_OBJ=$(SRC)Statistics.o
+FONT_COLOR_OBJ=$(SRC)FontColor.o
+STYLE_OBJ=$(SRC)Style.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
 WORD_RATE=$(WORD_RATE_INC) $(WORD_RATE_SRC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
+FONT_WEIGHT=$(FONT_WEIGHT_INC)
+FONT_COLOR=$(FONT_COLOR_INC) $(FONT_COLOR_SRC)
+STYLE=$(STYLE_INC) $(STYLE_SRC)
 
 # Final object files
-OBJECTS=$(WORD_RATE_OBJ) $(STATISTICS_OBJ) $(MAIN_OBJ)
+OBJECTS=$(WORD_RATE_OBJ) $(STATISTICS_OBJ) $(FONT_COLOR_OBJ) $(STYLE_OBJ) $(MAIN_OBJ)
 
 # Compiler options
 EXECUTABLE=test
@@ -85,6 +101,21 @@ $(STATISTICS_OBJ): $(WORD_RATE_OBJ) $(STATISTICS)
 	@mv Statistics.o $(SRC)
 	@printf "$(NL)"
 
+$(STYLE_OBJ): $(FONT_COLOR_OBJ) $(FONT_WEIGHT) $(STYLE) 
+	@printf "** Making rule $(STYLE_OBJ):$(NL)"
+	@printf "$(TAB)- Compiling...$(NL)"
+	@g++ $(FLAGS) -c -I$(INC) $(STYLE_SRC) 
+	@printf "$(TAB)- Moving to $(SRC) directory...$(NL)"
+	@mv Style.o $(SRC)
+	@printf "$(NL)"
+	
+$(FONT_COLOR_OBJ): $(FONT_COLOR)
+	@printf "** Making rule $(FONT_COLOR_OBJ):$(NL)"
+	@printf "$(TAB)- Compiling...$(NL)"
+	@g++ $(FLAGS) -c -I$(INC) $(FONT_COLOR_SRC) 
+	@printf "$(TAB)- Moving to $(SRC) directory...$(NL)"
+	@mv FontColor.o $(SRC)
+	@printf "$(NL)"
 
 # Makes everything
 all: clean main

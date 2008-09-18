@@ -1,0 +1,108 @@
+\hypertarget{struct_font_color}{
+\section{FontColor Struct Reference}
+\label{struct_font_color}\index{FontColor@{FontColor}}
+}
+{\tt \#include $<$FontColor.h$>$}
+
+
+
+\subsection{Detailed Description}
+Font color of a character. 
+
+This struct represents the color of font that a character has. The color value is stored using the RGB color space with 256 values per component, and the three components separated.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 14 of file FontColor.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{struct_font_color_c96e70b5ab153ea18d1e3196f79da1ab}{FontColor} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{struct_font_color_7ed65a063287bfa5ba792bd4d85c1b51}{FontColor} (unsigned int red\_\-, unsigned int green\_\-, unsigned int blue\_\-)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{struct_font_color_660917a7d04fdf47910573165f67cdaa}{$\sim$FontColor} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Data Fields}
+\begin{CompactItemize}
+\item 
+\hypertarget{struct_font_color_c8239f8b8a384f8aea88b5c722bca5d3}{
+unsigned int \hyperlink{struct_font_color_c8239f8b8a384f8aea88b5c722bca5d3}{red}}
+\label{struct_font_color_c8239f8b8a384f8aea88b5c722bca5d3}
+
+\begin{CompactList}\small\item\em Red component. \item\end{CompactList}\item 
+\hypertarget{struct_font_color_a44da3bcb5ab54c9e353795e2b665845}{
+unsigned int \hyperlink{struct_font_color_a44da3bcb5ab54c9e353795e2b665845}{green}}
+\label{struct_font_color_a44da3bcb5ab54c9e353795e2b665845}
+
+\begin{CompactList}\small\item\em Green component. \item\end{CompactList}\item 
+\hypertarget{struct_font_color_82808b069e5c057f443aa2eddb6f5b71}{
+unsigned int \hyperlink{struct_font_color_82808b069e5c057f443aa2eddb6f5b71}{blue}}
+\label{struct_font_color_82808b069e5c057f443aa2eddb6f5b71}
+
+\begin{CompactList}\small\item\em Blue component. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_font_color_c96e70b5ab153ea18d1e3196f79da1ab}{
+\index{FontColor@{FontColor}!FontColor@{FontColor}}
+\index{FontColor@{FontColor}!FontColor@{FontColor}}
+\subsubsection[FontColor]{\setlength{\rightskip}{0pt plus 5cm}FontColor::FontColor ()}}
+\label{struct_font_color_c96e70b5ab153ea18d1e3196f79da1ab}
+
+
+Constructor. 
+
+Initializes a \hyperlink{struct_font_color}{FontColor} object with all RGB components set to 0.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 10 of file FontColor.cpp.\hypertarget{struct_font_color_7ed65a063287bfa5ba792bd4d85c1b51}{
+\index{FontColor@{FontColor}!FontColor@{FontColor}}
+\index{FontColor@{FontColor}!FontColor@{FontColor}}
+\subsubsection[FontColor]{\setlength{\rightskip}{0pt plus 5cm}FontColor::FontColor (unsigned int {\em red\_\-}, \/  unsigned int {\em green\_\-}, \/  unsigned int {\em blue\_\-})}}
+\label{struct_font_color_7ed65a063287bfa5ba792bd4d85c1b51}
+
+
+Constructor. 
+
+Initializes a \hyperlink{struct_font_color}{FontColor} object with the components set to the values passed.
+
+Since the color must be expressed using a RGB scale of 256 possible values, any value over 255 will be truncated
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 24 of file FontColor.cpp.\hypertarget{struct_font_color_660917a7d04fdf47910573165f67cdaa}{
+\index{FontColor@{FontColor}!$\sim$FontColor@{$\sim$FontColor}}
+\index{$\sim$FontColor@{$\sim$FontColor}!FontColor@{FontColor}}
+\subsubsection[$\sim$FontColor]{\setlength{\rightskip}{0pt plus 5cm}FontColor::$\sim$FontColor ()}}
+\label{struct_font_color_660917a7d04fdf47910573165f67cdaa}
+
+
+Destructor. 
+
+Destroys a \hyperlink{struct_font_color}{FontColor} object.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 37 of file FontColor.cpp.
+
+The documentation for this struct was generated from the following files:\begin{CompactItemize}
+\item 
+FontColor.h\item 
+FontColor.cpp\end{CompactItemize}

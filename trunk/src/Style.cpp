@@ -1,83 +1,221 @@
-/**
- * Style.cpp - Nessie, reconocedor 髉tico de texto en recortes de prensa escrita
- *
- * @author Eliezer Tal髇
- * @date 16/09/2008
- * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnolog韆s Cibern閠icas (IUCTC)
- */
-
 #include "Style.h"
-#include "FontWeight.h"
-#include "FontProportionality.h"
 
-bool Style::isBold()
+
+///
+/// Initializes a Style object with size set to 0, color set to black and weight set to normal
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+Style::Style () : size(0), color(FontColor()), weight(NORMAL)
 {
+	
+};
 
-}
 
-bool Style::isItalic()
+///
+/// Initializes a Style object with size, color and weight set to the values passed
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+Style::Style (unsigned int size_, FontColor color_, FontWeight weight_) : size(size_), color(color_), weight(weight_)
 {
+	
+};
 
-}
 
-bool Style::isUnderlined()
+///
+/// Destroys a Style object
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+Style::~Style ()
 {
+	
+};
 
-}
 
-bool Style::isNormal()
+///
+/// A bold font may be only bold, bold and italic or bold and underlined
+///
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+/// 
+bool Style::isBold ()
 {
+	switch (this->weight)
+	{
+		case BOLD | BOLD_ITALIC | BOLD_UNDERLINED:
+		{
+			return true;
+			break;
+		}
+		default:
+		{
+			return false;
+			break;
+		}
+	}
+};
 
-}
 
-bool Style::isMonospaced()
+///
+/// A italic font may be only italic, italic and bold or italic and underlined
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+bool Style::isItalic ()
 {
+	switch (this->weight)
+	{
+		case ITALIC | BOLD_ITALIC | ITALIC_UNDERLINED:
+		{
+			return true;
+			break;
+		}
+		default:
+		{
+			return false;
+			break;
+		}
+	}
+};
 
-}
 
-bool Style::isProportional()
+///
+/// An underlined font may be only underlined, underlined and italic or underlined and bold
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+bool Style::isUnderlined ()
 {
+	switch (this->weight)
+	{
+		case UNDERLINED | ITALIC_UNDERLINED | BOLD_UNDERLINED:
+		{
+			return true;
+			break;
+		}
+		default:
+		{
+			return false;
+			break;
+		}
+	}
+};
 
-}
 
-unsigned int Style::size()
+///
+/// A normal font is neither bold, nor italic, nor underlined
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+bool Style::isNormal ()
 {
+	switch (this->weight)
+	{
+		case NORMAL:
+		{
+			return true;
+			break;
+		}
+		default:
+		{
+			return false;
+			break;
+		}
+	}
+};
 
-}
 
-void Style::size(unsigned int size)
+///
+/// The size is expressed in points (pt)
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+unsigned int Style::getSize ()
 {
+	return this->size;
+};
 
-}
 
-unsigned int Style::color()
+///
+/// The size is expressed in points (pt)
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+void Style::setSize (unsigned int size_)
 {
+	this->size = size_;
+};
 
-}
 
-void Style::color(unsigned int color)
+/// 
+/// @see FontColor
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+FontColor Style::getColor ()
 {
+	return this->color;
+};
 
-}
 
-FontWeight Style::weight()
+/// 
+/// @see FontColor
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+void Style::setColor (FontColor color_)
 {
+	this->color = color_;
+};
 
-}
 
-void Style::weight(FontWeight weight)
+/// 
+/// The font color is created internally as a FontColor object with the values passed
+/// 
+/// @see FontColor
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+void Style::setColor (unsigned int red_, unsigned int green_, unsigned int blue_)
 {
+	this->color = FontColor(red_, green_, blue_);
+};
 
-}
 
-FontProportionality Style::proportionality()
+///
+/// @see FontWeight
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+FontWeight Style::getWeight ()
 {
+	return this->weight;
+};
 
-}
 
-void Style::proportionality(FontProportionality proportionality)
+///
+/// The weight must be passed using a literal value of FontWeight enumeration.
+/// 
+/// @see FontWeight
+/// 
+/// @author Eliezer Tal贸n (elitalon@gmail.com)
+/// @date 2008-09-18
+///
+void Style::setWeight (FontWeight weight_)
 {
-
-}
-
+	this->weight = weight_;
+};

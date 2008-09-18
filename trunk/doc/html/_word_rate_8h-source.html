@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: WordRate.h (107) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: WordRate.h (109) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -59,34 +59,30 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>WordRate.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00002"></a>00002 
-<a name="l00003"></a>00003 
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#if !defined(_WORDRATE_H)</span>
-<a name="l00006"></a>00006 <span class="preprocessor"></span><span class="preprocessor">#define _WORDRATE_H</span>
-<a name="l00007"></a>00007 <span class="preprocessor"></span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00009"></a>00009 <span class="keyword">using namespace </span>std;
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 
-<a name="l00020"></a><a class="code" href="struct_word_rate.html">00020</a> <span class="keyword">struct </span><a class="code" href="struct_word_rate.html" title="Appearance rate of a word.">WordRate</a>
-<a name="l00021"></a>00021 {
-<a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00026"></a><a class="code" href="struct_word_rate.html#5a6907590a6e95ff90c60df191622cce">00026</a>         <span class="keywordtype">string</span> <a class="code" href="struct_word_rate.html#5a6907590a6e95ff90c60df191622cce" title="The word itself.">word_</a>;
-<a name="l00027"></a>00027         
-<a name="l00031"></a><a class="code" href="struct_word_rate.html#23b0cc4d386139bb6ec66b2655d35d70">00031</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="struct_word_rate.html#23b0cc4d386139bb6ec66b2655d35d70" title="Number of appearances.">rate_</a>;
-<a name="l00032"></a>00032         
-<a name="l00033"></a>00033         
-<a name="l00034"></a>00034         
-<a name="l00038"></a>00038         <a class="code" href="struct_word_rate.html#c22aaa0c04769cce44ba08bf5e6eb655" title="Constructor.">WordRate</a> ();
-<a name="l00039"></a>00039         
-<a name="l00043"></a>00043         <a class="code" href="struct_word_rate.html#a86a63516e4c3d4e8aa9060ea5be6b23" title="Destructor.">~WordRate</a> ();
-<a name="l00044"></a>00044 };
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="preprocessor">#endif  //_WORDRATE_H</span>
+<h1>WordRate.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#if !defined(_WORDRATE_H)</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _WORDRATE_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00005"></a>00005 <span class="keyword">using namespace </span>std;
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00017"></a><a class="code" href="struct_word_rate.html">00017</a> <span class="keyword">struct </span><a class="code" href="struct_word_rate.html" title="Appearance rate of a word.">WordRate</a>
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     <span class="keyword">public</span>:
+<a name="l00020"></a>00020         
+<a name="l00024"></a><a class="code" href="struct_word_rate.html#38d2adc9d4f6463bd66916be8f52d5f4">00024</a>         <span class="keywordtype">string</span> <a class="code" href="struct_word_rate.html#38d2adc9d4f6463bd66916be8f52d5f4" title="The word itself.">word</a>;
+<a name="l00025"></a>00025         
+<a name="l00029"></a><a class="code" href="struct_word_rate.html#7e72f43d0fd5042d844f2cb234d11568">00029</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="struct_word_rate.html#7e72f43d0fd5042d844f2cb234d11568" title="Number of appearances.">rate</a>;
+<a name="l00030"></a>00030         
+<a name="l00031"></a>00031         
+<a name="l00035"></a>00035         <a class="code" href="struct_word_rate.html#c22aaa0c04769cce44ba08bf5e6eb655" title="Constructor.">WordRate</a> ();
+<a name="l00036"></a>00036         
+<a name="l00040"></a>00040         <a class="code" href="struct_word_rate.html#a86a63516e4c3d4e8aa9060ea5be6b23" title="Destructor.">~WordRate</a> ();
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="preprocessor">#endif  //_WORDRATE_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 11:25:12 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 17:36:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -1,40 +1,112 @@
-/**
- * Style.h - Nessie, reconocedor óptico de texto en recortes de prensa escrita
- *
- * @author Eliezer Talón
- * @date 16/09/2008
- * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
- */
-
 #if !defined(_STYLE_H)
 #define _STYLE_H
 
 #include "FontWeight.h"
-#include "FontProportionality.h"
+#include "FontColor.h"
 
+
+///
+/// Font style of a character
+/// 
+/// This class stores information about the font style of a character
+/// in the recognized text. Due to the different design styles in newspapers,
+/// a text may contain different kinds of style. That's why we must keep the
+/// style of every single character.
+/// 
+/// @author Eliezer TalÃ³n (elitalon@gmail.com)
+/// @date 2008-09-18 
+///
 class Style
 {
-private:
-	unsigned int size;
-	unsigned int color;
-	FontWeight weight;
-	FontProportionality proportionality;
-public:
-	bool isBold();
-	bool isItalic();
-	bool isUnderlined();
-	bool isNormal();
-	bool isMonospaced();
-	bool isProportional();
-	unsigned int size();
-	void size(unsigned int size);
-	unsigned int color();
-	void color(unsigned int color);
-	FontWeight weight();
-	void weight(FontWeight weight);
-	FontProportionality proportionality();
-	void proportionality(FontProportionality proportionality);
+	public:
+	
+		///
+		/// Constructor
+		///
+		Style ();
+	
+		///
+		/// Constructor
+		///
+		Style (unsigned int size_, FontColor color_, FontWeight weight_);
+	
+		///
+		/// Destructor
+		///
+		~Style ();
+	
+		///
+		/// Returns true if the font weight is bold
+		///
+		bool isBold ();
+	
+		///
+		/// Returns true if the font weight is italic
+		///
+		bool isItalic ();
+	
+		///
+		/// Returns true if the font weight is underlined
+		///
+		bool isUnderlined ();
+	
+		///
+		/// Returns true if the font weight is normal
+		///
+		bool isNormal ();
+
+		///
+		/// Returns the font size
+		///
+		unsigned int getSize ();
+	
+		///
+		/// Sets the font size
+		///
+		void setSize (unsigned int size_);
+
+		///
+		/// Returns the font color
+		///
+		FontColor getColor ();
+	
+		///
+		/// Sets the font color
+		///
+		void setColor (FontColor color_);
+	
+		///
+		/// Sets the font color
+		///
+		void setColor (unsigned int red_, unsigned int green_, unsigned int blue_);
+	
+		///
+		/// Returns the font weight
+		///
+		FontWeight getWeight ();
+
+		///
+		/// Sets the font weight
+		///
+		void setWeight (FontWeight weight_);
+
+
+	private:
+	
+		///
+		/// Size of the character in points
+		///
+		unsigned int size;
+	
+		///
+		/// Color of the character
+		///
+		FontColor color;
+	
+		///
+		/// Font weight of the character
+		///
+		FontWeight weight;		
 };
 
 #endif  //_STYLE_H

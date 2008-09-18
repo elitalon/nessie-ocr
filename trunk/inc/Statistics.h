@@ -1,7 +1,3 @@
-///
-/// Statistics.h
-///
-
 #if !defined(_STATISTICS_H)
 #define _STATISTICS_H
 
@@ -21,6 +17,7 @@
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
+/// 
 struct Statistics
 {
 	public:
@@ -79,7 +76,6 @@ struct Statistics
 		/// Returns the total time within the preprocessing stage
 		/// 
 		double preprocessingTime;
-		
 		
 		
 		///

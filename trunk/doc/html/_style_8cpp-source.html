@@ -59,83 +59,141 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Style.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00010"></a>00010 <span class="preprocessor">#include "Style.h"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "FontWeight.h"</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include "FontProportionality.h"</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keywordtype">bool</span> Style::isBold()
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 }
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keywordtype">bool</span> Style::isItalic()
-<a name="l00020"></a>00020 {
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 }
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keywordtype">bool</span> Style::isUnderlined()
-<a name="l00025"></a>00025 {
+<h1>Style.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "Style.h"</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00010"></a><a class="code" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a">00010</a> <a class="code" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a" title="Constructor.">Style::Style</a> () : size(0), color(<a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a>()), weight(<a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7" title="Normal font, without decorations.">NORMAL</a>)
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     
+<a name="l00013"></a>00013 };
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 
+<a name="l00022"></a><a class="code" href="class_style.html#1d6e412d4343b4a6eb4253b6456928b6">00022</a> <a class="code" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a" title="Constructor.">Style::Style</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_, <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> color_, <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> weight_) : <a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447" title="Size of the character in points.">size</a>(size_), <a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a>(color_), <a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>(weight_)
+<a name="l00023"></a>00023 {
+<a name="l00024"></a>00024     
+<a name="l00025"></a>00025 };
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keywordtype">bool</span> Style::isNormal()
-<a name="l00030"></a>00030 {
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keywordtype">bool</span> Style::isMonospaced()
+<a name="l00027"></a>00027 
+<a name="l00034"></a><a class="code" href="class_style.html#7c798ef9b77bc94719542feade497725">00034</a> <a class="code" href="class_style.html#7c798ef9b77bc94719542feade497725" title="Destructor.">Style::~Style</a> ()
 <a name="l00035"></a>00035 {
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 }
+<a name="l00036"></a>00036     
+<a name="l00037"></a>00037 };
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keywordtype">bool</span> Style::isProportional()
-<a name="l00040"></a>00040 {
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Style::size()
-<a name="l00045"></a>00045 {
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keywordtype">void</span> Style::size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size)
-<a name="l00050"></a>00050 {
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Style::color()
-<a name="l00055"></a>00055 {
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="keywordtype">void</span> Style::color(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)
-<a name="l00060"></a>00060 {
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 }
+<a name="l00039"></a>00039 
+<a name="l00046"></a><a class="code" href="class_style.html#7f1c573688f781a3d6081194c84affba">00046</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#7f1c573688f781a3d6081194c84affba" title="Returns true if the font weight is bold.">Style::isBold</a> ()
+<a name="l00047"></a>00047 {
+<a name="l00048"></a>00048     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
+<a name="l00049"></a>00049     {
+<a name="l00050"></a>00050         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6639fc1130a1e2c8f8c1ad3deee8c0c5dc" title="Only bold.">BOLD</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82" title="Both bold and italic.">BOLD_ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b" title="Both bold and underlined.">BOLD_UNDERLINED</a>:
+<a name="l00051"></a>00051         {
+<a name="l00052"></a>00052             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00053"></a>00053             <span class="keywordflow">break</span>;
+<a name="l00054"></a>00054         }
+<a name="l00055"></a>00055         <span class="keywordflow">default</span>:
+<a name="l00056"></a>00056         {
+<a name="l00057"></a>00057             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00058"></a>00058             <span class="keywordflow">break</span>;
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060     }
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
 <a name="l00063"></a>00063 
-<a name="l00064"></a>00064 FontWeight Style::weight()
-<a name="l00065"></a>00065 {
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="keywordtype">void</span> Style::weight(FontWeight weight)
-<a name="l00070"></a>00070 {
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 }
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 FontProportionality Style::proportionality()
-<a name="l00075"></a>00075 {
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="keywordtype">void</span> Style::proportionality(FontProportionality proportionality)
-<a name="l00080"></a>00080 {
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 
+<a name="l00070"></a><a class="code" href="class_style.html#a1f4e590f1d15f37fddda4d1a7efeb51">00070</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#a1f4e590f1d15f37fddda4d1a7efeb51" title="Returns true if the font weight is italic.">Style::isItalic</a> ()
+<a name="l00071"></a>00071 {
+<a name="l00072"></a>00072     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
+<a name="l00073"></a>00073     {
+<a name="l00074"></a>00074         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66c1005585401f6364dc82967ecf313617" title="Only italic.">ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82" title="Both bold and italic.">BOLD_ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0" title="Both italic and underlined.">ITALIC_UNDERLINED</a>:
+<a name="l00075"></a>00075         {
+<a name="l00076"></a>00076             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00077"></a>00077             <span class="keywordflow">break</span>;
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079         <span class="keywordflow">default</span>:
+<a name="l00080"></a>00080         {
+<a name="l00081"></a>00081             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00082"></a>00082             <span class="keywordflow">break</span>;
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084     }
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 
+<a name="l00094"></a><a class="code" href="class_style.html#25d84b39fcd4fb608a1b323c99ea8678">00094</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#25d84b39fcd4fb608a1b323c99ea8678" title="Returns true if the font weight is underlined.">Style::isUnderlined</a> ()
+<a name="l00095"></a>00095 {
+<a name="l00096"></a>00096     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
+<a name="l00097"></a>00097     {
+<a name="l00098"></a>00098         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66d460ec31770f376d61ffb3a9b0b31990" title="Normal but underlined.">UNDERLINED</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0" title="Both italic and underlined.">ITALIC_UNDERLINED</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b" title="Both bold and underlined.">BOLD_UNDERLINED</a>:
+<a name="l00099"></a>00099         {
+<a name="l00100"></a>00100             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00101"></a>00101             <span class="keywordflow">break</span>;
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103         <span class="keywordflow">default</span>:
+<a name="l00104"></a>00104         {
+<a name="l00105"></a>00105             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00106"></a>00106             <span class="keywordflow">break</span>;
+<a name="l00107"></a>00107         }
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109 };
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 
+<a name="l00118"></a><a class="code" href="class_style.html#07721a2c2c852f4281368731d22d74b7">00118</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#07721a2c2c852f4281368731d22d74b7" title="Returns true if the font weight is normal.">Style::isNormal</a> ()
+<a name="l00119"></a>00119 {
+<a name="l00120"></a>00120     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
+<a name="l00121"></a>00121     {
+<a name="l00122"></a>00122         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7" title="Normal font, without decorations.">NORMAL</a>:
+<a name="l00123"></a>00123         {
+<a name="l00124"></a>00124             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00125"></a>00125             <span class="keywordflow">break</span>;
+<a name="l00126"></a>00126         }
+<a name="l00127"></a>00127         <span class="keywordflow">default</span>:
+<a name="l00128"></a>00128         {
+<a name="l00129"></a>00129             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00130"></a>00130             <span class="keywordflow">break</span>;
+<a name="l00131"></a>00131         }
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133 };
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 
+<a name="l00142"></a><a class="code" href="class_style.html#7797f0204f6af51911d887f970d9fbeb">00142</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_style.html#7797f0204f6af51911d887f970d9fbeb" title="Returns the font size.">Style::getSize</a> ()
+<a name="l00143"></a>00143 {
+<a name="l00144"></a>00144     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447" title="Size of the character in points.">size</a>;
+<a name="l00145"></a>00145 };
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 
+<a name="l00154"></a><a class="code" href="class_style.html#b5044902245b464966c13ed6daccb4f3">00154</a> <span class="keywordtype">void</span> <a class="code" href="class_style.html#b5044902245b464966c13ed6daccb4f3" title="Sets the font size.">Style::setSize</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size_)
+<a name="l00155"></a>00155 {
+<a name="l00156"></a>00156     this-&gt;<a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447" title="Size of the character in points.">size</a> = size_;
+<a name="l00157"></a>00157 };
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 
+<a name="l00166"></a><a class="code" href="class_style.html#0cc67191ece90fc438835a20f2047669">00166</a> <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> <a class="code" href="class_style.html#0cc67191ece90fc438835a20f2047669" title="Returns the font color.">Style::getColor</a> ()
+<a name="l00167"></a>00167 {
+<a name="l00168"></a>00168     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a>;
+<a name="l00169"></a>00169 };
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 
+<a name="l00178"></a><a class="code" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c">00178</a> <span class="keywordtype">void</span> <a class="code" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c" title="Sets the font color.">Style::setColor</a> (<a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> color_)
+<a name="l00179"></a>00179 {
+<a name="l00180"></a>00180     this-&gt;<a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a> = color_;
+<a name="l00181"></a>00181 };
+<a name="l00182"></a>00182 
+<a name="l00183"></a>00183 
+<a name="l00192"></a><a class="code" href="class_style.html#4f2df0b03c03b39036732a51716305a0">00192</a> <span class="keywordtype">void</span> <a class="code" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c" title="Sets the font color.">Style::setColor</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> red_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> green_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> blue_)
+<a name="l00193"></a>00193 {
+<a name="l00194"></a>00194     this-&gt;<a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a> = <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a>(red_, green_, blue_);
+<a name="l00195"></a>00195 };
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 
+<a name="l00204"></a><a class="code" href="class_style.html#39e6b6db6483c8f8baee630230fa8386">00204</a> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> <a class="code" href="class_style.html#39e6b6db6483c8f8baee630230fa8386" title="Returns the font weight.">Style::getWeight</a> ()
+<a name="l00205"></a>00205 {
+<a name="l00206"></a>00206     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>;
+<a name="l00207"></a>00207 };
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209 
+<a name="l00218"></a><a class="code" href="class_style.html#75f1eaa59c2aff7c52df467c0d9157b1">00218</a> <span class="keywordtype">void</span> <a class="code" href="class_style.html#75f1eaa59c2aff7c52df467c0d9157b1" title="Sets the font weight.">Style::setWeight</a> (<a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> weight_)
+<a name="l00219"></a>00219 {
+<a name="l00220"></a>00220     this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a> = weight_;
+<a name="l00221"></a>00221 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 11:25:12 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 17:36:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
