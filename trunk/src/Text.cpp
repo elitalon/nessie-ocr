@@ -158,7 +158,7 @@ void Text::addCharacter (char character)
 
 ///
 /// @details The character is removed from the position in text passed in position_, unless it is
-/// over the text total length.
+/// over the text total length. In such case, the last character is removed
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-22
@@ -168,7 +168,7 @@ void Text::removeCharacter (unsigned int position_)
 	// Check for a valid position
 	if (position_ > getLength())
 	{
-		return;
+		position_ = getLength();
 	}
 	
 	// Declare two iterators for pointing to the desired character and its style

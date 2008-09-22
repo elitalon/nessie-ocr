@@ -14,7 +14,7 @@ using namespace std;
 int main (int argc, char const *argv[])
 {
 	Text str("pepito");
-	str.addCharacter('A', 7);
+	str.removeCharacter(8);
 	cout << str.getContent() << endl;
 	
     return 0;
