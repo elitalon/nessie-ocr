@@ -19,7 +19,7 @@ First, it stores the elapsed time on every stage, accumulated internally in the 
 \item[Date:]2008-09-18 \end{Desc}
 
 
-Definition at line 21 of file Statistics.h.\subsection*{Public Member Functions}
+Definition at line 24 of file Statistics.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{struct_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
@@ -34,9 +34,9 @@ unsigned int \hyperlink{struct_statistics_b8aec77e19e962544468c569a8333d15}{nWor
 \label{struct_statistics_b8aec77e19e962544468c569a8333d15}
 
 \begin{CompactList}\small\item\em Number of words in the recognized text. \item\end{CompactList}\item 
-\hypertarget{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}{
-list$<$ \hyperlink{struct_word_rate}{WordRate} $>$ \hyperlink{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}{wordRates}}
-\label{struct_statistics_9b9e40f4e10eb492830fa6f7ebd56273}
+\hypertarget{struct_statistics_905896f578b6af9e46d82990e39480bd}{
+vector$<$ \hyperlink{_word_rate_8h_e8f43926daba5798edbb3cb94ad07ff7}{WordRate} $>$ \hyperlink{struct_statistics_905896f578b6af9e46d82990e39480bd}{wordRates}}
+\label{struct_statistics_905896f578b6af9e46d82990e39480bd}
 
 \begin{CompactList}\small\item\em List of appearance rates of every word in the recognized text. \item\end{CompactList}\item 
 \hypertarget{struct_statistics_4a194feb4de2fc619d311b2adb2a7e74}{
@@ -96,12 +96,12 @@ double \hyperlink{struct_statistics_57aa8970c666c415db6dcdd0cc3920f6}{preprocess
 
 Constructor. 
 
-Initializes a \hyperlink{struct_statistics}{Statistics} object with timers set to 0.
+Initializes a \hyperlink{struct_statistics}{Statistics} object with timers set to 0
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-18 \end{Desc}
+\item[Date:]2008-09-22 \end{Desc}
 
 
 Definition at line 10 of file Statistics.cpp.\hypertarget{struct_statistics_b68ede75479e44d5c35b78ec1284065b}{
@@ -113,7 +113,7 @@ Definition at line 10 of file Statistics.cpp.\hypertarget{struct_statistics_b68e
 
 Destructor. 
 
-Destroys a \hyperlink{struct_statistics}{Statistics} object.
+Destroys a \hyperlink{struct_statistics}{Statistics} object
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -121,9 +121,9 @@ Destroys a \hyperlink{struct_statistics}{Statistics} object.
 \item[Date:]2008-09-17 \end{Desc}
 
 
-Definition at line 32 of file Statistics.cpp.
+Definition at line 25 of file Statistics.cpp.
 
 The documentation for this struct was generated from the following files:\begin{CompactItemize}
 \item 
-Statistics.h (108)\item 
-Statistics.cpp (108)\end{CompactItemize}
+Statistics.h (110)\item 
+Statistics.cpp (110)\end{CompactItemize}

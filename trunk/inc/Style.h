@@ -38,27 +38,27 @@ class Style
 		///
 		/// Returns true if the font weight is bold
 		///
-		bool isBold ();
+		bool isBold () const;
 	
 		///
 		/// Returns true if the font weight is italic
 		///
-		bool isItalic ();
+		bool isItalic () const;
 	
 		///
 		/// Returns true if the font weight is underlined
 		///
-		bool isUnderlined ();
+		bool isUnderlined () const;
 	
 		///
 		/// Returns true if the font weight is normal
 		///
-		bool isNormal ();
+		bool isNormal () const;
 
 		///
 		/// Returns the font size
 		///
-		unsigned int getSize ();
+		unsigned int getSize () const;
 	
 		///
 		/// Sets the font size
@@ -68,7 +68,7 @@ class Style
 		///
 		/// Returns the font color
 		///
-		FontColor getColor ();
+		FontColor getColor () const;
 	
 		///
 		/// Sets the font color
@@ -83,7 +83,7 @@ class Style
 		///
 		/// Returns the font weight
 		///
-		FontWeight getWeight ();
+		FontWeight getWeight () const;
 
 		///
 		/// Sets the font weight

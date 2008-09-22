@@ -1,0 +1,478 @@
+\hypertarget{class_text}{
+\section{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+}
+{\tt \#include $<$Text.h$>$}
+
+
+
+\subsection{Detailed Description}
+\hyperlink{class_text}{Text} extracted from the clip by the recognizer. 
+
+This class stores the text que has been extracted from the press-clip during the recognition process. Besides the text itself, it also keeps some extra information: appearance rate of every word, font style of every character and the font proportionality, among others.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 25 of file Text.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_text_b3e26143fccc52699bcc5149cae852bc}{Text} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_text_9363c2495337f85a6e29621a7c4e86f9}{Text} (string content\_\-)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_text_1b252646fc8feb154868c4138f610bfc}{Text} (string content\_\-, vector$<$ \hyperlink{class_style}{Style} $>$ styles\_\-)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_text_2d49e5c280e205125b149f7777ae30c7}{$\sim$Text} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+void \hyperlink{class_text_f30df66d8aa08a4e202512a358534f6c}{addCharacter} (char character)
+\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+void \hyperlink{class_text_001de966164d34082a8712c145cebc66}{addCharacter} (char character, \hyperlink{class_style}{Style} style\_\-)
+\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+void \hyperlink{class_text_52cb58f78952984e3d24cd80a0569219}{addCharacter} (char character, unsigned int position\_\-)
+\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+void \hyperlink{class_text_254e6cce10d3ed94b8a5969c6d21af57}{addCharacter} (char character, \hyperlink{class_style}{Style} style\_\-, unsigned int position\_\-)
+\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+void \hyperlink{class_text_8f38ee63a6b7706d5822ee98ac6413bc}{removeCharacter} (unsigned int position\_\-)
+\begin{CompactList}\small\item\em Removes a character from the text. \item\end{CompactList}\item 
+\hyperlink{class_style}{Style} \hyperlink{class_text_e7f5d4bb80673566a91e53f70fdfcaa2}{getCharacterStyle} (unsigned int position\_\-) const 
+\begin{CompactList}\small\item\em Returns the style of a single character. \item\end{CompactList}\item 
+void \hyperlink{class_text_675870393c37aea8ea2018bc318620f3}{setCharacterStyle} (unsigned int position\_\-, \hyperlink{class_style}{Style} style\_\-)
+\begin{CompactList}\small\item\em Sets the style of a single character. \item\end{CompactList}\item 
+string \hyperlink{class_text_b982578fcb4eda8f6cb49927600f859f}{getContent} () const 
+\begin{CompactList}\small\item\em Returns the text itself. \item\end{CompactList}\item 
+void \hyperlink{class_text_c96c194afc22e2d11cbc547cde66fe3b}{setContent} (string content\_\-)
+\begin{CompactList}\small\item\em Sets the text. \item\end{CompactList}\item 
+vector$<$ \hyperlink{class_style}{Style} $>$ \hyperlink{class_text_5d0279f5ce832a447c68b99182753928}{getStyles} () const 
+\begin{CompactList}\small\item\em Returns the list of text styles. \item\end{CompactList}\item 
+void \hyperlink{class_text_84a3f53c167e11c2ef455fa8a26bb15f}{setStyles} (vector$<$ \hyperlink{class_style}{Style} $>$ styles\_\-)
+\begin{CompactList}\small\item\em Sets the list of text styles. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_text_ea91ea415ed40d6cd0aff9063d72756e}{getLength} () const 
+\begin{CompactList}\small\item\em Returns the text length. \item\end{CompactList}\item 
+vector$<$ \hyperlink{_word_rate_8h_e8f43926daba5798edbb3cb94ad07ff7}{WordRate} $>$ \hyperlink{class_text_2fd83be91d5ba2c24fd44df45efc92c9}{getWordRates} () const 
+\begin{CompactList}\small\item\em Returns the appearance rates of every single word in text. \item\end{CompactList}\item 
+\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality} \hyperlink{class_text_fa8149d9658fd279eb2f6c6c967b3bb5}{getProportionality} () const 
+\begin{CompactList}\small\item\em Returns the font proportionality in text. \item\end{CompactList}\item 
+void \hyperlink{class_text_3e99161a047df59a078043ca6c128788}{setProportionality} (\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality} proportionality\_\-)
+\begin{CompactList}\small\item\em Sets the font proportionality in text. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_text_8239e13039bcc1c713f66f1236693706}{computeWordRates} ()
+\begin{CompactList}\small\item\em Builds the vector with every word appearance rate. \item\end{CompactList}\item 
+void \hyperlink{class_text_7c2b1a540b470cb7aa37fb42070a674f}{updateWordRate} (string word\_\-)
+\begin{CompactList}\small\item\em Increases by one the number of appearances of a word. \item\end{CompactList}\item 
+void \hyperlink{class_text_09f6b1e475da423ac81305500e05c7d6}{tokenize} (vector$<$ string $>$ \&tokens\_\-, const string \&delimiters\_\-=\char`\"{} ,.$\backslash$n$\backslash$t:;!¡¿?\&/()=\char`\"{}) const 
+\begin{CompactList}\small\item\em Extracts the words surrounded by default delimiters from text. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_text_16a34f9fe1c7a3c025ef16e9999c4882}{
+string \hyperlink{class_text_16a34f9fe1c7a3c025ef16e9999c4882}{content}}
+\label{class_text_16a34f9fe1c7a3c025ef16e9999c4882}
+
+\begin{CompactList}\small\item\em The text itself. \item\end{CompactList}\item 
+\hypertarget{class_text_2c322226122eeb533c267eeeef8d4a4d}{
+vector$<$ \hyperlink{class_style}{Style} $>$ \hyperlink{class_text_2c322226122eeb533c267eeeef8d4a4d}{styles}}
+\label{class_text_2c322226122eeb533c267eeeef8d4a4d}
+
+\begin{CompactList}\small\item\em A list of every character style. \item\end{CompactList}\item 
+\hypertarget{class_text_e0471b8ee4689550703105ebcb63bad6}{
+\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality} \hyperlink{class_text_e0471b8ee4689550703105ebcb63bad6}{proportionality}}
+\label{class_text_e0471b8ee4689550703105ebcb63bad6}
+
+\begin{CompactList}\small\item\em The text proportionality. \item\end{CompactList}\item 
+\hypertarget{class_text_7505af95f67166479797a8863f8043cd}{
+vector$<$ \hyperlink{_word_rate_8h_e8f43926daba5798edbb3cb94ad07ff7}{WordRate} $>$ \hyperlink{class_text_7505af95f67166479797a8863f8043cd}{wordRates}}
+\label{class_text_7505af95f67166479797a8863f8043cd}
+
+\begin{CompactList}\small\item\em A list of appearance rates of every single word in text. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_text_b3e26143fccc52699bcc5149cae852bc}{
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text ()}}
+\label{class_text_b3e26143fccc52699bcc5149cae852bc}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_text}{Text} object with empty content and no styles
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 10 of file Text.cpp.\hypertarget{class_text_9363c2495337f85a6e29621a7c4e86f9}{
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (string {\em content\_\-})}}
+\label{class_text_9363c2495337f85a6e29621a7c4e86f9}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_text}{Text} object with the content passed in content\_\- and no styles
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 23 of file Text.cpp.\hypertarget{class_text_1b252646fc8feb154868c4138f610bfc}{
+\index{Text@{Text}!Text@{Text}}
+\index{Text@{Text}!Text@{Text}}
+\subsubsection[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (string {\em content\_\-}, \/  vector$<$ {\bf Style} $>$ {\em styles\_\-})}}
+\label{class_text_1b252646fc8feb154868c4138f610bfc}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_text}{Text} object with the content passed in content\_\- and styles passed in styles\_\-
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 39 of file Text.cpp.\hypertarget{class_text_2d49e5c280e205125b149f7777ae30c7}{
+\index{Text@{Text}!$\sim$Text@{$\sim$Text}}
+\index{$\sim$Text@{$\sim$Text}!Text@{Text}}
+\subsubsection[$\sim$Text]{\setlength{\rightskip}{0pt plus 5cm}Text::$\sim$Text ()}}
+\label{class_text_2d49e5c280e205125b149f7777ae30c7}
+
+
+Destructor. 
+
+Destroys a \hyperlink{class_text}{Text} object
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 52 of file Text.cpp.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_text_f30df66d8aa08a4e202512a358534f6c}{
+\index{Text@{Text}!addCharacter@{addCharacter}}
+\index{addCharacter@{addCharacter}!Text@{Text}}
+\subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character})}}
+\label{class_text_f30df66d8aa08a4e202512a358534f6c}
+
+
+Adds a character to the text. 
+
+The character passed is appended to the end of the text with a default style.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 152 of file Text.cpp.\hypertarget{class_text_001de966164d34082a8712c145cebc66}{
+\index{Text@{Text}!addCharacter@{addCharacter}}
+\index{addCharacter@{addCharacter}!Text@{Text}}
+\subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character}, \/  {\bf Style} {\em style\_\-})}}
+\label{class_text_001de966164d34082a8712c145cebc66}
+
+
+Adds a character to the text. 
+
+The character is appended to the end of the text with the style passed in style\_\-.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 139 of file Text.cpp.\hypertarget{class_text_52cb58f78952984e3d24cd80a0569219}{
+\index{Text@{Text}!addCharacter@{addCharacter}}
+\index{addCharacter@{addCharacter}!Text@{Text}}
+\subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character}, \/  unsigned int {\em position\_\-})}}
+\label{class_text_52cb58f78952984e3d24cd80a0569219}
+
+
+Adds a character to the text. 
+
+The character is appended to the text at position passed in position\_\-, with a default style. If the position passed is over the text total length, the character is appended to the end of the text.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 118 of file Text.cpp.\hypertarget{class_text_254e6cce10d3ed94b8a5969c6d21af57}{
+\index{Text@{Text}!addCharacter@{addCharacter}}
+\index{addCharacter@{addCharacter}!Text@{Text}}
+\subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character}, \/  {\bf Style} {\em style\_\-}, \/  unsigned int {\em position\_\-})}}
+\label{class_text_254e6cce10d3ed94b8a5969c6d21af57}
+
+
+Adds a character to the text. 
+
+The character is appended to the text at position passed in position\_\-, and with style passed in style\_\-. If no position is passed, the character is appended to the end. Similarly, if no style is passed a default style is assigned to the character. If the position passed is over the text total length, the character is appended to the end of the text.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 70 of file Text.cpp.\hypertarget{class_text_8f38ee63a6b7706d5822ee98ac6413bc}{
+\index{Text@{Text}!removeCharacter@{removeCharacter}}
+\index{removeCharacter@{removeCharacter}!Text@{Text}}
+\subsubsection[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (unsigned int {\em position\_\-})}}
+\label{class_text_8f38ee63a6b7706d5822ee98ac6413bc}
+
+
+Removes a character from the text. 
+
+The character is removed from the position in text passed in position\_\-, unless it is over the text total length.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 166 of file Text.cpp.\hypertarget{class_text_e7f5d4bb80673566a91e53f70fdfcaa2}{
+\index{Text@{Text}!getCharacterStyle@{getCharacterStyle}}
+\index{getCharacterStyle@{getCharacterStyle}!Text@{Text}}
+\subsubsection[getCharacterStyle]{\setlength{\rightskip}{0pt plus 5cm}{\bf Style} Text::getCharacterStyle (unsigned int {\em position\_\-}) const}}
+\label{class_text_e7f5d4bb80673566a91e53f70fdfcaa2}
+
+
+Returns the style of a single character. 
+
+The style of a character at position passed is return unless the position will be over the text length. In this case an empty style is returned.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 206 of file Text.cpp.\hypertarget{class_text_675870393c37aea8ea2018bc318620f3}{
+\index{Text@{Text}!setCharacterStyle@{setCharacterStyle}}
+\index{setCharacterStyle@{setCharacterStyle}!Text@{Text}}
+\subsubsection[setCharacterStyle]{\setlength{\rightskip}{0pt plus 5cm}void Text::setCharacterStyle (unsigned int {\em position\_\-}, \/  {\bf Style} {\em style\_\-})}}
+\label{class_text_675870393c37aea8ea2018bc318620f3}
+
+
+Sets the style of a single character. 
+
+The character at position position\_\- in text is set with the style passed. If the position passed in position\_\- is over the text total length no changes are made.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 228 of file Text.cpp.\hypertarget{class_text_b982578fcb4eda8f6cb49927600f859f}{
+\index{Text@{Text}!getContent@{getContent}}
+\index{getContent@{getContent}!Text@{Text}}
+\subsubsection[getContent]{\setlength{\rightskip}{0pt plus 5cm}string Text::getContent () const}}
+\label{class_text_b982578fcb4eda8f6cb49927600f859f}
+
+
+Returns the text itself. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 241 of file Text.cpp.\hypertarget{class_text_c96c194afc22e2d11cbc547cde66fe3b}{
+\index{Text@{Text}!setContent@{setContent}}
+\index{setContent@{setContent}!Text@{Text}}
+\subsubsection[setContent]{\setlength{\rightskip}{0pt plus 5cm}void Text::setContent (string {\em content\_\-})}}
+\label{class_text_c96c194afc22e2d11cbc547cde66fe3b}
+
+
+Sets the text. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 251 of file Text.cpp.\hypertarget{class_text_5d0279f5ce832a447c68b99182753928}{
+\index{Text@{Text}!getStyles@{getStyles}}
+\index{getStyles@{getStyles}!Text@{Text}}
+\subsubsection[getStyles]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Style} $>$ Text::getStyles () const}}
+\label{class_text_5d0279f5ce832a447c68b99182753928}
+
+
+Returns the list of text styles. 
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 267 of file Text.cpp.\hypertarget{class_text_84a3f53c167e11c2ef455fa8a26bb15f}{
+\index{Text@{Text}!setStyles@{setStyles}}
+\index{setStyles@{setStyles}!Text@{Text}}
+\subsubsection[setStyles]{\setlength{\rightskip}{0pt plus 5cm}void Text::setStyles (vector$<$ {\bf Style} $>$ {\em styles\_\-})}}
+\label{class_text_84a3f53c167e11c2ef455fa8a26bb15f}
+
+
+Sets the list of text styles. 
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_style}{Style}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 279 of file Text.cpp.\hypertarget{class_text_ea91ea415ed40d6cd0aff9063d72756e}{
+\index{Text@{Text}!getLength@{getLength}}
+\index{getLength@{getLength}!Text@{Text}}
+\subsubsection[getLength]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::getLength () const}}
+\label{class_text_ea91ea415ed40d6cd0aff9063d72756e}
+
+
+Returns the text length. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 289 of file Text.cpp.\hypertarget{class_text_2fd83be91d5ba2c24fd44df45efc92c9}{
+\index{Text@{Text}!getWordRates@{getWordRates}}
+\index{getWordRates@{getWordRates}!Text@{Text}}
+\subsubsection[getWordRates]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf WordRate} $>$ Text::getWordRates () const}}
+\label{class_text_2fd83be91d5ba2c24fd44df45efc92c9}
+
+
+Returns the appearance rates of every single word in text. 
+
+\begin{Desc}
+\item[See also:]\hyperlink{_word_rate_8h_e8f43926daba5798edbb3cb94ad07ff7}{WordRate}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 301 of file Text.cpp.\hypertarget{class_text_fa8149d9658fd279eb2f6c6c967b3bb5}{
+\index{Text@{Text}!getProportionality@{getProportionality}}
+\index{getProportionality@{getProportionality}!Text@{Text}}
+\subsubsection[getProportionality]{\setlength{\rightskip}{0pt plus 5cm}{\bf FontProportionality} Text::getProportionality () const}}
+\label{class_text_fa8149d9658fd279eb2f6c6c967b3bb5}
+
+
+Returns the font proportionality in text. 
+
+The proportionality may be monospaced or proportional
+
+\begin{Desc}
+\item[See also:]\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 315 of file Text.cpp.\hypertarget{class_text_3e99161a047df59a078043ca6c128788}{
+\index{Text@{Text}!setProportionality@{setProportionality}}
+\index{setProportionality@{setProportionality}!Text@{Text}}
+\subsubsection[setProportionality]{\setlength{\rightskip}{0pt plus 5cm}void Text::setProportionality ({\bf FontProportionality} {\em proportionality\_\-})}}
+\label{class_text_3e99161a047df59a078043ca6c128788}
+
+
+Sets the font proportionality in text. 
+
+\begin{Desc}
+\item[See also:]\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-18 \end{Desc}
+
+
+Definition at line 327 of file Text.cpp.\hypertarget{class_text_8239e13039bcc1c713f66f1236693706}{
+\index{Text@{Text}!computeWordRates@{computeWordRates}}
+\index{computeWordRates@{computeWordRates}!Text@{Text}}
+\subsubsection[computeWordRates]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_text_8239e13039bcc1c713f66f1236693706}
+
+
+Builds the vector with every word appearance rate. 
+
+This method must be called every time the content changes, since there is no public method for a class user to make it by itself. By the way, the number of words in text is also computed.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 364 of file Text.cpp.\hypertarget{class_text_7c2b1a540b470cb7aa37fb42070a674f}{
+\index{Text@{Text}!updateWordRate@{updateWordRate}}
+\index{updateWordRate@{updateWordRate}!Text@{Text}}
+\subsubsection[updateWordRate]{\setlength{\rightskip}{0pt plus 5cm}void Text::updateWordRate (string {\em word\_\-})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_text_7c2b1a540b470cb7aa37fb42070a674f}
+
+
+Increases by one the number of appearances of a word. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 337 of file Text.cpp.\hypertarget{class_text_09f6b1e475da423ac81305500e05c7d6}{
+\index{Text@{Text}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!Text@{Text}}
+\subsubsection[tokenize]{\setlength{\rightskip}{0pt plus 5cm}void Text::tokenize (vector$<$ string $>$ \& {\em tokens\_\-}, \/  const string \& {\em delimiters\_\-} = {\tt \char`\"{}~,.$\backslash$n$\backslash$t:;!¡¿?\&/()=\char`\"{}}) const\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_text_09f6b1e475da423ac81305500e05c7d6}
+
+
+Extracts the words surrounded by default delimiters from text. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-22 \end{Desc}
+
+
+Definition at line 387 of file Text.cpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+Text.h (110)\item 
+Text.cpp (107)\end{CompactItemize}

@@ -1,8 +1,11 @@
 #if !defined(_STATISTICS_H)
 #define _STATISTICS_H
 
-#include <list>
 #include "WordRate.h"
+
+#include <vector>
+using namespace std;
+
 
 
 ///
@@ -30,7 +33,7 @@ struct Statistics
 		///
 		/// List of appearance rates of every word in the recognized text
 		///
-		list<WordRate> wordRates;
+		vector<WordRate> wordRates;
 		
 		///
 		/// Elapsed time in the noise removal stage

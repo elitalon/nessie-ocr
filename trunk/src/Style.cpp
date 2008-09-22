@@ -2,7 +2,7 @@
 
 
 ///
-/// Initializes a Style object with size set to 0, color set to black and weight set to normal
+/// @details Initializes a Style object with size set to 0, color set to black and weight set to normal
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
@@ -14,7 +14,7 @@ Style::Style () : size(0), color(FontColor()), weight(NORMAL)
 
 
 ///
-/// Initializes a Style object with size, color and weight set to the values passed
+/// @details Initializes a Style object with size, color and weight set to the values passed
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
@@ -26,24 +26,24 @@ Style::Style (unsigned int size_, FontColor color_, FontWeight weight_) : size(s
 
 
 ///
-/// Destroys a Style object
+/// @details Destroys a Style object
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
 Style::~Style ()
 {
-	
+
 };
 
 
 ///
-/// A bold font may be only bold, bold and italic or bold and underlined
+/// @details A bold font may be only bold, bold and italic or bold and underlined
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 /// 
-bool Style::isBold ()
+bool Style::isBold () const
 {
 	switch (this->weight)
 	{
@@ -62,12 +62,12 @@ bool Style::isBold ()
 
 
 ///
-/// A italic font may be only italic, italic and bold or italic and underlined
+/// @details An italic font may be only italic, italic and bold or italic and underlined
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-bool Style::isItalic ()
+bool Style::isItalic () const
 {
 	switch (this->weight)
 	{
@@ -86,12 +86,12 @@ bool Style::isItalic ()
 
 
 ///
-/// An underlined font may be only underlined, underlined and italic or underlined and bold
+/// @details An underlined font may be only underlined, underlined and italic or underlined and bold
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-bool Style::isUnderlined ()
+bool Style::isUnderlined () const
 {
 	switch (this->weight)
 	{
@@ -110,12 +110,12 @@ bool Style::isUnderlined ()
 
 
 ///
-/// A normal font is neither bold, nor italic, nor underlined
+/// @details A normal font is neither bold, nor italic, nor underlined
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-bool Style::isNormal ()
+bool Style::isNormal () const
 {
 	switch (this->weight)
 	{
@@ -134,19 +134,19 @@ bool Style::isNormal ()
 
 
 ///
-/// The size is expressed in points (pt)
+/// @details The size is expressed in points (pt)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-unsigned int Style::getSize ()
+unsigned int Style::getSize () const
 {
 	return this->size;
 };
 
 
 ///
-/// The size is expressed in points (pt)
+/// @details The size is expressed in points (pt)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
@@ -163,7 +163,7 @@ void Style::setSize (unsigned int size_)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-FontColor Style::getColor ()
+FontColor Style::getColor () const
 {
 	return this->color;
 };
@@ -182,7 +182,7 @@ void Style::setColor (FontColor color_)
 
 
 /// 
-/// The font color is created internally as a FontColor object with the values passed
+/// @details The font color is created internally as a FontColor object with the values passed
 /// 
 /// @see FontColor
 /// 
@@ -201,14 +201,14 @@ void Style::setColor (unsigned int red_, unsigned int green_, unsigned int blue_
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 ///
-FontWeight Style::getWeight ()
+FontWeight Style::getWeight () const
 {
 	return this->weight;
 };
 
 
 ///
-/// The weight must be passed using a literal value of FontWeight enumeration.
+/// @details The weight must be passed using a literal value of FontWeight enumeration.
 /// 
 /// @see FontWeight
 /// 

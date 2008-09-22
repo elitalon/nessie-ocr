@@ -59,58 +59,272 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Text.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00010"></a>00010 <span class="preprocessor">#include "Text.h"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "Style.h"</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include "WordRate.h"</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keywordtype">void</span> Text::Text()
-<a name="l00015"></a>00015 {
+<h1>Text.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "Text.h"</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00010"></a><a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">00010</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> () : content(string(<span class="stringliteral">""</span>)), styles(vector&lt;<a class="code" href="class_style.html" title="Font style of a character.">Style</a>&gt;(0)), proportionality(<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1d35adb33a4bd3162eff7f960ea0ad37a" title="In Roman fonts.">PROPORTIONAL</a>), wordRates(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0))
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012     <span class="comment">// Build the appearance rate of every word in text</span>
+<a name="l00013"></a>00013     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00014"></a>00014 };
+<a name="l00015"></a>00015 
 <a name="l00016"></a>00016 
-<a name="l00017"></a>00017 }
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keywordtype">void</span> Text::addCharacter(<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style)
-<a name="l00020"></a>00020 {
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 }
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keywordtype">void</span> Text::removeCharacter(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> character)
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keywordtype">string</span> Text::content()
-<a name="l00030"></a>00030 {
+<a name="l00023"></a><a class="code" href="class_text.html#9363c2495337f85a6e29621a7c4e86f9">00023</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keywordtype">string</span> content_) : <a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>(content_), <a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6" title="The text proportionality.">proportionality</a>(<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1d35adb33a4bd3162eff7f960ea0ad37a" title="In Roman fonts.">PROPORTIONAL</a>), <a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0))
+<a name="l00024"></a>00024 {
+<a name="l00025"></a>00025     <span class="comment">// Initialize the vector of styles according to the number of characters in the content</span>
+<a name="l00026"></a>00026     <a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a> = vector&lt;Style&gt;(content_.length());
+<a name="l00027"></a>00027     
+<a name="l00028"></a>00028     <span class="comment">// Build the appearance rate of every word in text</span>
+<a name="l00029"></a>00029     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00030"></a>00030 };
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keywordtype">void</span> Text::content(<span class="keywordtype">string</span> content)
-<a name="l00035"></a>00035 {
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 }
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <a class="code" href="class_style.html" title="Font style of a character.">Style</a> Text::style()
+<a name="l00032"></a>00032 
+<a name="l00039"></a><a class="code" href="class_text.html#1b252646fc8feb154868c4138f610bfc">00039</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keywordtype">string</span> content_, vector&lt;Style&gt; styles_) : <a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>(content_), <a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>(styles_), <a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6" title="The text proportionality.">proportionality</a>(<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1d35adb33a4bd3162eff7f960ea0ad37a" title="In Roman fonts.">PROPORTIONAL</a>), <a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0))
 <a name="l00040"></a>00040 {
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 }
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keywordtype">void</span> Text::style(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style)
-<a name="l00045"></a>00045 {
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Text::length()
-<a name="l00050"></a>00050 {
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 }
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <a class="code" href="struct_word_rate.html" title="Appearance rate of a word.">WordRate</a> Text::wordRates()
-<a name="l00055"></a>00055 {
+<a name="l00041"></a>00041     <span class="comment">// Build the appearance rate of every word in text</span>
+<a name="l00042"></a>00042     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 
+<a name="l00052"></a><a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7">00052</a> <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">Text::~Text</a> ()
+<a name="l00053"></a>00053 {
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 };
 <a name="l00056"></a>00056 
-<a name="l00057"></a>00057 }
-<a name="l00058"></a>00058 
+<a name="l00057"></a>00057 
+<a name="l00070"></a><a class="code" href="class_text.html#254e6cce10d3ed94b8a5969c6d21af57">00070</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_)
+<a name="l00071"></a>00071 {
+<a name="l00072"></a>00072     <span class="comment">// The desired position exceeds the content length, so we append to the of the text</span>
+<a name="l00073"></a>00073     <span class="keywordflow">if</span>(position_ &gt; <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>())
+<a name="l00074"></a>00074     {
+<a name="l00075"></a>00075         this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a> += character;
+<a name="l00076"></a>00076         this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>.push_back(style_);
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078     <span class="keywordflow">else</span>
+<a name="l00079"></a>00079     {
+<a name="l00080"></a>00080         <span class="comment">// Check for a valid position, though a compiler should use a big value when a negative</span>
+<a name="l00081"></a>00081         <span class="comment">// number is assigned to an unsigned int</span>
+<a name="l00082"></a>00082         <span class="keywordflow">if</span> (position_ &lt; 0)
+<a name="l00083"></a>00083         {
+<a name="l00084"></a>00084             position_ = 0;
+<a name="l00085"></a>00085         }
+<a name="l00086"></a>00086                 
+<a name="l00087"></a>00087         <span class="comment">// Declare two iterators for pointing to the desired position</span>
+<a name="l00088"></a>00088         string::iterator contentIterator        = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.begin();
+<a name="l00089"></a>00089         vector&lt;Style&gt;::iterator stylesIterator  = this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>.begin();
+<a name="l00090"></a>00090         
+<a name="l00091"></a>00091         <span class="comment">// Advance the iterators until the desired position</span>
+<a name="l00092"></a>00092         <span class="keywordflow">while</span> (position_ &gt; 1)
+<a name="l00093"></a>00093         {
+<a name="l00094"></a>00094             ++contentIterator;
+<a name="l00095"></a>00095             ++stylesIterator;
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097             --position_;
+<a name="l00098"></a>00098         }
+<a name="l00099"></a>00099         
+<a name="l00100"></a>00100         <span class="comment">// Insert the character and its style</span>
+<a name="l00101"></a>00101         this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.insert(contentIterator, character);
+<a name="l00102"></a>00102         this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>.insert(stylesIterator, style_);
+<a name="l00103"></a>00103     }
+<a name="l00104"></a>00104     
+<a name="l00105"></a>00105     <span class="comment">// Rebuild the appearance rate of every word in text</span>
+<a name="l00106"></a>00106     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00107"></a>00107 };
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00118"></a><a class="code" href="class_text.html#52cb58f78952984e3d24cd80a0569219">00118</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keywordtype">char</span> character, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_)
+<a name="l00119"></a>00119 {
+<a name="l00120"></a>00120     <span class="comment">// Check for a valid position</span>
+<a name="l00121"></a>00121     <span class="keywordflow">if</span> (position_ &lt; 0)
+<a name="l00122"></a>00122     {
+<a name="l00123"></a>00123         position_ = 0;
+<a name="l00124"></a>00124     }
+<a name="l00125"></a>00125     
+<a name="l00126"></a>00126     <span class="comment">// Call the generic 'addCharacter' function</span>
+<a name="l00127"></a>00127     <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a>(character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a>(), position_);
+<a name="l00128"></a>00128 }
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 
+<a name="l00139"></a><a class="code" href="class_text.html#001de966164d34082a8712c145cebc66">00139</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_)
+<a name="l00140"></a>00140 {
+<a name="l00141"></a>00141     <span class="comment">// Call the generic 'addCharacter' function</span>
+<a name="l00142"></a>00142     <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a>(character, style_, <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>());
+<a name="l00143"></a>00143 }
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00152"></a><a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c">00152</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keywordtype">char</span> character)
+<a name="l00153"></a>00153 {
+<a name="l00154"></a>00154     <span class="comment">// Call the generic 'addCharacter' function</span>
+<a name="l00155"></a>00155     <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a>(character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a>(), <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>());
+<a name="l00156"></a>00156 }
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 
+<a name="l00166"></a><a class="code" href="class_text.html#8f38ee63a6b7706d5822ee98ac6413bc">00166</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#8f38ee63a6b7706d5822ee98ac6413bc" title="Removes a character from the text.">Text::removeCharacter</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_)
+<a name="l00167"></a>00167 {
+<a name="l00168"></a>00168     <span class="comment">// Check for a valid position</span>
+<a name="l00169"></a>00169     <span class="keywordflow">if</span> (position_ &gt; <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>())
+<a name="l00170"></a>00170     {
+<a name="l00171"></a>00171         <span class="keywordflow">return</span>;
+<a name="l00172"></a>00172     }
+<a name="l00173"></a>00173     
+<a name="l00174"></a>00174     <span class="comment">// Declare two iterators for pointing to the desired character and its style</span>
+<a name="l00175"></a>00175     string::iterator contentIterator        = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.begin();
+<a name="l00176"></a>00176     vector&lt;Style&gt;::iterator stylesIterator  = this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>.begin();
+<a name="l00177"></a>00177     
+<a name="l00178"></a>00178     <span class="comment">// Advance the iterators until the desired position</span>
+<a name="l00179"></a>00179     <span class="keywordflow">while</span> (position_ &gt; 1)
+<a name="l00180"></a>00180     {
+<a name="l00181"></a>00181         ++contentIterator;
+<a name="l00182"></a>00182         ++stylesIterator;
+<a name="l00183"></a>00183         
+<a name="l00184"></a>00184         --position_;
+<a name="l00185"></a>00185     }
+<a name="l00186"></a>00186     
+<a name="l00187"></a>00187     <span class="comment">// Remove the character and its style</span>
+<a name="l00188"></a>00188     this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.erase(contentIterator);
+<a name="l00189"></a>00189     this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>.erase(stylesIterator);
+<a name="l00190"></a>00190     
+<a name="l00191"></a>00191     <span class="comment">// Rebuild the appearance rate of every word in text</span>
+<a name="l00192"></a>00192     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00193"></a>00193 };
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196 
+<a name="l00206"></a><a class="code" href="class_text.html#e7f5d4bb80673566a91e53f70fdfcaa2">00206</a> <a class="code" href="class_style.html" title="Font style of a character.">Style</a> <a class="code" href="class_text.html#e7f5d4bb80673566a91e53f70fdfcaa2" title="Returns the style of a single character.">Text::getCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_)<span class="keyword"> const</span>
+<a name="l00207"></a>00207 <span class="keyword"></span>{
+<a name="l00208"></a>00208     <span class="keywordflow">if</span> (position_ &gt;= <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>())
+<a name="l00209"></a>00209     {
+<a name="l00210"></a>00210         <span class="keywordflow">return</span> <a class="code" href="class_style.html" title="Font style of a character.">Style</a>();
+<a name="l00211"></a>00211     }
+<a name="l00212"></a>00212     <span class="keywordflow">else</span>
+<a name="l00213"></a>00213     {
+<a name="l00214"></a>00214         <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>[position_];
+<a name="l00215"></a>00215     }
+<a name="l00216"></a>00216 };
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218 
+<a name="l00228"></a><a class="code" href="class_text.html#675870393c37aea8ea2018bc318620f3">00228</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#675870393c37aea8ea2018bc318620f3" title="Sets the style of a single character.">Text::setCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_)
+<a name="l00229"></a>00229 {
+<a name="l00230"></a>00230     <span class="keywordflow">if</span> (position_ &lt; <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a>())
+<a name="l00231"></a>00231     {
+<a name="l00232"></a>00232         this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>[position_] = style_;
+<a name="l00233"></a>00233     }
+<a name="l00234"></a>00234 };
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 
+<a name="l00241"></a><a class="code" href="class_text.html#b982578fcb4eda8f6cb49927600f859f">00241</a> <span class="keywordtype">string</span> <a class="code" href="class_text.html#b982578fcb4eda8f6cb49927600f859f" title="Returns the text itself.">Text::getContent</a> ()<span class="keyword"> const</span>
+<a name="l00242"></a>00242 <span class="keyword"></span>{
+<a name="l00243"></a>00243     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>;
+<a name="l00244"></a>00244 };
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246 
+<a name="l00251"></a><a class="code" href="class_text.html#c96c194afc22e2d11cbc547cde66fe3b">00251</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#c96c194afc22e2d11cbc547cde66fe3b" title="Sets the text.">Text::setContent</a> (<span class="keywordtype">string</span> content_)
+<a name="l00252"></a>00252 {
+<a name="l00253"></a>00253     this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a> = content_;
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255     <span class="comment">// Rebuild the appearance rate of every word in the new text</span>
+<a name="l00256"></a>00256     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00257"></a>00257 };
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260 
+<a name="l00267"></a><a class="code" href="class_text.html#5d0279f5ce832a447c68b99182753928">00267</a> vector&lt;Style&gt; <a class="code" href="class_text.html#5d0279f5ce832a447c68b99182753928" title="Returns the list of text styles.">Text::getStyles</a> ()<span class="keyword"> const</span>
+<a name="l00268"></a>00268 <span class="keyword"></span>{
+<a name="l00269"></a>00269     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>;
+<a name="l00270"></a>00270 };
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272 
+<a name="l00279"></a><a class="code" href="class_text.html#84a3f53c167e11c2ef455fa8a26bb15f">00279</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#84a3f53c167e11c2ef455fa8a26bb15f" title="Sets the list of text styles.">Text::setStyles</a> (vector&lt;Style&gt; styles_)
+<a name="l00280"></a>00280 {
+<a name="l00281"></a>00281     this-&gt;<a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a> = styles_;
+<a name="l00282"></a>00282 };
+<a name="l00283"></a>00283 
+<a name="l00284"></a>00284 
+<a name="l00289"></a><a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e">00289</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">Text::getLength</a> ()<span class="keyword"> const</span>
+<a name="l00290"></a>00290 <span class="keyword"></span>{
+<a name="l00291"></a>00291     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.length();
+<a name="l00292"></a>00292 };
+<a name="l00293"></a>00293 
+<a name="l00294"></a>00294 
+<a name="l00301"></a><a class="code" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9">00301</a> vector&lt;WordRate&gt; <a class="code" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9" title="Returns the appearance rates of every single word in text.">Text::getWordRates</a> ()<span class="keyword"> const</span>
+<a name="l00302"></a>00302 <span class="keyword"></span>{
+<a name="l00303"></a>00303     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>;
+<a name="l00304"></a>00304 };
+<a name="l00305"></a>00305 
+<a name="l00306"></a>00306 
+<a name="l00315"></a><a class="code" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5">00315</a> <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5" title="Returns the font proportionality in text.">Text::getProportionality</a> ()<span class="keyword"> const</span>
+<a name="l00316"></a>00316 <span class="keyword"></span>{
+<a name="l00317"></a>00317     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6" title="The text proportionality.">proportionality</a>;
+<a name="l00318"></a>00318 };
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320 
+<a name="l00327"></a><a class="code" href="class_text.html#3e99161a047df59a078043ca6c128788">00327</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#3e99161a047df59a078043ca6c128788" title="Sets the font proportionality in text.">Text::setProportionality</a> (<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> proportionality_)
+<a name="l00328"></a>00328 {
+<a name="l00329"></a>00329     this-&gt;<a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6" title="The text proportionality.">proportionality</a> = proportionality_;
+<a name="l00330"></a>00330 };
+<a name="l00331"></a>00331 
+<a name="l00332"></a>00332 
+<a name="l00337"></a><a class="code" href="class_text.html#7c2b1a540b470cb7aa37fb42070a674f">00337</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#7c2b1a540b470cb7aa37fb42070a674f" title="Increases by one the number of appearances of a word.">Text::updateWordRate</a> (<span class="keywordtype">string</span> word_)
+<a name="l00338"></a>00338 {
+<a name="l00339"></a>00339     <span class="comment">// Searches the word in the vector</span>
+<a name="l00340"></a>00340     vector&lt;WordRate&gt;::iterator <a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>;
+<a name="l00341"></a>00341     <span class="keywordflow">for</span> (wordRates = this-&gt;wordRates.begin(); wordRates != this-&gt;wordRates.end(); ++wordRates)
+<a name="l00342"></a>00342     {
+<a name="l00343"></a>00343         <span class="comment">// Updates its appearance rate</span>
+<a name="l00344"></a>00344         <span class="keywordflow">if</span> ( (*wordRates).first == word_ )
+<a name="l00345"></a>00345         {
+<a name="l00346"></a>00346             (*wordRates).second++;
+<a name="l00347"></a>00347             <span class="keywordflow">return</span>;
+<a name="l00348"></a>00348         }
+<a name="l00349"></a>00349     }
+<a name="l00350"></a>00350     
+<a name="l00351"></a>00351     <span class="comment">// The word was not stored, so here we adds its first appearance</span>
+<a name="l00352"></a>00352     this-&gt;wordRates.push_back(<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>(word_, 1));
+<a name="l00353"></a>00353 };
+<a name="l00354"></a>00354 
+<a name="l00355"></a>00355 
+<a name="l00364"></a><a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706">00364</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">Text::computeWordRates</a> ()
+<a name="l00365"></a>00365 {   
+<a name="l00366"></a>00366     vector&lt;string&gt; words;   <span class="comment">// Vector to hold our words after removing spaces</span>
+<a name="l00367"></a>00367     
+<a name="l00368"></a>00368     <span class="comment">// Extract the words in text</span>
+<a name="l00369"></a>00369     <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">tokenize</a>(words);
+<a name="l00370"></a>00370     
+<a name="l00371"></a>00371     <span class="comment">// Update appearance rate of every word extracted</span>
+<a name="l00372"></a>00372     vector&lt;string&gt;::iterator wordsIterator;
+<a name="l00373"></a>00373     <span class="keywordflow">for</span> (wordsIterator = words.begin(); wordsIterator != words.end(); ++wordsIterator)
+<a name="l00374"></a>00374     {
+<a name="l00375"></a>00375         <a class="code" href="class_text.html#7c2b1a540b470cb7aa37fb42070a674f" title="Increases by one the number of appearances of a word.">updateWordRate</a>(*wordsIterator);
+<a name="l00376"></a>00376     }
+<a name="l00377"></a>00377         
+<a name="l00378"></a>00378     <span class="comment">// This sorting will improve future lookups</span>
+<a name="l00379"></a>00379     sort (this-&gt;<a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>.begin(), this-&gt;<a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>.end());
+<a name="l00380"></a>00380 };
+<a name="l00381"></a>00381 
+<a name="l00382"></a>00382 
+<a name="l00387"></a><a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6">00387</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">Text::tokenize</a>(vector&lt;string&gt;&amp; tokens_, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; delimiters_)<span class="keyword"> const</span>
+<a name="l00388"></a>00388 <span class="keyword"></span>{
+<a name="l00389"></a>00389     <span class="comment">// Skip delimiters at the beginning of text</span>
+<a name="l00390"></a>00390     string::size_type lastPos = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.find_first_not_of(delimiters_, 0);
+<a name="l00391"></a>00391     
+<a name="l00392"></a>00392     <span class="comment">// Find the first "non-delimiter"</span>
+<a name="l00393"></a>00393     string::size_type pos     = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.find_first_of(delimiters_, lastPos);
+<a name="l00394"></a>00394     
+<a name="l00395"></a>00395     <span class="comment">// Traverse the content until reaching its end</span>
+<a name="l00396"></a>00396     <span class="keywordflow">while</span> (string::npos != pos || string::npos != lastPos)
+<a name="l00397"></a>00397     {
+<a name="l00398"></a>00398         <span class="comment">// A word has been found, add it to the vector</span>
+<a name="l00399"></a>00399         tokens_.push_back(this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.substr(lastPos, pos - lastPos));
+<a name="l00400"></a>00400         
+<a name="l00401"></a>00401         <span class="comment">// Skip delimiters again</span>
+<a name="l00402"></a>00402         lastPos = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.find_first_not_of(delimiters_, pos);
+<a name="l00403"></a>00403         
+<a name="l00404"></a>00404         <span class="comment">// Find the next "non-delimiter"</span>
+<a name="l00405"></a>00405         pos = this-&gt;<a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>.find_first_of(delimiters_, lastPos);
+<a name="l00406"></a>00406     }
+<a name="l00407"></a>00407 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 17:36:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:16:57 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

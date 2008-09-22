@@ -1,43 +1,22 @@
 #if !defined(_WORDRATE_H)
 #define _WORDRATE_H
 
-#include <iostream>
+///
+/// @file
+///
+
+#include <utility>		// For using 'pair' container
+#include <string>
 using namespace std;
 
-
 ///
-/// Appearance rate of a word
+/// Appearance rate of a word.
 /// 
-/// This structure keeps the number of appearances of a single word
-/// in the recognized text from an clip.
+/// This pair keeps the number of appearances of a word in a text
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-19
 /// 
-struct WordRate
-{
-	public:
-		
-		///
-		/// The word itself
-		///
-		string word;
-		
-		///
-		/// Number of appearances
-		///
-		unsigned int rate;
-		
-		
-		///
-		/// Constructor
-		///
-		WordRate ();
-		
-		///
-		/// Destructor
-		/// 
-		~WordRate ();
-};
+typedef pair<string, unsigned int> WordRate;
 
 #endif  //_WORDRATE_H

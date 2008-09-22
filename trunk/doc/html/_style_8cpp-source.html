@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Style.cpp (107) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Style.cpp (110) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -76,12 +76,12 @@ window.onload = initDynSections;
 <a name="l00027"></a>00027 
 <a name="l00034"></a><a class="code" href="class_style.html#7c798ef9b77bc94719542feade497725">00034</a> <a class="code" href="class_style.html#7c798ef9b77bc94719542feade497725" title="Destructor.">Style::~Style</a> ()
 <a name="l00035"></a>00035 {
-<a name="l00036"></a>00036     
+<a name="l00036"></a>00036 
 <a name="l00037"></a>00037 };
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039 
-<a name="l00046"></a><a class="code" href="class_style.html#7f1c573688f781a3d6081194c84affba">00046</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#7f1c573688f781a3d6081194c84affba" title="Returns true if the font weight is bold.">Style::isBold</a> ()
-<a name="l00047"></a>00047 {
+<a name="l00046"></a><a class="code" href="class_style.html#59d23709575c5e6e5434ef0af5ff94b6">00046</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#59d23709575c5e6e5434ef0af5ff94b6" title="Returns true if the font weight is bold.">Style::isBold</a> ()<span class="keyword"> const</span>
+<a name="l00047"></a>00047 <span class="keyword"></span>{
 <a name="l00048"></a>00048     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
 <a name="l00049"></a>00049     {
 <a name="l00050"></a>00050         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6639fc1130a1e2c8f8c1ad3deee8c0c5dc" title="Only bold.">BOLD</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82" title="Both bold and italic.">BOLD_ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b" title="Both bold and underlined.">BOLD_UNDERLINED</a>:
@@ -98,8 +98,8 @@ window.onload = initDynSections;
 <a name="l00061"></a>00061 };
 <a name="l00062"></a>00062 
 <a name="l00063"></a>00063 
-<a name="l00070"></a><a class="code" href="class_style.html#a1f4e590f1d15f37fddda4d1a7efeb51">00070</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#a1f4e590f1d15f37fddda4d1a7efeb51" title="Returns true if the font weight is italic.">Style::isItalic</a> ()
-<a name="l00071"></a>00071 {
+<a name="l00070"></a><a class="code" href="class_style.html#5d57a686b93123e8ca5f8f91afb596c1">00070</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#5d57a686b93123e8ca5f8f91afb596c1" title="Returns true if the font weight is italic.">Style::isItalic</a> ()<span class="keyword"> const</span>
+<a name="l00071"></a>00071 <span class="keyword"></span>{
 <a name="l00072"></a>00072     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
 <a name="l00073"></a>00073     {
 <a name="l00074"></a>00074         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66c1005585401f6364dc82967ecf313617" title="Only italic.">ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82" title="Both bold and italic.">BOLD_ITALIC</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0" title="Both italic and underlined.">ITALIC_UNDERLINED</a>:
@@ -116,8 +116,8 @@ window.onload = initDynSections;
 <a name="l00085"></a>00085 };
 <a name="l00086"></a>00086 
 <a name="l00087"></a>00087 
-<a name="l00094"></a><a class="code" href="class_style.html#25d84b39fcd4fb608a1b323c99ea8678">00094</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#25d84b39fcd4fb608a1b323c99ea8678" title="Returns true if the font weight is underlined.">Style::isUnderlined</a> ()
-<a name="l00095"></a>00095 {
+<a name="l00094"></a><a class="code" href="class_style.html#d1fcc32d8b565aae007012eb603fedcd">00094</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#d1fcc32d8b565aae007012eb603fedcd" title="Returns true if the font weight is underlined.">Style::isUnderlined</a> ()<span class="keyword"> const</span>
+<a name="l00095"></a>00095 <span class="keyword"></span>{
 <a name="l00096"></a>00096     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
 <a name="l00097"></a>00097     {
 <a name="l00098"></a>00098         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66d460ec31770f376d61ffb3a9b0b31990" title="Normal but underlined.">UNDERLINED</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0" title="Both italic and underlined.">ITALIC_UNDERLINED</a> | <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b" title="Both bold and underlined.">BOLD_UNDERLINED</a>:
@@ -134,8 +134,8 @@ window.onload = initDynSections;
 <a name="l00109"></a>00109 };
 <a name="l00110"></a>00110 
 <a name="l00111"></a>00111 
-<a name="l00118"></a><a class="code" href="class_style.html#07721a2c2c852f4281368731d22d74b7">00118</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#07721a2c2c852f4281368731d22d74b7" title="Returns true if the font weight is normal.">Style::isNormal</a> ()
-<a name="l00119"></a>00119 {
+<a name="l00118"></a><a class="code" href="class_style.html#db2cbc7ca50b2f5c632c8e9b0420044c">00118</a> <span class="keywordtype">bool</span> <a class="code" href="class_style.html#db2cbc7ca50b2f5c632c8e9b0420044c" title="Returns true if the font weight is normal.">Style::isNormal</a> ()<span class="keyword"> const</span>
+<a name="l00119"></a>00119 <span class="keyword"></span>{
 <a name="l00120"></a>00120     <span class="keywordflow">switch</span> (this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>)
 <a name="l00121"></a>00121     {
 <a name="l00122"></a>00122         <span class="keywordflow">case</span> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7" title="Normal font, without decorations.">NORMAL</a>:
@@ -152,8 +152,8 @@ window.onload = initDynSections;
 <a name="l00133"></a>00133 };
 <a name="l00134"></a>00134 
 <a name="l00135"></a>00135 
-<a name="l00142"></a><a class="code" href="class_style.html#7797f0204f6af51911d887f970d9fbeb">00142</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_style.html#7797f0204f6af51911d887f970d9fbeb" title="Returns the font size.">Style::getSize</a> ()
-<a name="l00143"></a>00143 {
+<a name="l00142"></a><a class="code" href="class_style.html#9356c4a5d30f4e0f5c86f8c8b3f36cd2">00142</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_style.html#9356c4a5d30f4e0f5c86f8c8b3f36cd2" title="Returns the font size.">Style::getSize</a> ()<span class="keyword"> const</span>
+<a name="l00143"></a>00143 <span class="keyword"></span>{
 <a name="l00144"></a>00144     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#ede56099c2297cd24b6fe9904f857447" title="Size of the character in points.">size</a>;
 <a name="l00145"></a>00145 };
 <a name="l00146"></a>00146 
@@ -164,8 +164,8 @@ window.onload = initDynSections;
 <a name="l00157"></a>00157 };
 <a name="l00158"></a>00158 
 <a name="l00159"></a>00159 
-<a name="l00166"></a><a class="code" href="class_style.html#0cc67191ece90fc438835a20f2047669">00166</a> <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> <a class="code" href="class_style.html#0cc67191ece90fc438835a20f2047669" title="Returns the font color.">Style::getColor</a> ()
-<a name="l00167"></a>00167 {
+<a name="l00166"></a><a class="code" href="class_style.html#2ddce056a39c4463bd952d0590b85c6b">00166</a> <a class="code" href="struct_font_color.html" title="Font color of a character.">FontColor</a> <a class="code" href="class_style.html#2ddce056a39c4463bd952d0590b85c6b" title="Returns the font color.">Style::getColor</a> ()<span class="keyword"> const</span>
+<a name="l00167"></a>00167 <span class="keyword"></span>{
 <a name="l00168"></a>00168     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#ff542273b06e2a626793ae7090caff8e" title="Color of the character.">color</a>;
 <a name="l00169"></a>00169 };
 <a name="l00170"></a>00170 
@@ -182,8 +182,8 @@ window.onload = initDynSections;
 <a name="l00195"></a>00195 };
 <a name="l00196"></a>00196 
 <a name="l00197"></a>00197 
-<a name="l00204"></a><a class="code" href="class_style.html#39e6b6db6483c8f8baee630230fa8386">00204</a> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> <a class="code" href="class_style.html#39e6b6db6483c8f8baee630230fa8386" title="Returns the font weight.">Style::getWeight</a> ()
-<a name="l00205"></a>00205 {
+<a name="l00204"></a><a class="code" href="class_style.html#5798e7a57bb2df5e37aa0cdc5606a8b3">00204</a> <a class="code" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a> <a class="code" href="class_style.html#5798e7a57bb2df5e37aa0cdc5606a8b3" title="Returns the font weight.">Style::getWeight</a> ()<span class="keyword"> const</span>
+<a name="l00205"></a>00205 <span class="keyword"></span>{
 <a name="l00206"></a>00206     <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a>;
 <a name="l00207"></a>00207 };
 <a name="l00208"></a>00208 
@@ -193,7 +193,7 @@ window.onload = initDynSections;
 <a name="l00220"></a>00220     this-&gt;<a class="code" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9" title="Font weight of the character.">weight</a> = weight_;
 <a name="l00221"></a>00221 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Sep 18 17:36:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:16:57 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

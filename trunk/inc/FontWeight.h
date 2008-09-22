@@ -2,7 +2,7 @@
 #define _FONTWEIGHT_H
 
 ///
-/// \file
+/// @file
 ///
 
 /// Font weight of a character
