@@ -1,8 +1,145 @@
-\select@language {spanish}
-\contentsline {chapter}{\numberline {1}Indice de archivos}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Lista de archivos}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}Documentaci\IeC {\'o}n de archivos}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Referencia del Archivo main.cpp}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Documentaci\IeC {\'o}n de las funciones}{3}{subsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.1}main}{3}{subsubsection.2.1.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.2}threshold}{3}{subsubsection.2.1.1.2}
+\contentsline {chapter}{\numberline {1}Directory Hierarchy}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Directories}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Data Structure Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Data Structures}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Directory Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}inc/ Directory Reference}{7}{section.4.1}
+\contentsline {section}{\numberline {4.2}src/ Directory Reference}{8}{section.4.2}
+\contentsline {chapter}{\numberline {5}Data Structure Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Clip Class Reference}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{11}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Constructor \& Destructor Documentation}{13}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}Clip}{13}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}$\sim $Clip}{13}{subsubsection.5.1.2.2}
+\contentsline {subsection}{\numberline {5.1.3}Member Function Documentation}{14}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}getImage}{14}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}setImage}{14}{subsubsection.5.1.3.2}
+\contentsline {subsubsection}{\numberline {5.1.3.3}getXOrigin}{14}{subsubsection.5.1.3.3}
+\contentsline {subsubsection}{\numberline {5.1.3.4}setXOrigin}{15}{subsubsection.5.1.3.4}
+\contentsline {subsubsection}{\numberline {5.1.3.5}getYOrigin}{15}{subsubsection.5.1.3.5}
+\contentsline {subsubsection}{\numberline {5.1.3.6}setYOrigin}{15}{subsubsection.5.1.3.6}
+\contentsline {subsubsection}{\numberline {5.1.3.7}getHeight}{15}{subsubsection.5.1.3.7}
+\contentsline {subsubsection}{\numberline {5.1.3.8}setHeight}{16}{subsubsection.5.1.3.8}
+\contentsline {subsubsection}{\numberline {5.1.3.9}getWidth}{16}{subsubsection.5.1.3.9}
+\contentsline {subsubsection}{\numberline {5.1.3.10}setWidth}{16}{subsubsection.5.1.3.10}
+\contentsline {subsubsection}{\numberline {5.1.3.11}getColorspace}{16}{subsubsection.5.1.3.11}
+\contentsline {subsubsection}{\numberline {5.1.3.12}setColorspace}{17}{subsubsection.5.1.3.12}
+\contentsline {subsubsection}{\numberline {5.1.3.13}isGrayscale}{17}{subsubsection.5.1.3.13}
+\contentsline {subsubsection}{\numberline {5.1.3.14}isColor}{17}{subsubsection.5.1.3.14}
+\contentsline {subsubsection}{\numberline {5.1.3.15}isMonochromatic}{17}{subsubsection.5.1.3.15}
+\contentsline {subsubsection}{\numberline {5.1.3.16}getPixel}{18}{subsubsection.5.1.3.16}
+\contentsline {subsubsection}{\numberline {5.1.3.17}setPixel}{18}{subsubsection.5.1.3.17}
+\contentsline {subsubsection}{\numberline {5.1.3.18}setPixel}{18}{subsubsection.5.1.3.18}
+\contentsline {subsubsection}{\numberline {5.1.3.19}setPixel}{19}{subsubsection.5.1.3.19}
+\contentsline {subsection}{\numberline {5.1.4}Field Documentation}{19}{subsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.4.1}colorspace\_\discretionary {-}{}{}}{19}{subsubsection.5.1.4.1}
+\contentsline {subsubsection}{\numberline {5.1.4.2}frame\_\discretionary {-}{}{}}{19}{subsubsection.5.1.4.2}
+\contentsline {subsubsection}{\numberline {5.1.4.3}originPixel\_\discretionary {-}{}{}}{19}{subsubsection.5.1.4.3}
+\contentsline {section}{\numberline {5.2}FontColor Struct Reference}{20}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{20}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Constructor \& Destructor Documentation}{21}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}FontColor}{21}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}FontColor}{21}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}$\sim $FontColor}{21}{subsubsection.5.2.2.3}
+\contentsline {section}{\numberline {5.3}Pixel Class Reference}{23}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{23}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Constructor \& Destructor Documentation}{26}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}Pixel}{26}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}Pixel}{26}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}Pixel}{26}{subsubsection.5.3.2.3}
+\contentsline {subsubsection}{\numberline {5.3.2.4}Pixel}{26}{subsubsection.5.3.2.4}
+\contentsline {subsubsection}{\numberline {5.3.2.5}Pixel}{27}{subsubsection.5.3.2.5}
+\contentsline {subsubsection}{\numberline {5.3.2.6}Pixel}{27}{subsubsection.5.3.2.6}
+\contentsline {subsubsection}{\numberline {5.3.2.7}$\sim $Pixel}{27}{subsubsection.5.3.2.7}
+\contentsline {subsection}{\numberline {5.3.3}Member Function Documentation}{27}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}getX}{27}{subsubsection.5.3.3.1}
+\contentsline {subsubsection}{\numberline {5.3.3.2}getY}{28}{subsubsection.5.3.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3.3}getGrayLevel}{28}{subsubsection.5.3.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.4}getColor}{28}{subsubsection.5.3.3.4}
+\contentsline {subsubsection}{\numberline {5.3.3.5}getForeground}{28}{subsubsection.5.3.3.5}
+\contentsline {subsubsection}{\numberline {5.3.3.6}setColor}{29}{subsubsection.5.3.3.6}
+\contentsline {subsubsection}{\numberline {5.3.3.7}setColor}{29}{subsubsection.5.3.3.7}
+\contentsline {subsubsection}{\numberline {5.3.3.8}setColor}{29}{subsubsection.5.3.3.8}
+\contentsline {subsubsection}{\numberline {5.3.3.9}setColor}{29}{subsubsection.5.3.3.9}
+\contentsline {subsubsection}{\numberline {5.3.3.10}setColor}{30}{subsubsection.5.3.3.10}
+\contentsline {subsubsection}{\numberline {5.3.3.11}setColor}{30}{subsubsection.5.3.3.11}
+\contentsline {section}{\numberline {5.4}Statistics Struct Reference}{31}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{31}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Constructor \& Destructor Documentation}{33}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}Statistics}{33}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}$\sim $Statistics}{33}{subsubsection.5.4.2.2}
+\contentsline {section}{\numberline {5.5}Style Class Reference}{34}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{34}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Constructor \& Destructor Documentation}{36}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}Style}{36}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}Style}{36}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}$\sim $Style}{36}{subsubsection.5.5.2.3}
+\contentsline {subsection}{\numberline {5.5.3}Member Function Documentation}{37}{subsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.3.1}isBold}{37}{subsubsection.5.5.3.1}
+\contentsline {subsubsection}{\numberline {5.5.3.2}isItalic}{37}{subsubsection.5.5.3.2}
+\contentsline {subsubsection}{\numberline {5.5.3.3}isUnderlined}{37}{subsubsection.5.5.3.3}
+\contentsline {subsubsection}{\numberline {5.5.3.4}isNormal}{38}{subsubsection.5.5.3.4}
+\contentsline {subsubsection}{\numberline {5.5.3.5}getSize}{38}{subsubsection.5.5.3.5}
+\contentsline {subsubsection}{\numberline {5.5.3.6}setSize}{38}{subsubsection.5.5.3.6}
+\contentsline {subsubsection}{\numberline {5.5.3.7}getColor}{38}{subsubsection.5.5.3.7}
+\contentsline {subsubsection}{\numberline {5.5.3.8}setColor}{39}{subsubsection.5.5.3.8}
+\contentsline {subsubsection}{\numberline {5.5.3.9}setColor}{39}{subsubsection.5.5.3.9}
+\contentsline {subsubsection}{\numberline {5.5.3.10}getWeight}{39}{subsubsection.5.5.3.10}
+\contentsline {subsubsection}{\numberline {5.5.3.11}setWeight}{40}{subsubsection.5.5.3.11}
+\contentsline {section}{\numberline {5.6}Text Class Reference}{41}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{43}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Constructor \& Destructor Documentation}{45}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}Text}{45}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}Text}{45}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}Text}{45}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}$\sim $Text}{46}{subsubsection.5.6.2.4}
+\contentsline {subsection}{\numberline {5.6.3}Member Function Documentation}{46}{subsection.5.6.3}
+\contentsline {subsubsection}{\numberline {5.6.3.1}addCharacter}{46}{subsubsection.5.6.3.1}
+\contentsline {subsubsection}{\numberline {5.6.3.2}addCharacter}{46}{subsubsection.5.6.3.2}
+\contentsline {subsubsection}{\numberline {5.6.3.3}addCharacter}{47}{subsubsection.5.6.3.3}
+\contentsline {subsubsection}{\numberline {5.6.3.4}addCharacter}{47}{subsubsection.5.6.3.4}
+\contentsline {subsubsection}{\numberline {5.6.3.5}removeCharacter}{47}{subsubsection.5.6.3.5}
+\contentsline {subsubsection}{\numberline {5.6.3.6}getCharacterStyle}{48}{subsubsection.5.6.3.6}
+\contentsline {subsubsection}{\numberline {5.6.3.7}setCharacterStyle}{48}{subsubsection.5.6.3.7}
+\contentsline {subsubsection}{\numberline {5.6.3.8}getContent}{48}{subsubsection.5.6.3.8}
+\contentsline {subsubsection}{\numberline {5.6.3.9}setContent}{49}{subsubsection.5.6.3.9}
+\contentsline {subsubsection}{\numberline {5.6.3.10}getStyles}{49}{subsubsection.5.6.3.10}
+\contentsline {subsubsection}{\numberline {5.6.3.11}setStyles}{49}{subsubsection.5.6.3.11}
+\contentsline {subsubsection}{\numberline {5.6.3.12}getLength}{49}{subsubsection.5.6.3.12}
+\contentsline {subsubsection}{\numberline {5.6.3.13}getWordRates}{50}{subsubsection.5.6.3.13}
+\contentsline {subsubsection}{\numberline {5.6.3.14}getProportionality}{50}{subsubsection.5.6.3.14}
+\contentsline {subsubsection}{\numberline {5.6.3.15}setProportionality}{50}{subsubsection.5.6.3.15}
+\contentsline {subsubsection}{\numberline {5.6.3.16}computeWordRates}{51}{subsubsection.5.6.3.16}
+\contentsline {subsubsection}{\numberline {5.6.3.17}updateWordRate}{51}{subsubsection.5.6.3.17}
+\contentsline {subsubsection}{\numberline {5.6.3.18}tokenize}{51}{subsubsection.5.6.3.18}
+\contentsline {chapter}{\numberline {6}File Documentation}{53}{chapter.6}
+\contentsline {section}{\numberline {6.1}Clip.h File Reference}{53}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{53}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Colorspace.h File Reference}{55}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{55}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Enumeration Type Documentation}{55}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}Colorspace}{55}{subsubsection.6.2.2.1}
+\contentsline {section}{\numberline {6.3}FontColor.h File Reference}{57}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Detailed Description}{57}{subsection.6.3.1}
+\contentsline {section}{\numberline {6.4}FontProportionality.h File Reference}{58}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{58}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Enumeration Type Documentation}{58}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}FontProportionality}{58}{subsubsection.6.4.2.1}
+\contentsline {section}{\numberline {6.5}FontWeight.h File Reference}{59}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{59}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Enumeration Type Documentation}{59}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}FontWeight}{59}{subsubsection.6.5.2.1}
+\contentsline {section}{\numberline {6.6}Pixel.h File Reference}{61}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Detailed Description}{61}{subsection.6.6.1}
+\contentsline {section}{\numberline {6.7}Statistics.h File Reference}{62}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{62}{subsection.6.7.1}
+\contentsline {section}{\numberline {6.8}Style.h File Reference}{63}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{63}{subsection.6.8.1}
+\contentsline {section}{\numberline {6.9}Text.h File Reference}{64}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Detailed Description}{64}{subsection.6.9.1}
+\contentsline {section}{\numberline {6.10}WordRate.h File Reference}{65}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Detailed Description}{65}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Typedef Documentation}{65}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}WordRate}{65}{subsubsection.6.10.2.1}

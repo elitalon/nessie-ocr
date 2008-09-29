@@ -50,7 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="classes.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
@@ -59,82 +59,83 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Text.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#if !defined(_TEXT_H)</span>
+<h1>Text.h</h1><a href="_text_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#if !defined(_TEXT_H)</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _TEXT_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="_word_rate_8h.html">WordRate.h</a>"</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include "<a class="code" href="_font_proportionality_8h.html">FontProportionality.h</a>"</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include "Style.h"</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;algorithm&gt;</span>
-<a name="l00011"></a>00011 <span class="keyword">using namespace </span>std;
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="_word_rate_8h.html" title="Declaration of custom type WordRate.">WordRate.h</a>"</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="_font_proportionality_8h.html" title="Declaration of enumeration FontProportionality.">FontProportionality.h</a>"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_style_8h.html" title="Declaration of class Style.">Style.h</a>"</span>
 <a name="l00012"></a>00012 
-<a name="l00013"></a>00013 
-<a name="l00025"></a><a class="code" href="class_text.html">00025</a> <span class="keyword">class </span><a class="code" href="class_text.html" title="Text extracted from the clip by the recognizer.">Text</a>
-<a name="l00026"></a>00026 {
-<a name="l00027"></a>00027     <span class="keyword">public</span>:
-<a name="l00028"></a>00028         
-<a name="l00032"></a>00032         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> ();
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;algorithm&gt;</span>
+<a name="l00016"></a>00016 <span class="keyword">using namespace </span>std;
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 
+<a name="l00030"></a><a class="code" href="class_text.html">00030</a> <span class="keyword">class </span><a class="code" href="class_text.html" title="Text extracted from the clip by the recognizer.">Text</a>
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032     <span class="keyword">public</span>:
 <a name="l00033"></a>00033         
-<a name="l00037"></a>00037         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content_);
+<a name="l00037"></a>00037         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> ();
 <a name="l00038"></a>00038         
-<a name="l00042"></a>00042         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content_, vector&lt;Style&gt; styles_);
+<a name="l00042"></a>00042         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content);
 <a name="l00043"></a>00043         
-<a name="l00047"></a>00047         <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">~Text</a> ();
+<a name="l00047"></a>00047         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content, vector&lt;Style&gt; styles);
 <a name="l00048"></a>00048         
-<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character);
+<a name="l00052"></a>00052         <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">~Text</a> ();
 <a name="l00053"></a>00053         
-<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_);
+<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character);
 <a name="l00058"></a>00058         
-<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_);
+<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style);
 <a name="l00063"></a>00063         
-<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_);
-<a name="l00068"></a>00068 
-<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8f38ee63a6b7706d5822ee98ac6413bc" title="Removes a character from the text.">removeCharacter</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_);
-<a name="l00073"></a>00073         
-<a name="l00077"></a>00077         <a class="code" href="class_style.html" title="Font style of a character.">Style</a> <a class="code" href="class_text.html#e7f5d4bb80673566a91e53f70fdfcaa2" title="Returns the style of a single character.">getCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_) <span class="keyword">const</span>;
-<a name="l00078"></a>00078 
-<a name="l00082"></a>00082         <span class="keywordtype">void</span> <a class="code" href="class_text.html#675870393c37aea8ea2018bc318620f3" title="Sets the style of a single character.">setCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position_, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style_);
-<a name="l00083"></a>00083                 
-<a name="l00087"></a>00087         <span class="keywordtype">string</span> <a class="code" href="class_text.html#b982578fcb4eda8f6cb49927600f859f" title="Returns the text itself.">getContent</a> () <span class="keyword">const</span>;
-<a name="l00088"></a>00088 
-<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="class_text.html#c96c194afc22e2d11cbc547cde66fe3b" title="Sets the text.">setContent</a> (<span class="keywordtype">string</span> content_);
-<a name="l00093"></a>00093         
-<a name="l00097"></a>00097         vector&lt;Style&gt; <a class="code" href="class_text.html#5d0279f5ce832a447c68b99182753928" title="Returns the list of text styles.">getStyles</a> () <span class="keyword">const</span>;
-<a name="l00098"></a>00098 
-<a name="l00102"></a>00102         <span class="keywordtype">void</span> <a class="code" href="class_text.html#84a3f53c167e11c2ef455fa8a26bb15f" title="Sets the list of text styles.">setStyles</a> (vector&lt;Style&gt; styles_);
-<a name="l00103"></a>00103         
-<a name="l00107"></a>00107         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a> () <span class="keyword">const</span>;
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position);
+<a name="l00068"></a>00068         
+<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="class_text.html#f30df66d8aa08a4e202512a358534f6c" title="Adds a character to the text.">addCharacter</a> (<span class="keywordtype">char</span> character, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position);
+<a name="l00073"></a>00073 
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="class_text.html#d62cf2b09042cfd169b8274ef3226fbd" title="Removes a character from the text.">removeCharacter</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position);
+<a name="l00078"></a>00078         
+<a name="l00082"></a>00082         <a class="code" href="class_style.html" title="Font style of a character.">Style</a> <a class="code" href="class_text.html#7fec452bd51b06b53fbb5abc9c335459" title="Returns the style of a single character.">getCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position) <span class="keyword">const</span>;
+<a name="l00083"></a>00083 
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7cf2efca7fdd4d7b04292e373d5c2e5e" title="Sets the style of a single character.">setCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style);
+<a name="l00088"></a>00088                 
+<a name="l00092"></a>00092         <span class="keywordtype">string</span> <a class="code" href="class_text.html#b982578fcb4eda8f6cb49927600f859f" title="Returns the text itself.">getContent</a> () <span class="keyword">const</span>;
+<a name="l00093"></a>00093 
+<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_text.html#422e904d6f93e34741c28099fc5b077a" title="Sets the text.">setContent</a> (<span class="keywordtype">string</span> content);
+<a name="l00098"></a>00098         
+<a name="l00102"></a>00102         vector&lt;Style&gt; <a class="code" href="class_text.html#5d0279f5ce832a447c68b99182753928" title="Returns the list of text styles.">getStyles</a> () <span class="keyword">const</span>;
+<a name="l00103"></a>00103 
+<a name="l00107"></a>00107         <span class="keywordtype">void</span> <a class="code" href="class_text.html#419c845399aa5e49e3271600fc8a812d" title="Sets the list of text styles.">setStyles</a> (vector&lt;Style&gt; styles);
 <a name="l00108"></a>00108         
-<a name="l00112"></a>00112         vector&lt;WordRate&gt; <a class="code" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9" title="Returns the appearance rates of every single word in text.">getWordRates</a> () <span class="keyword">const</span>;
+<a name="l00112"></a>00112         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a> () <span class="keyword">const</span>;
 <a name="l00113"></a>00113         
-<a name="l00117"></a>00117         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5" title="Returns the font proportionality in text.">getProportionality</a> () <span class="keyword">const</span>;
-<a name="l00118"></a>00118 
-<a name="l00122"></a>00122         <span class="keywordtype">void</span> <a class="code" href="class_text.html#3e99161a047df59a078043ca6c128788" title="Sets the font proportionality in text.">setProportionality</a> (<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> proportionality_);
+<a name="l00117"></a>00117         vector&lt;WordRate&gt; <a class="code" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9" title="Returns the appearance rates of every single word in text.">getWordRates</a> () <span class="keyword">const</span>;
+<a name="l00118"></a>00118         
+<a name="l00122"></a>00122         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5" title="Returns the font proportionality in text.">getProportionality</a> () <span class="keyword">const</span>;
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125     <span class="keyword">private</span>:
-<a name="l00126"></a>00126         
-<a name="l00130"></a><a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882">00130</a>         <span class="keywordtype">string</span> <a class="code" href="class_text.html#16a34f9fe1c7a3c025ef16e9999c4882" title="The text itself.">content</a>;
+<a name="l00127"></a>00127         <span class="keywordtype">void</span> <a class="code" href="class_text.html#3b2b58565dd9f580163d9efb827e995d" title="Sets the font proportionality in text.">setProportionality</a> (<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> proportionality);
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130     <span class="keyword">private</span>:
 <a name="l00131"></a>00131         
-<a name="l00135"></a><a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d">00135</a>         vector&lt;Style&gt; <a class="code" href="class_text.html#2c322226122eeb533c267eeeef8d4a4d" title="A list of every character style.">styles</a>;
+<a name="l00135"></a><a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90">00135</a>         <span class="keywordtype">string</span> <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>;
 <a name="l00136"></a>00136         
-<a name="l00140"></a><a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6">00140</a>         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#e0471b8ee4689550703105ebcb63bad6" title="The text proportionality.">proportionality</a>;
+<a name="l00140"></a><a class="code" href="class_text.html#bc777b68be5bbf0799283e10fbb235a1">00140</a>         vector&lt;Style&gt; <a class="code" href="class_text.html#bc777b68be5bbf0799283e10fbb235a1" title="A list of every character style.">styles_</a>;
 <a name="l00141"></a>00141         
-<a name="l00145"></a><a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd">00145</a>         vector&lt;WordRate&gt; <a class="code" href="class_text.html#7505af95f67166479797a8863f8043cd" title="A list of appearance rates of every single word in text.">wordRates</a>;
+<a name="l00145"></a><a class="code" href="class_text.html#6049856ff19b54d4d23d6cfd7e629c7a">00145</a>         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#6049856ff19b54d4d23d6cfd7e629c7a" title="The text proportionality.">proportionality_</a>;
 <a name="l00146"></a>00146         
-<a name="l00150"></a>00150         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a> ();
+<a name="l00150"></a><a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef">00150</a>         vector&lt;WordRate&gt; <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>;
 <a name="l00151"></a>00151         
-<a name="l00155"></a>00155         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7c2b1a540b470cb7aa37fb42070a674f" title="Increases by one the number of appearances of a word.">updateWordRate</a> (<span class="keywordtype">string</span> word_);
+<a name="l00155"></a>00155         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a> ();
 <a name="l00156"></a>00156         
-<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">tokenize</a>(vector&lt;string&gt;&amp; tokens_, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; delimiters_ = <span class="stringliteral">" ,.\n\t:;!¡¿?&amp;/()="</span>) <span class="keyword">const</span>;
-<a name="l00161"></a>00161 };
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 <span class="preprocessor">#endif  //_TEXT_H</span>
+<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7c2b1a540b470cb7aa37fb42070a674f" title="Increases by one the number of appearances of a word.">updateWordRate</a> (<span class="keywordtype">string</span> word_);
+<a name="l00161"></a>00161         
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">tokenize</a>(vector&lt;string&gt;&amp; tokens_, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; delimiters_ = <span class="stringliteral">" ,.\n\t:;!¡¿?&amp;/()="</span>) <span class="keyword">const</span>;
+<a name="l00166"></a>00166 };
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 <span class="preprocessor">#endif  //_TEXT_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:25:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

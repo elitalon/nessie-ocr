@@ -1,8 +1,13 @@
 #if !defined(_STYLE_H)
 #define _STYLE_H
 
+///
+/// @file
+/// @brief Declaration of class Style
+///
+
 #include "FontWeight.h"
-#include "FontColor.h"
+#include "RgbColor.h"
 
 
 ///
@@ -14,7 +19,7 @@
 /// style of every single character.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18 
+/// @date 2008-09-25
 ///
 class Style
 {
@@ -28,7 +33,7 @@ class Style
 		///
 		/// Constructor
 		///
-		Style (unsigned int size_, FontColor color_, FontWeight weight_);
+		Style (unsigned int size, RgbColor color, FontWeight weight);
 	
 		///
 		/// Destructor
@@ -63,22 +68,22 @@ class Style
 		///
 		/// Sets the font size
 		///
-		void setSize (unsigned int size_);
+		void setSize (unsigned int size);
 
 		///
 		/// Returns the font color
 		///
-		FontColor getColor () const;
+		RgbColor getColor () const;
 	
 		///
 		/// Sets the font color
 		///
-		void setColor (FontColor color_);
+		void setColor (RgbColor color);
 	
 		///
 		/// Sets the font color
 		///
-		void setColor (unsigned int red_, unsigned int green_, unsigned int blue_);
+		void setColor (double red, double green, double blue);
 	
 		///
 		/// Returns the font weight
@@ -88,7 +93,7 @@ class Style
 		///
 		/// Sets the font weight
 		///
-		void setWeight (FontWeight weight_);
+		void setWeight (FontWeight weight);
 
 
 	private:
@@ -96,17 +101,17 @@ class Style
 		///
 		/// Size of the character in points
 		///
-		unsigned int size;
+		unsigned int size_;
 	
 		///
 		/// Color of the character
 		///
-		FontColor color;
+		RgbColor color_;
 	
 		///
 		/// Font weight of the character
 		///
-		FontWeight weight;		
+		FontWeight weight_;		
 };
 
 #endif  //_STYLE_H

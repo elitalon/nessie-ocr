@@ -1,6 +1,11 @@
 #if !defined(_STATISTICS_H)
 #define _STATISTICS_H
 
+///
+/// @file
+/// @brief Declaration of struct Statistics
+///
+
 #include "WordRate.h"
 
 #include <vector>

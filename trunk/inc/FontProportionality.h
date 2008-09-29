@@ -3,6 +3,7 @@
 
 ///
 /// @file
+/// @brief Declaration of enumeration FontProportionality
 ///
 
 
@@ -14,12 +15,12 @@
 /// while proportional type is usual in Roman fonts.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 ///
 enum FontProportionality
 {
-	MONOSPACED,		///< In fixed width fonts
-	PROPORTIONAL	///< In Roman fonts
+	FONT_MONOSPACED,		///< In fixed width fonts
+	FONT_PROPORTIONAL		///< In Roman fonts
 };
 
 #endif  //_FONTPROPORTIONALITY_H

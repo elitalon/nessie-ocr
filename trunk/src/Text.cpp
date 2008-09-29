@@ -1,13 +1,18 @@
 #include "Text.h"
 
+///
+/// @file
+/// @brief Implementation of class Text
+///
+
 
 ///
 /// @details Initializes a Text object with empty content and no styles
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
-Text::Text () : content(string("")), styles(vector<Style>(0)), proportionality(PROPORTIONAL), wordRates(vector<WordRate>(0))
+Text::Text () : content_(string("")), styles_(vector<Style>(0)), proportionality_(FONT_PROPORTIONAL), wordRates_(vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
 	computeWordRates();
@@ -18,12 +23,12 @@ Text::Text () : content(string("")), styles(vector<Style>(0)), proportionality(P
 /// @details Initializes a Text object with the content passed in content_ and no styles
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
-Text::Text (string content_) : content(content_), proportionality(PROPORTIONAL), wordRates(vector<WordRate>(0))
+Text::Text (string content) : content_(content), proportionality_(FONT_PROPORTIONAL), wordRates_(vector<WordRate>(0))
 {
 	// Initialize the vector of styles according to the number of characters in the content
-	styles = vector<Style>(content_.length());
+	styles_ = vector<Style>(content.length());
 	
 	// Build the appearance rate of every word in text
 	computeWordRates();
@@ -34,9 +39,9 @@ Text::Text (string content_) : content(content_), proportionality(PROPORTIONAL),
 /// @details Initializes a Text object with the content passed in content_ and styles passed in styles_
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
-Text::Text (string content_, vector<Style> styles_) : content(content_), styles(styles_), proportionality(PROPORTIONAL), wordRates(vector<WordRate>(0))
+Text::Text (string content, vector<Style> styles) : content_(content), styles_(styles), proportionality_(FONT_PROPORTIONAL), wordRates_(vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
 	computeWordRates();
@@ -65,41 +70,41 @@ Text::~Text ()
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-23
 /// 
-void Text::addCharacter (char character, Style style_, unsigned int position_)
+void Text::addCharacter (char character, Style style, unsigned int position)
 {
 	// The desired position exceeds the content length, so we append to the of the text
-	if(position_ > getLength())
+	if(position > getLength())
 	{
-		this->content += character;
-		this->styles.push_back(style_);
+		content_ += character;
+		styles_.push_back(style);
 	}
 	else
 	{
 		// Check for a valid position, though a compiler should use a big value when a negative
 		// number is assigned to an unsigned int
-		if (position_ < 0)
+		if (position < 0)
 		{
-			position_ = 0;
+			position = 0;
 		}
 				
 		// Declare two iterators for pointing to the desired position
-		string::iterator contentIterator		= this->content.begin();
-		vector<Style>::iterator stylesIterator	= this->styles.begin();
+		string::iterator contentIterator		= content_.begin();
+		vector<Style>::iterator stylesIterator	= styles_.begin();
 		
 		// Advance the iterators until the desired position
-		while (position_ > 1)
+		while (position > 1)
 		{
 			++contentIterator;
 			++stylesIterator;
 
-			--position_;
+			--position;
 		}
 		
 		// Insert the character and its style
-		this->content.insert(contentIterator, character);
-		this->styles.insert(stylesIterator, style_);
+		content_.insert(contentIterator, character);
+		styles_.insert(stylesIterator, style);
 	}
 	
 	// Rebuild the appearance rate of every word in text
@@ -108,38 +113,38 @@ void Text::addCharacter (char character, Style style_, unsigned int position_)
 
 
 ///
-/// @details The character is appended to the text at position passed in position_,
+/// @details The character is appended to the text at position passed,
 /// with a default style. If the position passed is over the text total length,
 /// the character is appended to the end of the text.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-23
 /// 
-void Text::addCharacter (char character, unsigned int position_)
+void Text::addCharacter (char character, unsigned int position)
 {
 	// Check for a valid position
-	if (position_ < 0)
+	if (position < 0)
 	{
-		position_ = 0;
+		position = 0;
 	}
 	
 	// Call the generic 'addCharacter' function
-	addCharacter(character, Style(), position_);
+	addCharacter(character, Style(), position);
 }
 
 
 ///
-/// @details The character is appended to the end of the text with the style passed in style_.
+/// @details The character is appended to the end of the text with the style passed.
 /// 
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-23
 /// 
-void Text::addCharacter (char character, Style style_)
+void Text::addCharacter (char character, Style style)
 {
 	// Call the generic 'addCharacter' function
-	addCharacter(character, style_, getLength());
+	addCharacter(character, style, getLength());
 }
 
 
@@ -161,32 +166,32 @@ void Text::addCharacter (char character)
 /// over the text total length. In such case, the last character is removed
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-23
 /// 
-void Text::removeCharacter (unsigned int position_)
+void Text::removeCharacter (unsigned int position)
 {
 	// Check for a valid position
-	if (position_ > getLength())
+	if (position > getLength())
 	{
-		position_ = getLength();
+		position = getLength();
 	}
 	
 	// Declare two iterators for pointing to the desired character and its style
-	string::iterator contentIterator		= this->content.begin();
-	vector<Style>::iterator stylesIterator	= this->styles.begin();
+	string::iterator contentIterator		= content_.begin();
+	vector<Style>::iterator stylesIterator	= styles_.begin();
 	
 	// Advance the iterators until the desired position
-	while (position_ > 1)
+	while (position > 1)
 	{
 		++contentIterator;
 		++stylesIterator;
 		
-		--position_;
+		--position;
 	}
 	
 	// Remove the character and its style
-	this->content.erase(contentIterator);
-	this->styles.erase(stylesIterator);
+	content_.erase(contentIterator);
+	styles_.erase(stylesIterator);
 	
 	// Rebuild the appearance rate of every word in text
 	computeWordRates();
@@ -201,18 +206,14 @@ void Text::removeCharacter (unsigned int position_)
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-26
 /// 
-Style Text::getCharacterStyle (unsigned int position_) const
+Style Text::getCharacterStyle (unsigned int position) const
 {
-	if (position_ >= getLength())
-	{
+	if (position >= getLength())
 		return Style();
-	}
 	else
-	{
-		return this->styles[position_];
-	}
+		return styles_[position];
 };
 
 
@@ -223,34 +224,32 @@ Style Text::getCharacterStyle (unsigned int position_) const
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-26
 /// 
-void Text::setCharacterStyle (unsigned int position_, Style style_)
+void Text::setCharacterStyle (unsigned int position, Style style)
 {
-	if (position_ < getLength())
-	{
-		this->styles[position_] = style_;
-	}
+	if (position < getLength())
+		styles_[position] = style;
 };
 
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
 string Text::getContent () const
 {
-	return this->content;
+	return content_;
 };
 
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
-void Text::setContent (string content_)
+void Text::setContent (string content)
 {
-	this->content = content_;
+	content_ = content;
 
 	// Rebuild the appearance rate of every word in the new text
 	computeWordRates();
@@ -262,11 +261,11 @@ void Text::setContent (string content_)
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
 vector<Style> Text::getStyles () const
 {
-	return this->styles;
+	return styles_;
 };
 
 
@@ -274,21 +273,21 @@ vector<Style> Text::getStyles () const
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
-void Text::setStyles (vector<Style> styles_)
+void Text::setStyles (vector<Style> styles)
 {
-	this->styles = styles_;
+	styles_ = styles;
 };
 
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
 unsigned int Text::getLength () const
 {
-	return this->content.length();
+	return content_.length();
 };
 
 
@@ -296,11 +295,11 @@ unsigned int Text::getLength () const
 /// @see WordRate
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 /// 
 vector<WordRate> Text::getWordRates () const
 {
-	return this->wordRates;
+	return wordRates_;
 };
 
 
@@ -314,7 +313,7 @@ vector<WordRate> Text::getWordRates () const
 /// 
 FontProportionality Text::getProportionality () const
 {
-	return this->proportionality;
+	return proportionality_;
 };
 
 
@@ -324,9 +323,9 @@ FontProportionality Text::getProportionality () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-18
 /// 
-void Text::setProportionality (FontProportionality proportionality_)
+void Text::setProportionality (FontProportionality proportionality)
 {
-	this->proportionality = proportionality_;
+	proportionality_ = proportionality;
 };
 
 
@@ -334,14 +333,14 @@ void Text::setProportionality (FontProportionality proportionality_)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-22
 ///
-void Text::updateWordRate (string word_)
+void Text::updateWordRate (string word)
 {
 	// Searches the word in the vector
 	vector<WordRate>::iterator wordRates;
-	for (wordRates = this->wordRates.begin(); wordRates != this->wordRates.end(); ++wordRates)
+	for (wordRates = wordRates_.begin(); wordRates != wordRates_.end(); ++wordRates)
 	{
 		// Updates its appearance rate
-		if ( (*wordRates).first == word_ )
+		if ( (*wordRates).first == word )
 		{
 			(*wordRates).second++;
 			return;
@@ -349,7 +348,7 @@ void Text::updateWordRate (string word_)
 	}
 	
 	// The word was not stored, so here we adds its first appearance
-	this->wordRates.push_back(WordRate(word_, 1));
+	wordRates_.push_back(WordRate(word, 1));
 };
 
 
@@ -359,7 +358,7 @@ void Text::updateWordRate (string word_)
 /// By the way, the number of words in text is also computed.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-26
 /// 
 void Text::computeWordRates ()
 {	
@@ -371,12 +370,10 @@ void Text::computeWordRates ()
 	// Update appearance rate of every word extracted
 	vector<string>::iterator wordsIterator;
 	for (wordsIterator = words.begin(); wordsIterator != words.end(); ++wordsIterator)
-	{
 		updateWordRate(*wordsIterator);
-	}
 		
 	// This sorting will improve future lookups
-	sort (this->wordRates.begin(), this->wordRates.end());
+	sort (wordRates_.begin(), wordRates_.end());
 };
 
 
@@ -384,24 +381,24 @@ void Text::computeWordRates ()
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-22
 ///
-void Text::tokenize(vector<string>& tokens_, const string& delimiters_) const
+void Text::tokenize(vector<string>& tokens, const string& delimiters) const
 {
 	// Skip delimiters at the beginning of text
-	string::size_type lastPos = this->content.find_first_not_of(delimiters_, 0);
+	string::size_type lastPos = content_.find_first_not_of(delimiters, 0);
 	
 	// Find the first "non-delimiter"
-	string::size_type pos     = this->content.find_first_of(delimiters_, lastPos);
+	string::size_type pos     = content_.find_first_of(delimiters, lastPos);
 	
 	// Traverse the content until reaching its end
 	while (string::npos != pos || string::npos != lastPos)
     {
 		// A word has been found, add it to the vector
-		tokens_.push_back(this->content.substr(lastPos, pos - lastPos));
+		tokens.push_back(content_.substr(lastPos, pos - lastPos));
 		
 		// Skip delimiters again
-		lastPos = this->content.find_first_not_of(delimiters_, pos);
+		lastPos = content_.find_first_not_of(delimiters, pos);
 		
 		// Find the next "non-delimiter"
-        pos = this->content.find_first_of(delimiters_, lastPos);
+        pos = content_.find_first_of(delimiters, lastPos);
     }
 };

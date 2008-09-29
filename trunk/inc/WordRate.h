@@ -3,6 +3,7 @@
 
 ///
 /// @file
+/// @brief Declaration of custom type WordRate
 ///
 
 #include <utility>		// For using 'pair' container

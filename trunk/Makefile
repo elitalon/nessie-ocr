@@ -18,13 +18,18 @@ INC=inc/
 LIB=lib/
 DOC=doc/
 
-# Magick++ API flags
-MAGICK=`Magick++-config --cppflags --cxxflags --ldflags --libs`
+# Magick++ API directives
+MAGICK_LINK=`Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_COMPILE=`Magick++-config --cppflags --cxxflags`
 
 # Source file of main program
 MAIN_SRC=$(SRC)main.cpp
 
-# Source files of 'WordRate' structure
+# Source files of 'NessieException' struct
+NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
+NESSIE_EXCEPTION_INC=$(INC)NessieException.h
+
+# Source files of 'WordRate' pair
 WORD_RATE_INC=$(INC)WordRate.h
 
 # Source files of 'Statistics' struct
@@ -34,12 +39,15 @@ STATISTICS_INC=$(INC)Statistics.h
 # Source files of 'FontWeight' enumeration
 FONT_WEIGHT_INC=$(INC)FontWeight.h
 
+# Source files of 'Colorspace' enumeration
+COLORSPACE_INC=$(INC)Colorspace.h
+
 # Source files of 'FontProportionality' enumeration
 FONT_PROPORTIONALITY_INC=$(INC)FontProportionality.h
 
-# Source files of 'FontColor' struct
-FONT_COLOR_SRC=$(SRC)FontColor.cpp
-FONT_COLOR_INC=$(INC)FontColor.h
+# Source files of 'RgbColor' struct
+RGB_COLOR_SRC=$(SRC)RgbColor.cpp
+RGB_COLOR_INC=$(INC)RgbColor.h
 
 # Source files of 'Style' class
 STYLE_SRC=$(SRC)Style.cpp
@@ -49,25 +57,40 @@ STYLE_INC=$(INC)Style.h
 TEXT_SRC=$(SRC)Text.cpp
 TEXT_INC=$(INC)Text.h
 
+# Source files of 'Pixel' class
+PIXEL_SRC=$(SRC)Pixel.cpp
+PIXEL_INC=$(INC)Pixel.h
+
+# Source files of 'Clip' class
+CLIP_SRC=$(SRC)Clip.cpp
+CLIP_INC=$(INC)Clip.h
+
 # Object files
 MAIN_OBJ=$(SRC)main.o
+NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
 STATISTICS_OBJ=$(SRC)Statistics.o
-FONT_COLOR_OBJ=$(SRC)FontColor.o
+RGB_COLOR_OBJ=$(SRC)RgbColor.o
 STYLE_OBJ=$(SRC)Style.o
 TEXT_OBJ=$(SRC)Text.o
+PIXEL_OBJ=$(SRC)Pixel.o
+CLIP_OBJ=$(SRC)Clip.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
+NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
+COLORSPACE=$(COLORSPACE_INC)
 WORD_RATE=$(WORD_RATE_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 FONT_WEIGHT=$(FONT_WEIGHT_INC)
 FONT_PROPORTIONALITY=$(FONT_PROPORTIONALITY_INC)
-FONT_COLOR=$(FONT_COLOR_INC) $(FONT_COLOR_SRC)
+RGB_COLOR=$(RGB_COLOR_INC) $(RGB_COLOR_SRC)
 STYLE=$(STYLE_INC) $(STYLE_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
+CLIP=$(CLIP_INC) $(CLIP_SRC)
+PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
 
 # Final object files
-OBJECTS=$(STATISTICS_OBJ) $(FONT_COLOR_OBJ) $(STYLE_OBJ) $(TEXT_OBJ) $(MAIN_OBJ)
+OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(STYLE_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(MAIN_OBJ)
 
 # Compiler options
 EXECUTABLE=test
@@ -82,15 +105,23 @@ TAB=\t
 main: $(OBJECTS)
 	@printf "** Linking and building the main rule:$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK) $(OBJECTS) -o $(EXECUTABLE)
+	g++ $(FLAGS) $(MAGICK_LINK) $(OBJECTS) -o $(EXECUTABLE)
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
 $(MAIN_OBJ): $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(MAIN_SRC) 
+	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(MAIN_SRC) 
 	@printf "$(TAB)"
 	mv main.o $(SRC)
+	@printf "$(NL)"
+
+$(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
+	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC) 
+	@printf "$(TAB)"
+	mv NessieException.o $(SRC)
 	@printf "$(NL)"
 
 $(STATISTICS_OBJ): $(WORD_RATE) $(STATISTICS) 
@@ -101,7 +132,7 @@ $(STATISTICS_OBJ): $(WORD_RATE) $(STATISTICS)
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
 
-$(STYLE_OBJ): $(FONT_COLOR_OBJ) $(FONT_WEIGHT) $(STYLE) 
+$(STYLE_OBJ): $(RGB_COLOR_OBJ) $(FONT_WEIGHT) $(STYLE) 
 	@printf "** Making rule $(STYLE_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) -c $(STYLE_SRC)
@@ -109,12 +140,12 @@ $(STYLE_OBJ): $(FONT_COLOR_OBJ) $(FONT_WEIGHT) $(STYLE)
 	mv Style.o $(SRC)
 	@printf "$(NL)"
 	
-$(FONT_COLOR_OBJ): $(FONT_COLOR)
-	@printf "** Making rule $(FONT_COLOR_OBJ):$(NL)"
+$(RGB_COLOR_OBJ): $(RGB_COLOR)
+	@printf "** Making rule $(RGB_COLOR_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(FONT_COLOR_SRC)
+	g++ $(FLAGS) -c $(RGB_COLOR_SRC)
 	@printf "$(TAB)"
-	mv FontColor.o $(SRC)
+	mv RgbColor.o $(SRC)
 	@printf "$(NL)"
 
 $(TEXT_OBJ): $(FONT_PROPORTIONALITY) $(STYLE_OBJ) $(WORD_RATE) $(TEXT)
@@ -124,15 +155,35 @@ $(TEXT_OBJ): $(FONT_PROPORTIONALITY) $(STYLE_OBJ) $(WORD_RATE) $(TEXT)
 	@printf "$(TAB)"
 	mv Text.o $(SRC)
 	@printf "$(NL)"
+	
+$(PIXEL_OBJ): $(RGB_COLOR_OBJ) $(COLORSPACE) $(PIXEL)
+	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(PIXEL_SRC)
+	@printf "$(TAB)"
+	mv Pixel.o $(SRC)
+	@printf "$(NL)"
 
-# Makes everything
-all: clean main
+$(CLIP_OBJ): $(PIXEL_OBJ) $(COLORSPACE) $(CLIP)
+	@printf "** Making rule $(CLIP_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(CLIP_SRC)
+	@printf "$(TAB)"
+	mv Clip.o $(SRC)
+	@printf "$(NL)"
 
 
-# Deletes everything
+# Make everything
+all: clean main doc
+
+# Generate documentation
+doc: $(INC)*.h $(SRC)*.cpp
+	@doxygen
+
+# Delete everything
 clean:
 	@printf "** Removing object and executable files$(NL)"
-	@rm $(SRC)*.o
+	@rm -f $(SRC)*.o
 	@printf "** Restoring permissions$(NL)"
 	@chmod 0644 $(SRC)*.cpp $(INC)*.h
 	@printf "$(NL)"

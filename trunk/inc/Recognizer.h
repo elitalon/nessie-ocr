@@ -1,10 +1,10 @@
 /**
- * Recognizer.h - Nessie, reconocedor óptico de texto en recortes de prensa escrita
+ * Recognizer.h - Nessie, reconocedor Ã³ptico de texto en recortes de prensa escrita
  *
- * @author Eliezer Talón
+ * @author Eliezer TalÃ³n
  * @date 16/09/2008
  * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
+ * @company Instituto Universitario de Ciencias y TecnologÃ­as CibernÃ©ticas (IUCTC)
  */
 
 #if !defined(_RECOGNIZER_H)
@@ -19,16 +19,16 @@
 #include "Text.h"
 #include "Statistic.h"
 
-class Recognizer : public Pixels
+class Recognizer
 {
 private:
-	Preprocessor preprocessor;
-	Partitioner partitioner;
-	Classifier classifier;
-	Clip clip;
-	Shape shapes;
-	Text text;
-	Statistic statistics;
+	Preprocessor preprocessor_;
+	Partitioner partitioner_;
+	Classifier classifier_;
+	Clip clip_;
+	Shape shapes_;
+	Text text_;
+	Statistic statistics_;
 public:
 	void Recognizer(string path, unsigned int x, unsigned int y, unsigned int height, unsigned int width);
 	void Recognizer(int image);

@@ -1,0 +1,532 @@
+\hypertarget{class_clip}{
+\section{Clip Class Reference}
+\label{class_clip}\index{Clip@{Clip}}
+}
+{\tt \#include $<$Clip.h$>$}
+
+Collaboration diagram for Clip:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_clip__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Press clip where the recognizer has to extract the text from. 
+
+This class manages the press clip where the recognizer has to extract the text, loading it with the Magick++ utilities. The press clip is an image that may come in several formats, such JPEG, PDF, PNG, etc. The ImageMagick library provides an abstraction layer to keep the code independent from the format.
+
+The idea behind this class is to encapsulate all the interactions with the Magick++ API, so that the rest of the classes have a unified way to work with the original image.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_pixel}{Pixel}, \hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 37 of file Clip.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}{Clip} (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned int height, unsigned int width)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_clip_88647ed65e3482b5e0533ec98667b0fa}{$\sim$Clip} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+Image \hyperlink{class_clip_f4500103f1babcf2b9283eaffc6af96a}{image} ()
+\begin{CompactList}\small\item\em Returns the current Image object. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_6965fb65870eeb239c8a829444bb4ed7}{xOrigin} () const 
+\begin{CompactList}\small\item\em Returns the X coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+void \hyperlink{class_clip_59bed794f674858a9ca02fce36c58fac}{xOrigin} (unsigned int x)
+\begin{CompactList}\small\item\em Sets the X coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_6023296db25d263b311900cafb7cc55d}{yOrigin} () const 
+\begin{CompactList}\small\item\em Returns the Y coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+void \hyperlink{class_clip_6b0100fdd089be816b97465df4dd2846}{yOrigin} (unsigned int y)
+\begin{CompactList}\small\item\em Sets the Y coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_393710a6b136f400dd5c900f8831e1a8}{height} () const 
+\begin{CompactList}\small\item\em Returns the clip's height. \item\end{CompactList}\item 
+void \hyperlink{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}{height} (unsigned int height)
+\begin{CompactList}\small\item\em Sets the clip's height. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_d3e816599913e4051e5d50fae17ecd76}{width} () const 
+\begin{CompactList}\small\item\em Returns the clip's width. \item\end{CompactList}\item 
+void \hyperlink{class_clip_17c1a23e159bedb6e2988235b8b568e7}{width} (unsigned int width)
+\begin{CompactList}\small\item\em Sets the clip's width. \item\end{CompactList}\item 
+\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} \hyperlink{class_clip_e22de9122a399af67576eb114842846a}{colorspace} () const 
+\begin{CompactList}\small\item\em Returns the clip's current colorspace. \item\end{CompactList}\item 
+void \hyperlink{class_clip_7e7fa163b90c573adc424e022235c539}{colorspace} (\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} colorspace)
+\begin{CompactList}\small\item\em Sets the clip's current colorspace. \item\end{CompactList}\item 
+bool \hyperlink{class_clip_6f8d3a88f89461350228f5e7b7b9d694}{isGrayscale} () const 
+\begin{CompactList}\small\item\em Returns true if the clip is in grayscale. \item\end{CompactList}\item 
+bool \hyperlink{class_clip_0a535167abd0a544a2de56c317bb6f3c}{isColor} () const 
+\begin{CompactList}\small\item\em Returns true if the clip is in color. \item\end{CompactList}\item 
+bool \hyperlink{class_clip_5045f79876d4299b54803d56b26d5f75}{isMonochromatic} () const 
+\begin{CompactList}\small\item\em Returns true if the clips is in black and white. \item\end{CompactList}\item 
+\hyperlink{class_pixel}{Pixel} \hyperlink{class_clip_74eded11c0dcbd2b10b453074cbb8b84}{getPixel} (unsigned int x, unsigned int y) const 
+\begin{CompactList}\small\item\em Returns the pixel at coordinates (x,y). \item\end{CompactList}\item 
+void \hyperlink{class_clip_3c48493242de7453438ed0e8d0ea74df}{setPixel} (unsigned int x, unsigned int y, double grayLevel)
+\begin{CompactList}\small\item\em Sets the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
+void \hyperlink{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}{setPixel} (unsigned int x, unsigned int y, double red, double green, double blue)
+\begin{CompactList}\small\item\em Sets the color of a pixel at coordinates (x,y). \item\end{CompactList}\item 
+void \hyperlink{class_clip_9e78d68c58016aaff8c65ddac29ed07f}{setPixel} (unsigned int x, unsigned int y, bool isForeground)
+\begin{CompactList}\small\item\em Sets whether a pixel at coordinates (x,y) belongs to the foreground or not. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_clip_66fc93c15de96d077d2242a53576528e}{relocateClipOrigin} ()
+\begin{CompactList}\small\item\em Relocates the origin of the clip. \item\end{CompactList}\item 
+void \hyperlink{class_clip_e050cf90340e9160f79688627d69a00b}{adjustClipSize} ()
+\begin{CompactList}\small\item\em Adjusts the size of the clip. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_clip_69cbe1f1e045c2c758cec611c22372a8}{
+Image \hyperlink{class_clip_69cbe1f1e045c2c758cec611c22372a8}{image\_\-}}
+\label{class_clip_69cbe1f1e045c2c758cec611c22372a8}
+
+\begin{CompactList}\small\item\em Image where the clip belongs to. \item\end{CompactList}\item 
+\hypertarget{class_clip_e5aa310fe60185a19e2f3f8d4ba150e7}{
+unsigned int \hyperlink{class_clip_e5aa310fe60185a19e2f3f8d4ba150e7}{xOrigin\_\-}}
+\label{class_clip_e5aa310fe60185a19e2f3f8d4ba150e7}
+
+\begin{CompactList}\small\item\em X coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+\hypertarget{class_clip_b7da9252cabfe96889e0676866799246}{
+unsigned int \hyperlink{class_clip_b7da9252cabfe96889e0676866799246}{yOrigin\_\-}}
+\label{class_clip_b7da9252cabfe96889e0676866799246}
+
+\begin{CompactList}\small\item\em Y coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
+\hypertarget{class_clip_eac813b06cee742c237240d9b7ccc336}{
+unsigned int \hyperlink{class_clip_eac813b06cee742c237240d9b7ccc336}{height\_\-}}
+\label{class_clip_eac813b06cee742c237240d9b7ccc336}
+
+\begin{CompactList}\small\item\em Height of the clip in pixels. \item\end{CompactList}\item 
+\hypertarget{class_clip_ba0048c33d63c40629e568d301f64f59}{
+unsigned int \hyperlink{class_clip_ba0048c33d63c40629e568d301f64f59}{width\_\-}}
+\label{class_clip_ba0048c33d63c40629e568d301f64f59}
+
+\begin{CompactList}\small\item\em Width of the clip in pixels. \item\end{CompactList}\item 
+\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} \hyperlink{class_clip_51b03c04118374cedeaa0d7a0ba37079}{colorspace\_\-}
+\begin{CompactList}\small\item\em Clip's colorspace. \item\end{CompactList}\item 
+Pixels $\ast$ \hyperlink{class_clip_2978b7e7061c444375c005ffc3d24416}{frame\_\-}
+\begin{CompactList}\small\item\em Pixels frame where the clip is located. \item\end{CompactList}\item 
+PixelPacket $\ast$ \hyperlink{class_clip_838228267146fd74e2828b7173b61091}{originPixel\_\-}
+\begin{CompactList}\small\item\em Frame's upper leftmost pixel. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}{
+\index{Clip@{Clip}!Clip@{Clip}}
+\index{Clip@{Clip}!Clip@{Clip}}
+\subsubsection[Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (Image {\em image}, \/  unsigned int {\em xOrigin}, \/  unsigned int {\em yOrigin}, \/  unsigned int {\em height}, \/  unsigned int {\em width})}}
+\label{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (xOrigin,yOrigin) in the source image, with the height and width passed. The xOrigin value allows access to the image rows, while the yOrigin value allows access to the image columns. If the xOrigin and yOrigin are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated. Note that, as in C and C++, indexes begin at (0,0).
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 18 of file Clip.cpp.\hypertarget{class_clip_88647ed65e3482b5e0533ec98667b0fa}{
+\index{Clip@{Clip}!$\sim$Clip@{$\sim$Clip}}
+\index{$\sim$Clip@{$\sim$Clip}!Clip@{Clip}}
+\subsubsection[$\sim$Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::$\sim$Clip ()}}
+\label{class_clip_88647ed65e3482b5e0533ec98667b0fa}
+
+
+Destructor. 
+
+Destroys a \hyperlink{class_clip}{Clip} object, deleting all the associated data from Magick++ API
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 100 of file Clip.cpp.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_clip_f4500103f1babcf2b9283eaffc6af96a}{
+\index{Clip@{Clip}!image@{image}}
+\index{image@{image}!Clip@{Clip}}
+\subsubsection[image]{\setlength{\rightskip}{0pt plus 5cm}Image Clip::image ()}}
+\label{class_clip_f4500103f1babcf2b9283eaffc6af96a}
+
+
+Returns the current Image object. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 110 of file Clip.cpp.\hypertarget{class_clip_6965fb65870eeb239c8a829444bb4ed7}{
+\index{Clip@{Clip}!xOrigin@{xOrigin}}
+\index{xOrigin@{xOrigin}!Clip@{Clip}}
+\subsubsection[xOrigin]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::xOrigin () const}}
+\label{class_clip_6965fb65870eeb239c8a829444bb4ed7}
+
+
+Returns the X coordinate of the clip's upper leftmost pixel. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 120 of file Clip.cpp.\hypertarget{class_clip_59bed794f674858a9ca02fce36c58fac}{
+\index{Clip@{Clip}!xOrigin@{xOrigin}}
+\index{xOrigin@{xOrigin}!Clip@{Clip}}
+\subsubsection[xOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::xOrigin (unsigned int {\em x})}}
+\label{class_clip_59bed794f674858a9ca02fce36c58fac}
+
+
+Sets the X coordinate of the clip's upper leftmost pixel. 
+
+If the new value x is over the image borders, an exception is thrown.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 132 of file Clip.cpp.\hypertarget{class_clip_6023296db25d263b311900cafb7cc55d}{
+\index{Clip@{Clip}!yOrigin@{yOrigin}}
+\index{yOrigin@{yOrigin}!Clip@{Clip}}
+\subsubsection[yOrigin]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::yOrigin () const}}
+\label{class_clip_6023296db25d263b311900cafb7cc55d}
+
+
+Returns the Y coordinate of the clip's upper leftmost pixel. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 148 of file Clip.cpp.\hypertarget{class_clip_6b0100fdd089be816b97465df4dd2846}{
+\index{Clip@{Clip}!yOrigin@{yOrigin}}
+\index{yOrigin@{yOrigin}!Clip@{Clip}}
+\subsubsection[yOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::yOrigin (unsigned int {\em y})}}
+\label{class_clip_6b0100fdd089be816b97465df4dd2846}
+
+
+Sets the Y coordinate of the clip's upper leftmost pixel. 
+
+If the new value y is over the image borders, an exception is thrown.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 160 of file Clip.cpp.\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
+\index{Clip@{Clip}!height@{height}}
+\index{height@{height}!Clip@{Clip}}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::height () const}}
+\label{class_clip_393710a6b136f400dd5c900f8831e1a8}
+
+
+Returns the clip's height. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 176 of file Clip.cpp.\hypertarget{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}{
+\index{Clip@{Clip}!height@{height}}
+\index{height@{height}!Clip@{Clip}}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}void Clip::height (unsigned int {\em height})}}
+\label{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}
+
+
+Sets the clip's height. 
+
+If the height is over the image borders the clip is truncated to its maximum allowed value.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 188 of file Clip.cpp.\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
+\index{Clip@{Clip}!width@{width}}
+\index{width@{width}!Clip@{Clip}}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::width () const}}
+\label{class_clip_d3e816599913e4051e5d50fae17ecd76}
+
+
+Returns the clip's width. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 203 of file Clip.cpp.\hypertarget{class_clip_17c1a23e159bedb6e2988235b8b568e7}{
+\index{Clip@{Clip}!width@{width}}
+\index{width@{width}!Clip@{Clip}}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}void Clip::width (unsigned int {\em width})}}
+\label{class_clip_17c1a23e159bedb6e2988235b8b568e7}
+
+
+Sets the clip's width. 
+
+If the width is over the image borders the clip is truncated to its maximum allowed value.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 215 of file Clip.cpp.\hypertarget{class_clip_e22de9122a399af67576eb114842846a}{
+\index{Clip@{Clip}!colorspace@{colorspace}}
+\index{colorspace@{colorspace}!Clip@{Clip}}
+\subsubsection[colorspace]{\setlength{\rightskip}{0pt plus 5cm}{\bf Colorspace} Clip::colorspace () const}}
+\label{class_clip_e22de9122a399af67576eb114842846a}
+
+
+Returns the clip's current colorspace. 
+
+\begin{Desc}
+\item[See also:]\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-24 \end{Desc}
+
+
+Definition at line 232 of file Clip.cpp.\hypertarget{class_clip_7e7fa163b90c573adc424e022235c539}{
+\index{Clip@{Clip}!colorspace@{colorspace}}
+\index{colorspace@{colorspace}!Clip@{Clip}}
+\subsubsection[colorspace]{\setlength{\rightskip}{0pt plus 5cm}void Clip::colorspace ({\bf Colorspace} {\em colorspace})}}
+\label{class_clip_7e7fa163b90c573adc424e022235c539}
+
+
+Sets the clip's current colorspace. 
+
+By setting the colorspace to a certain value the image colorspace changes, affecting all its pixels and the information regarding the image colors.
+
+\begin{Desc}
+\item[See also:]\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 247 of file Clip.cpp.\hypertarget{class_clip_6f8d3a88f89461350228f5e7b7b9d694}{
+\index{Clip@{Clip}!isGrayscale@{isGrayscale}}
+\index{isGrayscale@{isGrayscale}!Clip@{Clip}}
+\subsubsection[isGrayscale]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isGrayscale () const}}
+\label{class_clip_6f8d3a88f89461350228f5e7b7b9d694}
+
+
+Returns true if the clip is in grayscale. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 297 of file Clip.cpp.\hypertarget{class_clip_0a535167abd0a544a2de56c317bb6f3c}{
+\index{Clip@{Clip}!isColor@{isColor}}
+\index{isColor@{isColor}!Clip@{Clip}}
+\subsubsection[isColor]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isColor () const}}
+\label{class_clip_0a535167abd0a544a2de56c317bb6f3c}
+
+
+Returns true if the clip is in color. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 310 of file Clip.cpp.\hypertarget{class_clip_5045f79876d4299b54803d56b26d5f75}{
+\index{Clip@{Clip}!isMonochromatic@{isMonochromatic}}
+\index{isMonochromatic@{isMonochromatic}!Clip@{Clip}}
+\subsubsection[isMonochromatic]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isMonochromatic () const}}
+\label{class_clip_5045f79876d4299b54803d56b26d5f75}
+
+
+Returns true if the clips is in black and white. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 323 of file Clip.cpp.\hypertarget{class_clip_74eded11c0dcbd2b10b453074cbb8b84}{
+\index{Clip@{Clip}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!Clip@{Clip}}
+\subsubsection[getPixel]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Clip::getPixel (unsigned int {\em x}, \/  unsigned int {\em y}) const}}
+\label{class_clip_74eded11c0dcbd2b10b453074cbb8b84}
+
+
+Returns the pixel at coordinates (x,y). 
+
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is undefined, an exception is also thrown.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 339 of file Clip.cpp.\hypertarget{class_clip_3c48493242de7453438ed0e8d0ea74df}{
+\index{Clip@{Clip}!setPixel@{setPixel}}
+\index{setPixel@{setPixel}!Clip@{Clip}}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em grayLevel})}}
+\label{class_clip_3c48493242de7453438ed0e8d0ea74df}
+
+
+Sets the gray level of a pixel at coordinates (x,y). 
+
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not grayscale no changes are made. The gray level must be normalized in a value from 0 to 1, otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 389 of file Clip.cpp.\hypertarget{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}{
+\index{Clip@{Clip}!setPixel@{setPixel}}
+\index{setPixel@{setPixel}!Clip@{Clip}}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
+\label{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}
+
+
+Sets the color of a pixel at coordinates (x,y). 
+
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not RGB no changes are made. Each channel value must be normalized in a value from 0 to 1, otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 431 of file Clip.cpp.\hypertarget{class_clip_9e78d68c58016aaff8c65ddac29ed07f}{
+\index{Clip@{Clip}!setPixel@{setPixel}}
+\index{setPixel@{setPixel}!Clip@{Clip}}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  bool {\em isForeground})}}
+\label{class_clip_9e78d68c58016aaff8c65ddac29ed07f}
+
+
+Sets whether a pixel at coordinates (x,y) belongs to the foreground or not. 
+
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not monochromatic no changes are made
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 472 of file Clip.cpp.\hypertarget{class_clip_66fc93c15de96d077d2242a53576528e}{
+\index{Clip@{Clip}!relocateClipOrigin@{relocateClipOrigin}}
+\index{relocateClipOrigin@{relocateClipOrigin}!Clip@{Clip}}
+\subsubsection[relocateClipOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::relocateClipOrigin ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_clip_66fc93c15de96d077d2242a53576528e}
+
+
+Relocates the origin of the clip. 
+
+When any of the clip attributes change, it is neccesary to relocate the clip position over the source image
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 512 of file Clip.cpp.
+
+Referenced by height(), width(), xOrigin(), and yOrigin().\hypertarget{class_clip_e050cf90340e9160f79688627d69a00b}{
+\index{Clip@{Clip}!adjustClipSize@{adjustClipSize}}
+\index{adjustClipSize@{adjustClipSize}!Clip@{Clip}}
+\subsubsection[adjustClipSize]{\setlength{\rightskip}{0pt plus 5cm}void Clip::adjustClipSize ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_clip_e050cf90340e9160f79688627d69a00b}
+
+
+Adjusts the size of the clip. 
+
+When the clip origin changes, it is neccesary to test whether the clip dimensions fall out of the underlying image or not
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 533 of file Clip.cpp.
+
+Referenced by xOrigin(), and yOrigin().
+
+\subsection{Field Documentation}
+\hypertarget{class_clip_51b03c04118374cedeaa0d7a0ba37079}{
+\index{Clip@{Clip}!colorspace\_\-@{colorspace\_\-}}
+\index{colorspace\_\-@{colorspace\_\-}!Clip@{Clip}}
+\subsubsection[colorspace\_\-]{\setlength{\rightskip}{0pt plus 5cm}{\bf Colorspace} {\bf Clip::colorspace\_\-}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_clip_51b03c04118374cedeaa0d7a0ba37079}
+
+
+Clip's colorspace. 
+
+It is modified automatically when the clip's image source changes 
+
+Definition at line 169 of file Clip.h.
+
+Referenced by Clip(), colorspace(), getPixel(), isColor(), isGrayscale(), isMonochromatic(), and setPixel().\hypertarget{class_clip_2978b7e7061c444375c005ffc3d24416}{
+\index{Clip@{Clip}!frame\_\-@{frame\_\-}}
+\index{frame\_\-@{frame\_\-}!Clip@{Clip}}
+\subsubsection[frame\_\-]{\setlength{\rightskip}{0pt plus 5cm}Pixels$\ast$ {\bf Clip::frame\_\-}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_clip_2978b7e7061c444375c005ffc3d24416}
+
+
+Pixels frame where the clip is located. 
+
+It is modified automatically when the clip attributes change 
+
+Definition at line 174 of file Clip.h.
+
+Referenced by Clip(), colorspace(), getPixel(), relocateClipOrigin(), setPixel(), and $\sim$Clip().\hypertarget{class_clip_838228267146fd74e2828b7173b61091}{
+\index{Clip@{Clip}!originPixel\_\-@{originPixel\_\-}}
+\index{originPixel\_\-@{originPixel\_\-}!Clip@{Clip}}
+\subsubsection[originPixel\_\-]{\setlength{\rightskip}{0pt plus 5cm}PixelPacket$\ast$ {\bf Clip::originPixel\_\-}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_clip_838228267146fd74e2828b7173b61091}
+
+
+Frame's upper leftmost pixel. 
+
+It is modified automatically when information about the clip attributes change 
+
+Definition at line 179 of file Clip.h.
+
+Referenced by Clip(), getPixel(), relocateClipOrigin(), and setPixel().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{_clip_8h}{Clip.h (107)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (107)}\end{CompactItemize}

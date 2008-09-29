@@ -50,14 +50,13 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li class="current"><a href="classes.html"><span>Data&nbsp;Structures</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
   <div class="tabs">
     <ul>
-      <li><a href="classes.html"><span>Alphabetical&nbsp;List</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="functions.html"><span>Data&nbsp;Fields</span></a></li>
     </ul>
@@ -66,23 +65,30 @@ window.onload = initDynSections;
 <div class="contents">
 <h1>Style Class Reference</h1><!-- doxytag: class="Style" --><code>#include &lt;<a class="el" href="_style_8h-source.html">Style.h</a>&gt;</code>
 <p>
+<div class="dynheader">
+Collaboration diagram for Style:</div>
+<div class="dynsection">
+<p><center><img src="class_style__coll__graph.png" border="0" usemap="#_style__coll__map" alt="Collaboration graph"></center>
+<map name="_style__coll__map">
+<area shape="rect" href="struct_rgb_color.html" title="Color definition in a RGB colorspace." alt="" coords="5,193,120,345"></map>
+</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Font style of a character. 
 <p>
 This class stores information about the font style of a character in the recognized text. Due to the different design styles in newspapers, a text may contain different kinds of style. That's why we must keep the style of every single character.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8h-source.html#l00019">19</a> of file <a class="el" href="_style_8h-source.html">Style.h</a>.</p>
+<p>Definition at line <a class="el" href="_style_8h-source.html#l00024">24</a> of file <a class="el" href="_style_8h-source.html">Style.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#914f187818eb30c0cebe3df5378bfa0a">Style</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#914f187818eb30c0cebe3df5378bfa0a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#1d6e412d4343b4a6eb4253b6456928b6">Style</a> (unsigned int size_, <a class="el" href="struct_font_color.html">FontColor</a> color_, <a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a> weight_)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#69801b8ce2b1520ef24e1a84d04609e5">Style</a> (unsigned int size, <a class="el" href="struct_rgb_color.html">RgbColor</a> color, <a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a> weight)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#1d6e412d4343b4a6eb4253b6456928b6"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#69801b8ce2b1520ef24e1a84d04609e5"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#7c798ef9b77bc94719542feade497725">~Style</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#7c798ef9b77bc94719542feade497725"></a><br></td></tr>
@@ -101,35 +107,35 @@ This class stores information about the font style of a character in the recogni
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#9356c4a5d30f4e0f5c86f8c8b3f36cd2">getSize</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font size.  <a href="#9356c4a5d30f4e0f5c86f8c8b3f36cd2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#b5044902245b464966c13ed6daccb4f3">setSize</a> (unsigned int size_)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#1338ebe3d562a710fdc26f49d0082a7c">setSize</a> (unsigned int size)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font size.  <a href="#b5044902245b464966c13ed6daccb4f3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_font_color.html">FontColor</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#2ddce056a39c4463bd952d0590b85c6b">getColor</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font size.  <a href="#1338ebe3d562a710fdc26f49d0082a7c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="struct_rgb_color.html">RgbColor</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#bd212fb31bc7e1e7502c18f9e0b6734c">getColor</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font color.  <a href="#2ddce056a39c4463bd952d0590b85c6b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#0f9befe0f1b7956339d7068ebc024b9c">setColor</a> (<a class="el" href="struct_font_color.html">FontColor</a> color_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font color.  <a href="#bd212fb31bc7e1e7502c18f9e0b6734c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#596534e321ac5c2f4444192f2cc0d793">setColor</a> (<a class="el" href="struct_rgb_color.html">RgbColor</a> color)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font color.  <a href="#0f9befe0f1b7956339d7068ebc024b9c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#4f2df0b03c03b39036732a51716305a0">setColor</a> (unsigned int red_, unsigned int green_, unsigned int blue_)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font color.  <a href="#596534e321ac5c2f4444192f2cc0d793"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#8162fb5c89458b1892f1802231a63a16">setColor</a> (double red, double green, double blue)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font color.  <a href="#4f2df0b03c03b39036732a51716305a0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font color.  <a href="#8162fb5c89458b1892f1802231a63a16"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#5798e7a57bb2df5e37aa0cdc5606a8b3">getWeight</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font weight.  <a href="#5798e7a57bb2df5e37aa0cdc5606a8b3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#75f1eaa59c2aff7c52df467c0d9157b1">setWeight</a> (<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a> weight_)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#3bb5ced743176c5a68479d506f348350">setWeight</a> (<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a> weight)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font weight.  <a href="#75f1eaa59c2aff7c52df467c0d9157b1"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font weight.  <a href="#3bb5ced743176c5a68479d506f348350"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ede56099c2297cd24b6fe9904f857447"></a><!-- doxytag: member="Style::size" ref="ede56099c2297cd24b6fe9904f857447" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#ede56099c2297cd24b6fe9904f857447">size</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="25ff6a0bb75d86d204711507f8d8865e"></a><!-- doxytag: member="Style::size_" ref="25ff6a0bb75d86d204711507f8d8865e" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#25ff6a0bb75d86d204711507f8d8865e">size_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Size of the character in points. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ff542273b06e2a626793ae7090caff8e"></a><!-- doxytag: member="Style::color" ref="ff542273b06e2a626793ae7090caff8e" args="" -->
-<a class="el" href="struct_font_color.html">FontColor</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#ff542273b06e2a626793ae7090caff8e">color</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="cfd308751180d820aac54f5d96951f34"></a><!-- doxytag: member="Style::color_" ref="cfd308751180d820aac54f5d96951f34" args="" -->
+<a class="el" href="struct_rgb_color.html">RgbColor</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#cfd308751180d820aac54f5d96951f34">color_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Color of the character. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="929c96268fed4e85fb2fca9fa619c4b9"></a><!-- doxytag: member="Style::weight" ref="929c96268fed4e85fb2fca9fa619c4b9" args="" -->
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#929c96268fed4e85fb2fca9fa619c4b9">weight</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="82e4a1ebf54db6abc6fa3e23706a6aa8"></a><!-- doxytag: member="Style::weight_" ref="82e4a1ebf54db6abc6fa3e23706a6aa8" args="" -->
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_style.html#82e4a1ebf54db6abc6fa3e23706a6aa8">weight_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Font weight of the character. <br></td></tr>
 </table>
@@ -154,13 +160,13 @@ Constructor.
 <p>
 Initializes a <a class="el" href="class_style.html" title="Font style of a character.">Style</a> object with size set to 0, color set to black and weight set to normal<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00010">10</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00015">15</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="1d6e412d4343b4a6eb4253b6456928b6"></a><!-- doxytag: member="Style::Style" ref="1d6e412d4343b4a6eb4253b6456928b6" args="(unsigned int size_, FontColor color_, FontWeight weight_)" -->
+<a class="anchor" name="69801b8ce2b1520ef24e1a84d04609e5"></a><!-- doxytag: member="Style::Style" ref="69801b8ce2b1520ef24e1a84d04609e5" args="(unsigned int size, RgbColor color, FontWeight weight)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -168,19 +174,19 @@ Initializes a <a class="el" href="class_style.html" title="Font style of a chara
           <td class="memname">Style::Style           </td>
           <td>(</td>
           <td class="paramtype">unsigned int&nbsp;</td>
-          <td class="paramname"> <em>size_</em>, </td>
+          <td class="paramname"> <em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_font_color.html">FontColor</a>&nbsp;</td>
-          <td class="paramname"> <em>color_</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_rgb_color.html">RgbColor</a>&nbsp;</td>
+          <td class="paramname"> <em>color</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a>&nbsp;</td>
-          <td class="paramname"> <em>weight_</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>weight</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -196,9 +202,9 @@ Constructor.
 <p>
 Initializes a <a class="el" href="class_style.html" title="Font style of a character.">Style</a> object with size, color and weight set to the values passed<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00022">22</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00027">27</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -222,9 +228,9 @@ Destructor.
 <p>
 Destroys a <a class="el" href="class_style.html" title="Font style of a character.">Style</a> object<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00034">34</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00039">39</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -249,9 +255,9 @@ Returns true if the font weight is bold.
 <p>
 A bold font may be only bold, bold and italic or bold and underlined<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00046">46</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00051">51</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -275,9 +281,9 @@ Returns true if the font weight is italic.
 <p>
 An italic font may be only italic, italic and bold or italic and underlined<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00070">70</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00075">75</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -301,9 +307,9 @@ Returns true if the font weight is underlined.
 <p>
 An underlined font may be only underlined, underlined and italic or underlined and bold<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00094">94</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00099">99</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -327,9 +333,9 @@ Returns true if the font weight is normal.
 <p>
 A normal font is neither bold, nor italic, nor underlined<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00118">118</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00123">123</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -353,13 +359,13 @@ Returns the font size.
 <p>
 The size is expressed in points (pt)<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00142">142</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00147">147</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="b5044902245b464966c13ed6daccb4f3"></a><!-- doxytag: member="Style::setSize" ref="b5044902245b464966c13ed6daccb4f3" args="(unsigned int size_)" -->
+<a class="anchor" name="1338ebe3d562a710fdc26f49d0082a7c"></a><!-- doxytag: member="Style::setSize" ref="1338ebe3d562a710fdc26f49d0082a7c" args="(unsigned int size)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -367,7 +373,7 @@ The size is expressed in points (pt)<p>
           <td class="memname">void Style::setSize           </td>
           <td>(</td>
           <td class="paramtype">unsigned int&nbsp;</td>
-          <td class="paramname"> <em>size_</em>          </td>
+          <td class="paramname"> <em>size</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -380,18 +386,18 @@ Sets the font size.
 <p>
 The size is expressed in points (pt)<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00154">154</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00159">159</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="2ddce056a39c4463bd952d0590b85c6b"></a><!-- doxytag: member="Style::getColor" ref="2ddce056a39c4463bd952d0590b85c6b" args="() const " -->
+<a class="anchor" name="bd212fb31bc7e1e7502c18f9e0b6734c"></a><!-- doxytag: member="Style::getColor" ref="bd212fb31bc7e1e7502c18f9e0b6734c" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_font_color.html">FontColor</a> Style::getColor           </td>
+          <td class="memname"><a class="el" href="struct_rgb_color.html">RgbColor</a> Style::getColor           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -404,23 +410,23 @@ The size is expressed in points (pt)<p>
 <p>
 Returns the font color. 
 <p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_font_color.html" title="Font color of a character.">FontColor</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00166">166</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00171">171</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="0f9befe0f1b7956339d7068ebc024b9c"></a><!-- doxytag: member="Style::setColor" ref="0f9befe0f1b7956339d7068ebc024b9c" args="(FontColor color_)" -->
+<a class="anchor" name="596534e321ac5c2f4444192f2cc0d793"></a><!-- doxytag: member="Style::setColor" ref="596534e321ac5c2f4444192f2cc0d793" args="(RgbColor color)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Style::setColor           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_font_color.html">FontColor</a>&nbsp;</td>
-          <td class="paramname"> <em>color_</em>          </td>
+          <td class="paramtype"><a class="el" href="struct_rgb_color.html">RgbColor</a>&nbsp;</td>
+          <td class="paramname"> <em>color</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -431,35 +437,35 @@ Returns the font color.
 <p>
 Sets the font color. 
 <p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_font_color.html" title="Font color of a character.">FontColor</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00178">178</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00183">183</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="4f2df0b03c03b39036732a51716305a0"></a><!-- doxytag: member="Style::setColor" ref="4f2df0b03c03b39036732a51716305a0" args="(unsigned int red_, unsigned int green_, unsigned int blue_)" -->
+<a class="anchor" name="8162fb5c89458b1892f1802231a63a16"></a><!-- doxytag: member="Style::setColor" ref="8162fb5c89458b1892f1802231a63a16" args="(double red, double green, double blue)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Style::setColor           </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&nbsp;</td>
-          <td class="paramname"> <em>red_</em>, </td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>red</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&nbsp;</td>
-          <td class="paramname"> <em>green_</em>, </td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>green</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&nbsp;</td>
-          <td class="paramname"> <em>blue_</em></td><td>&nbsp;</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>blue</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -473,12 +479,12 @@ Sets the font color.
 <p>
 Sets the font color. 
 <p>
-The font color is created internally as a <a class="el" href="struct_font_color.html" title="Font color of a character.">FontColor</a> object with the values passed<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_font_color.html" title="Font color of a character.">FontColor</a></dd></dl>
+The font color is created internally as a <a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a> object with the values passed<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00192">192</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00197">197</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -502,13 +508,13 @@ Returns the font weight.
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00204">204</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00209">209</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="75f1eaa59c2aff7c52df467c0d9157b1"></a><!-- doxytag: member="Style::setWeight" ref="75f1eaa59c2aff7c52df467c0d9157b1" args="(FontWeight weight_)" -->
+<a class="anchor" name="3bb5ced743176c5a68479d506f348350"></a><!-- doxytag: member="Style::setWeight" ref="3bb5ced743176c5a68479d506f348350" args="(FontWeight weight)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -516,7 +522,7 @@ Returns the font weight.
           <td class="memname">void Style::setWeight           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a>&nbsp;</td>
-          <td class="paramname"> <em>weight_</em>          </td>
+          <td class="paramname"> <em>weight</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -530,16 +536,16 @@ Sets the font weight.
 The weight must be passed using a literal value of FontWeight enumeration.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00218">218</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00223">223</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_style_8h-source.html">Style.h (111)</a><li><a class="el" href="_style_8cpp-source.html">Style.cpp (111)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:25:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

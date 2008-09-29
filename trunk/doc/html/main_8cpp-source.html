@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: main.cpp (111) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: main.cpp (112) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -50,7 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="classes.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
@@ -60,22 +60,58 @@ window.onload = initDynSections;
 </div>
 <div class="contents">
 <h1>main.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;algorithm&gt;</span>
-<a name="l00004"></a>00004 <span class="keyword">using namespace </span>std;
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <span class="preprocessor">#include "Text.h"</span>
-<a name="l00007"></a>00007 
-<a name="l00014"></a>00014 <span class="keywordtype">int</span> main (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> <span class="keyword">const</span> *argv[])
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016     <a class="code" href="class_text.html" title="Text extracted from the clip by the recognizer.">Text</a> str(<span class="stringliteral">"pepito"</span>);
-<a name="l00017"></a>00017     str.removeCharacter(8);
-<a name="l00018"></a>00018     cout &lt;&lt; str.getContent() &lt;&lt; endl;
-<a name="l00019"></a>00019     
-<a name="l00020"></a>00020     <span class="keywordflow">return</span> 0;
-<a name="l00021"></a>00021 }
+<a name="l00002"></a>00002 <span class="keyword">using namespace </span>std;
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 <span class="preprocessor">#include "<a class="code" href="_clip_8h.html" title="Declaration of class Clip.">Clip.h</a>"</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include "<a class="code" href="_pixel_8h.html" title="Declaration of class Pixel.">Pixel.h</a>"</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;Magick++.h&gt;</span>
+<a name="l00008"></a>00008 <span class="keyword">using namespace </span>Magick;
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00015"></a>00015 <span class="keywordtype">int</span> main (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> <span class="keyword">const</span> *argv[])
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017     <span class="keywordflow">try</span>
+<a name="l00018"></a>00018     {
+<a name="l00019"></a>00019         <span class="comment">// Load image form disk</span>
+<a name="l00020"></a>00020         Image img(argv[1]);
+<a name="l00021"></a>00021         
+<a name="l00022"></a>00022         <span class="comment">// Make a clip from the image</span>
+<a name="l00023"></a>00023         <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> pressClip (img, 0, 0, img.rows(), img.columns());
+<a name="l00024"></a>00024         
+<a name="l00025"></a>00025         pressClip.colorspace(<a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657a29001c1d233a707de5354b40dbdad8" title="A RGB colorspace.">COLORSPACE_RGB</a>);
+<a name="l00026"></a>00026         
+<a name="l00027"></a>00027         <span class="comment">// Change the color of every pixel to red</span>
+<a name="l00028"></a>00028         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; pressClip.height(); ++i)
+<a name="l00029"></a>00029         {
+<a name="l00030"></a>00030             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; pressClip.width(); ++j)
+<a name="l00031"></a>00031             {
+<a name="l00032"></a>00032                 <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> p = pressClip.getPixel(i,j);
+<a name="l00033"></a>00033                 pressClip.setPixel(i, j, p.<a class="code" href="class_pixel.html#52542702e90cafc9c29713c23cd35e8f" title="Returns the pixel&amp;#39;s red component in RGB colorspace.">red</a>(), p.<a class="code" href="class_pixel.html#71606a21fe4efc55a5ce5bb318b629f7" title="Returns the pixel&amp;#39;s green component in RGB colorspace.">green</a>(), p.<a class="code" href="class_pixel.html#978b4078a48ff2a67b55dd10eec78fb2" title="Returns the pixel&amp;#39;s blue component in RGB colorspace.">blue</a>());
+<a name="l00034"></a>00034             }
+<a name="l00035"></a>00035         }
+<a name="l00036"></a>00036         
+<a name="l00037"></a>00037         <span class="comment">// Write result to another file</span>
+<a name="l00038"></a>00038         pressClip.image().write(<span class="stringliteral">"test.png"</span>);
+<a name="l00039"></a>00039     }
+<a name="l00040"></a>00040     <span class="keywordflow">catch</span> (exception&amp; e)
+<a name="l00041"></a>00041     {
+<a name="l00042"></a>00042         cout &lt;&lt; e.what() &lt;&lt; endl;
+<a name="l00043"></a>00043         <span class="keywordflow">return</span> 1;
+<a name="l00044"></a>00044     }
+<a name="l00045"></a>00045     <span class="keywordflow">catch</span> (<a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> &amp;error)
+<a name="l00046"></a>00046     {
+<a name="l00047"></a>00047         cout &lt;&lt; error.<a class="code" href="class_nessie_exception.html#ec94145f2fd5febb7ca0b7587652b777" title="Returns the message that explains the exception.">what</a>() &lt;&lt; endl;
+<a name="l00048"></a>00048     }
+<a name="l00049"></a>00049     <span class="keywordflow">catch</span> (...)
+<a name="l00050"></a>00050     {
+<a name="l00051"></a>00051         cout &lt;&lt; <span class="stringliteral">"Unknown error"</span> &lt;&lt; endl;
+<a name="l00052"></a>00052     }
+<a name="l00053"></a>00053     <span class="keywordflow">return</span> 0;
+<a name="l00054"></a>00054 }
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:25:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

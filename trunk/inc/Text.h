@@ -1,6 +1,11 @@
 #if !defined(_TEXT_H)
 #define _TEXT_H
 
+///
+/// @file
+/// @brief Declaration of class Text
+///
+
 #include "WordRate.h"
 #include "FontProportionality.h"
 #include "Style.h"
@@ -20,7 +25,7 @@ using namespace std;
 /// character and the font proportionality, among others.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-23
 ///
 class Text
 {
@@ -34,12 +39,12 @@ class Text
 		///
 		/// Constructor
 		///
-		Text (string content_);
+		Text (string content);
 		
 		///
 		/// Constructor
 		///
-		Text (string content_, vector<Style> styles_);
+		Text (string content, vector<Style> styles);
 		
 		///
 		/// Destructor
@@ -54,32 +59,32 @@ class Text
 		///
 		/// Adds a character to the text
 		///
-		void addCharacter (char character, Style style_);
+		void addCharacter (char character, Style style);
 		
 		///
 		/// Adds a character to the text
 		///
-		void addCharacter (char character, unsigned int position_);
+		void addCharacter (char character, unsigned int position);
 		
 		///
 		/// Adds a character to the text
 		///
-		void addCharacter (char character, Style style_, unsigned int position_);
+		void addCharacter (char character, Style style, unsigned int position);
 
 		///
 		/// Removes a character from the text
 		///
-		void removeCharacter (unsigned int position_);
+		void removeCharacter (unsigned int position);
 		
 		///
 		/// Returns the style of a single character
 		///
-		Style getCharacterStyle (unsigned int position_) const;
+		Style getCharacterStyle (unsigned int position) const;
 
 		///
 		/// Sets the style of a single character
 		///
-		void setCharacterStyle (unsigned int position_, Style style_);
+		void setCharacterStyle (unsigned int position, Style style);
 				
 		///
 		/// Returns the text itself
@@ -89,7 +94,7 @@ class Text
 		///
 		/// Sets the text
 		///
-		void setContent (string content_);
+		void setContent (string content);
 		
 		///
 		/// Returns the list of text styles
@@ -99,7 +104,7 @@ class Text
 		///
 		/// Sets the list of text styles
 		///
-		void setStyles (vector<Style> styles_);
+		void setStyles (vector<Style> styles);
 		
 		///
 		/// Returns the text length
@@ -119,7 +124,7 @@ class Text
 		///
 		/// Sets the font proportionality in text
 		///
-		void setProportionality (FontProportionality proportionality_);
+		void setProportionality (FontProportionality proportionality);
 
 
 	private:
@@ -127,22 +132,22 @@ class Text
 		///
 		/// The text itself
 		///		
-		string content;
+		string content_;
 		
 		///
 		/// A list of every character style
 		///
-		vector<Style> styles;
+		vector<Style> styles_;
 		
 		///
 		/// The text proportionality
 		///
-		FontProportionality proportionality;
+		FontProportionality proportionality_;
 		
 		///
 		/// A list of appearance rates of every single word in text
 		///
-		vector<WordRate> wordRates;
+		vector<WordRate> wordRates_;
 		
 		///
 		/// Builds the vector with every word appearance rate

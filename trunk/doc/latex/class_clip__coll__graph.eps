@@ -1,0 +1,656 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: Graphviz version 2.20.2 (Tue Jul 29 16:40:41 UTC 2008)
+%%For: (elitalon) Eliezer Talon
+%%Title: G
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 409 624
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 373 588 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% Node1
+gsave
+0.000 0.000 0.749 nodecolor
+newpath 137 0 moveto
+137 427 lineto
+257 427 lineto
+257 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 137 0 moveto
+137 427 lineto
+257 427 lineto
+257 0 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+188 413.5 moveto 18 (Clip) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 137 406 moveto
+257 406 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 393 moveto 44 (- image_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 380 moveto 47 (- xOrigin_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 367 moveto 47 (- yOrigin_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 354 moveto 45 (- height_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 341 moveto 41 (- width_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 328 moveto 67 (- colorspace_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 315 moveto 43 (- frame_) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 302 moveto 63 (- originPixel_) alignedtext
+1 setlinewidth
+filled
+0.000 0.000 0.000 nodecolor
+newpath 137 294 moveto
+257 294 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 281 moveto 36 (+ Clip\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 268 moveto 44 (+ ~Clip\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 255 moveto 49 (+ image\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 242 moveto 53 (+ xOrigin\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 229 moveto 53 (+ xOrigin\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 216 moveto 53 (+ yOrigin\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 203 moveto 53 (+ yOrigin\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 190 moveto 50 (+ height\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 177 moveto 50 (+ height\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 164 moveto 46 (+ width\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 151 moveto 46 (+ width\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 138 moveto 72 (+ colorspace\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 125 moveto 72 (+ colorspace\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 112 moveto 75 (+ isGrayscale\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 99 moveto 51 (+ isColor\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 86 moveto 104 (+ isMonochromatic\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 73 moveto 60 (+ getPixel\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 60 moveto 59 (+ setPixel\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 47 moveto 59 (+ setPixel\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 34 moveto 59 (+ setPixel\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 21 moveto 104 (- relocateClipOrigin\(\)) alignedtext
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+145 8 moveto 86 (- adjustClipSize\(\)) alignedtext
+grestore
+% Node2
+gsave
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 0 516 moveto
+0 579 lineto
+54 579 lineto
+54 516 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+8 565.5 moveto 38 (Pixels *) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 0 558 moveto
+54 558 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25.5 544.5 moveto 3 ( ) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 0 537 moveto
+54 537 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+25.5 523.5 moveto 3 ( ) alignedtext
+grestore
+% Node2->Node1
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 48 507 moveto
+70 464 106 393 137 332 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 43 516 moveto
+43.92 505.07 lineto
+45.43 511.63 lineto
+47.86 507.26 lineto
+47.86 507.26 lineto
+47.86 507.26 lineto
+45.43 511.63 lineto
+51.79 509.44 lineto
+43 516 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 43 516 moveto
+43.92 505.07 lineto
+45.43 511.63 lineto
+47.86 507.26 lineto
+47.86 507.26 lineto
+47.86 507.26 lineto
+45.43 511.63 lineto
+51.79 509.44 lineto
+43 516 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+76.5 469.5 moveto 35 (frame_) alignedtext
+grestore
+% Node3
+gsave
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 72 516 moveto
+72 579 lineto
+156 579 lineto
+156 516 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+80 565.5 moveto 68 (PixelPacket *) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 72 558 moveto
+156 558 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 544.5 moveto 3 ( ) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 72 537 moveto
+156 537 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+112.5 523.5 moveto 3 ( ) alignedtext
+grestore
+% Node3->Node1
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 123 506 moveto
+127 488 132 465 137 446 curveto
+138 440 140 434 142 427 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 121 516 moveto
+118.55 505.31 lineto
+121.98 511.1 lineto
+122.96 506.19 lineto
+122.96 506.19 lineto
+122.96 506.19 lineto
+121.98 511.1 lineto
+127.37 507.08 lineto
+121 516 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 121 516 moveto
+118.55 505.31 lineto
+121.98 511.1 lineto
+122.96 506.19 lineto
+122.96 506.19 lineto
+122.96 506.19 lineto
+121.98 511.1 lineto
+127.37 507.08 lineto
+121 516 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+137 469.5 moveto 56 (originPixel_) alignedtext
+grestore
+% Node4
+gsave
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 174 516 moveto
+174 579 lineto
+222 579 lineto
+222 516 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+182 565.5 moveto 32 (Image) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 174 558 moveto
+222 558 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+196.5 544.5 moveto 3 ( ) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 174 537 moveto
+222 537 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+196.5 523.5 moveto 3 ( ) alignedtext
+grestore
+% Node4->Node1
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 198 506 moveto
+198 485 198 457 198 427 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 198 516 moveto
+193.5 506 lineto
+198 511 lineto
+198 506 lineto
+198 506 lineto
+198 506 lineto
+198 511 lineto
+202.5 506 lineto
+198 516 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 198 516 moveto
+193.5 506 lineto
+198 511 lineto
+198 506 lineto
+198 506 lineto
+198 506 lineto
+198 511 lineto
+202.5 506 lineto
+198 516 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+197 469.5 moveto 36 (image_) alignedtext
+grestore
+% Node5
+gsave
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 241 516 moveto
+241 579 lineto
+271 579 lineto
+271 516 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+249 565.5 moveto 14 (int) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 241 558 moveto
+271 558 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+254.5 544.5 moveto 3 ( ) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 241 537 moveto
+271 537 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+254.5 523.5 moveto 3 ( ) alignedtext
+grestore
+% Node5->Node1
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 248 506 moveto
+245 485 240 457 235 427 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 250 516 moveto
+243.63 507.08 lineto
+249.02 511.1 lineto
+248.04 506.19 lineto
+248.04 506.19 lineto
+248.04 506.19 lineto
+249.02 511.1 lineto
+252.45 505.31 lineto
+250 516 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 250 516 moveto
+243.63 507.08 lineto
+249.02 511.1 lineto
+248.04 506.19 lineto
+248.04 506.19 lineto
+248.04 506.19 lineto
+249.02 511.1 lineto
+252.45 505.31 lineto
+250 516 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+247 489 moveto 38 (height_) alignedtext
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+249.5 476 moveto 33 (width_) alignedtext
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+246 463 moveto 40 (xOrigin_) alignedtext
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+246 450 moveto 40 (yOrigin_) alignedtext
+grestore
+% Node6
+gsave
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 289 516 moveto
+289 579 lineto
+361 579 lineto
+361 516 lineto
+closepath stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+297 565.5 moveto 56 (Colorspace) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 289 558 moveto
+361 558 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+323.5 544.5 moveto 3 ( ) alignedtext
+1 setlinewidth
+0.000 0.000 0.749 nodecolor
+newpath 289 537 moveto
+361 537 lineto
+stroke
+0.000 0.000 0.000 nodecolor
+10 /FreeSans set_font
+323.5 523.5 moveto 3 ( ) alignedtext
+grestore
+% Node6->Node1
+gsave
+1 setlinewidth
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 311 506 moveto
+304 487 297 466 290 446 curveto
+280 418 268 389 257 360 curveto
+stroke
+0.776 0.753 0.804 edgecolor
+newpath 314 516 moveto
+306.82 507.71 lineto
+312.56 511.21 lineto
+311.13 506.42 lineto
+311.13 506.42 lineto
+311.13 506.42 lineto
+312.56 511.21 lineto
+315.44 505.13 lineto
+314 516 lineto
+closepath fill
+1 setlinewidth
+solid
+0.776 0.753 0.804 edgecolor
+newpath 314 516 moveto
+306.82 507.71 lineto
+312.56 511.21 lineto
+311.13 506.42 lineto
+311.13 506.42 lineto
+311.13 506.42 lineto
+312.56 511.21 lineto
+315.44 505.13 lineto
+314 516 lineto
+closepath stroke
+0.000 0.000 0.000 edgecolor
+10 /FreeSans set_font
+306.5 469.5 moveto 59 (colorspace_) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 409 624
+end
+restore
+%%EOF

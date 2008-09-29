@@ -1,0 +1,395 @@
+\hypertarget{class_pixel}{
+\section{Pixel Class Reference}
+\label{class_pixel}\index{Pixel@{Pixel}}
+}
+{\tt \#include $<$Pixel.h$>$}
+
+Collaboration diagram for Pixel:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_pixel__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Information about an image pixel. 
+
+This class stores all the information of a pixel within a press clip, no matter if we are dealing with the clip itself, or some other data structure which makes use of it. Every pixel has a location, given by a pair of coordinates x and y, and a color information, which may come in three formats: grayscale, RGB or monochromatic.
+
+The Clip::getColorspace() method gives the current colorspace that is associated with the pixel and its underlying image, so that the right methods here can be invoked. If a method related to one colorspace (e.g. getGrayLevel()) is called when the current colorspace is actually another (e.g. COLORSPACE\_\-RGB), a predefined value is returned. See the different methods documentation to know what are these values.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 34 of file Pixel.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_pixel_dfa33daefa83d3ac471af91fb32f8997}{Pixel} (unsigned int x, unsigned int y, double grayLevel)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_pixel_e5ca1376e87442aea5968a17a4240814}{Pixel} (unsigned int x, unsigned int y, double red, double green, double blue)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_pixel_fcbda001fcad04f4166129f9195a65fa}{Pixel} (unsigned int x, unsigned int y, bool foreground)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_pixel_30f6aaf9a1d8792245070860546fa365}{$\sim$Pixel} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_pixel_68dafccc4588fb33d445641c2766316b}{x} () const 
+\begin{CompactList}\small\item\em Returns the pixel's X coordinate. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}{y} () const 
+\begin{CompactList}\small\item\em Returns the pixel's Y coordinate. \item\end{CompactList}\item 
+double \hyperlink{class_pixel_6e445cee8bfa4475238823e0b6da42b0}{grayLevel} () const 
+\begin{CompactList}\small\item\em Returns the pixel's gray level. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_03f96954bfc27f8f8810e8c6e58828f8}{grayLevel} (double grayLevel)
+\begin{CompactList}\small\item\em Sets the pixel's gray level. \item\end{CompactList}\item 
+double \hyperlink{class_pixel_52542702e90cafc9c29713c23cd35e8f}{red} () const 
+\begin{CompactList}\small\item\em Returns the pixel's red component in RGB colorspace. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_cc64470d744c5fc5b26cedb027366b5d}{red} (double value)
+\begin{CompactList}\small\item\em Sets the pixel's red component in RGB colorspace. \item\end{CompactList}\item 
+double \hyperlink{class_pixel_71606a21fe4efc55a5ce5bb318b629f7}{green} () const 
+\begin{CompactList}\small\item\em Returns the pixel's green component in RGB colorspace. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_98aaded2bc7bf4708edaaf2445acae0f}{green} (double value)
+\begin{CompactList}\small\item\em Sets the pixel's green component in RGB colorspace. \item\end{CompactList}\item 
+double \hyperlink{class_pixel_978b4078a48ff2a67b55dd10eec78fb2}{blue} () const 
+\begin{CompactList}\small\item\em Returns the pixel's blue component in RGB colorspace. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_ff3909b84c97a1c3d14a773c8825ade1}{blue} (double value)
+\begin{CompactList}\small\item\em Sets the pixel's blue component in RGB colorspace. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_5543267a64a29c66f12a2801b101e6db}{setColor} (double red, double green, double blue)
+\begin{CompactList}\small\item\em Sets the pixel's color in RGB colorspace. \item\end{CompactList}\item 
+bool \hyperlink{class_pixel_48f2d29f9542f9c2ce293422ab07ffcc}{isForeground} () const 
+\begin{CompactList}\small\item\em Returns true if the pixel belongs to the image foreground. \item\end{CompactList}\item 
+void \hyperlink{class_pixel_1b1d5b2ed9285b837d85c33f09cab3f9}{isForeground} (bool isForeground)
+\begin{CompactList}\small\item\em Sets whether the pixel belongs to the foreground or not. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_pixel_9f8a45ad3cbcab59543e4f7d4842ae6d}{
+unsigned int \hyperlink{class_pixel_9f8a45ad3cbcab59543e4f7d4842ae6d}{x\_\-}}
+\label{class_pixel_9f8a45ad3cbcab59543e4f7d4842ae6d}
+
+\begin{CompactList}\small\item\em Pixel's X coordinate. \item\end{CompactList}\item 
+\hypertarget{class_pixel_da45113dcf9ef4a0c3d5052db42da355}{
+unsigned int \hyperlink{class_pixel_da45113dcf9ef4a0c3d5052db42da355}{y\_\-}}
+\label{class_pixel_da45113dcf9ef4a0c3d5052db42da355}
+
+\begin{CompactList}\small\item\em Pixel's Y coordinate. \item\end{CompactList}\item 
+\hypertarget{class_pixel_545bed829ed92f39962a30ace0d7e88d}{
+double \hyperlink{class_pixel_545bed829ed92f39962a30ace0d7e88d}{grayLevel\_\-}}
+\label{class_pixel_545bed829ed92f39962a30ace0d7e88d}
+
+\begin{CompactList}\small\item\em Pixel's gray level. \item\end{CompactList}\item 
+\hypertarget{class_pixel_7b7fcc89637b192817dc98bc888a8d7d}{
+double \hyperlink{class_pixel_7b7fcc89637b192817dc98bc888a8d7d}{red\_\-}}
+\label{class_pixel_7b7fcc89637b192817dc98bc888a8d7d}
+
+\begin{CompactList}\small\item\em Pixel's red component in RGB colorspace. \item\end{CompactList}\item 
+\hypertarget{class_pixel_eb119b3fac6cf28c190dffe0bbca4d1b}{
+double \hyperlink{class_pixel_eb119b3fac6cf28c190dffe0bbca4d1b}{green\_\-}}
+\label{class_pixel_eb119b3fac6cf28c190dffe0bbca4d1b}
+
+\begin{CompactList}\small\item\em Pixel's green component in RGB colorspace. \item\end{CompactList}\item 
+\hypertarget{class_pixel_9d2375a06d09fafc8390a89c0a9397b4}{
+double \hyperlink{class_pixel_9d2375a06d09fafc8390a89c0a9397b4}{blue\_\-}}
+\label{class_pixel_9d2375a06d09fafc8390a89c0a9397b4}
+
+\begin{CompactList}\small\item\em Pixel's blue component in RGB colorspace. \item\end{CompactList}\item 
+\hypertarget{class_pixel_c5e23dca7ce110bd906966dedf975fca}{
+bool \hyperlink{class_pixel_c5e23dca7ce110bd906966dedf975fca}{isForeground\_\-}}
+\label{class_pixel_c5e23dca7ce110bd906966dedf975fca}
+
+\begin{CompactList}\small\item\em Tells if the pixel belongs to the image foreground. \item\end{CompactList}\item 
+\hypertarget{class_pixel_df7d066dd31f59039561b541e29aa217}{
+\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} \hyperlink{class_pixel_df7d066dd31f59039561b541e29aa217}{colorspace\_\-}}
+\label{class_pixel_df7d066dd31f59039561b541e29aa217}
+
+\begin{CompactList}\small\item\em Colorspace of pixel. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_pixel_dfa33daefa83d3ac471af91fb32f8997}{
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\subsubsection[Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::Pixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em grayLevel})}}
+\label{class_pixel_dfa33daefa83d3ac471af91fb32f8997}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_pixel}{Pixel} object using a grayscale colorspace. When using grayscale representation all the pixels are considered as belonging to the foreground, and they have a zero value per RGB channel.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 15 of file Pixel.cpp.\hypertarget{class_pixel_e5ca1376e87442aea5968a17a4240814}{
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\subsubsection[Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::Pixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
+\label{class_pixel_e5ca1376e87442aea5968a17a4240814}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_pixel}{Pixel} object using a RGB colorspace. When using RGB representation all the pixels are considered as belonging to the foreground, and they have an associated grayscale value computed according to the equation $grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue) $
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 30 of file Pixel.cpp.\hypertarget{class_pixel_fcbda001fcad04f4166129f9195a65fa}{
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel@{Pixel}}
+\subsubsection[Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::Pixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  bool {\em isForeground})}}
+\label{class_pixel_fcbda001fcad04f4166129f9195a65fa}
+
+
+Constructor. 
+
+Initializes a \hyperlink{class_pixel}{Pixel} object using a monochromatic colorspace. When using a monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class \hyperlink{class_clip}{Clip}.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 46 of file Pixel.cpp.\hypertarget{class_pixel_30f6aaf9a1d8792245070860546fa365}{
+\index{Pixel@{Pixel}!$\sim$Pixel@{$\sim$Pixel}}
+\index{$\sim$Pixel@{$\sim$Pixel}!Pixel@{Pixel}}
+\subsubsection[$\sim$Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::$\sim$Pixel ()}}
+\label{class_pixel_30f6aaf9a1d8792245070860546fa365}
+
+
+Destructor. 
+
+Destroys a \hyperlink{class_pixel}{Pixel} object
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-25 \end{Desc}
+
+
+Definition at line 72 of file Pixel.cpp.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pixel_68dafccc4588fb33d445641c2766316b}{
+\index{Pixel@{Pixel}!x@{x}}
+\index{x@{x}!Pixel@{Pixel}}
+\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Pixel::x () const}}
+\label{class_pixel_68dafccc4588fb33d445641c2766316b}
+
+
+Returns the pixel's X coordinate. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 82 of file Pixel.cpp.\hypertarget{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}{
+\index{Pixel@{Pixel}!y@{y}}
+\index{y@{y}!Pixel@{Pixel}}
+\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Pixel::y () const}}
+\label{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}
+
+
+Returns the pixel's Y coordinate. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 92 of file Pixel.cpp.\hypertarget{class_pixel_6e445cee8bfa4475238823e0b6da42b0}{
+\index{Pixel@{Pixel}!grayLevel@{grayLevel}}
+\index{grayLevel@{grayLevel}!Pixel@{Pixel}}
+\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}double Pixel::grayLevel () const}}
+\label{class_pixel_6e445cee8bfa4475238823e0b6da42b0}
+
+
+Returns the pixel's gray level. 
+
+If the pixel colorspace is not COLORSPACE\_\-GRAYSCALE then this method returns a certain value depending on what is the current colorspace. If it is COLORSPACE\_\-MONOCHROMATIC this method returns 0.0 when the pixel belongs to the foreground or 1.0 otherwise. If it is COLORSPACE\_\-RGB this method returns the associated grayscale value computed according to the equation $grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue)$
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 108 of file Pixel.cpp.\hypertarget{class_pixel_03f96954bfc27f8f8810e8c6e58828f8}{
+\index{Pixel@{Pixel}!grayLevel@{grayLevel}}
+\index{grayLevel@{grayLevel}!Pixel@{Pixel}}
+\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::grayLevel (double {\em grayLevel})}}
+\label{class_pixel_03f96954bfc27f8f8810e8c6e58828f8}
+
+
+Sets the pixel's gray level. 
+
+If the pixel current colorspace is different from COLORSPACE\_\-GRAYSCALE no change is made
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 120 of file Pixel.cpp.\hypertarget{class_pixel_52542702e90cafc9c29713c23cd35e8f}{
+\index{Pixel@{Pixel}!red@{red}}
+\index{red@{red}!Pixel@{Pixel}}
+\subsubsection[red]{\setlength{\rightskip}{0pt plus 5cm}double Pixel::red () const}}
+\label{class_pixel_52542702e90cafc9c29713c23cd35e8f}
+
+
+Returns the pixel's red component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 209 of file Pixel.cpp.\hypertarget{class_pixel_cc64470d744c5fc5b26cedb027366b5d}{
+\index{Pixel@{Pixel}!red@{red}}
+\index{red@{red}!Pixel@{Pixel}}
+\subsubsection[red]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::red (double {\em value})}}
+\label{class_pixel_cc64470d744c5fc5b26cedb027366b5d}
+
+
+Sets the pixel's red component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 146 of file Pixel.cpp.\hypertarget{class_pixel_71606a21fe4efc55a5ce5bb318b629f7}{
+\index{Pixel@{Pixel}!green@{green}}
+\index{green@{green}!Pixel@{Pixel}}
+\subsubsection[green]{\setlength{\rightskip}{0pt plus 5cm}double Pixel::green () const}}
+\label{class_pixel_71606a21fe4efc55a5ce5bb318b629f7}
+
+
+Returns the pixel's green component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 219 of file Pixel.cpp.\hypertarget{class_pixel_98aaded2bc7bf4708edaaf2445acae0f}{
+\index{Pixel@{Pixel}!green@{green}}
+\index{green@{green}!Pixel@{Pixel}}
+\subsubsection[green]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::green (double {\em value})}}
+\label{class_pixel_98aaded2bc7bf4708edaaf2445acae0f}
+
+
+Sets the pixel's green component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 167 of file Pixel.cpp.\hypertarget{class_pixel_978b4078a48ff2a67b55dd10eec78fb2}{
+\index{Pixel@{Pixel}!blue@{blue}}
+\index{blue@{blue}!Pixel@{Pixel}}
+\subsubsection[blue]{\setlength{\rightskip}{0pt plus 5cm}double Pixel::blue () const}}
+\label{class_pixel_978b4078a48ff2a67b55dd10eec78fb2}
+
+
+Returns the pixel's blue component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 229 of file Pixel.cpp.\hypertarget{class_pixel_ff3909b84c97a1c3d14a773c8825ade1}{
+\index{Pixel@{Pixel}!blue@{blue}}
+\index{blue@{blue}!Pixel@{Pixel}}
+\subsubsection[blue]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::blue (double {\em value})}}
+\label{class_pixel_ff3909b84c97a1c3d14a773c8825ade1}
+
+
+Sets the pixel's blue component in RGB colorspace. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 188 of file Pixel.cpp.\hypertarget{class_pixel_5543267a64a29c66f12a2801b101e6db}{
+\index{Pixel@{Pixel}!setColor@{setColor}}
+\index{setColor@{setColor}!Pixel@{Pixel}}
+\subsubsection[setColor]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::setColor (double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
+\label{class_pixel_5543267a64a29c66f12a2801b101e6db}
+
+
+Sets the pixel's color in RGB colorspace. 
+
+If the pixel current colorspace is different from COLORSPACE\_\-RGB no change is made
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 241 of file Pixel.cpp.\hypertarget{class_pixel_48f2d29f9542f9c2ce293422ab07ffcc}{
+\index{Pixel@{Pixel}!isForeground@{isForeground}}
+\index{isForeground@{isForeground}!Pixel@{Pixel}}
+\subsubsection[isForeground]{\setlength{\rightskip}{0pt plus 5cm}bool Pixel::isForeground () const}}
+\label{class_pixel_48f2d29f9542f9c2ce293422ab07ffcc}
+
+
+Returns true if the pixel belongs to the image foreground. 
+
+If the pixel colorspace is not COLORSPACE\_\-MONOCHROMATIC this method returns always true.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-26 \end{Desc}
+
+
+Definition at line 289 of file Pixel.cpp.\hypertarget{class_pixel_1b1d5b2ed9285b837d85c33f09cab3f9}{
+\index{Pixel@{Pixel}!isForeground@{isForeground}}
+\index{isForeground@{isForeground}!Pixel@{Pixel}}
+\subsubsection[isForeground]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::isForeground (bool {\em isForeground})}}
+\label{class_pixel_1b1d5b2ed9285b837d85c33f09cab3f9}
+
+
+Sets whether the pixel belongs to the foreground or not. 
+
+If the pixel current colorspace is different from COLORSPACE\_\-MONOCHROMATIC no change is made. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class \hyperlink{class_clip}{Clip}.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-09-29 \end{Desc}
+
+
+Definition at line 303 of file Pixel.cpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{_pixel_8h}{Pixel.h (107)}\item 
+\hyperlink{_pixel_8cpp}{Pixel.cpp (107)}\end{CompactItemize}

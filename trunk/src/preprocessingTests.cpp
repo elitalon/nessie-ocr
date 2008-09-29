@@ -1077,7 +1077,7 @@ void threshold(Image *image, double threshold)
 	
 
 /*
-	The code below is for reading PDF
+	The code below is for reading multi-page PDF
 	
 	int main(int argc, char **argv)
 	{

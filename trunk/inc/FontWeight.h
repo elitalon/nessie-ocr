@@ -3,6 +3,7 @@
 
 ///
 /// @file
+/// @brief Declaration of enumeration FontWeight
 ///
 
 /// Font weight of a character
@@ -13,17 +14,17 @@
 /// italic and normal.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-23
 ///
 enum FontWeight
 {
-	NORMAL,				///< Normal font, without decorations
-	BOLD,				///< Only bold
-	ITALIC,				///< Only italic
-	UNDERLINED,			///< Normal but underlined
-	BOLD_ITALIC,		///< Both bold and italic
-	BOLD_UNDERLINED,	///< Both bold and underlined
-	ITALIC_UNDERLINED	///< Both italic and underlined
+	FONT_NORMAL,			///< Normal font, without decorations
+	FONT_BOLD,				///< Only bold
+	FONT_ITALIC,			///< Only italic
+	FONT_UNDERLINED,		///< Normal but underlined
+	FONT_BOLD_ITALIC,		///< Both bold and italic
+	FONT_BOLD_UNDERLINED,	///< Both bold and underlined
+	FONT_ITALIC_UNDERLINED	///< Both italic and underlined
 };
 
 #endif  //_FONTWEIGHT_H

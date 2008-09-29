@@ -50,7 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="classes.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
@@ -60,24 +60,35 @@ window.onload = initDynSections;
 </div>
 <div class="contents">
 <h1>FontWeight.h File Reference</h1><h3 align="center">(111)</h3><hr><a name="_details"></a><h2>Detailed Description</h2>
+Declaration of enumeration FontWeight. 
+<p>
 
 <p>Definition in file <a class="el" href="_font_weight_8h-source.html">FontWeight.h</a>.</p>
 
 <p>
 
 <p>
+<div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dynsection">
+<p><center><img src="_font_weight_8h__dep__incl.png" border="0" usemap="#FontWeight.hdep_map" alt=""></center>
+<map name="FontWeight.hdep_map">
+<area shape="rect" href="_style_8h.html" title="Declaration of class Style." alt="" coords="68,84,135,111"><area shape="rect" href="_classifier_8cpp-source.html" title="Classifier.cpp" alt="" coords="81,316,188,343"><area shape="rect" href="_style_8cpp.html" title="Implementation of class Style." alt="" coords="21,161,104,188"><area shape="rect" href="_classifier_8h-source.html" title="Classifier.h" alt="" coords="89,239,180,265"><area shape="rect" href="_text_8h.html" title="Declaration of class Text." alt="" coords="179,161,243,188"></map>
+</div>
+
+<p>
 <a href="_font_weight_8h-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Enumerations</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66">FontWeight</a> { <br>
-&nbsp;&nbsp;<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7">NORMAL</a>, 
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6639fc1130a1e2c8f8c1ad3deee8c0c5dc">BOLD</a>, 
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66c1005585401f6364dc82967ecf313617">ITALIC</a>, 
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66d460ec31770f376d61ffb3a9b0b31990">UNDERLINED</a>, 
+&nbsp;&nbsp;<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6640b9311a81afbdc92357f79a62e10512">FONT_NORMAL</a>, 
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe667a078f2b20d42d7f352d35396217e1ba">FONT_BOLD</a>, 
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66ff11f5dd59d891ef3b880dbccca4ea2a">FONT_ITALIC</a>, 
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe6678a52323a08624160650f3c88f107d0b">FONT_UNDERLINED</a>, 
 <br>
-&nbsp;&nbsp;<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82">BOLD_ITALIC</a>, 
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b">BOLD_UNDERLINED</a>, 
-<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0">ITALIC_UNDERLINED</a>
+&nbsp;&nbsp;<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66874a7cd4f542f6478d8306c4cc797260">FONT_BOLD_ITALIC</a>, 
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66f9759d09daa741b5040093566c274ccf">FONT_BOLD_UNDERLINED</a>, 
+<a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66dce00e30748a8e6dd6e128246243a67d">FONT_ITALIC_UNDERLINED</a>
 <br>
  }</td></tr>
 
@@ -100,32 +111,32 @@ Font weight of a character.
 <p>
 This enumeration represents the different types of font weight that a character may have. All the possible combinations are present, though in a normal text the most common are the three first font weights: bold, italic and normal.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 <dl compact><dt><b>Enumerator: </b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7"></a><!-- doxytag: member="NORMAL" ref="ecff23ba4a68486421bcea57e095fe6650d1448013c6f17125caee18aa418af7" args="" -->NORMAL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe6640b9311a81afbdc92357f79a62e10512"></a><!-- doxytag: member="FONT_NORMAL" ref="ecff23ba4a68486421bcea57e095fe6640b9311a81afbdc92357f79a62e10512" args="" -->FONT_NORMAL</em>&nbsp;</td><td>
 Normal font, without decorations. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe6639fc1130a1e2c8f8c1ad3deee8c0c5dc"></a><!-- doxytag: member="BOLD" ref="ecff23ba4a68486421bcea57e095fe6639fc1130a1e2c8f8c1ad3deee8c0c5dc" args="" -->BOLD</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe667a078f2b20d42d7f352d35396217e1ba"></a><!-- doxytag: member="FONT_BOLD" ref="ecff23ba4a68486421bcea57e095fe667a078f2b20d42d7f352d35396217e1ba" args="" -->FONT_BOLD</em>&nbsp;</td><td>
 Only bold. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66c1005585401f6364dc82967ecf313617"></a><!-- doxytag: member="ITALIC" ref="ecff23ba4a68486421bcea57e095fe66c1005585401f6364dc82967ecf313617" args="" -->ITALIC</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66ff11f5dd59d891ef3b880dbccca4ea2a"></a><!-- doxytag: member="FONT_ITALIC" ref="ecff23ba4a68486421bcea57e095fe66ff11f5dd59d891ef3b880dbccca4ea2a" args="" -->FONT_ITALIC</em>&nbsp;</td><td>
 Only italic. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66d460ec31770f376d61ffb3a9b0b31990"></a><!-- doxytag: member="UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe66d460ec31770f376d61ffb3a9b0b31990" args="" -->UNDERLINED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe6678a52323a08624160650f3c88f107d0b"></a><!-- doxytag: member="FONT_UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe6678a52323a08624160650f3c88f107d0b" args="" -->FONT_UNDERLINED</em>&nbsp;</td><td>
 Normal but underlined. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82"></a><!-- doxytag: member="BOLD_ITALIC" ref="ecff23ba4a68486421bcea57e095fe66a38b4c4aaa3055986332429724296b82" args="" -->BOLD_ITALIC</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66874a7cd4f542f6478d8306c4cc797260"></a><!-- doxytag: member="FONT_BOLD_ITALIC" ref="ecff23ba4a68486421bcea57e095fe66874a7cd4f542f6478d8306c4cc797260" args="" -->FONT_BOLD_ITALIC</em>&nbsp;</td><td>
 Both bold and italic. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b"></a><!-- doxytag: member="BOLD_UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe662cbda7343b95170af5caffae74aac09b" args="" -->BOLD_UNDERLINED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66f9759d09daa741b5040093566c274ccf"></a><!-- doxytag: member="FONT_BOLD_UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe66f9759d09daa741b5040093566c274ccf" args="" -->FONT_BOLD_UNDERLINED</em>&nbsp;</td><td>
 Both bold and underlined. </td></tr>
-<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0"></a><!-- doxytag: member="ITALIC_UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe665505c1f3544235b341e632fd0c73bbd0" args="" -->ITALIC_UNDERLINED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" name="ecff23ba4a68486421bcea57e095fe66dce00e30748a8e6dd6e128246243a67d"></a><!-- doxytag: member="FONT_ITALIC_UNDERLINED" ref="ecff23ba4a68486421bcea57e095fe66dce00e30748a8e6dd6e128246243a67d" args="" -->FONT_ITALIC_UNDERLINED</em>&nbsp;</td><td>
 Both italic and underlined. </td></tr>
 </table>
 </dl>
 
-<p>Definition at line <a class="el" href="_font_weight_8h-source.html#l00018">18</a> of file <a class="el" href="_font_weight_8h-source.html">FontWeight.h</a>.</p>
+<p>Definition at line <a class="el" href="_font_weight_8h-source.html#l00019">19</a> of file <a class="el" href="_font_weight_8h-source.html">FontWeight.h</a>.</p>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:25:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:50 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

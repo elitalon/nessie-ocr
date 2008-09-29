@@ -50,7 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="classes.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
@@ -61,9 +61,9 @@ window.onload = initDynSections;
 <div class="contents">
 <h1>Recognizer.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00010"></a>00010 <span class="preprocessor">#include "Recognizer.h"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "Text.h"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_text_8h.html" title="Declaration of class Text.">Text.h</a>"</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include "Statistic.h"</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include "Clip.h"</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="_clip_8h.html" title="Declaration of class Clip.">Clip.h</a>"</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include "Pixels.h"</span>
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 <span class="keywordtype">void</span> Recognizer::Recognizer(<span class="keywordtype">string</span> path, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width)
@@ -86,18 +86,18 @@ window.onload = initDynSections;
 <a name="l00033"></a>00033 
 <a name="l00034"></a>00034 }
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 Clip Recognizer::clip()
+<a name="l00036"></a>00036 <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> Recognizer::clip()
 <a name="l00037"></a>00037 {
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039 }
 <a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="keywordtype">void</span> Recognizer::clip(Pixels frame, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width)
+<a name="l00041"></a>00041 <span class="keywordtype">void</span> Recognizer::clip(Pixels frame, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b" title="Returns the pixel&amp;#39;s X coordinate.">x</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a" title="Returns the pixel&amp;#39;s Y coordinate.">y</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width)
 <a name="l00042"></a>00042 {
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 }
 <a name="l00045"></a>00045 
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 22 20:25:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
