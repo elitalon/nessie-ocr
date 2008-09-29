@@ -204,10 +204,17 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a grayscale colorspace. When using grayscale representation all the pixels are considered as belonging to the foreground, and they have a zero value per RGB channel.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>Gray level of the pixel whenever a grayscale colorspace is used</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00015">15</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00019">19</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -258,10 +265,19 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a RGB colorspace. When using RGB representation all the pixels are considered as belonging to the foreground, and they have an associated grayscale value computed according to the equation <img class="formulaInl" alt="$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue) $" src="form_1.png"><p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>Color value of red channel of a RGB colorspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>Color value of green channel of a RGB colorspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>Color value of blue channel of a RGB colorspace</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00030">30</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00040">40</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -300,10 +316,17 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a monochromatic colorspace. When using a monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>isForeground</em>&nbsp;</td><td>Tells whether the pixel belongs to the foreground or not</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00046">46</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00060">60</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -329,7 +352,7 @@ Destroys a <a class="el" href="class_pixel.html" title="Information about an ima
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00072">72</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00086">86</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -352,10 +375,11 @@ Destroys a <a class="el" href="class_pixel.html" title="Information about an ima
 <p>
 Returns the pixel's X coordinate. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The x coordinate (row) of the pixel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00082">82</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00098">98</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -377,10 +401,11 @@ Returns the pixel's X coordinate.
 <p>
 Returns the pixel's Y coordinate. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The y coordinate (column) of the pixel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00092">92</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00110">110</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -403,10 +428,11 @@ Returns the pixel's Y coordinate.
 Returns the pixel's gray level. 
 <p>
 If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a certain value depending on what is the current colorspace. If it is COLORSPACE_MONOCHROMATIC this method returns 0.0 when the pixel belongs to the foreground or 1.0 otherwise. If it is COLORSPACE_RGB this method returns the associated grayscale value computed according to the equation <img class="formulaInl" alt="$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue)$" src="form_2.png"><p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel, independently on the colorspace being RGB or grayscale</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00108">108</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00128">128</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -430,10 +456,15 @@ If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a c
 Sets the pixel's gray level. 
 <p>
 If the pixel current colorspace is different from COLORSPACE_GRAYSCALE no change is made<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>The gray level of the pixel when working on a grayscale colorspace</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00120">120</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00142">142</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -455,10 +486,11 @@ If the pixel current colorspace is different from COLORSPACE_GRAYSCALE no change
 <p>
 Returns the pixel's red component in RGB colorspace. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the red channel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00209">209</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00239">239</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -481,10 +513,15 @@ Returns the pixel's red component in RGB colorspace.
 <p>
 Sets the pixel's red component in RGB colorspace. 
 <p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the red channel</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00146">146</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00170">170</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -506,10 +543,11 @@ Sets the pixel's red component in RGB colorspace.
 <p>
 Returns the pixel's green component in RGB colorspace. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the green channel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00219">219</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00251">251</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -532,10 +570,15 @@ Returns the pixel's green component in RGB colorspace.
 <p>
 Sets the pixel's green component in RGB colorspace. 
 <p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the green channel</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00167">167</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00193">193</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -557,10 +600,11 @@ Sets the pixel's green component in RGB colorspace.
 <p>
 Returns the pixel's blue component in RGB colorspace. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the blue channel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00229">229</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00263">263</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -583,10 +627,15 @@ Returns the pixel's blue component in RGB colorspace.
 <p>
 Sets the pixel's blue component in RGB colorspace. 
 <p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the blue channel</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00188">188</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00216">216</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -625,10 +674,17 @@ Sets the pixel's blue component in RGB colorspace.
 Sets the pixel's color in RGB colorspace. 
 <p>
 If the pixel current colorspace is different from COLORSPACE_RGB no change is made<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>Color value of the red channel in a RGB colorspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>Color value of the green channel in a RGB colorspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>Color value of the blue channel in a RGB colorspace</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00241">241</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00279">279</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -651,10 +707,11 @@ If the pixel current colorspace is different from COLORSPACE_RGB no change is ma
 Returns true if the pixel belongs to the image foreground. 
 <p>
 If the pixel colorspace is not COLORSPACE_MONOCHROMATIC this method returns always true.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the pixel belongs to the foreground or if the colorspace is monochromatic</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00289">289</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00329">329</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -677,18 +734,23 @@ If the pixel colorspace is not COLORSPACE_MONOCHROMATIC this method returns alwa
 <p>
 Sets whether the pixel belongs to the foreground or not. 
 <p>
-If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no change is made. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>.<p>
+If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no change is made. When using a monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>isForeground</em>&nbsp;</td><td>Tells whether the pixel has to be set as belonging to the foreground or not</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00303">303</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00346">346</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_pixel_8h-source.html">Pixel.h (114)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (114)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 13:40:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 17:14:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

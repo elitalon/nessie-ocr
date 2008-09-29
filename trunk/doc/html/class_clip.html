@@ -229,10 +229,19 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (xOrigin,yOrigin) in the source image, with the height and width passed. The xOrigin value allows access to the image rows, while the yOrigin value allows access to the image columns. If the xOrigin and yOrigin are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated. Note that, as in C and C++, indexes begin at (0,0).<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>image</em>&nbsp;</td><td>The underlying image where the clip belongs to </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>xOrigin</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>yOrigin</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The height of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The width of the clip</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00018">18</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00024">24</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -258,7 +267,7 @@ Destroys a <a class="el" href="class_clip.html" title="Press clip where the reco
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00100">100</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00106">106</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -281,10 +290,11 @@ Destroys a <a class="el" href="class_clip.html" title="Press clip where the reco
 <p>
 Returns the current Image object. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The underlying image where the clip belongs to</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00110">110</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00118">118</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -306,10 +316,11 @@ Returns the current Image object.
 <p>
 Returns the X coordinate of the clip's upper leftmost pixel. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The upper left-most pixel X coordinate of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00120">120</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00130">130</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -333,10 +344,20 @@ Returns the X coordinate of the clip's upper leftmost pixel.
 Sets the X coordinate of the clip's upper leftmost pixel. 
 <p>
 If the new value x is over the image borders, an exception is thrown.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00132">132</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00146">146</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -358,10 +379,11 @@ If the new value x is over the image borders, an exception is thrown.<p>
 <p>
 Returns the Y coordinate of the clip's upper leftmost pixel. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The upper left-most pixel Y coordinate of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00148">148</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00164">164</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -385,10 +407,20 @@ Returns the Y coordinate of the clip's upper leftmost pixel.
 Sets the Y coordinate of the clip's upper leftmost pixel. 
 <p>
 If the new value y is over the image borders, an exception is thrown.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00160">160</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00180">180</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -410,10 +442,11 @@ If the new value y is over the image borders, an exception is thrown.<p>
 <p>
 Returns the clip's height. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The height of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00176">176</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00198">198</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -437,10 +470,15 @@ Returns the clip's height.
 Sets the clip's height. 
 <p>
 If the height is over the image borders the clip is truncated to its maximum allowed value.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The height of the clip</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00188">188</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00212">212</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -462,10 +500,11 @@ If the height is over the image borders the clip is truncated to its maximum all
 <p>
 Returns the clip's width. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The width of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00203">203</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00229">229</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -489,10 +528,15 @@ Returns the clip's width.
 Sets the clip's width. 
 <p>
 If the width is over the image borders the clip is truncated to its maximum allowed value.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The height of the clip</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00215">215</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00243">243</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -514,11 +558,12 @@ If the width is over the image borders the clip is truncated to its maximum allo
 <p>
 Returns the clip's current colorspace. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The current colorspace of the clip</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65" title="Colorspace of an image.">Colorspace</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00232">232</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00262">262</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -542,11 +587,16 @@ Returns the clip's current colorspace.
 Sets the clip's current colorspace. 
 <p>
 By setting the colorspace to a certain value the image colorspace changes, affecting all its pixels and the information regarding the image colors.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>colorspace</em>&nbsp;</td><td>The colorspace of the clip according to values in Colorspace</td></tr>
+  </table>
+</dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65" title="Colorspace of an image.">Colorspace</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00247">247</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00279">279</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -568,10 +618,11 @@ By setting the colorspace to a certain value the image colorspace changes, affec
 <p>
 Returns true if the clip is in grayscale. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the colorspace of the clip is grayscale</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00297">297</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00331">331</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -593,10 +644,11 @@ Returns true if the clip is in grayscale.
 <p>
 Returns true if the clip is in color. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the colorspace of the clip is RGB</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00310">310</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00346">346</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -618,10 +670,11 @@ Returns true if the clip is in color.
 <p>
 Returns true if the clips is in black and white. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the colorspace of the clip is monochromatic</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00323">323</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00361">361</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -654,10 +707,17 @@ Returns true if the clips is in black and white.
 Returns the pixel at coordinates (x,y). 
 <p>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is undefined, an exception is also thrown.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The pixel at coordinates (x,y)</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00339">339</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00382">382</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -696,10 +756,17 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 Sets the gray level of a pixel at coordinates (x,y). 
 <p>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not grayscale no changes are made. The gray level must be normalized in a value from 0 to 1, otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>The new gray level for the pixel at coordinates (x,y)</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00389">389</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00436">436</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -750,10 +817,19 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 Sets the color of a pixel at coordinates (x,y). 
 <p>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not RGB no changes are made. Each channel value must be normalized in a value from 0 to 1, otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>The new color value of red channel for the pixel at coordinates (x,y) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>The new color value of green channel for the pixel at coordinates (x,y) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>The new color value of blue channel for the pixel at coordinates (x,y)</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00431">431</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00484">484</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -792,10 +868,17 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 Sets whether a pixel at coordinates (x,y) belongs to the foreground or not. 
 <p>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. If the image colorspace is not monochromatic no changes are made<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>isForeground</em>&nbsp;</td><td>Tells whether the pixel at coordinates (x,y) belongs to the foreground or not</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00472">472</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00529">529</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -821,9 +904,9 @@ When any of the clip attributes change, it is neccesary to relocate the clip pos
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00512">512</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00569">569</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00188">height()</a>, <a class="el" href="_clip_8cpp-source.html#l00215">width()</a>, <a class="el" href="_clip_8cpp-source.html#l00132">xOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00160">yOrigin()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00212">height()</a>, <a class="el" href="_clip_8cpp-source.html#l00243">width()</a>, <a class="el" href="_clip_8cpp-source.html#l00146">xOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00180">yOrigin()</a>.</p>
 
 </div>
 </div><p>
@@ -849,9 +932,9 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00533">533</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00590">590</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00132">xOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00160">yOrigin()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00146">xOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00180">yOrigin()</a>.</p>
 
 </div>
 </div><p>
@@ -873,7 +956,7 @@ Clip's colorspace.
 It is modified automatically when the clip's image source changes 
 <p>Definition at line <a class="el" href="_clip_8h-source.html#l00169">169</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00018">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00232">colorspace()</a>, <a class="el" href="_clip_8cpp-source.html#l00339">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00310">isColor()</a>, <a class="el" href="_clip_8cpp-source.html#l00297">isGrayscale()</a>, <a class="el" href="_clip_8cpp-source.html#l00323">isMonochromatic()</a>, and <a class="el" href="_clip_8cpp-source.html#l00389">setPixel()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00024">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00262">colorspace()</a>, <a class="el" href="_clip_8cpp-source.html#l00382">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00346">isColor()</a>, <a class="el" href="_clip_8cpp-source.html#l00331">isGrayscale()</a>, <a class="el" href="_clip_8cpp-source.html#l00361">isMonochromatic()</a>, and <a class="el" href="_clip_8cpp-source.html#l00436">setPixel()</a>.</p>
 
 </div>
 </div><p>
@@ -894,7 +977,7 @@ Pixels frame where the clip is located.
 It is modified automatically when the clip attributes change 
 <p>Definition at line <a class="el" href="_clip_8h-source.html#l00174">174</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00018">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00247">colorspace()</a>, <a class="el" href="_clip_8cpp-source.html#l00339">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00512">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00389">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00100">~Clip()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00024">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00279">colorspace()</a>, <a class="el" href="_clip_8cpp-source.html#l00382">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00569">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00436">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00106">~Clip()</a>.</p>
 
 </div>
 </div><p>
@@ -915,14 +998,14 @@ Frame's upper leftmost pixel.
 It is modified automatically when information about the clip attributes change 
 <p>Definition at line <a class="el" href="_clip_8h-source.html#l00179">179</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00018">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00339">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00512">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00389">setPixel()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00024">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00382">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00569">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00436">setPixel()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_clip_8h-source.html">Clip.h (114)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (114)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 13:40:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 17:14:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

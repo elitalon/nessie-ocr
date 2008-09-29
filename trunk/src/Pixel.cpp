@@ -9,6 +9,10 @@
 /// @details Initializes a Pixel object using a grayscale colorspace. When using grayscale representation
 /// all the pixels are considered as belonging to the foreground, and they have a zero value per RGB channel.
 /// 
+/// @param x			X coordinate (row) of the pixel
+/// @param y			Y coordinate (colum) of the pixel
+/// @param grayLevel	Gray level of the pixel whenever a grayscale colorspace is used
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -23,6 +27,12 @@ Pixel::Pixel(unsigned int x, unsigned int y, double grayLevel)
 /// @details Initializes a Pixel object using a RGB colorspace. When using RGB representation
 /// all the pixels are considered as belonging to the foreground, and they have an associated grayscale value
 /// computed according to the equation \f$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue) \f$
+/// 
+/// @param x		X coordinate (row) of the pixel
+/// @param y		Y coordinate (colum) of the pixel
+/// @param red		Color value of red channel of a RGB colorspace
+/// @param green	Color value of green channel of a RGB colorspace
+/// @param blue		Color value of blue channel of a RGB colorspace
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -39,6 +49,10 @@ Pixel::Pixel(unsigned int x, unsigned int y, double red, double green, double bl
 /// all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean
 /// the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should
 /// be gathered using the appropiate method in class Clip.
+/// 
+/// @param x			X coordinate (row) of the pixel
+/// @param y			Y coordinate (colum) of the pixel
+/// @param isForeground	Tells whether the pixel belongs to the foreground or not
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -76,6 +90,8 @@ Pixel::~Pixel ()
 
 
 /// 
+/// @return The x coordinate (row) of the pixel
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
@@ -85,6 +101,8 @@ unsigned int Pixel::x () const
 };
 
 
+/// 
+/// @return The y coordinate (column) of the pixel
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -102,6 +120,8 @@ unsigned int Pixel::y () const
 /// returns the associated grayscale value computed according to the equation
 /// \f$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue)\f$
 /// 
+/// @return The gray level of the pixel, independently on the colorspace being RGB or grayscale
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -113,6 +133,8 @@ double Pixel::grayLevel () const
 
 ///
 /// @details If the pixel current colorspace is different from COLORSPACE_GRAYSCALE no change is made
+/// 
+/// @param grayLevel The gray level of the pixel when working on a grayscale colorspace
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -140,6 +162,8 @@ void Pixel::grayLevel (double grayLevel)
 
 
 /// 
+/// @param value The color value of the red channel
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
@@ -161,6 +185,8 @@ void Pixel::red (double value)
 
 
 /// 
+/// @param value The color value of the green channel
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
@@ -181,6 +207,8 @@ void Pixel::green (double value)
 };
 
 
+/// 
+/// @param value	The color value of the blue channel
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -203,6 +231,8 @@ void Pixel::blue (double value)
 
 
 /// 
+/// @return The color value of the red channel
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
@@ -213,6 +243,8 @@ double Pixel::red () const
 
 
 /// 
+/// @return The color value of the green channel
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
@@ -222,6 +254,8 @@ double Pixel::green () const
 };
 
 
+/// 
+/// @return The color value of the blue channel
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -234,6 +268,10 @@ double Pixel::blue () const
 
 ///
 /// @details If the pixel current colorspace is different from COLORSPACE_RGB no change is made
+/// 
+/// @param red		Color value of the red channel in a RGB colorspace
+/// @param green	Color value of the green channel in a RGB colorspace
+/// @param blue		Color value of the blue channel in a RGB colorspace
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
@@ -283,6 +321,8 @@ void Pixel::setColor (double red, double green, double blue)
 /// @details If the pixel colorspace is not COLORSPACE_MONOCHROMATIC this method returns
 /// always true.
 /// 
+/// @return True if the pixel belongs to the foreground or if the colorspace is monochromatic
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -293,9 +333,12 @@ bool Pixel::isForeground () const
 
 
 ///
-/// @details If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no change is made.
+/// @details If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no change is made.  When using a
+/// monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace.
 /// Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values.
 /// The true foreground color should be gathered using the appropiate method in class Clip.
+/// 
+/// @param isForeground Tells whether the pixel has to be set as belonging to the foreground or not
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29

@@ -201,11 +201,18 @@ Initializes a <a class="el" href="class_style.html" title="Font style of a chara
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_style.html" title="Font style of a character.">Style</a> object with size, color and weight set to the values passed<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>size</em>&nbsp;</td><td>Font size in points (pt) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>color</em>&nbsp;</td><td>Font color in RGB colorspace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>weight</em>&nbsp;</td><td>Font weight according to values in FontWeight</td></tr>
+  </table>
+</dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a>, <a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00029">29</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00033">33</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -231,7 +238,7 @@ Destroys a <a class="el" href="class_style.html" title="Font style of a characte
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00041">41</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00045">45</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -255,10 +262,11 @@ Destroys a <a class="el" href="class_style.html" title="Font style of a characte
 Returns true if the font weight is bold. 
 <p>
 A bold font may be only bold, bold and italic or bold and underlined<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the font is bold</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00053">53</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00059">59</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -281,10 +289,11 @@ A bold font may be only bold, bold and italic or bold and underlined<p>
 Returns true if the font weight is italic. 
 <p>
 An italic font may be only italic, italic and bold or italic and underlined<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the font is italic</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00077">77</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00085">85</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -307,10 +316,11 @@ An italic font may be only italic, italic and bold or italic and underlined<p>
 Returns true if the font weight is underlined. 
 <p>
 An underlined font may be only underlined, underlined and italic or underlined and bold<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the font is underlined</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00101">101</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00111">111</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -333,10 +343,11 @@ An underlined font may be only underlined, underlined and italic or underlined a
 Returns true if the font weight is normal. 
 <p>
 A normal font is neither bold, nor italic, nor underlined<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the font is normal</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00125">125</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00137">137</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -359,10 +370,11 @@ A normal font is neither bold, nor italic, nor underlined<p>
 Returns the font size. 
 <p>
 The size is expressed in points (pt)<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The size of the font in points (pt)</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00149">149</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00163">163</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -386,10 +398,15 @@ The size is expressed in points (pt)<p>
 Sets the font size. 
 <p>
 The size is expressed in points (pt)<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>size</em>&nbsp;</td><td>Font size in points (pt)</td></tr>
+  </table>
+</dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00161">161</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00177">177</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -411,11 +428,12 @@ The size is expressed in points (pt)<p>
 <p>
 Returns the font color. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color of the font in RGB representation</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00173">173</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00191">191</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -438,11 +456,16 @@ Returns the font color.
 <p>
 Sets the font color. 
 <p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>color</em>&nbsp;</td><td>Font color in RGB colorspace</td></tr>
+  </table>
+</dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00185">185</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00205">205</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -481,11 +504,18 @@ Sets the font color.
 Sets the font color. 
 <p>
 The font color is created internally as a <a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a> object with the values passed<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>Color value of red channel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>Color value of green channel </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>Color value of blue channel</td></tr>
+  </table>
+</dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="struct_rgb_color.html" title="Color definition in a RGB colorspace.">RgbColor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00199">199</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00223">223</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -507,11 +537,12 @@ The font color is created internally as a <a class="el" href="struct_rgb_color.h
 <p>
 Returns the font weight. 
 <p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The weight of the font</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00211">211</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00237">237</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -535,18 +566,23 @@ Returns the font weight.
 Sets the font weight. 
 <p>
 The weight must be passed using a literal value of FontWeight enumeration.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>weight</em>&nbsp;</td><td>Font weight according to values in FontWeight</td></tr>
+  </table>
+</dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_weight_8h.html#ecff23ba4a68486421bcea57e095fe66" title="Font weight of a character.">FontWeight</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00225">225</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_style_8cpp-source.html#l00253">253</a> of file <a class="el" href="_style_8cpp-source.html">Style.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_style_8h-source.html">Style.h (114)</a><li><a class="el" href="_style_8cpp-source.html">Style.cpp (114)</a></ul>
+<li><a class="el" href="_style_8h-source.html">Style.h (116)</a><li><a class="el" href="_style_8cpp-source.html">Style.cpp (116)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 13:40:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 17:14:05 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -129,12 +129,17 @@ Constructor.
 Initializes a \hyperlink{class_text}{Text} object with the content passed in content\_\- and no styles
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em content}]Initial text\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 28 of file Text.cpp.\hypertarget{class_text_1016494333aa62e305ec52f587f1cb66}{
+Definition at line 30 of file Text.cpp.\hypertarget{class_text_1016494333aa62e305ec52f587f1cb66}{
 \index{Text@{Text}!Text@{Text}}
 \index{Text@{Text}!Text@{Text}}
 \subsubsection[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (string {\em content}, \/  vector$<$ {\bf Style} $>$ {\em styles})}}
@@ -146,6 +151,11 @@ Constructor.
 Initializes a \hyperlink{class_text}{Text} object with the content passed in content\_\- and styles passed in styles\_\-
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em content}]Initial text \item[{\em styles}]\hyperlink{class_style}{Style} of every character in text\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -153,7 +163,7 @@ Initializes a \hyperlink{class_text}{Text} object with the content passed in con
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 46 of file Text.cpp.\hypertarget{class_text_2d49e5c280e205125b149f7777ae30c7}{
+Definition at line 51 of file Text.cpp.\hypertarget{class_text_2d49e5c280e205125b149f7777ae30c7}{
 \index{Text@{Text}!$\sim$Text@{$\sim$Text}}
 \index{$\sim$Text@{$\sim$Text}!Text@{Text}}
 \subsubsection[$\sim$Text]{\setlength{\rightskip}{0pt plus 5cm}Text::$\sim$Text ()}}
@@ -170,7 +180,7 @@ Destroys a \hyperlink{class_text}{Text} object
 \item[Date:]2008-09-18 \end{Desc}
 
 
-Definition at line 59 of file Text.cpp.
+Definition at line 64 of file Text.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_text_f30df66d8aa08a4e202512a358534f6c}{
@@ -185,12 +195,17 @@ Adds a character to the text.
 The character passed is appended to the end of the text with a default style.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em character}]Character to add\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 159 of file Text.cpp.
+Definition at line 176 of file Text.cpp.
 
 Referenced by addCharacter().\hypertarget{class_text_757b9caa67089198ac99c06391b910bb}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
@@ -204,6 +219,11 @@ Adds a character to the text.
 The character is appended to the end of the text with the style passed.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em character}]Character to add \item[{\em style}]\hyperlink{class_style}{Style} of the character\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -211,7 +231,7 @@ The character is appended to the end of the text with the style passed.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 146 of file Text.cpp.\hypertarget{class_text_8e2f98d018b51a0b800bb1189ad7d9ae}{
+Definition at line 161 of file Text.cpp.\hypertarget{class_text_8e2f98d018b51a0b800bb1189ad7d9ae}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
 \subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character}, \/  unsigned int {\em position})}}
@@ -223,12 +243,17 @@ Adds a character to the text.
 The character is appended to the text at position passed, with a default style. If the position passed is over the text total length, the character is appended to the end of the text.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em character}]Character to add \item[{\em position}]Position where adding the character to\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 125 of file Text.cpp.\hypertarget{class_text_a2074d216bde350970d9a4260c2d85bb}{
+Definition at line 137 of file Text.cpp.\hypertarget{class_text_a2074d216bde350970d9a4260c2d85bb}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
 \subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (char {\em character}, \/  {\bf Style} {\em style}, \/  unsigned int {\em position})}}
@@ -240,6 +265,11 @@ Adds a character to the text.
 The character is appended to the text at position passed in position\_\-, and with style passed in style\_\-. If no position is passed, the character is appended to the end. Similarly, if no style is passed a default style is assigned to the character. If the position passed is over the text total length, the character is appended to the end of the text.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em character}]Character to add \item[{\em style}]\hyperlink{class_style}{Style} of the character \item[{\em position}]Position where adding the character to\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -247,7 +277,7 @@ The character is appended to the text at position passed in position\_\-, and wi
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 77 of file Text.cpp.\hypertarget{class_text_d62cf2b09042cfd169b8274ef3226fbd}{
+Definition at line 86 of file Text.cpp.\hypertarget{class_text_d62cf2b09042cfd169b8274ef3226fbd}{
 \index{Text@{Text}!removeCharacter@{removeCharacter}}
 \index{removeCharacter@{removeCharacter}!Text@{Text}}
 \subsubsection[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (unsigned int {\em position})}}
@@ -259,12 +289,17 @@ Removes a character from the text.
 The character is removed from the position in text passed in position\_\-, unless it is over the text total length. In such case, the last character is removed
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em position}]Position where removing the character from\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 173 of file Text.cpp.\hypertarget{class_text_7fec452bd51b06b53fbb5abc9c335459}{
+Definition at line 192 of file Text.cpp.\hypertarget{class_text_7fec452bd51b06b53fbb5abc9c335459}{
 \index{Text@{Text}!getCharacterStyle@{getCharacterStyle}}
 \index{getCharacterStyle@{getCharacterStyle}!Text@{Text}}
 \subsubsection[getCharacterStyle]{\setlength{\rightskip}{0pt plus 5cm}{\bf Style} Text::getCharacterStyle (unsigned int {\em position}) const}}
@@ -276,6 +311,13 @@ Returns the style of a single character.
 The style of a character at position passed is return unless the position will be over the text length. In this case an empty style is returned.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em position}]Position where getting the character style from\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The style of the character\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -283,7 +325,7 @@ The style of a character at position passed is return unless the position will b
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 213 of file Text.cpp.\hypertarget{class_text_7cf2efca7fdd4d7b04292e373d5c2e5e}{
+Definition at line 236 of file Text.cpp.\hypertarget{class_text_7cf2efca7fdd4d7b04292e373d5c2e5e}{
 \index{Text@{Text}!setCharacterStyle@{setCharacterStyle}}
 \index{setCharacterStyle@{setCharacterStyle}!Text@{Text}}
 \subsubsection[setCharacterStyle]{\setlength{\rightskip}{0pt plus 5cm}void Text::setCharacterStyle (unsigned int {\em position}, \/  {\bf Style} {\em style})}}
@@ -295,6 +337,11 @@ Sets the style of a single character.
 The character at position position\_\- in text is set with the style passed. If the position passed in position\_\- is over the text total length no changes are made.
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em position}]Position of the character whose style is going to be modify \item[{\em style}]New style for the character\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -302,7 +349,7 @@ The character at position position\_\- in text is set with the style passed. If 
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 231 of file Text.cpp.\hypertarget{class_text_8a29bbf6c707ac8b2055a22723a82f3d}{
+Definition at line 257 of file Text.cpp.\hypertarget{class_text_8a29bbf6c707ac8b2055a22723a82f3d}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}string Text::content () const}}
@@ -312,12 +359,14 @@ Definition at line 231 of file Text.cpp.\hypertarget{class_text_8a29bbf6c707ac8b
 Returns the text itself. 
 
 \begin{Desc}
+\item[Returns:]The content of the text\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 242 of file Text.cpp.\hypertarget{class_text_7caede09aa76ca7fc26aab3ec3c41181}{
+Definition at line 270 of file Text.cpp.\hypertarget{class_text_7caede09aa76ca7fc26aab3ec3c41181}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}void Text::content (string {\em content})}}
@@ -327,12 +376,17 @@ Definition at line 242 of file Text.cpp.\hypertarget{class_text_7caede09aa76ca7f
 Sets the text. 
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em content}]The content of the text\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 252 of file Text.cpp.\hypertarget{class_text_a66bfa36621592ccbeda7968637d7301}{
+Definition at line 282 of file Text.cpp.\hypertarget{class_text_a66bfa36621592ccbeda7968637d7301}{
 \index{Text@{Text}!styles@{styles}}
 \index{styles@{styles}!Text@{Text}}
 \subsubsection[styles]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Style} $>$ Text::styles () const}}
@@ -342,6 +396,8 @@ Definition at line 252 of file Text.cpp.\hypertarget{class_text_a66bfa36621592cc
 Returns the list of text styles. 
 
 \begin{Desc}
+\item[Returns:]styles A vector with the styles of every character in text\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -349,7 +405,7 @@ Returns the list of text styles.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 268 of file Text.cpp.\hypertarget{class_text_5782b92326b7e3c851c38f82cb412b70}{
+Definition at line 300 of file Text.cpp.\hypertarget{class_text_5782b92326b7e3c851c38f82cb412b70}{
 \index{Text@{Text}!styles@{styles}}
 \index{styles@{styles}!Text@{Text}}
 \subsubsection[styles]{\setlength{\rightskip}{0pt plus 5cm}void Text::styles (vector$<$ {\bf Style} $>$ {\em styles})}}
@@ -359,6 +415,11 @@ Definition at line 268 of file Text.cpp.\hypertarget{class_text_5782b92326b7e3c8
 Sets the list of text styles. 
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em styles}]A vector with the styles of every character in text\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{class_style}{Style}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -366,7 +427,7 @@ Sets the list of text styles.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 280 of file Text.cpp.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
+Definition at line 314 of file Text.cpp.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
 \index{Text@{Text}!length@{length}}
 \index{length@{length}!Text@{Text}}
 \subsubsection[length]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::length () const}}
@@ -376,12 +437,14 @@ Definition at line 280 of file Text.cpp.\hypertarget{class_text_8d76db538f8617fb
 Returns the text length. 
 
 \begin{Desc}
+\item[Returns:]The length of the text\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 290 of file Text.cpp.
+Definition at line 326 of file Text.cpp.
 
 Referenced by addCharacter(), getCharacterStyle(), removeCharacter(), and setCharacterStyle().\hypertarget{class_text_1c69ff1b2a6b1bfbf0b44fc4a185de3d}{
 \index{Text@{Text}!wordRates@{wordRates}}
@@ -393,6 +456,8 @@ Referenced by addCharacter(), getCharacterStyle(), removeCharacter(), and setCha
 Returns the appearance rates of every single word in text. 
 
 \begin{Desc}
+\item[Returns:]A vector with every different word and their appearance rate\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{_word_rate_8h_e8f43926daba5798edbb3cb94ad07ff7}{WordRate}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -400,7 +465,7 @@ Returns the appearance rates of every single word in text.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 302 of file Text.cpp.
+Definition at line 340 of file Text.cpp.
 
 Referenced by updateWordRate().\hypertarget{class_text_28df8a28b99fc925f6a9597a81769f62}{
 \index{Text@{Text}!proportionality@{proportionality}}
@@ -414,6 +479,8 @@ Returns the font proportionality in text.
 The proportionality may be monospaced or proportional
 
 \begin{Desc}
+\item[Returns:]Proportionality of the text according to values in FontProportionality\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -421,7 +488,7 @@ The proportionality may be monospaced or proportional
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 316 of file Text.cpp.\hypertarget{class_text_90ebca7fe222314f1c50c4e36559ca64}{
+Definition at line 356 of file Text.cpp.\hypertarget{class_text_90ebca7fe222314f1c50c4e36559ca64}{
 \index{Text@{Text}!proportionality@{proportionality}}
 \index{proportionality@{proportionality}!Text@{Text}}
 \subsubsection[proportionality]{\setlength{\rightskip}{0pt plus 5cm}void Text::proportionality ({\bf FontProportionality} {\em proportionality})}}
@@ -431,6 +498,11 @@ Definition at line 316 of file Text.cpp.\hypertarget{class_text_90ebca7fe222314f
 Sets the font proportionality in text. 
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em proportionality}]Proportionality of text\end{description}
+\end{Desc}
+\begin{Desc}
 \item[See also:]\hyperlink{_font_proportionality_8h_a9aa255df24db58a9b4cbc46941f2ac1}{FontProportionality}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -438,7 +510,7 @@ Sets the font proportionality in text.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 328 of file Text.cpp.\hypertarget{class_text_8239e13039bcc1c713f66f1236693706}{
+Definition at line 370 of file Text.cpp.\hypertarget{class_text_8239e13039bcc1c713f66f1236693706}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
 \index{computeWordRates@{computeWordRates}!Text@{Text}}
 \subsubsection[computeWordRates]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
@@ -455,7 +527,7 @@ This method must be called every time the content changes, since there is no pub
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 365 of file Text.cpp.
+Definition at line 409 of file Text.cpp.
 
 Referenced by addCharacter(), content(), removeCharacter(), and Text().\hypertarget{class_text_7c2b1a540b470cb7aa37fb42070a674f}{
 \index{Text@{Text}!updateWordRate@{updateWordRate}}
@@ -467,12 +539,17 @@ Referenced by addCharacter(), content(), removeCharacter(), and Text().\hypertar
 Increases by one the number of appearances of a word. 
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em word}]Word whose appearance rate must be update\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-22 \end{Desc}
 
 
-Definition at line 338 of file Text.cpp.
+Definition at line 382 of file Text.cpp.
 
 Referenced by computeWordRates().\hypertarget{class_text_09f6b1e475da423ac81305500e05c7d6}{
 \index{Text@{Text}!tokenize@{tokenize}}
@@ -484,16 +561,21 @@ Referenced by computeWordRates().\hypertarget{class_text_09f6b1e475da423ac813055
 Extracts the words surrounded by default delimiters from text. 
 
 \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[\mbox{$\rightarrow$} {\em tokens}]Vector where storing the words found to \item[{\em delimiters}]Characters that may delimiter a valid word\end{description}
+\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-22 \end{Desc}
 
 
-Definition at line 386 of file Text.cpp.
+Definition at line 433 of file Text.cpp.
 
 Referenced by computeWordRates().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_text_8h}{Text.h (114)}\item 
-\hyperlink{_text_8cpp}{Text.cpp (114)}\end{CompactItemize}
+\hyperlink{_text_8h}{Text.h (116)}\item 
+\hyperlink{_text_8cpp}{Text.cpp (116)}\end{CompactItemize}

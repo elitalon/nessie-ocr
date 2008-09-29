@@ -21,6 +21,8 @@ Text::Text () : content_(string("")), styles_(vector<Style>(0)), proportionality
 
 ///
 /// @details Initializes a Text object with the content passed in content_ and no styles
+/// 
+/// @param content Initial text
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-23
@@ -37,6 +39,9 @@ Text::Text (string content) : content_(content), proportionality_(FONT_PROPORTIO
 
 ///
 /// @details Initializes a Text object with the content passed in content_ and styles passed in styles_
+/// 
+/// @param content	Initial text
+/// @param styles	Style of every character in text
 ///
 /// @see Style
 /// 
@@ -68,6 +73,10 @@ Text::~Text ()
 /// to the end. Similarly, if no style is passed a default style is assigned to the character.
 /// If the position passed is over the text total length, the character is appended to the
 /// end of the text.
+/// 
+/// @param character	Character to add
+/// @param style		Style of the character
+/// @param position		Position where adding the character to
 /// 
 /// @see Style
 ///
@@ -119,6 +128,9 @@ void Text::addCharacter (char character, Style style, unsigned int position)
 /// with a default style. If the position passed is over the text total length,
 /// the character is appended to the end of the text.
 ///
+/// @param character	Character to add
+/// @param position		Position where adding the character to
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -137,7 +149,10 @@ void Text::addCharacter (char character, unsigned int position)
 
 ///
 /// @details The character is appended to the end of the text with the style passed.
-/// 
+///
+/// @param character	Character to add
+/// @param style		Style of the character 
+///
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -153,6 +168,8 @@ void Text::addCharacter (char character, Style style)
 ///
 /// @details The character passed is appended to the end of the text with a default style.
 ///
+/// @param character	Character to add
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -167,6 +184,8 @@ void Text::addCharacter (char character)
 /// @details The character is removed from the position in text passed in position_, unless it is
 /// over the text total length. In such case, the last character is removed
 ///
+/// @param position		Position where removing the character from
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-23
 /// 
@@ -205,6 +224,10 @@ void Text::removeCharacter (unsigned int position)
 /// @details The style of a character at position passed is return unless the position
 /// will be over the text length. In this case an empty style is returned.
 /// 
+/// @param position Position where getting the character style from
+/// 
+/// @return The style of the character
+/// 
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -223,6 +246,9 @@ Style Text::getCharacterStyle (unsigned int position) const
 /// @details The character at position position_ in text is set with the style passed.
 /// If the position passed in position_ is over the text total length no changes are made.
 /// 
+/// @param position	Position of the character whose style is going to be modify
+/// @param style	New style for the character
+/// 
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -236,6 +262,8 @@ void Text::setCharacterStyle (unsigned int position, Style style)
 
 
 ///
+/// @return The content of the text
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -246,6 +274,8 @@ string Text::content () const
 
 
 ///
+/// @param content The content of the text
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -260,6 +290,8 @@ void Text::content (string content)
 
 
 ///
+/// @return styles A vector with the styles of every character in text
+/// 
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -272,6 +304,8 @@ vector<Style> Text::styles () const
 
 
 ///
+/// @param styles A vector with the styles of every character in text
+/// 
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -284,6 +318,8 @@ void Text::styles (vector<Style> styles)
 
 
 ///
+/// @return The length of the text
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
@@ -294,6 +330,8 @@ unsigned int Text::length () const
 
 
 ///
+/// @return A vector with every different word and their appearance rate
+/// 
 /// @see WordRate
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -308,6 +346,8 @@ vector<WordRate> Text::wordRates () const
 ///
 /// @details The proportionality may be monospaced or proportional
 /// 
+/// @return Proportionality of the text according to values in FontProportionality
+/// 
 /// @see FontProportionality
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -320,6 +360,8 @@ FontProportionality Text::proportionality () const
 
 
 ///
+/// @param proportionality	Proportionality of text
+/// 
 /// @see FontProportionality
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -332,6 +374,8 @@ void Text::proportionality (FontProportionality proportionality)
 
 
 ///
+/// @param word	Word whose appearance rate must be update
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-22
 ///
@@ -380,6 +424,9 @@ void Text::computeWordRates ()
 
 
 ///
+/// @param[out] tokens	Vector where storing the words found to
+/// @param delimiters	Characters that may delimiter a valid word
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-22
 ///

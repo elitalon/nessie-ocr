@@ -6,6 +6,7 @@
 /// @brief Declaration of enumeration FontWeight
 ///
 
+/// 
 /// Font weight of a character
 /// 
 /// This enumeration represents the different types of font weight that

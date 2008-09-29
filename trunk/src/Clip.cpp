@@ -11,6 +11,12 @@
 /// The xOrigin value allows access to the image rows, while the yOrigin value allows access to the image columns. If the xOrigin and
 /// yOrigin are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is
 /// truncated. Note that, as in C and C++, indexes begin at (0,0).
+/// 
+/// @param image	The underlying image where the clip belongs to
+/// @param xOrigin	The upper left-most pixel X coordinate of the clip
+/// @param yOrigin	The upper left-most pixel Y coordinate of the clip
+/// @param height	The height of the clip
+/// @param width	The width of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -104,6 +110,8 @@ Clip::~Clip ()
 
 
 ///
+/// @return The underlying image where the clip belongs to
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
@@ -114,6 +122,8 @@ Image Clip::image ()
 
 
 ///
+/// @return The upper left-most pixel X coordinate of the clip
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
@@ -125,6 +135,10 @@ unsigned int Clip::xOrigin () const
 
 ///
 /// @details If the new value x is over the image borders, an exception is thrown.
+/// 
+/// @param x The upper left-most pixel X coordinate of the clip
+/// 
+/// @throw NessieException
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -142,6 +156,8 @@ void Clip::xOrigin (unsigned int x)
 
 
 ///
+/// @return The upper left-most pixel Y coordinate of the clip
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
@@ -153,6 +169,10 @@ unsigned int Clip::yOrigin () const
 
 ///
 /// @details If the new value y is over the image borders, an exception is thrown.
+/// 
+/// @param y The upper left-most pixel Y coordinate of the clip
+/// 
+/// @throw NessieException
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -170,6 +190,8 @@ void Clip::yOrigin (unsigned int y)
 
 
 ///
+/// @return The height of the clip
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
@@ -181,6 +203,8 @@ unsigned int Clip::height () const
 
 ///
 /// @details If the height is over the image borders the clip is truncated to its maximum allowed value.
+/// 
+/// @param height The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -197,6 +221,8 @@ void Clip::height (unsigned int height)
 
 
 ///
+/// @return The width of the clip
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
@@ -208,6 +234,8 @@ unsigned int Clip::width () const
 
 ///
 /// @details If the width is over the image borders the clip is truncated to its maximum allowed value.
+/// 
+/// @param width The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -224,6 +252,8 @@ void Clip::width (unsigned int width)
 
 
 ///
+/// @return The current colorspace of the clip
+/// 
 /// @see Colorspace
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
@@ -238,6 +268,8 @@ Colorspace Clip::colorspace () const
 ///
 /// @details By setting the colorspace to a certain value the image colorspace changes, affecting all its pixels
 /// and the information regarding the image colors.
+/// 
+/// @param colorspace The colorspace of the clip according to values in Colorspace
 /// 
 /// @see Colorspace
 /// 
@@ -291,6 +323,8 @@ void Clip::colorspace (Colorspace colorspace)
 
 
 ///
+/// @return True if the colorspace of the clip is grayscale
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -304,6 +338,8 @@ bool Clip::isGrayscale () const
 
 
 ///
+/// @return True if the colorspace of the clip is RGB
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -317,6 +353,8 @@ bool Clip::isColor () const
 
 
 ///
+/// @return True if the colorspace of the clip is monochromatic
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -332,6 +370,11 @@ bool Clip::isMonochromatic () const
 ///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
 /// If the image colorspace is undefined, an exception is also thrown.
+/// 
+/// @param x	The upper left-most pixel X coordinate of the clip
+/// @param y	The upper left-most pixel Y coordinate of the clip
+/// 
+/// @return The pixel at coordinates (x,y)
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
@@ -383,6 +426,10 @@ Pixel Clip::getPixel (unsigned int x, unsigned int y) const
 /// If the image colorspace is not grayscale no changes are made. The gray level must be normalized in a value from 0 to 1,
 /// otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
 ///
+/// @param x			The upper left-most pixel X coordinate of the clip
+/// @param y			The upper left-most pixel Y coordinate of the clip
+/// @param grayLevel	The new gray level for the pixel at coordinates (x,y)
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -425,6 +472,12 @@ void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 /// If the image colorspace is not RGB no changes are made. Each channel value must be normalized in a value from 0 to 1,
 /// otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
 ///
+/// @param x		The upper left-most pixel X coordinate of the clip
+/// @param y		The upper left-most pixel Y coordinate of the clip
+/// @param red		The new color value of red channel for the pixel at coordinates (x,y)
+/// @param green	The new color value of green channel for the pixel at coordinates (x,y)
+/// @param blue		The new color value of blue channel for the pixel at coordinates (x,y)
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
@@ -466,6 +519,10 @@ void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, d
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
 /// If the image colorspace is not monochromatic no changes are made
 ///
+/// @param x			The upper left-most pixel X coordinate of the clip
+/// @param y			The upper left-most pixel Y coordinate of the clip
+/// @param isForeground	Tells whether the pixel at coordinates (x,y) belongs to the foreground or not
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///

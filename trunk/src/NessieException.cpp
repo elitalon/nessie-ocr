@@ -8,6 +8,8 @@
 
 ///
 /// @details Initializes an exception object with information passed
+/// 
+/// @param message	A string containing a message that explains the exception raised
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26

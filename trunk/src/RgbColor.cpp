@@ -19,9 +19,13 @@ RgbColor::RgbColor () : red(0.0), green(0.0), blue(0.0)
 
 
 ///
-/// @details Initializes a RgbColor object with the components set to the values passed.
+/// @details Initializes a RgbColor object with the RGB channels set to the values passed.
 /// Since the color must be expressed using a RGB scale of 256 possible values normalized between 0 and 1,
-/// any value out this scale will be truncated
+/// any value out of this scale will be truncated
+/// 
+/// @param redChannel	Color value of the red channel
+/// @param greenChannel	Color value of the green channel
+/// @param blueChannel	Color value of the blue channel
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29

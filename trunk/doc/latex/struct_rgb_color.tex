@@ -80,15 +80,20 @@ Definition at line 15 of file RgbColor.cpp.\hypertarget{struct_rgb_color_22ba5d2
 
 Constructor. 
 
-Initializes a \hyperlink{struct_rgb_color}{RgbColor} object with the components set to the values passed. Since the color must be expressed using a RGB scale of 256 possible values normalized between 0 and 1, any value out this scale will be truncated
+Initializes a \hyperlink{struct_rgb_color}{RgbColor} object with the RGB channels set to the values passed. Since the color must be expressed using a RGB scale of 256 possible values normalized between 0 and 1, any value out of this scale will be truncated
 
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em redChannel}]Color value of the red channel \item[{\em greenChannel}]Color value of the green channel \item[{\em blueChannel}]Color value of the blue channel\end{description}
+\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 29 of file RgbColor.cpp.\hypertarget{struct_rgb_color_1d4e0b01edaea01389a3fd3e02ed9f74}{
+Definition at line 33 of file RgbColor.cpp.\hypertarget{struct_rgb_color_1d4e0b01edaea01389a3fd3e02ed9f74}{
 \index{RgbColor@{RgbColor}!$\sim$RgbColor@{$\sim$RgbColor}}
 \index{$\sim$RgbColor@{$\sim$RgbColor}!RgbColor@{RgbColor}}
 \subsubsection[$\sim$RgbColor]{\setlength{\rightskip}{0pt plus 5cm}RgbColor::$\sim$RgbColor ()}}
@@ -105,7 +110,7 @@ Destroys a \hyperlink{struct_rgb_color}{RgbColor} object
 \item[Date:]2008-09-25 \end{Desc}
 
 
-Definition at line 69 of file RgbColor.cpp.
+Definition at line 73 of file RgbColor.cpp.
 
 The documentation for this struct was generated from the following files:\begin{CompactItemize}
 \item 
