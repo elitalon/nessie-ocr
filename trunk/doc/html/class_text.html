@@ -77,7 +77,7 @@ Collaboration diagram for Text:</div>
 <p>
 This class stores the text que has been extracted from the press-clip during the recognition process. Besides the text itself, it also keeps some extra information: appearance rate of every word, font style of every character and the font proportionality, among others.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
 <p>Definition at line <a class="el" href="_text_8h-source.html#l00030">30</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -116,30 +116,30 @@ This class stores the text que has been extracted from the press-clip during the
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#7cf2efca7fdd4d7b04292e373d5c2e5e">setCharacterStyle</a> (unsigned int position, <a class="el" href="class_style.html">Style</a> style)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the style of a single character.  <a href="#7cf2efca7fdd4d7b04292e373d5c2e5e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#b982578fcb4eda8f6cb49927600f859f">getContent</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d">content</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text itself.  <a href="#b982578fcb4eda8f6cb49927600f859f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#422e904d6f93e34741c28099fc5b077a">setContent</a> (string content)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text itself.  <a href="#8a29bbf6c707ac8b2055a22723a82f3d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#7caede09aa76ca7fc26aab3ec3c41181">content</a> (string content)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the text.  <a href="#422e904d6f93e34741c28099fc5b077a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; <a class="el" href="class_style.html">Style</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#5d0279f5ce832a447c68b99182753928">getStyles</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the text.  <a href="#7caede09aa76ca7fc26aab3ec3c41181"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; <a class="el" href="class_style.html">Style</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#a66bfa36621592ccbeda7968637d7301">styles</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the list of text styles.  <a href="#5d0279f5ce832a447c68b99182753928"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#419c845399aa5e49e3271600fc8a812d">setStyles</a> (vector&lt; <a class="el" href="class_style.html">Style</a> &gt; styles)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the list of text styles.  <a href="#a66bfa36621592ccbeda7968637d7301"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#5782b92326b7e3c851c38f82cb412b70">styles</a> (vector&lt; <a class="el" href="class_style.html">Style</a> &gt; styles)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the list of text styles.  <a href="#419c845399aa5e49e3271600fc8a812d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e">getLength</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the list of text styles.  <a href="#5782b92326b7e3c851c38f82cb412b70"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5">length</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text length.  <a href="#ea91ea415ed40d6cd0aff9063d72756e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; <a class="el" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7">WordRate</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9">getWordRates</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text length.  <a href="#8d76db538f8617fb8880ba3e4ff3e6a5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; <a class="el" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7">WordRate</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#1c69ff1b2a6b1bfbf0b44fc4a185de3d">wordRates</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the appearance rates of every single word in text.  <a href="#2fd83be91d5ba2c24fd44df45efc92c9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5">getProportionality</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the appearance rates of every single word in text.  <a href="#1c69ff1b2a6b1bfbf0b44fc4a185de3d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#28df8a28b99fc925f6a9597a81769f62">proportionality</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font proportionality in text.  <a href="#fa8149d9658fd279eb2f6c6c967b3bb5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#3b2b58565dd9f580163d9efb827e995d">setProportionality</a> (<a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a> proportionality)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the font proportionality in text.  <a href="#28df8a28b99fc925f6a9597a81769f62"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#90ebca7fe222314f1c50c4e36559ca64">proportionality</a> (<a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a> proportionality)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font proportionality in text.  <a href="#3b2b58565dd9f580163d9efb827e995d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the font proportionality in text.  <a href="#90ebca7fe222314f1c50c4e36559ca64"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8239e13039bcc1c713f66f1236693706">computeWordRates</a> ()</td></tr>
 
@@ -251,10 +251,11 @@ Initializes a <a class="el" href="class_text.html" title="Text extracted from th
 Constructor. 
 <p>
 Initializes a <a class="el" href="class_text.html" title="Text extracted from the clip by the recognizer.">Text</a> object with the content passed in content_ and styles passed in styles_<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_style.html" title="Font style of a character.">Style</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00044">44</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00046">46</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -280,7 +281,7 @@ Destroys a <a class="el" href="class_text.html" title="Text extracted from the c
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00057">57</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00059">59</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -306,11 +307,11 @@ Adds a character to the text.
 <p>
 The character passed is appended to the end of the text with a default style.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-22 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00157">157</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00159">159</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00123">addCharacter()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00125">addCharacter()</a>.</p>
 
 </div>
 </div><p>
@@ -345,9 +346,9 @@ Adds a character to the text.
 The character is appended to the end of the text with the style passed.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_style.html" title="Font style of a character.">Style</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00144">144</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00146">146</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -381,9 +382,9 @@ Adds a character to the text.
 <p>
 The character is appended to the text at position passed, with a default style. If the position passed is over the text total length, the character is appended to the end of the text.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00123">123</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00125">125</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -426,7 +427,7 @@ The character is appended to the text at position passed in position_, and with 
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00075">75</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00077">77</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -453,7 +454,7 @@ The character is removed from the position in text passed in position_, unless i
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00171">171</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00173">173</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -481,7 +482,7 @@ The style of a character at position passed is return unless the position will b
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00211">211</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00213">213</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -518,16 +519,16 @@ The character at position position_ in text is set with the style passed. If the
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00229">229</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00231">231</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="b982578fcb4eda8f6cb49927600f859f"></a><!-- doxytag: member="Text::getContent" ref="b982578fcb4eda8f6cb49927600f859f" args="() const " -->
+<a class="anchor" name="8a29bbf6c707ac8b2055a22723a82f3d"></a><!-- doxytag: member="Text::content" ref="8a29bbf6c707ac8b2055a22723a82f3d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string Text::getContent           </td>
+          <td class="memname">string Text::content           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -541,18 +542,18 @@ The character at position position_ in text is set with the style passed. If the
 Returns the text itself. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00240">240</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00242">242</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="422e904d6f93e34741c28099fc5b077a"></a><!-- doxytag: member="Text::setContent" ref="422e904d6f93e34741c28099fc5b077a" args="(string content)" -->
+<a class="anchor" name="7caede09aa76ca7fc26aab3ec3c41181"></a><!-- doxytag: member="Text::content" ref="7caede09aa76ca7fc26aab3ec3c41181" args="(string content)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Text::setContent           </td>
+          <td class="memname">void Text::content           </td>
           <td>(</td>
           <td class="paramtype">string&nbsp;</td>
           <td class="paramname"> <em>content</em>          </td>
@@ -567,18 +568,18 @@ Returns the text itself.
 Sets the text. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00250">250</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00252">252</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="5d0279f5ce832a447c68b99182753928"></a><!-- doxytag: member="Text::getStyles" ref="5d0279f5ce832a447c68b99182753928" args="() const " -->
+<a class="anchor" name="a66bfa36621592ccbeda7968637d7301"></a><!-- doxytag: member="Text::styles" ref="a66bfa36621592ccbeda7968637d7301" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="class_style.html">Style</a> &gt; Text::getStyles           </td>
+          <td class="memname">vector&lt; <a class="el" href="class_style.html">Style</a> &gt; Text::styles           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -593,18 +594,18 @@ Returns the list of text styles.
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_style.html" title="Font style of a character.">Style</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00266">266</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00268">268</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="419c845399aa5e49e3271600fc8a812d"></a><!-- doxytag: member="Text::setStyles" ref="419c845399aa5e49e3271600fc8a812d" args="(vector&lt; Style &gt; styles)" -->
+<a class="anchor" name="5782b92326b7e3c851c38f82cb412b70"></a><!-- doxytag: member="Text::styles" ref="5782b92326b7e3c851c38f82cb412b70" args="(vector&lt; Style &gt; styles)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Text::setStyles           </td>
+          <td class="memname">void Text::styles           </td>
           <td>(</td>
           <td class="paramtype">vector&lt; <a class="el" href="class_style.html">Style</a> &gt;&nbsp;</td>
           <td class="paramname"> <em>styles</em>          </td>
@@ -620,18 +621,18 @@ Sets the list of text styles.
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_style.html" title="Font style of a character.">Style</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00278">278</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00280">280</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="ea91ea415ed40d6cd0aff9063d72756e"></a><!-- doxytag: member="Text::getLength" ref="ea91ea415ed40d6cd0aff9063d72756e" args="() const " -->
+<a class="anchor" name="8d76db538f8617fb8880ba3e4ff3e6a5"></a><!-- doxytag: member="Text::length" ref="8d76db538f8617fb8880ba3e4ff3e6a5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int Text::getLength           </td>
+          <td class="memname">unsigned int Text::length           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -645,20 +646,20 @@ Sets the list of text styles.
 Returns the text length. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00288">288</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00290">290</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00075">addCharacter()</a>, <a class="el" href="_text_8cpp-source.html#l00211">getCharacterStyle()</a>, <a class="el" href="_text_8cpp-source.html#l00171">removeCharacter()</a>, and <a class="el" href="_text_8cpp-source.html#l00229">setCharacterStyle()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00077">addCharacter()</a>, <a class="el" href="_text_8cpp-source.html#l00213">getCharacterStyle()</a>, <a class="el" href="_text_8cpp-source.html#l00173">removeCharacter()</a>, and <a class="el" href="_text_8cpp-source.html#l00231">setCharacterStyle()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="2fd83be91d5ba2c24fd44df45efc92c9"></a><!-- doxytag: member="Text::getWordRates" ref="2fd83be91d5ba2c24fd44df45efc92c9" args="() const " -->
+<a class="anchor" name="1c69ff1b2a6b1bfbf0b44fc4a185de3d"></a><!-- doxytag: member="Text::wordRates" ref="1c69ff1b2a6b1bfbf0b44fc4a185de3d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7">WordRate</a> &gt; Text::getWordRates           </td>
+          <td class="memname">vector&lt; <a class="el" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7">WordRate</a> &gt; Text::wordRates           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -673,18 +674,20 @@ Returns the appearance rates of every single word in text.
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00300">300</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00302">302</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00338">updateWordRate()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="fa8149d9658fd279eb2f6c6c967b3bb5"></a><!-- doxytag: member="Text::getProportionality" ref="fa8149d9658fd279eb2f6c6c967b3bb5" args="() const " -->
+<a class="anchor" name="28df8a28b99fc925f6a9597a81769f62"></a><!-- doxytag: member="Text::proportionality" ref="28df8a28b99fc925f6a9597a81769f62" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a> Text::getProportionality           </td>
+          <td class="memname"><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a> Text::proportionality           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -700,18 +703,18 @@ Returns the font proportionality in text.
 The proportionality may be monospaced or proportional<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00314">314</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00316">316</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="3b2b58565dd9f580163d9efb827e995d"></a><!-- doxytag: member="Text::setProportionality" ref="3b2b58565dd9f580163d9efb827e995d" args="(FontProportionality proportionality)" -->
+<a class="anchor" name="90ebca7fe222314f1c50c4e36559ca64"></a><!-- doxytag: member="Text::proportionality" ref="90ebca7fe222314f1c50c4e36559ca64" args="(FontProportionality proportionality)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Text::setProportionality           </td>
+          <td class="memname">void Text::proportionality           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1">FontProportionality</a>&nbsp;</td>
           <td class="paramname"> <em>proportionality</em>          </td>
@@ -727,9 +730,9 @@ Sets the font proportionality in text.
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-18 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00326">326</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00328">328</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -755,9 +758,9 @@ This method must be called every time the content changes, since there is no pub
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00363">363</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00365">365</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00075">addCharacter()</a>, <a class="el" href="_text_8cpp-source.html#l00171">removeCharacter()</a>, <a class="el" href="_text_8cpp-source.html#l00250">setContent()</a>, and <a class="el" href="_text_8cpp-source.html#l00015">Text()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00077">addCharacter()</a>, <a class="el" href="_text_8cpp-source.html#l00252">content()</a>, <a class="el" href="_text_8cpp-source.html#l00173">removeCharacter()</a>, and <a class="el" href="_text_8cpp-source.html#l00015">Text()</a>.</p>
 
 </div>
 </div><p>
@@ -783,9 +786,9 @@ Increases by one the number of appearances of a word.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-22 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00336">336</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00338">338</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00363">computeWordRates()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00365">computeWordRates()</a>.</p>
 
 </div>
 </div><p>
@@ -820,16 +823,16 @@ Extracts the words surrounded by default delimiters from text.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-22 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00384">384</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00386">386</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00363">computeWordRates()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00365">computeWordRates()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_text_8h-source.html">Text.h (111)</a><li><a class="el" href="_text_8cpp-source.html">Text.cpp (112)</a></ul>
+<li><a class="el" href="_text_8h-source.html">Text.h (114)</a><li><a class="el" href="_text_8cpp-source.html">Text.cpp (114)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 13:40:33 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

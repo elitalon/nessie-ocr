@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Text.h (111) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Text.h (114) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -79,9 +79,9 @@ window.onload = initDynSections;
 <a name="l00033"></a>00033         
 <a name="l00037"></a>00037         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> ();
 <a name="l00038"></a>00038         
-<a name="l00042"></a>00042         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content);
+<a name="l00042"></a>00042         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> <a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">content</a>);
 <a name="l00043"></a>00043         
-<a name="l00047"></a>00047         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content, vector&lt;Style&gt; styles);
+<a name="l00047"></a>00047         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keywordtype">string</span> content, vector&lt;Style&gt; <a class="code" href="class_text.html#a66bfa36621592ccbeda7968637d7301" title="Returns the list of text styles.">styles</a>);
 <a name="l00048"></a>00048         
 <a name="l00052"></a>00052         <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">~Text</a> ();
 <a name="l00053"></a>00053         
@@ -99,21 +99,21 @@ window.onload = initDynSections;
 <a name="l00083"></a>00083 
 <a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7cf2efca7fdd4d7b04292e373d5c2e5e" title="Sets the style of a single character.">setCharacterStyle</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> position, <a class="code" href="class_style.html" title="Font style of a character.">Style</a> style);
 <a name="l00088"></a>00088                 
-<a name="l00092"></a>00092         <span class="keywordtype">string</span> <a class="code" href="class_text.html#b982578fcb4eda8f6cb49927600f859f" title="Returns the text itself.">getContent</a> () <span class="keyword">const</span>;
+<a name="l00092"></a>00092         <span class="keywordtype">string</span> <a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">content</a> () <span class="keyword">const</span>;
 <a name="l00093"></a>00093 
-<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_text.html#422e904d6f93e34741c28099fc5b077a" title="Sets the text.">setContent</a> (<span class="keywordtype">string</span> content);
+<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">content</a> (<span class="keywordtype">string</span> content);
 <a name="l00098"></a>00098         
-<a name="l00102"></a>00102         vector&lt;Style&gt; <a class="code" href="class_text.html#5d0279f5ce832a447c68b99182753928" title="Returns the list of text styles.">getStyles</a> () <span class="keyword">const</span>;
+<a name="l00102"></a>00102         vector&lt;Style&gt; <a class="code" href="class_text.html#a66bfa36621592ccbeda7968637d7301" title="Returns the list of text styles.">styles</a> () <span class="keyword">const</span>;
 <a name="l00103"></a>00103 
-<a name="l00107"></a>00107         <span class="keywordtype">void</span> <a class="code" href="class_text.html#419c845399aa5e49e3271600fc8a812d" title="Sets the list of text styles.">setStyles</a> (vector&lt;Style&gt; styles);
+<a name="l00107"></a>00107         <span class="keywordtype">void</span> <a class="code" href="class_text.html#a66bfa36621592ccbeda7968637d7301" title="Returns the list of text styles.">styles</a> (vector&lt;Style&gt; styles);
 <a name="l00108"></a>00108         
-<a name="l00112"></a>00112         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#ea91ea415ed40d6cd0aff9063d72756e" title="Returns the text length.">getLength</a> () <span class="keyword">const</span>;
+<a name="l00112"></a>00112         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text length.">length</a> () <span class="keyword">const</span>;
 <a name="l00113"></a>00113         
-<a name="l00117"></a>00117         vector&lt;WordRate&gt; <a class="code" href="class_text.html#2fd83be91d5ba2c24fd44df45efc92c9" title="Returns the appearance rates of every single word in text.">getWordRates</a> () <span class="keyword">const</span>;
+<a name="l00117"></a>00117         vector&lt;WordRate&gt; <a class="code" href="class_text.html#1c69ff1b2a6b1bfbf0b44fc4a185de3d" title="Returns the appearance rates of every single word in text.">wordRates</a> () <span class="keyword">const</span>;
 <a name="l00118"></a>00118         
-<a name="l00122"></a>00122         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#fa8149d9658fd279eb2f6c6c967b3bb5" title="Returns the font proportionality in text.">getProportionality</a> () <span class="keyword">const</span>;
+<a name="l00122"></a>00122         <a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> <a class="code" href="class_text.html#28df8a28b99fc925f6a9597a81769f62" title="Returns the font proportionality in text.">proportionality</a> () <span class="keyword">const</span>;
 <a name="l00123"></a>00123 
-<a name="l00127"></a>00127         <span class="keywordtype">void</span> <a class="code" href="class_text.html#3b2b58565dd9f580163d9efb827e995d" title="Sets the font proportionality in text.">setProportionality</a> (<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> proportionality);
+<a name="l00127"></a>00127         <span class="keywordtype">void</span> <a class="code" href="class_text.html#28df8a28b99fc925f6a9597a81769f62" title="Returns the font proportionality in text.">proportionality</a> (<a class="code" href="_font_proportionality_8h.html#a9aa255df24db58a9b4cbc46941f2ac1" title="Font proportionality of a character.">FontProportionality</a> proportionality);
 <a name="l00128"></a>00128 
 <a name="l00129"></a>00129 
 <a name="l00130"></a>00130     <span class="keyword">private</span>:
@@ -135,7 +135,7 @@ window.onload = initDynSections;
 <a name="l00167"></a>00167 
 <a name="l00168"></a>00168 <span class="preprocessor">#endif  //_TEXT_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 12:54:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 13:40:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

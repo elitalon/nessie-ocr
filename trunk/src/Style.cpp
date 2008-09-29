@@ -21,8 +21,10 @@ Style::Style () : size_(0), color_(RgbColor()), weight_(FONT_NORMAL)
 ///
 /// @details Initializes a Style object with size, color and weight set to the values passed
 /// 
+/// @see RgbColor, FontWeight
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
+/// @date 2008-09-29
 ///
 Style::Style (unsigned int size, RgbColor color, FontWeight weight) : size_(size), color_(color), weight_(weight)
 {
@@ -142,9 +144,9 @@ bool Style::isNormal () const
 /// @details The size is expressed in points (pt)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 ///
-unsigned int Style::getSize () const
+unsigned int Style::size () const
 {
 	return size_;
 };
@@ -154,9 +156,9 @@ unsigned int Style::getSize () const
 /// @details The size is expressed in points (pt)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 ///
-void Style::setSize (unsigned int size)
+void Style::size (unsigned int size)
 {
 	size_ = size;
 };
@@ -166,9 +168,9 @@ void Style::setSize (unsigned int size)
 /// @see RgbColor
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
+/// @date 2008-09-29
 ///
-RgbColor Style::getColor () const
+RgbColor Style::color () const
 {
 	return color_;
 };
@@ -178,9 +180,9 @@ RgbColor Style::getColor () const
 /// @see RgbColor
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
+/// @date 2008-09-29
 ///
-void Style::setColor (RgbColor color)
+void Style::color (RgbColor color)
 {
 	color_ = color;
 };
@@ -192,9 +194,9 @@ void Style::setColor (RgbColor color)
 /// @see RgbColor
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
+/// @date 2008-09-29
 ///
-void Style::setColor (double red, double green, double blue)
+void Style::color (double red, double green, double blue)
 {
 	color_ = RgbColor(red, green, blue);
 };
@@ -204,9 +206,9 @@ void Style::setColor (double red, double green, double blue)
 /// @see FontWeight
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 ///
-FontWeight Style::getWeight () const
+FontWeight Style::weight () const
 {
 	return weight_;
 };
@@ -218,9 +220,9 @@ FontWeight Style::getWeight () const
 /// @see FontWeight
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 ///
-void Style::setWeight (FontWeight weight)
+void Style::weight (FontWeight weight)
 {
 	weight_ = weight;
 };

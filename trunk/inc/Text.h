@@ -25,7 +25,7 @@ using namespace std;
 /// character and the font proportionality, among others.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 ///
 class Text
 {
@@ -89,42 +89,42 @@ class Text
 		///
 		/// Returns the text itself
 		///
-		string getContent () const;
+		string content () const;
 
 		///
 		/// Sets the text
 		///
-		void setContent (string content);
+		void content (string content);
 		
 		///
 		/// Returns the list of text styles
 		///
-		vector<Style> getStyles () const;
+		vector<Style> styles () const;
 
 		///
 		/// Sets the list of text styles
 		///
-		void setStyles (vector<Style> styles);
+		void styles (vector<Style> styles);
 		
 		///
 		/// Returns the text length
 		///
-		unsigned int getLength () const;
+		unsigned int length () const;
 		
 		///
 		/// Returns the appearance rates of every single word in text
 		///
-		vector<WordRate> getWordRates () const;
+		vector<WordRate> wordRates () const;
 		
 		///
 		/// Returns the font proportionality in text
 		///
-		FontProportionality getProportionality () const;
+		FontProportionality proportionality () const;
 
 		///
 		/// Sets the font proportionality in text
 		///
-		void setProportionality (FontProportionality proportionality);
+		void proportionality (FontProportionality proportionality);
 
 
 	private:

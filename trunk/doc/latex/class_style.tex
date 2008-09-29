@@ -21,7 +21,7 @@ This class stores information about the font style of a character in the recogni
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-25 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
 Definition at line 24 of file Style.h.\subsection*{Public Member Functions}
@@ -41,19 +41,19 @@ bool \hyperlink{class_style_d1fcc32d8b565aae007012eb603fedcd}{isUnderlined} () c
 \begin{CompactList}\small\item\em Returns true if the font weight is underlined. \item\end{CompactList}\item 
 bool \hyperlink{class_style_db2cbc7ca50b2f5c632c8e9b0420044c}{isNormal} () const 
 \begin{CompactList}\small\item\em Returns true if the font weight is normal. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_style_9356c4a5d30f4e0f5c86f8c8b3f36cd2}{getSize} () const 
+unsigned int \hyperlink{class_style_73cb356fdfc022f51ff263b1c1faa9fd}{size} () const 
 \begin{CompactList}\small\item\em Returns the font size. \item\end{CompactList}\item 
-void \hyperlink{class_style_1338ebe3d562a710fdc26f49d0082a7c}{setSize} (unsigned int size)
+void \hyperlink{class_style_9ef3273bd0c0558d7203a87ac26cf4d2}{size} (unsigned int size)
 \begin{CompactList}\small\item\em Sets the font size. \item\end{CompactList}\item 
-\hyperlink{struct_rgb_color}{RgbColor} \hyperlink{class_style_bd212fb31bc7e1e7502c18f9e0b6734c}{getColor} () const 
+\hyperlink{struct_rgb_color}{RgbColor} \hyperlink{class_style_71b938a521e8c6e30926ddb3d0aa83b3}{color} () const 
 \begin{CompactList}\small\item\em Returns the font color. \item\end{CompactList}\item 
-void \hyperlink{class_style_596534e321ac5c2f4444192f2cc0d793}{setColor} (\hyperlink{struct_rgb_color}{RgbColor} color)
+void \hyperlink{class_style_0f557c5b3ea0a3320dd71d476a004bac}{color} (\hyperlink{struct_rgb_color}{RgbColor} color)
 \begin{CompactList}\small\item\em Sets the font color. \item\end{CompactList}\item 
-void \hyperlink{class_style_8162fb5c89458b1892f1802231a63a16}{setColor} (double red, double green, double blue)
+void \hyperlink{class_style_a32d9527a9ce8b50eb8e7d128fce578f}{color} (double red, double green, double blue)
 \begin{CompactList}\small\item\em Sets the font color. \item\end{CompactList}\item 
-\hyperlink{_font_weight_8h_ecff23ba4a68486421bcea57e095fe66}{FontWeight} \hyperlink{class_style_5798e7a57bb2df5e37aa0cdc5606a8b3}{getWeight} () const 
+\hyperlink{_font_weight_8h_ecff23ba4a68486421bcea57e095fe66}{FontWeight} \hyperlink{class_style_9c2124b07762f0b72dea763ef01601ed}{weight} () const 
 \begin{CompactList}\small\item\em Returns the font weight. \item\end{CompactList}\item 
-void \hyperlink{class_style_3bb5ced743176c5a68479d506f348350}{setWeight} (\hyperlink{_font_weight_8h_ecff23ba4a68486421bcea57e095fe66}{FontWeight} weight)
+void \hyperlink{class_style_f1273b59bdfe98b24410177f1eea7732}{weight} (\hyperlink{_font_weight_8h_ecff23ba4a68486421bcea57e095fe66}{FontWeight} weight)
 \begin{CompactList}\small\item\em Sets the font weight. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
@@ -105,12 +105,14 @@ Constructor.
 Initializes a \hyperlink{class_style}{Style} object with size, color and weight set to the values passed
 
 \begin{Desc}
+\item[See also:]\hyperlink{struct_rgb_color}{RgbColor}, \hyperlink{_font_weight_8h_ecff23ba4a68486421bcea57e095fe66}{FontWeight}\end{Desc}
+\begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-25 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 27 of file Style.cpp.\hypertarget{class_style_7c798ef9b77bc94719542feade497725}{
+Definition at line 29 of file Style.cpp.\hypertarget{class_style_7c798ef9b77bc94719542feade497725}{
 \index{Style@{Style}!$\sim$Style@{$\sim$Style}}
 \index{$\sim$Style@{$\sim$Style}!Style@{Style}}
 \subsubsection[$\sim$Style]{\setlength{\rightskip}{0pt plus 5cm}Style::$\sim$Style ()}}
@@ -127,7 +129,7 @@ Destroys a \hyperlink{class_style}{Style} object
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 39 of file Style.cpp.
+Definition at line 41 of file Style.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_style_59d23709575c5e6e5434ef0af5ff94b6}{
@@ -147,7 +149,7 @@ A bold font may be only bold, bold and italic or bold and underlined
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 51 of file Style.cpp.\hypertarget{class_style_5d57a686b93123e8ca5f8f91afb596c1}{
+Definition at line 53 of file Style.cpp.\hypertarget{class_style_5d57a686b93123e8ca5f8f91afb596c1}{
 \index{Style@{Style}!isItalic@{isItalic}}
 \index{isItalic@{isItalic}!Style@{Style}}
 \subsubsection[isItalic]{\setlength{\rightskip}{0pt plus 5cm}bool Style::isItalic () const}}
@@ -164,7 +166,7 @@ An italic font may be only italic, italic and bold or italic and underlined
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 75 of file Style.cpp.\hypertarget{class_style_d1fcc32d8b565aae007012eb603fedcd}{
+Definition at line 77 of file Style.cpp.\hypertarget{class_style_d1fcc32d8b565aae007012eb603fedcd}{
 \index{Style@{Style}!isUnderlined@{isUnderlined}}
 \index{isUnderlined@{isUnderlined}!Style@{Style}}
 \subsubsection[isUnderlined]{\setlength{\rightskip}{0pt plus 5cm}bool Style::isUnderlined () const}}
@@ -181,7 +183,7 @@ An underlined font may be only underlined, underlined and italic or underlined a
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 99 of file Style.cpp.\hypertarget{class_style_db2cbc7ca50b2f5c632c8e9b0420044c}{
+Definition at line 101 of file Style.cpp.\hypertarget{class_style_db2cbc7ca50b2f5c632c8e9b0420044c}{
 \index{Style@{Style}!isNormal@{isNormal}}
 \index{isNormal@{isNormal}!Style@{Style}}
 \subsubsection[isNormal]{\setlength{\rightskip}{0pt plus 5cm}bool Style::isNormal () const}}
@@ -198,11 +200,11 @@ A normal font is neither bold, nor italic, nor underlined
 \item[Date:]2008-09-23 \end{Desc}
 
 
-Definition at line 123 of file Style.cpp.\hypertarget{class_style_9356c4a5d30f4e0f5c86f8c8b3f36cd2}{
-\index{Style@{Style}!getSize@{getSize}}
-\index{getSize@{getSize}!Style@{Style}}
-\subsubsection[getSize]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Style::getSize () const}}
-\label{class_style_9356c4a5d30f4e0f5c86f8c8b3f36cd2}
+Definition at line 125 of file Style.cpp.\hypertarget{class_style_73cb356fdfc022f51ff263b1c1faa9fd}{
+\index{Style@{Style}!size@{size}}
+\index{size@{size}!Style@{Style}}
+\subsubsection[size]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Style::size () const}}
+\label{class_style_73cb356fdfc022f51ff263b1c1faa9fd}
 
 
 Returns the font size. 
@@ -212,14 +214,14 @@ The size is expressed in points (pt)
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-23 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 147 of file Style.cpp.\hypertarget{class_style_1338ebe3d562a710fdc26f49d0082a7c}{
-\index{Style@{Style}!setSize@{setSize}}
-\index{setSize@{setSize}!Style@{Style}}
-\subsubsection[setSize]{\setlength{\rightskip}{0pt plus 5cm}void Style::setSize (unsigned int {\em size})}}
-\label{class_style_1338ebe3d562a710fdc26f49d0082a7c}
+Definition at line 149 of file Style.cpp.\hypertarget{class_style_9ef3273bd0c0558d7203a87ac26cf4d2}{
+\index{Style@{Style}!size@{size}}
+\index{size@{size}!Style@{Style}}
+\subsubsection[size]{\setlength{\rightskip}{0pt plus 5cm}void Style::size (unsigned int {\em size})}}
+\label{class_style_9ef3273bd0c0558d7203a87ac26cf4d2}
 
 
 Sets the font size. 
@@ -229,14 +231,14 @@ The size is expressed in points (pt)
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-23 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 159 of file Style.cpp.\hypertarget{class_style_bd212fb31bc7e1e7502c18f9e0b6734c}{
-\index{Style@{Style}!getColor@{getColor}}
-\index{getColor@{getColor}!Style@{Style}}
-\subsubsection[getColor]{\setlength{\rightskip}{0pt plus 5cm}{\bf RgbColor} Style::getColor () const}}
-\label{class_style_bd212fb31bc7e1e7502c18f9e0b6734c}
+Definition at line 161 of file Style.cpp.\hypertarget{class_style_71b938a521e8c6e30926ddb3d0aa83b3}{
+\index{Style@{Style}!color@{color}}
+\index{color@{color}!Style@{Style}}
+\subsubsection[color]{\setlength{\rightskip}{0pt plus 5cm}{\bf RgbColor} Style::color () const}}
+\label{class_style_71b938a521e8c6e30926ddb3d0aa83b3}
 
 
 Returns the font color. 
@@ -246,14 +248,14 @@ Returns the font color.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-25 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 171 of file Style.cpp.\hypertarget{class_style_596534e321ac5c2f4444192f2cc0d793}{
-\index{Style@{Style}!setColor@{setColor}}
-\index{setColor@{setColor}!Style@{Style}}
-\subsubsection[setColor]{\setlength{\rightskip}{0pt plus 5cm}void Style::setColor ({\bf RgbColor} {\em color})}}
-\label{class_style_596534e321ac5c2f4444192f2cc0d793}
+Definition at line 173 of file Style.cpp.\hypertarget{class_style_0f557c5b3ea0a3320dd71d476a004bac}{
+\index{Style@{Style}!color@{color}}
+\index{color@{color}!Style@{Style}}
+\subsubsection[color]{\setlength{\rightskip}{0pt plus 5cm}void Style::color ({\bf RgbColor} {\em color})}}
+\label{class_style_0f557c5b3ea0a3320dd71d476a004bac}
 
 
 Sets the font color. 
@@ -263,14 +265,14 @@ Sets the font color.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-25 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 183 of file Style.cpp.\hypertarget{class_style_8162fb5c89458b1892f1802231a63a16}{
-\index{Style@{Style}!setColor@{setColor}}
-\index{setColor@{setColor}!Style@{Style}}
-\subsubsection[setColor]{\setlength{\rightskip}{0pt plus 5cm}void Style::setColor (double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
-\label{class_style_8162fb5c89458b1892f1802231a63a16}
+Definition at line 185 of file Style.cpp.\hypertarget{class_style_a32d9527a9ce8b50eb8e7d128fce578f}{
+\index{Style@{Style}!color@{color}}
+\index{color@{color}!Style@{Style}}
+\subsubsection[color]{\setlength{\rightskip}{0pt plus 5cm}void Style::color (double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
+\label{class_style_a32d9527a9ce8b50eb8e7d128fce578f}
 
 
 Sets the font color. 
@@ -282,14 +284,14 @@ The font color is created internally as a \hyperlink{struct_rgb_color}{RgbColor}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-25 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 197 of file Style.cpp.\hypertarget{class_style_5798e7a57bb2df5e37aa0cdc5606a8b3}{
-\index{Style@{Style}!getWeight@{getWeight}}
-\index{getWeight@{getWeight}!Style@{Style}}
-\subsubsection[getWeight]{\setlength{\rightskip}{0pt plus 5cm}{\bf FontWeight} Style::getWeight () const}}
-\label{class_style_5798e7a57bb2df5e37aa0cdc5606a8b3}
+Definition at line 199 of file Style.cpp.\hypertarget{class_style_9c2124b07762f0b72dea763ef01601ed}{
+\index{Style@{Style}!weight@{weight}}
+\index{weight@{weight}!Style@{Style}}
+\subsubsection[weight]{\setlength{\rightskip}{0pt plus 5cm}{\bf FontWeight} Style::weight () const}}
+\label{class_style_9c2124b07762f0b72dea763ef01601ed}
 
 
 Returns the font weight. 
@@ -299,14 +301,14 @@ Returns the font weight.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-23 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 209 of file Style.cpp.\hypertarget{class_style_3bb5ced743176c5a68479d506f348350}{
-\index{Style@{Style}!setWeight@{setWeight}}
-\index{setWeight@{setWeight}!Style@{Style}}
-\subsubsection[setWeight]{\setlength{\rightskip}{0pt plus 5cm}void Style::setWeight ({\bf FontWeight} {\em weight})}}
-\label{class_style_3bb5ced743176c5a68479d506f348350}
+Definition at line 211 of file Style.cpp.\hypertarget{class_style_f1273b59bdfe98b24410177f1eea7732}{
+\index{Style@{Style}!weight@{weight}}
+\index{weight@{weight}!Style@{Style}}
+\subsubsection[weight]{\setlength{\rightskip}{0pt plus 5cm}void Style::weight ({\bf FontWeight} {\em weight})}}
+\label{class_style_f1273b59bdfe98b24410177f1eea7732}
 
 
 Sets the font weight. 
@@ -318,12 +320,12 @@ The weight must be passed using a literal value of FontWeight enumeration.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-23 \end{Desc}
+\item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 223 of file Style.cpp.
+Definition at line 225 of file Style.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_style_8h}{Style.h (111)}\item 
-\hyperlink{_style_8cpp}{Style.cpp (111)}\end{CompactItemize}
+\hyperlink{_style_8h}{Style.h (114)}\item 
+\hyperlink{_style_8cpp}{Style.cpp (114)}\end{CompactItemize}

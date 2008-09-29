@@ -38,6 +38,8 @@ Text::Text (string content) : content_(content), proportionality_(FONT_PROPORTIO
 ///
 /// @details Initializes a Text object with the content passed in content_ and styles passed in styles_
 ///
+/// @see Style
+/// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-23
 /// 
@@ -75,7 +77,7 @@ Text::~Text ()
 void Text::addCharacter (char character, Style style, unsigned int position)
 {
 	// The desired position exceeds the content length, so we append to the of the text
-	if(position > getLength())
+	if(position > length())
 	{
 		content_ += character;
 		styles_.push_back(style);
@@ -118,7 +120,7 @@ void Text::addCharacter (char character, Style style, unsigned int position)
 /// the character is appended to the end of the text.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
 void Text::addCharacter (char character, unsigned int position)
 {
@@ -139,12 +141,12 @@ void Text::addCharacter (char character, unsigned int position)
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
 void Text::addCharacter (char character, Style style)
 {
 	// Call the generic 'addCharacter' function
-	addCharacter(character, style, getLength());
+	addCharacter(character, style, length());
 }
 
 
@@ -152,12 +154,12 @@ void Text::addCharacter (char character, Style style)
 /// @details The character passed is appended to the end of the text with a default style.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-09-29
 /// 
 void Text::addCharacter (char character)
 {
 	// Call the generic 'addCharacter' function
-	addCharacter(character, Style(), getLength());
+	addCharacter(character, Style(), length());
 }
 
 
@@ -171,9 +173,9 @@ void Text::addCharacter (char character)
 void Text::removeCharacter (unsigned int position)
 {
 	// Check for a valid position
-	if (position > getLength())
+	if (position > length())
 	{
-		position = getLength();
+		position = length();
 	}
 	
 	// Declare two iterators for pointing to the desired character and its style
@@ -210,7 +212,7 @@ void Text::removeCharacter (unsigned int position)
 /// 
 Style Text::getCharacterStyle (unsigned int position) const
 {
-	if (position >= getLength())
+	if (position >= length())
 		return Style();
 	else
 		return styles_[position];
@@ -228,16 +230,16 @@ Style Text::getCharacterStyle (unsigned int position) const
 /// 
 void Text::setCharacterStyle (unsigned int position, Style style)
 {
-	if (position < getLength())
+	if (position < length())
 		styles_[position] = style;
 };
 
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-string Text::getContent () const
+string Text::content () const
 {
 	return content_;
 };
@@ -245,9 +247,9 @@ string Text::getContent () const
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-void Text::setContent (string content)
+void Text::content (string content)
 {
 	content_ = content;
 
@@ -261,9 +263,9 @@ void Text::setContent (string content)
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-vector<Style> Text::getStyles () const
+vector<Style> Text::styles () const
 {
 	return styles_;
 };
@@ -273,9 +275,9 @@ vector<Style> Text::getStyles () const
 /// @see Style
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-void Text::setStyles (vector<Style> styles)
+void Text::styles (vector<Style> styles)
 {
 	styles_ = styles;
 };
@@ -283,9 +285,9 @@ void Text::setStyles (vector<Style> styles)
 
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-unsigned int Text::getLength () const
+unsigned int Text::length () const
 {
 	return content_.length();
 };
@@ -295,9 +297,9 @@ unsigned int Text::getLength () const
 /// @see WordRate
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-23
+/// @date 2008-09-29
 /// 
-vector<WordRate> Text::getWordRates () const
+vector<WordRate> Text::wordRates () const
 {
 	return wordRates_;
 };
@@ -309,9 +311,9 @@ vector<WordRate> Text::getWordRates () const
 /// @see FontProportionality
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-29
 /// 
-FontProportionality Text::getProportionality () const
+FontProportionality Text::proportionality () const
 {
 	return proportionality_;
 };
@@ -321,9 +323,9 @@ FontProportionality Text::getProportionality () const
 /// @see FontProportionality
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-09-29
 /// 
-void Text::setProportionality (FontProportionality proportionality)
+void Text::proportionality (FontProportionality proportionality)
 {
 	proportionality_ = proportionality;
 };

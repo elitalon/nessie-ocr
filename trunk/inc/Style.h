@@ -19,7 +19,7 @@
 /// style of every single character.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
+/// @date 2008-09-29
 ///
 class Style
 {
@@ -63,37 +63,37 @@ class Style
 		///
 		/// Returns the font size
 		///
-		unsigned int getSize () const;
+		unsigned int size () const;
 	
 		///
 		/// Sets the font size
 		///
-		void setSize (unsigned int size);
+		void size (unsigned int size);
 
 		///
 		/// Returns the font color
 		///
-		RgbColor getColor () const;
+		RgbColor color () const;
 	
 		///
 		/// Sets the font color
 		///
-		void setColor (RgbColor color);
+		void color (RgbColor color);
 	
 		///
 		/// Sets the font color
 		///
-		void setColor (double red, double green, double blue);
+		void color (double red, double green, double blue);
 	
 		///
 		/// Returns the font weight
 		///
-		FontWeight getWeight () const;
+		FontWeight weight () const;
 
 		///
 		/// Sets the font weight
 		///
-		void setWeight (FontWeight weight);
+		void weight (FontWeight weight);
 
 
 	private:
