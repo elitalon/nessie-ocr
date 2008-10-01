@@ -1,8 +1,7 @@
-<area shape="rect" href="$_pixel_8h.html" title="Declaration of class Pixel." alt="" coords="204,84,268,111">
-<area shape="rect" href="$_clip_8h.html" title="Declaration of class Clip." alt="" coords="403,161,459,188">
-<area shape="rect" href="$main_8cpp-source.html" title="main.cpp" alt="" coords="312,239,392,265">
-<area shape="rect" href="$_partitioner_8cpp-source.html" title="Partitioner.cpp" alt="" coords="129,316,249,343">
-<area shape="rect" href="$_pixel_8cpp.html" title="Implementation of class Pixel." alt="" coords="299,161,379,188">
-<area shape="rect" href="$_shape_8cpp-source.html" title="Shape.cpp" alt="" coords="17,239,108,265">
-<area shape="rect" href="$_shape_8h-source.html" title="Shape.h" alt="" coords="99,161,173,188">
-<area shape="rect" href="$_partitioner_8h-source.html" title="Partitioner.h" alt="" coords="183,239,287,265">
+<area shape="rect" href="$_pixel_8h.html" title="Declaration of class Pixel." alt="" coords="183,84,247,111">
+<area shape="rect" href="$_clip_8h.html" title="Declaration of class Clip." alt="" coords="327,161,383,188">
+<area shape="rect" href="$_partitioner_8cpp-source.html" title="Partitioner.cpp" alt="" coords="191,316,311,343">
+<area shape="rect" href="$_pixel_8cpp.html" title="Implementation of class Pixel." alt="" coords="23,161,103,188">
+<area shape="rect" href="$_shape_8cpp-source.html" title="Shape.cpp" alt="" coords="79,239,169,265">
+<area shape="rect" href="$_shape_8h-source.html" title="Shape.h" alt="" coords="177,161,252,188">
+<area shape="rect" href="$_partitioner_8h-source.html" title="Partitioner.h" alt="" coords="244,239,348,265">

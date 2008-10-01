@@ -59,57 +59,216 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Preprocessor.cpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00010"></a>00010 <span class="preprocessor">#include "Preprocessor.h"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_clip_8h.html" title="Declaration of class Clip.">Clip.h</a>"</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="keywordtype">void</span> Preprocessor::Preprocessor(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> noiseThreshold, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> noisyNeighbours)
-<a name="l00014"></a>00014 {
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 }
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> Preprocessor::convertToGrayscale(<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> clip)
-<a name="l00019"></a>00019 {
+<h1>Preprocessor.cpp</h1><a href="_preprocessor_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="_preprocessor_8h.html" title="Declaration of class Preprocessor.">Preprocessor.h</a>"</span>
+<a name="l00002"></a>00002 
+<a name="l00007"></a>00007 
+<a name="l00014"></a><a class="code" href="class_preprocessor.html#da966c8b83e7c3bcd8759549c3cdf688">00014</a> <a class="code" href="class_preprocessor.html#da966c8b83e7c3bcd8759549c3cdf688" title="Constructor.">Preprocessor::Preprocessor</a> ()
+<a name="l00015"></a>00015     : optimalThreshold_(80.0 / 256.0), backgroundReferenceGrayLevel_(1.0),
+<a name="l00016"></a>00016     noiseRemovalTime_(0.0), grayscaleConversionTime_(0.0), optimalThresholdComputingTime_(0.0)
+<a name="l00017"></a>00017 {
+<a name="l00018"></a>00018     
+<a name="l00019"></a>00019 };
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 }
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> Preprocessor::removeIsolatedNoise(<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> clip)
-<a name="l00024"></a>00024 {
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 }
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Preprocessor::noiseThreshold()
+<a name="l00021"></a>00021 
+<a name="l00028"></a><a class="code" href="class_preprocessor.html#3c16724bc9e18b12a45f5a7fe2752b1b">00028</a> <a class="code" href="class_preprocessor.html#3c16724bc9e18b12a45f5a7fe2752b1b" title="Destructor.">Preprocessor::~Preprocessor</a> ()
 <a name="l00029"></a>00029 {
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 }
+<a name="l00030"></a>00030     
+<a name="l00031"></a>00031 };
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keywordtype">void</span> Preprocessor::noiseThreshold(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity)
-<a name="l00034"></a>00034 {
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 }
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Preprocessor::allowedNoisyNeighbours()
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 }
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="keywordtype">void</span> Preprocessor::allowedNoisyNeighbours(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity)
-<a name="l00044"></a>00044 {
+<a name="l00033"></a>00033 
+<a name="l00040"></a><a class="code" href="class_preprocessor.html#8cc19d799c87198f97356d41606aa4ac">00040</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#8cc19d799c87198f97356d41606aa4ac" title="Returns the optimal threshold found in the last clip used.">Preprocessor::optimalThreshold</a> ()<span class="keyword"> const</span>
+<a name="l00041"></a>00041 <span class="keyword"></span>{
+<a name="l00042"></a>00042     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>;
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046 }
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="keywordtype">double</span> Preprocessor::removingNoiseTime()
-<a name="l00049"></a>00049 {
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="keywordtype">double</span> Preprocessor::convertingToGrayscaleTime()
-<a name="l00054"></a>00054 {
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 }
-<a name="l00057"></a>00057 
+<a name="l00052"></a><a class="code" href="class_preprocessor.html#18a36d341721334d6bd045f2ce1b1538">00052</a> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#8cc19d799c87198f97356d41606aa4ac" title="Returns the optimal threshold found in the last clip used.">Preprocessor::optimalThreshold</a> (<span class="keywordtype">double</span> threshold)
+<a name="l00053"></a>00053 {
+<a name="l00054"></a>00054     <span class="keywordflow">if</span> ( threshold &lt; 0.0 )
+<a name="l00055"></a>00055         <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a> = 0.0;
+<a name="l00056"></a>00056     <span class="keywordflow">else</span>
+<a name="l00057"></a>00057     {
+<a name="l00058"></a>00058         <span class="keywordflow">if</span> ( threshold &gt; 1.0 )
+<a name="l00059"></a>00059             <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a> = 1.0;
+<a name="l00060"></a>00060         <span class="keywordflow">else</span>
+<a name="l00061"></a>00061             <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a> = threshold;
+<a name="l00062"></a>00062     }
+<a name="l00063"></a>00063 };
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00072"></a><a class="code" href="class_preprocessor.html#159a9059fc811585eb9363e76ad16148">00072</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#159a9059fc811585eb9363e76ad16148" title="Returns the background reference gray level in the last clip used.">Preprocessor::backgroundReferenceGrayLevel</a> ()<span class="keyword"> const</span>
+<a name="l00073"></a>00073 <span class="keyword"></span>{
+<a name="l00074"></a>00074     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 
+<a name="l00084"></a><a class="code" href="class_preprocessor.html#86d53fb28912d95eea53823a57772c54">00084</a> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#159a9059fc811585eb9363e76ad16148" title="Returns the background reference gray level in the last clip used.">Preprocessor::backgroundReferenceGrayLevel</a> (<span class="keywordtype">double</span> grayLevel)
+<a name="l00085"></a>00085 {
+<a name="l00086"></a>00086     <span class="keywordflow">if</span> ( grayLevel &lt; 0.0 )
+<a name="l00087"></a>00087         <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> = 0.0;
+<a name="l00088"></a>00088     <span class="keywordflow">else</span>
+<a name="l00089"></a>00089     {
+<a name="l00090"></a>00090         <span class="keywordflow">if</span> ( grayLevel &gt; 1.0 )
+<a name="l00091"></a>00091             <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> = 1.0;
+<a name="l00092"></a>00092         <span class="keywordflow">else</span>
+<a name="l00093"></a>00093             <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> = grayLevel;
+<a name="l00094"></a>00094     }
+<a name="l00095"></a>00095 };
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 
+<a name="l00104"></a><a class="code" href="class_preprocessor.html#0cccd23820430541f18f2b24dbfd0784">00104</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#0cccd23820430541f18f2b24dbfd0784" title="Returns the elapsed time while applying the &amp;#39;isolated noise removal&amp;#39; algorithm...">Preprocessor::noiseRemovalTime</a> ()<span class="keyword"> const</span>
+<a name="l00105"></a>00105 <span class="keyword"></span>{
+<a name="l00106"></a>00106     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#386a5118bd982b2377c1fc5d67ebb7ac" title="Elapsed time when applying the &amp;#39;isolated noise removal&amp;#39; algorithm.">noiseRemovalTime_</a>;
+<a name="l00107"></a>00107 };
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00116"></a><a class="code" href="class_preprocessor.html#7afe140bf2697393170fb8e2ccb818d5">00116</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#7afe140bf2697393170fb8e2ccb818d5" title="Returns the elapsed time while converting the image to a grayscale colorspace.">Preprocessor::grayscaleConversionTime</a> ()<span class="keyword"> const</span>
+<a name="l00117"></a>00117 <span class="keyword"></span>{
+<a name="l00118"></a>00118     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#63ee491e6b8bc09fc79aeb6d68a8c4d3" title="Elapsed time when converting the image to a grayscale colorspace.">grayscaleConversionTime_</a>;
+<a name="l00119"></a>00119 };
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 
+<a name="l00128"></a><a class="code" href="class_preprocessor.html#3189cad5515476d54cc14effcf983fc7">00128</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#3189cad5515476d54cc14effcf983fc7" title="Returns the elapsed time while computing the background reference gray level within...">Preprocessor::backgroundReferenceGrayLevelFindingTime</a> ()<span class="keyword"> const</span>
+<a name="l00129"></a>00129 <span class="keyword"></span>{
+<a name="l00130"></a>00130     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#140ea3fa7bbd4e8fef54912d65c4e926" title="Elapsed time when computing the background gray level.">backgroundReferenceGrayLevelFindingTime_</a>;
+<a name="l00131"></a>00131 };
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 
+<a name="l00140"></a><a class="code" href="class_preprocessor.html#72dd29238c4202698e67dcb26a47f4b5">00140</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#72dd29238c4202698e67dcb26a47f4b5" title="Returns the elapsed time while founding the optimal threshold within the clip.">Preprocessor::optimalThresholdComputingTime</a> ()<span class="keyword"> const</span>
+<a name="l00141"></a>00141 <span class="keyword"></span>{
+<a name="l00142"></a>00142     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#d606fe1f0be7f7be60583f59278e2df6" title="Elapsed time when converting the image to a grayscale colorspace.">optimalThresholdComputingTime_</a>;
+<a name="l00143"></a>00143 };
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 
+<a name="l00154"></a><a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e">00154</a> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e" title="Converts the clip&amp;#39;s colorspace to a grayscale.">Preprocessor::convertToGrayscale</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip)
+<a name="l00155"></a>00155 {
+<a name="l00156"></a>00156     <span class="keywordflow">if</span> ( clip.<a class="code" href="class_clip.html#e22de9122a399af67576eb114842846a" title="Returns the clip&amp;#39;s current colorspace.">colorspace</a>() != <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a> )
+<a name="l00157"></a>00157         clip.<a class="code" href="class_clip.html#e22de9122a399af67576eb114842846a" title="Returns the clip&amp;#39;s current colorspace.">colorspace</a>(<a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a>);
+<a name="l00158"></a>00158 };
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 
+<a name="l00171"></a><a class="code" href="class_preprocessor.html#84fcd2ccbbecea37f4bcdae5d7547ecd">00171</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#84fcd2ccbbecea37f4bcdae5d7547ecd" title="Computes the optimal threshold value within a clip.">Preprocessor::computeOptimalThreshold</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip)
+<a name="l00172"></a>00172 {
+<a name="l00173"></a>00173     <span class="comment">// Implicit change of colorspace</span>
+<a name="l00174"></a>00174     <a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e" title="Converts the clip&amp;#39;s colorspace to a grayscale.">convertToGrayscale</a>(clip);
+<a name="l00175"></a>00175     
+<a name="l00176"></a>00176     <span class="keywordflow">return</span> 0.0;
+<a name="l00177"></a>00177 };
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179 
+<a name="l00193"></a><a class="code" href="class_preprocessor.html#95613606bb7882b2ac821dae5f8327b9">00193</a> <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#95613606bb7882b2ac821dae5f8327b9" title="Computes the background reference gray level value within a clip.">Preprocessor::findBackgroundReferenceGrayLevel</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> referenceGrayLevelNeighbours)
+<a name="l00194"></a>00194 {
+<a name="l00195"></a>00195     <span class="comment">// Implicit change of colorspace</span>
+<a name="l00196"></a>00196     <a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e" title="Converts the clip&amp;#39;s colorspace to a grayscale.">convertToGrayscale</a>(clip);
+<a name="l00197"></a>00197     
+<a name="l00198"></a>00198     
+<a name="l00199"></a>00199     <span class="comment">// Compute image histogram</span>
+<a name="l00200"></a>00200     vector&lt;unsigned int&gt; histogram(256, 0);
+<a name="l00201"></a>00201     
+<a name="l00202"></a>00202     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>(); ++i)
+<a name="l00203"></a>00203     {
+<a name="l00204"></a>00204         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>(); ++j)
+<a name="l00205"></a>00205         {
+<a name="l00206"></a>00206             <span class="comment">// Get gray level of this pixel</span>
+<a name="l00207"></a>00207             <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i,j).<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>();
+<a name="l00208"></a>00208             
+<a name="l00209"></a>00209             <span class="comment">// Update histogram</span>
+<a name="l00210"></a>00210             histogram[floor(grayLevel * 255.0)] += 1;
+<a name="l00211"></a>00211         }
+<a name="l00212"></a>00212     }
+<a name="l00213"></a>00213     
+<a name="l00214"></a>00214     
+<a name="l00215"></a>00215     <span class="comment">// Search the more frequent level of gray</span>
+<a name="l00216"></a>00216     vector&lt;unsigned int&gt;::iterator histogramIterator;
+<a name="l00217"></a>00217     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> moreFrequentGrayLevel = 0, levelCounter = 0;
+<a name="l00218"></a>00218     
+<a name="l00219"></a>00219     <span class="keywordflow">for</span> (histogramIterator = histogram.begin(); histogramIterator != histogram.end(); ++histogramIterator, ++levelCounter)
+<a name="l00220"></a>00220     {
+<a name="l00221"></a>00221         <span class="keywordflow">if</span> ( *histogramIterator &gt; histogram[moreFrequentGrayLevel] )
+<a name="l00222"></a>00222             moreFrequentGrayLevel = levelCounter;
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224     <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> = moreFrequentGrayLevel * histogram[moreFrequentGrayLevel];
+<a name="l00225"></a>00225     
+<a name="l00226"></a>00226     
+<a name="l00227"></a>00227     <span class="comment">// Search the neighbours of the more frequent level of gray</span>
+<a name="l00228"></a>00228     vector&lt;unsigned int&gt;::reverse_iterator histogramReverseIterator( find (histogram.rbegin(), histogram.rend(), histogram[moreFrequentGrayLevel])++ );
+<a name="l00229"></a>00229     histogramIterator = histogramReverseIterator.base()++;
+<a name="l00230"></a>00230     <span class="keywordtype">double</span> nFrequencies = histogram[moreFrequentGrayLevel];
+<a name="l00231"></a>00231     
+<a name="l00232"></a>00232     <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 1; i &lt;= referenceGrayLevelNeighbours; ++i )
+<a name="l00233"></a>00233     {
+<a name="l00234"></a>00234         <span class="comment">// Search forwards</span>
+<a name="l00235"></a>00235         <span class="keywordflow">if</span> ( histogramIterator != histogram.end() )
+<a name="l00236"></a>00236         {
+<a name="l00237"></a>00237             <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> += (moreFrequentGrayLevel + i) * histogram[moreFrequentGrayLevel + i];
+<a name="l00238"></a>00238             ++histogramIterator;
+<a name="l00239"></a>00239             nFrequencies += histogram[moreFrequentGrayLevel + i];
+<a name="l00240"></a>00240         }
+<a name="l00241"></a>00241         
+<a name="l00242"></a>00242         <span class="comment">// Search backwards</span>
+<a name="l00243"></a>00243         <span class="keywordflow">if</span> ( histogramReverseIterator != histogram.rend() )
+<a name="l00244"></a>00244         {
+<a name="l00245"></a>00245             <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> += (moreFrequentGrayLevel - i) * histogram[moreFrequentGrayLevel - i];
+<a name="l00246"></a>00246             ++histogramReverseIterator;
+<a name="l00247"></a>00247             nFrequencies += histogram[moreFrequentGrayLevel - i];
+<a name="l00248"></a>00248         }
+<a name="l00249"></a>00249     }
+<a name="l00250"></a>00250     
+<a name="l00251"></a>00251     
+<a name="l00252"></a>00252     <span class="comment">// Set the background reference gray level found</span>
+<a name="l00253"></a>00253     <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> = <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> / nFrequencies;
+<a name="l00254"></a>00254     <span class="keywordflow">return</span> <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>;
+<a name="l00255"></a>00255 };
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257 
+<a name="l00272"></a><a class="code" href="class_preprocessor.html#491c0dd6b38f870e22425d0e66ebc788">00272</a> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#491c0dd6b38f870e22425d0e66ebc788" title="Applies the &amp;#39;isolated noise removal&amp;#39; algorithm.">Preprocessor::removeIsolatedNoise</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> noisyNeighbours)
+<a name="l00273"></a>00273 {
+<a name="l00274"></a>00274     <span class="comment">// Implicit change of colorspace</span>
+<a name="l00275"></a>00275     <a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e" title="Converts the clip&amp;#39;s colorspace to a grayscale.">convertToGrayscale</a>(clip);
+<a name="l00276"></a>00276     
+<a name="l00277"></a>00277     
+<a name="l00278"></a>00278     <span class="comment">// Loop over the clip to remove every noisy isolated pixel</span>
+<a name="l00279"></a>00279     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>(); ++i)
+<a name="l00280"></a>00280     {
+<a name="l00281"></a>00281         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>(); ++j)
+<a name="l00282"></a>00282         {
+<a name="l00283"></a>00283             <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> pixel = clip.<a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i, j);
+<a name="l00284"></a>00284             
+<a name="l00285"></a>00285             <span class="comment">// Discard background pixels</span>
+<a name="l00286"></a>00286             <span class="keywordflow">if</span> ( (pixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) &amp;&amp; (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
+<a name="l00287"></a>00287                 <span class="keywordflow">continue</span>;
+<a name="l00288"></a>00288             
+<a name="l00289"></a>00289             <span class="keywordflow">if</span> ( (pixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) &amp;&amp; (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
+<a name="l00290"></a>00290                 <span class="keywordflow">continue</span>;
+<a name="l00291"></a>00291     
+<a name="l00292"></a>00292                 
+<a name="l00293"></a>00293             <span class="comment">// Examine the pixel neighbourhood</span>
+<a name="l00294"></a>00294             <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nPixels = 0;
+<a name="l00295"></a>00295             
+<a name="l00296"></a>00296             <span class="keywordflow">for</span>(<span class="keywordtype">int</span> p = i-1; p &lt; (<span class="keywordtype">signed</span> int)i+2; p++)
+<a name="l00297"></a>00297             {
+<a name="l00298"></a>00298                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> q = j-1; q &lt; (<span class="keywordtype">signed</span> int)j+2; q++)
+<a name="l00299"></a>00299                 {
+<a name="l00300"></a>00300                     <span class="comment">// Check clip borders</span>
+<a name="l00301"></a>00301                     <span class="keywordflow">if</span> ( (p &lt; 0 || p &gt;= (<span class="keywordtype">signed</span> <span class="keywordtype">int</span>)clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>()) || (q &lt; 0 || q &gt;= (<span class="keywordtype">signed</span> <span class="keywordtype">int</span>)clip.<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>()) )
+<a name="l00302"></a>00302                         <span class="keywordflow">continue</span>;
+<a name="l00303"></a>00303                     <span class="keywordflow">else</span>
+<a name="l00304"></a>00304                         nPixels++;
+<a name="l00305"></a>00305                     
+<a name="l00306"></a>00306                     <span class="comment">// Get neighbour pixel gray level</span>
+<a name="l00307"></a>00307                     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> neighbourPixel = clip.<a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">getPixel</a>(p, q);
+<a name="l00308"></a>00308                     
+<a name="l00309"></a>00309                     <span class="comment">// Update the noisy pixel count</span>
+<a name="l00310"></a>00310                     <span class="keywordflow">if</span> (neighbourPixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>)
+<a name="l00311"></a>00311                         ; <span class="comment">//backgroundPixels += 1;</span>
+<a name="l00312"></a>00312                 }
+<a name="l00313"></a>00313             }
+<a name="l00314"></a>00314         }
+<a name="l00315"></a>00315     }
+<a name="l00316"></a>00316     
+<a name="l00317"></a>00317 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 17:14:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 1 17:06:08 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -1,6 +1,5 @@
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Partitioner.h:18: Warning: Compound Partitioner is not documented.
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Recognizer.h:23: Warning: Compound Recognizer is not documented.
-/Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Preprocessor.h:16: Warning: Compound Preprocessor is not documented.
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Shape.h:16: Warning: Compound Shape is not documented.
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/FeatureVector.h:16: Warning: Compound FeatureVector is not documented.
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Classifier.h:19: Warning: Compound Classifier is not documented.

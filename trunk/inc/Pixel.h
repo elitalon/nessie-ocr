@@ -47,7 +47,7 @@ class Pixel
 		///
 		/// Constructor
 		///
-		Pixel (unsigned int x, unsigned int y, bool foreground);
+		Pixel (unsigned int x, unsigned int y, bool isForeground);
 
 		///
 		/// Destructor

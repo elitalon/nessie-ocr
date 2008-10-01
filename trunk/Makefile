@@ -65,6 +65,10 @@ PIXEL_INC=$(INC)Pixel.h
 CLIP_SRC=$(SRC)Clip.cpp
 CLIP_INC=$(INC)Clip.h
 
+# Source files of 'Preprocessor' class
+PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
+PREPROCESSOR_INC=$(INC)Preprocessor.h
+
 # Object files
 MAIN_OBJ=$(SRC)main.o
 NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
@@ -74,6 +78,7 @@ STYLE_OBJ=$(SRC)Style.o
 TEXT_OBJ=$(SRC)Text.o
 PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
+PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
@@ -88,12 +93,13 @@ STYLE=$(STYLE_INC) $(STYLE_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
 PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
+PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 
 # Final object files
-OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(STYLE_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(MAIN_OBJ)
+OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(STYLE_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
 
 # Compiler options
-EXECUTABLE=test
+EXECUTABLE=$(BIN)ocr
 FLAGS=-Wall -O3 -I$(INC)
 
 # Formatted output commands
@@ -172,13 +178,24 @@ $(CLIP_OBJ): $(PIXEL_OBJ) $(COLORSPACE) $(CLIP)
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
 
+$(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
+	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(PREPROCESSOR_SRC)
+	@printf "$(TAB)"
+	mv Preprocessor.o $(SRC)
+	@printf "$(NL)"
+
 
 # Make everything
 all: clean main doc
 
 # Generate documentation
 doc: $(INC)*.h $(SRC)*.cpp
-	@doxygen
+	@printf "** Updating documentation:$(NL)"
+	@printf "$(TAB)"
+	doxygen
+	@printf "$(NL)"
 
 # Delete everything
 clean:

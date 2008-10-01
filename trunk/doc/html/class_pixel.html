@@ -89,9 +89,9 @@ The Clip::getColorspace() method gives the current colorspace that is associated
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#e5ca1376e87442aea5968a17a4240814">Pixel</a> (unsigned int x, unsigned int y, double red, double green, double blue)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e5ca1376e87442aea5968a17a4240814"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#fcbda001fcad04f4166129f9195a65fa">Pixel</a> (unsigned int x, unsigned int y, bool foreground)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#3138f81f8e7ea10f6764f47136129ad0">Pixel</a> (unsigned int x, unsigned int y, bool isForeground)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#fcbda001fcad04f4166129f9195a65fa"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#3138f81f8e7ea10f6764f47136129ad0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#30f6aaf9a1d8792245070860546fa365">~Pixel</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#30f6aaf9a1d8792245070860546fa365"></a><br></td></tr>
@@ -281,7 +281,7 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 
 </div>
 </div><p>
-<a class="anchor" name="fcbda001fcad04f4166129f9195a65fa"></a><!-- doxytag: member="Pixel::Pixel" ref="fcbda001fcad04f4166129f9195a65fa" args="(unsigned int x, unsigned int y, bool foreground)" -->
+<a class="anchor" name="3138f81f8e7ea10f6764f47136129ad0"></a><!-- doxytag: member="Pixel::Pixel" ref="3138f81f8e7ea10f6764f47136129ad0" args="(unsigned int x, unsigned int y, bool isForeground)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -433,6 +433,8 @@ If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a c
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
 <p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00128">128</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00193">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00272">Preprocessor::removeIsolatedNoise()</a>.</p>
 
 </div>
 </div><p>
@@ -748,9 +750,9 @@ If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no ch
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_pixel_8h-source.html">Pixel.h (114)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (114)</a></ul>
+<li><a class="el" href="_pixel_8h-source.html">Pixel.h (114)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (117)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Sep 29 17:14:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 1 17:06:08 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

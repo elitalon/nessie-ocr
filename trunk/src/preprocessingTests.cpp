@@ -136,47 +136,7 @@ void threshold(Image *image, double threshold)
 		int main (int argc, char const *argv[])
 		{
 			Image img;
-			string outputFile;
-			string inputFile;
-
-			// Check for filename
-			if( argv[1] == NULL )
-			{
-				cout<< "There's no input file" << endl;
-				return 1;
-			}
-
-
-			// Create output file name
-			try
-			{
-				int dotPosition;
-
-				// Assign the file name
-				outputFile = argv[1];
-
-				// Search the dot position
-				dotPosition = outputFile.find('.');
-
-				// Append a suffix
-				outputFile.insert(dotPosition, "_SingleNoise");
-
-				// Search the new dot position
-				dotPosition = outputFile.find('.');
-
-				// Change the file extension
-				outputFile.replace(dotPosition+1, outputFile.size(), "png");
-
-				cout<< "Input file: " << argv[1] << endl;
-				cout<< "Output file: " << outputFile << endl;
-			}
-			catch ( std::exception &error_ )
-			{
-				cout << "Caught exception: " << error_.what() << endl;
-				return 1;
-			}
-
-
+			
 			// Open the image, average it and write the results to another file
 			try
 			{
@@ -194,9 +154,6 @@ void threshold(Image *image, double threshold)
 				// Ensure that there is only one reference to underlying image.
 				// If this is not done, then image pixels will not be modified.
 				img.modifyImage();
-
-				// Set averaging time reference
-				referenceTime = clock();
 
 				// Allocate pixel frame
 				Pixels frame(img);
@@ -243,17 +200,6 @@ void threshold(Image *image, double threshold)
 						pixels++;
 					}
 				}
-
-				// Get the averaging time
-				elapsedTime = clock();
-				averagingTime = (elapsedTime - referenceTime) / (float) CLOCKS_PER_SEC;
-
-				// Write the image to a file
-				frame.sync();
-				img.write( outputFile );
-
-				// Show results in console
-				cout << endl <<"Pixels: " << (img.rows() * img.columns()) << endl << "Averaging time: " << averagingTime << endl;
 			}
 			catch ( Exception &error_ )
 			{
@@ -987,154 +933,3 @@ void threshold(Image *image, double threshold)
 		}
 */
 
-
-/*
-	The code below is for equalizing images
-	
-		int main (int argc, char const *argv[])
-		{
-			Image img;
-			string outputFile;
-			string inputFile;
-		
-		
-			if( argv[1] == NULL )
-			{
-				cout<< "There's no input file" << endl;
-				return 1;
-			}
-		
-		
-			// Create output file name
-			try
-			{
-				int dotPosition;
-		
-				// Assign the file name
-				outputFile = argv[1];
-		
-				// Search the dot position
-				dotPosition = outputFile.find('.');
-		
-				// Append a suffix
-				outputFile.insert(dotPosition, "_Equalized");
-		
-				// Search the new dot position
-				dotPosition = outputFile.find('.');
-		
-				// Change the file extension
-				outputFile.replace(dotPosition+1, outputFile.size(), "png");
-		
-				cout<< "Input file: " << argv[1] << endl;
-				cout<< "Output file: " << outputFile << endl;
-			}
-			catch ( std::exception &error_ )
-			{
-				cout << "Caught exception: " << error_.what() << endl;
-				return 1;
-			}
-		
-		
-			// Open the image, equalize it and write the results to another file
-			try
-			{
-				clock_t referenceTime, elapsedTime;
-				double equalizationTime;
-		
-				// Read image from file
-				img.read( argv[1] );
-		
-				// Ensure that there is only one reference to underlying image.
-				// If this is not done, then image pixels will not be modified.
-				img.modifyImage();
-		
-				// Change image colormap to gray scale
-				img.type( GrayscaleType );
-		
-				// Equalize image
-				referenceTime = clock();
-				img.equalize();
-				elapsedTime = clock();
-		
-				equalizationTime = (elapsedTime - referenceTime) / (float) CLOCKS_PER_SEC;
-		
-				// Write the image to a file
-				img.write( outputFile );
-		
-				// Show results in console
-				cout<< endl <<"Pixels: " << (img.rows() * img.columns()) << endl << "Equalization time: " << equalizationTime << endl;
-			}
-			catch ( Exception &error_ )
-			{
-				cout << "Caught exception: " << error_.what() << endl;
-				return 1;
-			}
-		
-			return 0;
-		}
-*/
-
-	
-
-/*
-	The code below is for reading multi-page PDF
-	
-	int main(int argc, char **argv)
-	{
-		Image img;
-		list<Image> pdf;
-		list<Image>::iterator pdfIterator;
-		PixelPacket *pixels;
-		int rows = 0, columns = 0;
-	
-		try
-		{
-			cout << "File: " << argv[1] << endl;
-	
-			// Read the PDF into image object
-			readImages( &pdf, argv[1] );
-	
-			// Print the PDF number of pages
-			cout << "Total pages: " << pdf.size() << endl;
-	
-			for( pdfIterator = pdf.begin(); pdfIterator != pdf.end(); ++pdfIterator )
-			{
-				// Get the page
-				img = *pdfIterator;
-				
-				// Print the page dimensions 
-				cout << "Rows: " << img.rows() << endl;
-				cout << "Columns: " << img.columns() << endl;
-			}
-			return 0;
-			
-			// Set the image type to TrueColor DirectClass representation.
-			img.type(TrueColorType);
-			
-			// Ensure that there is only one reference to underlying image 
-			// If this is not done, then image pixels will not be modified.
-			img.modifyImage();
-			
-			// Allocate pixel frame
-			Pixels frame(img);
-			
-			pixels = frame.get(0, 0, img.rows(), img.columns()); 
-			
-			for(size_t i = 0; i < img.rows(); ++i)
-			{
-				rows++;
-				for(size_t j = 0; j < img.columns(); ++j)
-				{
-					columns++;
-				}
-			}
-		} 
-		catch( Exception &error_ ) 
-		{ 
-			cout << "Caught exception: " << error_.what() << endl; 
-			return 1; 
-		}
-		return 0;
-	}
-	
-*/
