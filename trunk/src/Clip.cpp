@@ -36,12 +36,12 @@ Clip::Clip (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned in
 	
 	
 	// Test the clip borders are inside the image
-	if ( xOrigin >= image_.rows() || xOrigin < 0 )
+	if ( xOrigin >= image_.rows() or xOrigin < 0 )
 		throw NessieException ("Clip::Clip: The X coordinate of clip's upper leftmost pixel is out of image borders");
 	else
 		xOrigin_ = xOrigin;
 	
-	if ( yOrigin >= image_.columns() || yOrigin < 0 )
+	if ( yOrigin >= image_.columns() or yOrigin < 0 )
 		throw NessieException ("Clip::Clip: The Y coordinate of clip's upper leftmost pixel is out of image borders");
 	else
 		yOrigin_ = yOrigin;
@@ -145,7 +145,7 @@ unsigned int Clip::xOrigin () const
 ///
 void Clip::xOrigin (unsigned int x)
 {
-	if ( x >= image_.rows() || x < 0 )
+	if ( x >= image_.rows() or x < 0 )
 		throw NessieException ("Clip::xOrigin: The X coordinate of clip's upper leftmost pixel is out of image borders");
 	else
 		xOrigin_ = x;
@@ -179,7 +179,7 @@ unsigned int Clip::yOrigin () const
 ///
 void Clip::yOrigin (unsigned int y)
 {
-	if ( y >= image_.columns() || y < 0 )
+	if ( y >= image_.columns() or y < 0 )
 		throw NessieException ("Clip::yOrigin: The Y coordinate of clip's upper leftmost pixel is out of image borders");
 	else
 		yOrigin_ = y;
@@ -435,7 +435,7 @@ Pixel Clip::getPixel (unsigned int x, unsigned int y) const
 ///
 void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 {
-	if ( colorspace_ != COLORSPACE_GRAYSCALE )
+	if ( colorspace_ not_eq COLORSPACE_GRAYSCALE )
 		return;
 	
 	try
@@ -483,7 +483,7 @@ void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 ///
 void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, double blue)
 {
-	if ( colorspace_ != COLORSPACE_RGB )
+	if ( colorspace_ not_eq COLORSPACE_RGB )
 		return;
 	
 	try
@@ -493,10 +493,10 @@ void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, d
 		image_.modifyImage();
 		
 		// Check the location is inside the clip borders
-		if ( x >= frame_->rows() || x < 0 )
+		if ( x >= frame_->rows() or x < 0 )
 			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
 
-		if ( y >= frame_->columns() || y < 0 )
+		if ( y >= frame_->columns() or y < 0 )
 			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
 
 		// Get the pixel at desired location
@@ -528,7 +528,7 @@ void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, d
 ///
 void Clip::setPixel (unsigned int x, unsigned int y, bool isForeground)
 {
-	if ( colorspace_ != COLORSPACE_MONOCHROMATIC )
+	if ( colorspace_ not_eq COLORSPACE_MONOCHROMATIC )
 		return;
 	
 	try
@@ -538,10 +538,10 @@ void Clip::setPixel (unsigned int x, unsigned int y, bool isForeground)
 		image_.modifyImage();
 		
 		// Check the location is inside the clip borders
-		if ( x >= frame_->rows() || x < 0 )
+		if ( x >= frame_->rows() or x < 0 )
 			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
 
-		if ( y >= frame_->columns() || y < 0 )
+		if ( y >= frame_->columns() or y < 0 )
 			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
 
 		// Get the pixel at desired location

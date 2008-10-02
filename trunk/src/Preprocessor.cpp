@@ -161,7 +161,7 @@ double Preprocessor::optimalThresholdComputingTime () const
 ///
 void Preprocessor::convertToGrayscale (Clip &clip)
 {
-	if ( clip.colorspace() != COLORSPACE_GRAYSCALE )
+	if ( clip.colorspace() not_eq COLORSPACE_GRAYSCALE )
 		clip.colorspace(COLORSPACE_GRAYSCALE);
 };
 

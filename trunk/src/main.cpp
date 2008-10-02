@@ -22,7 +22,5 @@ int main (int argc, char const *argv[])
 	
 	Preprocessor preprocessor;
 	
-	preprocessor.removeIsolatedNoise(clip, 1);
-	
 	clip.image().write("result.png");
 }

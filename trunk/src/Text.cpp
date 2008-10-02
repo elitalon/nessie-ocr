@@ -383,7 +383,7 @@ void Text::updateWordRate (string word)
 {
 	// Searches the word in the vector
 	vector<WordRate>::iterator wordRates;
-	for (wordRates = wordRates_.begin(); wordRates != wordRates_.end(); ++wordRates)
+	for (wordRates = wordRates_.begin(); wordRates not_eq wordRates_.end(); ++wordRates)
 	{
 		// Updates its appearance rate
 		if ( (*wordRates).first == word )
@@ -415,7 +415,7 @@ void Text::computeWordRates ()
 	
 	// Update appearance rate of every word extracted
 	vector<string>::iterator wordsIterator;
-	for (wordsIterator = words.begin(); wordsIterator != words.end(); ++wordsIterator)
+	for (wordsIterator = words.begin(); wordsIterator not_eq words.end(); ++wordsIterator)
 		updateWordRate(*wordsIterator);
 		
 	// This sorting will improve future lookups
@@ -439,7 +439,7 @@ void Text::tokenize(vector<string>& tokens, const string& delimiters) const
 	string::size_type pos     = content_.find_first_of(delimiters, lastPos);
 	
 	// Traverse the content until reaching its end
-	while (string::npos != pos || string::npos != lastPos)
+	while ( (string::npos not_eq pos) or (string::npos not_eq lastPos) )
     {
 		// A word has been found, add it to the vector
 		tokens.push_back(content_.substr(lastPos, pos - lastPos));

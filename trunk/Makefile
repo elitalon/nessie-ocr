@@ -100,7 +100,7 @@ OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(STYLE_OBJ) 
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
-FLAGS=-Wall -O3 -I$(INC)
+FLAGS=-Wall -g -O3 -I$(INC)
 
 # Formatted output commands
 NL=\n
