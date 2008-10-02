@@ -6,6 +6,19 @@
 ///
 
 ///
+/// @details Initializes a empty Pixel object located at (0,0)
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-02
+///
+Pixel::Pixel ()
+	: x_(0), y_(0), grayLevel_(0.0), red_(0.0), green_(0.0), blue_(0.0), isForeground_(false), colorspace_()
+{
+	
+};
+
+
+///
 /// @details Initializes a Pixel object using a grayscale colorspace. When using grayscale representation
 /// all the pixels are considered as belonging to the foreground, and they have a zero value per RGB channel.
 /// 

@@ -88,17 +88,17 @@ window.onload = initDynSections;
 <a name="l00046"></a>00046     <span class="keywordflow">else</span>
 <a name="l00047"></a>00047         <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> = yOrigin;
 <a name="l00048"></a>00048     
-<a name="l00049"></a>00049     
+<a name="l00049"></a>00049         
 <a name="l00050"></a>00050     <span class="comment">// Test the clip size is consistent with the image size</span>
-<a name="l00051"></a>00051     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> + width) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() )
-<a name="l00052"></a>00052         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
+<a name="l00051"></a>00051     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> + height) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() )
+<a name="l00052"></a>00052         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
 <a name="l00053"></a>00053     <span class="keywordflow">else</span>
-<a name="l00054"></a>00054         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = width;
+<a name="l00054"></a>00054         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = height;
 <a name="l00055"></a>00055     
-<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> + height) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() )
-<a name="l00057"></a>00057         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a>;
+<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> + width) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() )
+<a name="l00057"></a>00057         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() - <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a>;
 <a name="l00058"></a>00058     <span class="keywordflow">else</span>
-<a name="l00059"></a>00059         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = height;
+<a name="l00059"></a>00059         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = width;
 <a name="l00060"></a>00060         
 <a name="l00061"></a>00061     
 <a name="l00062"></a>00062     <span class="keywordflow">try</span>
@@ -195,8 +195,8 @@ window.onload = initDynSections;
 <a name="l00203"></a>00203 
 <a name="l00212"></a><a class="code" href="class_clip.html#c6eeb473cb104e6e3f90f4099c7ef741">00212</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">Clip::height</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>)
 <a name="l00213"></a>00213 {
-<a name="l00214"></a>00214     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> + height) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() )
-<a name="l00215"></a>00215         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a>;
+<a name="l00214"></a>00214     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> + height) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() )
+<a name="l00215"></a>00215         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
 <a name="l00216"></a>00216     <span class="keywordflow">else</span>
 <a name="l00217"></a>00217         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = height;
 <a name="l00218"></a>00218     
@@ -212,8 +212,8 @@ window.onload = initDynSections;
 <a name="l00234"></a>00234 
 <a name="l00243"></a><a class="code" href="class_clip.html#17c1a23e159bedb6e2988235b8b568e7">00243</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">Clip::width</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>)
 <a name="l00244"></a>00244 {
-<a name="l00245"></a>00245     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> + width) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() )
-<a name="l00246"></a>00246         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
+<a name="l00245"></a>00245     <span class="keywordflow">if</span> ( (<a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> + width) &gt; <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() )
+<a name="l00246"></a>00246         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() - <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a>;
 <a name="l00247"></a>00247     <span class="keywordflow">else</span>
 <a name="l00248"></a>00248         <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> = width;
 <a name="l00249"></a>00249     
@@ -303,14 +303,14 @@ window.onload = initDynSections;
 <a name="l00382"></a><a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84">00382</a> <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">Clip::getPixel</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y)<span class="keyword"> const</span>
 <a name="l00383"></a>00383 <span class="keyword"></span>{
 <a name="l00384"></a>00384     <span class="comment">// Check the location is inside the clip borders</span>
-<a name="l00385"></a>00385     <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() || x &lt; 0 )
+<a name="l00385"></a>00385     <span class="keywordflow">if</span> ( (x &gt;= <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a>) or (x &lt; 0) )
 <a name="l00386"></a>00386         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::getPixel: The X coordinate is out of image borders"</span>);
 <a name="l00387"></a>00387     
-<a name="l00388"></a>00388     <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() || y &lt; 0 )
+<a name="l00388"></a>00388     <span class="keywordflow">if</span> ( (y &gt;= <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>) or (y &lt; 0) )
 <a name="l00389"></a>00389         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::getPixel: The Y coordinate is out of image borders"</span>);
 <a name="l00390"></a>00390     
 <a name="l00391"></a>00391     <span class="comment">// Get the pixel at desired location</span>
-<a name="l00392"></a>00392     PixelPacket* selectedPixel = <a class="code" href="class_clip.html#838228267146fd74e2828b7173b61091" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a> + (x * <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns()) + y;
+<a name="l00392"></a>00392     PixelPacket* selectedPixel = <a class="code" href="class_clip.html#838228267146fd74e2828b7173b61091" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a> + (x * <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>) + y;
 <a name="l00393"></a>00393     
 <a name="l00394"></a>00394     <span class="comment">// Build a new Pixel object with color information depending on image colorspace</span>
 <a name="l00395"></a>00395     <span class="keywordflow">switch</span> (<a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a>)
@@ -354,14 +354,14 @@ window.onload = initDynSections;
 <a name="l00445"></a>00445         <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.modifyImage();
 <a name="l00446"></a>00446     
 <a name="l00447"></a>00447         <span class="comment">// Check the location is inside the clip borders</span>
-<a name="l00448"></a>00448         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() || x &lt; 0 )
+<a name="l00448"></a>00448         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> or x &lt; 0 )
 <a name="l00449"></a>00449             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The X coordinate is out of image borders"</span>);
 <a name="l00450"></a>00450 
-<a name="l00451"></a>00451         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() || y &lt; 0 )
+<a name="l00451"></a>00451         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a> or y &lt; 0 )
 <a name="l00452"></a>00452             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The Y coordinate is out of image borders"</span>);
 <a name="l00453"></a>00453 
 <a name="l00454"></a>00454         <span class="comment">// Get the pixel at desired location</span>
-<a name="l00455"></a>00455         PixelPacket* selectedPixel = <a class="code" href="class_clip.html#838228267146fd74e2828b7173b61091" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a> + (x * <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns()) + y;
+<a name="l00455"></a>00455         PixelPacket* selectedPixel = <a class="code" href="class_clip.html#838228267146fd74e2828b7173b61091" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a> + (x * <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>) + y;
 <a name="l00456"></a>00456 
 <a name="l00457"></a>00457         <span class="comment">// Assign the desired value to the pixel</span>
 <a name="l00458"></a>00458         *selectedPixel = ColorGray(grayLevel);
@@ -467,7 +467,7 @@ window.onload = initDynSections;
 <a name="l00596"></a>00596         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
 <a name="l00597"></a>00597 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 1 17:06:08 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 2 20:19:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

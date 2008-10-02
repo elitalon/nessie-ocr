@@ -1,5 +1,13 @@
 #include "Preprocessor.h"
 
+#include "Clip.h"
+
+#include <cmath>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+
 ///
 /// @file
 /// @brief Implementation of class Preprocessor
@@ -9,10 +17,10 @@
 /// @details Initializes a Preprocessor object
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
+/// @date 2008-02-10
 ///
 Preprocessor::Preprocessor ()
-	: optimalThreshold_(80.0 / 256.0), backgroundReferenceGrayLevel_(1.0),
+	: optimalThreshold_(0.0), backgroundReferenceGrayLevel_(1.0),
 	noiseRemovalTime_(0.0), grayscaleConversionTime_(0.0), optimalThresholdComputingTime_(0.0)
 {
 	
@@ -49,7 +57,7 @@ double Preprocessor::optimalThreshold () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-void Preprocessor::optimalThreshold (double threshold)
+void Preprocessor::optimalThreshold (const double &threshold)
 {
 	if ( threshold < 0.0 )
 		optimalThreshold_ = 0.0;
@@ -81,7 +89,7 @@ double Preprocessor::backgroundReferenceGrayLevel () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-void Preprocessor::backgroundReferenceGrayLevel (double grayLevel)
+void Preprocessor::backgroundReferenceGrayLevel (const double &grayLevel)
 {
 	if ( grayLevel < 0.0 )
 		backgroundReferenceGrayLevel_ = 0.0;
@@ -151,7 +159,7 @@ double Preprocessor::optimalThresholdComputingTime () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-void Preprocessor::convertToGrayscale (Clip& clip)
+void Preprocessor::convertToGrayscale (Clip &clip)
 {
 	if ( clip.colorspace() != COLORSPACE_GRAYSCALE )
 		clip.colorspace(COLORSPACE_GRAYSCALE);
@@ -168,10 +176,12 @@ void Preprocessor::convertToGrayscale (Clip& clip)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-double Preprocessor::computeOptimalThreshold (Clip& clip)
+double Preprocessor::computeOptimalThreshold (Clip &clip)
 {
 	// Implicit change of colorspace
 	convertToGrayscale(clip);
+	
+	
 	
 	return 0.0;
 };
@@ -190,7 +200,7 @@ double Preprocessor::computeOptimalThreshold (Clip& clip)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-01
 ///
-double Preprocessor::findBackgroundReferenceGrayLevel (Clip& clip, unsigned int referenceGrayLevelNeighbours)
+double Preprocessor::findBackgroundReferenceGrayLevel (Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
 	// Implicit change of colorspace
 	convertToGrayscale(clip);
@@ -216,7 +226,7 @@ double Preprocessor::findBackgroundReferenceGrayLevel (Clip& clip, unsigned int 
 	vector<unsigned int>::iterator histogramIterator;
 	unsigned int moreFrequentGrayLevel = 0, levelCounter = 0;
 	
-	for (histogramIterator = histogram.begin(); histogramIterator != histogram.end(); ++histogramIterator, ++levelCounter)
+	for (histogramIterator = histogram.begin(); histogramIterator not_eq histogram.end(); ++histogramIterator, ++levelCounter)
 	{
 		if ( *histogramIterator > histogram[moreFrequentGrayLevel] )
 			moreFrequentGrayLevel = levelCounter;
@@ -232,7 +242,7 @@ double Preprocessor::findBackgroundReferenceGrayLevel (Clip& clip, unsigned int 
 	for ( unsigned int i = 1; i <= referenceGrayLevelNeighbours; ++i )
 	{
 		// Search forwards
-		if ( histogramIterator != histogram.end() )
+		if ( histogramIterator not_eq histogram.end() )
 		{
 			backgroundReferenceGrayLevel_ += (moreFrequentGrayLevel + i) * histogram[moreFrequentGrayLevel + i];
 			++histogramIterator;
@@ -240,7 +250,7 @@ double Preprocessor::findBackgroundReferenceGrayLevel (Clip& clip, unsigned int 
 		}
 		
 		// Search backwards
-		if ( histogramReverseIterator != histogram.rend() )
+		if ( histogramReverseIterator not_eq histogram.rend() )
 		{
 			backgroundReferenceGrayLevel_ += (moreFrequentGrayLevel - i) * histogram[moreFrequentGrayLevel - i];
 			++histogramReverseIterator;
@@ -250,29 +260,34 @@ double Preprocessor::findBackgroundReferenceGrayLevel (Clip& clip, unsigned int 
 	
 	
 	// Set the background reference gray level found
-	backgroundReferenceGrayLevel_ = backgroundReferenceGrayLevel_ / nFrequencies;
+	backgroundReferenceGrayLevel_ = (backgroundReferenceGrayLevel_ / nFrequencies) / 255.0;
 	return backgroundReferenceGrayLevel_;
 };
 
 
 ///
 /// @details The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip.
-/// The noisyNeighbours parameter defines how much isolated should be a noisy pixel to be removed. That means
-/// a noisy pixel will be removed whenever it has less than noisyNeighbours whose gray level is over the noise threshold value,
+/// The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means
+/// a noisy pixel will be removed whenever it has up to isolationCoefficient neighbours whose gray level is over a threshold value,
 /// which is controlled by the optimalThreshold attribute.
 /// 
-/// @remarks The changes made within this method remains after its ending. This includes the posible conversion to grayscale colorspace.
+/// @remarks You MUST call Preprocessor::computeOptimalThreshold method before calling this, since the optimalThreshold attribute
+/// is used internally to know whether a pixel is noisy or not.
 /// 
-/// @param[in,out]	clip			The clip where applying the algorithm over
-/// @param			noisyNeighbours	The noisy neighbours allowed for a pixel to consider it as isolated or not
+/// @param[in,out]	clip					The clip where applying the algorithm over
+/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
+/// @date 2008-10-02
 ///
-void Preprocessor::removeIsolatedNoise (Clip& clip, unsigned int noisyNeighbours)
+void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolationCoefficient)
 {
 	// Implicit change of colorspace
 	convertToGrayscale(clip);
+
+	
+	// Find background reference gray level
+	findBackgroundReferenceGrayLevel(clip);
 	
 	
 	// Loop over the clip to remove every noisy isolated pixel
@@ -280,38 +295,44 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, unsigned int noisyNeighbours
 	{
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
-			Pixel pixel = clip.getPixel(i, j);
-			
-			// Discard background pixels
-			if ( (pixel.grayLevel() > optimalThreshold_) && (backgroundReferenceGrayLevel_ > optimalThreshold_) )
-				continue;
-			
-			if ( (pixel.grayLevel() < optimalThreshold_) && (backgroundReferenceGrayLevel_ < optimalThreshold_) )
-				continue;
-	
-				
-			// Examine the pixel neighbourhood
-			unsigned int nPixels = 0;
-			
+			unsigned int nBackgroundPixels = 0, nPixels = 0;
+			Pixel neighbourPixel;
+
+			// Explore the pixel neighbourhood
 			for(int p = i-1; p < (signed int)i+2; p++)
 			{
 				for(int q = j-1; q < (signed int)j+2; q++)
 				{
 					// Check clip borders
-					if ( (p < 0 || p >= (signed int)clip.width()) || (q < 0 || q >= (signed int)clip.height()) )
+					if ( (p < 0) or (p >= (signed int)clip.height()) )
 						continue;
-					else
-						nPixels++;
+					
+					if ( (q < 0) or (q >= (signed int)clip.width()) )
+						continue;
+					
+					nPixels++;
 					
 					// Get neighbour pixel gray level
-					Pixel neighbourPixel = clip.getPixel(p, q);
+					neighbourPixel = clip.getPixel(p, q);
 					
-					// Update the noisy pixel count
-					if (neighbourPixel.grayLevel() > optimalThreshold_)
-						; //backgroundPixels += 1;
+					// When background gray level is close to white but not the pixel, update the noisy neighbours counter
+					if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixel.grayLevel() > optimalThreshold_) )
+						nBackgroundPixels++;
+					else
+					{
+						// When background gray level is close to black but not the pixel, update the noisy neighbours counter
+						if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixel.grayLevel() < optimalThreshold_) )
+							nBackgroundPixels++;
+					}
 				}
 			}
+			
+			// Adjust the isolated coefficient influence according to the number of neighbours found
+			unsigned int realIsolationCoefficient = nPixels - 8 + (8 - isolationCoefficient);
+
+			// Delete the noisy pixel if it is isolated
+			if (nBackgroundPixels >= realIsolationCoefficient)
+				clip.setPixel(i, j, backgroundReferenceGrayLevel_);
 		}
 	}
-	
 };

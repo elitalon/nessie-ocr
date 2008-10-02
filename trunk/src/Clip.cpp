@@ -19,7 +19,7 @@
 /// @param width	The width of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-01
 ///
 Clip::Clip (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned int height, unsigned int width) : image_(image)
 {
@@ -46,17 +46,17 @@ Clip::Clip (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned in
 	else
 		yOrigin_ = yOrigin;
 	
-	
+		
 	// Test the clip size is consistent with the image size
-	if ( (xOrigin_ + width) > image_.columns() )
-		width_ = image_.columns() - xOrigin_;
-	else
-		width_ = width;
-	
-	if ( (yOrigin_ + height) > image_.rows() )
-		height_ = image_.rows() - yOrigin_;
+	if ( (xOrigin_ + height) > image_.rows() )
+		height_ = image_.rows() - xOrigin_;
 	else
 		height_ = height;
+	
+	if ( (yOrigin_ + width) > image_.columns() )
+		width_ = image_.columns() - yOrigin_;
+	else
+		width_ = width;
 		
 	
 	try
@@ -207,12 +207,12 @@ unsigned int Clip::height () const
 /// @param height The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-01
 ///
 void Clip::height (unsigned int height)
 {
-	if ( (yOrigin_ + height) > image_.rows() )
-		height_ = image_.rows() - yOrigin_;
+	if ( (xOrigin_ + height) > image_.rows() )
+		height_ = image_.rows() - xOrigin_;
 	else
 		height_ = height;
 	
@@ -238,12 +238,12 @@ unsigned int Clip::width () const
 /// @param width The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-01
 ///
 void Clip::width (unsigned int width)
 {
-	if ( (xOrigin_ + width) > image_.columns() )
-		width_ = image_.columns() - xOrigin_;
+	if ( (yOrigin_ + width) > image_.columns() )
+		width_ = image_.columns() - yOrigin_;
 	else
 		width_ = width;
 	
@@ -377,19 +377,19 @@ bool Clip::isMonochromatic () const
 /// @return The pixel at coordinates (x,y)
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-02
 /// 
 Pixel Clip::getPixel (unsigned int x, unsigned int y) const
 {
 	// Check the location is inside the clip borders
-	if ( x >= frame_->rows() || x < 0 )
+	if ( (x >= height_) or (x < 0) )
 		throw NessieException ("Clip::getPixel: The X coordinate is out of image borders");
 	
-	if ( y >= frame_->columns() || y < 0 )
+	if ( (y >= width_) or (y < 0) )
 		throw NessieException ("Clip::getPixel: The Y coordinate is out of image borders");
 	
 	// Get the pixel at desired location
-	PixelPacket* selectedPixel = originPixel_ + (x * frame_->columns()) + y;
+	PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
 	
 	// Build a new Pixel object with color information depending on image colorspace
 	switch (colorspace_)
@@ -431,7 +431,7 @@ Pixel Clip::getPixel (unsigned int x, unsigned int y) const
 /// @param grayLevel	The new gray level for the pixel at coordinates (x,y)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-02-10
 ///
 void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 {
@@ -445,14 +445,14 @@ void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 		image_.modifyImage();
 	
 		// Check the location is inside the clip borders
-		if ( x >= frame_->rows() || x < 0 )
+		if ( x >= height_ or x < 0 )
 			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
 
-		if ( y >= frame_->columns() || y < 0 )
+		if ( y >= width_ or y < 0 )
 			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
 
 		// Get the pixel at desired location
-		PixelPacket* selectedPixel = originPixel_ + (x * frame_->columns()) + y;
+		PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
 
 		// Assign the desired value to the pixel
 		*selectedPixel = ColorGray(grayLevel);

@@ -29,11 +29,16 @@ using namespace Magick;
 /// @see Clip, Colorspace
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
+/// @date 2008-10-02
 /// 
 class Pixel
 {
 	public:
+		///
+		/// Constructor
+		///
+		Pixel ();
+		
 		///
 		/// Constructor
 		///

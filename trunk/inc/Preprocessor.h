@@ -6,12 +6,9 @@
 /// @brief Declaration of class Preprocessor
 ///
 
-#include "Clip.h"
 
-#include <cmath>
-#include <vector>
-#include <iostream>
-using namespace std;
+// Forward declaration
+class Clip;
 
 ///
 /// Preprocessor of the OCR process
@@ -26,7 +23,7 @@ using namespace std;
 /// @see Clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
+/// @date 2008-10-02
 ///
 class Preprocessor
 {
@@ -49,7 +46,7 @@ class Preprocessor
 		///
 		/// Sets the optimal threshold to use in algorithms
 		///
-		void optimalThreshold (double threshold);
+		void optimalThreshold (const double &threshold);
 		
 		///
 		/// Returns the background reference gray level in the last clip used
@@ -59,7 +56,7 @@ class Preprocessor
 		///
 		/// Sets the background reference gray level to use in algorithms
 		///
-		void backgroundReferenceGrayLevel (double grayLevel);
+		void backgroundReferenceGrayLevel (const double &grayLevel);
 
 		///
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
@@ -84,22 +81,22 @@ class Preprocessor
 		///
 		/// Converts the clip's colorspace to a grayscale
 		///
-		void convertToGrayscale (Clip& clip);
+		void convertToGrayscale (Clip &clip);
 		
 		///
 		/// Computes the optimal threshold value within a clip
 		///
-		double computeOptimalThreshold (Clip& clip);
+		double computeOptimalThreshold (Clip &clip);
 		
 		///
 		/// Computes the background reference gray level value within a clip
 		///
-		double findBackgroundReferenceGrayLevel (Clip& clip, unsigned int referenceGrayLevelNeighbours = 4);
+		double findBackgroundReferenceGrayLevel (Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 		
 		///
 		/// Applies the 'isolated noise removal' algorithm
 		///
-		void removeIsolatedNoise (Clip& clip, unsigned int noisyNeighbours);
+		void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 1);
 		
 	private:
 		///
