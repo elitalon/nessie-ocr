@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: NessieException.cpp (117) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: NessieException.cpp (123) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -59,28 +59,32 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>NessieException.cpp</h1><a href="_nessie_exception_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="_nessie_exception_8h.html" title="Declaration of class NessieException.">NessieException.h</a>"</span>
+<h1>NessieException.cpp</h1><a href="_nessie_exception_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="preprocessor">#include "<a class="code" href="_nessie_exception_8h.html" title="Declaration of class NessieException.">NessieException.h</a>"</span>
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
-<a name="l00017"></a><a class="code" href="class_nessie_exception.html#bf222307ce3e9e9a18068a5a96de9203">00017</a> <a class="code" href="class_nessie_exception.html#bf222307ce3e9e9a18068a5a96de9203" title="Constructor.">NessieException::NessieException</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;message) : message_(message)
+<a name="l00017"></a><a class="code" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859">00017</a> <a class="code" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859" title="Constructor.">NessieException::NessieException</a> (<span class="keyword">const</span> std::string &amp;what): what_(what)
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019     
 <a name="l00020"></a>00020 };
 <a name="l00021"></a>00021     
 <a name="l00022"></a>00022         
-<a name="l00029"></a><a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">00029</a> <a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">NessieException::~NessieException</a> ()
+<a name="l00029"></a><a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">00029</a> <a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">NessieException::~NessieException</a> ()  throw()
 <a name="l00030"></a>00030 {
-<a name="l00031"></a>00031     
+<a name="l00031"></a>00031 
 <a name="l00032"></a>00032 };
 <a name="l00033"></a>00033 
 <a name="l00034"></a>00034 
-<a name="l00041"></a><a class="code" href="class_nessie_exception.html#ec94145f2fd5febb7ca0b7587652b777">00041</a> <span class="keywordtype">string</span> <a class="code" href="class_nessie_exception.html#ec94145f2fd5febb7ca0b7587652b777" title="Returns the message that explains the exception.">NessieException::what</a> ()<span class="keyword"> const</span>
-<a name="l00042"></a>00042 <span class="keyword"></span>{
-<a name="l00043"></a>00043     <span class="keywordflow">return</span> <a class="code" href="class_nessie_exception.html#e8256407b687ddec0fdabd9969f3465e" title="Message explaining the error that raised the exception.">message_</a>;
+<a name="l00041"></a><a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909">00041</a> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns the message that explains the exception.">NessieException::what</a> () <span class="keyword">const</span> throw()
+<a name="l00042"></a>00042 {
+<a name="l00043"></a>00043     <span class="keywordflow">return</span> <a class="code" href="class_nessie_exception.html#3464c36d30d9baabd0b10ac4797d4b5b" title="Message explaining the error that raised the exception.">what_</a>.data();
 <a name="l00044"></a>00044 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:59:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 21:13:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

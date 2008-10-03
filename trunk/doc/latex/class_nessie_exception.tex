@@ -4,11 +4,18 @@
 }
 {\tt \#include $<$NessieException.h$>$}
 
+Inheritance diagram for NessieException:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=85pt]{class_nessie_exception__inherit__graph}
+\end{center}
+\end{figure}
 Collaboration diagram for NessieException:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=94pt]{class_nessie_exception__coll__graph}
+\includegraphics[width=129pt]{class_nessie_exception__coll__graph}
 \end{center}
 \end{figure}
 
@@ -25,38 +32,38 @@ Exception raised by a Nessie OCR object.
 Definition at line 20 of file NessieException.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_nessie_exception_bf222307ce3e9e9a18068a5a96de9203}{NessieException} (const string \&message)
+\hyperlink{class_nessie_exception_80c86c892438045635bf6a99da17e859}{NessieException} (const std::string \&what)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-virtual \hyperlink{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}{$\sim$NessieException} ()
+virtual \hyperlink{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}{$\sim$NessieException} ()  throw ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
-virtual string \hyperlink{class_nessie_exception_ec94145f2fd5febb7ca0b7587652b777}{what} () const 
+virtual const char $\ast$ \hyperlink{class_nessie_exception_a522c2ea164e88be0b26670170b33909}{what} () const   throw ()
 \begin{CompactList}\small\item\em Returns the message that explains the exception. \item\end{CompactList}\end{CompactItemize}
-\subsection*{Protected Attributes}
+\subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
-\hypertarget{class_nessie_exception_e8256407b687ddec0fdabd9969f3465e}{
-const string \hyperlink{class_nessie_exception_e8256407b687ddec0fdabd9969f3465e}{message\_\-}}
-\label{class_nessie_exception_e8256407b687ddec0fdabd9969f3465e}
+\hypertarget{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{
+std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{what\_\-}}
+\label{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}
 
 \begin{CompactList}\small\item\em Message explaining the error that raised the exception. \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_nessie_exception_bf222307ce3e9e9a18068a5a96de9203}{
+\hypertarget{class_nessie_exception_80c86c892438045635bf6a99da17e859}{
 \index{NessieException@{NessieException}!NessieException@{NessieException}}
 \index{NessieException@{NessieException}!NessieException@{NessieException}}
-\subsubsection[NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::NessieException (const string \& {\em message})}}
-\label{class_nessie_exception_bf222307ce3e9e9a18068a5a96de9203}
+\subsubsection[NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::NessieException (const std::string \& {\em what})}}
+\label{class_nessie_exception_80c86c892438045635bf6a99da17e859}
 
 
 Constructor. 
 
-Initializes an exception object with information passed
+Initializes an \hyperlink{class_nessie_exception}{NessieException} object with a message
 
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em message}]A string containing a message that explains the exception raised\end{description}
+\item[{\em what}]A string containing a message that explains the exception raised\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -67,7 +74,7 @@ Initializes an exception object with information passed
 Definition at line 17 of file NessieException.cpp.\hypertarget{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}{
 \index{NessieException@{NessieException}!$\sim$NessieException@{$\sim$NessieException}}
 \index{$\sim$NessieException@{$\sim$NessieException}!NessieException@{NessieException}}
-\subsubsection[$\sim$NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::$\sim$NessieException ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[$\sim$NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::$\sim$NessieException ()  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}
 
 
@@ -78,32 +85,32 @@ Destroys a \hyperlink{class_nessie_exception}{NessieException} object
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-26 \end{Desc}
+\item[Date:]2008-10-03 \end{Desc}
 
 
 Definition at line 29 of file NessieException.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_nessie_exception_ec94145f2fd5febb7ca0b7587652b777}{
+\hypertarget{class_nessie_exception_a522c2ea164e88be0b26670170b33909}{
 \index{NessieException@{NessieException}!what@{what}}
 \index{what@{what}!NessieException@{NessieException}}
-\subsubsection[what]{\setlength{\rightskip}{0pt plus 5cm}string NessieException::what () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_nessie_exception_ec94145f2fd5febb7ca0b7587652b777}
+\subsubsection[what]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ NessieException::what () const  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_nessie_exception_a522c2ea164e88be0b26670170b33909}
 
 
 Returns the message that explains the exception. 
 
-The message is formed using the file name, its line and the explanation
+This method overrides the one in class std::exception
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-26 \end{Desc}
+\item[Date:]2008-10-03 \end{Desc}
 
 
 Definition at line 41 of file NessieException.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_nessie_exception_8h}{NessieException.h (114)}\item 
-\hyperlink{_nessie_exception_8cpp}{NessieException.cpp (117)}\end{CompactItemize}
+\hyperlink{_nessie_exception_8h}{NessieException.h (123)}\item 
+\hyperlink{_nessie_exception_8cpp}{NessieException.cpp (123)}\end{CompactItemize}

@@ -1,14 +1,14 @@
-#if !defined(_NESSIE_EXCEPTION_H)
-#define _NESSIE_EXCEPTION_H
-
 ///
 /// @file
 /// @brief Declaration of class NessieException
 ///
 
+#if !defined(_NESSIE_EXCEPTION_H)
+#define _NESSIE_EXCEPTION_H
+
+
 #include <string>
 #include <exception>
-using namespace std;
 
 
 ///
@@ -17,29 +17,29 @@ using namespace std;
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
 ///
-class NessieException
+class NessieException : public std::exception
 {
 	public:
 		///
 		/// Constructor
 		///
-		NessieException (const string &message);
+		NessieException (const std::string &what);
 				
 		///
 		/// Destructor
 		///
-		virtual ~NessieException ();
+		virtual ~NessieException () throw ();
 		
 		///
 		/// Returns the message that explains the exception
 		///
-		virtual string what () const;
-
-	protected:
+		virtual const char* what () const throw();
+		
+	private:
 		///
 		/// Message explaining the error that raised the exception
 		///
-		const string message_;
+		std::string what_;
 };
 
 #endif  //_NESSIE_EXCEPTION_H

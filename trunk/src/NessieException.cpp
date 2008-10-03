@@ -1,20 +1,20 @@
-#include "NessieException.h"
-
 ///
 /// @file
 /// @brief Implementation of class NessieException
 ///
 
+#include "NessieException.h"
+
 
 ///
-/// @details Initializes an exception object with information passed
+/// @details Initializes an NessieException object with a message
 /// 
-/// @param message	A string containing a message that explains the exception raised
+/// @param what	A string containing a message that explains the exception raised
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
 /// 
-NessieException::NessieException (const string &message) : message_(message)
+NessieException::NessieException (const std::string &what): what_(what)
 {
 	
 };
@@ -24,21 +24,21 @@ NessieException::NessieException (const string &message) : message_(message)
 /// @details Destroys a NessieException object
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-03
 ///
-NessieException::~NessieException ()
+NessieException::~NessieException ()  throw()
 {
-	
+
 };
 
 
 ///
-/// @details The message is formed using the file name, its line and the explanation
+/// @details This method overrides the one in class std::exception
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-03
 ///
-string NessieException::what () const
+const char* NessieException::what () const throw()
 {
-	return message_;
+	return what_.data();
 };

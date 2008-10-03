@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: NessieException.h (114) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: NessieException.h (123) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -59,31 +59,35 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>NessieException.h</h1><a href="_nessie_exception_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#if !defined(_NESSIE_EXCEPTION_H)</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _NESSIE_EXCEPTION_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00008"></a>00008 
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;exception&gt;</span>
-<a name="l00011"></a>00011 <span class="keyword">using namespace </span>std;
+<h1>NessieException.h</h1><a href="_nessie_exception_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="preprocessor">#if !defined(_NESSIE_EXCEPTION_H)</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define _NESSIE_EXCEPTION_H</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;exception&gt;</span>
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 
-<a name="l00020"></a><a class="code" href="class_nessie_exception.html">00020</a> <span class="keyword">class </span><a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a>
+<a name="l00020"></a><a class="code" href="class_nessie_exception.html">00020</a> <span class="keyword">class </span><a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> : <span class="keyword">public</span> std::exception
 <a name="l00021"></a>00021 {
 <a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00026"></a>00026         <a class="code" href="class_nessie_exception.html#bf222307ce3e9e9a18068a5a96de9203" title="Constructor.">NessieException</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;message);
+<a name="l00026"></a>00026         <a class="code" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859" title="Constructor.">NessieException</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns the message that explains the exception.">what</a>);
 <a name="l00027"></a>00027                 
-<a name="l00031"></a>00031         <span class="keyword">virtual</span> <a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">~NessieException</a> ();
+<a name="l00031"></a>00031         <span class="keyword">virtual</span> <a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">~NessieException</a> () <span class="keywordflow">throw</span> ();
 <a name="l00032"></a>00032         
-<a name="l00036"></a>00036         <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="class_nessie_exception.html#ec94145f2fd5febb7ca0b7587652b777" title="Returns the message that explains the exception.">what</a> () <span class="keyword">const</span>;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038     <span class="keyword">protected</span>:
-<a name="l00042"></a><a class="code" href="class_nessie_exception.html#e8256407b687ddec0fdabd9969f3465e">00042</a>         <span class="keyword">const</span> <span class="keywordtype">string</span> <a class="code" href="class_nessie_exception.html#e8256407b687ddec0fdabd9969f3465e" title="Message explaining the error that raised the exception.">message_</a>;
+<a name="l00036"></a>00036         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns the message that explains the exception.">what</a> () <span class="keyword">const</span> <span class="keywordflow">throw</span>();
+<a name="l00037"></a>00037         
+<a name="l00038"></a>00038     <span class="keyword">private</span>:
+<a name="l00042"></a><a class="code" href="class_nessie_exception.html#3464c36d30d9baabd0b10ac4797d4b5b">00042</a>         std::string <a class="code" href="class_nessie_exception.html#3464c36d30d9baabd0b10ac4797d4b5b" title="Message explaining the error that raised the exception.">what_</a>;
 <a name="l00043"></a>00043 };
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045 <span class="preprocessor">#endif  //_NESSIE_EXCEPTION_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:59:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 21:13:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
