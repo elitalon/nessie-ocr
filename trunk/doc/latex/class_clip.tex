@@ -31,7 +31,7 @@ The idea behind this class is to encapsulate all the interactions with the Magic
 Definition at line 37 of file Clip.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}{Clip} (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned int height, unsigned int width)
+\hyperlink{class_clip_c310d846f50db6604cceb0e54d8c9503}{Clip} (Image image, const unsigned int \&xOrigin, const unsigned int \&yOrigin, const unsigned int \&height, const unsigned int \&width)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 \hyperlink{class_clip_88647ed65e3482b5e0533ec98667b0fa}{$\sim$Clip} ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
@@ -39,23 +39,23 @@ Image \hyperlink{class_clip_f4500103f1babcf2b9283eaffc6af96a}{image} ()
 \begin{CompactList}\small\item\em Returns the current Image object. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_6965fb65870eeb239c8a829444bb4ed7}{xOrigin} () const 
 \begin{CompactList}\small\item\em Returns the X coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
-void \hyperlink{class_clip_59bed794f674858a9ca02fce36c58fac}{xOrigin} (unsigned int x)
+void \hyperlink{class_clip_852f1af3c77202192d937e07a97bb3bb}{xOrigin} (const unsigned int \&x)
 \begin{CompactList}\small\item\em Sets the X coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_6023296db25d263b311900cafb7cc55d}{yOrigin} () const 
 \begin{CompactList}\small\item\em Returns the Y coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
-void \hyperlink{class_clip_6b0100fdd089be816b97465df4dd2846}{yOrigin} (unsigned int y)
+void \hyperlink{class_clip_7b5d2df93c74bb7a4c1a3a73a6fd7fb0}{yOrigin} (const unsigned int \&y)
 \begin{CompactList}\small\item\em Sets the Y coordinate of the clip's upper leftmost pixel. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_393710a6b136f400dd5c900f8831e1a8}{height} () const 
 \begin{CompactList}\small\item\em Returns the clip's height. \item\end{CompactList}\item 
-void \hyperlink{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}{height} (unsigned int height)
+void \hyperlink{class_clip_f5b4598afd42e098c3811f7a82227cdd}{height} (const unsigned int \&height)
 \begin{CompactList}\small\item\em Sets the clip's height. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_d3e816599913e4051e5d50fae17ecd76}{width} () const 
 \begin{CompactList}\small\item\em Returns the clip's width. \item\end{CompactList}\item 
-void \hyperlink{class_clip_17c1a23e159bedb6e2988235b8b568e7}{width} (unsigned int width)
+void \hyperlink{class_clip_bfb1bc4bf1a16c05493f5d6d03ba2498}{width} (const unsigned int \&width)
 \begin{CompactList}\small\item\em Sets the clip's width. \item\end{CompactList}\item 
 \hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} \hyperlink{class_clip_e22de9122a399af67576eb114842846a}{colorspace} () const 
 \begin{CompactList}\small\item\em Returns the clip's current colorspace. \item\end{CompactList}\item 
-void \hyperlink{class_clip_7e7fa163b90c573adc424e022235c539}{colorspace} (\hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} colorspace)
+void \hyperlink{class_clip_8d552e001b92a1d9f7e131cdd5b58f58}{colorspace} (const \hyperlink{_colorspace_8h_7a7e24cdb2a27271343f0adceff89f65}{Colorspace} \&colorspace)
 \begin{CompactList}\small\item\em Sets the clip's current colorspace. \item\end{CompactList}\item 
 bool \hyperlink{class_clip_6f8d3a88f89461350228f5e7b7b9d694}{isGrayscale} () const 
 \begin{CompactList}\small\item\em Returns true if the clip is in grayscale. \item\end{CompactList}\item 
@@ -63,13 +63,13 @@ bool \hyperlink{class_clip_0a535167abd0a544a2de56c317bb6f3c}{isColor} () const
 \begin{CompactList}\small\item\em Returns true if the clip is in color. \item\end{CompactList}\item 
 bool \hyperlink{class_clip_5045f79876d4299b54803d56b26d5f75}{isMonochromatic} () const 
 \begin{CompactList}\small\item\em Returns true if the clips is in black and white. \item\end{CompactList}\item 
-\hyperlink{class_pixel}{Pixel} \hyperlink{class_clip_74eded11c0dcbd2b10b453074cbb8b84}{getPixel} (unsigned int x, unsigned int y) const 
+\hyperlink{class_pixel}{Pixel} \hyperlink{class_clip_260bfb94abaa9d2df692ba33146cc62e}{getPixel} (const unsigned int \&x, const unsigned int \&y) const 
 \begin{CompactList}\small\item\em Returns the pixel at coordinates (x,y). \item\end{CompactList}\item 
-void \hyperlink{class_clip_3c48493242de7453438ed0e8d0ea74df}{setPixel} (unsigned int x, unsigned int y, double grayLevel)
+void \hyperlink{class_clip_cf9dc38eade61776c6c8497f2ce53b7b}{setPixel} (const unsigned int \&x, const unsigned int \&y, const double \&grayLevel)
 \begin{CompactList}\small\item\em Sets the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
-void \hyperlink{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}{setPixel} (unsigned int x, unsigned int y, double red, double green, double blue)
+void \hyperlink{class_clip_e30b992399aaf934dc61a4338ae8a379}{setPixel} (const unsigned int \&x, const unsigned int \&y, const double \&red, const double \&green, const double \&blue)
 \begin{CompactList}\small\item\em Sets the color of a pixel at coordinates (x,y). \item\end{CompactList}\item 
-void \hyperlink{class_clip_9e78d68c58016aaff8c65ddac29ed07f}{setPixel} (unsigned int x, unsigned int y, bool isForeground)
+void \hyperlink{class_clip_fbb49d97fe45d8a9d094829f4daf8e6a}{setPixel} (const unsigned int \&x, const unsigned int \&y, const bool \&isForeground)
 \begin{CompactList}\small\item\em Sets whether a pixel at coordinates (x,y) belongs to the foreground or not. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Member Functions}
 \begin{CompactItemize}
@@ -115,11 +115,11 @@ PixelPacket $\ast$ \hyperlink{class_clip_838228267146fd74e2828b7173b61091}{origi
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}{
+\hypertarget{class_clip_c310d846f50db6604cceb0e54d8c9503}{
 \index{Clip@{Clip}!Clip@{Clip}}
 \index{Clip@{Clip}!Clip@{Clip}}
-\subsubsection[Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (Image {\em image}, \/  unsigned int {\em xOrigin}, \/  unsigned int {\em yOrigin}, \/  unsigned int {\em height}, \/  unsigned int {\em width})}}
-\label{class_clip_f8f4312cce2d38d61ce370912e9e7e4a}
+\subsubsection[Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (Image {\em image}, \/  const unsigned int \& {\em xOrigin}, \/  const unsigned int \& {\em yOrigin}, \/  const unsigned int \& {\em height}, \/  const unsigned int \& {\em width})}}
+\label{class_clip_c310d846f50db6604cceb0e54d8c9503}
 
 
 Constructor. 
@@ -154,7 +154,7 @@ Destroys a \hyperlink{class_clip}{Clip} object, deleting all the associated data
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 106 of file Clip.cpp.
+Definition at line 107 of file Clip.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_clip_f4500103f1babcf2b9283eaffc6af96a}{
@@ -174,7 +174,7 @@ Returns the current Image object.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 118 of file Clip.cpp.\hypertarget{class_clip_6965fb65870eeb239c8a829444bb4ed7}{
+Definition at line 119 of file Clip.cpp.\hypertarget{class_clip_6965fb65870eeb239c8a829444bb4ed7}{
 \index{Clip@{Clip}!xOrigin@{xOrigin}}
 \index{xOrigin@{xOrigin}!Clip@{Clip}}
 \subsubsection[xOrigin]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::xOrigin () const}}
@@ -191,11 +191,11 @@ Returns the X coordinate of the clip's upper leftmost pixel.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 130 of file Clip.cpp.\hypertarget{class_clip_59bed794f674858a9ca02fce36c58fac}{
+Definition at line 131 of file Clip.cpp.\hypertarget{class_clip_852f1af3c77202192d937e07a97bb3bb}{
 \index{Clip@{Clip}!xOrigin@{xOrigin}}
 \index{xOrigin@{xOrigin}!Clip@{Clip}}
-\subsubsection[xOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::xOrigin (unsigned int {\em x})}}
-\label{class_clip_59bed794f674858a9ca02fce36c58fac}
+\subsubsection[xOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::xOrigin (const unsigned int \& {\em x})}}
+\label{class_clip_852f1af3c77202192d937e07a97bb3bb}
 
 
 Sets the X coordinate of the clip's upper leftmost pixel. 
@@ -218,7 +218,7 @@ If the new value x is over the image borders, an exception is thrown.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 146 of file Clip.cpp.\hypertarget{class_clip_6023296db25d263b311900cafb7cc55d}{
+Definition at line 147 of file Clip.cpp.\hypertarget{class_clip_6023296db25d263b311900cafb7cc55d}{
 \index{Clip@{Clip}!yOrigin@{yOrigin}}
 \index{yOrigin@{yOrigin}!Clip@{Clip}}
 \subsubsection[yOrigin]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::yOrigin () const}}
@@ -235,11 +235,11 @@ Returns the Y coordinate of the clip's upper leftmost pixel.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 164 of file Clip.cpp.\hypertarget{class_clip_6b0100fdd089be816b97465df4dd2846}{
+Definition at line 165 of file Clip.cpp.\hypertarget{class_clip_7b5d2df93c74bb7a4c1a3a73a6fd7fb0}{
 \index{Clip@{Clip}!yOrigin@{yOrigin}}
 \index{yOrigin@{yOrigin}!Clip@{Clip}}
-\subsubsection[yOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::yOrigin (unsigned int {\em y})}}
-\label{class_clip_6b0100fdd089be816b97465df4dd2846}
+\subsubsection[yOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::yOrigin (const unsigned int \& {\em y})}}
+\label{class_clip_7b5d2df93c74bb7a4c1a3a73a6fd7fb0}
 
 
 Sets the Y coordinate of the clip's upper leftmost pixel. 
@@ -262,7 +262,7 @@ If the new value y is over the image borders, an exception is thrown.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 180 of file Clip.cpp.\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
+Definition at line 181 of file Clip.cpp.\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
 \subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::height () const}}
@@ -279,13 +279,13 @@ Returns the clip's height.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 198 of file Clip.cpp.
+Definition at line 199 of file Clip.cpp.
 
-Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}{
+Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_f5b4598afd42e098c3811f7a82227cdd}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
-\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}void Clip::height (unsigned int {\em height})}}
-\label{class_clip_c6eeb473cb104e6e3f90f4099c7ef741}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}void Clip::height (const unsigned int \& {\em height})}}
+\label{class_clip_f5b4598afd42e098c3811f7a82227cdd}
 
 
 Sets the clip's height. 
@@ -303,7 +303,7 @@ If the height is over the image borders the clip is truncated to its maximum all
 \item[Date:]2008-10-01 \end{Desc}
 
 
-Definition at line 212 of file Clip.cpp.\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
+Definition at line 213 of file Clip.cpp.\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
 \index{Clip@{Clip}!width@{width}}
 \index{width@{width}!Clip@{Clip}}
 \subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::width () const}}
@@ -320,13 +320,13 @@ Returns the clip's width.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 229 of file Clip.cpp.
+Definition at line 230 of file Clip.cpp.
 
-Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_17c1a23e159bedb6e2988235b8b568e7}{
+Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_bfb1bc4bf1a16c05493f5d6d03ba2498}{
 \index{Clip@{Clip}!width@{width}}
 \index{width@{width}!Clip@{Clip}}
-\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}void Clip::width (unsigned int {\em width})}}
-\label{class_clip_17c1a23e159bedb6e2988235b8b568e7}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}void Clip::width (const unsigned int \& {\em width})}}
+\label{class_clip_bfb1bc4bf1a16c05493f5d6d03ba2498}
 
 
 Sets the clip's width. 
@@ -344,7 +344,7 @@ If the width is over the image borders the clip is truncated to its maximum allo
 \item[Date:]2008-10-01 \end{Desc}
 
 
-Definition at line 243 of file Clip.cpp.\hypertarget{class_clip_e22de9122a399af67576eb114842846a}{
+Definition at line 244 of file Clip.cpp.\hypertarget{class_clip_e22de9122a399af67576eb114842846a}{
 \index{Clip@{Clip}!colorspace@{colorspace}}
 \index{colorspace@{colorspace}!Clip@{Clip}}
 \subsubsection[colorspace]{\setlength{\rightskip}{0pt plus 5cm}{\bf Colorspace} Clip::colorspace () const}}
@@ -363,13 +363,13 @@ Returns the clip's current colorspace.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 262 of file Clip.cpp.
+Definition at line 263 of file Clip.cpp.
 
-Referenced by Preprocessor::convertToGrayscale().\hypertarget{class_clip_7e7fa163b90c573adc424e022235c539}{
+Referenced by Preprocessor::convertToGrayscale().\hypertarget{class_clip_8d552e001b92a1d9f7e131cdd5b58f58}{
 \index{Clip@{Clip}!colorspace@{colorspace}}
 \index{colorspace@{colorspace}!Clip@{Clip}}
-\subsubsection[colorspace]{\setlength{\rightskip}{0pt plus 5cm}void Clip::colorspace ({\bf Colorspace} {\em colorspace})}}
-\label{class_clip_7e7fa163b90c573adc424e022235c539}
+\subsubsection[colorspace]{\setlength{\rightskip}{0pt plus 5cm}void Clip::colorspace (const {\bf Colorspace} \& {\em colorspace})}}
+\label{class_clip_8d552e001b92a1d9f7e131cdd5b58f58}
 
 
 Sets the clip's current colorspace. 
@@ -389,7 +389,7 @@ By setting the colorspace to a certain value the image colorspace changes, affec
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 279 of file Clip.cpp.\hypertarget{class_clip_6f8d3a88f89461350228f5e7b7b9d694}{
+Definition at line 280 of file Clip.cpp.\hypertarget{class_clip_6f8d3a88f89461350228f5e7b7b9d694}{
 \index{Clip@{Clip}!isGrayscale@{isGrayscale}}
 \index{isGrayscale@{isGrayscale}!Clip@{Clip}}
 \subsubsection[isGrayscale]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isGrayscale () const}}
@@ -406,7 +406,7 @@ Returns true if the clip is in grayscale.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 331 of file Clip.cpp.\hypertarget{class_clip_0a535167abd0a544a2de56c317bb6f3c}{
+Definition at line 332 of file Clip.cpp.\hypertarget{class_clip_0a535167abd0a544a2de56c317bb6f3c}{
 \index{Clip@{Clip}!isColor@{isColor}}
 \index{isColor@{isColor}!Clip@{Clip}}
 \subsubsection[isColor]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isColor () const}}
@@ -423,7 +423,7 @@ Returns true if the clip is in color.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 346 of file Clip.cpp.\hypertarget{class_clip_5045f79876d4299b54803d56b26d5f75}{
+Definition at line 347 of file Clip.cpp.\hypertarget{class_clip_5045f79876d4299b54803d56b26d5f75}{
 \index{Clip@{Clip}!isMonochromatic@{isMonochromatic}}
 \index{isMonochromatic@{isMonochromatic}!Clip@{Clip}}
 \subsubsection[isMonochromatic]{\setlength{\rightskip}{0pt plus 5cm}bool Clip::isMonochromatic () const}}
@@ -440,11 +440,11 @@ Returns true if the clips is in black and white.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 361 of file Clip.cpp.\hypertarget{class_clip_74eded11c0dcbd2b10b453074cbb8b84}{
+Definition at line 362 of file Clip.cpp.\hypertarget{class_clip_260bfb94abaa9d2df692ba33146cc62e}{
 \index{Clip@{Clip}!getPixel@{getPixel}}
 \index{getPixel@{getPixel}!Clip@{Clip}}
-\subsubsection[getPixel]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Clip::getPixel (unsigned int {\em x}, \/  unsigned int {\em y}) const}}
-\label{class_clip_74eded11c0dcbd2b10b453074cbb8b84}
+\subsubsection[getPixel]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Clip::getPixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}) const}}
+\label{class_clip_260bfb94abaa9d2df692ba33146cc62e}
 
 
 Returns the pixel at coordinates (x,y). 
@@ -464,13 +464,13 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-10-02 \end{Desc}
 
 
-Definition at line 382 of file Clip.cpp.
+Definition at line 383 of file Clip.cpp.
 
-Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_3c48493242de7453438ed0e8d0ea74df}{
+Referenced by Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_cf9dc38eade61776c6c8497f2ce53b7b}{
 \index{Clip@{Clip}!setPixel@{setPixel}}
 \index{setPixel@{setPixel}!Clip@{Clip}}
-\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em grayLevel})}}
-\label{class_clip_3c48493242de7453438ed0e8d0ea74df}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const double \& {\em grayLevel})}}
+\label{class_clip_cf9dc38eade61776c6c8497f2ce53b7b}
 
 
 Sets the gray level of a pixel at coordinates (x,y). 
@@ -488,13 +488,13 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-02-10 \end{Desc}
 
 
-Definition at line 436 of file Clip.cpp.
+Definition at line 437 of file Clip.cpp.
 
-Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}{
+Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_e30b992399aaf934dc61a4338ae8a379}{
 \index{Clip@{Clip}!setPixel@{setPixel}}
 \index{setPixel@{setPixel}!Clip@{Clip}}
-\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  double {\em red}, \/  double {\em green}, \/  double {\em blue})}}
-\label{class_clip_1e28a9ed2676460de4b5b9ab1b985f4c}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const double \& {\em red}, \/  const double \& {\em green}, \/  const double \& {\em blue})}}
+\label{class_clip_e30b992399aaf934dc61a4338ae8a379}
 
 
 Sets the color of a pixel at coordinates (x,y). 
@@ -512,11 +512,11 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 484 of file Clip.cpp.\hypertarget{class_clip_9e78d68c58016aaff8c65ddac29ed07f}{
+Definition at line 485 of file Clip.cpp.\hypertarget{class_clip_fbb49d97fe45d8a9d094829f4daf8e6a}{
 \index{Clip@{Clip}!setPixel@{setPixel}}
 \index{setPixel@{setPixel}!Clip@{Clip}}
-\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (unsigned int {\em x}, \/  unsigned int {\em y}, \/  bool {\em isForeground})}}
-\label{class_clip_9e78d68c58016aaff8c65ddac29ed07f}
+\subsubsection[setPixel]{\setlength{\rightskip}{0pt plus 5cm}void Clip::setPixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const bool \& {\em isForeground})}}
+\label{class_clip_fbb49d97fe45d8a9d094829f4daf8e6a}
 
 
 Sets whether a pixel at coordinates (x,y) belongs to the foreground or not. 
@@ -534,7 +534,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 529 of file Clip.cpp.\hypertarget{class_clip_66fc93c15de96d077d2242a53576528e}{
+Definition at line 530 of file Clip.cpp.\hypertarget{class_clip_66fc93c15de96d077d2242a53576528e}{
 \index{Clip@{Clip}!relocateClipOrigin@{relocateClipOrigin}}
 \index{relocateClipOrigin@{relocateClipOrigin}!Clip@{Clip}}
 \subsubsection[relocateClipOrigin]{\setlength{\rightskip}{0pt plus 5cm}void Clip::relocateClipOrigin ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
@@ -551,7 +551,7 @@ When any of the clip attributes change, it is neccesary to relocate the clip pos
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 569 of file Clip.cpp.
+Definition at line 570 of file Clip.cpp.
 
 Referenced by height(), width(), xOrigin(), and yOrigin().\hypertarget{class_clip_e050cf90340e9160f79688627d69a00b}{
 \index{Clip@{Clip}!adjustClipSize@{adjustClipSize}}
@@ -570,7 +570,7 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 590 of file Clip.cpp.
+Definition at line 591 of file Clip.cpp.
 
 Referenced by xOrigin(), and yOrigin().
 

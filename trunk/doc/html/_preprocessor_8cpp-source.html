@@ -180,7 +180,7 @@ window.onload = initDynSections;
 <a name="l00214"></a>00214         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>(); ++j)
 <a name="l00215"></a>00215         {
 <a name="l00216"></a>00216             <span class="comment">// Get gray level of this pixel</span>
-<a name="l00217"></a>00217             <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i,j).<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>();
+<a name="l00217"></a>00217             <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i,j).<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>();
 <a name="l00218"></a>00218             
 <a name="l00219"></a>00219             <span class="comment">// Update histogram</span>
 <a name="l00220"></a>00220             histogram[floor(grayLevel * 255.0)] += 1;
@@ -264,7 +264,7 @@ window.onload = initDynSections;
 <a name="l00313"></a>00313                     nPixels++;
 <a name="l00314"></a>00314                     
 <a name="l00315"></a>00315                     <span class="comment">// Get neighbour pixel gray level</span>
-<a name="l00316"></a>00316                     neighbourPixel = clip.<a class="code" href="class_clip.html#74eded11c0dcbd2b10b453074cbb8b84" title="Returns the pixel at coordinates (x,y).">getPixel</a>(p, q);
+<a name="l00316"></a>00316                     neighbourPixel = clip.<a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a>(p, q);
 <a name="l00317"></a>00317                     
 <a name="l00318"></a>00318                     <span class="comment">// When background gray level is close to white but not the pixel, update the noisy neighbours counter</span>
 <a name="l00319"></a>00319                     <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
@@ -283,12 +283,12 @@ window.onload = initDynSections;
 <a name="l00332"></a>00332 
 <a name="l00333"></a>00333             <span class="comment">// Delete the noisy pixel if it is isolated</span>
 <a name="l00334"></a>00334             <span class="keywordflow">if</span> (nBackgroundPixels &gt;= realIsolationCoefficient)
-<a name="l00335"></a>00335                 clip.<a class="code" href="class_clip.html#3c48493242de7453438ed0e8d0ea74df" title="Sets the gray level of a pixel at coordinates (x,y).">setPixel</a>(i, j, <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>);
+<a name="l00335"></a>00335                 clip.<a class="code" href="class_clip.html#cf9dc38eade61776c6c8497f2ce53b7b" title="Sets the gray level of a pixel at coordinates (x,y).">setPixel</a>(i, j, <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>);
 <a name="l00336"></a>00336         }
 <a name="l00337"></a>00337     }
 <a name="l00338"></a>00338 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:17:29 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:59:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

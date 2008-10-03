@@ -40,7 +40,7 @@ class Clip
 		///
 		/// Constructor
 		///
-		Clip (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned int height, unsigned int width);
+		Clip (Image image, const unsigned int &xOrigin, const unsigned int &yOrigin, const unsigned int &height, const unsigned int &width);
 		
 		///
 		/// Destructor
@@ -60,7 +60,7 @@ class Clip
 		///
 		/// Sets the X coordinate of the clip's upper leftmost pixel
 		///
-		void xOrigin (unsigned int x);
+		void xOrigin (const unsigned int &x);
 		
 		///
 		/// Returns the Y coordinate of the clip's upper leftmost pixel
@@ -70,7 +70,7 @@ class Clip
 		///
 		/// Sets the Y coordinate of the clip's upper leftmost pixel
 		///
-		void yOrigin (unsigned int y);
+		void yOrigin (const unsigned int &y);
 		
 		///
 		/// Returns the clip's height
@@ -80,7 +80,7 @@ class Clip
 		///
 		/// Sets the clip's height
 		///
-		void height (unsigned int height);
+		void height (const unsigned int &height);
 		
 		///
 		/// Returns the clip's width
@@ -90,7 +90,7 @@ class Clip
 		///
 		/// Sets the clip's width
 		///
-		void width (unsigned int width);
+		void width (const unsigned int &width);
 		
 		///
 		/// Returns the clip's current colorspace
@@ -100,7 +100,7 @@ class Clip
 		///
 		/// Sets the clip's current colorspace
 		///
-		void colorspace (Colorspace colorspace);
+		void colorspace (const Colorspace &colorspace);
 		
 		///
 		/// Returns true if the clip is in grayscale
@@ -120,22 +120,22 @@ class Clip
 		///
 		/// Returns the pixel at coordinates (x,y)
 		///
-		Pixel getPixel (unsigned int x, unsigned int y) const;
+		Pixel getPixel (const unsigned int &x, const unsigned int &y) const;
 		
 		///
 		/// Sets the gray level of a pixel at coordinates (x,y)
 		///
-		void setPixel (unsigned int x, unsigned int y, double grayLevel);
+		void setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
 		
 		///
 		/// Sets the color of a pixel at coordinates (x,y)
 		///
-		void setPixel (unsigned int x, unsigned int y, double red, double green, double blue);
+		void setPixel (const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue);
 		
 		///
 		/// Sets whether a pixel at coordinates (x,y) belongs to the foreground or not
 		///
-		void setPixel (unsigned int x, unsigned int y, bool isForeground);
+		void setPixel (const unsigned int &x, const unsigned int &y, const bool &isForeground);
 		
 	private:
 		///

@@ -76,15 +76,15 @@ Collaboration diagram for NessieException:</div>
 Exception raised by a Nessie OCR object. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
 
-<p>Definition at line <a class="el" href="_nessie_exception_8h-source.html#l00019">19</a> of file <a class="el" href="_nessie_exception_8h-source.html">NessieException.h</a>.</p>
+<p>Definition at line <a class="el" href="_nessie_exception_8h-source.html#l00020">20</a> of file <a class="el" href="_nessie_exception_8h-source.html">NessieException.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nessie_exception.html#1287f5b04f2f46162fcfae79699dcae7">NessieException</a> (string message=&quot;Unknown error&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nessie_exception.html#bf222307ce3e9e9a18068a5a96de9203">NessieException</a> (const string &amp;message)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#1287f5b04f2f46162fcfae79699dcae7"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#bf222307ce3e9e9a18068a5a96de9203"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">~NessieException</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#19f44d2725dd53e2f10505a88e5773f2"></a><br></td></tr>
@@ -92,21 +92,21 @@ Exception raised by a Nessie OCR object.
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the message that explains the exception.  <a href="#ec94145f2fd5febb7ca0b7587652b777"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="dfc0c53684fe26e2199beeb9b62841f5"></a><!-- doxytag: member="NessieException::message_" ref="dfc0c53684fe26e2199beeb9b62841f5" args="" -->
-string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nessie_exception.html#dfc0c53684fe26e2199beeb9b62841f5">message_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e8256407b687ddec0fdabd9969f3465e"></a><!-- doxytag: member="NessieException::message_" ref="e8256407b687ddec0fdabd9969f3465e" args="" -->
+const string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_nessie_exception.html#e8256407b687ddec0fdabd9969f3465e">message_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Message explaining the error that raised the exception. <br></td></tr>
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="1287f5b04f2f46162fcfae79699dcae7"></a><!-- doxytag: member="NessieException::NessieException" ref="1287f5b04f2f46162fcfae79699dcae7" args="(string message=&quot;Unknown error&quot;)" -->
+<a class="anchor" name="bf222307ce3e9e9a18068a5a96de9203"></a><!-- doxytag: member="NessieException::NessieException" ref="bf222307ce3e9e9a18068a5a96de9203" args="(const string &amp;message)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">NessieException::NessieException           </td>
           <td>(</td>
-          <td class="paramtype">string&nbsp;</td>
-          <td class="paramname"> <em>message</em> = <code>&quot;Unknown&nbsp;error&quot;</code>          </td>
+          <td class="paramtype">const string &amp;&nbsp;</td>
+          <td class="paramname"> <em>message</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -124,7 +124,7 @@ Initializes an exception object with information passed<p>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
 
 <p>Definition at line <a class="el" href="_nessie_exception_8cpp-source.html#l00017">17</a> of file <a class="el" href="_nessie_exception_8cpp-source.html">NessieException.cpp</a>.</p>
 
@@ -186,7 +186,7 @@ The message is formed using the file name, its line and the explanation<p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_nessie_exception_8h-source.html">NessieException.h (114)</a><li><a class="el" href="_nessie_exception_8cpp-source.html">NessieException.cpp (117)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:17:35 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:59:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

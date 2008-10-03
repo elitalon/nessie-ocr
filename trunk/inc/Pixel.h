@@ -29,7 +29,7 @@ using namespace Magick;
 /// @see Clip, Colorspace
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-02
+/// @date 2008-10-03
 /// 
 class Pixel
 {
@@ -42,17 +42,17 @@ class Pixel
 		///
 		/// Constructor
 		///
-		Pixel (unsigned int x, unsigned int y, double grayLevel);
+		Pixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
 	
 		///
 		/// Constructor
 		///
-		Pixel (unsigned int x, unsigned int y, double red, double green, double blue);
+		Pixel (const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue);
 		
 		///
 		/// Constructor
 		///
-		Pixel (unsigned int x, unsigned int y, bool isForeground);
+		Pixel (const unsigned int &x, const unsigned int &y, const bool &isForeground);
 
 		///
 		/// Destructor
@@ -77,7 +77,7 @@ class Pixel
 		///
 		/// Sets the pixel's gray level
 		///
-		void grayLevel (double grayLevel);
+		void grayLevel (const double &grayLevel);
 		
 		///
 		/// Returns the pixel's red component in RGB colorspace
@@ -87,7 +87,7 @@ class Pixel
 		///
 		/// Sets the pixel's red component in RGB colorspace
 		///
-		void red (double value);
+		void red (const double &value);
 		
 		///
 		/// Returns the pixel's green component in RGB colorspace
@@ -97,7 +97,7 @@ class Pixel
 		///
 		/// Sets the pixel's green component in RGB colorspace
 		///
-		void green (double value);
+		void green (const double &value);
 		
 		///
 		/// Returns the pixel's blue component in RGB colorspace
@@ -107,12 +107,12 @@ class Pixel
 		///
 		/// Sets the pixel's blue component in RGB colorspace
 		///
-		void blue (double value);
+		void blue (const double &value);
 		
 		///
 		/// Sets the pixel's color in RGB colorspace
 		///
-		void setColor (double red, double green, double blue);
+		void setColor (const double &red, const double &green, const double &blue);
 		
 		///
 		/// Returns true if the pixel belongs to the image foreground
@@ -122,7 +122,7 @@ class Pixel
 		///
 		/// Sets whether the pixel belongs to the foreground or not
 		///
-		void isForeground (bool isForeground);
+		void isForeground (const bool &isForeground);
 
 	private:
 		///

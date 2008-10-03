@@ -7,6 +7,7 @@
 ///
 
 #include <string>
+#include <exception>
 using namespace std;
 
 
@@ -14,7 +15,7 @@ using namespace std;
 /// Exception raised by a Nessie OCR object
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-03
 ///
 class NessieException
 {
@@ -22,7 +23,7 @@ class NessieException
 		///
 		/// Constructor
 		///
-		NessieException (string message = "Unknown error");
+		NessieException (const string &message);
 				
 		///
 		/// Destructor
@@ -38,7 +39,7 @@ class NessieException
 		///
 		/// Message explaining the error that raised the exception
 		///
-		string message_;
+		const string message_;
 };
 
 #endif  //_NESSIE_EXCEPTION_H

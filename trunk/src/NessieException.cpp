@@ -12,9 +12,9 @@
 /// @param message	A string containing a message that explains the exception raised
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-03
 /// 
-NessieException::NessieException (string message) : message_(message)
+NessieException::NessieException (const string &message) : message_(message)
 {
 	
 };

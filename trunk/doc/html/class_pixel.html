@@ -77,7 +77,7 @@ This class stores all the information of a pixel within a press clip, no matter 
 The Clip::getColorspace() method gives the current colorspace that is associated with the pixel and its underlying image, so that the right methods here can be invoked. If a method related to one colorspace (e.g. getGrayLevel()) is called when the current colorspace is actually another (e.g. COLORSPACE_RGB), a predefined value is returned. See the different methods documentation to know what are these values.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65" title="Colorspace of an image.">Colorspace</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-02 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
 
 <p>Definition at line <a class="el" href="_pixel_8h-source.html#l00034">34</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -86,15 +86,15 @@ The Clip::getColorspace() method gives the current colorspace that is associated
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#27ad99a2f705e635c42d242d530d4756">Pixel</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#27ad99a2f705e635c42d242d530d4756"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#dfa33daefa83d3ac471af91fb32f8997">Pixel</a> (unsigned int x, unsigned int y, double grayLevel)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#e54d95bf19847e4857eeb03f1138ceb9">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#dfa33daefa83d3ac471af91fb32f8997"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#e5ca1376e87442aea5968a17a4240814">Pixel</a> (unsigned int x, unsigned int y, double red, double green, double blue)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e54d95bf19847e4857eeb03f1138ceb9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#9fb3e8102469e8c2450e64815f5f6fb5">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;red, const double &amp;green, const double &amp;blue)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e5ca1376e87442aea5968a17a4240814"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#3138f81f8e7ea10f6764f47136129ad0">Pixel</a> (unsigned int x, unsigned int y, bool isForeground)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#9fb3e8102469e8c2450e64815f5f6fb5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#4657a977426649b6c56613971770fea6">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const bool &amp;isForeground)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#3138f81f8e7ea10f6764f47136129ad0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#4657a977426649b6c56613971770fea6"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#30f6aaf9a1d8792245070860546fa365">~Pixel</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#30f6aaf9a1d8792245070860546fa365"></a><br></td></tr>
@@ -107,36 +107,36 @@ The Clip::getColorspace() method gives the current colorspace that is associated
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0">grayLevel</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's gray level.  <a href="#6e445cee8bfa4475238823e0b6da42b0"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#03f96954bfc27f8f8810e8c6e58828f8">grayLevel</a> (double grayLevel)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#5f287c6a53167076bc8f1ce54e74e38d">grayLevel</a> (const double &amp;grayLevel)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's gray level.  <a href="#03f96954bfc27f8f8810e8c6e58828f8"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's gray level.  <a href="#5f287c6a53167076bc8f1ce54e74e38d"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#52542702e90cafc9c29713c23cd35e8f">red</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's red component in RGB colorspace.  <a href="#52542702e90cafc9c29713c23cd35e8f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#cc64470d744c5fc5b26cedb027366b5d">red</a> (double value)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#5866609b8a50e1266aa7c90b0085ec73">red</a> (const double &amp;value)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's red component in RGB colorspace.  <a href="#cc64470d744c5fc5b26cedb027366b5d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's red component in RGB colorspace.  <a href="#5866609b8a50e1266aa7c90b0085ec73"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#71606a21fe4efc55a5ce5bb318b629f7">green</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's green component in RGB colorspace.  <a href="#71606a21fe4efc55a5ce5bb318b629f7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#98aaded2bc7bf4708edaaf2445acae0f">green</a> (double value)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#1b2f2bd7aec76a37e1c9c0d8bdbba3ba">green</a> (const double &amp;value)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's green component in RGB colorspace.  <a href="#98aaded2bc7bf4708edaaf2445acae0f"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's green component in RGB colorspace.  <a href="#1b2f2bd7aec76a37e1c9c0d8bdbba3ba"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#978b4078a48ff2a67b55dd10eec78fb2">blue</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's blue component in RGB colorspace.  <a href="#978b4078a48ff2a67b55dd10eec78fb2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#ff3909b84c97a1c3d14a773c8825ade1">blue</a> (double value)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#d70e2f2a8ca1f25dca0cd67097f24eba">blue</a> (const double &amp;value)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's blue component in RGB colorspace.  <a href="#ff3909b84c97a1c3d14a773c8825ade1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#5543267a64a29c66f12a2801b101e6db">setColor</a> (double red, double green, double blue)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's blue component in RGB colorspace.  <a href="#d70e2f2a8ca1f25dca0cd67097f24eba"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#6ab0eea0f05f228f5e314cb0c3894eca">setColor</a> (const double &amp;red, const double &amp;green, const double &amp;blue)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's color in RGB colorspace.  <a href="#5543267a64a29c66f12a2801b101e6db"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's color in RGB colorspace.  <a href="#6ab0eea0f05f228f5e314cb0c3894eca"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#48f2d29f9542f9c2ce293422ab07ffcc">isForeground</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the pixel belongs to the image foreground.  <a href="#48f2d29f9542f9c2ce293422ab07ffcc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#1b1d5b2ed9285b837d85c33f09cab3f9">isForeground</a> (bool isForeground)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#d3007fd841eee762c9a1becc293f12db">isForeground</a> (const bool &amp;isForeground)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets whether the pixel belongs to the foreground or not.  <a href="#1b1d5b2ed9285b837d85c33f09cab3f9"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets whether the pixel belongs to the foreground or not.  <a href="#d3007fd841eee762c9a1becc293f12db"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9f8a45ad3cbcab59543e4f7d4842ae6d"></a><!-- doxytag: member="Pixel::x_" ref="9f8a45ad3cbcab59543e4f7d4842ae6d" args="" -->
 unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d">x_</a></td></tr>
@@ -198,26 +198,26 @@ Initializes a empty <a class="el" href="class_pixel.html" title="Information abo
 
 </div>
 </div><p>
-<a class="anchor" name="dfa33daefa83d3ac471af91fb32f8997"></a><!-- doxytag: member="Pixel::Pixel" ref="dfa33daefa83d3ac471af91fb32f8997" args="(unsigned int x, unsigned int y, double grayLevel)" -->
+<a class="anchor" name="e54d95bf19847e4857eeb03f1138ceb9"></a><!-- doxytag: member="Pixel::Pixel" ref="e54d95bf19847e4857eeb03f1138ceb9" args="(const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Pixel::Pixel           </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>grayLevel</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -247,38 +247,38 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 
 </div>
 </div><p>
-<a class="anchor" name="e5ca1376e87442aea5968a17a4240814"></a><!-- doxytag: member="Pixel::Pixel" ref="e5ca1376e87442aea5968a17a4240814" args="(unsigned int x, unsigned int y, double red, double green, double blue)" -->
+<a class="anchor" name="9fb3e8102469e8c2450e64815f5f6fb5"></a><!-- doxytag: member="Pixel::Pixel" ref="9fb3e8102469e8c2450e64815f5f6fb5" args="(const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;red, const double &amp;green, const double &amp;blue)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Pixel::Pixel           </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>red</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>green</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>blue</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -310,26 +310,26 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 
 </div>
 </div><p>
-<a class="anchor" name="3138f81f8e7ea10f6764f47136129ad0"></a><!-- doxytag: member="Pixel::Pixel" ref="3138f81f8e7ea10f6764f47136129ad0" args="(unsigned int x, unsigned int y, bool isForeground)" -->
+<a class="anchor" name="4657a977426649b6c56613971770fea6"></a><!-- doxytag: member="Pixel::Pixel" ref="4657a977426649b6c56613971770fea6" args="(const unsigned int &amp;x, const unsigned int &amp;y, const bool &amp;isForeground)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Pixel::Pixel           </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
           <td class="paramname"> <em>isForeground</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -467,14 +467,14 @@ If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a c
 
 </div>
 </div><p>
-<a class="anchor" name="03f96954bfc27f8f8810e8c6e58828f8"></a><!-- doxytag: member="Pixel::grayLevel" ref="03f96954bfc27f8f8810e8c6e58828f8" args="(double grayLevel)" -->
+<a class="anchor" name="5f287c6a53167076bc8f1ce54e74e38d"></a><!-- doxytag: member="Pixel::grayLevel" ref="5f287c6a53167076bc8f1ce54e74e38d" args="(const double &amp;grayLevel)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::grayLevel           </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>grayLevel</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -525,14 +525,14 @@ Returns the pixel's red component in RGB colorspace.
 
 </div>
 </div><p>
-<a class="anchor" name="cc64470d744c5fc5b26cedb027366b5d"></a><!-- doxytag: member="Pixel::red" ref="cc64470d744c5fc5b26cedb027366b5d" args="(double value)" -->
+<a class="anchor" name="5866609b8a50e1266aa7c90b0085ec73"></a><!-- doxytag: member="Pixel::red" ref="5866609b8a50e1266aa7c90b0085ec73" args="(const double &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::red           </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>value</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -582,14 +582,14 @@ Returns the pixel's green component in RGB colorspace.
 
 </div>
 </div><p>
-<a class="anchor" name="98aaded2bc7bf4708edaaf2445acae0f"></a><!-- doxytag: member="Pixel::green" ref="98aaded2bc7bf4708edaaf2445acae0f" args="(double value)" -->
+<a class="anchor" name="1b2f2bd7aec76a37e1c9c0d8bdbba3ba"></a><!-- doxytag: member="Pixel::green" ref="1b2f2bd7aec76a37e1c9c0d8bdbba3ba" args="(const double &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::green           </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>value</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -639,14 +639,14 @@ Returns the pixel's blue component in RGB colorspace.
 
 </div>
 </div><p>
-<a class="anchor" name="ff3909b84c97a1c3d14a773c8825ade1"></a><!-- doxytag: member="Pixel::blue" ref="ff3909b84c97a1c3d14a773c8825ade1" args="(double value)" -->
+<a class="anchor" name="d70e2f2a8ca1f25dca0cd67097f24eba"></a><!-- doxytag: member="Pixel::blue" ref="d70e2f2a8ca1f25dca0cd67097f24eba" args="(const double &amp;value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::blue           </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>value</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -670,26 +670,26 @@ Sets the pixel's blue component in RGB colorspace.
 
 </div>
 </div><p>
-<a class="anchor" name="5543267a64a29c66f12a2801b101e6db"></a><!-- doxytag: member="Pixel::setColor" ref="5543267a64a29c66f12a2801b101e6db" args="(double red, double green, double blue)" -->
+<a class="anchor" name="6ab0eea0f05f228f5e314cb0c3894eca"></a><!-- doxytag: member="Pixel::setColor" ref="6ab0eea0f05f228f5e314cb0c3894eca" args="(const double &amp;red, const double &amp;green, const double &amp;blue)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::setColor           </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>red</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>green</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>blue</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -746,14 +746,14 @@ If the pixel colorspace is not COLORSPACE_MONOCHROMATIC this method returns alwa
 
 </div>
 </div><p>
-<a class="anchor" name="1b1d5b2ed9285b837d85c33f09cab3f9"></a><!-- doxytag: member="Pixel::isForeground" ref="1b1d5b2ed9285b837d85c33f09cab3f9" args="(bool isForeground)" -->
+<a class="anchor" name="d3007fd841eee762c9a1becc293f12db"></a><!-- doxytag: member="Pixel::isForeground" ref="d3007fd841eee762c9a1becc293f12db" args="(const bool &amp;isForeground)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Pixel::isForeground           </td>
           <td>(</td>
-          <td class="paramtype">bool&nbsp;</td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
           <td class="paramname"> <em>isForeground</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -781,7 +781,7 @@ If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no ch
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_pixel_8h-source.html">Pixel.h (119)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (119)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:17:35 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:59:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

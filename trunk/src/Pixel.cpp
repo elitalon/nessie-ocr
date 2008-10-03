@@ -29,7 +29,7 @@ Pixel::Pixel ()
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 /// 
-Pixel::Pixel(unsigned int x, unsigned int y, double grayLevel)
+Pixel::Pixel(const unsigned int &x, const unsigned int &y, const double &grayLevel)
 	:	x_(x), y_(y), grayLevel_(grayLevel), red_(0.0), green_(0.0), blue_(0.0), isForeground_(true), colorspace_(COLORSPACE_GRAYSCALE)
 {
 	
@@ -50,7 +50,7 @@ Pixel::Pixel(unsigned int x, unsigned int y, double grayLevel)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-Pixel::Pixel(unsigned int x, unsigned int y, double red, double green, double blue)
+Pixel::Pixel(const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue)
 	:	x_(x), y_(y), red_(red), green_(green), blue_(blue), isForeground_(true), colorspace_(COLORSPACE_RGB)
 {
 	grayLevel_ = (0.3 * red) + (0.59 * green) + (0.11 * blue);
@@ -70,7 +70,7 @@ Pixel::Pixel(unsigned int x, unsigned int y, double red, double green, double bl
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-Pixel::Pixel(unsigned int x, unsigned int y, bool isForeground)
+Pixel::Pixel(const unsigned int &x, const unsigned int &y, const bool &isForeground)
 	:	x_(x), y_(y), isForeground_(isForeground), colorspace_(COLORSPACE_MONOCHROMATIC)
 {
 	if ( isForeground )
@@ -152,7 +152,7 @@ double Pixel::grayLevel () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::grayLevel (double grayLevel)
+void Pixel::grayLevel (const double &grayLevel)
 {
 	if ( colorspace_ == COLORSPACE_GRAYSCALE )
 	{
@@ -161,7 +161,7 @@ void Pixel::grayLevel (double grayLevel)
 		else
 		{
 			if ( grayLevel > 1.0 )
-				grayLevel = 1.0;
+				grayLevel_ = 1.0;
 			else
 				grayLevel_ = grayLevel;
 		}
@@ -180,7 +180,7 @@ void Pixel::grayLevel (double grayLevel)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::red (double value)
+void Pixel::red (const double &value)
 {
 	if ( value < 0.0 )
 		red_ = 0.0;
@@ -203,7 +203,7 @@ void Pixel::red (double value)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::green (double value)
+void Pixel::green (const double &value)
 {
 	if ( value < 0.0 )
 		green_ = 0.0;
@@ -226,7 +226,7 @@ void Pixel::green (double value)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::blue (double value)
+void Pixel::blue (const double &value)
 {
 	if ( value < 0.0 )
 		blue_ = 0.0;
@@ -289,7 +289,7 @@ double Pixel::blue () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::setColor (double red, double green, double blue)
+void Pixel::setColor (const double &red, const double &green, const double &blue)
 {
 	if ( colorspace_ == COLORSPACE_RGB )
 	{
@@ -356,7 +356,7 @@ bool Pixel::isForeground () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-29
 ///
-void Pixel::isForeground (bool isForeground)
+void Pixel::isForeground (const bool &isForeground)
 {
 	if ( colorspace_ == COLORSPACE_MONOCHROMATIC )
 	{
@@ -377,5 +377,4 @@ void Pixel::isForeground (bool isForeground)
 			blue_ = 1.0;
 		}
 	}
-		
 };

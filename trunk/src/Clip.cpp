@@ -21,7 +21,8 @@
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-01
 ///
-Clip::Clip (Image image, unsigned int xOrigin, unsigned int yOrigin, unsigned int height, unsigned int width) : image_(image)
+Clip::Clip (Image image, const unsigned int &xOrigin, const unsigned int &yOrigin, const unsigned int &height, const unsigned int &width)
+	: image_(image)
 {
 	try
 	{
@@ -143,7 +144,7 @@ unsigned int Clip::xOrigin () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
-void Clip::xOrigin (unsigned int x)
+void Clip::xOrigin (const unsigned int &x)
 {
 	if ( x >= image_.rows() or x < 0 )
 		throw NessieException ("Clip::xOrigin: The X coordinate of clip's upper leftmost pixel is out of image borders");
@@ -177,7 +178,7 @@ unsigned int Clip::yOrigin () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
-void Clip::yOrigin (unsigned int y)
+void Clip::yOrigin (const unsigned int &y)
 {
 	if ( y >= image_.columns() or y < 0 )
 		throw NessieException ("Clip::yOrigin: The Y coordinate of clip's upper leftmost pixel is out of image borders");
@@ -209,7 +210,7 @@ unsigned int Clip::height () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-01
 ///
-void Clip::height (unsigned int height)
+void Clip::height (const unsigned int &height)
 {
 	if ( (xOrigin_ + height) > image_.rows() )
 		height_ = image_.rows() - xOrigin_;
@@ -240,7 +241,7 @@ unsigned int Clip::width () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-01
 ///
-void Clip::width (unsigned int width)
+void Clip::width (const unsigned int &width)
 {
 	if ( (yOrigin_ + width) > image_.columns() )
 		width_ = image_.columns() - yOrigin_;
@@ -276,7 +277,7 @@ Colorspace Clip::colorspace () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
-void Clip::colorspace (Colorspace colorspace)
+void Clip::colorspace (const Colorspace &colorspace)
 {
 	try
 	{
@@ -379,7 +380,7 @@ bool Clip::isMonochromatic () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-02
 /// 
-Pixel Clip::getPixel (unsigned int x, unsigned int y) const
+Pixel Clip::getPixel (const unsigned int &x, const unsigned int &y) const
 {
 	// Check the location is inside the clip borders
 	if ( (x >= height_) or (x < 0) )
@@ -433,7 +434,7 @@ Pixel Clip::getPixel (unsigned int x, unsigned int y) const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-02-10
 ///
-void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
+void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel)
 {
 	if ( colorspace_ not_eq COLORSPACE_GRAYSCALE )
 		return;
@@ -481,7 +482,7 @@ void Clip::setPixel (unsigned int x, unsigned int y, double grayLevel)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
-void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, double blue)
+void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue)
 {
 	if ( colorspace_ not_eq COLORSPACE_RGB )
 		return;
@@ -526,7 +527,7 @@ void Clip::setPixel (unsigned int x, unsigned int y, double red, double green, d
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-26
 ///
-void Clip::setPixel (unsigned int x, unsigned int y, bool isForeground)
+void Clip::setPixel (const unsigned int &x, const unsigned int &y, const bool &isForeground)
 {
 	if ( colorspace_ not_eq COLORSPACE_MONOCHROMATIC )
 		return;
