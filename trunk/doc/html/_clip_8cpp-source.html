@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.cpp (117) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.cpp (120) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -78,12 +78,12 @@ window.onload = initDynSections;
 <a name="l00036"></a>00036     
 <a name="l00037"></a>00037     
 <a name="l00038"></a>00038     <span class="comment">// Test the clip borders are inside the image</span>
-<a name="l00039"></a>00039     <span class="keywordflow">if</span> ( xOrigin &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() || xOrigin &lt; 0 )
+<a name="l00039"></a>00039     <span class="keywordflow">if</span> ( xOrigin &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() or xOrigin &lt; 0 )
 <a name="l00040"></a>00040         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::Clip: The X coordinate of clip's upper leftmost pixel is out of image borders"</span>);
 <a name="l00041"></a>00041     <span class="keywordflow">else</span>
 <a name="l00042"></a>00042         <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> = xOrigin;
 <a name="l00043"></a>00043     
-<a name="l00044"></a>00044     <span class="keywordflow">if</span> ( yOrigin &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() || yOrigin &lt; 0 )
+<a name="l00044"></a>00044     <span class="keywordflow">if</span> ( yOrigin &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() or yOrigin &lt; 0 )
 <a name="l00045"></a>00045         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::Clip: The Y coordinate of clip's upper leftmost pixel is out of image borders"</span>);
 <a name="l00046"></a>00046     <span class="keywordflow">else</span>
 <a name="l00047"></a>00047         <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> = yOrigin;
@@ -159,7 +159,7 @@ window.onload = initDynSections;
 <a name="l00135"></a>00135 
 <a name="l00146"></a><a class="code" href="class_clip.html#59bed794f674858a9ca02fce36c58fac">00146</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#6965fb65870eeb239c8a829444bb4ed7" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">Clip::xOrigin</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x)
 <a name="l00147"></a>00147 {
-<a name="l00148"></a>00148     <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() || x &lt; 0 )
+<a name="l00148"></a>00148     <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() or x &lt; 0 )
 <a name="l00149"></a>00149         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::xOrigin: The X coordinate of clip's upper leftmost pixel is out of image borders"</span>);
 <a name="l00150"></a>00150     <span class="keywordflow">else</span>
 <a name="l00151"></a>00151         <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a> = x;
@@ -177,7 +177,7 @@ window.onload = initDynSections;
 <a name="l00169"></a>00169 
 <a name="l00180"></a><a class="code" href="class_clip.html#6b0100fdd089be816b97465df4dd2846">00180</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#6023296db25d263b311900cafb7cc55d" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">Clip::yOrigin</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y)
 <a name="l00181"></a>00181 {
-<a name="l00182"></a>00182     <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() || y &lt; 0 )
+<a name="l00182"></a>00182     <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.columns() or y &lt; 0 )
 <a name="l00183"></a>00183         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::yOrigin: The Y coordinate of clip's upper leftmost pixel is out of image borders"</span>);
 <a name="l00184"></a>00184     <span class="keywordflow">else</span>
 <a name="l00185"></a>00185         <a class="code" href="class_clip.html#b7da9252cabfe96889e0676866799246" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">yOrigin_</a> = y;
@@ -344,7 +344,7 @@ window.onload = initDynSections;
 <a name="l00423"></a>00423 
 <a name="l00436"></a><a class="code" href="class_clip.html#3c48493242de7453438ed0e8d0ea74df">00436</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#3c48493242de7453438ed0e8d0ea74df" title="Sets the gray level of a pixel at coordinates (x,y).">Clip::setPixel</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">double</span> grayLevel)
 <a name="l00437"></a>00437 {
-<a name="l00438"></a>00438     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> != <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a> )
+<a name="l00438"></a>00438     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> not_eq <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a> )
 <a name="l00439"></a>00439         <span class="keywordflow">return</span>;
 <a name="l00440"></a>00440     
 <a name="l00441"></a>00441     <span class="keywordflow">try</span>
@@ -378,7 +378,7 @@ window.onload = initDynSections;
 <a name="l00469"></a>00469 
 <a name="l00484"></a><a class="code" href="class_clip.html#1e28a9ed2676460de4b5b9ab1b985f4c">00484</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#3c48493242de7453438ed0e8d0ea74df" title="Sets the gray level of a pixel at coordinates (x,y).">Clip::setPixel</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">double</span> red, <span class="keywordtype">double</span> green, <span class="keywordtype">double</span> blue)
 <a name="l00485"></a>00485 {
-<a name="l00486"></a>00486     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> != <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657a29001c1d233a707de5354b40dbdad8" title="A RGB colorspace.">COLORSPACE_RGB</a> )
+<a name="l00486"></a>00486     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> not_eq <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657a29001c1d233a707de5354b40dbdad8" title="A RGB colorspace.">COLORSPACE_RGB</a> )
 <a name="l00487"></a>00487         <span class="keywordflow">return</span>;
 <a name="l00488"></a>00488     
 <a name="l00489"></a>00489     <span class="keywordflow">try</span>
@@ -388,10 +388,10 @@ window.onload = initDynSections;
 <a name="l00493"></a>00493         <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.modifyImage();
 <a name="l00494"></a>00494         
 <a name="l00495"></a>00495         <span class="comment">// Check the location is inside the clip borders</span>
-<a name="l00496"></a>00496         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() || x &lt; 0 )
+<a name="l00496"></a>00496         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() or x &lt; 0 )
 <a name="l00497"></a>00497             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The X coordinate is out of image borders"</span>);
 <a name="l00498"></a>00498 
-<a name="l00499"></a>00499         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() || y &lt; 0 )
+<a name="l00499"></a>00499         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() or y &lt; 0 )
 <a name="l00500"></a>00500             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The Y coordinate is out of image borders"</span>);
 <a name="l00501"></a>00501 
 <a name="l00502"></a>00502         <span class="comment">// Get the pixel at desired location</span>
@@ -412,7 +412,7 @@ window.onload = initDynSections;
 <a name="l00517"></a>00517 
 <a name="l00529"></a><a class="code" href="class_clip.html#9e78d68c58016aaff8c65ddac29ed07f">00529</a> <span class="keywordtype">void</span> <a class="code" href="class_clip.html#3c48493242de7453438ed0e8d0ea74df" title="Sets the gray level of a pixel at coordinates (x,y).">Clip::setPixel</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">bool</span> isForeground)
 <a name="l00530"></a>00530 {
-<a name="l00531"></a>00531     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> != <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65e6f46807495766afe46a6ed8f204804b" title="A monochromatic colorspace.">COLORSPACE_MONOCHROMATIC</a> )
+<a name="l00531"></a>00531     <span class="keywordflow">if</span> ( <a class="code" href="class_clip.html#51b03c04118374cedeaa0d7a0ba37079" title="Clip&amp;#39;s colorspace.">colorspace_</a> not_eq <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65e6f46807495766afe46a6ed8f204804b" title="A monochromatic colorspace.">COLORSPACE_MONOCHROMATIC</a> )
 <a name="l00532"></a>00532         <span class="keywordflow">return</span>;
 <a name="l00533"></a>00533     
 <a name="l00534"></a>00534     <span class="keywordflow">try</span>
@@ -422,10 +422,10 @@ window.onload = initDynSections;
 <a name="l00538"></a>00538         <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.modifyImage();
 <a name="l00539"></a>00539         
 <a name="l00540"></a>00540         <span class="comment">// Check the location is inside the clip borders</span>
-<a name="l00541"></a>00541         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() || x &lt; 0 )
+<a name="l00541"></a>00541         <span class="keywordflow">if</span> ( x &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;rows() or x &lt; 0 )
 <a name="l00542"></a>00542             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The X coordinate is out of image borders"</span>);
 <a name="l00543"></a>00543 
-<a name="l00544"></a>00544         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() || y &lt; 0 )
+<a name="l00544"></a>00544         <span class="keywordflow">if</span> ( y &gt;= <a class="code" href="class_clip.html#2978b7e7061c444375c005ffc3d24416" title="Pixels frame where the clip is located.">frame_</a>-&gt;columns() or y &lt; 0 )
 <a name="l00545"></a>00545             <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixel: The Y coordinate is out of image borders"</span>);
 <a name="l00546"></a>00546 
 <a name="l00547"></a>00547         <span class="comment">// Get the pixel at desired location</span>
@@ -467,7 +467,7 @@ window.onload = initDynSections;
 <a name="l00596"></a>00596         <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a> = <a class="code" href="class_clip.html#69cbe1f1e045c2c758cec611c22372a8" title="Image where the clip belongs to.">image_</a>.rows() - <a class="code" href="class_clip.html#e5aa310fe60185a19e2f3f8d4ba150e7" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">xOrigin_</a>;
 <a name="l00597"></a>00597 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 2 20:19:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:17:29 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

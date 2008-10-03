@@ -42,16 +42,9 @@ FONT_WEIGHT_INC=$(INC)FontWeight.h
 # Source files of 'Colorspace' enumeration
 COLORSPACE_INC=$(INC)Colorspace.h
 
-# Source files of 'FontProportionality' enumeration
-FONT_PROPORTIONALITY_INC=$(INC)FontProportionality.h
-
 # Source files of 'RgbColor' struct
 RGB_COLOR_SRC=$(SRC)RgbColor.cpp
 RGB_COLOR_INC=$(INC)RgbColor.h
-
-# Source files of 'Style' class
-STYLE_SRC=$(SRC)Style.cpp
-STYLE_INC=$(INC)Style.h
 
 # Source files of 'Text' class
 TEXT_SRC=$(SRC)Text.cpp
@@ -74,7 +67,6 @@ MAIN_OBJ=$(SRC)main.o
 NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
 STATISTICS_OBJ=$(SRC)Statistics.o
 RGB_COLOR_OBJ=$(SRC)RgbColor.o
-STYLE_OBJ=$(SRC)Style.o
 TEXT_OBJ=$(SRC)Text.o
 PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
@@ -87,16 +79,14 @@ COLORSPACE=$(COLORSPACE_INC)
 WORD_RATE=$(WORD_RATE_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 FONT_WEIGHT=$(FONT_WEIGHT_INC)
-FONT_PROPORTIONALITY=$(FONT_PROPORTIONALITY_INC)
 RGB_COLOR=$(RGB_COLOR_INC) $(RGB_COLOR_SRC)
-STYLE=$(STYLE_INC) $(STYLE_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
 PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 
 # Final object files
-OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(STYLE_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
+OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
@@ -138,14 +128,6 @@ $(STATISTICS_OBJ): $(WORD_RATE) $(STATISTICS)
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
 
-$(STYLE_OBJ): $(RGB_COLOR_OBJ) $(FONT_WEIGHT) $(STYLE) 
-	@printf "** Making rule $(STYLE_OBJ):$(NL)"
-	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(STYLE_SRC)
-	@printf "$(TAB)"
-	mv Style.o $(SRC)
-	@printf "$(NL)"
-	
 $(RGB_COLOR_OBJ): $(RGB_COLOR)
 	@printf "** Making rule $(RGB_COLOR_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -154,7 +136,7 @@ $(RGB_COLOR_OBJ): $(RGB_COLOR)
 	mv RgbColor.o $(SRC)
 	@printf "$(NL)"
 
-$(TEXT_OBJ): $(FONT_PROPORTIONALITY) $(STYLE_OBJ) $(WORD_RATE) $(TEXT)
+$(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) -c $(TEXT_SRC)

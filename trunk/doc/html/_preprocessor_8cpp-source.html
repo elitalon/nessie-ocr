@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (118) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (120) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -150,7 +150,7 @@ window.onload = initDynSections;
 <a name="l00153"></a>00153 
 <a name="l00162"></a><a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e">00162</a> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c9a0935f5eac55d15aa632fcce9b478e" title="Converts the clip&amp;#39;s colorspace to a grayscale.">Preprocessor::convertToGrayscale</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip)
 <a name="l00163"></a>00163 {
-<a name="l00164"></a>00164     <span class="keywordflow">if</span> ( clip.<a class="code" href="class_clip.html#e22de9122a399af67576eb114842846a" title="Returns the clip&amp;#39;s current colorspace.">colorspace</a>() != <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a> )
+<a name="l00164"></a>00164     <span class="keywordflow">if</span> ( clip.<a class="code" href="class_clip.html#e22de9122a399af67576eb114842846a" title="Returns the clip&amp;#39;s current colorspace.">colorspace</a>() not_eq <a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a> )
 <a name="l00165"></a>00165         clip.<a class="code" href="class_clip.html#e22de9122a399af67576eb114842846a" title="Returns the clip&amp;#39;s current colorspace.">colorspace</a>(<a class="code" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f657d1a82386f7d1d75c0891e466e77f980" title="A grayscale colorspace.">COLORSPACE_GRAYSCALE</a>);
 <a name="l00166"></a>00166 };
 <a name="l00167"></a>00167 
@@ -288,7 +288,7 @@ window.onload = initDynSections;
 <a name="l00337"></a>00337     }
 <a name="l00338"></a>00338 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 2 20:19:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 19:17:29 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
