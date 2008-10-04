@@ -1,23 +1,21 @@
-#include "Statistics.h"
-
 ///
 /// @file
-/// @brief Implementation of structure Statistics
+/// @brief Implementation of class Statistics
 ///
+
+#include "Statistics.h"
 
 
 ///
 /// @details Initializes a Statistics object with timers set to 0
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-22
+/// @date 2008-10-04
 ///
-Statistics::Statistics () : nWords(0), wordRates(vector<WordRate>(0)), noiseRemovalTime(0.0), grayscaleConversionTime(0.0),
-	floodFillingTime(0.0), thresholdingTime(0.0), featureVectorsBuildingTime(0.0), charactersExtractionTime(0.0)
+Statistics::Statistics () :
+	backgroundReferenceGrayLevelFindingTime_(0.0), optimalThresholdComputingTime_(0.0), noiseRemovalTime_(0.0)
 {
-	preprocessingTime	= grayscaleConversionTime		+ noiseRemovalTime;
-	segmentationTime	= thresholdingTime				+ floodFillingTime;
-	classificationTime	= featureVectorsBuildingTime	+ charactersExtractionTime;
+	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
 };
 
 
@@ -30,4 +28,44 @@ Statistics::Statistics () : nWords(0), wordRates(vector<WordRate>(0)), noiseRemo
 Statistics::~Statistics ()
 {
 	
+};
+
+
+///
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-04
+///
+double Statistics::backgroundReferenceGrayLevelFindingTime () const
+{
+	return backgroundReferenceGrayLevelFindingTime_;
+};
+
+
+///
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-04
+///
+double Statistics::optimalThresholdComputingTime () const
+{
+	return optimalThresholdComputingTime_;
+};
+
+
+///
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-04
+///
+double Statistics::noiseRemovalTime () const
+{
+	return noiseRemovalTime_;
+};
+
+
+///
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-04
+///
+double Statistics::preprocessingTime () const
+{
+	return preprocessingTime_;
 };

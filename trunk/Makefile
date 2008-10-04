@@ -16,7 +16,6 @@ SRC=src/
 BIN=bin/
 INC=inc/
 LIB=lib/
-DOC=doc/
 
 # Magick++ API directives
 MAGICK_LINK=`Magick++-config --cppflags --cxxflags --ldflags --libs`
@@ -35,13 +34,6 @@ WORD_RATE_INC=$(INC)WordRate.h
 # Source files of 'Statistics' struct
 STATISTICS_SRC=$(SRC)Statistics.cpp
 STATISTICS_INC=$(INC)Statistics.h
-
-# Source files of 'Colorspace' enumeration
-COLORSPACE_INC=$(INC)Colorspace.h
-
-# Source files of 'RgbColor' struct
-RGB_COLOR_SRC=$(SRC)RgbColor.cpp
-RGB_COLOR_INC=$(INC)RgbColor.h
 
 # Source files of 'Text' class
 TEXT_SRC=$(SRC)Text.cpp
@@ -63,7 +55,6 @@ PREPROCESSOR_INC=$(INC)Preprocessor.h
 MAIN_OBJ=$(SRC)main.o
 NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
 STATISTICS_OBJ=$(SRC)Statistics.o
-RGB_COLOR_OBJ=$(SRC)RgbColor.o
 TEXT_OBJ=$(SRC)Text.o
 PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
@@ -72,17 +63,15 @@ PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
 # Dependencies
 MAIN=$(MAIN_SRC)
 NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
-COLORSPACE=$(COLORSPACE_INC)
 WORD_RATE=$(WORD_RATE_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
-RGB_COLOR=$(RGB_COLOR_INC) $(RGB_COLOR_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
 PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 
 # Final object files
-OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(RGB_COLOR_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
+OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
@@ -124,14 +113,6 @@ $(STATISTICS_OBJ): $(WORD_RATE) $(STATISTICS)
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
 
-$(RGB_COLOR_OBJ): $(RGB_COLOR)
-	@printf "** Making rule $(RGB_COLOR_OBJ):$(NL)"
-	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(RGB_COLOR_SRC)
-	@printf "$(TAB)"
-	mv RgbColor.o $(SRC)
-	@printf "$(NL)"
-
 $(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -140,7 +121,7 @@ $(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 	mv Text.o $(SRC)
 	@printf "$(NL)"
 	
-$(PIXEL_OBJ): $(RGB_COLOR_OBJ) $(COLORSPACE) $(PIXEL)
+$(PIXEL_OBJ): $(PIXEL)
 	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(PIXEL_SRC)
@@ -148,7 +129,7 @@ $(PIXEL_OBJ): $(RGB_COLOR_OBJ) $(COLORSPACE) $(PIXEL)
 	mv Pixel.o $(SRC)
 	@printf "$(NL)"
 
-$(CLIP_OBJ): $(PIXEL_OBJ) $(COLORSPACE) $(CLIP)
+$(CLIP_OBJ): $(PIXEL_OBJ) $(CLIP)
 	@printf "** Making rule $(CLIP_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(CLIP_SRC)
@@ -166,14 +147,7 @@ $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 
 
 # Make everything
-all: clean main doc
-
-# Generate documentation
-doc: $(INC)*.h $(SRC)*.cpp
-	@printf "** Updating documentation:$(NL)"
-	@printf "$(TAB)"
-	doxygen
-	@printf "$(NL)"
+all: clean main
 
 # Delete everything
 clean:

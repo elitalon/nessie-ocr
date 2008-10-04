@@ -4,115 +4,67 @@
 }
 {\tt \#include $<$Statistics.h$>$}
 
+Collaboration diagram for Statistics:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_statistics__coll__graph}
+\end{center}
+\end{figure}
 
 
 \subsection{Detailed Description}
-\hyperlink{class_statistics}{Statistics} about a text and its recognition process. 
+\hyperlink{class_statistics}{Statistics} about text recognition process. 
 
-This class stores a number of statistic data regarding the recognition process and the text produced.
-
-First, it stores the elapsed time on every stage, accumulated internally in the critical processes (mostly, image processing algorithms). Then, it computes the number of words in the text and the appearance rate of every single word.
+This class stores a number of statistic data regarding the elapsed time during the text recognition process, accumulated internally mostly in algorithms.
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
+\item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 24 of file Statistics.h.\subsection*{Public Member Functions}
+Definition at line 19 of file Statistics.h.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+double \hyperlink{class_statistics_565e90b1940d12bb2a2661f6dcea230d}{backgroundReferenceGrayLevelFindingTime} () const 
+\begin{CompactList}\small\item\em Returns the elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
+double \hyperlink{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{optimalThresholdComputingTime} () const 
+\begin{CompactList}\small\item\em Returns the elapsed time in the optimal threshold computing algorithm. \item\end{CompactList}\item 
+double \hyperlink{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{noiseRemovalTime} () const 
+\begin{CompactList}\small\item\em Returns the elapsed time in the noise removal algorithm. \item\end{CompactList}\item 
+double \hyperlink{class_statistics_d88deb57349fedd7035ccffa06b4859b}{preprocessingTime} () const 
+\begin{CompactList}\small\item\em Returns the total elapsed time within the preprocessing stage. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-\hypertarget{class_statistics_b68ede75479e44d5c35b78ec1284065b}{
-\hyperlink{class_statistics_b68ede75479e44d5c35b78ec1284065b}{$\sim$Statistics} ()}
-\label{class_statistics_b68ede75479e44d5c35b78ec1284065b}
-
-\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
-\hypertarget{class_statistics_8ec785f780c94502dd4c7e8602cf101e}{
-double \hyperlink{class_statistics_8ec785f780c94502dd4c7e8602cf101e}{charactersExtractionTime} ()}
-\label{class_statistics_8ec785f780c94502dd4c7e8602cf101e}
-
-\begin{CompactList}\small\item\em Returns the elapsed time while extracting characters within the classification stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_d32e65b956d2d2038d07c2e8c9e58cde}{
-double \hyperlink{class_statistics_d32e65b956d2d2038d07c2e8c9e58cde}{featureVectorsBuildingTime} ()}
-\label{class_statistics_d32e65b956d2d2038d07c2e8c9e58cde}
-
-\begin{CompactList}\small\item\em Returns the elapsed time while building feature vectors within the classification stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_5ed76fbaac7463ebe6ba9f240b33c0eb}{classificationTime} ()
-\begin{CompactList}\small\item\em Returns the total time within the classification stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_0e0d7fca93f47af687cbd93e286ec274}{
-double \hyperlink{class_statistics_0e0d7fca93f47af687cbd93e286ec274}{thresholdingTime} ()}
-\label{class_statistics_0e0d7fca93f47af687cbd93e286ec274}
-
-\begin{CompactList}\small\item\em Returns the elapsed time while thresholding the clip within the segmentation stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_857b7d9a3aa2e5bd61cd8dc8a21fe7e5}{
-double \hyperlink{class_statistics_857b7d9a3aa2e5bd61cd8dc8a21fe7e5}{floodFillingTime} ()}
-\label{class_statistics_857b7d9a3aa2e5bd61cd8dc8a21fe7e5}
-
-\begin{CompactList}\small\item\em Returns the elapsed time while applying the 'Flood fill' algorithm within the segmentation stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_d0df3ef2d73687b6dc3f85a55439ae16}{segmentationTime} ()
-\begin{CompactList}\small\item\em Returns the total time within the segmentation stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_9880f8dca1fbc0a57dcd967585edc648}{
-double \hyperlink{class_statistics_9880f8dca1fbc0a57dcd967585edc648}{grayscaleConversionTime} ()}
-\label{class_statistics_9880f8dca1fbc0a57dcd967585edc648}
-
-\begin{CompactList}\small\item\em Returns the time elapsed while converting the clip's color space to grayscale within the preprocessing stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_cb001651c079af004e27458cd61b9c7a}{
-double \hyperlink{class_statistics_cb001651c079af004e27458cd61b9c7a}{noiseRemovalTime} ()}
-\label{class_statistics_cb001651c079af004e27458cd61b9c7a}
-
-\begin{CompactList}\small\item\em Returns the time elapsed while removing the noise in the clip within the preprocessing stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_8d7ab1f44a9fb5fe74f2713dbf5e62cd}{preprocessingTime} ()
-\begin{CompactList}\small\item\em Returns the total time within the preprocessing stage. \item\end{CompactList}\item 
-\hypertarget{class_statistics_f93af7412b6a9025e6fc0f54fc1e3be7}{
-unsigned int \hyperlink{class_statistics_f93af7412b6a9025e6fc0f54fc1e3be7}{nWords} ()}
-\label{class_statistics_f93af7412b6a9025e6fc0f54fc1e3be7}
-
-\begin{CompactList}\small\item\em Returns the number of words in the recognized text. \item\end{CompactList}\item 
-\hypertarget{class_statistics_0f43409d0bfd86d1c25f3be17ea9084a}{
-list$<$ \hyperlink{struct_word_rate}{WordRate} $>$ \hyperlink{class_statistics_0f43409d0bfd86d1c25f3be17ea9084a}{wordRates} ()}
-\label{class_statistics_0f43409d0bfd86d1c25f3be17ea9084a}
-
-\begin{CompactList}\small\item\em Returns the list of appearance rates of every word in text. \item\end{CompactList}\end{CompactItemize}
-\subsection*{Private Member Functions}
-\begin{CompactItemize}
-\item 
-\hypertarget{class_statistics_b18396a6d202a0f5ab43e1e0a317f274}{
-void \hyperlink{class_statistics_b18396a6d202a0f5ab43e1e0a317f274}{nWords} (unsigned int \hyperlink{class_statistics_cef381529a0baef3870133f42b6aa8dd}{nWords})}
-\label{class_statistics_b18396a6d202a0f5ab43e1e0a317f274}
-
-\begin{CompactList}\small\item\em Sets the number of words in the recognized text. \item\end{CompactList}\item 
-\hypertarget{class_statistics_be5c00c79f0ba8f81804b52b36b3441d}{
-void \hyperlink{class_statistics_be5c00c79f0ba8f81804b52b36b3441d}{wordRates} (list$<$ \hyperlink{struct_word_rate}{WordRate} $>$ \hyperlink{class_statistics_f656c644cb43977450422c215b2130c6}{wordRates})}
-\label{class_statistics_be5c00c79f0ba8f81804b52b36b3441d}
-
-\begin{CompactList}\small\item\em Sets the list of appearance rates of every word in the recognized text. \item\end{CompactList}\item 
-void \hyperlink{class_statistics_ada0f8014981618cc90e1e0020cd7a50}{preprocessingTime} (double \hyperlink{class_statistics_4a194feb4de2fc619d311b2adb2a7e74}{noiseRemovalTime}, double \hyperlink{class_statistics_fc22ca2705714cfc44c45c772475c1cb}{grayscaleConversionTime})
-\begin{CompactList}\small\item\em Sets the total time within the preprocessing stage. \item\end{CompactList}\item 
-void \hyperlink{class_statistics_cb7b96b88345347bc41b586f283905fd}{segmentationTime} (double \hyperlink{class_statistics_e2c88c8b599b217ad3f316cca7a15a23}{thresholdingTime}, double \hyperlink{class_statistics_6c2cd48482d1de181cb2dd32b3315449}{floodFillingTime})
-\begin{CompactList}\small\item\em Sets the total time within the segmentation stage. \item\end{CompactList}\item 
-void \hyperlink{class_statistics_59bf0acb599fbfb44211669a32f0cce6}{classificationTime} (double \hyperlink{class_statistics_ae46d5f7b2a374dd79b15533facc9e6c}{featureVectorsBuildingTime}, double \hyperlink{class_statistics_1e09de36cf3a65ab2a471e877578257d}{charactersExtractionTime})
-\begin{CompactList}\small\item\em Sets the total time within the classification stage. \item\end{CompactList}\end{CompactItemize}
+\hyperlink{class_statistics_b68ede75479e44d5c35b78ec1284065b}{$\sim$Statistics} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
-unsigned int \hyperlink{class_statistics_cef381529a0baef3870133f42b6aa8dd}{nWords}
-\begin{CompactList}\small\item\em Number of words in the recognized text. \item\end{CompactList}\item 
-list$<$ \hyperlink{struct_word_rate}{WordRate} $>$ \hyperlink{class_statistics_f656c644cb43977450422c215b2130c6}{wordRates}
-\begin{CompactList}\small\item\em List of appearance rates of every word in the recognized text. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_4a194feb4de2fc619d311b2adb2a7e74}{noiseRemovalTime}
-\begin{CompactList}\small\item\em Elapsed time in the noise removal stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_fc22ca2705714cfc44c45c772475c1cb}{grayscaleConversionTime}
-\begin{CompactList}\small\item\em Elapsed time in the grayscale conversion stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_6c2cd48482d1de181cb2dd32b3315449}{floodFillingTime}
-\begin{CompactList}\small\item\em Elapsed time in the flood filling stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_e2c88c8b599b217ad3f316cca7a15a23}{thresholdingTime}
-\begin{CompactList}\small\item\em Elapsed time in the thresholding stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_ae46d5f7b2a374dd79b15533facc9e6c}{featureVectorsBuildingTime}
-\begin{CompactList}\small\item\em Elapsed time in the feature vectors building stage. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_1e09de36cf3a65ab2a471e877578257d}{charactersExtractionTime}
-\begin{CompactList}\small\item\em Elapsed time in the characters extraction stage. \item\end{CompactList}\end{CompactItemize}
+\hypertarget{class_statistics_ac1d32288eac323391e66b2ff1a878e8}{
+double \hyperlink{class_statistics_ac1d32288eac323391e66b2ff1a878e8}{backgroundReferenceGrayLevelFindingTime\_\-}}
+\label{class_statistics_ac1d32288eac323391e66b2ff1a878e8}
+
+\begin{CompactList}\small\item\em Elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
+\hypertarget{class_statistics_b8cb0f26533cee29b94f3a556b00e943}{
+double \hyperlink{class_statistics_b8cb0f26533cee29b94f3a556b00e943}{optimalThresholdComputingTime\_\-}}
+\label{class_statistics_b8cb0f26533cee29b94f3a556b00e943}
+
+\begin{CompactList}\small\item\em Elapsed time in the optimal threshold computing algorithm. \item\end{CompactList}\item 
+\hypertarget{class_statistics_acacd5443d740dda6ddd83deb777ec4b}{
+double \hyperlink{class_statistics_acacd5443d740dda6ddd83deb777ec4b}{noiseRemovalTime\_\-}}
+\label{class_statistics_acacd5443d740dda6ddd83deb777ec4b}
+
+\begin{CompactList}\small\item\em Elapsed time in the noise removal algorithm. \item\end{CompactList}\item 
+\hypertarget{class_statistics_91e724d9ef7b96e1df3310c61234ebbd}{
+double \hyperlink{class_statistics_91e724d9ef7b96e1df3310c61234ebbd}{preprocessingTime\_\-}}
+\label{class_statistics_91e724d9ef7b96e1df3310c61234ebbd}
+
+\begin{CompactList}\small\item\em Total elapsed time within the preprocessing stage. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Friends}
 \begin{CompactItemize}
 \item 
@@ -120,250 +72,110 @@ double \hyperlink{class_statistics_1e09de36cf3a65ab2a471e877578257d}{charactersE
 class \hyperlink{class_statistics_11123fa51c07995419270030024a7dfe}{Recognizer}}
 \label{class_statistics_11123fa51c07995419270030024a7dfe}
 
-\begin{CompactList}\small\item\em The Recognizer class only use the methods without modifying the attributes. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Declares the class Recognizer as friend. \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{
 \index{Statistics@{Statistics}!Statistics@{Statistics}}
 \index{Statistics@{Statistics}!Statistics@{Statistics}}
-\subsubsection[Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::Statistics ()}}
+\subsubsection[Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::Statistics ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
 \label{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}
 
 
 Constructor. 
 
+Initializes a \hyperlink{class_statistics}{Statistics} object with timers set to 0
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-04 \end{Desc}
+
+
+Definition at line 15 of file Statistics.cpp.\hypertarget{class_statistics_b68ede75479e44d5c35b78ec1284065b}{
+\index{Statistics@{Statistics}!$\sim$Statistics@{$\sim$Statistics}}
+\index{$\sim$Statistics@{$\sim$Statistics}!Statistics@{Statistics}}
+\subsubsection[$\sim$Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::$\sim$Statistics ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_statistics_b68ede75479e44d5c35b78ec1284065b}
+
+
+Destructor. 
+
+Destroys a \hyperlink{class_statistics}{Statistics} object
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-09-17 \end{Desc}
 
 
-Definition at line 9 of file Statistics.cpp.
+Definition at line 28 of file Statistics.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_statistics_5ed76fbaac7463ebe6ba9f240b33c0eb}{
-\index{Statistics@{Statistics}!classificationTime@{classificationTime}}
-\index{classificationTime@{classificationTime}!Statistics@{Statistics}}
-\subsubsection[classificationTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::classificationTime ()}}
-\label{class_statistics_5ed76fbaac7463ebe6ba9f240b33c0eb}
+\hypertarget{class_statistics_565e90b1940d12bb2a2661f6dcea230d}{
+\index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
+\index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Statistics@{Statistics}}
+\subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::backgroundReferenceGrayLevelFindingTime () const}}
+\label{class_statistics_565e90b1940d12bb2a2661f6dcea230d}
 
 
-Returns the total time within the classification stage. 
-
-The total time spent is computed by adding the elapsed time in individual steps.
+Returns the elapsed time in the reference gray level of the background finding algorithm. 
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
+\item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 43 of file Statistics.cpp.\hypertarget{class_statistics_d0df3ef2d73687b6dc3f85a55439ae16}{
-\index{Statistics@{Statistics}!segmentationTime@{segmentationTime}}
-\index{segmentationTime@{segmentationTime}!Statistics@{Statistics}}
-\subsubsection[segmentationTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::segmentationTime ()}}
-\label{class_statistics_d0df3ef2d73687b6dc3f85a55439ae16}
+Definition at line 38 of file Statistics.cpp.\hypertarget{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{
+\index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
+\index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Statistics@{Statistics}}
+\subsubsection[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::optimalThresholdComputingTime () const}}
+\label{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}
 
 
-Returns the total time within the segmentation stage. 
-
-The total time spent is computed by adding the elapsed time in individual steps.
+Returns the elapsed time in the optimal threshold computing algorithm. 
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
+\item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 75 of file Statistics.cpp.\hypertarget{class_statistics_8d7ab1f44a9fb5fe74f2713dbf5e62cd}{
-\index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
-\index{preprocessingTime@{preprocessingTime}!Statistics@{Statistics}}
-\subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::preprocessingTime ()}}
-\label{class_statistics_8d7ab1f44a9fb5fe74f2713dbf5e62cd}
-
-
-Returns the total time within the preprocessing stage. 
-
-The total time spent is computed by adding the elapsed time in individual steps.
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 107 of file Statistics.cpp.\hypertarget{class_statistics_ada0f8014981618cc90e1e0020cd7a50}{
-\index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
-\index{preprocessingTime@{preprocessingTime}!Statistics@{Statistics}}
-\subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::preprocessingTime (double {\em noiseRemovalTime}, \/  double {\em grayscaleConversionTime})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_ada0f8014981618cc90e1e0020cd7a50}
-
-
-Sets the total time within the preprocessing stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 157 of file Statistics.cpp.\hypertarget{class_statistics_cb7b96b88345347bc41b586f283905fd}{
-\index{Statistics@{Statistics}!segmentationTime@{segmentationTime}}
-\index{segmentationTime@{segmentationTime}!Statistics@{Statistics}}
-\subsubsection[segmentationTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::segmentationTime (double {\em thresholdingTime}, \/  double {\em floodFillingTime})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_cb7b96b88345347bc41b586f283905fd}
-
-
-Sets the total time within the segmentation stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 168 of file Statistics.cpp.\hypertarget{class_statistics_59bf0acb599fbfb44211669a32f0cce6}{
-\index{Statistics@{Statistics}!classificationTime@{classificationTime}}
-\index{classificationTime@{classificationTime}!Statistics@{Statistics}}
-\subsubsection[classificationTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::classificationTime (double {\em featureVectorsBuildingTime}, \/  double {\em charactersExtractionTime})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_59bf0acb599fbfb44211669a32f0cce6}
-
-
-Sets the total time within the classification stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 179 of file Statistics.cpp.
-
-\subsection{Field Documentation}
-\hypertarget{class_statistics_cef381529a0baef3870133f42b6aa8dd}{
-\index{Statistics@{Statistics}!nWords@{nWords}}
-\index{nWords@{nWords}!Statistics@{Statistics}}
-\subsubsection[nWords]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Statistics::nWords}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_cef381529a0baef3870133f42b6aa8dd}
-
-
-Number of words in the recognized text. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 114 of file Statistics.h.\hypertarget{class_statistics_f656c644cb43977450422c215b2130c6}{
-\index{Statistics@{Statistics}!wordRates@{wordRates}}
-\index{wordRates@{wordRates}!Statistics@{Statistics}}
-\subsubsection[wordRates]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Statistics::wordRates}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_f656c644cb43977450422c215b2130c6}
-
-
-List of appearance rates of every word in the recognized text. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 120 of file Statistics.h.\hypertarget{class_statistics_4a194feb4de2fc619d311b2adb2a7e74}{
+Definition at line 48 of file Statistics.cpp.\hypertarget{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{
 \index{Statistics@{Statistics}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Statistics@{Statistics}}
-\subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::noiseRemovalTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_4a194feb4de2fc619d311b2adb2a7e74}
+\subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::noiseRemovalTime () const}}
+\label{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}
 
 
-Elapsed time in the noise removal stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 126 of file Statistics.h.\hypertarget{class_statistics_fc22ca2705714cfc44c45c772475c1cb}{
-\index{Statistics@{Statistics}!grayscaleConversionTime@{grayscaleConversionTime}}
-\index{grayscaleConversionTime@{grayscaleConversionTime}!Statistics@{Statistics}}
-\subsubsection[grayscaleConversionTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::grayscaleConversionTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_fc22ca2705714cfc44c45c772475c1cb}
-
-
-Elapsed time in the grayscale conversion stage. 
+Returns the elapsed time in the noise removal algorithm. 
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
+\item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 132 of file Statistics.h.\hypertarget{class_statistics_6c2cd48482d1de181cb2dd32b3315449}{
-\index{Statistics@{Statistics}!floodFillingTime@{floodFillingTime}}
-\index{floodFillingTime@{floodFillingTime}!Statistics@{Statistics}}
-\subsubsection[floodFillingTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::floodFillingTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_6c2cd48482d1de181cb2dd32b3315449}
+Definition at line 58 of file Statistics.cpp.\hypertarget{class_statistics_d88deb57349fedd7035ccffa06b4859b}{
+\index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
+\index{preprocessingTime@{preprocessingTime}!Statistics@{Statistics}}
+\subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::preprocessingTime () const}}
+\label{class_statistics_d88deb57349fedd7035ccffa06b4859b}
 
 
-Elapsed time in the flood filling stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 138 of file Statistics.h.\hypertarget{class_statistics_e2c88c8b599b217ad3f316cca7a15a23}{
-\index{Statistics@{Statistics}!thresholdingTime@{thresholdingTime}}
-\index{thresholdingTime@{thresholdingTime}!Statistics@{Statistics}}
-\subsubsection[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::thresholdingTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_e2c88c8b599b217ad3f316cca7a15a23}
-
-
-Elapsed time in the thresholding stage. 
+Returns the total elapsed time within the preprocessing stage. 
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
+\item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 144 of file Statistics.h.\hypertarget{class_statistics_ae46d5f7b2a374dd79b15533facc9e6c}{
-\index{Statistics@{Statistics}!featureVectorsBuildingTime@{featureVectorsBuildingTime}}
-\index{featureVectorsBuildingTime@{featureVectorsBuildingTime}!Statistics@{Statistics}}
-\subsubsection[featureVectorsBuildingTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::featureVectorsBuildingTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_ae46d5f7b2a374dd79b15533facc9e6c}
-
-
-Elapsed time in the feature vectors building stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 150 of file Statistics.h.\hypertarget{class_statistics_1e09de36cf3a65ab2a471e877578257d}{
-\index{Statistics@{Statistics}!charactersExtractionTime@{charactersExtractionTime}}
-\index{charactersExtractionTime@{charactersExtractionTime}!Statistics@{Statistics}}
-\subsubsection[charactersExtractionTime]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Statistics::charactersExtractionTime}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_1e09de36cf3a65ab2a471e877578257d}
-
-
-Elapsed time in the characters extraction stage. 
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-09-17 \end{Desc}
-
-
-Definition at line 156 of file Statistics.h.
+Definition at line 68 of file Statistics.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-Statistics.h\item 
-Statistics.cpp\end{CompactItemize}
+\hyperlink{_statistics_8h}{Statistics.h (114)}\item 
+\hyperlink{_statistics_8cpp}{Statistics.cpp (114)}\end{CompactItemize}

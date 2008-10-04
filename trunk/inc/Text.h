@@ -1,16 +1,16 @@
-#if !defined(_TEXT_H)
-#define _TEXT_H
-
 ///
 /// @file
 /// @brief Declaration of class Text
 ///
 
+#if !defined(_TEXT_H)
+#define _TEXT_H
+
+
 #include "WordRate.h"
 
 #include <string>
 #include <vector>
-using namespace std;
 
 
 ///
@@ -20,7 +20,7 @@ using namespace std;
 /// It also keeps the appearance rate of every word.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 ///
 class Text
 {
@@ -34,7 +34,7 @@ class Text
 		///
 		/// Constructor
 		///
-		Text (const string &content);
+		Text (const std::string &content);
 				
 		///
 		/// Destructor
@@ -59,12 +59,12 @@ class Text
 		///
 		/// Returns the text itself
 		///
-		string content () const;
+		std::string content () const;
 
 		///
 		/// Sets the text
 		///
-		void content (const string &content);
+		void content (const std::string &content);
 		
 		///
 		/// Returns the text length
@@ -74,20 +74,19 @@ class Text
 		///
 		/// Returns the appearance rates of every single word in text
 		///
-		vector<WordRate> wordRates () const;
+		std::vector<WordRate> wordRates () const;
 
 
 	private:
-		
 		///
 		/// The text itself
 		///		
-		string content_;
+		std::string content_;
 				
 		///
 		/// A list of appearance rates of every single word in text
 		///
-		vector<WordRate> wordRates_;
+		std::vector<WordRate> wordRates_;
 		
 		///
 		/// Builds the vector with every word appearance rate
@@ -97,12 +96,12 @@ class Text
 		///
 		/// Increases by one the number of appearances of a word
 		///
-		void updateWordRate (const string &word_);
+		void updateWordRate (const std::string &word_);
 		
 		///
 		/// Extracts the words surrounded by default delimiters from text
 		///
-		void tokenize(vector<string>& tokens_, const string& delimiters_ = " ,.\n\t:;!¡¿?&/()=") const;
+		void tokenize(std::vector<std::string> &tokens_, const std::string &delimiters_ = " ,.\n\t:;!¡¿?&/()=") const;
 };
 
 #endif  //_TEXT_H

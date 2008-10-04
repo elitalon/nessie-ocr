@@ -67,157 +67,158 @@ window.onload = initDynSections;
 <a name="l00006"></a>00006 <span class="preprocessor">#include "<a class="code" href="_text_8h.html" title="Declaration of class Text.">Text.h</a>"</span>
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;algorithm&gt;</span>
-<a name="l00009"></a>00009 <span class="keyword">using namespace </span>std;
-<a name="l00010"></a>00010 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00011"></a>00011 
-<a name="l00018"></a><a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">00018</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> () : content_(string(<span class="stringliteral">""</span>)), wordRates_(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0))
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     <span class="comment">// Build the appearance rate of every word in text</span>
-<a name="l00021"></a>00021     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
-<a name="l00022"></a>00022 };
-<a name="l00023"></a>00023 
+<a name="l00012"></a>00012 
+<a name="l00019"></a><a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">00019</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> () : content_(std::string(<span class="stringliteral">""</span>)), wordRates_(std::vector&lt;<a class="code" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3" title="Appearance rate of a word.">WordRate</a>&gt;(0))
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     <span class="comment">// Build the appearance rate of every word in text</span>
+<a name="l00022"></a>00022     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00023"></a>00023 };
 <a name="l00024"></a>00024 
-<a name="l00033"></a><a class="code" href="class_text.html#e768cfd2aa0b9baaf25dffcb717ae314">00033</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">content</a>) : <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>(content), <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0))
-<a name="l00034"></a>00034 {
-<a name="l00035"></a>00035     <span class="comment">// Build the appearance rate of every word in text</span>
-<a name="l00036"></a>00036     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
-<a name="l00037"></a>00037 };
-<a name="l00038"></a>00038 
+<a name="l00025"></a>00025 
+<a name="l00034"></a><a class="code" href="class_text.html#d8c7b52db022f4351e31b2b7609a8180">00034</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text itself.">content</a>) : <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>(content), <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>(std::vector&lt;<a class="code" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3" title="Appearance rate of a word.">WordRate</a>&gt;(0))
+<a name="l00035"></a>00035 {
+<a name="l00036"></a>00036     <span class="comment">// Build the appearance rate of every word in text</span>
+<a name="l00037"></a>00037     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00038"></a>00038 };
 <a name="l00039"></a>00039 
-<a name="l00046"></a><a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7">00046</a> <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">Text::~Text</a> ()
-<a name="l00047"></a>00047 {
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 };
-<a name="l00050"></a>00050 
+<a name="l00040"></a>00040 
+<a name="l00047"></a><a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7">00047</a> <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">Text::~Text</a> ()
+<a name="l00048"></a>00048 {
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 };
 <a name="l00051"></a>00051 
-<a name="l00062"></a><a class="code" href="class_text.html#fdd11ad0c90ca483d4cff3d74a64da9e">00062</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position)
-<a name="l00063"></a>00063 {
-<a name="l00064"></a>00064     <span class="keywordflow">if</span>(position &gt; <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.length())
-<a name="l00065"></a>00065         <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.append(1, character);
-<a name="l00066"></a>00066     <span class="keywordflow">else</span>
-<a name="l00067"></a>00067     {
-<a name="l00068"></a>00068         <span class="keywordflow">if</span> (position &lt; 0)
-<a name="l00069"></a>00069             <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.insert(0, 1, character);
-<a name="l00070"></a>00070         <span class="keywordflow">else</span>
-<a name="l00071"></a>00071             <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.insert(position, 1, character);
-<a name="l00072"></a>00072     }
-<a name="l00073"></a>00073     
-<a name="l00074"></a>00074     <span class="comment">// Rebuild the appearance rate of every word in text</span>
-<a name="l00075"></a>00075     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
-<a name="l00076"></a>00076 };
-<a name="l00077"></a>00077 
+<a name="l00052"></a>00052 
+<a name="l00063"></a><a class="code" href="class_text.html#fdd11ad0c90ca483d4cff3d74a64da9e">00063</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position)
+<a name="l00064"></a>00064 {
+<a name="l00065"></a>00065     <span class="keywordflow">if</span>(position &gt; <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.length())
+<a name="l00066"></a>00066         <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.append(1, character);
+<a name="l00067"></a>00067     <span class="keywordflow">else</span>
+<a name="l00068"></a>00068     {
+<a name="l00069"></a>00069         <span class="keywordflow">if</span> (position &lt; 0)
+<a name="l00070"></a>00070             <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.insert(0, 1, character);
+<a name="l00071"></a>00071         <span class="keywordflow">else</span>
+<a name="l00072"></a>00072             <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.insert(position, 1, character);
+<a name="l00073"></a>00073     }
+<a name="l00074"></a>00074     
+<a name="l00075"></a>00075     <span class="comment">// Rebuild the appearance rate of every word in text</span>
+<a name="l00076"></a>00076     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00077"></a>00077 };
 <a name="l00078"></a>00078 
-<a name="l00087"></a><a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9">00087</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character)
-<a name="l00088"></a>00088 {
-<a name="l00089"></a>00089     <span class="comment">// Call the generic 'addCharacter' function</span>
-<a name="l00090"></a>00090     <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">addCharacter</a>(character, <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text length.">length</a>());
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
+<a name="l00079"></a>00079 
+<a name="l00088"></a><a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9">00088</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">Text::addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character)
+<a name="l00089"></a>00089 {
+<a name="l00090"></a>00090     <span class="comment">// Call the generic 'addCharacter' function</span>
+<a name="l00091"></a>00091     <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to the text.">addCharacter</a>(character, <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text length.">length</a>());
+<a name="l00092"></a>00092 }
 <a name="l00093"></a>00093 
-<a name="l00103"></a><a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">00103</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from the text.">Text::removeCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position)
-<a name="l00104"></a>00104 {
-<a name="l00105"></a>00105     <span class="keywordflow">if</span> (position &gt; <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.length())
-<a name="l00106"></a>00106         <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.erase(<a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.end());
-<a name="l00107"></a>00107     <span class="keywordflow">else</span>
-<a name="l00108"></a>00108     {
-<a name="l00109"></a>00109         <span class="keywordflow">if</span> ( position &lt; 0 )
-<a name="l00110"></a>00110             <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.erase(<a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.begin());
-<a name="l00111"></a>00111         <span class="keywordflow">else</span>
-<a name="l00112"></a>00112             <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.erase(position, 1);
-<a name="l00113"></a>00113     }
-<a name="l00114"></a>00114     
-<a name="l00115"></a>00115     <span class="comment">// Rebuild the appearance rate of every word in text</span>
-<a name="l00116"></a>00116     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
-<a name="l00117"></a>00117 };
-<a name="l00118"></a>00118 
+<a name="l00094"></a>00094 
+<a name="l00104"></a><a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">00104</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from the text.">Text::removeCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position)
+<a name="l00105"></a>00105 {
+<a name="l00106"></a>00106     <span class="keywordflow">if</span> (position &gt; <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.length())
+<a name="l00107"></a>00107         <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.erase(<a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.end());
+<a name="l00108"></a>00108     <span class="keywordflow">else</span>
+<a name="l00109"></a>00109     {
+<a name="l00110"></a>00110         <span class="keywordflow">if</span> ( position &lt; 0 )
+<a name="l00111"></a>00111             <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.erase(<a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.begin());
+<a name="l00112"></a>00112         <span class="keywordflow">else</span>
+<a name="l00113"></a>00113             <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.erase(position, 1);
+<a name="l00114"></a>00114     }
+<a name="l00115"></a>00115     
+<a name="l00116"></a>00116     <span class="comment">// Rebuild the appearance rate of every word in text</span>
+<a name="l00117"></a>00117     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00118"></a>00118 };
 <a name="l00119"></a>00119 
 <a name="l00120"></a>00120 
-<a name="l00127"></a><a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d">00127</a> <span class="keywordtype">string</span> <a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">Text::content</a> ()<span class="keyword"> const</span>
-<a name="l00128"></a>00128 <span class="keyword"></span>{
-<a name="l00129"></a>00129     <span class="keywordflow">return</span> <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>;
-<a name="l00130"></a>00130 };
-<a name="l00131"></a>00131 
+<a name="l00121"></a>00121 
+<a name="l00128"></a><a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83">00128</a> std::string <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text itself.">Text::content</a> ()<span class="keyword"> const</span>
+<a name="l00129"></a>00129 <span class="keyword"></span>{
+<a name="l00130"></a>00130     <span class="keywordflow">return</span> <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>;
+<a name="l00131"></a>00131 };
 <a name="l00132"></a>00132 
-<a name="l00139"></a><a class="code" href="class_text.html#6be01035a20918e8c242ae310ff81bed">00139</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">Text::content</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="class_text.html#8a29bbf6c707ac8b2055a22723a82f3d" title="Returns the text itself.">content</a>)
-<a name="l00140"></a>00140 {
-<a name="l00141"></a>00141     <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.assign(content);
-<a name="l00142"></a>00142 
-<a name="l00143"></a>00143     <span class="comment">// Rebuild the appearance rate of every word in the new text</span>
-<a name="l00144"></a>00144     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
-<a name="l00145"></a>00145 };
-<a name="l00146"></a>00146 
+<a name="l00133"></a>00133 
+<a name="l00140"></a><a class="code" href="class_text.html#eca454f28010b6b3e7bd0d771b8eaeb2">00140</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text itself.">Text::content</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text itself.">content</a>)
+<a name="l00141"></a>00141 {
+<a name="l00142"></a>00142     <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.assign(content);
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144     <span class="comment">// Rebuild the appearance rate of every word in the new text</span>
+<a name="l00145"></a>00145     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">computeWordRates</a>();
+<a name="l00146"></a>00146 };
 <a name="l00147"></a>00147 
-<a name="l00154"></a><a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5">00154</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text length.">Text::length</a> ()<span class="keyword"> const</span>
-<a name="l00155"></a>00155 <span class="keyword"></span>{
-<a name="l00156"></a>00156     <span class="keywordflow">return</span> <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.length();
-<a name="l00157"></a>00157 };
-<a name="l00158"></a>00158 
+<a name="l00148"></a>00148 
+<a name="l00155"></a><a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5">00155</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text length.">Text::length</a> ()<span class="keyword"> const</span>
+<a name="l00156"></a>00156 <span class="keyword"></span>{
+<a name="l00157"></a>00157     <span class="keywordflow">return</span> <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.length();
+<a name="l00158"></a>00158 };
 <a name="l00159"></a>00159 
-<a name="l00168"></a><a class="code" href="class_text.html#1c69ff1b2a6b1bfbf0b44fc4a185de3d">00168</a> vector&lt;WordRate&gt; <a class="code" href="class_text.html#1c69ff1b2a6b1bfbf0b44fc4a185de3d" title="Returns the appearance rates of every single word in text.">Text::wordRates</a> ()<span class="keyword"> const</span>
-<a name="l00169"></a>00169 <span class="keyword"></span>{
-<a name="l00170"></a>00170     <span class="keywordflow">return</span> <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>;
-<a name="l00171"></a>00171 };
-<a name="l00172"></a>00172 
+<a name="l00160"></a>00160 
+<a name="l00169"></a><a class="code" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b">00169</a> std::vector&lt;WordRate&gt; <a class="code" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b" title="Returns the appearance rates of every single word in text.">Text::wordRates</a> ()<span class="keyword"> const</span>
+<a name="l00170"></a>00170 <span class="keyword"></span>{
+<a name="l00171"></a>00171     <span class="keywordflow">return</span> <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>;
+<a name="l00172"></a>00172 };
 <a name="l00173"></a>00173 
-<a name="l00180"></a><a class="code" href="class_text.html#f6d05ed37e647935127fdf4f36eaca43">00180</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#f6d05ed37e647935127fdf4f36eaca43" title="Increases by one the number of appearances of a word.">Text::updateWordRate</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;word)
-<a name="l00181"></a>00181 {
-<a name="l00182"></a>00182     <span class="comment">// Searches the word in the vector</span>
-<a name="l00183"></a>00183     vector&lt;WordRate&gt;::iterator <a class="code" href="class_text.html#1c69ff1b2a6b1bfbf0b44fc4a185de3d" title="Returns the appearance rates of every single word in text.">wordRates</a>;
-<a name="l00184"></a>00184     <span class="keywordflow">for</span> (wordRates = <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>.begin(); wordRates not_eq <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>.end(); ++wordRates)
-<a name="l00185"></a>00185     {
-<a name="l00186"></a>00186         <span class="comment">// Updates its appearance rate</span>
-<a name="l00187"></a>00187         <span class="keywordflow">if</span> ( (*wordRates).first == word )
-<a name="l00188"></a>00188         {
-<a name="l00189"></a>00189             (*wordRates).second++;
-<a name="l00190"></a>00190             <span class="keywordflow">return</span>;
-<a name="l00191"></a>00191         }
-<a name="l00192"></a>00192     }
-<a name="l00193"></a>00193     
-<a name="l00194"></a>00194     <span class="comment">// The word was not stored, so here we adds its first appearance</span>
-<a name="l00195"></a>00195     <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>.push_back(<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>(word, 1));
-<a name="l00196"></a>00196 };
-<a name="l00197"></a>00197 
+<a name="l00174"></a>00174 
+<a name="l00181"></a><a class="code" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99">00181</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99" title="Increases by one the number of appearances of a word.">Text::updateWordRate</a> (<span class="keyword">const</span> std::string &amp;word)
+<a name="l00182"></a>00182 {
+<a name="l00183"></a>00183     <span class="comment">// Searches the word in the vector</span>
+<a name="l00184"></a>00184     std::vector&lt;WordRate&gt;::iterator <a class="code" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b" title="Returns the appearance rates of every single word in text.">wordRates</a>;
+<a name="l00185"></a>00185     <span class="keywordflow">for</span> (wordRates = <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.begin(); wordRates not_eq <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.end(); ++wordRates)
+<a name="l00186"></a>00186     {
+<a name="l00187"></a>00187         <span class="comment">// Updates its appearance rate</span>
+<a name="l00188"></a>00188         <span class="keywordflow">if</span> ( (*wordRates).first == word )
+<a name="l00189"></a>00189         {
+<a name="l00190"></a>00190             (*wordRates).second++;
+<a name="l00191"></a>00191             <span class="keywordflow">return</span>;
+<a name="l00192"></a>00192         }
+<a name="l00193"></a>00193     }
+<a name="l00194"></a>00194     
+<a name="l00195"></a>00195     <span class="comment">// The word was not stored, so here we adds its first appearance</span>
+<a name="l00196"></a>00196     <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.push_back(<a class="code" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3" title="Appearance rate of a word.">WordRate</a>(word, 1));
+<a name="l00197"></a>00197 };
 <a name="l00198"></a>00198 
-<a name="l00207"></a><a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706">00207</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">Text::computeWordRates</a> ()
-<a name="l00208"></a>00208 {   
-<a name="l00209"></a>00209     vector&lt;string&gt; words;   <span class="comment">// Vector to hold our words after removing spaces</span>
-<a name="l00210"></a>00210     
-<a name="l00211"></a>00211     <span class="comment">// Extract the words in text</span>
-<a name="l00212"></a>00212     <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">tokenize</a>(words);
-<a name="l00213"></a>00213     
-<a name="l00214"></a>00214     <span class="comment">// Update appearance rate of every word extracted</span>
-<a name="l00215"></a>00215     vector&lt;string&gt;::iterator wordsIterator;
-<a name="l00216"></a>00216     <span class="keywordflow">for</span> (wordsIterator = words.begin(); wordsIterator not_eq words.end(); ++wordsIterator)
-<a name="l00217"></a>00217         <a class="code" href="class_text.html#f6d05ed37e647935127fdf4f36eaca43" title="Increases by one the number of appearances of a word.">updateWordRate</a>(*wordsIterator);
-<a name="l00218"></a>00218         
-<a name="l00219"></a>00219     <span class="comment">// This sorting will improve future lookups</span>
-<a name="l00220"></a>00220     sort (<a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>.begin(), <a class="code" href="class_text.html#7517ff1f470d275d3013857f98ceb6ef" title="A list of appearance rates of every single word in text.">wordRates_</a>.end());
-<a name="l00221"></a>00221 };
-<a name="l00222"></a>00222 
+<a name="l00199"></a>00199 
+<a name="l00208"></a><a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706">00208</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector with every word appearance rate.">Text::computeWordRates</a> ()
+<a name="l00209"></a>00209 {   
+<a name="l00210"></a>00210     std::vector&lt;std::string&gt; words; <span class="comment">// Vector to hold our words after removing spaces</span>
+<a name="l00211"></a>00211     
+<a name="l00212"></a>00212     <span class="comment">// Extract the words in text</span>
+<a name="l00213"></a>00213     <a class="code" href="class_text.html#cf1ad9772327a1d03d03c879e5bfcc24" title="Extracts the words surrounded by default delimiters from text.">tokenize</a>(words);
+<a name="l00214"></a>00214     
+<a name="l00215"></a>00215     <span class="comment">// Update appearance rate of every word extracted</span>
+<a name="l00216"></a>00216     std::vector&lt;std::string&gt;::iterator wordsIterator;
+<a name="l00217"></a>00217     <span class="keywordflow">for</span> (wordsIterator = words.begin(); wordsIterator not_eq words.end(); ++wordsIterator)
+<a name="l00218"></a>00218         <a class="code" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99" title="Increases by one the number of appearances of a word.">updateWordRate</a>(*wordsIterator);
+<a name="l00219"></a>00219         
+<a name="l00220"></a>00220     <span class="comment">// This sorting will improve future lookups</span>
+<a name="l00221"></a>00221     std::sort (<a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.begin(), <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.end());
+<a name="l00222"></a>00222 };
 <a name="l00223"></a>00223 
-<a name="l00231"></a><a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6">00231</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#09f6b1e475da423ac81305500e05c7d6" title="Extracts the words surrounded by default delimiters from text.">Text::tokenize</a>(vector&lt;string&gt;&amp; tokens, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; delimiters)<span class="keyword"> const</span>
-<a name="l00232"></a>00232 <span class="keyword"></span>{
-<a name="l00233"></a>00233     <span class="comment">// Skip delimiters at the beginning of text</span>
-<a name="l00234"></a>00234     string::size_type lastPos = <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.find_first_not_of(delimiters, 0);
-<a name="l00235"></a>00235     
-<a name="l00236"></a>00236     <span class="comment">// Find the first "non-delimiter"</span>
-<a name="l00237"></a>00237     string::size_type pos     = <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.find_first_of(delimiters, lastPos);
-<a name="l00238"></a>00238     
-<a name="l00239"></a>00239     <span class="comment">// Traverse the content until reaching its end</span>
-<a name="l00240"></a>00240     <span class="keywordflow">while</span> ( (string::npos not_eq pos) or (string::npos not_eq lastPos) )
-<a name="l00241"></a>00241     {
-<a name="l00242"></a>00242         <span class="comment">// A word has been found, add it to the vector</span>
-<a name="l00243"></a>00243         tokens.push_back(<a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.substr(lastPos, pos - lastPos));
-<a name="l00244"></a>00244         
-<a name="l00245"></a>00245         <span class="comment">// Skip delimiters again</span>
-<a name="l00246"></a>00246         lastPos = <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.find_first_not_of(delimiters, pos);
-<a name="l00247"></a>00247         
-<a name="l00248"></a>00248         <span class="comment">// Find the next "non-delimiter"</span>
-<a name="l00249"></a>00249         pos = <a class="code" href="class_text.html#6db21a43e3b2d0795efad5be93bbea90" title="The text itself.">content_</a>.find_first_of(delimiters, lastPos);
-<a name="l00250"></a>00250     }
-<a name="l00251"></a>00251 };
+<a name="l00224"></a>00224 
+<a name="l00232"></a><a class="code" href="class_text.html#cf1ad9772327a1d03d03c879e5bfcc24">00232</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#cf1ad9772327a1d03d03c879e5bfcc24" title="Extracts the words surrounded by default delimiters from text.">Text::tokenize</a>(std::vector&lt;std::string&gt;&amp; tokens, <span class="keyword">const</span> std::string&amp; delimiters)<span class="keyword"> const</span>
+<a name="l00233"></a>00233 <span class="keyword"></span>{
+<a name="l00234"></a>00234     <span class="comment">// Skip delimiters at the beginning of text</span>
+<a name="l00235"></a>00235     std::string::size_type lastPos = <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.find_first_not_of(delimiters, 0);
+<a name="l00236"></a>00236     
+<a name="l00237"></a>00237     <span class="comment">// Find the first "non-delimiter"</span>
+<a name="l00238"></a>00238     std::string::size_type pos     = <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.find_first_of(delimiters, lastPos);
+<a name="l00239"></a>00239     
+<a name="l00240"></a>00240     <span class="comment">// Traverse the content until reaching its end</span>
+<a name="l00241"></a>00241     <span class="keywordflow">while</span> ( (std::string::npos not_eq pos) or (std::string::npos not_eq lastPos) )
+<a name="l00242"></a>00242     {
+<a name="l00243"></a>00243         <span class="comment">// A word has been found, add it to the vector</span>
+<a name="l00244"></a>00244         tokens.push_back(<a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.substr(lastPos, pos - lastPos));
+<a name="l00245"></a>00245         
+<a name="l00246"></a>00246         <span class="comment">// Skip delimiters again</span>
+<a name="l00247"></a>00247         lastPos = <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.find_first_not_of(delimiters, pos);
+<a name="l00248"></a>00248         
+<a name="l00249"></a>00249         <span class="comment">// Find the next "non-delimiter"</span>
+<a name="l00250"></a>00250         pos = <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text itself.">content_</a>.find_first_of(delimiters, lastPos);
+<a name="l00251"></a>00251     }
+<a name="l00252"></a>00252 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 21:13:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

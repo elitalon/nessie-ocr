@@ -73,13 +73,12 @@ Collaboration diagram for Pixel:</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Information about an image pixel. 
 <p>
-This class stores all the information of a pixel within a press clip, no matter if we are dealing with the clip itself, or some other data structure which makes use of it. Every pixel has a location, given by a pair of coordinates x and y, and a color information, which may come in three formats: grayscale, RGB or monochromatic.<p>
-The Clip::getColorspace() method gives the current colorspace that is associated with the pixel and its underlying image, so that the right methods here can be invoked. If a method related to one colorspace (e.g. getGrayLevel()) is called when the current colorspace is actually another (e.g. COLORSPACE_RGB), a predefined value is returned. See the different methods documentation to know what are these values.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65" title="Colorspace of an image.">Colorspace</a></dd></dl>
+This class stores all the information of a pixel within a press clip. Every pixel has a location given by a pair of coordinates (x,y) and a color information in a grayscale colorspace of 256 levels.<p>
+The gray level of a pixel is normalized value between 0.0 and 1.0, where 0 corresponds to 0.0 (black) and 255 corresponds to 1.0 (white). A monochromatic colorspace can be emulated using only 0.0 and 1.0.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8h-source.html#l00034">34</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8h-source.html#l00022">22</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -89,12 +88,6 @@ The Clip::getColorspace() method gives the current colorspace that is associated
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#e54d95bf19847e4857eeb03f1138ceb9">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e54d95bf19847e4857eeb03f1138ceb9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#9fb3e8102469e8c2450e64815f5f6fb5">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;red, const double &amp;green, const double &amp;blue)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#9fb3e8102469e8c2450e64815f5f6fb5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#4657a977426649b6c56613971770fea6">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const bool &amp;isForeground)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#4657a977426649b6c56613971770fea6"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#30f6aaf9a1d8792245070860546fa365">~Pixel</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#30f6aaf9a1d8792245070860546fa365"></a><br></td></tr>
@@ -110,33 +103,6 @@ The Clip::getColorspace() method gives the current colorspace that is associated
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#5f287c6a53167076bc8f1ce54e74e38d">grayLevel</a> (const double &amp;grayLevel)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's gray level.  <a href="#5f287c6a53167076bc8f1ce54e74e38d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#52542702e90cafc9c29713c23cd35e8f">red</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's red component in RGB colorspace.  <a href="#52542702e90cafc9c29713c23cd35e8f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#5866609b8a50e1266aa7c90b0085ec73">red</a> (const double &amp;value)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's red component in RGB colorspace.  <a href="#5866609b8a50e1266aa7c90b0085ec73"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#71606a21fe4efc55a5ce5bb318b629f7">green</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's green component in RGB colorspace.  <a href="#71606a21fe4efc55a5ce5bb318b629f7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#1b2f2bd7aec76a37e1c9c0d8bdbba3ba">green</a> (const double &amp;value)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's green component in RGB colorspace.  <a href="#1b2f2bd7aec76a37e1c9c0d8bdbba3ba"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#978b4078a48ff2a67b55dd10eec78fb2">blue</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's blue component in RGB colorspace.  <a href="#978b4078a48ff2a67b55dd10eec78fb2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#d70e2f2a8ca1f25dca0cd67097f24eba">blue</a> (const double &amp;value)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's blue component in RGB colorspace.  <a href="#d70e2f2a8ca1f25dca0cd67097f24eba"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#6ab0eea0f05f228f5e314cb0c3894eca">setColor</a> (const double &amp;red, const double &amp;green, const double &amp;blue)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pixel's color in RGB colorspace.  <a href="#6ab0eea0f05f228f5e314cb0c3894eca"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#48f2d29f9542f9c2ce293422ab07ffcc">isForeground</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the pixel belongs to the image foreground.  <a href="#48f2d29f9542f9c2ce293422ab07ffcc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#d3007fd841eee762c9a1becc293f12db">isForeground</a> (const bool &amp;isForeground)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets whether the pixel belongs to the foreground or not.  <a href="#d3007fd841eee762c9a1becc293f12db"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9f8a45ad3cbcab59543e4f7d4842ae6d"></a><!-- doxytag: member="Pixel::x_" ref="9f8a45ad3cbcab59543e4f7d4842ae6d" args="" -->
 unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d">x_</a></td></tr>
@@ -150,26 +116,6 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#545bed829ed92f39962a30ace0d7e88d">grayLevel_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel's gray level. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7b7fcc89637b192817dc98bc888a8d7d"></a><!-- doxytag: member="Pixel::red_" ref="7b7fcc89637b192817dc98bc888a8d7d" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#7b7fcc89637b192817dc98bc888a8d7d">red_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel's red component in RGB colorspace. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="eb119b3fac6cf28c190dffe0bbca4d1b"></a><!-- doxytag: member="Pixel::green_" ref="eb119b3fac6cf28c190dffe0bbca4d1b" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#eb119b3fac6cf28c190dffe0bbca4d1b">green_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel's green component in RGB colorspace. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9d2375a06d09fafc8390a89c0a9397b4"></a><!-- doxytag: member="Pixel::blue_" ref="9d2375a06d09fafc8390a89c0a9397b4" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#9d2375a06d09fafc8390a89c0a9397b4">blue_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel's blue component in RGB colorspace. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="c5e23dca7ce110bd906966dedf975fca"></a><!-- doxytag: member="Pixel::isForeground_" ref="c5e23dca7ce110bd906966dedf975fca" args="" -->
-bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#c5e23dca7ce110bd906966dedf975fca">isForeground_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tells if the pixel belongs to the image foreground. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="df7d066dd31f59039561b541e29aa217"></a><!-- doxytag: member="Pixel::colorspace_" ref="df7d066dd31f59039561b541e29aa217" args="" -->
-<a class="el" href="_colorspace_8h.html#7a7e24cdb2a27271343f0adceff89f65">Colorspace</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#df7d066dd31f59039561b541e29aa217">colorspace_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Colorspace of pixel. <br></td></tr>
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="27ad99a2f705e635c42d242d530d4756"></a><!-- doxytag: member="Pixel::Pixel" ref="27ad99a2f705e635c42d242d530d4756" args="()" -->
@@ -192,9 +138,9 @@ Constructor.
 <p>
 Initializes a empty <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object located at (0,0)<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-02 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00014">14</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00015">15</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -232,130 +178,18 @@ Initializes a empty <a class="el" href="class_pixel.html" title="Information abo
 <p>
 Constructor. 
 <p>
-Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a grayscale colorspace. When using grayscale representation all the pixels are considered as belonging to the foreground, and they have a zero value per RGB channel.<p>
+Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object with the coordinates and gray level provided. If the gray level<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>Gray level of the pixel whenever a grayscale colorspace is used</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td><a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> gray level</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
 <p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00032">32</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="9fb3e8102469e8c2450e64815f5f6fb5"></a><!-- doxytag: member="Pixel::Pixel" ref="9fb3e8102469e8c2450e64815f5f6fb5" args="(const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;red, const double &amp;green, const double &amp;blue)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Pixel::Pixel           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>red</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>green</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>blue</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Constructor. 
-<p>
-Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a RGB colorspace. When using RGB representation all the pixels are considered as belonging to the foreground, and they have an associated grayscale value computed according to the equation <img class="formulaInl" alt="$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue) $" src="form_1.png"><p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>Color value of red channel of a RGB colorspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>Color value of green channel of a RGB colorspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>Color value of blue channel of a RGB colorspace</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00053">53</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="4657a977426649b6c56613971770fea6"></a><!-- doxytag: member="Pixel::Pixel" ref="4657a977426649b6c56613971770fea6" args="(const unsigned int &amp;x, const unsigned int &amp;y, const bool &amp;isForeground)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Pixel::Pixel           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool &amp;&nbsp;</td>
-          <td class="paramname"> <em>isForeground</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Constructor. 
-<p>
-Initializes a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object using a monochromatic colorspace. When using a monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>.<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X coordinate (row) of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y coordinate (colum) of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>isForeground</em>&nbsp;</td><td>Tells whether the pixel belongs to the foreground or not</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00073">73</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -381,7 +215,7 @@ Destroys a <a class="el" href="class_pixel.html" title="Information about an ima
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00099">99</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00053">53</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -408,7 +242,7 @@ Returns the pixel's X coordinate.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00111">111</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00065">65</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -434,7 +268,7 @@ Returns the pixel's Y coordinate.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00123">123</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00077">77</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -456,14 +290,13 @@ Returns the pixel's Y coordinate.
 <p>
 Returns the pixel's gray level. 
 <p>
-If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a certain value depending on what is the current colorspace. If it is COLORSPACE_MONOCHROMATIC this method returns 0.0 when the pixel belongs to the foreground or 1.0 otherwise. If it is COLORSPACE_RGB this method returns the associated grayscale value computed according to the equation <img class="formulaInl" alt="$grayLevel = (0.3 * redValue) + (0.59 * greenValue) + (0.11 * blueValue)$" src="form_2.png"><p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel, independently on the colorspace being RGB or grayscale</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00141">141</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00089">89</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00203">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00283">Preprocessor::removeIsolatedNoise()</a>.</p>
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00169">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00245">Preprocessor::removeIsolatedNoise()</a>.</p>
 
 </div>
 </div><p>
@@ -486,302 +319,22 @@ If the pixel colorspace is not COLORSPACE_GRAYSCALE then this method returns a c
 <p>
 Sets the pixel's gray level. 
 <p>
-If the pixel current colorspace is different from COLORSPACE_GRAYSCALE no change is made<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>The gray level of the pixel when working on a grayscale colorspace</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00155">155</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="52542702e90cafc9c29713c23cd35e8f"></a><!-- doxytag: member="Pixel::red" ref="52542702e90cafc9c29713c23cd35e8f" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Pixel::red           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the pixel's red component in RGB colorspace. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the red channel</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00252">252</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="5866609b8a50e1266aa7c90b0085ec73"></a><!-- doxytag: member="Pixel::red" ref="5866609b8a50e1266aa7c90b0085ec73" args="(const double &amp;value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Pixel::red           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>value</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the pixel's red component in RGB colorspace. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the red channel</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00183">183</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="71606a21fe4efc55a5ce5bb318b629f7"></a><!-- doxytag: member="Pixel::green" ref="71606a21fe4efc55a5ce5bb318b629f7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Pixel::green           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the pixel's green component in RGB colorspace. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the green channel</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00264">264</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="1b2f2bd7aec76a37e1c9c0d8bdbba3ba"></a><!-- doxytag: member="Pixel::green" ref="1b2f2bd7aec76a37e1c9c0d8bdbba3ba" args="(const double &amp;value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Pixel::green           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>value</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the pixel's green component in RGB colorspace. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the green channel</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00206">206</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="978b4078a48ff2a67b55dd10eec78fb2"></a><!-- doxytag: member="Pixel::blue" ref="978b4078a48ff2a67b55dd10eec78fb2" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Pixel::blue           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the pixel's blue component in RGB colorspace. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The color value of the blue channel</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00276">276</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="d70e2f2a8ca1f25dca0cd67097f24eba"></a><!-- doxytag: member="Pixel::blue" ref="d70e2f2a8ca1f25dca0cd67097f24eba" args="(const double &amp;value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Pixel::blue           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>value</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the pixel's blue component in RGB colorspace. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>value</em>&nbsp;</td><td>The color value of the blue channel</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00229">229</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="6ab0eea0f05f228f5e314cb0c3894eca"></a><!-- doxytag: member="Pixel::setColor" ref="6ab0eea0f05f228f5e314cb0c3894eca" args="(const double &amp;red, const double &amp;green, const double &amp;blue)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Pixel::setColor           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>red</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>green</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>blue</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the pixel's color in RGB colorspace. 
-<p>
-If the pixel current colorspace is different from COLORSPACE_RGB no change is made<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>red</em>&nbsp;</td><td>Color value of the red channel in a RGB colorspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>green</em>&nbsp;</td><td>Color value of the green channel in a RGB colorspace </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>blue</em>&nbsp;</td><td>Color value of the blue channel in a RGB colorspace</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00292">292</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="48f2d29f9542f9c2ce293422ab07ffcc"></a><!-- doxytag: member="Pixel::isForeground" ref="48f2d29f9542f9c2ce293422ab07ffcc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Pixel::isForeground           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns true if the pixel belongs to the image foreground. 
-<p>
-If the pixel colorspace is not COLORSPACE_MONOCHROMATIC this method returns always true.<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the pixel belongs to the foreground or if the colorspace is monochromatic</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00342">342</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="d3007fd841eee762c9a1becc293f12db"></a><!-- doxytag: member="Pixel::isForeground" ref="d3007fd841eee762c9a1becc293f12db" args="(const bool &amp;isForeground)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Pixel::isForeground           </td>
-          <td>(</td>
-          <td class="paramtype">const bool &amp;&nbsp;</td>
-          <td class="paramname"> <em>isForeground</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets whether the pixel belongs to the foreground or not. 
-<p>
-If the pixel current colorspace is different from COLORSPACE_MONOCHROMATIC no change is made. When using a monochromatic representation all the pixels have a zero or one value per channel both on RGB and grayscale colorspace. Note that this does not mean the foreground color is black or white, it's just a way of representing boolean values. The true foreground color should be gathered using the appropiate method in class <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>.<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>isForeground</em>&nbsp;</td><td>Tells whether the pixel has to be set as belonging to the foreground or not</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00359">359</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00101">101</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_pixel_8h-source.html">Pixel.h (123)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (123)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 21:13:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

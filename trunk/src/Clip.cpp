@@ -1,61 +1,71 @@
-#include "Clip.h"
-
 ///
 /// @file
 /// @brief Implementation of class Clip
 ///
 
+#include "Clip.h"
+#include "NessieException.h"
+
+#include <iostream>
+#include <Magick++.h>
+
 
 ///
-/// @details Initializes a Clip object located at coordinates (xOrigin,yOrigin) in the source image, with the height and width passed.
-/// The xOrigin value allows access to the image rows, while the yOrigin value allows access to the image columns. If the xOrigin and
-/// yOrigin are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is
-/// truncated. Note that, as in C and C++, indexes begin at (0,0).
+/// @details Initializes a Clip object located at coordinates (x,y) in the source image, with the height and width passed.
+/// The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders,
+/// an exception is thrown. If the width and height are over the image borders the clip is truncated.
+/// 
+/// @remarks By default the image is always converted into a grayscale colorspace
 /// 
 /// @param image	The underlying image where the clip belongs to
-/// @param xOrigin	The upper left-most pixel X coordinate of the clip
-/// @param yOrigin	The upper left-most pixel Y coordinate of the clip
+/// @param x		The upper left-most pixel X coordinate of the clip
+/// @param y		The upper left-most pixel Y coordinate of the clip
 /// @param height	The height of the clip
 /// @param width	The width of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-01
+/// @date 2008-10-04
 ///
-Clip::Clip (Image image, const unsigned int &xOrigin, const unsigned int &yOrigin, const unsigned int &height, const unsigned int &width)
+Clip::Clip (const Magick::Image &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width)
 	: image_(image)
 {
 	try
 	{
 		// Associate a frame with the image
-		frame_ = new Pixels(image_);
+		frame_ = new Magick::Pixels(image_);
 	}
-	catch (exception& e)
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	
+	// Test the clip top left-most corner is inside the image
+	if ( x >= image_.rows() or x < 0 )
 	{
 		delete frame_;
-		cout << e.what() << endl;
+		throw NessieException ("In constructor Clip::Clip(): The X coordinate of clip's upper leftmost pixel is out of image borders");
 	}
-	
-	
-	// Test the clip borders are inside the image
-	if ( xOrigin >= image_.rows() or xOrigin < 0 )
-		throw NessieException ("Clip::Clip: The X coordinate of clip's upper leftmost pixel is out of image borders");
 	else
-		xOrigin_ = xOrigin;
+		x_ = x;
 	
-	if ( yOrigin >= image_.columns() or yOrigin < 0 )
-		throw NessieException ("Clip::Clip: The Y coordinate of clip's upper leftmost pixel is out of image borders");
+	if ( y >= image_.columns() or y < 0 )
+	{
+		delete frame_;
+		throw NessieException ("In constructor Clip::Clip(): The Y coordinate of clip's upper leftmost pixel is out of image borders");
+	}
 	else
-		yOrigin_ = yOrigin;
+		y_ = y;
 	
 		
 	// Test the clip size is consistent with the image size
-	if ( (xOrigin_ + height) > image_.rows() )
-		height_ = image_.rows() - xOrigin_;
+	if ( (x_ + height) > image_.rows() )
+		height_ = image_.rows() - x_;
 	else
 		height_ = height;
 	
-	if ( (yOrigin_ + width) > image_.columns() )
-		width_ = image_.columns() - yOrigin_;
+	if ( (y_ + width) > image_.columns() )
+		width_ = image_.columns() - y_;
 	else
 		width_ = width;
 		
@@ -63,37 +73,15 @@ Clip::Clip (Image image, const unsigned int &xOrigin, const unsigned int &yOrigi
 	try
 	{
 		// Initializes the pointer to the clip origin
-		originPixel_ = frame_->get(xOrigin_, yOrigin_, width_, height_);
+		originPixel_ = frame_->get(x_, y_, width_, height_);
 		
-		// Initializes the image colorspace
-		switch (image_.type())
-		{
-			case GrayscaleType:
-			{
-				colorspace_ = COLORSPACE_GRAYSCALE;
-				break;
-			}
-			case TrueColorType:
-			{
-				colorspace_ = COLORSPACE_RGB;
-				break;
-			}
-			case BilevelType:
-			{
-				colorspace_ = COLORSPACE_MONOCHROMATIC;
-				break;
-			}
-			default:
-			{
-				colorspace_ = COLORSPACE_UNDEFINED;
-				break;
-			}
-		}
+		// Convert the image into a grayscale mode
+		image_.type(Magick::GrayscaleType);		
 	}
-	catch (exception& e)
+	catch (std::exception &e)
 	{
 		delete frame_;
-		cout << e.what() << endl;
+		std::cout << e.what() << std::endl;
 	}
 };
 
@@ -116,7 +104,7 @@ Clip::~Clip ()
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
 ///
-Image Clip::image ()
+Magick::Image Clip::image ()
 {
 	return image_;
 };
@@ -126,11 +114,11 @@ Image Clip::image ()
 /// @return The upper left-most pixel X coordinate of the clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-24
+/// @date 2008-10-04
 ///
-unsigned int Clip::xOrigin () const
+unsigned int Clip::x () const
 {
-	return xOrigin_;
+	return x_;
 };
 
 
@@ -142,14 +130,14 @@ unsigned int Clip::xOrigin () const
 /// @throw NessieException
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-04
 ///
-void Clip::xOrigin (const unsigned int &x)
+void Clip::x (const unsigned int &x)
 {
 	if ( x >= image_.rows() or x < 0 )
-		throw NessieException ("Clip::xOrigin: The X coordinate of clip's upper leftmost pixel is out of image borders");
+		throw NessieException ("Clip::xOrigin(const unsigned int &x): The X coordinate of clip's upper leftmost pixel is out of image borders");
 	else
-		xOrigin_ = x;
+		x_ = x;
 	
 	adjustClipSize();
 	relocateClipOrigin();
@@ -160,11 +148,11 @@ void Clip::xOrigin (const unsigned int &x)
 /// @return The upper left-most pixel Y coordinate of the clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-24
+/// @date 2008-10-04
 ///
-unsigned int Clip::yOrigin () const
+unsigned int Clip::y () const
 {
-	return yOrigin_;
+	return y_;
 };
 
 
@@ -176,14 +164,14 @@ unsigned int Clip::yOrigin () const
 /// @throw NessieException
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-04
 ///
-void Clip::yOrigin (const unsigned int &y)
+void Clip::y (const unsigned int &y)
 {
 	if ( y >= image_.columns() or y < 0 )
-		throw NessieException ("Clip::yOrigin: The Y coordinate of clip's upper leftmost pixel is out of image borders");
+		throw NessieException ("Clip::yOrigin(const unsigned int &y): The Y coordinate of clip's upper leftmost pixel is out of image borders");
 	else
-		yOrigin_ = y;
+		y_ = y;
 	
 	adjustClipSize();
 	relocateClipOrigin();
@@ -208,12 +196,12 @@ unsigned int Clip::height () const
 /// @param height The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-01
+/// @date 2008-10-04
 ///
 void Clip::height (const unsigned int &height)
 {
-	if ( (xOrigin_ + height) > image_.rows() )
-		height_ = image_.rows() - xOrigin_;
+	if ( (x_ + height) > image_.rows() )
+		height_ = image_.rows() - x_;
 	else
 		height_ = height;
 	
@@ -239,12 +227,12 @@ unsigned int Clip::width () const
 /// @param width The height of the clip
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-01
+/// @date 2008-10-04
 ///
 void Clip::width (const unsigned int &width)
 {
-	if ( (yOrigin_ + width) > image_.columns() )
-		width_ = image_.columns() - yOrigin_;
+	if ( (y_ + width) > image_.columns() )
+		width_ = image_.columns() - y_;
 	else
 		width_ = width;
 	
@@ -253,124 +241,7 @@ void Clip::width (const unsigned int &width)
 
 
 ///
-/// @return The current colorspace of the clip
-/// 
-/// @see Colorspace
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-24
-///
-Colorspace Clip::colorspace () const
-{
-	return colorspace_;
-};
-
-
-///
-/// @details By setting the colorspace to a certain value the image colorspace changes, affecting all its pixels
-/// and the information regarding the image colors.
-/// 
-/// @param colorspace The colorspace of the clip according to values in Colorspace
-/// 
-/// @see Colorspace
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-void Clip::colorspace (const Colorspace &colorspace)
-{
-	try
-	{
-		// Ensure that there is only one reference to underlying image.
-		// If this is not done, then image pixels will not be modified.
-		image_.modifyImage();
-		
-		// Convert the image colorspace to the new one
-		switch (colorspace)
-		{
-			case COLORSPACE_GRAYSCALE:
-			{
-				image_.type( GrayscaleType );
-				colorspace_ = COLORSPACE_GRAYSCALE;
-				break;
-			}
-			case COLORSPACE_RGB:
-			{
-				image_.type( TrueColorType );
-				colorspace_ = COLORSPACE_RGB;
-				break;
-			}
-			case COLORSPACE_MONOCHROMATIC:
-			{
-				image_.type( BilevelType );
-				colorspace_ = COLORSPACE_MONOCHROMATIC;
-				break;
-			}
-			default:
-			{
-				// The colorspace remains the same
-				break;
-			}
-		}
-		
-		// Apply changes on the image
-		frame_->sync();
-	}
-	catch (exception& e)
-	{
-		cout << e.what() << endl;
-	}
-};
-
-
-///
-/// @return True if the colorspace of the clip is grayscale
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-bool Clip::isGrayscale () const
-{
-	if ( colorspace_ == COLORSPACE_GRAYSCALE )
-		return true;
-	else
-		return false;
-};
-
-
-///
-/// @return True if the colorspace of the clip is RGB
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-bool Clip::isColor () const
-{
-	if ( colorspace_ == COLORSPACE_RGB )
-		return true;
-	else
-		return false;
-};
-
-
-///
-/// @return True if the colorspace of the clip is monochromatic
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-bool Clip::isMonochromatic () const
-{
-	if ( colorspace_ == COLORSPACE_MONOCHROMATIC )
-		return true;
-	else
-		return false;
-};
-
-
-///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
-/// If the image colorspace is undefined, an exception is also thrown.
 /// 
 /// @param x	The upper left-most pixel X coordinate of the clip
 /// @param y	The upper left-most pixel Y coordinate of the clip
@@ -378,67 +249,48 @@ bool Clip::isMonochromatic () const
 /// @return The pixel at coordinates (x,y)
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-02
+/// @date 2008-10-04
 /// 
 Pixel Clip::getPixel (const unsigned int &x, const unsigned int &y) const
 {
 	// Check the location is inside the clip borders
 	if ( (x >= height_) or (x < 0) )
-		throw NessieException ("Clip::getPixel: The X coordinate is out of image borders");
+		throw NessieException ("Clip::getPixel(const unsigned int &x, const unsigned int &y): The X coordinate is out of image borders");
 	
 	if ( (y >= width_) or (y < 0) )
-		throw NessieException ("Clip::getPixel: The Y coordinate is out of image borders");
+		throw NessieException ("Clip::getPixel(const unsigned int &x, const unsigned int &y): The Y coordinate is out of image borders");
 	
 	// Get the pixel at desired location
-	PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
+	Magick::PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
 	
-	// Build a new Pixel object with color information depending on image colorspace
-	switch (colorspace_)
+	try
 	{
-		case COLORSPACE_GRAYSCALE:
-		{
-			ColorGray grayLevel(*selectedPixel);
-			return Pixel(x, y, grayLevel.shade());
-			break;
-		}
-		case COLORSPACE_RGB:
-		{
-			ColorRGB rgbColor(*selectedPixel);
-			return Pixel(x, y, rgbColor.red(), rgbColor.green(), rgbColor.blue());
-			break;
-		}
-		case COLORSPACE_MONOCHROMATIC:
-		{
-			ColorMono isForeground(*selectedPixel);
-			return Pixel(x, y, isForeground.mono());
-			break;
-		}
-		default:
-		{
-			throw NessieException ("Clip::getPixel: The pixel cannot be returned because the image colorspace is undefined");
-			break;
-		}
+		// Build a Pixel object with the pixel gray level
+		Magick::ColorGray grayLevel(*selectedPixel);
+		return Pixel(x, y, grayLevel.shade());
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return Pixel();
 	}
 };
 
 
 ///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
-/// If the image colorspace is not grayscale no changes are made. The gray level must be normalized in a value from 0 to 1,
-/// otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
+/// The gray level must be normalized in a value from 0 to 1, otherwise it is truncated either to 0 if it's less than 0
+/// or to 1 if it's greater than 1.
 ///
 /// @param x			The upper left-most pixel X coordinate of the clip
 /// @param y			The upper left-most pixel Y coordinate of the clip
 /// @param grayLevel	The new gray level for the pixel at coordinates (x,y)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-02-10
+/// @date 2008-10-04
 ///
 void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel)
 {
-	if ( colorspace_ not_eq COLORSPACE_GRAYSCALE )
-		return;
-	
 	try
 	{
 		// Ensure that there is only one reference to underlying image.
@@ -447,116 +299,23 @@ void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double 
 	
 		// Check the location is inside the clip borders
 		if ( x >= height_ or x < 0 )
-			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
+			throw NessieException ("Clip::setPixel(const unsigned int &x, const unsigned int &y, const double &grayLevel): The X coordinate is out of image borders");
 
 		if ( y >= width_ or y < 0 )
-			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
+			throw NessieException ("Clip::setPixel(const unsigned int &x, const unsigned int &y, const double &grayLevel): The Y coordinate is out of image borders");
 
 		// Get the pixel at desired location
-		PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
+		Magick::PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
 
 		// Assign the desired value to the pixel
-		*selectedPixel = ColorGray(grayLevel);
+		*selectedPixel = Magick::ColorGray(grayLevel);
 
 		// Apply changes on the image
 		frame_->sync();
 	}
-	catch (exception& e)
+	catch (std::exception &e)
 	{
-		cout << e.what() << endl;
-	}
-};
-
-
-///
-/// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
-/// If the image colorspace is not RGB no changes are made. Each channel value must be normalized in a value from 0 to 1,
-/// otherwise it is truncated either to 0 if it's less than 0 or to 1 if it's greater than 1.
-///
-/// @param x		The upper left-most pixel X coordinate of the clip
-/// @param y		The upper left-most pixel Y coordinate of the clip
-/// @param red		The new color value of red channel for the pixel at coordinates (x,y)
-/// @param green	The new color value of green channel for the pixel at coordinates (x,y)
-/// @param blue		The new color value of blue channel for the pixel at coordinates (x,y)
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue)
-{
-	if ( colorspace_ not_eq COLORSPACE_RGB )
-		return;
-	
-	try
-	{
-		// Ensure that there is only one reference to underlying image.
-		// If this is not done, then image pixels will not be modified.
-		image_.modifyImage();
-		
-		// Check the location is inside the clip borders
-		if ( x >= frame_->rows() or x < 0 )
-			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
-
-		if ( y >= frame_->columns() or y < 0 )
-			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
-
-		// Get the pixel at desired location
-		PixelPacket* selectedPixel = originPixel_ + (x * frame_->columns()) + y;
-
-		// Assign the desired value to the pixel
-		*selectedPixel = ColorRGB(red, green, blue);
-
-		// Apply changes on the image
-		frame_->sync();
-	}
-	catch (exception& e)
-	{
-		cout << e.what() << endl;
-	}
-};
-
-
-///
-/// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
-/// If the image colorspace is not monochromatic no changes are made
-///
-/// @param x			The upper left-most pixel X coordinate of the clip
-/// @param y			The upper left-most pixel Y coordinate of the clip
-/// @param isForeground	Tells whether the pixel at coordinates (x,y) belongs to the foreground or not
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
-///
-void Clip::setPixel (const unsigned int &x, const unsigned int &y, const bool &isForeground)
-{
-	if ( colorspace_ not_eq COLORSPACE_MONOCHROMATIC )
-		return;
-	
-	try
-	{
-		// Ensure that there is only one reference to underlying image.
-		// If this is not done, then image pixels will not be modified.
-		image_.modifyImage();
-		
-		// Check the location is inside the clip borders
-		if ( x >= frame_->rows() or x < 0 )
-			throw NessieException ("Clip::setPixel: The X coordinate is out of image borders");
-
-		if ( y >= frame_->columns() or y < 0 )
-			throw NessieException ("Clip::setPixel: The Y coordinate is out of image borders");
-
-		// Get the pixel at desired location
-		PixelPacket* selectedPixel = originPixel_ + (x * frame_->columns()) + y;
-
-		// Assign the desired value to the pixel
-		*selectedPixel = ColorMono(isForeground);
-
-		// Apply changes on the image
-		frame_->sync();
-	}
-	catch (exception& e)
-	{
-		cout << e.what() << endl;
+		std::cout << e.what() << std::endl;
 	}
 };
 
@@ -565,18 +324,18 @@ void Clip::setPixel (const unsigned int &x, const unsigned int &y, const bool &i
 /// @details When any of the clip attributes change, it is neccesary to relocate the clip position over the source image
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-04
 ///
 void Clip::relocateClipOrigin ()
 {
 	try
 	{		
 		// Relocate the pointer to the clip new origin
-		originPixel_ = frame_->get(xOrigin_, yOrigin_, width_, height_);
+		originPixel_ = frame_->get(x_, y_, width_, height_);
 	}
-	catch (exception& e)
+	catch (std::exception &e)
 	{
-		cout << e.what() << endl;
+		std::cout << e.what() << std::endl;
 	}	
 };
 
@@ -586,13 +345,13 @@ void Clip::relocateClipOrigin ()
 /// underlying image or not
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-26
+/// @date 2008-10-04
 /// 
 void Clip::adjustClipSize ()
 {
-	if ( (yOrigin_ + width_) > image_.columns() )
-		width_ = image_.columns() - yOrigin_;
+	if ( (y_ + width_) > image_.columns() )
+		width_ = image_.columns() - y_;
 	
-	if ( (xOrigin_ + height_) > image_.rows() )
-		height_ = image_.rows() - xOrigin_;
+	if ( (x_ + height_) > image_.rows() )
+		height_ = image_.rows() - x_;
 };

@@ -59,25 +59,51 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Statistics.cpp</h1><a href="_statistics_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include "<a class="code" href="_statistics_8h.html" title="Declaration of struct Statistics.">Statistics.h</a>"</span>
+<h1>Statistics.cpp</h1><a href="_statistics_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="preprocessor">#include "<a class="code" href="_statistics_8h.html" title="Declaration of class Statistics.">Statistics.h</a>"</span>
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
-<a name="l00015"></a><a class="code" href="struct_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63">00015</a> <a class="code" href="struct_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics::Statistics</a> () : nWords(0), wordRates(vector&lt;<a class="code" href="_word_rate_8h.html#e8f43926daba5798edbb3cb94ad07ff7" title="Appearance rate of a word.">WordRate</a>&gt;(0)), noiseRemovalTime(0.0), grayscaleConversionTime(0.0),
-<a name="l00016"></a>00016     floodFillingTime(0.0), thresholdingTime(0.0), featureVectorsBuildingTime(0.0), charactersExtractionTime(0.0)
+<a name="l00015"></a><a class="code" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63">00015</a> <a class="code" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics::Statistics</a> () :
+<a name="l00016"></a>00016     backgroundReferenceGrayLevelFindingTime_(0.0), optimalThresholdComputingTime_(0.0), noiseRemovalTime_(0.0)
 <a name="l00017"></a>00017 {
-<a name="l00018"></a>00018     <a class="code" href="struct_statistics.html#57aa8970c666c415db6dcdd0cc3920f6" title="Returns the total time within the preprocessing stage.">preprocessingTime</a>   = <a class="code" href="struct_statistics.html#fc22ca2705714cfc44c45c772475c1cb" title="Elapsed time in the grayscale conversion stage.">grayscaleConversionTime</a>       + <a class="code" href="struct_statistics.html#4a194feb4de2fc619d311b2adb2a7e74" title="Elapsed time in the noise removal stage.">noiseRemovalTime</a>;
-<a name="l00019"></a>00019     <a class="code" href="struct_statistics.html#f5afa8bf14678df2d5b869b6161a209f" title="Returns the total time within the segmentation stage.">segmentationTime</a>    = <a class="code" href="struct_statistics.html#e2c88c8b599b217ad3f316cca7a15a23" title="Elapsed time in the thresholding stage.">thresholdingTime</a>              + <a class="code" href="struct_statistics.html#6c2cd48482d1de181cb2dd32b3315449" title="Elapsed time in the flood filling stage.">floodFillingTime</a>;
-<a name="l00020"></a>00020     <a class="code" href="struct_statistics.html#7bfcefbca86812a13371f35f6ad2632c" title="Returns the total time within the classification stage.">classificationTime</a>  = <a class="code" href="struct_statistics.html#ae46d5f7b2a374dd79b15533facc9e6c" title="Elapsed time in the feature vectors building stage.">featureVectorsBuildingTime</a>    + <a class="code" href="struct_statistics.html#1e09de36cf3a65ab2a471e877578257d" title="Elapsed time in the characters extraction stage.">charactersExtractionTime</a>;
-<a name="l00021"></a>00021 };
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 
-<a name="l00030"></a><a class="code" href="struct_statistics.html#b68ede75479e44d5c35b78ec1284065b">00030</a> <a class="code" href="struct_statistics.html#b68ede75479e44d5c35b78ec1284065b" title="Destructor.">Statistics::~Statistics</a> ()
-<a name="l00031"></a>00031 {
-<a name="l00032"></a>00032     
-<a name="l00033"></a>00033 };
+<a name="l00018"></a>00018     <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a> = <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a> + <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a> + <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
+<a name="l00019"></a>00019 };
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 
+<a name="l00028"></a><a class="code" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b">00028</a> <a class="code" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b" title="Destructor.">Statistics::~Statistics</a> ()
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030     
+<a name="l00031"></a>00031 };
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00038"></a><a class="code" href="class_statistics.html#565e90b1940d12bb2a2661f6dcea230d">00038</a> <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#565e90b1940d12bb2a2661f6dcea230d" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">Statistics::backgroundReferenceGrayLevelFindingTime</a> ()<span class="keyword"> const</span>
+<a name="l00039"></a>00039 <span class="keyword"></span>{
+<a name="l00040"></a>00040     <span class="keywordflow">return</span> <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a>;
+<a name="l00041"></a>00041 };
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00048"></a><a class="code" href="class_statistics.html#ca10ccbc4137e9ad184ff6dc9a3e5a46">00048</a> <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#ca10ccbc4137e9ad184ff6dc9a3e5a46" title="Returns the elapsed time in the optimal threshold computing algorithm.">Statistics::optimalThresholdComputingTime</a> ()<span class="keyword"> const</span>
+<a name="l00049"></a>00049 <span class="keyword"></span>{
+<a name="l00050"></a>00050     <span class="keywordflow">return</span> <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a>;
+<a name="l00051"></a>00051 };
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 
+<a name="l00058"></a><a class="code" href="class_statistics.html#25b35c7f7f33d55ee86f4e7ba6cd0c48">00058</a> <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#25b35c7f7f33d55ee86f4e7ba6cd0c48" title="Returns the elapsed time in the noise removal algorithm.">Statistics::noiseRemovalTime</a> ()<span class="keyword"> const</span>
+<a name="l00059"></a>00059 <span class="keyword"></span>{
+<a name="l00060"></a>00060     <span class="keywordflow">return</span> <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00068"></a><a class="code" href="class_statistics.html#d88deb57349fedd7035ccffa06b4859b">00068</a> <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#d88deb57349fedd7035ccffa06b4859b" title="Returns the total elapsed time within the preprocessing stage.">Statistics::preprocessingTime</a> ()<span class="keyword"> const</span>
+<a name="l00069"></a>00069 <span class="keyword"></span>{
+<a name="l00070"></a>00070     <span class="keywordflow">return</span> <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a>;
+<a name="l00071"></a>00071 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 3 21:13:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

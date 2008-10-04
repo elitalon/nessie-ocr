@@ -6,16 +6,17 @@
 #include "Text.h"
 
 #include <algorithm>
-using namespace std;
+#include <string>
+#include <vector>
 
 
 ///
 /// @details Initializes a Text object with no content
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 /// 
-Text::Text () : content_(string("")), wordRates_(vector<WordRate>(0))
+Text::Text () : content_(std::string("")), wordRates_(std::vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
 	computeWordRates();
@@ -28,9 +29,9 @@ Text::Text () : content_(string("")), wordRates_(vector<WordRate>(0))
 /// @param content Initial text
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 /// 
-Text::Text (const string &content) : content_(content), wordRates_(vector<WordRate>(0))
+Text::Text (const std::string &content) : content_(content), wordRates_(std::vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
 	computeWordRates();
@@ -122,9 +123,9 @@ void Text::removeCharacter (const unsigned int &position)
 /// @return The content of the text
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
+/// @date 2008-10-04
 /// 
-string Text::content () const
+std::string Text::content () const
 {
 	return content_;
 };
@@ -134,9 +135,9 @@ string Text::content () const
 /// @param content The content of the text
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 /// 
-void Text::content (const string &content)
+void Text::content (const std::string &content)
 {
 	content_.assign(content);
 
@@ -163,9 +164,9 @@ unsigned int Text::length () const
 /// @see WordRate
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
+/// @date 2008-09-24
 /// 
-vector<WordRate> Text::wordRates () const
+std::vector<WordRate> Text::wordRates () const
 {
 	return wordRates_;
 };
@@ -175,12 +176,12 @@ vector<WordRate> Text::wordRates () const
 /// @param word	Word whose appearance rate must be update
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 ///
-void Text::updateWordRate (const string &word)
+void Text::updateWordRate (const std::string &word)
 {
 	// Searches the word in the vector
-	vector<WordRate>::iterator wordRates;
+	std::vector<WordRate>::iterator wordRates;
 	for (wordRates = wordRates_.begin(); wordRates not_eq wordRates_.end(); ++wordRates)
 	{
 		// Updates its appearance rate
@@ -202,22 +203,22 @@ void Text::updateWordRate (const string &word)
 /// By the way, the number of words in text is also computed.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-02
+/// @date 2008-10-04
 /// 
 void Text::computeWordRates ()
 {	
-	vector<string> words;	// Vector to hold our words after removing spaces
+	std::vector<std::string> words;	// Vector to hold our words after removing spaces
 	
 	// Extract the words in text
 	tokenize(words);
 	
 	// Update appearance rate of every word extracted
-	vector<string>::iterator wordsIterator;
+	std::vector<std::string>::iterator wordsIterator;
 	for (wordsIterator = words.begin(); wordsIterator not_eq words.end(); ++wordsIterator)
 		updateWordRate(*wordsIterator);
 		
 	// This sorting will improve future lookups
-	sort (wordRates_.begin(), wordRates_.end());
+	std::sort (wordRates_.begin(), wordRates_.end());
 };
 
 
@@ -226,18 +227,18 @@ void Text::computeWordRates ()
 /// @param delimiters	Characters that may delimiter a valid word
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-02
+/// @date 2008-10-04
 ///
-void Text::tokenize(vector<string>& tokens, const string& delimiters) const
+void Text::tokenize(std::vector<std::string>& tokens, const std::string& delimiters) const
 {
 	// Skip delimiters at the beginning of text
-	string::size_type lastPos = content_.find_first_not_of(delimiters, 0);
+	std::string::size_type lastPos = content_.find_first_not_of(delimiters, 0);
 	
 	// Find the first "non-delimiter"
-	string::size_type pos     = content_.find_first_of(delimiters, lastPos);
+	std::string::size_type pos     = content_.find_first_of(delimiters, lastPos);
 	
 	// Traverse the content until reaching its end
-	while ( (string::npos not_eq pos) or (string::npos not_eq lastPos) )
+	while ( (std::string::npos not_eq pos) or (std::string::npos not_eq lastPos) )
     {
 		// A word has been found, add it to the vector
 		tokens.push_back(content_.substr(lastPos, pos - lastPos));

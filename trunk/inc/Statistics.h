@@ -1,91 +1,45 @@
+///
+/// @file
+/// @brief Declaration of class Statistics
+///
+
 #if !defined(_STATISTICS_H)
 #define _STATISTICS_H
 
-///
-/// @file
-/// @brief Declaration of struct Statistics
-///
-
-#include "WordRate.h"
-
-#include <vector>
-using namespace std;
-
-
 
 ///
-/// Statistics about a text and its recognition process.
+/// Statistics about text recognition process.
 /// 
-/// This struct stores a number of statistic data regarding the recognition process
-/// and the text produced.
-/// 
-/// First, it stores the elapsed time on every stage, accumulated internally in the
-/// critical processes (mostly, image processing algorithms). Second, it also stores
-/// the number of words in the text and the appearance rate of every single word.
+/// This class stores a number of statistic data regarding the elapsed time during the text recognition process,
+/// accumulated internally mostly in algorithms.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
+/// @date 2008-10-04
 /// 
-struct Statistics
+class Statistics
 {
 	public:
+		///
+		/// Returns the elapsed time in the reference gray level of the background finding algorithm
+		///
+		double backgroundReferenceGrayLevelFindingTime () const;
 		
 		///
-		/// Number of words in the recognized text
+		/// Returns the elapsed time in the optimal threshold computing algorithm
 		///
-		unsigned int nWords;
+		double optimalThresholdComputingTime () const;
 		
 		///
-		/// List of appearance rates of every word in the recognized text
+		/// Returns the elapsed time in the noise removal algorithm
 		///
-		vector<WordRate> wordRates;
+		double noiseRemovalTime () const;
 		
 		///
-		/// Elapsed time in the noise removal stage
+		/// Returns the total elapsed time within the preprocessing stage
 		///
-		double noiseRemovalTime;
+		double preprocessingTime () const;
 		
-		///
-		/// Elapsed time in the grayscale conversion stage
-		///
-		double grayscaleConversionTime;
-		
-		///
-		/// Elapsed time in the flood filling stage
-		///
-		double floodFillingTime;
-		
-		///
-		/// Elapsed time in the thresholding stage
-		///
-		double thresholdingTime;
-		
-		///
-		/// Elapsed time in the feature vectors building stage
-		///
-		double featureVectorsBuildingTime;
-		
-		///
-		/// Elapsed time in the characters extraction stage
-		///
-		double charactersExtractionTime;
-		
-		///
-		/// Returns the total time within the classification stage
-		/// 
-		double classificationTime;
-		
-		///
-		/// Returns the total time within the segmentation stage
-		/// 
-		double segmentationTime;
-		
-		///
-		/// Returns the total time within the preprocessing stage
-		/// 
-		double preprocessingTime;
-		
-		
+	private:
 		///
 		/// Constructor
 		/// 
@@ -95,6 +49,31 @@ struct Statistics
 		/// Destructor
 		/// 
 		~Statistics ();
+		
+		///
+		/// Declares the class Recognizer as friend
+		///
+		friend class Recognizer;
+		
+		///
+		/// Elapsed time in the reference gray level of the background finding algorithm
+		///
+		double backgroundReferenceGrayLevelFindingTime_;
+		
+		///
+		/// Elapsed time in the optimal threshold computing algorithm
+		///
+		double optimalThresholdComputingTime_;
+		
+		///
+		/// Elapsed time in the noise removal algorithm
+		///
+		double noiseRemovalTime_;
+				
+		///
+		/// Total elapsed time within the preprocessing stage
+		/// 
+		double preprocessingTime_;		
 };
 
 #endif  //_STATISTICS_H

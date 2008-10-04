@@ -1,14 +1,14 @@
-#if !defined(_WORDRATE_H)
-#define _WORDRATE_H
-
 ///
 /// @file
 /// @brief Declaration of custom type WordRate
 ///
 
+#if !defined(_WORDRATE_H)
+#define _WORDRATE_H
+
 #include <utility>		// For using 'pair' container
 #include <string>
-using namespace std;
+
 
 ///
 /// Appearance rate of a word.
@@ -18,6 +18,6 @@ using namespace std;
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-19
 /// 
-typedef pair<string, unsigned int> WordRate;
+typedef  std::pair<std::string, unsigned int> WordRate;
 
 #endif  //_WORDRATE_H

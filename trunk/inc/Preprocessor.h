@@ -1,14 +1,15 @@
-#if !defined(_PREPROCESSOR_H)
-#define _PREPROCESSOR_H
-
 ///
 /// @file
 /// @brief Declaration of class Preprocessor
 ///
 
+#if !defined(_PREPROCESSOR_H)
+#define _PREPROCESSOR_H
+
 
 // Forward declaration
 class Clip;
+
 
 ///
 /// Preprocessor of the OCR process
@@ -17,13 +18,12 @@ class Clip;
 /// is to enhance the image quality by applying some techniques of image preprocessing theory.
 /// By the way it has a several methods to obtain the elapsed time of every significant algorithm.
 /// 
-/// @remarks Note that every algorithm has been designed to work with a grayscale image. This means that, unless the method
-/// convertToGrayscale is invoked before, an implicit conversion to the grayscale colorspace is applied.
+/// @remarks Every algorithm has been designed to work with a grayscale image.
 /// 
 /// @see Clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-02
+/// @date 2008-10-04
 ///
 class Preprocessor
 {
@@ -62,12 +62,7 @@ class Preprocessor
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
 		///
 		double noiseRemovalTime () const;
-		
-		///
-		/// Returns the elapsed time while converting the image to a grayscale colorspace
-		///
-		double grayscaleConversionTime () const;
-		
+				
 		///
 		/// Returns the elapsed time while founding the optimal threshold within the clip
 		///
@@ -77,21 +72,16 @@ class Preprocessor
 		/// Returns the elapsed time while computing the background reference gray level within the clip
 		///
 		double backgroundReferenceGrayLevelFindingTime () const;
-
-		///
-		/// Converts the clip's colorspace to a grayscale
-		///
-		void convertToGrayscale (Clip &clip);
 		
 		///
 		/// Computes the optimal threshold value within a clip
 		///
-		double computeOptimalThreshold (Clip &clip);
+		double computeOptimalThreshold (const Clip &clip);
 		
 		///
 		/// Computes the background reference gray level value within a clip
 		///
-		double findBackgroundReferenceGrayLevel (Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
+		double findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 		
 		///
 		/// Applies the 'isolated noise removal' algorithm
@@ -113,11 +103,6 @@ class Preprocessor
 		/// Elapsed time when applying the 'isolated noise removal' algorithm
 		///
 		double noiseRemovalTime_;
-		
-		///
-		/// Elapsed time when converting the image to a grayscale colorspace
-		///
-		double grayscaleConversionTime_;
 		
 		///
 		/// Elapsed time when converting the image to a grayscale colorspace

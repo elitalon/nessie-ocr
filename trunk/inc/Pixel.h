@@ -1,35 +1,23 @@
-#if !defined(_PIXEL_H)
-#define _PIXEL_H
-
 ///
 /// @file
 /// @brief Declaration of class Pixel
 ///
 
-#include "Colorspace.h"
+#if !defined(_PIXEL_H)
+#define _PIXEL_H
 
-#include <Magick++.h>
-using namespace Magick;
 
 ///
 /// Information about an image pixel.
 ///
-/// This class stores all the information of a pixel within a press clip,
-/// no matter if we are dealing with the clip itself, or some other data structure
-/// which makes use of it. Every pixel has a location, given by a pair of coordinates
-/// x and y, and a color information, which may come in three formats: grayscale, RGB
-/// or monochromatic.
+/// This class stores all the information of a pixel within a press clip. Every pixel has a location
+/// given by a pair of coordinates (x,y) and a color information in a grayscale colorspace of 256 levels.
 /// 
-/// The Clip::getColorspace() method gives the current colorspace that is associated
-/// with the pixel and its underlying image, so that the right methods here can be invoked. If
-/// a method related to one colorspace (e.g. getGrayLevel()) is called when the current colorspace
-/// is actually another (e.g. COLORSPACE_RGB), a predefined value is returned. See the different
-/// methods documentation to know what are these values.
-/// 
-/// @see Clip, Colorspace
+/// The gray level of a pixel is normalized value between 0.0 and 1.0, where 0 corresponds to 0.0 (black)
+/// and 255 corresponds to 1.0 (white). A monochromatic colorspace can be emulated using only 0.0 and 1.0.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-04
 /// 
 class Pixel
 {
@@ -43,17 +31,7 @@ class Pixel
 		/// Constructor
 		///
 		Pixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
-	
-		///
-		/// Constructor
-		///
-		Pixel (const unsigned int &x, const unsigned int &y, const double &red, const double &green, const double &blue);
-		
-		///
-		/// Constructor
-		///
-		Pixel (const unsigned int &x, const unsigned int &y, const bool &isForeground);
-
+					
 		///
 		/// Destructor
 		///
@@ -78,51 +56,6 @@ class Pixel
 		/// Sets the pixel's gray level
 		///
 		void grayLevel (const double &grayLevel);
-		
-		///
-		/// Returns the pixel's red component in RGB colorspace
-		///
-		double red () const;
-		
-		///
-		/// Sets the pixel's red component in RGB colorspace
-		///
-		void red (const double &value);
-		
-		///
-		/// Returns the pixel's green component in RGB colorspace
-		///
-		double green () const;
-		
-		///
-		/// Sets the pixel's green component in RGB colorspace
-		///
-		void green (const double &value);
-		
-		///
-		/// Returns the pixel's blue component in RGB colorspace
-		///
-		double blue () const;
-		
-		///
-		/// Sets the pixel's blue component in RGB colorspace
-		///
-		void blue (const double &value);
-		
-		///
-		/// Sets the pixel's color in RGB colorspace
-		///
-		void setColor (const double &red, const double &green, const double &blue);
-		
-		///
-		/// Returns true if the pixel belongs to the image foreground
-		///
-		bool isForeground () const;
-		
-		///
-		/// Sets whether the pixel belongs to the foreground or not
-		///
-		void isForeground (const bool &isForeground);
 
 	private:
 		///
@@ -139,31 +72,6 @@ class Pixel
 		/// Pixel's gray level.
 		///
 		double grayLevel_;
-		
-		///
-		/// Pixel's red component in RGB colorspace
-		///
-		double red_;
-		
-		///
-		/// Pixel's green component in RGB colorspace
-		///
-		double green_;
-		
-		///
-		/// Pixel's blue component in RGB colorspace
-		///
-		double blue_;
-		
-		///
-		/// Tells if the pixel belongs to the image foreground
-		///
-		bool isForeground_;
-		
-		///
-		/// Colorspace of pixel
-		///
-		Colorspace colorspace_;
 };
 
 #endif  //_PIXEL_H

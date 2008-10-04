@@ -9,7 +9,7 @@
 ///
 /// @details Initializes an NessieException object with a message
 /// 
-/// @param what	A string containing a message that explains the exception raised
+/// @param what	A message that explains the exception raised
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
