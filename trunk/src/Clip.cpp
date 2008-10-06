@@ -327,6 +327,16 @@ void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double 
 
 
 ///
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-06
+///
+unsigned int Clip::nPixels () const
+{
+	return (height_ * width_);
+};
+
+
+///
 /// @details When any of the clip attributes change, it is neccesary to relocate the clip position over the source image
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)

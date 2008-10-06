@@ -18,9 +18,6 @@ class Clip;
 /// is to enhance the image quality by applying some techniques of image preprocessing theory and compute
 /// a number of parameters such as the optimal thresolding value or the background reference gray level
 /// 
-/// @remarks Every algorithm has been designed to work with a grayscale image. You MUST ensure that the Clip objects
-/// come in such colorspace.
-/// 
 /// @see Clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)

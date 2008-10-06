@@ -10,7 +10,6 @@
 #include <vector>
 
 
-
 ///
 /// @details Initializes a Preprocessor object
 /// 
@@ -138,18 +137,58 @@ double Preprocessor::optimalThresholdComputingTime () const
 
 
 ///
-/// @details Algorithm explanation
+/// @details To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in
+/// "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008). The target is to find a mean value between
+/// the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value.
+/// That initial threshold is in fact provided by the Preprocessor::findBackgroundReferenceGrayLevel method.
 /// 
-/// @param[in,out] clip The clip where applying the algorithm over
+/// @param[in] clip The clip where applying the algorithm over
 /// 
 /// @return The optimal threshold of the clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-06
 ///
 double Preprocessor::computeOptimalThreshold (const Clip &clip)
 {
-	return 0.0;
+	// Find background reference gray level
+	findBackgroundReferenceGrayLevel(clip);
+	optimalThreshold_ = backgroundReferenceGrayLevel_;
+	double temporaryThreshold;
+	
+	do
+	{
+		// Compute the background and objects mean values
+		double backgroundMeanValue = 0.0, objectsMeanValue = 0.0;
+		unsigned int nSamples = 0;
+		
+		for (unsigned int i=0; i < clip.height(); ++i)
+		{
+			for (unsigned int j=0; j < clip.width(); ++j)
+			{
+				// Get gray level of this pixel
+				double grayLevel = clip.getPixel(i,j).grayLevel();
+				
+				// Assume light gray values as the background
+				if ( grayLevel >= optimalThreshold_ )
+				{
+					backgroundMeanValue += grayLevel;
+					nSamples++;
+				}
+				else
+					objectsMeanValue += grayLevel;
+			}
+		}
+		backgroundMeanValue = backgroundMeanValue / static_cast<double>(nSamples);
+		objectsMeanValue = objectsMeanValue / static_cast<double>(clip.nPixels() - nSamples);
+				
+		// Update the optimal threshold keeping the last one
+		temporaryThreshold = optimalThreshold_;
+		optimalThreshold_ = (objectsMeanValue + backgroundMeanValue) / 2.0;
+	}
+	while (temporaryThreshold != optimalThreshold_);
+
+	return optimalThreshold_;
 };
 
 
@@ -293,3 +332,62 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 		}
 	}
 };
+
+
+
+//
+// Otsu's algorithm for computing optimal threshold
+//
+
+// // Compute image histogram
+// std::vector<double> histogram(256, 0.0);
+// for (unsigned int i=0; i < clip.height(); ++i)
+// {
+// 	for (unsigned int j=0; j < clip.width(); ++j)
+// 	{
+// 		// Get gray level of this pixel
+// 		double grayLevel = clip.getPixel(i,j).grayLevel();
+// 		
+// 		// Update histogram
+// 		histogram[std::floor(grayLevel * 255.0)] += 1.0;
+// 	}
+// }
+// 
+// // Normalise histogram
+// std::transform( histogram.begin(), histogram.end(), histogram.begin(), std::bind1st(std::multiplies<double>(), 1.0 / static_cast<double>(clip.nPixels())) );
+// 
+// // Compute the zero- and first-order cumulative moments of the normalised histogram up to the kth level
+// std::vector<double> zeroMoments(256, 0.0), firstMoments(256, 0.0);
+// for ( unsigned int level = 0; level < 256; ++level )
+// {
+// 	for ( unsigned int i = 1; i <= (level+1); ++i )
+// 	{
+// 		zeroMoments[level]	+= histogram[i-1];
+// 		firstMoments[level]	+= histogram[i-1] * i;
+// 	}
+// }
+// 
+// // Compute the total mean level of the image
+// double meanLevel = 0.0;
+// for ( unsigned int level = 1; level <= 256; ++level )
+// 	meanLevel += histogram[level-1] * level;
+// 
+// // Compute the variance of the class separability at every gray level	
+// std::vector<double> variance(256, 0.0);
+// for ( unsigned int level = 0; level < 256; ++level )
+// 	variance[level] = pow((meanLevel * zeroMoments[level]) - firstMoments[level], 2) / (zeroMoments[level] * (1 - zeroMoments[level]));
+// 	
+// // Find the maximum value of variance
+// unsigned int level = 0;
+// double maxVariance = variance[0];
+// for ( std::vector<double>::iterator varianceIterator = variance.begin(); varianceIterator < variance.end(); ++varianceIterator, ++level )
+// {
+// 	if ( *varianceIterator > maxVariance )
+// 	{
+// 		maxVariance = *varianceIterator;
+// 		optimalThreshold_ = level;
+// 	}
+// }
+// optimalThreshold_ = optimalThreshold_ / 255.0;
+// 
+// std::cout << "Optimal threshold with Otsu's method: " << optimalThreshold_ << std::endl;

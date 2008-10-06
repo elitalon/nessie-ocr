@@ -1,4 +1,9 @@
 #include <iostream>
+#include <vector>
+#include <functional>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
 using namespace std;
 
 #include <Magick++.h>
@@ -19,8 +24,8 @@ int main (int argc, char const *argv[])
 	Clip clip(img, 0,0,img.rows(), img.columns());
 	Preprocessor p;
 	
-	p.removeIsolatedNoise(clip);
+	p.computeOptimalThreshold(clip);
+	p.removeIsolatedNoise(clip, 2);
 	
-	clip.image().write("result.png");
 	return 0;
 }

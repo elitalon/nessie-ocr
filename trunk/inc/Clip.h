@@ -26,7 +26,7 @@
 /// @see Pixel, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-06
 ///
 class Clip
 {
@@ -95,6 +95,11 @@ class Clip
 		/// Sets the gray level of a pixel at coordinates (x,y)
 		///
 		void setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
+		
+		///
+		/// Returns the number of pixels within the clip
+		///
+		unsigned int nPixels () const;
 		
 	private:
 		///
