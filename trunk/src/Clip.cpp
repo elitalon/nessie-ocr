@@ -22,6 +22,8 @@
 /// @param y		The upper left-most pixel Y coordinate of the clip
 /// @param height	The height of the clip
 /// @param width	The width of the clip
+/// 
+/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Magick++::Image</a>
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04
@@ -100,6 +102,8 @@ Clip::~Clip ()
 
 ///
 /// @return The underlying image where the clip belongs to
+/// 
+/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Magick++::Image</a>
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-24
@@ -247,6 +251,8 @@ void Clip::width (const unsigned int &width)
 /// @param y	The upper left-most pixel Y coordinate of the clip
 /// 
 /// @return The pixel at coordinates (x,y)
+/// 
+/// @see Pixel
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04

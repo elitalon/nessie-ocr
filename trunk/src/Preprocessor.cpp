@@ -70,7 +70,7 @@ void Preprocessor::optimalThreshold (const double &threshold)
 
 
 ///
-/// @return Reference vackground gray level in the last clip used
+/// @return Reference background gray level in the last clip used
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
@@ -155,7 +155,7 @@ double Preprocessor::computeOptimalThreshold (const Clip &clip)
 
 ///
 /// @details To find the reference gray level of the background it is assumed that there are more pixels belonging to the
-/// background than beloging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
+/// background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
 /// a gray level weighted mean using all those values.
 /// 
 /// @param[in,out]	clip							The clip where applying the algorithm over

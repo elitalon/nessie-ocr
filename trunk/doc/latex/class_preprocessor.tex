@@ -16,10 +16,10 @@ Collaboration diagram for Preprocessor:\nopagebreak
 \subsection{Detailed Description}
 \hyperlink{class_preprocessor}{Preprocessor} of the OCR process. 
 
-This class encapsulates all the methods related to the stage of preprocessing. Its task is to enhance the image quality by applying some techniques of image preprocessing theory. By the way it has a several methods to obtain the elapsed time of every significant algorithm.
+This class encapsulates all the methods related to preprocessing stage. Its task is to enhance the image quality by applying some techniques of image preprocessing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level
 
 \begin{Desc}
-\item[Remarks:]Every algorithm has been designed to work with a grayscale image.\end{Desc}
+\item[Remarks:]Every algorithm has been designed to work with a grayscale image. You MUST ensure that the \hyperlink{class_clip}{Clip} objects come in such colorspace.\end{Desc}
 \begin{Desc}
 \item[See also:]\hyperlink{class_clip}{Clip}\end{Desc}
 \begin{Desc}
@@ -28,7 +28,7 @@ This class encapsulates all the methods related to the stage of preprocessing. I
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 28 of file Preprocessor.h.\subsection*{Public Member Functions}
+Definition at line 29 of file Preprocessor.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_preprocessor_da966c8b83e7c3bcd8759549c3cdf688}{Preprocessor} ()
@@ -170,7 +170,7 @@ Definition at line 58 of file Preprocessor.cpp.\hypertarget{class_preprocessor_1
 Returns the background reference gray level in the last clip used. 
 
 \begin{Desc}
-\item[Returns:]Reference vackground gray level in the last clip used\end{Desc}
+\item[Returns:]Reference background gray level in the last clip used\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -281,7 +281,7 @@ Definition at line 150 of file Preprocessor.cpp.\hypertarget{class_preprocessor_
 
 Computes the background reference gray level value within a clip. 
 
-To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than beloging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.
+To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.
 
 \begin{Desc}
 \item[Parameters:]
@@ -326,5 +326,5 @@ Definition at line 245 of file Preprocessor.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_preprocessor_8h}{Preprocessor.h (119)}\item 
-\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (120)}\end{CompactItemize}
+\hyperlink{_preprocessor_8h}{Preprocessor.h (125)}\item 
+\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (125)}\end{CompactItemize}

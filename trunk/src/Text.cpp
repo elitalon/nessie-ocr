@@ -52,7 +52,8 @@ Text::~Text ()
 
 ///
 /// @details The character is inserted within the text at position passed. If the position passed is over the text total length,
-/// the character is appended to the end of the text.
+/// the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning
+/// of the text.
 /// 
 /// @param character	Character to add
 /// @param position		Position where adding the character to
@@ -83,18 +84,18 @@ void Text::addCharacter (const char &character, const unsigned int &position)
 /// @param character	Character to add
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
+/// @date 2008-10-06
 /// 
 void Text::addCharacter (const char &character)
 {
 	// Call the generic 'addCharacter' function
-	addCharacter(character, length());
+	addCharacter(character, content_.length());
 }
 
 
 ///
-/// @details The character is removed from text at position passed, unless it is over the text total length.
-/// In such case, the last character is removed
+/// @details The character is removed from text at position passed. If the position passed is over the text total length,
+/// the last character is removed. If the position passed is less than 0 the first character is removed.
 ///
 /// @param position		Position where removing the character from
 /// 
@@ -200,13 +201,12 @@ void Text::updateWordRate (const std::string &word)
 ///
 /// @details This method must be called every time the content changes,
 /// since there is no public method for a class user to make it by itself.
-/// By the way, the number of words in text is also computed.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04
 /// 
 void Text::computeWordRates ()
-{	
+{
 	std::vector<std::string> words;	// Vector to hold our words after removing spaces
 	
 	// Extract the words in text

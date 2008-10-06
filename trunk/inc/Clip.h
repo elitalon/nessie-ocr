@@ -17,12 +17,13 @@
 /// 
 /// This class manages the press clips on a image loaded with the Magick++ utilities.
 /// The press clip is an image that may come in several formats, such JPEG, PDF, PNG, etc.
-/// The ImageMagick library provides an abstraction layer to keep the code independent from the format.
+/// The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer
+/// to keep the code independent from the image format.
 /// 
-/// The idea behind this class is to encapsulate all the interactions with the Magick++ API,
-/// so that the rest of the classes have a unified way to work with the original image.
+/// The idea behind this class is to encapsulate all the interactions with Magick++,
+/// so that the rest of the classes have an unified way to work with the original image.
 /// 
-/// @see Pixel
+/// @see Pixel, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04

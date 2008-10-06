@@ -73,13 +73,13 @@ Collaboration diagram for Preprocessor:</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 <a class="el" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> of the OCR process. 
 <p>
-This class encapsulates all the methods related to the stage of preprocessing. Its task is to enhance the image quality by applying some techniques of image preprocessing theory. By the way it has a several methods to obtain the elapsed time of every significant algorithm.<p>
-<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>Every algorithm has been designed to work with a grayscale image.</dd></dl>
+This class encapsulates all the methods related to preprocessing stage. Its task is to enhance the image quality by applying some techniques of image preprocessing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level<p>
+<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>Every algorithm has been designed to work with a grayscale image. You MUST ensure that the <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> objects come in such colorspace.</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8h-source.html#l00028">28</a> of file <a class="el" href="_preprocessor_8h-source.html">Preprocessor.h</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8h-source.html#l00029">29</a> of file <a class="el" href="_preprocessor_8h-source.html">Preprocessor.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -270,7 +270,7 @@ Sets the optimal threshold to use in algorithms.
 <p>
 Returns the background reference gray level in the last clip used. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Reference vackground gray level in the last clip used</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Reference background gray level in the last clip used</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-30 </dd></dl>
 
@@ -448,7 +448,7 @@ Algorithm explanation<p>
 <p>
 Computes the background reference gray level value within a clip. 
 <p>
-To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than beloging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.<p>
+To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in,out]</tt>&nbsp;</td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over </td></tr>
@@ -509,9 +509,9 @@ The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_preprocessor_8h-source.html">Preprocessor.h (119)</a><li><a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp (120)</a></ul>
+<li><a class="el" href="_preprocessor_8h-source.html">Preprocessor.h (125)</a><li><a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp (125)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 12:30:24 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

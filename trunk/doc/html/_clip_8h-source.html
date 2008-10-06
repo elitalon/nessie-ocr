@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (123) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (125) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -73,59 +73,59 @@ window.onload = initDynSections;
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 
-<a name="l00030"></a><a class="code" href="class_clip.html">00030</a> <span class="keyword">class </span><a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>
-<a name="l00031"></a>00031 {
-<a name="l00032"></a>00032     <span class="keyword">public</span>:
-<a name="l00036"></a>00036         <a class="code" href="class_clip.html#cf1b75d1f0a7b7fb4c9b7cf6fe904bde" title="Constructor.">Clip</a> (<span class="keyword">const</span> Magick::Image &amp;<a class="code" href="class_clip.html#488b36e7868e93a60123135b0a4ac2ea" title="Returns the current Image object.">image</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>);
-<a name="l00037"></a>00037         
-<a name="l00041"></a>00041         <a class="code" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa" title="Destructor.">~Clip</a> ();
-<a name="l00042"></a>00042         
-<a name="l00046"></a>00046         Magick::Image <a class="code" href="class_clip.html#488b36e7868e93a60123135b0a4ac2ea" title="Returns the current Image object.">image</a> ();
-<a name="l00047"></a>00047                 
-<a name="l00051"></a>00051         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a> () <span class="keyword">const</span>;
-<a name="l00052"></a>00052         
-<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x);
-<a name="l00057"></a>00057         
-<a name="l00061"></a>00061         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a> () <span class="keyword">const</span>;
-<a name="l00062"></a>00062         
-<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y);
-<a name="l00067"></a>00067         
-<a name="l00071"></a>00071         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a> () <span class="keyword">const</span>;
-<a name="l00072"></a>00072         
-<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height);
-<a name="l00077"></a>00077         
-<a name="l00081"></a>00081         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a> () <span class="keyword">const</span>;
-<a name="l00082"></a>00082         
-<a name="l00086"></a>00086         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
-<a name="l00087"></a>00087         
-<a name="l00091"></a>00091         <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span>;
-<a name="l00092"></a>00092         
-<a name="l00096"></a>00096         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#cf9dc38eade61776c6c8497f2ce53b7b" title="Sets the gray level of a pixel at coordinates (x,y).">setPixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;grayLevel);
-<a name="l00097"></a>00097         
-<a name="l00098"></a>00098     <span class="keyword">private</span>:
-<a name="l00102"></a><a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38">00102</a>         Magick::Image <a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38" title="Image where the clip belongs to.">image_</a>;
-<a name="l00103"></a>00103         
-<a name="l00107"></a><a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc">00107</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">x_</a>;
-<a name="l00108"></a>00108 
-<a name="l00112"></a><a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12">00112</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y_</a>;
-<a name="l00113"></a>00113 
-<a name="l00117"></a><a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">00117</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a>;
-<a name="l00118"></a>00118 
-<a name="l00122"></a><a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">00122</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>;
-<a name="l00123"></a>00123         
-<a name="l00127"></a><a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80">00127</a>         Magick::Pixels* <a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80" title="Frame within the image where the clip is located.">frame_</a>;
-<a name="l00128"></a>00128         
-<a name="l00132"></a><a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188">00132</a>         Magick::PixelPacket* <a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a>;
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134         
-<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#66fc93c15de96d077d2242a53576528e" title="Relocates the origin of the clip.">relocateClipOrigin</a> ();
-<a name="l00139"></a>00139         
-<a name="l00143"></a>00143         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#e050cf90340e9160f79688627d69a00b" title="Adjusts the size of the clip.">adjustClipSize</a> ();
-<a name="l00144"></a>00144 };
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146 <span class="preprocessor">#endif  //_CLIP_H</span>
+<a name="l00031"></a><a class="code" href="class_clip.html">00031</a> <span class="keyword">class </span><a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033     <span class="keyword">public</span>:
+<a name="l00037"></a>00037         <a class="code" href="class_clip.html#cf1b75d1f0a7b7fb4c9b7cf6fe904bde" title="Constructor.">Clip</a> (<span class="keyword">const</span> Magick::Image &amp;<a class="code" href="class_clip.html#488b36e7868e93a60123135b0a4ac2ea" title="Returns the current Image object.">image</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>);
+<a name="l00038"></a>00038         
+<a name="l00042"></a>00042         <a class="code" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa" title="Destructor.">~Clip</a> ();
+<a name="l00043"></a>00043         
+<a name="l00047"></a>00047         Magick::Image <a class="code" href="class_clip.html#488b36e7868e93a60123135b0a4ac2ea" title="Returns the current Image object.">image</a> ();
+<a name="l00048"></a>00048                 
+<a name="l00052"></a>00052         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a> () <span class="keyword">const</span>;
+<a name="l00053"></a>00053         
+<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#de984337b7b13fb63a3d3b1797b544c8" title="Returns the X coordinate of the clip&amp;#39;s upper leftmost pixel.">x</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x);
+<a name="l00058"></a>00058         
+<a name="l00062"></a>00062         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a> () <span class="keyword">const</span>;
+<a name="l00063"></a>00063         
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#998a62506ffab457184ec7083cb154e4" title="Returns the Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y);
+<a name="l00068"></a>00068         
+<a name="l00072"></a>00072         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a> () <span class="keyword">const</span>;
+<a name="l00073"></a>00073         
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the clip&amp;#39;s height.">height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height);
+<a name="l00078"></a>00078         
+<a name="l00082"></a>00082         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a> () <span class="keyword">const</span>;
+<a name="l00083"></a>00083         
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
+<a name="l00088"></a>00088         
+<a name="l00092"></a>00092         <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span>;
+<a name="l00093"></a>00093         
+<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#cf9dc38eade61776c6c8497f2ce53b7b" title="Sets the gray level of a pixel at coordinates (x,y).">setPixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;grayLevel);
+<a name="l00098"></a>00098         
+<a name="l00099"></a>00099     <span class="keyword">private</span>:
+<a name="l00103"></a><a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38">00103</a>         Magick::Image <a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38" title="Image where the clip belongs to.">image_</a>;
+<a name="l00104"></a>00104         
+<a name="l00108"></a><a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc">00108</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">x_</a>;
+<a name="l00109"></a>00109 
+<a name="l00113"></a><a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12">00113</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y_</a>;
+<a name="l00114"></a>00114 
+<a name="l00118"></a><a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">00118</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a>;
+<a name="l00119"></a>00119 
+<a name="l00123"></a><a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">00123</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>;
+<a name="l00124"></a>00124         
+<a name="l00128"></a><a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80">00128</a>         Magick::Pixels* <a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80" title="Frame within the image where the clip is located.">frame_</a>;
+<a name="l00129"></a>00129         
+<a name="l00133"></a><a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188">00133</a>         Magick::PixelPacket* <a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a>;
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135         
+<a name="l00139"></a>00139         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#66fc93c15de96d077d2242a53576528e" title="Relocates the origin of the clip.">relocateClipOrigin</a> ();
+<a name="l00140"></a>00140         
+<a name="l00144"></a>00144         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#e050cf90340e9160f79688627d69a00b" title="Adjusts the size of the clip.">adjustClipSize</a> ();
+<a name="l00145"></a>00145 };
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 <span class="preprocessor">#endif  //_CLIP_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 12:30:24 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

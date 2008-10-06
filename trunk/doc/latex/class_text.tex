@@ -14,9 +14,9 @@ Collaboration diagram for Text:\nopagebreak
 
 
 \subsection{Detailed Description}
-\hyperlink{class_text}{Text} extracted from the clip by the recognizer. 
+\hyperlink{class_text}{Text} extracted by the recognizer. 
 
-This class stores the text que has been extracted from the press-clip during the recognition process. It also keeps the appearance rate of every word.
+This class stores the text that has been extracted from the press clip during the recognition process. It also keeps the appearance rate of every word in text.
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -34,28 +34,28 @@ Definition at line 25 of file Text.h.\subsection*{Public Member Functions}
 \hyperlink{class_text_2d49e5c280e205125b149f7777ae30c7}{$\sim$Text} ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
 void \hyperlink{class_text_6e6da63c90af68639adc7dd1336f6bf9}{addCharacter} (const char \&character)
-\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Adds a character to text. \item\end{CompactList}\item 
 void \hyperlink{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{addCharacter} (const char \&character, const unsigned int \&position)
-\begin{CompactList}\small\item\em Adds a character to the text. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Adds a character to text. \item\end{CompactList}\item 
 void \hyperlink{class_text_e04500eeada2a4a3bb00554b32263c52}{removeCharacter} (const unsigned int \&position)
-\begin{CompactList}\small\item\em Removes a character from the text. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Removes a character from text. \item\end{CompactList}\item 
 std::string \hyperlink{class_text_58a34fa2cfd0c240a7517132017b6a83}{content} () const 
-\begin{CompactList}\small\item\em Returns the text itself. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Returns the text's content. \item\end{CompactList}\item 
 void \hyperlink{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{content} (const std::string \&content)
-\begin{CompactList}\small\item\em Sets the text. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Sets the text's content. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{length} () const 
-\begin{CompactList}\small\item\em Returns the text length. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Returns the text's length. \item\end{CompactList}\item 
 std::vector$<$ \hyperlink{_word_rate_8h_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_1387d9767b65f80355f1bdede26a0f7b}{wordRates} () const 
 \begin{CompactList}\small\item\em Returns the appearance rates of every single word in text. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Member Functions}
 \begin{CompactItemize}
 \item 
 void \hyperlink{class_text_8239e13039bcc1c713f66f1236693706}{computeWordRates} ()
-\begin{CompactList}\small\item\em Builds the vector with every word appearance rate. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Builds the vector of appearance rates of every word. \item\end{CompactList}\item 
 void \hyperlink{class_text_7466754bf64f0c22b291edb2bd14ba99}{updateWordRate} (const std::string \&word\_\-)
 \begin{CompactList}\small\item\em Increases by one the number of appearances of a word. \item\end{CompactList}\item 
-void \hyperlink{class_text_cf1ad9772327a1d03d03c879e5bfcc24}{tokenize} (std::vector$<$ std::string $>$ \&tokens\_\-, const std::string \&delimiters\_\-=\char`\"{} ,.$\backslash$n$\backslash$t:;!¡¿?\&/()=\char`\"{}) const 
-\begin{CompactList}\small\item\em Extracts the words surrounded by default delimiters from text. \item\end{CompactList}\end{CompactItemize}
+void \hyperlink{class_text_3fe3daa80386d15a275523b18bde7fd9}{tokenize} (std::vector$<$ std::string $>$ \&tokens\_\-, const std::string \&delimiters\_\-=\char`\"{} ,.$\backslash$n$\backslash$t:;!¡¿?\&/()=$\backslash$\char`\"{}'\char`\"{}) const 
+\begin{CompactList}\small\item\em Extracts every word surrounded by a set of delimiters. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
@@ -63,7 +63,7 @@ void \hyperlink{class_text_cf1ad9772327a1d03d03c879e5bfcc24}{tokenize} (std::vec
 std::string \hyperlink{class_text_8c5acddb86730d41099c87da7e386f6c}{content\_\-}}
 \label{class_text_8c5acddb86730d41099c87da7e386f6c}
 
-\begin{CompactList}\small\item\em The text itself. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em The text's content. \item\end{CompactList}\item 
 \hypertarget{class_text_ee3a9a1486714df08c8e73ccb605e729}{
 std::vector$<$ \hyperlink{_word_rate_8h_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_ee3a9a1486714df08c8e73ccb605e729}{wordRates\_\-}}
 \label{class_text_ee3a9a1486714df08c8e73ccb605e729}
@@ -138,7 +138,7 @@ Definition at line 47 of file Text.cpp.
 \label{class_text_6e6da63c90af68639adc7dd1336f6bf9}
 
 
-Adds a character to the text. 
+Adds a character to text. 
 
 The character passed is appended to the end of the text
 
@@ -150,19 +150,19 @@ The character passed is appended to the end of the text
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-03 \end{Desc}
+\item[Date:]2008-10-06 \end{Desc}
 
 
-Definition at line 88 of file Text.cpp.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
+Definition at line 89 of file Text.cpp.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
 \subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character}, \/  const unsigned int \& {\em position})}}
 \label{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}
 
 
-Adds a character to the text. 
+Adds a character to text. 
 
-The character is inserted within the text at position passed. If the position passed is over the text total length, the character is appended to the end of the text.
+The character is inserted within the text at position passed. If the position passed is over the text total length, the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning of the text.
 
 \begin{Desc}
 \item[Parameters:]
@@ -175,16 +175,16 @@ The character is inserted within the text at position passed. If the position pa
 \item[Date:]2008-10-03 \end{Desc}
 
 
-Definition at line 63 of file Text.cpp.\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
+Definition at line 64 of file Text.cpp.\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
 \index{Text@{Text}!removeCharacter@{removeCharacter}}
 \index{removeCharacter@{removeCharacter}!Text@{Text}}
 \subsubsection[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (const unsigned int \& {\em position})}}
 \label{class_text_e04500eeada2a4a3bb00554b32263c52}
 
 
-Removes a character from the text. 
+Removes a character from text. 
 
-The character is removed from text at position passed, unless it is over the text total length. In such case, the last character is removed
+The character is removed from text at position passed. If the position passed is over the text total length, the last character is removed. If the position passed is less than 0 the first character is removed.
 
 \begin{Desc}
 \item[Parameters:]
@@ -197,14 +197,14 @@ The character is removed from text at position passed, unless it is over the tex
 \item[Date:]2008-10-03 \end{Desc}
 
 
-Definition at line 104 of file Text.cpp.\hypertarget{class_text_58a34fa2cfd0c240a7517132017b6a83}{
+Definition at line 105 of file Text.cpp.\hypertarget{class_text_58a34fa2cfd0c240a7517132017b6a83}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}std::string Text::content () const}}
 \label{class_text_58a34fa2cfd0c240a7517132017b6a83}
 
 
-Returns the text itself. 
+Returns the text's content. 
 
 \begin{Desc}
 \item[Returns:]The content of the text\end{Desc}
@@ -214,14 +214,14 @@ Returns the text itself.
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 128 of file Text.cpp.\hypertarget{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{
+Definition at line 129 of file Text.cpp.\hypertarget{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}void Text::content (const std::string \& {\em content})}}
 \label{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}
 
 
-Sets the text. 
+Sets the text's content. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -234,14 +234,14 @@ Sets the text.
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 140 of file Text.cpp.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
+Definition at line 141 of file Text.cpp.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
 \index{Text@{Text}!length@{length}}
 \index{length@{length}!Text@{Text}}
 \subsubsection[length]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::length () const}}
 \label{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}
 
 
-Returns the text length. 
+Returns the text's length. 
 
 \begin{Desc}
 \item[Returns:]The length of the text\end{Desc}
@@ -251,9 +251,7 @@ Returns the text length.
 \item[Date:]2008-09-29 \end{Desc}
 
 
-Definition at line 155 of file Text.cpp.
-
-Referenced by addCharacter().\hypertarget{class_text_1387d9767b65f80355f1bdede26a0f7b}{
+Definition at line 156 of file Text.cpp.\hypertarget{class_text_1387d9767b65f80355f1bdede26a0f7b}{
 \index{Text@{Text}!wordRates@{wordRates}}
 \index{wordRates@{wordRates}!Text@{Text}}
 \subsubsection[wordRates]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf WordRate} $>$ Text::wordRates () const}}
@@ -272,7 +270,7 @@ Returns the appearance rates of every single word in text.
 \item[Date:]2008-09-24 \end{Desc}
 
 
-Definition at line 169 of file Text.cpp.
+Definition at line 170 of file Text.cpp.
 
 Referenced by updateWordRate().\hypertarget{class_text_8239e13039bcc1c713f66f1236693706}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
@@ -281,9 +279,9 @@ Referenced by updateWordRate().\hypertarget{class_text_8239e13039bcc1c713f66f123
 \label{class_text_8239e13039bcc1c713f66f1236693706}
 
 
-Builds the vector with every word appearance rate. 
+Builds the vector of appearance rates of every word. 
 
-This method must be called every time the content changes, since there is no public method for a class user to make it by itself. By the way, the number of words in text is also computed.
+This method must be called every time the content changes, since there is no public method for a class user to make it by itself.
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -313,16 +311,16 @@ Increases by one the number of appearances of a word.
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 181 of file Text.cpp.
+Definition at line 182 of file Text.cpp.
 
-Referenced by computeWordRates().\hypertarget{class_text_cf1ad9772327a1d03d03c879e5bfcc24}{
+Referenced by computeWordRates().\hypertarget{class_text_3fe3daa80386d15a275523b18bde7fd9}{
 \index{Text@{Text}!tokenize@{tokenize}}
 \index{tokenize@{tokenize}!Text@{Text}}
-\subsubsection[tokenize]{\setlength{\rightskip}{0pt plus 5cm}void Text::tokenize (std::vector$<$ std::string $>$ \& {\em tokens}, \/  const std::string \& {\em delimiters} = {\tt \char`\"{}~,.$\backslash$n$\backslash$t:;!¡¿?\&/()=\char`\"{}}) const\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_text_cf1ad9772327a1d03d03c879e5bfcc24}
+\subsubsection[tokenize]{\setlength{\rightskip}{0pt plus 5cm}void Text::tokenize (std::vector$<$ std::string $>$ \& {\em tokens}, \/  const std::string \& {\em delimiters} = {\tt \char`\"{}~,.$\backslash$n$\backslash$t:;!¡¿?\&/()=$\backslash$\char`\"{}'\char`\"{}}) const\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_text_3fe3daa80386d15a275523b18bde7fd9}
 
 
-Extracts the words surrounded by default delimiters from text. 
+Extracts every word surrounded by a set of delimiters. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -341,5 +339,5 @@ Referenced by computeWordRates().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_text_8h}{Text.h (121)}\item 
-\hyperlink{_text_8cpp}{Text.cpp (121)}\end{CompactItemize}
+\hyperlink{_text_8h}{Text.h (125)}\item 
+\hyperlink{_text_8cpp}{Text.cpp (125)}\end{CompactItemize}

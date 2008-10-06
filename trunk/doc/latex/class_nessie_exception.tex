@@ -23,13 +23,15 @@ Collaboration diagram for NessieException:\nopagebreak
 \subsection{Detailed Description}
 Exception raised by a Nessie OCR object. 
 
+This class derives from std::exception class, so that all the exceptions either from Magick++, this library or the STL itself can be caught using a reference to an 'exception' object.
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-03 \end{Desc}
 
 
-Definition at line 20 of file NessieException.h.\subsection*{Public Member Functions}
+Definition at line 23 of file NessieException.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_nessie_exception_80c86c892438045635bf6a99da17e859}{NessieException} (const std::string \&what)
@@ -37,7 +39,7 @@ Definition at line 20 of file NessieException.h.\subsection*{Public Member Funct
 virtual \hyperlink{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}{$\sim$NessieException} ()  throw ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
 virtual const char $\ast$ \hyperlink{class_nessie_exception_a522c2ea164e88be0b26670170b33909}{what} () const   throw ()
-\begin{CompactList}\small\item\em Returns the message that explains the exception. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Returns a message that explains the exception raised. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
@@ -45,7 +47,7 @@ virtual const char $\ast$ \hyperlink{class_nessie_exception_a522c2ea164e88be0b26
 std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{what\_\-}}
 \label{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}
 
-\begin{CompactList}\small\item\em Message explaining the error that raised the exception. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Message that explains the exception raised. \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -98,7 +100,7 @@ Definition at line 29 of file NessieException.cpp.
 \label{class_nessie_exception_a522c2ea164e88be0b26670170b33909}
 
 
-Returns the message that explains the exception. 
+Returns a message that explains the exception raised. 
 
 This method overrides the one in class std::exception
 
@@ -113,4 +115,4 @@ Definition at line 41 of file NessieException.cpp.
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
 \hyperlink{_nessie_exception_8h}{NessieException.h (124)}\item 
-\hyperlink{_nessie_exception_8cpp}{NessieException.cpp (124)}\end{CompactItemize}
+\hyperlink{_nessie_exception_8cpp}{NessieException.cpp (125)}\end{CompactItemize}

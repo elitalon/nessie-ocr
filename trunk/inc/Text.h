@@ -14,10 +14,10 @@
 
 
 ///
-/// Text extracted from the clip by the recognizer
+/// Text extracted by the recognizer
 /// 
-/// This class stores the text que has been extracted from the press-clip during the recognition process.
-/// It also keeps the appearance rate of every word.
+/// This class stores the text that has been extracted from the press clip during the recognition process.
+/// It also keeps the appearance rate of every word in text.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04
@@ -42,32 +42,32 @@ class Text
 		~Text ();
 		
 		///
-		/// Adds a character to the text
+		/// Adds a character to text
 		///
 		void addCharacter (const char &character);
 		
 		///
-		/// Adds a character to the text
+		/// Adds a character to text
 		///
 		void addCharacter (const char &character, const unsigned int &position);
 
 		///
-		/// Removes a character from the text
+		/// Removes a character from text
 		///
 		void removeCharacter (const unsigned int &position);
 				
 		///
-		/// Returns the text itself
+		/// Returns the text's content
 		///
 		std::string content () const;
 
 		///
-		/// Sets the text
+		/// Sets the text's content
 		///
 		void content (const std::string &content);
 		
 		///
-		/// Returns the text length
+		/// Returns the text's length
 		///
 		unsigned int length () const;
 		
@@ -76,10 +76,9 @@ class Text
 		///
 		std::vector<WordRate> wordRates () const;
 
-
 	private:
 		///
-		/// The text itself
+		/// The text's content
 		///		
 		std::string content_;
 				
@@ -89,7 +88,7 @@ class Text
 		std::vector<WordRate> wordRates_;
 		
 		///
-		/// Builds the vector with every word appearance rate
+		/// Builds the vector of appearance rates of every word
 		///
 		void computeWordRates ();
 		
@@ -99,9 +98,9 @@ class Text
 		void updateWordRate (const std::string &word_);
 		
 		///
-		/// Extracts the words surrounded by default delimiters from text
+		/// Extracts every word surrounded by a set of delimiters
 		///
-		void tokenize(std::vector<std::string> &tokens_, const std::string &delimiters_ = " ,.\n\t:;!¡¿?&/()=") const;
+		void tokenize(std::vector<std::string> &tokens_, const std::string &delimiters_ = " ,.\n\t:;!¡¿?&/()=\"'") const;
 };
 
 #endif  //_TEXT_H

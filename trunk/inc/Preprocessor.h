@@ -14,11 +14,12 @@ class Clip;
 ///
 /// Preprocessor of the OCR process
 /// 
-/// This class encapsulates all the methods related to the stage of preprocessing. Its task
-/// is to enhance the image quality by applying some techniques of image preprocessing theory.
-/// By the way it has a several methods to obtain the elapsed time of every significant algorithm.
+/// This class encapsulates all the methods related to preprocessing stage. Its task
+/// is to enhance the image quality by applying some techniques of image preprocessing theory and compute
+/// a number of parameters such as the optimal thresolding value or the background reference gray level
 /// 
-/// @remarks Every algorithm has been designed to work with a grayscale image.
+/// @remarks Every algorithm has been designed to work with a grayscale image. You MUST ensure that the Clip objects
+/// come in such colorspace.
 /// 
 /// @see Clip
 /// 

@@ -93,7 +93,7 @@ double Pixel::grayLevel () const
 
 
 /// 
-/// @param grayLevel The gray level of the pixel when working on a grayscale colorspace
+/// @param grayLevel The gray level of the pixel
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-04

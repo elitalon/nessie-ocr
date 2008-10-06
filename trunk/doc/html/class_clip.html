@@ -73,13 +73,13 @@ Collaboration diagram for Clip:</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Press clip where the recognizer has to extract the text from. 
 <p>
-This class manages the press clips on a image loaded with the Magick++ utilities. The press clip is an image that may come in several formats, such JPEG, PDF, PNG, etc. The ImageMagick library provides an abstraction layer to keep the code independent from the format.<p>
-The idea behind this class is to encapsulate all the interactions with the Magick++ API, so that the rest of the classes have a unified way to work with the original image.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a></dd></dl>
+This class manages the press clips on a image loaded with the Magick++ utilities. The press clip is an image that may come in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format.<p>
+The idea behind this class is to encapsulate all the interactions with Magick++, so that the rest of the classes have an unified way to work with the original image.<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a>, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8h-source.html#l00030">30</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8h-source.html#l00031">31</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -215,10 +215,11 @@ Initializes a <a class="el" href="class_clip.html" title="Press clip where the r
     <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The width of the clip</td></tr>
   </table>
 </dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/Image.html">Magick++Image</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00029">29</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00031">31</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -244,7 +245,7 @@ Destroys a <a class="el" href="class_clip.html" title="Press clip where the reco
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00095">95</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00097">97</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -268,10 +269,11 @@ Destroys a <a class="el" href="class_clip.html" title="Press clip where the reco
 Returns the current Image object. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The underlying image where the clip belongs to</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/Image.html">Magick++Image</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00107">107</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00111">111</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -297,7 +299,7 @@ Returns the X coordinate of the clip's upper leftmost pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00119">119</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00123">123</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -334,7 +336,7 @@ If the new value x is over the image borders, an exception is thrown.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00135">135</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00139">139</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -360,7 +362,7 @@ Returns the Y coordinate of the clip's upper leftmost pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00153">153</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00157">157</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -397,7 +399,7 @@ If the new value y is over the image borders, an exception is thrown.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00169">169</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00173">173</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -423,7 +425,7 @@ Returns the clip's height.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00187">187</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00191">191</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00169">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00245">Preprocessor::removeIsolatedNoise()</a>.</p>
 
@@ -457,7 +459,7 @@ If the height is over the image borders the clip is truncated to its maximum all
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00201">201</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00205">205</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -483,7 +485,7 @@ Returns the clip's width.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-24 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00218">218</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00222">222</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00169">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00245">Preprocessor::removeIsolatedNoise()</a>.</p>
 
@@ -517,7 +519,7 @@ If the width is over the image borders the clip is truncated to its maximum allo
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00232">232</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00236">236</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -557,10 +559,11 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The pixel at coordinates (x,y)</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00254">254</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00260">260</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00169">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00245">Preprocessor::removeIsolatedNoise()</a>.</p>
 
@@ -611,7 +614,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00292">292</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00298">298</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00245">Preprocessor::removeIsolatedNoise()</a>.</p>
 
@@ -639,9 +642,9 @@ When any of the clip attributes change, it is neccesary to relocate the clip pos
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00329">329</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00335">335</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00201">height()</a>, <a class="el" href="_clip_8cpp-source.html#l00232">width()</a>, <a class="el" href="_clip_8cpp-source.html#l00135">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00169">y()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00205">height()</a>, <a class="el" href="_clip_8cpp-source.html#l00236">width()</a>, <a class="el" href="_clip_8cpp-source.html#l00139">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00173">y()</a>.</p>
 
 </div>
 </div><p>
@@ -667,9 +670,9 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00350">350</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00356">356</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00135">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00169">y()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00139">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00173">y()</a>.</p>
 
 </div>
 </div><p>
@@ -689,9 +692,9 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 Frame within the image where the clip is located. 
 <p>
 It is modified automatically when the clip attributes change 
-<p>Definition at line <a class="el" href="_clip_8h-source.html#l00127">127</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8h-source.html#l00128">128</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00029">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00329">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00292">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00095">~Clip()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00335">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00097">~Clip()</a>.</p>
 
 </div>
 </div><p>
@@ -710,16 +713,16 @@ It is modified automatically when the clip attributes change
 Frame's upper leftmost pixel. 
 <p>
 It is modified automatically when the clip attributes change 
-<p>Definition at line <a class="el" href="_clip_8h-source.html#l00132">132</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8h-source.html#l00133">133</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00029">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00254">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00329">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00292">setPixel()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00260">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00335">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_clip_8h-source.html">Clip.h (123)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (123)</a></ul>
+<li><a class="el" href="_clip_8h-source.html">Clip.h (125)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (125)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 4 13:31:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 12:30:24 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

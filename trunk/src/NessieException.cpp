@@ -26,7 +26,7 @@ NessieException::NessieException (const std::string &what): what_(what)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
 ///
-NessieException::~NessieException ()  throw()
+NessieException::~NessieException () throw()
 {
 
 };
