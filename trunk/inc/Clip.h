@@ -97,6 +97,11 @@ class Clip
 		void setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
 		
 		///
+		/// Returns the gray level of a pixel at coordinates (x,y)
+		///
+		double getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
+		
+		///
 		/// Returns the number of pixels within the clip
 		///
 		unsigned int nPixels () const;

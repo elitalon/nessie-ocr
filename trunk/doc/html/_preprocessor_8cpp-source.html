@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (126) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (127) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -161,7 +161,7 @@ window.onload = initDynSections;
 <a name="l00167"></a>00167             <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>(); ++j)
 <a name="l00168"></a>00168             {
 <a name="l00169"></a>00169                 <span class="comment">// Get gray level of this pixel</span>
-<a name="l00170"></a>00170                 <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i,j).<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>();
+<a name="l00170"></a>00170                 <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#c455ac259d23e90499233e1ec680a743" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i,j);
 <a name="l00171"></a>00171                 
 <a name="l00172"></a>00172                 <span class="comment">// Assume light gray values as the background</span>
 <a name="l00173"></a>00173                 <span class="keywordflow">if</span> ( grayLevel &gt;= <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a> )
@@ -196,7 +196,7 @@ window.onload = initDynSections;
 <a name="l00215"></a>00215         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the clip&amp;#39;s width.">width</a>(); ++j)
 <a name="l00216"></a>00216         {
 <a name="l00217"></a>00217             <span class="comment">// Get gray level of this pixel</span>
-<a name="l00218"></a>00218             <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a>(i,j).<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>();
+<a name="l00218"></a>00218             <span class="keywordtype">double</span> grayLevel = clip.<a class="code" href="class_clip.html#c455ac259d23e90499233e1ec680a743" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i,j);
 <a name="l00219"></a>00219             
 <a name="l00220"></a>00220             <span class="comment">// Update histogram</span>
 <a name="l00221"></a>00221             histogram[std::floor(grayLevel * 255.0)] += 1;
@@ -275,15 +275,15 @@ window.onload = initDynSections;
 <a name="l00309"></a>00309                     nPixels++;
 <a name="l00310"></a>00310                     
 <a name="l00311"></a>00311                     <span class="comment">// Get neighbour pixel gray level</span>
-<a name="l00312"></a>00312                     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> neighbourPixel = clip.<a class="code" href="class_clip.html#260bfb94abaa9d2df692ba33146cc62e" title="Returns the pixel at coordinates (x,y).">getPixel</a>(p, q);
+<a name="l00312"></a>00312                     <span class="keywordtype">double</span> neighbourPixelGrayLevel = clip.<a class="code" href="class_clip.html#c455ac259d23e90499233e1ec680a743" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(p, q);
 <a name="l00313"></a>00313                     
 <a name="l00314"></a>00314                     <span class="comment">// When background gray level is close to white but not the pixel, update the noisy neighbours counter</span>
-<a name="l00315"></a>00315                     <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
+<a name="l00315"></a>00315                     <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixelGrayLevel &gt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
 <a name="l00316"></a>00316                         nBackgroundPixels++;
 <a name="l00317"></a>00317                     <span class="keywordflow">else</span>
 <a name="l00318"></a>00318                     {
 <a name="l00319"></a>00319                         <span class="comment">// When background gray level is close to black but not the pixel, update the noisy neighbours counter</span>
-<a name="l00320"></a>00320                         <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixel.<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>() &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
+<a name="l00320"></a>00320                         <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixelGrayLevel &lt; <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
 <a name="l00321"></a>00321                             nBackgroundPixels++;
 <a name="l00322"></a>00322                     }
 <a name="l00323"></a>00323                 }
@@ -358,7 +358,7 @@ window.onload = initDynSections;
 <a name="l00392"></a>00392 <span class="comment">// </span>
 <a name="l00393"></a>00393 <span class="comment">// std::cout &lt;&lt; "Optimal threshold with Otsu's method: " &lt;&lt; optimalThreshold_ &lt;&lt; std::endl;</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 21:16:52 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 7 15:18:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

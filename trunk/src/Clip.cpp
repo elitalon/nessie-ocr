@@ -327,6 +327,45 @@ void Clip::setPixel (const unsigned int &x, const unsigned int &y, const double 
 
 
 ///
+/// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
+/// 
+/// @param x	The upper left-most pixel X coordinate of the clip
+/// @param y	The upper left-most pixel Y coordinate of the clip
+/// 
+/// @return The gray level of the pixel
+/// 
+/// @see Pixel
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-07
+///
+double Clip::getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const
+{
+	// Check the location is inside the clip borders
+	if ( (x >= height_) or (x < 0) )
+		throw NessieException ("Clip::getPixel(const unsigned int &x, const unsigned int &y): The X coordinate is out of image borders");
+	
+	if ( (y >= width_) or (y < 0) )
+		throw NessieException ("Clip::getPixel(const unsigned int &x, const unsigned int &y): The Y coordinate is out of image borders");
+	
+	// Get the pixel at desired location
+	Magick::PixelPacket* selectedPixel = originPixel_ + (x * width_) + y;
+	
+	try
+	{
+		// Build a Pixel object with the pixel gray level
+		Magick::ColorGray grayLevel(*selectedPixel);
+		return grayLevel.shade();
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return 0.0;
+	}
+};
+
+
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-06
 ///

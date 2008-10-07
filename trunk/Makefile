@@ -18,8 +18,8 @@ INC=inc/
 LIB=lib/
 
 # Magick++ API directives
-MAGICK_LINK=`Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_COMPILE=`Magick++-config --cppflags --cxxflags`
+MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
 
 # Source file of main program
 MAIN_SRC=$(SRC)main.cpp
@@ -75,7 +75,9 @@ OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLI
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
-FLAGS=-Wall -g -O3 -I$(INC)
+COMPILER_OPTIONS=-Wall -g -O3 -I$(INC)
+LINKER_OPTIONS=-finstrument-functions -lSaturn
+FLAGS=-Wall -O3 -I$(INC)
 
 # Formatted output commands
 NL=\n
@@ -86,13 +88,13 @@ TAB=\t
 main: $(OBJECTS)
 	@printf "** Linking and building the main rule:$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_LINK) $(OBJECTS) -o $(EXECUTABLE)
+	g++ $(FLAGS) $(MAGICK_LINKER) $(OBJECTS) -o $(EXECUTABLE)
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
 $(MAIN_OBJ): $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(MAIN_SRC) 
+	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(MAIN_SRC) 
 	@printf "$(TAB)"
 	mv main.o $(SRC)
 	@printf "$(NL)"
@@ -124,7 +126,7 @@ $(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 $(PIXEL_OBJ): $(PIXEL)
 	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(PIXEL_SRC)
+	g++ $(FLAGS) -c $(PIXEL_SRC)
 	@printf "$(TAB)"
 	mv Pixel.o $(SRC)
 	@printf "$(NL)"
@@ -132,7 +134,7 @@ $(PIXEL_OBJ): $(PIXEL)
 $(CLIP_OBJ): $(PIXEL_OBJ) $(CLIP)
 	@printf "** Making rule $(CLIP_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(CLIP_SRC)
+	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(CLIP_SRC)
 	@printf "$(TAB)"
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
@@ -140,7 +142,7 @@ $(CLIP_OBJ): $(PIXEL_OBJ) $(CLIP)
 $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILE) -c $(PREPROCESSOR_SRC)
+	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(PREPROCESSOR_SRC)
 	@printf "$(TAB)"
 	mv Preprocessor.o $(SRC)
 	@printf "$(NL)"

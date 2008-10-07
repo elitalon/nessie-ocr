@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (126) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (127) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -102,32 +102,34 @@ window.onload = initDynSections;
 <a name="l00093"></a>00093         
 <a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#cf9dc38eade61776c6c8497f2ce53b7b" title="Sets the gray level of a pixel at coordinates (x,y).">setPixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;grayLevel);
 <a name="l00098"></a>00098         
-<a name="l00102"></a>00102         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92" title="Returns the number of pixels within the clip.">nPixels</a> () <span class="keyword">const</span>;
+<a name="l00102"></a>00102         <span class="keywordtype">double</span> <a class="code" href="class_clip.html#c455ac259d23e90499233e1ec680a743" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span>;
 <a name="l00103"></a>00103         
-<a name="l00104"></a>00104     <span class="keyword">private</span>:
-<a name="l00108"></a><a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38">00108</a>         Magick::Image <a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38" title="Image where the clip belongs to.">image_</a>;
-<a name="l00109"></a>00109         
-<a name="l00113"></a><a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc">00113</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">x_</a>;
-<a name="l00114"></a>00114 
-<a name="l00118"></a><a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12">00118</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y_</a>;
+<a name="l00107"></a>00107         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92" title="Returns the number of pixels within the clip.">nPixels</a> () <span class="keyword">const</span>;
+<a name="l00108"></a>00108         
+<a name="l00109"></a>00109     <span class="keyword">private</span>:
+<a name="l00113"></a><a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38">00113</a>         Magick::Image <a class="code" href="class_clip.html#1b1e880c583cbb3df5f16a2796142b38" title="Image where the clip belongs to.">image_</a>;
+<a name="l00114"></a>00114         
+<a name="l00118"></a><a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc">00118</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#9887474cc18fc3a901394f568d40c1fc" title="X coordinate of the clip&amp;#39;s upper leftmost pixel.">x_</a>;
 <a name="l00119"></a>00119 
-<a name="l00123"></a><a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">00123</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a>;
+<a name="l00123"></a><a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12">00123</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#06f957c5fdf7a5149b84d97a9c694c12" title="Y coordinate of the clip&amp;#39;s upper leftmost pixel.">y_</a>;
 <a name="l00124"></a>00124 
-<a name="l00128"></a><a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">00128</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>;
-<a name="l00129"></a>00129         
-<a name="l00133"></a><a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80">00133</a>         Magick::Pixels* <a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80" title="Frame within the image where the clip is located.">frame_</a>;
+<a name="l00128"></a><a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">00128</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#eac813b06cee742c237240d9b7ccc336" title="Height of the clip in pixels.">height_</a>;
+<a name="l00129"></a>00129 
+<a name="l00133"></a><a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">00133</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#ba0048c33d63c40629e568d301f64f59" title="Width of the clip in pixels.">width_</a>;
 <a name="l00134"></a>00134         
-<a name="l00138"></a><a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188">00138</a>         Magick::PixelPacket* <a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a>;
-<a name="l00139"></a>00139 
-<a name="l00140"></a>00140         
-<a name="l00144"></a>00144         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#66fc93c15de96d077d2242a53576528e" title="Relocates the origin of the clip.">relocateClipOrigin</a> ();
+<a name="l00138"></a><a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80">00138</a>         Magick::Pixels* <a class="code" href="class_clip.html#2afdfb2cc29e6a97c70e55d5393e3a80" title="Frame within the image where the clip is located.">frame_</a>;
+<a name="l00139"></a>00139         
+<a name="l00143"></a><a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188">00143</a>         Magick::PixelPacket* <a class="code" href="class_clip.html#593bf304450ff4c7fe4ded74dff1c188" title="Frame&amp;#39;s upper leftmost pixel.">originPixel_</a>;
+<a name="l00144"></a>00144 
 <a name="l00145"></a>00145         
-<a name="l00149"></a>00149         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#e050cf90340e9160f79688627d69a00b" title="Adjusts the size of the clip.">adjustClipSize</a> ();
-<a name="l00150"></a>00150 };
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152 <span class="preprocessor">#endif  //_CLIP_H</span>
+<a name="l00149"></a>00149         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#66fc93c15de96d077d2242a53576528e" title="Relocates the origin of the clip.">relocateClipOrigin</a> ();
+<a name="l00150"></a>00150         
+<a name="l00154"></a>00154         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#e050cf90340e9160f79688627d69a00b" title="Adjusts the size of the clip.">adjustClipSize</a> ();
+<a name="l00155"></a>00155 };
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157 <span class="preprocessor">#endif  //_CLIP_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 21:16:52 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 7 15:18:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -167,7 +167,7 @@ double Preprocessor::computeOptimalThreshold (const Clip &clip)
 			for (unsigned int j=0; j < clip.width(); ++j)
 			{
 				// Get gray level of this pixel
-				double grayLevel = clip.getPixel(i,j).grayLevel();
+				double grayLevel = clip.getPixelGrayLevel(i,j);
 				
 				// Assume light gray values as the background
 				if ( grayLevel >= optimalThreshold_ )
@@ -215,7 +215,7 @@ double Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const u
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
 			// Get gray level of this pixel
-			double grayLevel = clip.getPixel(i,j).grayLevel();
+			double grayLevel = clip.getPixelGrayLevel(i,j);
 			
 			// Update histogram
 			histogram[std::floor(grayLevel * 255.0)] += 1;
@@ -309,15 +309,15 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 					nPixels++;
 					
 					// Get neighbour pixel gray level
-					Pixel neighbourPixel = clip.getPixel(p, q);
+					double neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
 					
 					// When background gray level is close to white but not the pixel, update the noisy neighbours counter
-					if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixel.grayLevel() > optimalThreshold_) )
+					if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixelGrayLevel > optimalThreshold_) )
 						nBackgroundPixels++;
 					else
 					{
 						// When background gray level is close to black but not the pixel, update the noisy neighbours counter
-						if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixel.grayLevel() < optimalThreshold_) )
+						if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel < optimalThreshold_) )
 							nBackgroundPixels++;
 					}
 				}

@@ -1,9 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <functional>
-#include <algorithm>
-#include <numeric>
-#include <cmath>
 using namespace std;
 
 #include <Magick++.h>

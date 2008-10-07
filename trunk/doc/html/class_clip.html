@@ -122,6 +122,9 @@ The idea behind this class is to encapsulate all the interactions with Magick++,
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#cf9dc38eade61776c6c8497f2ce53b7b">setPixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the gray level of a pixel at coordinates (x,y).  <a href="#cf9dc38eade61776c6c8497f2ce53b7b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#c455ac259d23e90499233e1ec680a743">getPixelGrayLevel</a> (const unsigned int &amp;x, const unsigned int &amp;y) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the gray level of a pixel at coordinates (x,y).  <a href="#c455ac259d23e90499233e1ec680a743"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92">nPixels</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels within the clip.  <a href="#23ad153e40b62cc9178ff6b439ad7d92"></a><br></td></tr>
@@ -568,8 +571,6 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 
 <p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00260">260</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00152">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00208">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00284">Preprocessor::removeIsolatedNoise()</a>.</p>
-
 </div>
 </div><p>
 <a class="anchor" name="cf9dc38eade61776c6c8497f2ce53b7b"></a><!-- doxytag: member="Clip::setPixel" ref="cf9dc38eade61776c6c8497f2ce53b7b" args="(const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)" -->
@@ -623,6 +624,52 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 
 </div>
 </div><p>
+<a class="anchor" name="c455ac259d23e90499233e1ec680a743"></a><!-- doxytag: member="Clip::getPixelGrayLevel" ref="c455ac259d23e90499233e1ec680a743" args="(const unsigned int &amp;x, const unsigned int &amp;y) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Clip::getPixelGrayLevel           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the gray level of a pixel at coordinates (x,y). 
+<p>
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a></dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-07 </dd></dl>
+
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00342">342</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00152">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00208">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00284">Preprocessor::removeIsolatedNoise()</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="23ad153e40b62cc9178ff6b439ad7d92"></a><!-- doxytag: member="Clip::nPixels" ref="23ad153e40b62cc9178ff6b439ad7d92" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -644,7 +691,7 @@ Returns the number of pixels within the clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00333">333</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00372">372</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00152">Preprocessor::computeOptimalThreshold()</a>.</p>
 
@@ -672,7 +719,7 @@ When any of the clip attributes change, it is neccesary to relocate the clip pos
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00345">345</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00384">384</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00205">height()</a>, <a class="el" href="_clip_8cpp-source.html#l00236">width()</a>, <a class="el" href="_clip_8cpp-source.html#l00139">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00173">y()</a>.</p>
 
@@ -700,7 +747,7 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00366">366</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00405">405</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00139">x()</a>, and <a class="el" href="_clip_8cpp-source.html#l00173">y()</a>.</p>
 
@@ -722,9 +769,9 @@ When the clip origin changes, it is neccesary to test whether the clip dimension
 Frame within the image where the clip is located. 
 <p>
 It is modified automatically when the clip attributes change 
-<p>Definition at line <a class="el" href="_clip_8h-source.html#l00133">133</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8h-source.html#l00138">138</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00345">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00097">~Clip()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00384">relocateClipOrigin()</a>, <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>, and <a class="el" href="_clip_8cpp-source.html#l00097">~Clip()</a>.</p>
 
 </div>
 </div><p>
@@ -743,16 +790,16 @@ It is modified automatically when the clip attributes change
 Frame's upper leftmost pixel. 
 <p>
 It is modified automatically when the clip attributes change 
-<p>Definition at line <a class="el" href="_clip_8h-source.html#l00138">138</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8h-source.html#l00143">143</a> of file <a class="el" href="_clip_8h-source.html">Clip.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00260">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00345">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>.</p>
+<p>Referenced by <a class="el" href="_clip_8cpp-source.html#l00031">Clip()</a>, <a class="el" href="_clip_8cpp-source.html#l00260">getPixel()</a>, <a class="el" href="_clip_8cpp-source.html#l00342">getPixelGrayLevel()</a>, <a class="el" href="_clip_8cpp-source.html#l00384">relocateClipOrigin()</a>, and <a class="el" href="_clip_8cpp-source.html#l00298">setPixel()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_clip_8h-source.html">Clip.h (126)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (126)</a></ul>
+<li><a class="el" href="_clip_8h-source.html">Clip.h (127)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (127)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 6 21:16:52 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 7 15:18:17 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
