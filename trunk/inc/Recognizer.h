@@ -28,7 +28,7 @@
 /// provides an abstraction layer to keep the code independent from the image format. The idea behind this class is to encapsulate
 /// all the interactions with Magick++, so that the rest of the classes have an unified way to work.
 /// 
-/// @see Text, Statistic, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
+/// @see Text, Statistics, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-08

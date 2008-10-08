@@ -81,6 +81,7 @@ OBJECTS=$(RECOGNIZER_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
+DEBUG=NO
 COMPILER_DEBUGGING_OPTIONS=-g
 LINKER_DEBUGGING_OPTIONS=-finstrument-functions -lSaturn
 FLAGS=-Wall -O3 -I$(INC)
@@ -94,13 +95,22 @@ TAB=\t
 main: $(MAIN_OBJ)
 	@printf "** Linking and building:$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
+else
+	g++ $(FLAGS) $(LINKER_DEBUGGING_OPTIONS) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
+endif
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
+
 
 $(MAIN_OBJ): $(OBJECTS) $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(MAIN_SRC) 
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(MAIN_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(MAGICK_COMPILER) -c $(MAIN_SRC)
+endif
 	@printf "$(TAB)"
 	mv main.o $(SRC)
 	@printf "$(NL)"
@@ -108,7 +118,11 @@ $(MAIN_OBJ): $(OBJECTS) $(MAIN)
 $(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
+endif
 	@printf "$(TAB)"
 	mv Recognizer.o $(SRC)
 	@printf "$(NL)"
@@ -116,7 +130,11 @@ $(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(RECOGNIZE
 $(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) -c $(TEXT_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(TEXT_SRC)
+endif	
 	@printf "$(TAB)"
 	mv Text.o $(SRC)
 	@printf "$(NL)"
@@ -124,7 +142,11 @@ $(TEXT_OBJ): $(WORD_RATE) $(TEXT)
 $(STATISTICS_OBJ): $(STATISTICS) 
 	@printf "** Making rule $(STATISTICS_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(STATISTICS_SRC) 
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(STATISTICS_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(STATISTICS_SRC)
+endif
 	@printf "$(TAB)"
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
@@ -132,7 +154,11 @@ $(STATISTICS_OBJ): $(STATISTICS)
 $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) -c $(PREPROCESSOR_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(PREPROCESSOR_SRC)
+endif
 	@printf "$(TAB)"
 	mv Preprocessor.o $(SRC)
 	@printf "$(NL)"
@@ -140,7 +166,11 @@ $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 $(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
 	@printf "** Making rule $(CLIP_OBJ):$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) -c $(CLIP_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLIP_SRC)
+endif
 	@printf "$(TAB)"
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
@@ -148,7 +178,11 @@ $(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
 	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC) 
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(NESSIE_EXCEPTION_SRC)
+endif
 	@printf "$(TAB)"
 	mv NessieException.o $(SRC)
 	@printf "$(NL)"
@@ -156,16 +190,19 @@ $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
 $(PIXEL_OBJ): $(PIXEL)
 	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
 	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
 	g++ $(FLAGS) -c $(PIXEL_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(PIXEL_SRC)
+endif
 	@printf "$(TAB)"
 	mv Pixel.o $(SRC)
 	@printf "$(NL)"
 
 
-
-
 # Make everything
 all: clean main
+
 
 # Delete everything
 clean:
