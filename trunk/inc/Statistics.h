@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Declaration of class Statistics
+/// @brief Declaration of the class Statistics
 ///
 
 #if !defined(_STATISTICS_H)
@@ -22,22 +22,57 @@ class Statistics
 		///
 		/// Returns the elapsed time in the reference gray level of the background finding algorithm
 		///
-		double backgroundReferenceGrayLevelFindingTime () const;
+		/// @return Elapsed time in the reference gray level of the background finding algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double backgroundReferenceGrayLevelFindingTime () const
+		{
+			return backgroundReferenceGrayLevelFindingTime_;
+		};
+		
 		
 		///
 		/// Returns the elapsed time in the optimal threshold computing algorithm
 		///
-		double optimalThresholdComputingTime () const;
+		/// @return Elapsed time in the optimal threshold computing algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double optimalThresholdComputingTime () const
+		{
+			return optimalThresholdComputingTime_;
+		};
+		
 		
 		///
 		/// Returns the elapsed time in the noise removal algorithm
 		///
-		double noiseRemovalTime () const;
+		/// @return Elapsed time in the noise removal algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double noiseRemovalTime () const
+		{
+			return noiseRemovalTime_;
+		};
+		
 		
 		///
 		/// Returns the total elapsed time within the preprocessing stage
 		///
-		double preprocessingTime () const;
+		/// @return Total elapsed time within the preprocessing stage
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double preprocessingTime () const
+		{
+			return preprocessingTime_;
+		};
 		
 	private:
 		///

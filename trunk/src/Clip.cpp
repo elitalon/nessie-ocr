@@ -39,18 +39,6 @@ Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &x, cons
 
 
 ///
-/// @details Destroys a Clip object, deleting all the associated data from Magick++ API
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-07
-///
-Clip::~Clip ()
-{
-
-};
-
-
-///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
 /// The gray level must be normalized in a value from 0 to 255, otherwise it is truncated.
 ///

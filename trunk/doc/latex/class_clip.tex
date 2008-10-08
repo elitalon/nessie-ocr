@@ -29,8 +29,6 @@ Definition at line 23 of file Clip.h.\subsection*{Public Member Functions}
 \item 
 \hyperlink{class_clip_7e151616bf9c24c77aa5d1a0d341aa2a}{Clip} (const std::vector$<$ unsigned char $>$ \&image, const unsigned int \&x, const unsigned int \&y, const unsigned int \&height, const unsigned int \&width)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-\hyperlink{class_clip_88647ed65e3482b5e0533ec98667b0fa}{$\sim$Clip} ()
-\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
 void \hyperlink{class_clip_454ff6070d0918e56a09a3f28ff430c3}{setPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y, const unsigned char \&grayLevel)
 \begin{CompactList}\small\item\em Sets the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
 unsigned char \hyperlink{class_clip_334577b60ef51e42f977f952a29d1b66}{getPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y) const 
@@ -91,24 +89,7 @@ Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) i
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 24 of file Clip.cpp.\hypertarget{class_clip_88647ed65e3482b5e0533ec98667b0fa}{
-\index{Clip@{Clip}!$\sim$Clip@{$\sim$Clip}}
-\index{$\sim$Clip@{$\sim$Clip}!Clip@{Clip}}
-\subsubsection[$\sim$Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::$\sim$Clip ()}}
-\label{class_clip_88647ed65e3482b5e0533ec98667b0fa}
-
-
-Destructor. 
-
-Destroys a \hyperlink{class_clip}{Clip} object, deleting all the associated data from Magick++ API
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-07 \end{Desc}
-
-
-Definition at line 47 of file Clip.cpp.
+Definition at line 24 of file Clip.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_clip_454ff6070d0918e56a09a3f28ff430c3}{
@@ -133,7 +114,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 64 of file Clip.cpp.
+Definition at line 52 of file Clip.cpp.
 
 Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_334577b60ef51e42f977f952a29d1b66}{
 \index{Clip@{Clip}!getPixelGrayLevel@{getPixelGrayLevel}}
@@ -159,7 +140,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 86 of file Clip.cpp.
+Definition at line 74 of file Clip.cpp.
 
 Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_6022d01af67b1aedef82a697d5bf5934}{
 \index{Clip@{Clip}!pixels@{pixels}}
@@ -176,7 +157,7 @@ Returns the pixels that defines the press clip.
 \item[Date:]2008-10-07 \end{Desc}
 
 
-Definition at line 56 of file Clip.h.\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
+Definition at line 50 of file Clip.h.\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
 \index{Clip@{Clip}!nPixels@{nPixels}}
 \index{nPixels@{nPixels}!Clip@{Clip}}
 \subsubsection[nPixels]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::nPixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -191,7 +172,7 @@ Returns the number of pixels within the press clip.
 \item[Date:]2008-10-07 \end{Desc}
 
 
-Definition at line 68 of file Clip.h.
+Definition at line 62 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
 \index{Clip@{Clip}!width@{width}}
@@ -208,7 +189,7 @@ Returns the width of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 80 of file Clip.h.
+Definition at line 74 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
 \index{Clip@{Clip}!height@{height}}
@@ -225,11 +206,11 @@ Returns the height of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 92 of file Clip.h.
+Definition at line 86 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_clip_8h}{Clip.h (128)}\item 
-\hyperlink{_clip_8cpp}{Clip.cpp (128)}\end{CompactItemize}
+\hyperlink{_clip_8h}{Clip.h (131)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (131)}\end{CompactItemize}

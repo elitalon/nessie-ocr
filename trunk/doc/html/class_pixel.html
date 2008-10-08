@@ -76,7 +76,7 @@ Information about an image pixel.
 This class stores all the information of a pixel within a press clip. Every pixel has a location given by a pair of coordinates (x,y) and a color information in a grayscale colorspace of 256 levels.<p>
 The gray level of a pixel is normalized value between 0.0 and 1.0, where 0 corresponds to 0.0 (black) and 255 corresponds to 1.0 (white). A monochromatic colorspace can be emulated using only 0.0 and 1.0.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
 <p>Definition at line <a class="el" href="_pixel_8h-source.html#l00022">22</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -88,15 +88,10 @@ The gray level of a pixel is normalized value between 0.0 and 1.0, where 0 corre
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#e54d95bf19847e4857eeb03f1138ceb9">Pixel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const double &amp;grayLevel)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e54d95bf19847e4857eeb03f1138ceb9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#30f6aaf9a1d8792245070860546fa365">~Pixel</a> ()</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#30f6aaf9a1d8792245070860546fa365"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#68dafccc4588fb33d445641c2766316b">x</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's X coordinate.  <a href="#68dafccc4588fb33d445641c2766316b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a">y</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's Y coordinate.  <a href="#204cc91a99e1e4f1d96c9cf6caf5747a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0">grayLevel</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixel's gray level.  <a href="#6e445cee8bfa4475238823e0b6da42b0"></a><br></td></tr>
@@ -193,32 +188,6 @@ Initializes a <a class="el" href="class_pixel.html" title="Information about an 
 
 </div>
 </div><p>
-<a class="anchor" name="30f6aaf9a1d8792245070860546fa365"></a><!-- doxytag: member="Pixel::~Pixel" ref="30f6aaf9a1d8792245070860546fa365" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Pixel::~Pixel           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Destructor. 
-<p>
-Destroys a <a class="el" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> object<p>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-25 </dd></dl>
-
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00053">53</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
-
-</div>
-</div><p>
 <hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="68dafccc4588fb33d445641c2766316b"></a><!-- doxytag: member="Pixel::x" ref="68dafccc4588fb33d445641c2766316b" args="() const " -->
 <div class="memitem">
@@ -229,20 +198,18 @@ Destroys a <a class="el" href="class_pixel.html" title="Information about an ima
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the pixel's X coordinate. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The x coordinate (row) of the pixel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00065">65</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8h-source.html#l00043">43</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
 
 </div>
 </div><p>
@@ -255,20 +222,18 @@ Returns the pixel's X coordinate.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the pixel's Y coordinate. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The y coordinate (column) of the pixel</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-29 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00077">77</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8h-source.html#l00055">55</a> of file <a class="el" href="_pixel_8h-source.html">Pixel.h</a>.</p>
 
 </div>
 </div><p>
@@ -294,7 +259,7 @@ Returns the pixel's gray level.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-09-26 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00089">89</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00053">53</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -325,14 +290,14 @@ Sets the pixel's gray level.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00101">101</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_pixel_8cpp-source.html#l00065">65</a> of file <a class="el" href="_pixel_8cpp-source.html">Pixel.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_pixel_8h-source.html">Pixel.h (125)</a><li><a class="el" href="_pixel_8cpp-source.html">Pixel.cpp (126)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 16:51:26 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 17:42:44 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

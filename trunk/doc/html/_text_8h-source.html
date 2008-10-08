@@ -80,39 +80,60 @@ window.onload = initDynSections;
 <a name="l00028"></a>00028         
 <a name="l00032"></a>00032         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> ();
 <a name="l00033"></a>00033         
-<a name="l00037"></a>00037         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a>);
-<a name="l00038"></a>00038                 
-<a name="l00042"></a>00042         <a class="code" href="class_text.html#2d49e5c280e205125b149f7777ae30c7" title="Destructor.">~Text</a> ();
-<a name="l00043"></a>00043         
-<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to text.">addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character);
-<a name="l00048"></a>00048         
-<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to text.">addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position);
-<a name="l00053"></a>00053 
-<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from text.">removeCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position);
+<a name="l00034"></a>00034         
+<a name="l00038"></a>00038         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a>);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040         
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to text.">addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character);
+<a name="l00045"></a>00045         
+<a name="l00046"></a>00046         
+<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9" title="Adds a character to text.">addCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> &amp;character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position);
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from text.">removeCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;position);
+<a name="l00057"></a>00057 
 <a name="l00058"></a>00058                 
-<a name="l00062"></a>00062         std::string <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a> () <span class="keyword">const</span>;
-<a name="l00063"></a>00063 
-<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a> (<span class="keyword">const</span> std::string &amp;content);
-<a name="l00068"></a>00068         
-<a name="l00072"></a>00072         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text&amp;#39;s length.">length</a> () <span class="keyword">const</span>;
-<a name="l00073"></a>00073         
-<a name="l00077"></a>00077         std::vector&lt;WordRate&gt; <a class="code" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b" title="Returns the appearance rates of every single word in text.">wordRates</a> () <span class="keyword">const</span>;
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079     <span class="keyword">private</span>:
-<a name="l00083"></a><a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">00083</a>         std::string <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>;
-<a name="l00084"></a>00084                 
-<a name="l00088"></a><a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729">00088</a>         std::vector&lt;WordRate&gt; <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>;
+<a name="l00067"></a><a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83">00067</a>         <span class="keyword">inline</span> std::string <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a> ()<span class="keyword"> const</span>
+<a name="l00068"></a>00068 <span class="keyword">        </span>{
+<a name="l00069"></a>00069             <span class="keywordflow">return</span> <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>;
+<a name="l00070"></a>00070         };
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 
+<a name="l00081"></a><a class="code" href="class_text.html#eca454f28010b6b3e7bd0d771b8eaeb2">00081</a>         <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a> (<span class="keyword">const</span> std::string &amp;content)
+<a name="l00082"></a>00082         {
+<a name="l00083"></a>00083             <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>.assign(content);
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085             <span class="comment">// Rebuild the appearance rate of every word in the new text</span>
+<a name="l00086"></a>00086             <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector of appearance rates of every word.">computeWordRates</a>();
+<a name="l00087"></a>00087         };
+<a name="l00088"></a>00088 
 <a name="l00089"></a>00089         
-<a name="l00093"></a>00093         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector of appearance rates of every word.">computeWordRates</a> ();
-<a name="l00094"></a>00094         
-<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99" title="Increases by one the number of appearances of a word.">updateWordRate</a> (<span class="keyword">const</span> std::string &amp;word_);
-<a name="l00099"></a>00099         
-<a name="l00103"></a>00103         <span class="keywordtype">void</span> <a class="code" href="class_text.html#3fe3daa80386d15a275523b18bde7fd9" title="Extracts every word surrounded by a set of delimiters.">tokenize</a>(std::vector&lt;std::string&gt; &amp;tokens_, <span class="keyword">const</span> std::string &amp;delimiters_ = <span class="stringliteral">" ,.\n\t:;!¡¿?&amp;/()=\"'"</span>) <span class="keyword">const</span>;
-<a name="l00104"></a>00104 };
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="preprocessor">#endif  //_TEXT_H</span>
+<a name="l00098"></a><a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5">00098</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5" title="Returns the text&amp;#39;s length.">length</a> ()<span class="keyword"> const</span>
+<a name="l00099"></a>00099 <span class="keyword">        </span>{
+<a name="l00100"></a>00100             <span class="keywordflow">return</span> <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>.length();
+<a name="l00101"></a>00101         };
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103         
+<a name="l00114"></a><a class="code" href="class_text.html#c596d0e2ef3a9cf4dafcb1c0e18ba65c">00114</a>         <span class="keyword">inline</span> std::vector&lt;WordRate&gt; <a class="code" href="class_text.html#c596d0e2ef3a9cf4dafcb1c0e18ba65c" title="Returns the appearance rates of every single word in text.">wordRates</a> ()<span class="keyword"> const</span>
+<a name="l00115"></a>00115 <span class="keyword">        </span>{
+<a name="l00116"></a>00116             <span class="keywordflow">return</span> <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>;
+<a name="l00117"></a><a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">00117</a>         };
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <span class="keyword">private</span>:
+<a name="l00123"></a>00123         std::string <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>;
+<a name="l00124"></a>00124                 
+<a name="l00128"></a><a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729">00128</a>         std::vector&lt;WordRate&gt; <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>;
+<a name="l00129"></a>00129         
+<a name="l00133"></a>00133         <span class="keywordtype">void</span> <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector of appearance rates of every word.">computeWordRates</a> ();
+<a name="l00134"></a>00134         
+<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99" title="Increases by one the number of appearances of a word.">updateWordRate</a> (<span class="keyword">const</span> std::string &amp;word_);
+<a name="l00139"></a>00139         
+<a name="l00143"></a>00143         <span class="keywordtype">void</span> <a class="code" href="class_text.html#3fe3daa80386d15a275523b18bde7fd9" title="Extracts every word surrounded by a set of delimiters.">tokenize</a>(std::vector&lt;std::string&gt; &amp;tokens_, <span class="keyword">const</span> std::string &amp;delimiters_ = <span class="stringliteral">" ,.\n\t:;!¡¿?&amp;/()=\"'"</span>) <span class="keyword">const</span>;
+<a name="l00144"></a>00144 };
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 <span class="preprocessor">#endif  //_TEXT_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 16:51:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 17:42:37 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

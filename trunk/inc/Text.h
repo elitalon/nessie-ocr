@@ -20,7 +20,7 @@
 /// It also keeps the appearance rate of every word in text.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 ///
 class Text
 {
@@ -31,50 +31,90 @@ class Text
 		///
 		Text ();
 		
+		
 		///
 		/// Constructor
 		///
 		Text (const std::string &content);
-				
-		///
-		/// Destructor
-		///
-		~Text ();
+
 		
 		///
 		/// Adds a character to text
 		///
 		void addCharacter (const char &character);
 		
+		
 		///
 		/// Adds a character to text
 		///
 		void addCharacter (const char &character, const unsigned int &position);
 
+
 		///
 		/// Removes a character from text
 		///
 		void removeCharacter (const unsigned int &position);
+
 				
 		///
 		/// Returns the text's content
 		///
-		std::string content () const;
+		/// @return The content of the text
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline std::string content () const
+		{
+			return content_;
+		};
+
 
 		///
 		/// Sets the text's content
+		/// 
+		/// @param content The content of the text
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
 		///
-		void content (const std::string &content);
+		inline void content (const std::string &content)
+		{
+			content_.assign(content);
+
+			// Rebuild the appearance rate of every word in the new text
+			computeWordRates();
+		};
+
 		
 		///
 		/// Returns the text's length
 		///
-		unsigned int length () const;
+		/// @return The length of the text
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline unsigned int length () const
+		{
+			return content_.length();
+		};
+
 		
 		///
-		/// Returns the appearance rates of every single word in text
+		/// Returns the appearance rates of every single word in text.
+		/// 
+		/// @return A vector with every different word and their appearance rate
+		/// 
+		/// @see WordRate
 		///
-		std::vector<WordRate> wordRates () const;
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline std::vector<WordRate> wordRates () const
+		{
+			return wordRates_;
+		};
 
 	private:
 		///

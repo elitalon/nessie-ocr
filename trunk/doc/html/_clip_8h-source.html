@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (128) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.h (131) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -76,52 +76,49 @@ window.onload = initDynSections;
 <a name="l00025"></a>00025     <span class="keyword">public</span>:
 <a name="l00029"></a>00029         <a class="code" href="class_clip.html#7e151616bf9c24c77aa5d1a0d341aa2a" title="Constructor.">Clip</a> (<span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;image, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the height of the clip.">height</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the width of the clip.">width</a>);
 <a name="l00030"></a>00030         
-<a name="l00031"></a>00031         
-<a name="l00035"></a>00035         <a class="code" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa" title="Destructor.">~Clip</a> ();
+<a name="l00031"></a>00031                 
+<a name="l00035"></a>00035         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;grayLevel);
 <a name="l00036"></a>00036         
-<a name="l00037"></a>00037                 
-<a name="l00041"></a>00041         <span class="keywordtype">void</span> <a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;grayLevel);
+<a name="l00037"></a>00037         
+<a name="l00041"></a>00041         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_clip.html#334577b60ef51e42f977f952a29d1b66" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span>;
 <a name="l00042"></a>00042         
 <a name="l00043"></a>00043         
-<a name="l00047"></a>00047         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_clip.html#334577b60ef51e42f977f952a29d1b66" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y) <span class="keyword">const</span>;
-<a name="l00048"></a>00048         
-<a name="l00049"></a>00049         
-<a name="l00056"></a><a class="code" href="class_clip.html#6022d01af67b1aedef82a697d5bf5934">00056</a>         <span class="keyword">inline</span> std::vector&lt;unsigned char&gt; <a class="code" href="class_clip.html#6022d01af67b1aedef82a697d5bf5934" title="Returns the pixels that defines the press clip.">pixels</a> ()<span class="keyword"> const</span>
-<a name="l00057"></a>00057 <span class="keyword">        </span>{
-<a name="l00058"></a>00058             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>;
-<a name="l00059"></a>00059         };
-<a name="l00060"></a>00060         
-<a name="l00061"></a>00061         
-<a name="l00068"></a><a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92">00068</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92" title="Returns the number of pixels within the press clip.">nPixels</a> ()<span class="keyword"> const</span>
-<a name="l00069"></a>00069 <span class="keyword">        </span>{
-<a name="l00070"></a>00070             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d" title="Number of pixels within the image.">nPixels_</a>;
-<a name="l00071"></a>00071         };
-<a name="l00072"></a>00072         
-<a name="l00073"></a>00073         
-<a name="l00080"></a><a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76">00080</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the width of the clip.">width</a> ()<span class="keyword"> const</span>
-<a name="l00081"></a>00081 <span class="keyword">        </span>{
-<a name="l00082"></a>00082             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>;
-<a name="l00083"></a>00083         };
-<a name="l00084"></a>00084         
-<a name="l00085"></a>00085         
-<a name="l00092"></a><a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8">00092</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the height of the clip.">height</a> ()<span class="keyword"> const</span>
-<a name="l00093"></a>00093 <span class="keyword">        </span>{
-<a name="l00094"></a>00094             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e" title="The height of the pixel.">height_</a>;
-<a name="l00095"></a><a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa">00095</a>         };
+<a name="l00050"></a><a class="code" href="class_clip.html#6022d01af67b1aedef82a697d5bf5934">00050</a>         <span class="keyword">inline</span> std::vector&lt;unsigned char&gt; <a class="code" href="class_clip.html#6022d01af67b1aedef82a697d5bf5934" title="Returns the pixels that defines the press clip.">pixels</a> ()<span class="keyword"> const</span>
+<a name="l00051"></a>00051 <span class="keyword">        </span>{
+<a name="l00052"></a>00052             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>;
+<a name="l00053"></a>00053         };
+<a name="l00054"></a>00054         
+<a name="l00055"></a>00055         
+<a name="l00062"></a><a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92">00062</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92" title="Returns the number of pixels within the press clip.">nPixels</a> ()<span class="keyword"> const</span>
+<a name="l00063"></a>00063 <span class="keyword">        </span>{
+<a name="l00064"></a>00064             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d" title="Number of pixels within the image.">nPixels_</a>;
+<a name="l00065"></a>00065         };
+<a name="l00066"></a>00066         
+<a name="l00067"></a>00067         
+<a name="l00074"></a><a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76">00074</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the width of the clip.">width</a> ()<span class="keyword"> const</span>
+<a name="l00075"></a>00075 <span class="keyword">        </span>{
+<a name="l00076"></a>00076             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>;
+<a name="l00077"></a>00077         };
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079         
+<a name="l00086"></a><a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8">00086</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the height of the clip.">height</a> ()<span class="keyword"> const</span>
+<a name="l00087"></a>00087 <span class="keyword">        </span>{
+<a name="l00088"></a>00088             <span class="keywordflow">return</span> <a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e" title="The height of the pixel.">height_</a>;
+<a name="l00089"></a><a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa">00089</a>         };
+<a name="l00090"></a>00090         
+<a name="l00091"></a>00091     <span class="keyword">private</span>:
+<a name="l00095"></a>00095         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>;
 <a name="l00096"></a>00096         
-<a name="l00097"></a>00097     <span class="keyword">private</span>:
-<a name="l00101"></a>00101         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>;
-<a name="l00102"></a>00102         
-<a name="l00106"></a><a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e">00106</a>         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e" title="The height of the pixel.">height_</a>;
-<a name="l00107"></a>00107         
-<a name="l00111"></a><a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c">00111</a>         std::vector&lt;unsigned char&gt; <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>;
-<a name="l00112"></a>00112         
-<a name="l00116"></a><a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d">00116</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d" title="Number of pixels within the image.">nPixels_</a>;
-<a name="l00117"></a>00117 };
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119 <span class="preprocessor">#endif  //_CLIP_H</span>
+<a name="l00100"></a><a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e">00100</a>         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#35dd13977f3e15d04053260154ebf42e" title="The height of the pixel.">height_</a>;
+<a name="l00101"></a>00101         
+<a name="l00105"></a><a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c">00105</a>         std::vector&lt;unsigned char&gt; <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>;
+<a name="l00106"></a>00106         
+<a name="l00110"></a><a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d">00110</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d" title="Number of pixels within the image.">nPixels_</a>;
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="preprocessor">#endif  //_CLIP_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 16:51:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 17:42:37 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

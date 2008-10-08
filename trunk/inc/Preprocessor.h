@@ -7,8 +7,7 @@
 #define _PREPROCESSOR_H
 
 
-// Forward declaration
-class Clip;
+#include "Clip.h"
 
 
 ///
@@ -31,55 +30,116 @@ class Preprocessor
 		///
 		Preprocessor ();
 		
-		///
-		/// Destructor
-		///
-		~Preprocessor ();
 
 		///
 		/// Returns the optimal threshold found in the last clip used
 		///
-		unsigned char optimalThreshold () const;
+		/// @return Current optimal threshold computed from the last clip used
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline unsigned char optimalThreshold () const
+		{
+			return optimalThreshold_;
+		};
+		
 		
 		///
 		/// Sets the optimal threshold to use in algorithms
 		///
-		void optimalThreshold (const unsigned char &threshold);
+		/// @param threshold A value between 0 and 255 that stablishes the optimal threshold of a clip
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline void optimalThreshold (const unsigned char &threshold)
+		{
+			optimalThreshold_ = threshold;
+		};
+		
 		
 		///
 		/// Returns the background reference gray level in the last clip used
 		///
-		unsigned char backgroundReferenceGrayLevel () const;
+		/// @return Reference background gray level in the last clip used
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline unsigned char backgroundReferenceGrayLevel () const
+		{
+			return backgroundReferenceGrayLevel_;
+		};
+		
 		
 		///
 		/// Sets the background reference gray level to use in algorithms
 		///
-		void backgroundReferenceGrayLevel (const unsigned char &grayLevel);
+		/// @param grayLevel Background reference gray level to use in algorithms
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline void backgroundReferenceGrayLevel (const unsigned char &grayLevel)
+		{
+			backgroundReferenceGrayLevel_ = grayLevel;
+		};
+
 
 		///
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
 		///
-		double noiseRemovalTime () const;
+		/// @return Elapsed time when applying the 'isolated noise removal' algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double noiseRemovalTime () const
+		{
+			return noiseRemovalTime_;
+		};
+
 				
 		///
 		/// Returns the elapsed time while founding the optimal threshold within the clip
 		///
-		double optimalThresholdComputingTime () const;
+		/// @return Elapsed time while founding the optimal threshold within the clip
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double optimalThresholdComputingTime () const
+		{
+			return optimalThresholdComputingTime_;
+		};
+
 		
 		///
 		/// Returns the elapsed time while computing the background reference gray level within the clip
 		///
-		double backgroundReferenceGrayLevelFindingTime () const;
+		/// @return Elapsed time while computing the background reference gray level
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline double backgroundReferenceGrayLevelFindingTime () const
+		{
+			return backgroundReferenceGrayLevelFindingTime_;
+		};
+
 		
 		///
 		/// Computes the optimal threshold value within a clip
 		///
 		unsigned char computeOptimalThreshold (const Clip &clip);
+
 		
 		///
 		/// Computes the background reference gray level value within a clip
 		///
 		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
+
 		
 		///
 		/// Applies the 'isolated noise removal' algorithm

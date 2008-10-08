@@ -1,4 +1,6 @@
 <area shape="rect" href="$_clip_8cpp.html" title="Implementation of the class Clip." alt="" coords="5,84,77,111">
-<area shape="rect" href="$_partitioner_8cpp-source.html" title="Partitioner.cpp" alt="" coords="179,161,299,188">
-<area shape="rect" href="$_preprocessor_8cpp.html" title="Implementation of the class Preprocessor." alt="" coords="152,84,288,111">
-<area shape="rect" href="$_partitioner_8h-source.html" title="Partitioner.h" alt="" coords="312,84,416,111">
+<area shape="rect" href="$_partitioner_8cpp-source.html" title="Partitioner.cpp" alt="" coords="73,161,193,188">
+<area shape="rect" href="$_partitioner_8h-source.html" title="Partitioner.h" alt="" coords="152,84,256,111">
+<area shape="rect" href="$_preprocessor_8h.html" title="Declaration of the class Preprocessor." alt="" coords="280,84,400,111">
+<area shape="rect" href="$_preprocessor_8cpp.html" title="Implementation of the class Preprocessor." alt="" coords="253,161,389,188">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of the class Recognizer." alt="" coords="413,161,536,188">

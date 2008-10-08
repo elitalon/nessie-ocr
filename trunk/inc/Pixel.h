@@ -17,7 +17,7 @@
 /// and 255 corresponds to 1.0 (white). A monochromatic colorspace can be emulated using only 0.0 and 1.0.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 /// 
 class Pixel
 {
@@ -26,31 +26,43 @@ class Pixel
 		/// Constructor
 		///
 		Pixel ();
-		
+
+
 		///
 		/// Constructor
-		///
+		///		
 		Pixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
-					
-		///
-		/// Destructor
-		///
-		~Pixel ();
+
 		
+		/// 
+		/// @return The x coordinate (row) of the pixel
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
 		///
-		/// Returns the pixel's X coordinate 
-		///
-		unsigned int x () const;
+		inline unsigned int x () const
+		{
+			return x_;
+		};
 		
+		
+		/// 
+		/// @return The y coordinate (column) of the pixel
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
 		///
-		/// Returns the pixel's Y coordinate 
-		///
-		unsigned int y () const;
+		inline unsigned int y () const
+		{
+			return y_;
+		};
+		
 		
 		///
 		/// Returns the pixel's gray level
 		///
 		double grayLevel () const;
+		
 		
 		///
 		/// Sets the pixel's gray level

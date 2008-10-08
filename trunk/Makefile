@@ -105,7 +105,7 @@ $(MAIN_OBJ): $(OBJECTS) $(MAIN)
 	mv main.o $(SRC)
 	@printf "$(NL)"
 	
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(RECOGNIZER)
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
@@ -113,12 +113,12 @@ $(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(RECOGNIZER)
 	mv Recognizer.o $(SRC)
 	@printf "$(NL)"
 
-$(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
-	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
+$(TEXT_OBJ): $(WORD_RATE) $(TEXT)
+	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC) 
+	g++ $(FLAGS) -c $(TEXT_SRC)
 	@printf "$(TAB)"
-	mv NessieException.o $(SRC)
+	mv Text.o $(SRC)
 	@printf "$(NL)"
 
 $(STATISTICS_OBJ): $(STATISTICS) 
@@ -129,20 +129,12 @@ $(STATISTICS_OBJ): $(STATISTICS)
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
 
-$(TEXT_OBJ): $(WORD_RATE) $(TEXT)
-	@printf "** Making rule $(TEXT_OBJ):$(NL)"
+$(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
+	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(TEXT_SRC)
+	g++ $(FLAGS) -c $(PREPROCESSOR_SRC)
 	@printf "$(TAB)"
-	mv Text.o $(SRC)
-	@printf "$(NL)"
-	
-$(PIXEL_OBJ): $(PIXEL)
-	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
-	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(PIXEL_SRC)
-	@printf "$(TAB)"
-	mv Pixel.o $(SRC)
+	mv Preprocessor.o $(SRC)
 	@printf "$(NL)"
 
 $(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
@@ -153,13 +145,23 @@ $(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
 
-$(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
-	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
+$(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
+	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) -c $(PREPROCESSOR_SRC)
+	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC) 
 	@printf "$(TAB)"
-	mv Preprocessor.o $(SRC)
+	mv NessieException.o $(SRC)
 	@printf "$(NL)"
+
+$(PIXEL_OBJ): $(PIXEL)
+	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) -c $(PIXEL_SRC)
+	@printf "$(TAB)"
+	mv Pixel.o $(SRC)
+	@printf "$(NL)"
+
+
 
 
 # Make everything

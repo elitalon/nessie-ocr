@@ -4,7 +4,7 @@
 ///
 
 #include "Preprocessor.h"
-#include "Clip.h"
+
 
 #include <cmath>
 #include <vector>
@@ -22,118 +22,6 @@ Preprocessor::Preprocessor ()
 	noiseRemovalTime_(0.0), optimalThresholdComputingTime_(0.0), backgroundReferenceGrayLevelFindingTime_(0.0)
 {
 	
-};
-
-
-///
-/// @details Destroys a Preprocessor object
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
-///
-Preprocessor::~Preprocessor ()
-{
-	
-};
-
-
-///
-/// @return Current optimal threshold computed from the last clip used
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-unsigned char Preprocessor::optimalThreshold () const
-{
-	return optimalThreshold_;
-};
-
-
-///
-/// @param threshold A value between 0 and 255 that stablishes the optimal threshold of a clip
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-void Preprocessor::optimalThreshold (const unsigned char &threshold)
-{
-	if ( threshold < 0.0 )
-		optimalThreshold_ = 0.0;
-	else
-	{
-		if ( threshold > 1.0 )
-			optimalThreshold_ = 1.0;
-		else
-			optimalThreshold_ = threshold;
-	}
-};
-
-
-///
-/// @return Reference background gray level in the last clip used
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-unsigned char Preprocessor::backgroundReferenceGrayLevel () const
-{
-	return backgroundReferenceGrayLevel_;
-};
-
-
-///
-/// @param grayLevel Background reference gray level to use in algorithms
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-void Preprocessor::backgroundReferenceGrayLevel (const unsigned char &grayLevel)
-{
-	if ( grayLevel < 0.0 )
-		backgroundReferenceGrayLevel_ = 0.0;
-	else
-	{
-		if ( grayLevel > 1.0 )
-			backgroundReferenceGrayLevel_ = 1.0;
-		else
-			backgroundReferenceGrayLevel_ = grayLevel;
-	}
-};
-
-
-///
-/// @return Elapsed time when applying the 'isolated noise removal' algorithm
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-double Preprocessor::noiseRemovalTime () const
-{
-	return noiseRemovalTime_;
-};
-
-
-///
-/// @return Elapsed time while computing the background reference gray level
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-double Preprocessor::backgroundReferenceGrayLevelFindingTime () const
-{
-	return backgroundReferenceGrayLevelFindingTime_;
-};
-
-
-///
-/// @return Elapsed time while founding the optimal threshold within the clip
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-30
-///
-double Preprocessor::optimalThresholdComputingTime () const
-{
-	return optimalThresholdComputingTime_;
 };
 
 

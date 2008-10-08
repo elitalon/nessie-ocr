@@ -28,12 +28,6 @@ class Clip
 		///
 		Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
 		
-		
-		///
-		/// Destructor
-		///
-		~Clip ();
-		
 				
 		///
 		/// Sets the gray level of a pixel at coordinates (x,y)

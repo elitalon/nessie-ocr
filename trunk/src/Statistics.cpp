@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of class Statistics
+/// @brief Implementation of the class Statistics
 ///
 
 #include "Statistics.h"
@@ -16,54 +16,6 @@ Statistics::Statistics ()
 	: backgroundReferenceGrayLevelFindingTime_(0.0), optimalThresholdComputingTime_(0.0), noiseRemovalTime_(0.0)
 {
 	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
-};
-
-
-///
-/// @return Elapsed time in the reference gray level of the background finding algorithm
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-///
-double Statistics::backgroundReferenceGrayLevelFindingTime () const
-{
-	return backgroundReferenceGrayLevelFindingTime_;
-};
-
-
-///
-/// @return Elapsed time in the optimal threshold computing algorithm
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-///
-double Statistics::optimalThresholdComputingTime () const
-{
-	return optimalThresholdComputingTime_;
-};
-
-
-///
-/// @return Elapsed time in the noise removal algorithm
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-///
-double Statistics::noiseRemovalTime () const
-{
-	return noiseRemovalTime_;
-};
-
-
-///
-/// @return Total elapsed time within the preprocessing stage
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-///
-double Statistics::preprocessingTime () const
-{
-	return preprocessingTime_;
 };
 
 

@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of class Pixel
+/// @brief Implementation of the class Pixel
 ///
 
 #include "Pixel.h"
@@ -41,42 +41,6 @@ Pixel::Pixel(const unsigned int &x, const unsigned int &y, const double &grayLev
 		else
 			grayLevel_ = grayLevel;
 	}
-};
-
-
-///
-/// @details Destroys a Pixel object
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-25
-///
-Pixel::~Pixel ()
-{
-	
-};
-
-
-/// 
-/// @return The x coordinate (row) of the pixel
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
-///
-unsigned int Pixel::x () const
-{
-	return x_;
-};
-
-
-/// 
-/// @return The y coordinate (column) of the pixel
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
-///
-unsigned int Pixel::y () const
-{
-	return y_;
 };
 
 

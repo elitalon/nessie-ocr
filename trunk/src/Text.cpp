@@ -39,18 +39,6 @@ Text::Text (const std::string &content) : content_(content), wordRates_(std::vec
 
 
 ///
-/// @details Destroys a Text object
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-18
-/// 
-Text::~Text ()
-{
-
-};
-
-
-///
 /// @details The character is inserted within the text at position passed. If the position passed is over the text total length,
 /// the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning
 /// of the text.
@@ -116,60 +104,6 @@ void Text::removeCharacter (const unsigned int &position)
 	
 	// Rebuild the appearance rate of every word in text
 	computeWordRates();
-};
-
-
-
-///
-/// @return The content of the text
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-/// 
-std::string Text::content () const
-{
-	return content_;
-};
-
-
-///
-/// @param content The content of the text
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-/// 
-void Text::content (const std::string &content)
-{
-	content_.assign(content);
-
-	// Rebuild the appearance rate of every word in the new text
-	computeWordRates();
-};
-
-
-///
-/// @return The length of the text
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-29
-/// 
-unsigned int Text::length () const
-{
-	return content_.length();
-};
-
-
-///
-/// @return A vector with every different word and their appearance rate
-/// 
-/// @see WordRate
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-24
-/// 
-std::vector<WordRate> Text::wordRates () const
-{
-	return wordRates_;
 };
 
 
