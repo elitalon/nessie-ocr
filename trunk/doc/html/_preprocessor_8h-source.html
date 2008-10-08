@@ -79,13 +79,13 @@ window.onload = initDynSections;
 <a name="l00033"></a>00033         
 <a name="l00037"></a>00037         <a class="code" href="class_preprocessor.html#3c16724bc9e18b12a45f5a7fe2752b1b" title="Destructor.">~Preprocessor</a> ();
 <a name="l00038"></a>00038 
-<a name="l00042"></a>00042         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#8cc19d799c87198f97356d41606aa4ac" title="Returns the optimal threshold found in the last clip used.">optimalThreshold</a> () <span class="keyword">const</span>;
+<a name="l00042"></a>00042         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#1d8eaa1cf786941dbfa1eca95b46ce0c" title="Returns the optimal threshold found in the last clip used.">optimalThreshold</a> () <span class="keyword">const</span>;
 <a name="l00043"></a>00043         
-<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#8cc19d799c87198f97356d41606aa4ac" title="Returns the optimal threshold found in the last clip used.">optimalThreshold</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;threshold);
+<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#1d8eaa1cf786941dbfa1eca95b46ce0c" title="Returns the optimal threshold found in the last clip used.">optimalThreshold</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;threshold);
 <a name="l00048"></a>00048         
-<a name="l00052"></a>00052         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#159a9059fc811585eb9363e76ad16148" title="Returns the background reference gray level in the last clip used.">backgroundReferenceGrayLevel</a> () <span class="keyword">const</span>;
+<a name="l00052"></a>00052         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#9a2684181b5f43051fe53d7d2950dd36" title="Returns the background reference gray level in the last clip used.">backgroundReferenceGrayLevel</a> () <span class="keyword">const</span>;
 <a name="l00053"></a>00053         
-<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#159a9059fc811585eb9363e76ad16148" title="Returns the background reference gray level in the last clip used.">backgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;grayLevel);
+<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#9a2684181b5f43051fe53d7d2950dd36" title="Returns the background reference gray level in the last clip used.">backgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;grayLevel);
 <a name="l00058"></a>00058 
 <a name="l00062"></a>00062         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#0cccd23820430541f18f2b24dbfd0784" title="Returns the elapsed time while applying the &amp;#39;isolated noise removal&amp;#39; algorithm...">noiseRemovalTime</a> () <span class="keyword">const</span>;
 <a name="l00063"></a>00063                 
@@ -93,16 +93,16 @@ window.onload = initDynSections;
 <a name="l00068"></a>00068         
 <a name="l00072"></a>00072         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#3189cad5515476d54cc14effcf983fc7" title="Returns the elapsed time while computing the background reference gray level within...">backgroundReferenceGrayLevelFindingTime</a> () <span class="keyword">const</span>;
 <a name="l00073"></a>00073         
-<a name="l00077"></a>00077         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#2fbe202fbf9e7ef8f9951a24a3156230" title="Computes the optimal threshold value within a clip.">computeOptimalThreshold</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip);
+<a name="l00077"></a>00077         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#0e146cafa6b8b31f4f4ed189a970db7a" title="Computes the optimal threshold value within a clip.">computeOptimalThreshold</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip);
 <a name="l00078"></a>00078         
-<a name="l00082"></a>00082         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#1cd0543e1e41124a9dd26c99036ac62d" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;referenceGrayLevelNeighbours = 4);
+<a name="l00082"></a>00082         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#19aa90451cf6f99854833c05d3e71270" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;referenceGrayLevelNeighbours = 4);
 <a name="l00083"></a>00083         
 <a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a365f69af48cae608071e9943f300dd5" title="Applies the &amp;#39;isolated noise removal&amp;#39; algorithm.">removeIsolatedNoise</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;isolationCoefficient = 1);
 <a name="l00088"></a>00088         
 <a name="l00089"></a>00089     <span class="keyword">private</span>:
-<a name="l00093"></a><a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489">00093</a>         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#c60092b388e44bd15d34e49c63e4f489" title="Optimal threshold value within the clip.">optimalThreshold_</a>;
+<a name="l00093"></a><a class="code" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe">00093</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a>;
 <a name="l00094"></a>00094         
-<a name="l00098"></a><a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364">00098</a>         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#7a2ed1dcdde4903c6a1260173d61a364" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>;
+<a name="l00098"></a><a class="code" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680">00098</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>;
 <a name="l00099"></a>00099                 
 <a name="l00103"></a><a class="code" href="class_preprocessor.html#386a5118bd982b2377c1fc5d67ebb7ac">00103</a>         <span class="keywordtype">double</span> <a class="code" href="class_preprocessor.html#386a5118bd982b2377c1fc5d67ebb7ac" title="Elapsed time when applying the &amp;#39;isolated noise removal&amp;#39; algorithm.">noiseRemovalTime_</a>;
 <a name="l00104"></a>00104         
@@ -113,7 +113,7 @@ window.onload = initDynSections;
 <a name="l00115"></a>00115 
 <a name="l00116"></a>00116 <span class="preprocessor">#endif  //_PREPROCESSOR_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 7 15:18:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 16:51:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -82,29 +82,27 @@ window.onload = initDynSections;
 <a name="l00042"></a>00042     <span class="keyword">private</span>:
 <a name="l00046"></a>00046         <a class="code" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics</a> ();
 <a name="l00047"></a>00047         
-<a name="l00051"></a>00051         <a class="code" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b" title="Destructor.">~Statistics</a> ();
+<a name="l00051"></a><a class="code" href="class_statistics.html#11123fa51c07995419270030024a7dfe">00051</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>;
 <a name="l00052"></a>00052         
-<a name="l00056"></a><a class="code" href="class_statistics.html#11123fa51c07995419270030024a7dfe">00056</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_statistics.html#11123fa51c07995419270030024a7dfe" title="Declares the class Recognizer as friend.">Recognizer</a>;
+<a name="l00056"></a><a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8">00056</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a>;
 <a name="l00057"></a>00057         
-<a name="l00061"></a><a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8">00061</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a>;
+<a name="l00061"></a><a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943">00061</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a>;
 <a name="l00062"></a>00062         
-<a name="l00066"></a><a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943">00066</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a>;
-<a name="l00067"></a>00067         
-<a name="l00071"></a><a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b">00071</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
-<a name="l00072"></a>00072                 
-<a name="l00076"></a><a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd">00076</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a>;
-<a name="l00077"></a>00077         
+<a name="l00066"></a><a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b">00066</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
+<a name="l00067"></a>00067                 
+<a name="l00071"></a><a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd">00071</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a>;
+<a name="l00072"></a>00072         
+<a name="l00073"></a>00073         
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#565e90b1940d12bb2a2661f6dcea230d" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
 <a name="l00078"></a>00078         
-<a name="l00082"></a>00082         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#565e90b1940d12bb2a2661f6dcea230d" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00082"></a>00082         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ca10ccbc4137e9ad184ff6dc9a3e5a46" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
 <a name="l00083"></a>00083         
-<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ca10ccbc4137e9ad184ff6dc9a3e5a46" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00088"></a>00088         
-<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#25b35c7f7f33d55ee86f4e7ba6cd0c48" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00093"></a>00093 };
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="preprocessor">#endif  //_STATISTICS_H</span>
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#25b35c7f7f33d55ee86f4e7ba6cd0c48" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00088"></a>00088 };
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <span class="preprocessor">#endif  //_STATISTICS_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 7 15:18:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Oct 8 16:51:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

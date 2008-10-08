@@ -20,18 +20,6 @@ Statistics::Statistics ()
 
 
 ///
-/// @details Destroys a Statistics object
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-09-17
-///
-Statistics::~Statistics ()
-{
-	
-};
-
-
-///
 /// @return Elapsed time in the reference gray level of the background finding algorithm
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)

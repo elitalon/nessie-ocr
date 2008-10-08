@@ -28,7 +28,7 @@ MAIN_SRC=$(SRC)main.cpp
 NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
 NESSIE_EXCEPTION_INC=$(INC)NessieException.h
 
-# Source files of 'WordRate' pair
+# Source file of 'WordRate' pair
 WORD_RATE_INC=$(INC)WordRate.h
 
 # Source files of 'Statistics' struct
@@ -51,6 +51,10 @@ CLIP_INC=$(INC)Clip.h
 PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
 PREPROCESSOR_INC=$(INC)Preprocessor.h
 
+# Source files of 'Recognizer' class
+RECOGNIZER_SRC=$(SRC)Recognizer.cpp
+RECOGNIZER_INC=$(INC)Recognizer.h
+
 # Object files
 MAIN_OBJ=$(SRC)main.o
 NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
@@ -59,6 +63,7 @@ TEXT_OBJ=$(SRC)Text.o
 PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
 PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
+RECOGNIZER_OBJ=$(SRC)Recognizer.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
@@ -69,14 +74,15 @@ TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
 PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
+RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
 
-# Final object files
-OBJECTS=$(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ) $(PIXEL_OBJ) $(CLIP_OBJ) $(PREPROCESSOR_OBJ) $(MAIN_OBJ)
+# Object files
+OBJECTS=$(RECOGNIZER_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
-COMPILER_OPTIONS=-Wall -g -O3 -I$(INC)
-LINKER_OPTIONS=-finstrument-functions -lSaturn
+COMPILER_DEBUGGING_OPTIONS=-g
+LINKER_DEBUGGING_OPTIONS=-finstrument-functions -lSaturn
 FLAGS=-Wall -O3 -I$(INC)
 
 # Formatted output commands
@@ -85,18 +91,26 @@ TAB=\t
 
 
 # Main rule
-main: $(OBJECTS)
-	@printf "** Linking and building the main rule:$(NL)"
+main: $(MAIN_OBJ)
+	@printf "** Linking and building:$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_LINKER) $(OBJECTS) -o $(EXECUTABLE)
+	g++ $(FLAGS) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
-$(MAIN_OBJ): $(MAIN)
+$(MAIN_OBJ): $(OBJECTS) $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(MAIN_SRC) 
 	@printf "$(TAB)"
 	mv main.o $(SRC)
+	@printf "$(NL)"
+	
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(RECOGNIZER)
+	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
+	@printf "$(TAB)"
+	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
+	@printf "$(TAB)"
+	mv Recognizer.o $(SRC)
 	@printf "$(NL)"
 
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
@@ -107,7 +121,7 @@ $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
 	mv NessieException.o $(SRC)
 	@printf "$(NL)"
 
-$(STATISTICS_OBJ): $(WORD_RATE) $(STATISTICS) 
+$(STATISTICS_OBJ): $(STATISTICS) 
 	@printf "** Making rule $(STATISTICS_OBJ):$(NL)"
 	@printf "$(TAB)"
 	g++ $(FLAGS) -c $(STATISTICS_SRC) 
@@ -131,10 +145,10 @@ $(PIXEL_OBJ): $(PIXEL)
 	mv Pixel.o $(SRC)
 	@printf "$(NL)"
 
-$(CLIP_OBJ): $(PIXEL_OBJ) $(CLIP)
+$(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
 	@printf "** Making rule $(CLIP_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(CLIP_SRC)
+	g++ $(FLAGS) -c $(CLIP_SRC)
 	@printf "$(TAB)"
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
@@ -142,7 +156,7 @@ $(CLIP_OBJ): $(PIXEL_OBJ) $(CLIP)
 $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
 	@printf "$(TAB)"
-	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(PREPROCESSOR_SRC)
+	g++ $(FLAGS) -c $(PREPROCESSOR_SRC)
 	@printf "$(TAB)"
 	mv Preprocessor.o $(SRC)
 	@printf "$(NL)"

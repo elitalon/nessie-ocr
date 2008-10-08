@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of class Preprocessor
+/// @brief Implementation of the class Preprocessor
 ///
 
 #include "Preprocessor.h"
@@ -8,16 +8,17 @@
 
 #include <cmath>
 #include <vector>
+#include <algorithm>
 
 
 ///
 /// @details Initializes a Preprocessor object
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 ///
 Preprocessor::Preprocessor ()
-	: optimalThreshold_(0.0), backgroundReferenceGrayLevel_(1.0),
+	: optimalThreshold_(0), backgroundReferenceGrayLevel_(255),
 	noiseRemovalTime_(0.0), optimalThresholdComputingTime_(0.0), backgroundReferenceGrayLevelFindingTime_(0.0)
 {
 	
@@ -42,19 +43,19 @@ Preprocessor::~Preprocessor ()
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-double Preprocessor::optimalThreshold () const
+unsigned char Preprocessor::optimalThreshold () const
 {
 	return optimalThreshold_;
 };
 
 
 ///
-/// @param threshold A value between 0.0 and 1.0 that stablishes the optimal threshold of a clip
+/// @param threshold A value between 0 and 255 that stablishes the optimal threshold of a clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-void Preprocessor::optimalThreshold (const double &threshold)
+void Preprocessor::optimalThreshold (const unsigned char &threshold)
 {
 	if ( threshold < 0.0 )
 		optimalThreshold_ = 0.0;
@@ -74,7 +75,7 @@ void Preprocessor::optimalThreshold (const double &threshold)
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-double Preprocessor::backgroundReferenceGrayLevel () const
+unsigned char Preprocessor::backgroundReferenceGrayLevel () const
 {
 	return backgroundReferenceGrayLevel_;
 };
@@ -86,7 +87,7 @@ double Preprocessor::backgroundReferenceGrayLevel () const
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-09-30
 ///
-void Preprocessor::backgroundReferenceGrayLevel (const double &grayLevel)
+void Preprocessor::backgroundReferenceGrayLevel (const unsigned char &grayLevel)
 {
 	if ( grayLevel < 0.0 )
 		backgroundReferenceGrayLevel_ = 0.0;
@@ -147,19 +148,19 @@ double Preprocessor::optimalThresholdComputingTime () const
 /// @return The optimal threshold of the clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
+/// @date 2008-10-08
 ///
-double Preprocessor::computeOptimalThreshold (const Clip &clip)
+unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 {
 	// Find background reference gray level
 	findBackgroundReferenceGrayLevel(clip);
 	optimalThreshold_ = backgroundReferenceGrayLevel_;
-	double temporaryThreshold;
+	unsigned char temporaryThreshold;
 	
 	do
 	{
 		// Compute the background and objects mean values
-		double backgroundMeanValue = 0.0, objectsMeanValue = 0.0;
+		unsigned int backgroundMeanValue = 0, objectsMeanValue = 0;
 		unsigned int nSamples = 0;
 		
 		for (unsigned int i=0; i < clip.height(); ++i)
@@ -167,7 +168,7 @@ double Preprocessor::computeOptimalThreshold (const Clip &clip)
 			for (unsigned int j=0; j < clip.width(); ++j)
 			{
 				// Get gray level of this pixel
-				double grayLevel = clip.getPixelGrayLevel(i,j);
+				unsigned char grayLevel = clip.getPixelGrayLevel(i,j);
 				
 				// Assume light gray values as the background
 				if ( grayLevel >= optimalThreshold_ )
@@ -179,12 +180,12 @@ double Preprocessor::computeOptimalThreshold (const Clip &clip)
 					objectsMeanValue += grayLevel;
 			}
 		}
-		backgroundMeanValue = backgroundMeanValue / static_cast<double>(nSamples);
-		objectsMeanValue = objectsMeanValue / static_cast<double>(clip.nPixels() - nSamples);
+		backgroundMeanValue = round(backgroundMeanValue / nSamples);
+		objectsMeanValue = round(objectsMeanValue / (clip.nPixels() - nSamples));
 				
 		// Update the optimal threshold keeping the last one
 		temporaryThreshold = optimalThreshold_;
-		optimalThreshold_ = (objectsMeanValue + backgroundMeanValue) / 2.0;
+		optimalThreshold_ = round((objectsMeanValue + backgroundMeanValue) / 2);
 	}
 	while (temporaryThreshold != optimalThreshold_);
 
@@ -198,16 +199,16 @@ double Preprocessor::computeOptimalThreshold (const Clip &clip)
 /// a gray level weighted mean using all those values.
 /// 
 /// @param[in,out]	clip							The clip where applying the algorithm over
-/// @param			referenceGrayLevelNeighbours	Number of the more frequent gray level neighbours to explore on each direction
+/// @param			referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
 /// 
 /// @return The reference gray level of the background
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 ///
-double Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
+unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
-	// Compute image histogram
+	// Compute clip histogram
 	std::vector<unsigned int> histogram(256, 0);
 	
 	for (unsigned int i=0; i < clip.height(); ++i)
@@ -215,53 +216,55 @@ double Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const u
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
 			// Get gray level of this pixel
-			double grayLevel = clip.getPixelGrayLevel(i,j);
+			unsigned char grayLevel = clip.getPixelGrayLevel(i,j);
 			
 			// Update histogram
-			histogram[std::floor(grayLevel * 255.0)] += 1;
+			histogram[grayLevel] += 1;
 		}
 	}
 	
 	
 	// Search the more frequent level of gray
 	std::vector<unsigned int>::iterator histogramIterator;
-	unsigned int moreFrequentGrayLevel = 0, levelCounter = 0;
+	unsigned char moreFrequentGrayLevel = 0, levelCounter = 0;
 	
 	for (histogramIterator = histogram.begin(); histogramIterator not_eq histogram.end(); ++histogramIterator, ++levelCounter)
 	{
 		if ( *histogramIterator > histogram[moreFrequentGrayLevel] )
 			moreFrequentGrayLevel = levelCounter;
 	}
-	backgroundReferenceGrayLevel_ = moreFrequentGrayLevel * histogram[moreFrequentGrayLevel];
+	unsigned int referenceGrayLevel = moreFrequentGrayLevel * histogram[moreFrequentGrayLevel];
 	
 	
 	// Search the neighbours of the more frequent level of gray
-	std::vector<unsigned int>::reverse_iterator histogramReverseIterator( find (histogram.rbegin(), histogram.rend(), histogram[moreFrequentGrayLevel])++ );
+	std::vector<unsigned int>::reverse_iterator histogramReverseIterator( std::find (histogram.rbegin(), histogram.rend(), histogram[moreFrequentGrayLevel])++ );
 	histogramIterator = histogramReverseIterator.base()++;
-	double nFrequencies = histogram[moreFrequentGrayLevel];
+	unsigned int nFrequencies = histogram[moreFrequentGrayLevel];
 	
 	for ( unsigned int i = 1; i <= referenceGrayLevelNeighbours; ++i )
 	{
 		// Search forwards
 		if ( histogramIterator not_eq histogram.end() )
 		{
-			backgroundReferenceGrayLevel_ += (moreFrequentGrayLevel + i) * histogram[moreFrequentGrayLevel + i];
+			referenceGrayLevel	+= (moreFrequentGrayLevel + i) * histogram[moreFrequentGrayLevel + i];
+			nFrequencies		+= histogram[moreFrequentGrayLevel + i];
+
 			++histogramIterator;
-			nFrequencies += histogram[moreFrequentGrayLevel + i];
 		}
 		
 		// Search backwards
 		if ( histogramReverseIterator not_eq histogram.rend() )
 		{
-			backgroundReferenceGrayLevel_ += (moreFrequentGrayLevel - i) * histogram[moreFrequentGrayLevel - i];
+			referenceGrayLevel	+= (moreFrequentGrayLevel - i) * histogram[moreFrequentGrayLevel - i];
+			nFrequencies		+= histogram[moreFrequentGrayLevel - i];
+			
 			++histogramReverseIterator;
-			nFrequencies += histogram[moreFrequentGrayLevel - i];
 		}
 	}
 	
 	
 	// Set the background reference gray level found
-	backgroundReferenceGrayLevel_ = (backgroundReferenceGrayLevel_ / nFrequencies) / 255.0;
+	backgroundReferenceGrayLevel_ = round(referenceGrayLevel / nFrequencies);
 	return backgroundReferenceGrayLevel_;
 };
 
@@ -279,7 +282,7 @@ double Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const u
 /// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 ///
 void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolationCoefficient)
 {
@@ -295,21 +298,21 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 			unsigned int nBackgroundPixels = 0, nPixels = 0;
 
 			// Explore the pixel neighbourhood
-			for(int p = i-1; p < (signed int)i+2; p++)
+			for(int p = i-1; p < static_cast<int>(i+2); p++)
 			{
-				for(int q = j-1; q < (signed int)j+2; q++)
+				for(int q = j-1; q < static_cast<int>(j+2); q++)
 				{
 					// Check clip borders
-					if ( (p < 0) or (p >= (signed int)clip.height()) )
+					if ( (p < 0) or (p >= static_cast<int>(clip.height())) )
 						continue;
 					
-					if ( (q < 0) or (q >= (signed int)clip.width()) )
+					if ( (q < 0) or (q >= static_cast<int>(clip.width())) )
 						continue;
 					
 					nPixels++;
 					
 					// Get neighbour pixel gray level
-					double neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
+					unsigned char neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
 					
 					// When background gray level is close to white but not the pixel, update the noisy neighbours counter
 					if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixelGrayLevel > optimalThreshold_) )
@@ -328,7 +331,7 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 
 			// Delete the noisy pixel if it is isolated
 			if (nBackgroundPixels >= realIsolationCoefficient)
-				clip.setPixel(i, j, backgroundReferenceGrayLevel_);
+				clip.setPixelGrayLevel(i, j, backgroundReferenceGrayLevel_);
 		}
 	}
 };

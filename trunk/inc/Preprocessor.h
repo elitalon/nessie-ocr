@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Declaration of class Preprocessor
+/// @brief Declaration of the class Preprocessor
 ///
 
 #if !defined(_PREPROCESSOR_H)
@@ -21,7 +21,7 @@ class Clip;
 /// @see Clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @date 2008-10-08
 ///
 class Preprocessor
 {
@@ -39,22 +39,22 @@ class Preprocessor
 		///
 		/// Returns the optimal threshold found in the last clip used
 		///
-		double optimalThreshold () const;
+		unsigned char optimalThreshold () const;
 		
 		///
 		/// Sets the optimal threshold to use in algorithms
 		///
-		void optimalThreshold (const double &threshold);
+		void optimalThreshold (const unsigned char &threshold);
 		
 		///
 		/// Returns the background reference gray level in the last clip used
 		///
-		double backgroundReferenceGrayLevel () const;
+		unsigned char backgroundReferenceGrayLevel () const;
 		
 		///
 		/// Sets the background reference gray level to use in algorithms
 		///
-		void backgroundReferenceGrayLevel (const double &grayLevel);
+		void backgroundReferenceGrayLevel (const unsigned char &grayLevel);
 
 		///
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
@@ -74,12 +74,12 @@ class Preprocessor
 		///
 		/// Computes the optimal threshold value within a clip
 		///
-		double computeOptimalThreshold (const Clip &clip);
+		unsigned char computeOptimalThreshold (const Clip &clip);
 		
 		///
 		/// Computes the background reference gray level value within a clip
 		///
-		double findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
+		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 		
 		///
 		/// Applies the 'isolated noise removal' algorithm
@@ -90,12 +90,12 @@ class Preprocessor
 		///
 		/// Optimal threshold value within the clip
 		///
-		double optimalThreshold_;
+		unsigned char optimalThreshold_;
 		
 		///
 		/// Background reference gray level
 		///
-		double backgroundReferenceGrayLevel_;
+		unsigned char backgroundReferenceGrayLevel_;
 				
 		///
 		/// Elapsed time when applying the 'isolated noise removal' algorithm

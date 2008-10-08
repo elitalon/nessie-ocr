@@ -1,32 +1,24 @@
 ///
 /// @file
-/// @brief Declaration of class Clip
+/// @brief Declaration of the class Clip
 ///
 
 #if !defined(_CLIP_H)
 #define _CLIP_H
 
-
-#include "Pixel.h"
-#include <Magick++.h>
+#include <vector>
 
 
 
 ///
 /// Press clip where the recognizer has to extract the text from.
 /// 
-/// This class manages the press clips on a image loaded with the Magick++ utilities.
-/// The press clip is an image that may come in several formats, such JPEG, PDF, PNG, etc.
-/// The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer
-/// to keep the code independent from the image format.
-/// 
-/// The idea behind this class is to encapsulate all the interactions with Magick++,
-/// so that the rest of the classes have an unified way to work with the original image.
-/// 
-/// @see Pixel, <a href="http://www.imagemagick.org">ImageMagick</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
+/// This class stores a press clip as a set of pixels from the source image that representes the whole page
+/// of a newspaper. The class that creates a Clip object must ensure that all the coordinates passed to the constructor
+/// are inside the underlying image, since internally Clip only tests the coordinates when accesing the object later.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
+/// @date 2008-10-08
 ///
 class Clip
 {
@@ -34,124 +26,94 @@ class Clip
 		///
 		/// Constructor
 		///
-		Clip (const Magick::Image &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
+		Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
+		
 		
 		///
 		/// Destructor
 		///
 		~Clip ();
 		
-		///
-		/// Returns the current Image object
-		///
-		Magick::Image image ();
 				
-		///
-		/// Returns the X coordinate of the clip's upper leftmost pixel
-		///
-		unsigned int x () const;
-		
-		///
-		/// Sets the X coordinate of the clip's upper leftmost pixel
-		///
-		void x (const unsigned int &x);
-		
-		///
-		/// Returns the Y coordinate of the clip's upper leftmost pixel
-		///
-		unsigned int y () const;
-		
-		///
-		/// Sets the Y coordinate of the clip's upper leftmost pixel
-		///
-		void y (const unsigned int &y);
-		
-		///
-		/// Returns the clip's height
-		///
-		unsigned int height () const;
-		
-		///
-		/// Sets the clip's height
-		///
-		void height (const unsigned int &height);
-		
-		///
-		/// Returns the clip's width
-		///
-		unsigned int width () const;
-		
-		///
-		/// Sets the clip's width
-		///
-		void width (const unsigned int &width);
-		
-		///
-		/// Returns the pixel at coordinates (x,y)
-		///
-		Pixel getPixel (const unsigned int &x, const unsigned int &y) const;
-		
 		///
 		/// Sets the gray level of a pixel at coordinates (x,y)
 		///
-		void setPixel (const unsigned int &x, const unsigned int &y, const double &grayLevel);
+		void setPixelGrayLevel (const unsigned int &x, const unsigned int &y, const unsigned char &grayLevel);
+		
 		
 		///
 		/// Returns the gray level of a pixel at coordinates (x,y)
 		///
-		double getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
+		unsigned char getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
+		
 		
 		///
-		/// Returns the number of pixels within the clip
+		/// Returns the pixels that defines the press clip.
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-07
 		///
-		unsigned int nPixels () const;
+		inline std::vector<unsigned char> pixels () const
+		{
+			return pixels_;
+		};
+		
+		
+		///
+		/// Returns the number of pixels within the press clip.
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-07
+		///
+		inline unsigned int nPixels () const
+		{
+			return nPixels_;
+		};
+		
+		
+		///
+		/// Returns the width of the clip
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline unsigned int width () const
+		{
+			return width_;
+		};
+		
+		
+		///
+		/// Returns the height of the clip
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
+		inline unsigned int height () const
+		{
+			return height_;
+		};
 		
 	private:
 		///
-		/// Image where the clip belongs to
+		/// The width of the pixels
 		///
-		Magick::Image image_;
+		const unsigned int width_;
 		
 		///
-		/// X coordinate of the clip's upper leftmost pixel
+		/// The height of the pixel
 		///
-		unsigned int x_;
-
-		///
-		/// Y coordinate of the clip's upper leftmost pixel
-		///
-		unsigned int y_;
-
-		///
-		/// Height of the clip in pixels
-		///
-		unsigned int height_;
-
-		///
-		/// Width of the clip in pixels
-		///
-		unsigned int width_;
+		const unsigned int height_;
 		
 		///
-		/// Frame within the image where the clip is located. It is modified automatically when the clip attributes change
+		/// A set of pixels that defines the press clip
 		///
-		Magick::Pixels* frame_;
+		std::vector<unsigned char> pixels_;
 		
 		///
-		/// Frame's upper leftmost pixel. It is modified automatically when the clip attributes change
+		/// Number of pixels within the image
 		///
-		Magick::PixelPacket* originPixel_;
-
-		
-		///
-		/// Relocates the origin of the clip
-		///
-		void relocateClipOrigin ();
-		
-		///
-		/// Adjusts the size of the clip
-		///
-		void adjustClipSize ();
+		unsigned int nPixels_;
 };
 
 #endif  //_CLIP_H

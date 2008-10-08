@@ -14,7 +14,7 @@
 /// accumulated internally mostly in algorithms.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
+/// @date 2008-10-08
 /// 
 class Statistics
 {
@@ -44,11 +44,6 @@ class Statistics
 		/// Constructor
 		/// 
 		Statistics ();
-		
-		///
-		/// Destructor
-		/// 
-		~Statistics ();
 		
 		///
 		/// Declares the class Recognizer as friend
