@@ -1,12 +1,12 @@
 ///
 /// @file
-/// @brief Declaration of custom type WordRate
+/// @brief Declaration of the custom type WordRate
 ///
 
 #if !defined(_WORDRATE_H)
 #define _WORDRATE_H
 
-#include <utility>		// For using 'pair' container
+#include <utility>
 #include <string>
 
 

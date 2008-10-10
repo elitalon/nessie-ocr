@@ -23,6 +23,9 @@ class Statistics
 		///
 		/// Constructor
 		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		///
 		Statistics ();
 		
 		
@@ -34,10 +37,7 @@ class Statistics
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double backgroundReferenceGrayLevelFindingTime () const
-		{
-			return backgroundReferenceGrayLevelFindingTime_;
-		};
+		double backgroundReferenceGrayLevelFindingTime () const;
 		
 		
 		///
@@ -48,10 +48,7 @@ class Statistics
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double optimalThresholdComputingTime () const
-		{
-			return optimalThresholdComputingTime_;
-		};
+		double optimalThresholdComputingTime () const;
 		
 		
 		///
@@ -62,10 +59,7 @@ class Statistics
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double noiseRemovalTime () const
-		{
-			return noiseRemovalTime_;
-		};
+		double noiseRemovalTime () const;		
 		
 		
 		///
@@ -76,10 +70,7 @@ class Statistics
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double preprocessingTime () const
-		{
-			return preprocessingTime_;
-		};
+		double preprocessingTime () const;
 		
 		
 	private:
@@ -110,19 +101,79 @@ class Statistics
 		
 		
 		///
-		/// Sets the elapsed time in the reference gray level of the background finding algorithm
+		/// Sets the elapsed time in the reference gray level of the background finding algorithm.
+		/// 
+		/// @param	time	Elapsed time in the reference gray level of the background finding algorithm
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-06
 		///
 		void backgroundReferenceGrayLevelFindingTime (const double &time);
+		
 		
 		///
 		/// Sets the elapsed time in the optimal threshold computing algorithm
 		///
+		/// @param	time	Elapsed time in the optimal threshold computing algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-06
+		///
 		void optimalThresholdComputingTime (const double &time);
+		
 		
 		///
 		/// Sets the elapsed time in the noise removal algorithm
 		///
+		/// @param	time	Elapsed time in the noise removal algorithm
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-06
+		///
 		void noiseRemovalTime (const double &time);
 };
+
+
+
+//
+// Implementation of inline functions
+//
+
+
+///
+/// @details
+///
+inline double Statistics::backgroundReferenceGrayLevelFindingTime () const
+{
+	return backgroundReferenceGrayLevelFindingTime_;
+};
+
+
+///
+/// @details
+///
+inline double Statistics::optimalThresholdComputingTime () const
+{
+	return optimalThresholdComputingTime_;
+};
+
+
+///
+/// @details
+///
+inline double Statistics::noiseRemovalTime () const
+{
+	return noiseRemovalTime_;
+};
+
+
+///
+/// @details
+///
+inline double Statistics::preprocessingTime () const
+{
+	return preprocessingTime_;
+};
+
 
 #endif  //_STATISTICS_H

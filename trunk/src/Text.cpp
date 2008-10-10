@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of class Text
+/// @brief Implementation of the class Text
 ///
 
 #include "Text.h"
@@ -13,9 +13,6 @@
 ///
 /// @details Initializes a Text object with no content
 ///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-/// 
 Text::Text () : content_(std::string("")), wordRates_(std::vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
@@ -25,11 +22,6 @@ Text::Text () : content_(std::string("")), wordRates_(std::vector<WordRate>(0))
 
 ///
 /// @details Initializes a Text object with the content passed
-/// 
-/// @param content Initial text
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
 /// 
 Text::Text (const std::string &content) : content_(content), wordRates_(std::vector<WordRate>(0))
 {
@@ -42,12 +34,6 @@ Text::Text (const std::string &content) : content_(content), wordRates_(std::vec
 /// @details The character is inserted within the text at position passed. If the position passed is over the text total length,
 /// the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning
 /// of the text.
-/// 
-/// @param character	Character to add
-/// @param position		Position where adding the character to
-///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
 /// 
 void Text::addCharacter (const char &character, const unsigned int &position)
 {
@@ -69,11 +55,6 @@ void Text::addCharacter (const char &character, const unsigned int &position)
 ///
 /// @details The character passed is appended to the end of the text
 ///
-/// @param character	Character to add
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
-/// 
 void Text::addCharacter (const char &character)
 {
 	// Call the generic 'addCharacter' function
@@ -85,11 +66,6 @@ void Text::addCharacter (const char &character)
 /// @details The character is removed from text at position passed. If the position passed is over the text total length,
 /// the last character is removed. If the position passed is less than 0 the first character is removed.
 ///
-/// @param position		Position where removing the character from
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-03
-/// 
 void Text::removeCharacter (const unsigned int &position)
 {
 	if (position > content_.length())
@@ -108,10 +84,7 @@ void Text::removeCharacter (const unsigned int &position)
 
 
 ///
-/// @param word	Word whose appearance rate must be update
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @details
 ///
 void Text::updateWordRate (const std::string &word)
 {
@@ -136,9 +109,6 @@ void Text::updateWordRate (const std::string &word)
 /// @details This method must be called every time the content changes,
 /// since there is no public method for a class user to make it by itself.
 ///
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-/// 
 void Text::computeWordRates ()
 {
 	std::vector<std::string> words;	// Vector to hold our words after removing spaces
@@ -157,11 +127,7 @@ void Text::computeWordRates ()
 
 
 ///
-/// @param[out] tokens	Vector where storing the words found to
-/// @param delimiters	Characters that may delimiter a valid word
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
+/// @details
 ///
 void Text::tokenize(std::vector<std::string>& tokens, const std::string& delimiters) const
 {

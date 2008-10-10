@@ -7,11 +7,8 @@
 
 
 ///
-/// @details Initializes a Statistics object with timers set to 0
+/// @details Initializes a Statistics object with timers set to 0.0
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-04
-///
 Statistics::Statistics ()
 	: backgroundReferenceGrayLevelFindingTime_(0.0), optimalThresholdComputingTime_(0.0), noiseRemovalTime_(0.0)
 {
@@ -20,11 +17,8 @@ Statistics::Statistics ()
 
 
 ///
-/// @param	time	Elapsed time in the reference gray level of the background finding algorithm
+/// @details
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
-///
 void Statistics::backgroundReferenceGrayLevelFindingTime (const double &time)
 {
 	backgroundReferenceGrayLevelFindingTime_ = time;
@@ -34,11 +28,8 @@ void Statistics::backgroundReferenceGrayLevelFindingTime (const double &time)
 
 
 ///
-/// @param	time	Elapsed time in the optimal threshold computing algorithm
+/// @details
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
-///
 void Statistics::optimalThresholdComputingTime (const double &time)
 {
 	optimalThresholdComputingTime_ = time;
@@ -48,11 +39,8 @@ void Statistics::optimalThresholdComputingTime (const double &time)
 
 
 ///
-/// @param	time	Elapsed time in the noise removal algorithm
+/// @details
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-06
-///
 void Statistics::noiseRemovalTime (const double &time)
 {
 	noiseRemovalTime_ = time;

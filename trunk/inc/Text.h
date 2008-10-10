@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Declaration of class Text
+/// @brief Declaration of the class Text
 ///
 
 #if !defined(_TEXT_H)
@@ -29,30 +29,54 @@ class Text
 		///
 		/// Constructor
 		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		/// 
 		Text ();
 		
 		
 		///
 		/// Constructor
 		///
+		/// @param content Initial text
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		/// 
 		Text (const std::string &content);
 
 		
 		///
 		/// Adds a character to text
 		///
+		/// @param character	Character to add
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-03
+		/// 
 		void addCharacter (const char &character);
 		
 		
 		///
 		/// Adds a character to text
 		///
+		/// @param character	Character to add
+		/// @param position		Position where adding the character to
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-06
+		/// 
 		void addCharacter (const char &character, const unsigned int &position);
 
 
 		///
 		/// Removes a character from text
 		///
+		/// @param position		Position where removing the character from
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-03
+		/// 
 		void removeCharacter (const unsigned int &position);
 
 				
@@ -64,10 +88,7 @@ class Text
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline std::string content () const
-		{
-			return content_;
-		};
+		std::string content () const;
 
 
 		///
@@ -78,14 +99,8 @@ class Text
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline void content (const std::string &content)
-		{
-			content_.assign(content);
-
-			// Rebuild the appearance rate of every word in the new text
-			computeWordRates();
-		};
-
+		void content (const std::string &content);
+		
 		
 		///
 		/// Returns the text's length
@@ -95,11 +110,8 @@ class Text
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline unsigned int length () const
-		{
-			return content_.length();
-		};
-
+		unsigned int length () const;
+		
 		
 		///
 		/// Returns the appearance rates of every single word in text.
@@ -111,10 +123,8 @@ class Text
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline std::vector<WordRate> wordRates () const
-		{
-			return wordRates_;
-		};
+		std::vector<WordRate> wordRates () const;
+
 
 	private:
 		///
@@ -127,20 +137,82 @@ class Text
 		///
 		std::vector<WordRate> wordRates_;
 		
+		
 		///
 		/// Builds the vector of appearance rates of every word
 		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		/// 
 		void computeWordRates ();
+		
 		
 		///
 		/// Increases by one the number of appearances of a word
 		///
-		void updateWordRate (const std::string &word_);
+		/// @param word	Word whose appearance rate must be update
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		///
+		void updateWordRate (const std::string &word);
+		
 		
 		///
 		/// Extracts every word surrounded by a set of delimiters
 		///
-		void tokenize(std::vector<std::string> &tokens_, const std::string &delimiters_ = " ,.\n\t:;!¡¿?&/()=\"'") const;
+		/// @param[out]	tokens		Vector where storing the words found to
+		/// @param		delimiters	Characters that may delimiter a valid word
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-04
+		///
+		void tokenize(std::vector<std::string> &tokens, const std::string &delimiters = " ,.\n\t:;!¡¿?&/()=\"'") const;
+};
+
+
+
+//
+// Implementation of inline functions
+// 
+
+
+///
+/// @details
+///
+inline std::string Text::content () const
+{
+	return content_;
+};
+
+
+///
+/// @details
+/// 
+inline void Text::content (const std::string &content)
+{
+	content_.assign(content);
+
+	// Rebuild the appearance rate of every word in the new text
+	computeWordRates();
+};
+
+
+///
+/// @details
+///
+inline unsigned int Text::length () const
+{
+	return content_.length();
+};
+
+
+///
+/// @details
+/// 
+inline std::vector<WordRate> Text::wordRates () const
+{
+	return wordRates_;
 };
 
 #endif  //_TEXT_H

@@ -33,7 +33,7 @@ void \hyperlink{class_clip_454ff6070d0918e56a09a3f28ff430c3}{setPixelGrayLevel} 
 \begin{CompactList}\small\item\em Sets the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
 unsigned char \hyperlink{class_clip_334577b60ef51e42f977f952a29d1b66}{getPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y) const 
 \begin{CompactList}\small\item\em Returns the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
-std::vector$<$ unsigned char $>$ \hyperlink{class_clip_6022d01af67b1aedef82a697d5bf5934}{pixels} () const 
+std::vector$<$ unsigned char $>$ \hyperlink{class_clip_c41089906750f03863854504db8f7e5c}{pixels} () const 
 \begin{CompactList}\small\item\em Returns the pixels that defines the press clip. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{nPixels} () const 
 \begin{CompactList}\small\item\em Returns the number of pixels within the press clip. \item\end{CompactList}\item 
@@ -90,8 +90,6 @@ unsigned int \hyperlink{class_clip_7e2bd80cd0cc06f6d4c3ebe6a22c573d}{nPixels\_\-
 
 Constructor. 
 
-Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated.
-
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -100,10 +98,10 @@ Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) i
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-08\end{Desc}
+Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated. 
 
-
-Definition at line 25 of file Clip.cpp.
+Definition at line 16 of file Clip.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_clip_454ff6070d0918e56a09a3f28ff430c3}{
@@ -115,8 +113,6 @@ Definition at line 25 of file Clip.cpp.
 
 Sets the gray level of a pixel at coordinates (x,y). 
 
-If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated.
-
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -125,10 +121,10 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-08\end{Desc}
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated. 
 
-
-Definition at line 53 of file Clip.cpp.
+Definition at line 37 of file Clip.cpp.
 
 Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_334577b60ef51e42f977f952a29d1b66}{
 \index{Clip@{Clip}!getPixelGrayLevel@{getPixelGrayLevel}}
@@ -138,8 +134,6 @@ Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_334577
 
 
 Returns the gray level of a pixel at coordinates (x,y). 
-
-If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
 
 \begin{Desc}
 \item[Parameters:]
@@ -151,16 +145,16 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-08\end{Desc}
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
 
+Definition at line 51 of file Clip.cpp.
 
-Definition at line 75 of file Clip.cpp.
-
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_6022d01af67b1aedef82a697d5bf5934}{
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_c41089906750f03863854504db8f7e5c}{
 \index{Clip@{Clip}!pixels@{pixels}}
 \index{pixels@{pixels}!Clip@{Clip}}
-\subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$unsigned char$>$ Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_6022d01af67b1aedef82a697d5bf5934}
+\subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ unsigned char $>$ Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_c41089906750f03863854504db8f7e5c}
 
 
 Returns the pixels that defines the press clip. 
@@ -171,7 +165,7 @@ Returns the pixels that defines the press clip.
 \item[Date:]2008-10-07 \end{Desc}
 
 
-Definition at line 50 of file Clip.h.\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
+Definition at line 163 of file Clip.h.\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
 \index{Clip@{Clip}!nPixels@{nPixels}}
 \index{nPixels@{nPixels}!Clip@{Clip}}
 \subsubsection[nPixels]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::nPixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -186,7 +180,7 @@ Returns the number of pixels within the press clip.
 \item[Date:]2008-10-07 \end{Desc}
 
 
-Definition at line 62 of file Clip.h.
+Definition at line 172 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_de984337b7b13fb63a3d3b1797b544c8}{
 \index{Clip@{Clip}!x@{x}}
@@ -203,7 +197,7 @@ Returns the top left-most pixel x coordinate.
 \item[Date:]2008-10-10 \end{Desc}
 
 
-Definition at line 74 of file Clip.h.
+Definition at line 181 of file Clip.h.
 
 Referenced by Recognizer::updateImage().\hypertarget{class_clip_998a62506ffab457184ec7083cb154e4}{
 \index{Clip@{Clip}!y@{y}}
@@ -220,7 +214,7 @@ Returns the top left-most pixel y coordinate.
 \item[Date:]2008-10-10 \end{Desc}
 
 
-Definition at line 86 of file Clip.h.
+Definition at line 190 of file Clip.h.
 
 Referenced by Recognizer::updateImage().\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
 \index{Clip@{Clip}!width@{width}}
@@ -237,7 +231,7 @@ Returns the width of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 98 of file Clip.h.
+Definition at line 199 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
 \index{Clip@{Clip}!height@{height}}
@@ -254,11 +248,11 @@ Returns the height of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 110 of file Clip.h.
+Definition at line 208 of file Clip.h.
 
 Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_clip_8h}{Clip.h (132)}\item 
-\hyperlink{_clip_8cpp}{Clip.cpp (132)}\end{CompactItemize}
+\hyperlink{_clip_8h}{Clip.h (135)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (135)}\end{CompactItemize}

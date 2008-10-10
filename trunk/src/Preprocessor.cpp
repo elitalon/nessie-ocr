@@ -16,9 +16,6 @@
 ///
 /// @details Initializes a Preprocessor object
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
-///
 Preprocessor::Preprocessor ()
 	: optimalThreshold_(0), backgroundReferenceGrayLevel_(255),
 	noiseRemovalTime_(0.0), optimalThresholdComputingTime_(0.0), backgroundReferenceGrayLevelFindingTime_(0.0)
@@ -33,13 +30,6 @@ Preprocessor::Preprocessor ()
 /// the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value.
 /// That initial threshold is in fact provided by the Preprocessor::findBackgroundReferenceGrayLevel method.
 /// 
-/// @param[in] clip The clip where applying the algorithm over
-/// 
-/// @return The optimal threshold of the clip
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
-///
 unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 {
 	// Find background reference gray level
@@ -88,14 +78,6 @@ unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 /// background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
 /// a gray level weighted mean using all those values.
 /// 
-/// @param[in,out]	clip							The clip where applying the algorithm over
-/// @param			referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
-/// 
-/// @return The reference gray level of the background
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
-///
 unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
 	// Compute clip histogram
@@ -165,15 +147,6 @@ unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, 
 /// a noisy pixel will be removed whenever it has up to isolationCoefficient neighbours whose gray level is over a threshold value,
 /// which is controlled by the optimalThreshold attribute.
 /// 
-/// @remarks You MUST call Preprocessor::computeOptimalThreshold method before calling this, since the optimalThreshold attribute
-/// is used internally to know whether a pixel is noisy or not.
-/// 
-/// @param[in,out]	clip					The clip where applying the algorithm over
-/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
-///
 void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolationCoefficient)
 {
 	// Find background reference gray level

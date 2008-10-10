@@ -107,19 +107,19 @@ This class stores the text that has been extracted from the press clip during th
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8d76db538f8617fb8880ba3e4ff3e6a5">length</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text's length.  <a href="#8d76db538f8617fb8880ba3e4ff3e6a5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3">WordRate</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#c596d0e2ef3a9cf4dafcb1c0e18ba65c">wordRates</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3">WordRate</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b">wordRates</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the appearance rates of every single word in text.  <a href="#c596d0e2ef3a9cf4dafcb1c0e18ba65c"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the appearance rates of every single word in text.  <a href="#1387d9767b65f80355f1bdede26a0f7b"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8239e13039bcc1c713f66f1236693706">computeWordRates</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Builds the vector of appearance rates of every word.  <a href="#8239e13039bcc1c713f66f1236693706"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#7466754bf64f0c22b291edb2bd14ba99">updateWordRate</a> (const std::string &amp;word_)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5">updateWordRate</a> (const std::string &amp;word)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Increases by one the number of appearances of a word.  <a href="#7466754bf64f0c22b291edb2bd14ba99"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#3fe3daa80386d15a275523b18bde7fd9">tokenize</a> (std::vector&lt; std::string &gt; &amp;tokens_, const std::string &amp;delimiters_=&quot; ,.\n\t:;!¡¿?&amp;/()=\&quot;'&quot;) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Increases by one the number of appearances of a word.  <a href="#5ab8f9bfa566de537a167991fe10eff5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#6b26c004c1cac61015f7d49c364a007d">tokenize</a> (std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;delimiters=&quot; ,.\n\t:;!¡¿?&amp;/()=\&quot;'&quot;) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Extracts every word surrounded by a set of delimiters.  <a href="#3fe3daa80386d15a275523b18bde7fd9"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Extracts every word surrounded by a set of delimiters.  <a href="#6b26c004c1cac61015f7d49c364a007d"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8c5acddb86730d41099c87da7e386f6c"></a><!-- doxytag: member="Text::content_" ref="8c5acddb86730d41099c87da7e386f6c" args="" -->
 std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">content_</a></td></tr>
@@ -149,11 +149,10 @@ std::vector&lt; <a class="el" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5
 <p>
 Constructor. 
 <p>
-Initializes a <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> object with no content<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
-
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00019">19</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04</dd></dl>
+Initializes a <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> object with no content 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00016">16</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -176,16 +175,15 @@ Initializes a <a class="el" href="class_text.html" title="Text extracted by the 
 <p>
 Constructor. 
 <p>
-Initializes a <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> object with the content passed<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>content</em>&nbsp;</td><td>Initial text</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
-
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00034">34</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04</dd></dl>
+Initializes a <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> object with the content passed 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00026">26</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -209,16 +207,15 @@ Initializes a <a class="el" href="class_text.html" title="Text extracted by the 
 <p>
 Adds a character to text. 
 <p>
-The character passed is appended to the end of the text<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>Character to add</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
-
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00077">77</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03</dd></dl>
+The character passed is appended to the end of the text 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00058">58</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -250,7 +247,6 @@ The character passed is appended to the end of the text<p>
 <p>
 Adds a character to text. 
 <p>
-The character is inserted within the text at position passed. If the position passed is over the text total length, the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning of the text.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>Character to add </td></tr>
@@ -258,9 +254,9 @@ The character is inserted within the text at position passed. If the position pa
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
-
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00052">52</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06</dd></dl>
+The character is inserted within the text at position passed. If the position passed is over the text total length, the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning of the text. 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00038">38</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -283,16 +279,15 @@ The character is inserted within the text at position passed. If the position pa
 <p>
 Removes a character from text. 
 <p>
-The character is removed from text at position passed. If the position passed is over the text total length, the last character is removed. If the position passed is less than 0 the first character is removed.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>Position where removing the character from</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
-
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00093">93</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03</dd></dl>
+The character is removed from text at position passed. If the position passed is over the text total length, the last character is removed. If the position passed is less than 0 the first character is removed. 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00069">69</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -318,7 +313,7 @@ Returns the text's content.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8h-source.html#l00067">67</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
+<p>Definition at line <a class="el" href="_text_8h-source.html#l00183">183</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
 
 </div>
 </div><p>
@@ -349,7 +344,7 @@ Sets the text's content.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8h-source.html#l00081">81</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
+<p>Definition at line <a class="el" href="_text_8h-source.html#l00192">192</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
 
 </div>
 </div><p>
@@ -375,16 +370,16 @@ Returns the text's length.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8h-source.html#l00098">98</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
+<p>Definition at line <a class="el" href="_text_8h-source.html#l00204">204</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="c596d0e2ef3a9cf4dafcb1c0e18ba65c"></a><!-- doxytag: member="Text::wordRates" ref="c596d0e2ef3a9cf4dafcb1c0e18ba65c" args="() const " -->
+<a class="anchor" name="1387d9767b65f80355f1bdede26a0f7b"></a><!-- doxytag: member="Text::wordRates" ref="1387d9767b65f80355f1bdede26a0f7b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3">WordRate</a>&gt; Text::wordRates           </td>
+          <td class="memname">std::vector&lt; <a class="el" href="_word_rate_8h.html#8cfef8793106ac45a83059bd5573cbb3">WordRate</a> &gt; Text::wordRates           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -402,9 +397,9 @@ Returns the appearance rates of every single word in text.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8h-source.html#l00114">114</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
+<p>Definition at line <a class="el" href="_text_8h-source.html#l00213">213</a> of file <a class="el" href="_text_8h-source.html">Text.h</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00116">updateWordRate()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00089">updateWordRate()</a>.</p>
 
 </div>
 </div><p>
@@ -426,17 +421,16 @@ Returns the appearance rates of every single word in text.
 <p>
 Builds the vector of appearance rates of every word. 
 <p>
-This method must be called every time the content changes, since there is no public method for a class user to make it by itself.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04</dd></dl>
+This method must be called every time the content changes, since there is no public method for a class user to make it by itself. 
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00112">112</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00142">142</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00052">addCharacter()</a>, <a class="el" href="_text_8h-source.html#l00081">content()</a>, <a class="el" href="_text_8cpp-source.html#l00093">removeCharacter()</a>, and <a class="el" href="_text_8cpp-source.html#l00019">Text()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00038">addCharacter()</a>, <a class="el" href="_text_8h-source.html#l00192">content()</a>, <a class="el" href="_text_8cpp-source.html#l00069">removeCharacter()</a>, and <a class="el" href="_text_8cpp-source.html#l00016">Text()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="7466754bf64f0c22b291edb2bd14ba99"></a><!-- doxytag: member="Text::updateWordRate" ref="7466754bf64f0c22b291edb2bd14ba99" args="(const std::string &amp;word_)" -->
+<a class="anchor" name="5ab8f9bfa566de537a167991fe10eff5"></a><!-- doxytag: member="Text::updateWordRate" ref="5ab8f9bfa566de537a167991fe10eff5" args="(const std::string &amp;word)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -463,13 +457,13 @@ Increases by one the number of appearances of a word.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00116">116</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00089">89</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00142">computeWordRates()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00112">computeWordRates()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="3fe3daa80386d15a275523b18bde7fd9"></a><!-- doxytag: member="Text::tokenize" ref="3fe3daa80386d15a275523b18bde7fd9" args="(std::vector&lt; std::string &gt; &amp;tokens_, const std::string &amp;delimiters_=&quot; ,.\n\t:;!¡¿?&amp;/()=\&quot;'&quot;) const " -->
+<a class="anchor" name="6b26c004c1cac61015f7d49c364a007d"></a><!-- doxytag: member="Text::tokenize" ref="6b26c004c1cac61015f7d49c364a007d" args="(std::vector&lt; std::string &gt; &amp;tokens, const std::string &amp;delimiters=&quot; ,.\n\t:;!¡¿?&amp;/()=\&quot;'&quot;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -506,16 +500,16 @@ Extracts every word surrounded by a set of delimiters.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
 
-<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00166">166</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_text_8cpp-source.html#l00132">132</a> of file <a class="el" href="_text_8cpp-source.html">Text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00142">computeWordRates()</a>.</p>
+<p>Referenced by <a class="el" href="_text_8cpp-source.html#l00112">computeWordRates()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_text_8h-source.html">Text.h (132)</a><li><a class="el" href="_text_8cpp-source.html">Text.cpp (132)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 12:43:56 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 16:55:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -71,40 +71,66 @@ window.onload = initDynSections;
 <a name="l00022"></a><a class="code" href="class_pixel.html">00022</a> <span class="keyword">class </span><a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a>
 <a name="l00023"></a>00023 {
 <a name="l00024"></a>00024     <span class="keyword">public</span>:
-<a name="l00028"></a>00028         <a class="code" href="class_pixel.html#27ad99a2f705e635c42d242d530d4756" title="Constructor.">Pixel</a> ();
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 
-<a name="l00034"></a>00034         <a class="code" href="class_pixel.html#27ad99a2f705e635c42d242d530d4756" title="Constructor.">Pixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b">x</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a">y</a>, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>);
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036         
-<a name="l00043"></a><a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b">00043</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b">x</a> ()<span class="keyword"> const</span>
-<a name="l00044"></a>00044 <span class="keyword">        </span>{
-<a name="l00045"></a>00045             <span class="keywordflow">return</span> <a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d" title="Pixel&amp;#39;s X coordinate.">x_</a>;
-<a name="l00046"></a>00046         };
-<a name="l00047"></a>00047         
-<a name="l00048"></a>00048         
-<a name="l00055"></a><a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a">00055</a>         <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a">y</a> ()<span class="keyword"> const</span>
-<a name="l00056"></a>00056 <span class="keyword">        </span>{
-<a name="l00057"></a>00057             <span class="keywordflow">return</span> <a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355" title="Pixel&amp;#39;s Y coordinate.">y_</a>;
-<a name="l00058"></a>00058         };
-<a name="l00059"></a>00059         
-<a name="l00060"></a>00060         
-<a name="l00064"></a>00064         <span class="keywordtype">double</span> <a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a> () <span class="keyword">const</span>;
-<a name="l00065"></a>00065         
-<a name="l00066"></a>00066         
-<a name="l00070"></a>00070         <span class="keywordtype">void</span> <a class="code" href="class_pixel.html#6e445cee8bfa4475238823e0b6da42b0" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;grayLevel);
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     <span class="keyword">private</span>:
-<a name="l00076"></a><a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d">00076</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d" title="Pixel&amp;#39;s X coordinate.">x_</a>;
-<a name="l00077"></a>00077         
-<a name="l00081"></a><a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355">00081</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355" title="Pixel&amp;#39;s Y coordinate.">y_</a>;
-<a name="l00082"></a>00082         
-<a name="l00086"></a><a class="code" href="class_pixel.html#545bed829ed92f39962a30ace0d7e88d">00086</a>         <span class="keywordtype">double</span> <a class="code" href="class_pixel.html#545bed829ed92f39962a30ace0d7e88d" title="Pixel&amp;#39;s gray level.">grayLevel_</a>;
-<a name="l00087"></a>00087 };
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 <span class="preprocessor">#endif  //_PIXEL_H</span>
+<a name="l00031"></a>00031         <a class="code" href="class_pixel.html#27ad99a2f705e635c42d242d530d4756" title="Constructor.">Pixel</a> ();
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00044"></a>00044         <a class="code" href="class_pixel.html#27ad99a2f705e635c42d242d530d4756" title="Constructor.">Pixel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b" title="Returns the x coordinate of the pixel.">x</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a" title="Returns the y coordinate of the pixel.">y</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;<a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>);
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046         
+<a name="l00055"></a>00055         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b" title="Returns the x coordinate of the pixel.">x</a> () <span class="keyword">const</span>;        
+<a name="l00056"></a>00056         
+<a name="l00057"></a>00057         
+<a name="l00066"></a>00066         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a" title="Returns the y coordinate of the pixel.">y</a> () <span class="keyword">const</span>;        
+<a name="l00067"></a>00067         
+<a name="l00068"></a>00068         
+<a name="l00077"></a>00077         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a> () <span class="keyword">const</span>;
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079         
+<a name="l00088"></a>00088         <span class="keywordtype">void</span> <a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;grayLevel);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091     <span class="keyword">private</span>:
+<a name="l00095"></a><a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d">00095</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d" title="Pixel&amp;#39;s X coordinate.">x_</a>;
+<a name="l00096"></a>00096         
+<a name="l00100"></a><a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355">00100</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355" title="Pixel&amp;#39;s Y coordinate.">y_</a>;
+<a name="l00101"></a>00101         
+<a name="l00105"></a><a class="code" href="class_pixel.html#e66fe85e02a9fe41e01ee520b87642e0">00105</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_pixel.html#e66fe85e02a9fe41e01ee520b87642e0" title="Pixel&amp;#39;s gray level.">grayLevel_</a>;
+<a name="l00106"></a>00106 };
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 <span class="comment">//</span>
+<a name="l00111"></a>00111 <span class="comment">// Implementation of inline functions</span>
+<a name="l00112"></a>00112 <span class="comment">// </span>
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 
+<a name="l00118"></a><a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b">00118</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#68dafccc4588fb33d445641c2766316b" title="Returns the x coordinate of the pixel.">Pixel::x</a> ()<span class="keyword"> const</span>
+<a name="l00119"></a>00119 <span class="keyword"></span>{
+<a name="l00120"></a>00120     <span class="keywordflow">return</span> <a class="code" href="class_pixel.html#9f8a45ad3cbcab59543e4f7d4842ae6d" title="Pixel&amp;#39;s X coordinate.">x_</a>;
+<a name="l00121"></a>00121 };
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00127"></a><a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a">00127</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pixel.html#204cc91a99e1e4f1d96c9cf6caf5747a" title="Returns the y coordinate of the pixel.">Pixel::y</a> ()<span class="keyword"> const</span>
+<a name="l00128"></a>00128 <span class="keyword"></span>{
+<a name="l00129"></a>00129     <span class="keywordflow">return</span> <a class="code" href="class_pixel.html#da45113dcf9ef4a0c3d5052db42da355" title="Pixel&amp;#39;s Y coordinate.">y_</a>;
+<a name="l00130"></a>00130 };
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 
+<a name="l00136"></a>00136 
+<a name="l00137"></a><a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6">00137</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">Pixel::grayLevel</a> ()<span class="keyword"> const</span>
+<a name="l00138"></a>00138 <span class="keyword"></span>{
+<a name="l00139"></a>00139     <span class="keywordflow">return</span> <a class="code" href="class_pixel.html#e66fe85e02a9fe41e01ee520b87642e0" title="Pixel&amp;#39;s gray level.">grayLevel_</a>;
+<a name="l00140"></a>00140 };
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142 
+<a name="l00146"></a><a class="code" href="class_pixel.html#d00a337e0d9765daafe3017f2d819df8">00146</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">Pixel::grayLevel</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;<a class="code" href="class_pixel.html#d82be37dbb53c7ba48c5464b3a3382c6" title="Returns the pixel&amp;#39;s gray level.">grayLevel</a>)
+<a name="l00147"></a>00147 {
+<a name="l00148"></a>00148     <a class="code" href="class_pixel.html#e66fe85e02a9fe41e01ee520b87642e0" title="Pixel&amp;#39;s gray level.">grayLevel_</a> = grayLevel;
+<a name="l00149"></a>00149 };
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151 <span class="preprocessor">#endif  //_PIXEL_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 12:43:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 16:54:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

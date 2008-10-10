@@ -8,7 +8,7 @@ Collaboration diagram for Pixel:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=80pt]{class_pixel__coll__graph}
+\includegraphics[width=89pt]{class_pixel__coll__graph}
 \end{center}
 \end{figure}
 
@@ -18,12 +18,12 @@ Information about an image pixel.
 
 This class stores all the information of a pixel within a press clip. Every pixel has a location given by a pair of coordinates (x,y) and a color information in a grayscale colorspace of 256 levels.
 
-The gray level of a pixel is normalized value between 0.0 and 1.0, where 0 corresponds to 0.0 (black) and 255 corresponds to 1.0 (white). A monochromatic colorspace can be emulated using only 0.0 and 1.0.
+The gray level of a pixel is a value between 0 and 255, where 0 corresponds to black and 255 corresponds to white. A monochromatic colorspace can be emulated using only 0 and 255.
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-10 \end{Desc}
 
 
 Definition at line 22 of file Pixel.h.\subsection*{Public Member Functions}
@@ -31,15 +31,15 @@ Definition at line 22 of file Pixel.h.\subsection*{Public Member Functions}
 \item 
 \hyperlink{class_pixel_27ad99a2f705e635c42d242d530d4756}{Pixel} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-\hyperlink{class_pixel_e54d95bf19847e4857eeb03f1138ceb9}{Pixel} (const unsigned int \&x, const unsigned int \&y, const double \&grayLevel)
+\hyperlink{class_pixel_31103b6b7b52712789d1fdab7ab7ce29}{Pixel} (const unsigned int \&x, const unsigned int \&y, const unsigned char \&grayLevel)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_pixel_68dafccc4588fb33d445641c2766316b}{x} () const 
-\item 
+\begin{CompactList}\small\item\em Returns the x coordinate of the pixel. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}{y} () const 
-\item 
-double \hyperlink{class_pixel_6e445cee8bfa4475238823e0b6da42b0}{grayLevel} () const 
+\begin{CompactList}\small\item\em Returns the y coordinate of the pixel. \item\end{CompactList}\item 
+unsigned char \hyperlink{class_pixel_d82be37dbb53c7ba48c5464b3a3382c6}{grayLevel} () const 
 \begin{CompactList}\small\item\em Returns the pixel's gray level. \item\end{CompactList}\item 
-void \hyperlink{class_pixel_5f287c6a53167076bc8f1ce54e74e38d}{grayLevel} (const double \&grayLevel)
+void \hyperlink{class_pixel_d00a337e0d9765daafe3017f2d819df8}{grayLevel} (const unsigned char \&grayLevel)
 \begin{CompactList}\small\item\em Sets the pixel's gray level. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
@@ -54,9 +54,9 @@ unsigned int \hyperlink{class_pixel_da45113dcf9ef4a0c3d5052db42da355}{y\_\-}}
 \label{class_pixel_da45113dcf9ef4a0c3d5052db42da355}
 
 \begin{CompactList}\small\item\em Pixel's Y coordinate. \item\end{CompactList}\item 
-\hypertarget{class_pixel_545bed829ed92f39962a30ace0d7e88d}{
-double \hyperlink{class_pixel_545bed829ed92f39962a30ace0d7e88d}{grayLevel\_\-}}
-\label{class_pixel_545bed829ed92f39962a30ace0d7e88d}
+\hypertarget{class_pixel_e66fe85e02a9fe41e01ee520b87642e0}{
+unsigned char \hyperlink{class_pixel_e66fe85e02a9fe41e01ee520b87642e0}{grayLevel\_\-}}
+\label{class_pixel_e66fe85e02a9fe41e01ee520b87642e0}
 
 \begin{CompactList}\small\item\em Pixel's gray level. \item\end{CompactList}\end{CompactItemize}
 
@@ -71,24 +71,20 @@ double \hyperlink{class_pixel_545bed829ed92f39962a30ace0d7e88d}{grayLevel\_\-}}
 
 Constructor. 
 
-Initializes a empty \hyperlink{class_pixel}{Pixel} object located at (0,0)
-
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-04 \end{Desc}
+\item[Date:]2008-10-10\end{Desc}
+Initializes a empty \hyperlink{class_pixel}{Pixel} object located at (0,0) 
 
-
-Definition at line 15 of file Pixel.cpp.\hypertarget{class_pixel_e54d95bf19847e4857eeb03f1138ceb9}{
+Definition at line 12 of file Pixel.cpp.\hypertarget{class_pixel_31103b6b7b52712789d1fdab7ab7ce29}{
 \index{Pixel@{Pixel}!Pixel@{Pixel}}
 \index{Pixel@{Pixel}!Pixel@{Pixel}}
-\subsubsection[Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::Pixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const double \& {\em grayLevel})}}
-\label{class_pixel_e54d95bf19847e4857eeb03f1138ceb9}
+\subsubsection[Pixel]{\setlength{\rightskip}{0pt plus 5cm}Pixel::Pixel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const unsigned char \& {\em grayLevel})}}
+\label{class_pixel_31103b6b7b52712789d1fdab7ab7ce29}
 
 
 Constructor. 
-
-Initializes a \hyperlink{class_pixel}{Pixel} object with the coordinates and gray level provided. If the gray level
 
 \begin{Desc}
 \item[Parameters:]
@@ -98,10 +94,10 @@ Initializes a \hyperlink{class_pixel}{Pixel} object with the coordinates and gra
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-04 \end{Desc}
+\item[Date:]2008-10-10\end{Desc}
+Initializes a \hyperlink{class_pixel}{Pixel} object with the coordinates and gray level provided. If the gray level 
 
-
-Definition at line 32 of file Pixel.cpp.
+Definition at line 22 of file Pixel.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_pixel_68dafccc4588fb33d445641c2766316b}{
@@ -111,6 +107,8 @@ Definition at line 32 of file Pixel.cpp.
 \label{class_pixel_68dafccc4588fb33d445641c2766316b}
 
 
+Returns the x coordinate of the pixel. 
+
 \begin{Desc}
 \item[Returns:]The x coordinate (row) of the pixel\end{Desc}
 \begin{Desc}
@@ -119,12 +117,14 @@ Definition at line 32 of file Pixel.cpp.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 43 of file Pixel.h.\hypertarget{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}{
+Definition at line 118 of file Pixel.h.\hypertarget{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}{
 \index{Pixel@{Pixel}!y@{y}}
 \index{y@{y}!Pixel@{Pixel}}
 \subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Pixel::y () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
 \label{class_pixel_204cc91a99e1e4f1d96c9cf6caf5747a}
 
+
+Returns the y coordinate of the pixel. 
 
 \begin{Desc}
 \item[Returns:]The y coordinate (column) of the pixel\end{Desc}
@@ -134,11 +134,11 @@ Definition at line 43 of file Pixel.h.\hypertarget{class_pixel_204cc91a99e1e4f1d
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 55 of file Pixel.h.\hypertarget{class_pixel_6e445cee8bfa4475238823e0b6da42b0}{
+Definition at line 127 of file Pixel.h.\hypertarget{class_pixel_d82be37dbb53c7ba48c5464b3a3382c6}{
 \index{Pixel@{Pixel}!grayLevel@{grayLevel}}
 \index{grayLevel@{grayLevel}!Pixel@{Pixel}}
-\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}double Pixel::grayLevel () const}}
-\label{class_pixel_6e445cee8bfa4475238823e0b6da42b0}
+\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Pixel::grayLevel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_pixel_d82be37dbb53c7ba48c5464b3a3382c6}
 
 
 Returns the pixel's gray level. 
@@ -151,11 +151,11 @@ Returns the pixel's gray level.
 \item[Date:]2008-09-26 \end{Desc}
 
 
-Definition at line 53 of file Pixel.cpp.\hypertarget{class_pixel_5f287c6a53167076bc8f1ce54e74e38d}{
+Definition at line 137 of file Pixel.h.\hypertarget{class_pixel_d00a337e0d9765daafe3017f2d819df8}{
 \index{Pixel@{Pixel}!grayLevel@{grayLevel}}
 \index{grayLevel@{grayLevel}!Pixel@{Pixel}}
-\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::grayLevel (const double \& {\em grayLevel})}}
-\label{class_pixel_5f287c6a53167076bc8f1ce54e74e38d}
+\subsubsection[grayLevel]{\setlength{\rightskip}{0pt plus 5cm}void Pixel::grayLevel (const unsigned char \& {\em grayLevel})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_pixel_d00a337e0d9765daafe3017f2d819df8}
 
 
 Sets the pixel's gray level. 
@@ -168,10 +168,10 @@ Sets the pixel's gray level.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-04 \end{Desc}
+\item[Date:]2008-10-10 \end{Desc}
 
 
-Definition at line 65 of file Pixel.cpp.
+Definition at line 146 of file Pixel.h.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 

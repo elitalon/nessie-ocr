@@ -18,11 +18,6 @@
 ///
 /// @details Creates a new Recognizer object loading the image from disk. If the image is multi-frame only the first one is
 /// taken, e.g. the first page of a PDF with multiple pages.
-/// 
-/// @param path Relative path within the filesystem where the image is
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-10
 ///
 Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
 {
@@ -45,13 +40,6 @@ Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)),
 /// @details Creates a new Recognizer object from an image loaded externally with methods from Magick++ API.
 /// If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages.
 /// 
-/// @param image An Image object from the Magick++ API previously loaded
-/// 
-/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-10
-///
 Recognizer::Recognizer (Magick::Image &image) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
 {
 	// Store the image dimensions
@@ -66,9 +54,6 @@ Recognizer::Recognizer (Magick::Image &image) : texts_(std::vector<Text>(0)), st
 ///
 /// @details It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only
 /// one clip you can gather its text and its statistics by simply calling text() and statistics() with no parameters at all.
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-09
 ///
 void Recognizer::obtainText ()
 {
@@ -79,11 +64,6 @@ void Recognizer::obtainText ()
 ///
 /// @details Each set of points provides us a clip that can be located within the page.
 /// 
-/// @param coordinates A list of coordinates to locate a number of clips within the page
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-09
-///
 void Recognizer::obtainText (const std::vector<int> &coordinates)
 {
 	//std::vector<int>::iterator coordinatesIterator;
@@ -100,14 +80,6 @@ void Recognizer::obtainText (const std::vector<int> &coordinates)
 /// extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures.
 /// That means you can gather them by simply calling text() and statistics() with no parameters at all.
 /// 
-/// @param x		Top left-most pixel X coordinate
-/// @param y		Top left-most pixel Y coordinate
-/// @param height	Clip's height
-/// @param width	Clip's width
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-09
-///
 void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width)
 {
 	// Test the upper left-most pixel X coordinate is inside the source image
@@ -155,15 +127,6 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 ///
 /// @details If either the source or the target are bigger or smaller than its counterpart, only the pixels that match each other are changed.
 /// 
-/// @param externalImage The destination Image object from the Magick++ API previously created
-/// 
-/// @remarks The image will be converted to a grayscale colorspace
-/// 
-/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-09
-///
 void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 {
 	unsigned int rows = height_, columns = width_;
@@ -208,15 +171,6 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 /// @details The image is automatically converted into a grayscale colorspace according with the RGB values within
 /// the original source. If the image comes already in a grayscale colorspace no conversion is applied.
 /// 
-/// @param image An Image object from the Magick++ API previously created
-/// 
-/// @remarks The image is converted to a grayscale colorspace internally
-/// 
-/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-09
-///
 void Recognizer::loadImage (Magick::Image &image)
 {
 	// Convert the image into grayscale colorspace
@@ -244,13 +198,6 @@ void Recognizer::loadImage (Magick::Image &image)
 /// @details Since the only way of loading a Clip object is executing the obtainText() method, and there the dimensions are controlled, here
 /// it is assumed that all the coordinates are valid.
 /// 
-/// @param clip The clip where the new data is taken
-/// 
-/// @see Clip
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-10
-///
 void Recognizer::updateImage (const Clip &clip)
 {
 	unsigned int p = 0, q;

@@ -28,6 +28,9 @@ class Preprocessor
 		///
 		/// Constructor
 		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
 		Preprocessor ();
 		
 
@@ -39,11 +42,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline unsigned char optimalThreshold () const
-		{
-			return optimalThreshold_;
-		};
-		
+		unsigned char optimalThreshold () const;
+				
 		
 		///
 		/// Sets the optimal threshold to use in algorithms
@@ -53,11 +53,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline void optimalThreshold (const unsigned char &threshold)
-		{
-			optimalThreshold_ = threshold;
-		};
-		
+		void optimalThreshold (const unsigned char &threshold);
+				
 		
 		///
 		/// Returns the background reference gray level in the last clip used
@@ -67,11 +64,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline unsigned char backgroundReferenceGrayLevel () const
-		{
-			return backgroundReferenceGrayLevel_;
-		};
-		
+		unsigned char backgroundReferenceGrayLevel () const;
+				
 		
 		///
 		/// Sets the background reference gray level to use in algorithms
@@ -81,11 +75,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline void backgroundReferenceGrayLevel (const unsigned char &grayLevel)
-		{
-			backgroundReferenceGrayLevel_ = grayLevel;
-		};
-
+		void backgroundReferenceGrayLevel (const unsigned char &grayLevel);
+		
 
 		///
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
@@ -95,11 +86,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double noiseRemovalTime () const
-		{
-			return noiseRemovalTime_;
-		};
-
+		double noiseRemovalTime () const;
+		
 				
 		///
 		/// Returns the elapsed time while founding the optimal threshold within the clip
@@ -109,11 +97,8 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double optimalThresholdComputingTime () const
-		{
-			return optimalThresholdComputingTime_;
-		};
-
+		double optimalThresholdComputingTime () const;
+		
 		
 		///
 		/// Returns the elapsed time while computing the background reference gray level within the clip
@@ -123,14 +108,18 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline double backgroundReferenceGrayLevelFindingTime () const
-		{
-			return backgroundReferenceGrayLevelFindingTime_;
-		};
-
+		double backgroundReferenceGrayLevelFindingTime () const;
+		
 		
 		///
 		/// Computes the optimal threshold value within a clip
+		///
+		/// @param[in] clip The clip where applying the algorithm over
+		/// 
+		/// @return The optimal threshold of the clip
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
 		///
 		unsigned char computeOptimalThreshold (const Clip &clip);
 
@@ -138,13 +127,31 @@ class Preprocessor
 		///
 		/// Computes the background reference gray level value within a clip
 		///
+		/// @param[in,out]	clip							The clip where applying the algorithm over
+		/// @param			referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
+		/// 
+		/// @return The reference gray level of the background
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
 		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 
 		
 		///
 		/// Applies the 'isolated noise removal' algorithm
 		///
+		/// @remarks You MUST call Preprocessor::computeOptimalThreshold method before calling this, since the optimalThreshold attribute
+		/// is used internally to know whether a pixel is noisy or not.
+		/// 
+		/// @param[in,out]	clip					The clip where applying the algorithm over
+		/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
 		void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 1);
+		
 		
 	private:
 		///
@@ -172,5 +179,75 @@ class Preprocessor
 		///
 		double backgroundReferenceGrayLevelFindingTime_;
 };
+
+
+
+//
+// Implementation of inline functions
+// 
+
+
+///
+/// @details
+///
+inline unsigned char Preprocessor::optimalThreshold () const
+{
+	return optimalThreshold_;
+};
+
+
+///
+/// @details
+///
+inline void Preprocessor::optimalThreshold (const unsigned char &threshold)
+{
+	optimalThreshold_ = threshold;
+};
+
+
+///
+/// @details
+///
+inline unsigned char Preprocessor::backgroundReferenceGrayLevel () const
+{
+	return backgroundReferenceGrayLevel_;
+};
+
+
+///
+/// @details
+///
+inline void Preprocessor::backgroundReferenceGrayLevel (const unsigned char &grayLevel)
+{
+	backgroundReferenceGrayLevel_ = grayLevel;
+};
+
+
+///
+/// @details
+///
+inline double Preprocessor::noiseRemovalTime () const
+{
+	return noiseRemovalTime_;
+};
+
+		
+///
+/// @details
+///
+inline double Preprocessor::optimalThresholdComputingTime () const
+{
+	return optimalThresholdComputingTime_;
+};
+
+
+///
+/// @details
+///
+inline double Preprocessor::backgroundReferenceGrayLevelFindingTime () const
+{
+	return backgroundReferenceGrayLevelFindingTime_;
+};
+
 
 #endif  //_PREPROCESSOR_H

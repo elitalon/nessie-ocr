@@ -26,17 +26,41 @@ class Clip
 		///
 		/// Constructor
 		///
+		/// @param image	The underlying image where the clip belongs to
+		/// @param x		The upper left-most pixel X coordinate of the clip
+		/// @param y		The upper left-most pixel Y coordinate of the clip
+		/// @param height	The height of the clip
+		/// @param width	The width of the clip
+		///
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
 		Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
 		
 				
 		///
 		/// Sets the gray level of a pixel at coordinates (x,y)
 		///
+		/// @param x			The upper left-most pixel X coordinate of the clip
+		/// @param y			The upper left-most pixel Y coordinate of the clip
+		/// @param grayLevel	The new gray level for the pixel at coordinates (x,y)
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
+		///
 		void setPixelGrayLevel (const unsigned int &x, const unsigned int &y, const unsigned char &grayLevel);
 		
 		
 		///
 		/// Returns the gray level of a pixel at coordinates (x,y)
+		///
+		/// @param x	The upper left-most pixel X coordinate of the clip
+		/// @param y	The upper left-most pixel Y coordinate of the clip
+		/// 
+		/// @return The gray level of the pixel
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-08
 		///
 		unsigned char getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
 		
@@ -47,10 +71,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-07
 		///
-		inline std::vector<unsigned char> pixels () const
-		{
-			return pixels_;
-		};
+		std::vector<unsigned char> pixels () const;
 		
 		
 		///
@@ -59,10 +80,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-07
 		///
-		inline unsigned int nPixels () const
-		{
-			return nPixels_;
-		};
+		unsigned int nPixels () const;
 		
 		
 		///
@@ -71,10 +89,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-10
 		///
-		inline unsigned int x () const
-		{
-			return x_;
-		};
+		unsigned int x () const;
 		
 		
 		///
@@ -83,10 +98,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-10
 		///
-		inline unsigned int y () const
-		{
-			return y_;
-		};
+		unsigned int y () const;
 		
 		
 		///
@@ -95,10 +107,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline unsigned int width () const
-		{
-			return width_;
-		};
+		unsigned int width () const;
 		
 		
 		///
@@ -107,10 +116,7 @@ class Clip
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-08
 		///
-		inline unsigned int height () const
-		{
-			return height_;
-		};
+		unsigned int height () const;
 		
 	private:
 		///
@@ -144,4 +150,63 @@ class Clip
 		unsigned int nPixels_;
 };
 
+
+
+//
+// Implementation of inline functions
+// 
+
+
+///
+/// @details
+/// 
+inline std::vector<unsigned char> Clip::pixels () const
+{
+	return pixels_;
+};
+
+
+///
+/// @details
+/// 
+inline unsigned int Clip::nPixels () const
+{
+	return nPixels_;
+};
+
+
+///
+/// @details
+/// 
+inline unsigned int Clip::x () const
+{
+	return x_;
+};
+
+
+///
+/// @details
+/// 
+inline unsigned int Clip::y () const
+{
+	return y_;
+};
+
+
+///
+/// @details
+/// 
+inline unsigned int Clip::width () const
+{
+	return width_;
+};
+
+
+///
+/// @details
+/// 
+inline unsigned int Clip::height () const
+{
+	return height_;
+};
 #endif  //_CLIP_H
