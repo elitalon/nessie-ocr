@@ -37,6 +37,10 @@ std::vector$<$ unsigned char $>$ \hyperlink{class_clip_6022d01af67b1aedef82a697d
 \begin{CompactList}\small\item\em Returns the pixels that defines the press clip. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{nPixels} () const 
 \begin{CompactList}\small\item\em Returns the number of pixels within the press clip. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_de984337b7b13fb63a3d3b1797b544c8}{x} () const 
+\begin{CompactList}\small\item\em Returns the top left-most pixel x coordinate. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_998a62506ffab457184ec7083cb154e4}{y} () const 
+\begin{CompactList}\small\item\em Returns the top left-most pixel y coordinate. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_d3e816599913e4051e5d50fae17ecd76}{width} () const 
 \begin{CompactList}\small\item\em Returns the width of the clip. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_clip_393710a6b136f400dd5c900f8831e1a8}{height} () const 
@@ -44,6 +48,16 @@ unsigned int \hyperlink{class_clip_393710a6b136f400dd5c900f8831e1a8}{height} () 
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
+\hypertarget{class_clip_427a67e1feda16230eb9d1d8134ac142}{
+const unsigned int \hyperlink{class_clip_427a67e1feda16230eb9d1d8134ac142}{x\_\-}}
+\label{class_clip_427a67e1feda16230eb9d1d8134ac142}
+
+\begin{CompactList}\small\item\em Top left-most pixel x coordinate. \item\end{CompactList}\item 
+\hypertarget{class_clip_df1fa9449a9457a581d4ac755583af5b}{
+const unsigned int \hyperlink{class_clip_df1fa9449a9457a581d4ac755583af5b}{y\_\-}}
+\label{class_clip_df1fa9449a9457a581d4ac755583af5b}
+
+\begin{CompactList}\small\item\em Top left-most pixel y coordinate. \item\end{CompactList}\item 
 \hypertarget{class_clip_f8547b17e2ad42a17e39b25f7951faaa}{
 const unsigned int \hyperlink{class_clip_f8547b17e2ad42a17e39b25f7951faaa}{width\_\-}}
 \label{class_clip_f8547b17e2ad42a17e39b25f7951faaa}
@@ -89,7 +103,7 @@ Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) i
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 24 of file Clip.cpp.
+Definition at line 25 of file Clip.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_clip_454ff6070d0918e56a09a3f28ff430c3}{
@@ -114,7 +128,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 52 of file Clip.cpp.
+Definition at line 53 of file Clip.cpp.
 
 Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_334577b60ef51e42f977f952a29d1b66}{
 \index{Clip@{Clip}!getPixelGrayLevel@{getPixelGrayLevel}}
@@ -140,9 +154,9 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 74 of file Clip.cpp.
+Definition at line 75 of file Clip.cpp.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_6022d01af67b1aedef82a697d5bf5934}{
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_6022d01af67b1aedef82a697d5bf5934}{
 \index{Clip@{Clip}!pixels@{pixels}}
 \index{pixels@{pixels}!Clip@{Clip}}
 \subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$unsigned char$>$ Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -174,7 +188,41 @@ Returns the number of pixels within the press clip.
 
 Definition at line 62 of file Clip.h.
 
-Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
+Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_de984337b7b13fb63a3d3b1797b544c8}{
+\index{Clip@{Clip}!x@{x}}
+\index{x@{x}!Clip@{Clip}}
+\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::x () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_de984337b7b13fb63a3d3b1797b544c8}
+
+
+Returns the top left-most pixel x coordinate. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-10 \end{Desc}
+
+
+Definition at line 74 of file Clip.h.
+
+Referenced by Recognizer::updateImage().\hypertarget{class_clip_998a62506ffab457184ec7083cb154e4}{
+\index{Clip@{Clip}!y@{y}}
+\index{y@{y}!Clip@{Clip}}
+\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::y () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_998a62506ffab457184ec7083cb154e4}
+
+
+Returns the top left-most pixel y coordinate. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-10 \end{Desc}
+
+
+Definition at line 86 of file Clip.h.
+
+Referenced by Recognizer::updateImage().\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
 \index{Clip@{Clip}!width@{width}}
 \index{width@{width}!Clip@{Clip}}
 \subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::width () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -189,9 +237,9 @@ Returns the width of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 74 of file Clip.h.
+Definition at line 98 of file Clip.h.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
 \subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -206,9 +254,9 @@ Returns the height of the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 86 of file Clip.h.
+Definition at line 110 of file Clip.h.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Preprocessor::removeIsolatedNoise().
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 

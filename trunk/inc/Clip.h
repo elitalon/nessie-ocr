@@ -66,6 +66,30 @@ class Clip
 		
 		
 		///
+		/// Returns the top left-most pixel x coordinate
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-10
+		///
+		inline unsigned int x () const
+		{
+			return x_;
+		};
+		
+		
+		///
+		/// Returns the top left-most pixel y coordinate
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-10
+		///
+		inline unsigned int y () const
+		{
+			return y_;
+		};
+		
+		
+		///
 		/// Returns the width of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
@@ -89,6 +113,16 @@ class Clip
 		};
 		
 	private:
+		///
+		/// Top left-most pixel x coordinate
+		///
+		const unsigned int x_;
+		
+		///
+		/// Top left-most pixel y coordinate
+		///
+		const unsigned int y_;
+		
 		///
 		/// The width of the pixels
 		///

@@ -77,7 +77,7 @@ PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
 
 # Object files
-OBJECTS=$(RECOGNIZER_OBJ)
+OBJECTS=$(RECOGNIZER_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
@@ -103,7 +103,7 @@ endif
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
 
-$(MAIN_OBJ): $(OBJECTS) $(MAIN)
+$(MAIN_OBJ): $(RECOGNIZER_OBJ) $(MAIN)
 	@printf "** Making rule $(MAIN_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -115,7 +115,7 @@ endif
 	mv main.o $(SRC)
 	@printf "$(NL)"
 	
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(RECOGNIZER)
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)

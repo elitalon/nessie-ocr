@@ -5,10 +5,12 @@
 
 #include "Preprocessor.h"
 
+#include "Clip.h"
 
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 
 ///
@@ -75,7 +77,7 @@ unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 		temporaryThreshold = optimalThreshold_;
 		optimalThreshold_ = round((objectsMeanValue + backgroundMeanValue) / 2);
 	}
-	while (temporaryThreshold != optimalThreshold_);
+	while (temporaryThreshold not_eq optimalThreshold_);
 
 	return optimalThreshold_;
 };
@@ -223,62 +225,3 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 		}
 	}
 };
-
-
-
-//
-// Otsu's algorithm for computing optimal threshold
-//
-
-// // Compute image histogram
-// std::vector<double> histogram(256, 0.0);
-// for (unsigned int i=0; i < clip.height(); ++i)
-// {
-// 	for (unsigned int j=0; j < clip.width(); ++j)
-// 	{
-// 		// Get gray level of this pixel
-// 		double grayLevel = clip.getPixel(i,j).grayLevel();
-// 		
-// 		// Update histogram
-// 		histogram[std::floor(grayLevel * 255.0)] += 1.0;
-// 	}
-// }
-// 
-// // Normalise histogram
-// std::transform( histogram.begin(), histogram.end(), histogram.begin(), std::bind1st(std::multiplies<double>(), 1.0 / static_cast<double>(clip.nPixels())) );
-// 
-// // Compute the zero- and first-order cumulative moments of the normalised histogram up to the kth level
-// std::vector<double> zeroMoments(256, 0.0), firstMoments(256, 0.0);
-// for ( unsigned int level = 0; level < 256; ++level )
-// {
-// 	for ( unsigned int i = 1; i <= (level+1); ++i )
-// 	{
-// 		zeroMoments[level]	+= histogram[i-1];
-// 		firstMoments[level]	+= histogram[i-1] * i;
-// 	}
-// }
-// 
-// // Compute the total mean level of the image
-// double meanLevel = 0.0;
-// for ( unsigned int level = 1; level <= 256; ++level )
-// 	meanLevel += histogram[level-1] * level;
-// 
-// // Compute the variance of the class separability at every gray level	
-// std::vector<double> variance(256, 0.0);
-// for ( unsigned int level = 0; level < 256; ++level )
-// 	variance[level] = pow((meanLevel * zeroMoments[level]) - firstMoments[level], 2) / (zeroMoments[level] * (1 - zeroMoments[level]));
-// 	
-// // Find the maximum value of variance
-// unsigned int level = 0;
-// double maxVariance = variance[0];
-// for ( std::vector<double>::iterator varianceIterator = variance.begin(); varianceIterator < variance.end(); ++varianceIterator, ++level )
-// {
-// 	if ( *varianceIterator > maxVariance )
-// 	{
-// 		maxVariance = *varianceIterator;
-// 		optimalThreshold_ = level;
-// 	}
-// }
-// optimalThreshold_ = optimalThreshold_ / 255.0;
-// 
-// std::cout << "Optimal threshold with Otsu's method: " << optimalThreshold_ << std::endl;

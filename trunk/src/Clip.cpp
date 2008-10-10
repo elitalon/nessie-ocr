@@ -6,6 +6,7 @@
 #include "Clip.h"
 #include "NessieException.h"
 
+#include <iostream>
 
 ///
 /// @details Initializes a Clip object located at coordinates (x,y) in the source image, with the height and width passed.
@@ -22,7 +23,7 @@
 /// @date 2008-10-08
 ///
 Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width)
-	: width_(width), height_(height)
+	: x_(x), y_(y), width_(width), height_(height)
 {
 	// Compute the number of pixels within the clip
 	nPixels_ = width_ * height_;
@@ -55,7 +56,7 @@ void Clip::setPixelGrayLevel (const unsigned int &x, const unsigned int &y, cons
 	
 	if ( index >= pixels_.size() )
 		throw NessieException ("Clip::setPixelGrayLevel(const unsigned int &x, const unsigned int &y, const unsigned char &grayLevel) : The coordinates are outside the clip");
-	
+
 	pixels_[index] = grayLevel;
 };
 

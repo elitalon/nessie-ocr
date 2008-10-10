@@ -7,6 +7,7 @@
 #define _STATISTICS_H
 
 
+
 ///
 /// Statistics about the text recognition process.
 /// 
@@ -19,6 +20,12 @@
 class Statistics
 {
 	public:
+		///
+		/// Constructor
+		/// 
+		Statistics ();
+		
+		
 		///
 		/// Returns the elapsed time in the reference gray level of the background finding algorithm
 		///
@@ -74,12 +81,8 @@ class Statistics
 			return preprocessingTime_;
 		};
 		
-	private:
-		///
-		/// Constructor
-		/// 
-		Statistics ();
 		
+	private:
 		///
 		/// Declares the class Recognizer as friend
 		///

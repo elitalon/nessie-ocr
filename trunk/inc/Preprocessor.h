@@ -7,7 +7,7 @@
 #define _PREPROCESSOR_H
 
 
-#include "Clip.h"
+class Clip;	// Forward declaration
 
 
 ///

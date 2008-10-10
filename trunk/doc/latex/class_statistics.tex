@@ -24,9 +24,11 @@ This class stores a number of statistical data regarding the elapsed time during
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 19 of file Statistics.h.\subsection*{Public Member Functions}
+Definition at line 20 of file Statistics.h.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
+\hyperlink{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 double \hyperlink{class_statistics_565e90b1940d12bb2a2661f6dcea230d}{backgroundReferenceGrayLevelFindingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
 double \hyperlink{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{optimalThresholdComputingTime} () const 
@@ -38,8 +40,6 @@ double \hyperlink{class_statistics_d88deb57349fedd7035ccffa06b4859b}{preprocessi
 \subsection*{Private Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
-\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 void \hyperlink{class_statistics_f8a60e8a89be8fe8b2c46782681c1a2c}{backgroundReferenceGrayLevelFindingTime} (const double \&time)
 \begin{CompactList}\small\item\em Sets the elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
 void \hyperlink{class_statistics_eed35a930f29f4596f3715306e1e1dbc}{optimalThresholdComputingTime} (const double \&time)
@@ -83,7 +83,7 @@ class \hyperlink{class_statistics_11123fa51c07995419270030024a7dfe}{Recognizer}}
 \hypertarget{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{
 \index{Statistics@{Statistics}!Statistics@{Statistics}}
 \index{Statistics@{Statistics}!Statistics@{Statistics}}
-\subsubsection[Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::Statistics ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\subsubsection[Statistics]{\setlength{\rightskip}{0pt plus 5cm}Statistics::Statistics ()}}
 \label{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}
 
 
@@ -117,7 +117,7 @@ Returns the elapsed time in the reference gray level of the background finding a
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 30 of file Statistics.h.\hypertarget{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{
+Definition at line 37 of file Statistics.h.\hypertarget{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{
 \index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Statistics@{Statistics}}
 \subsubsection[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::optimalThresholdComputingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -134,7 +134,7 @@ Returns the elapsed time in the optimal threshold computing algorithm.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 44 of file Statistics.h.\hypertarget{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{
+Definition at line 51 of file Statistics.h.\hypertarget{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{
 \index{Statistics@{Statistics}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Statistics@{Statistics}}
 \subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::noiseRemovalTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -151,7 +151,7 @@ Returns the elapsed time in the noise removal algorithm.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 58 of file Statistics.h.\hypertarget{class_statistics_d88deb57349fedd7035ccffa06b4859b}{
+Definition at line 65 of file Statistics.h.\hypertarget{class_statistics_d88deb57349fedd7035ccffa06b4859b}{
 \index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
 \index{preprocessingTime@{preprocessingTime}!Statistics@{Statistics}}
 \subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::preprocessingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -168,7 +168,7 @@ Returns the total elapsed time within the preprocessing stage.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 72 of file Statistics.h.\hypertarget{class_statistics_f8a60e8a89be8fe8b2c46782681c1a2c}{
+Definition at line 79 of file Statistics.h.\hypertarget{class_statistics_f8a60e8a89be8fe8b2c46782681c1a2c}{
 \index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Statistics@{Statistics}}
 \subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::backgroundReferenceGrayLevelFindingTime (const double \& {\em time})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
