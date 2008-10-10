@@ -147,22 +147,19 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 	// Ensure that there is only one reference to underlying image
 	// If this is not done, then image pixels will not be modified.
 	externalImage.modifyImage();
-		
+
 	// Copy the current data into the external image
+	Magick::ColorGray color;
 	for ( unsigned int i = 0; i < rows; ++i )
 	{
 		for ( unsigned int j = 0; j < columns; ++j )
 		{
 			unsigned int index = (i * columns) + j;
-			
-			Magick::ColorGray color;
+
 			color.shade(static_cast<double>(image_[index]) / 255.0);
 			externalImage.pixelColor(j, i, color);
 		}
 	}
-	
-	// Save changes to image.
-	externalImage.syncPixels();
 };
 
 

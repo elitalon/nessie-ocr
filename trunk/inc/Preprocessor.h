@@ -148,7 +148,7 @@ class Preprocessor
 		/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-10
 		///
 		void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 1);
 		

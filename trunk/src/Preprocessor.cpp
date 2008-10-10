@@ -158,44 +158,51 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 	{
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
-			unsigned int nBackgroundPixels = 0, nPixels = 0;
-
-			// Explore the pixel neighbourhood
-			for(int p = i-1; p < static_cast<int>(i+2); p++)
+			unsigned char pixelGrayLevel = clip.getPixelGrayLevel(i, j);
+			
+			// Comparison values to avoid pixels that clearly belong to the background
+			bool backgroundPixelOnWhite = (backgroundReferenceGrayLevel_ > optimalThreshold_) and (pixelGrayLevel > backgroundReferenceGrayLevel_);
+			bool backgroundPixelOnBlack = (backgroundReferenceGrayLevel_ < optimalThreshold_) and (pixelGrayLevel < backgroundReferenceGrayLevel_);
+			
+			if ( not backgroundPixelOnBlack and not backgroundPixelOnWhite )
 			{
-				for(int q = j-1; q < static_cast<int>(j+2); q++)
+				unsigned int nBackgroundPixels = 0, nPixels = 0;
+
+				// Explore the pixel neighbourhood
+				for(int p = i-1; p < static_cast<int>(i+2); p++)
 				{
-					// Check clip borders
-					if ( (p < 0) or (p >= static_cast<int>(clip.height())) )
-						continue;
-
-					if ( (q < 0) or (q >= static_cast<int>(clip.width())) )
-						continue;
-					
-					// Update pixels counter
-					nPixels++;
-
-					// Get neighbour pixel gray level
-					unsigned char neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
-
-					// When background gray level is close to white but not the pixel, update the noisy neighbours counter
-					if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixelGrayLevel > optimalThreshold_) )
-						nBackgroundPixels++;
-					else
+					for(int q = j-1; q < static_cast<int>(j+2); q++)
 					{
-						// When background gray level is close to black but not the pixel, update the noisy neighbours counter
-						if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel < optimalThreshold_) )
-							nBackgroundPixels++;
+						// Comparison values to avoid step outside the image and the central pixel
+						bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip.height()));
+						bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip.width()));
+						bool isCentralPixel = (p == static_cast<int>(i)) and (q == static_cast<int>(j));
+						
+						if ( not heightOverflow and not widthOverflow and not isCentralPixel )
+						{
+							// Update pixels counter
+							nPixels++;
+
+							// Get neighbour pixel gray level
+							unsigned char neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
+
+							// When background gray level is close to white but not the pixel, update the noisy neighbours counter
+							if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixelGrayLevel > optimalThreshold_) )
+								nBackgroundPixels++;
+							else
+							{
+								// When background gray level is close to black but not the pixel, update the noisy neighbours counter
+								if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel < optimalThreshold_) )
+									nBackgroundPixels++;
+							}
+						}
 					}
 				}
+
+				// Clear the noisy pixel if it is isolated
+				if (nBackgroundPixels >= (nPixels - isolationCoefficient))
+					clip.setPixelGrayLevel(i, j, backgroundReferenceGrayLevel_);
 			}
-
-			// Adjust the isolated coefficient influence according to the number of neighbours found
-			unsigned int realIsolationCoefficient = nPixels - 8 + (8 - isolationCoefficient);
-
-			// Delete the noisy pixel if it is isolated
-			if (nBackgroundPixels >= realIsolationCoefficient)
-				clip.setPixelGrayLevel(i, j, backgroundReferenceGrayLevel_);
 		}
 	}
 };

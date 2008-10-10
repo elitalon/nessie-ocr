@@ -29,7 +29,7 @@ int main (int argc, char const *argv[])
 			microseconds = microseconds + ((elapsedTime - initialTime) / 1000.0);
 		}
 		std::cout << microseconds / CLOCKS_PER_SEC << std::endl;	
-		
+
 		recon.writeExternalImage(image);
 		image.write("results.png");
 	}
