@@ -114,12 +114,12 @@ class Preprocessor
 		///
 		/// Computes the optimal threshold value within a clip
 		///
-		/// @param[in] clip The clip where applying the algorithm over
+		/// @param clip The clip where applying the algorithm over
 		/// 
 		/// @return The optimal threshold of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-10
 		///
 		unsigned char computeOptimalThreshold (const Clip &clip);
 
@@ -127,13 +127,13 @@ class Preprocessor
 		///
 		/// Computes the background reference gray level value within a clip
 		///
-		/// @param[in,out]	clip							The clip where applying the algorithm over
-		/// @param			referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
+		/// @param	clip							The clip where applying the algorithm over
+		/// @param	referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
 		/// 
 		/// @return The reference gray level of the background
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-10
 		///
 		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 

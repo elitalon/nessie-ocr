@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <algorithm>
 
 #include "Clip.h"
 #include "Preprocessor.h"
@@ -200,14 +199,13 @@ void Recognizer::loadImage (Magick::Image &image)
 /// 
 void Recognizer::updateImage (const Clip &clip)
 {
-	unsigned int p = 0, q;
+	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
+	std::vector<unsigned char> pixels = clip.pixels();
+	std::vector<unsigned char>::iterator pixelsIterator = pixels.begin();
+	
 	for ( unsigned int i = clip.x(); i < clip.height(); ++i )
 	{
-		q = 0;
 		for ( unsigned int j = clip.y(); j < clip.width(); ++j )
-		{
-			image_[(i * width_) + j] = clip.getPixelGrayLevel(p, q++);
-		}
-		p++;
+			image_[(i * width_) + j] = *pixelsIterator++;
 	}
 };

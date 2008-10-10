@@ -97,7 +97,7 @@ Constructor.
 \item[Date:]2008-10-08\end{Desc}
 Initializes a \hyperlink{class_preprocessor}{Preprocessor} object 
 
-Definition at line 19 of file Preprocessor.cpp.
+Definition at line 18 of file Preprocessor.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_preprocessor_1d8eaa1cf786941dbfa1eca95b46ce0c}{
@@ -237,17 +237,17 @@ Computes the optimal threshold value within a clip.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[\mbox{$\leftarrow$} {\em clip}]The clip where applying the algorithm over\end{description}
+\item[{\em clip}]The clip where applying the algorithm over\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]The optimal threshold of the clip\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08\end{Desc}
+\item[Date:]2008-10-10\end{Desc}
 To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in \char`\"{}Image Processing, Analysis and Machine Vision\char`\"{} (Thomson Learning, 2008). The target is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value. That initial threshold is in fact provided by the \hyperlink{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{Preprocessor::findBackgroundReferenceGrayLevel} method. 
 
-Definition at line 33 of file Preprocessor.cpp.
+Definition at line 32 of file Preprocessor.cpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{
 \index{Preprocessor@{Preprocessor}!findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}}
@@ -261,17 +261,17 @@ Computes the background reference gray level value within a clip.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[\mbox{$\leftrightarrow$} {\em clip}]The clip where applying the algorithm over \item[{\em referenceGrayLevelNeighbours}]Number of neighbours of the more frequent gray level to explore on each direction\end{description}
+\item[{\em clip}]The clip where applying the algorithm over \item[{\em referenceGrayLevelNeighbours}]Number of neighbours of the more frequent gray level to explore on each direction\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]The reference gray level of the background\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08\end{Desc}
+\item[Date:]2008-10-10\end{Desc}
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values. 
 
-Definition at line 81 of file Preprocessor.cpp.
+Definition at line 86 of file Preprocessor.cpp.
 
 Referenced by computeOptimalThreshold(), and removeIsolatedNoise().\hypertarget{class_preprocessor_a365f69af48cae608071e9943f300dd5}{
 \index{Preprocessor@{Preprocessor}!removeIsolatedNoise@{removeIsolatedNoise}}
@@ -293,7 +293,7 @@ Applies the 'isolated noise removal' algorithm.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-08\end{Desc}
-The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has up to isolationCoefficient neighbours whose gray level is over a threshold value, which is controlled by the optimalThreshold attribute. 
+The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
 
 Definition at line 150 of file Preprocessor.cpp.
 
@@ -301,5 +301,5 @@ Referenced by Recognizer::obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_preprocessor_8h}{Preprocessor.h (135)}\item 
-\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (135)}\end{CompactItemize}
+\hyperlink{_preprocessor_8h}{Preprocessor.h (136)}\item 
+\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (136)}\end{CompactItemize}

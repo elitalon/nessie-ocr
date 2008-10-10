@@ -159,7 +159,7 @@ Constructor.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
 Initializes a <a class="el" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> object 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00019">19</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00018">18</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -377,16 +377,16 @@ Computes the optimal threshold value within a clip.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over</td></tr>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The optimal threshold of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008). The target is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value. That initial threshold is in fact provided by the <a class="el" href="class_preprocessor.html#19aa90451cf6f99854833c05d3e71270" title="Computes the background reference gray level value within a clip.">Preprocessor::findBackgroundReferenceGrayLevel</a> method. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00033">33</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00032">32</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00083">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00082">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -420,17 +420,17 @@ Computes the background reference gray level value within a clip.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in,out]</tt>&nbsp;</td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>referenceGrayLevelNeighbours</em>&nbsp;</td><td>Number of neighbours of the more frequent gray level to explore on each direction</td></tr>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The reference gray level of the background</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00081">81</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00086">86</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00033">computeOptimalThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00150">removeIsolatedNoise()</a>.</p>
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00032">computeOptimalThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00150">removeIsolatedNoise()</a>.</p>
 
 </div>
 </div><p>
@@ -471,17 +471,17 @@ Applies the 'isolated noise removal' algorithm.
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
-The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has up to isolationCoefficient neighbours whose gray level is over a threshold value, which is controlled by the optimalThreshold attribute. 
+The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
 <p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00150">150</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00083">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00082">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_preprocessor_8h-source.html">Preprocessor.h (135)</a><li><a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp (135)</a></ul>
+<li><a class="el" href="_preprocessor_8h-source.html">Preprocessor.h (136)</a><li><a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp (136)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 16:55:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 19:54:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

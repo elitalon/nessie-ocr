@@ -150,7 +150,7 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 
 Definition at line 51 of file Clip.cpp.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_c41089906750f03863854504db8f7e5c}{
+Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_c41089906750f03863854504db8f7e5c}{
 \index{Clip@{Clip}!pixels@{pixels}}
 \index{pixels@{pixels}!Clip@{Clip}}
 \subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ unsigned char $>$ Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -165,7 +165,9 @@ Returns the pixels that defines the press clip.
 \item[Date:]2008-10-07 \end{Desc}
 
 
-Definition at line 163 of file Clip.h.\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
+Definition at line 163 of file Clip.h.
+
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Recognizer::updateImage().\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
 \index{Clip@{Clip}!nPixels@{nPixels}}
 \index{nPixels@{nPixels}!Clip@{Clip}}
 \subsubsection[nPixels]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::nPixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -233,7 +235,7 @@ Returns the width of the clip.
 
 Definition at line 199 of file Clip.h.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
+Referenced by Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
 \subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -250,9 +252,9 @@ Returns the height of the clip.
 
 Definition at line 208 of file Clip.h.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().
+Referenced by Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_clip_8h}{Clip.h (135)}\item 
-\hyperlink{_clip_8cpp}{Clip.cpp (135)}\end{CompactItemize}
+\hyperlink{_clip_8h}{Clip.h (136)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (136)}\end{CompactItemize}
