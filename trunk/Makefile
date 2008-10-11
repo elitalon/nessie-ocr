@@ -84,7 +84,7 @@ EXECUTABLE=$(BIN)ocr
 DEBUG=NO
 COMPILER_DEBUGGING_OPTIONS=-g -finstrument-functions
 LINKER_DEBUGGING_OPTIONS=-lSaturn
-FLAGS=-Wall -O3 -I$(INC)
+FLAGS=-Wall -O3 -I$(INC) -I$(LIB)
 
 # Formatted output commands
 NL=\n

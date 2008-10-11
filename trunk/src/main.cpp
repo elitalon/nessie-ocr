@@ -1,11 +1,12 @@
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 #include <Magick++.h>
 using namespace Magick;
 
 #include "Recognizer.h"
+
+#include "boost/timer.hpp"
 
 ///
 /// Command line program for testing purposes.
@@ -17,19 +18,18 @@ int main (int argc, char const *argv[])
 		Image image( argv[1] );
 		Recognizer recon( image );
 		
-		clock_t initialTime, elapsedTime;
+		boost::timer timer; 
+		
 		double microseconds = 0.0;
-
+		
 		for ( unsigned int i = 0; i < 1000; ++i )
 		{
-			initialTime = clock();
+			timer.restart();
 			recon.obtainText();
-			elapsedTime = clock();
-			
-			microseconds = microseconds + ((elapsedTime - initialTime) / 1000.0);
+			microseconds += timer.elapsed();
 		}
-		std::cout << microseconds / CLOCKS_PER_SEC << std::endl;	
-
+		
+		cout << microseconds / 1000.0 << endl;
 		recon.writeExternalImage(image);
 		image.write("results.png");
 	}
