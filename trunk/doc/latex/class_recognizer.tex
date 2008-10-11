@@ -2,7 +2,7 @@
 \section{Recognizer Class Reference}
 \label{class_recognizer}\index{Recognizer@{Recognizer}}
 }
-{\tt \#include $<$Recognizer.h$>$}
+{\tt \#include $<$Recognizer.hpp$>$}
 
 Collaboration diagram for Recognizer:\nopagebreak
 \begin{figure}[H]
@@ -30,7 +30,7 @@ In future modifications any library may be added to load the images. A developer
 \item[Date:]2008-10-10 \end{Desc}
 
 
-Definition at line 41 of file Recognizer.h.\subsection*{Public Member Functions}
+Definition at line 42 of file Recognizer.hpp.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_recognizer_50ffc181208bb07ae651aba6249ee7e4}{Recognizer} (const std::string \&path)
@@ -39,7 +39,7 @@ Definition at line 41 of file Recognizer.h.\subsection*{Public Member Functions}
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 void \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{obtainText} ()
 \begin{CompactList}\small\item\em Recognizes the text within the whole page at once. \item\end{CompactList}\item 
-void \hyperlink{class_recognizer_ae7cd5077266fe72d0d00668b046ddd6}{obtainText} (const std::vector$<$ int $>$ \&coordinates)
+void \hyperlink{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{obtainText} (const std::vector$<$ \hyperlink{class_clip_location}{ClipLocation} $>$ \&coordinates)
 \begin{CompactList}\small\item\em Recognizes the text within multiple press clips whose coordinates are passed. \item\end{CompactList}\item 
 void \hyperlink{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{obtainText} (const unsigned int \&x, const unsigned int \&y, unsigned int \&height, unsigned int \&width)
 \begin{CompactList}\small\item\em Recognizes the text within a single press clip located at coordinates (x,y). \item\end{CompactList}\item 
@@ -151,11 +151,11 @@ Recognizes the text within the whole page at once.
 \item[Date:]2008-10-09\end{Desc}
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_9c749916101383461aa2fa63e3f46dbc}{text()} and \hyperlink{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{statistics()} with no parameters at all. 
 
-Definition at line 57 of file Recognizer.cpp.\hypertarget{class_recognizer_ae7cd5077266fe72d0d00668b046ddd6}{
+Definition at line 57 of file Recognizer.cpp.\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
-\subsubsection[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ int $>$ \& {\em coordinates})}}
-\label{class_recognizer_ae7cd5077266fe72d0d00668b046ddd6}
+\subsubsection[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ {\bf ClipLocation} $>$ \& {\em coordinates})}}
+\label{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}
 
 
 Recognizes the text within multiple press clips whose coordinates are passed. 
@@ -213,7 +213,7 @@ Returns the text of a single clip.
 \item[Date:]2008-10-11 \end{Desc}
 
 
-Definition at line 235 of file Recognizer.h.\hypertarget{class_recognizer_603c290af256c63a8b292f8efc6aa61d}{
+Definition at line 236 of file Recognizer.hpp.\hypertarget{class_recognizer_603c290af256c63a8b292f8efc6aa61d}{
 \index{Recognizer@{Recognizer}!texts@{texts}}
 \index{texts@{texts}!Recognizer@{Recognizer}}
 \subsubsection[texts]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf Text} $>$ Recognizer::texts () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -232,7 +232,7 @@ Returns the text of every loaded clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 247 of file Recognizer.h.\hypertarget{class_recognizer_23ded078bf5e8d4047d8f4470b178619}{
+Definition at line 248 of file Recognizer.hpp.\hypertarget{class_recognizer_23ded078bf5e8d4047d8f4470b178619}{
 \index{Recognizer@{Recognizer}!statistic@{statistic}}
 \index{statistic@{statistic}!Recognizer@{Recognizer}}
 \subsubsection[statistic]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics} Recognizer::statistic (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -256,7 +256,7 @@ Returns the statistical data regarding the recognition process of a single clip.
 \item[Date:]2008-10-11 \end{Desc}
 
 
-Definition at line 256 of file Recognizer.h.\hypertarget{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{
+Definition at line 257 of file Recognizer.hpp.\hypertarget{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{
 \index{Recognizer@{Recognizer}!statistics@{statistics}}
 \index{statistics@{statistics}!Recognizer@{Recognizer}}
 \subsubsection[statistics]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf Statistics} $>$ Recognizer::statistics () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -275,7 +275,7 @@ Returns the statistical data regarding the recognition process of every loaded c
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 268 of file Recognizer.h.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{
+Definition at line 269 of file Recognizer.hpp.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{
 \index{Recognizer@{Recognizer}!writeExternalImage@{writeExternalImage}}
 \index{writeExternalImage@{writeExternalImage}!Recognizer@{Recognizer}}
 \subsubsection[writeExternalImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::writeExternalImage (Magick::Image \& {\em externalImage}) const}}
@@ -353,5 +353,5 @@ Referenced by obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_recognizer_8h}{Recognizer.h (136)}\item 
-\hyperlink{_recognizer_8cpp}{Recognizer.cpp (138)}\end{CompactItemize}
+\hyperlink{_recognizer_8hpp}{Recognizer.hpp}\item 
+\hyperlink{_recognizer_8cpp}{Recognizer.cpp (140)}\end{CompactItemize}

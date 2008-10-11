@@ -1,16 +1,16 @@
 /**
- * Partitioner.cpp - Nessie, reconocedor óptico de texto en recortes de prensa escrita
+ * Partitioner.cpp - Nessie, reconocedor Ã³ptico de texto en recortes de prensa escrita
  *
- * @author Eliezer Talón
+ * @author Eliezer TalÃ³n
  * @date 16/09/2008
  * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
+ * @company Instituto Universitario de Ciencias y TecnologÃ­as CibernÃ©ticas (IUCTC)
  */
 
-#include "Partitioner.h"
-#include "Clip.h"
-#include "Pixel.h"
-#include "Shape.h"
+#include "Segmenter.hpp"
+#include "Clip.hpp"
+#include "Pixel.hpp"
+#include "Shape.hpp"
 
 unsigned int Partitioner::computeOptimalThreshold(Clip clip)
 {

@@ -1,14 +1,14 @@
 /**
- * Shape.cpp - Nessie, reconocedor óptico de texto en recortes de prensa escrita
+ * Shape.cpp - Nessie, reconocedor Ã³ptico de texto en recortes de prensa escrita
  *
- * @author Eliezer Talón
+ * @author Eliezer TalÃ³n
  * @date 16/09/2008
  * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
+ * @company Instituto Universitario de Ciencias y TecnologÃ­as CibernÃ©ticas (IUCTC)
  */
 
-#include "Shape.h"
-#include "Pixel.h"
+#include "Shape.hpp"
+#include "Pixel.hpp"
 
 void Shape::Shape()
 {

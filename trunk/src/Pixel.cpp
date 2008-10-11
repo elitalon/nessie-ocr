@@ -3,7 +3,7 @@
 /// @brief Implementation of the class Pixel
 ///
 
-#include "Pixel.h"
+#include "Pixel.hpp"
 
 
 ///

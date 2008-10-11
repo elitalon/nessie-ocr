@@ -26,34 +26,38 @@ MAIN_SRC=$(SRC)main.cpp
 
 # Source files of 'NessieException' struct
 NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
-NESSIE_EXCEPTION_INC=$(INC)NessieException.h
+NESSIE_EXCEPTION_INC=$(INC)NessieException.hpp
 
 # Source file of 'WordRate' pair
-WORD_RATE_INC=$(INC)WordRate.h
+WORD_RATE_INC=$(INC)WordRate.hpp
 
 # Source files of 'Statistics' struct
 STATISTICS_SRC=$(SRC)Statistics.cpp
-STATISTICS_INC=$(INC)Statistics.h
+STATISTICS_INC=$(INC)Statistics.hpp
 
 # Source files of 'Text' class
 TEXT_SRC=$(SRC)Text.cpp
-TEXT_INC=$(INC)Text.h
+TEXT_INC=$(INC)Text.hpp
 
 # Source files of 'Pixel' class
 PIXEL_SRC=$(SRC)Pixel.cpp
-PIXEL_INC=$(INC)Pixel.h
+PIXEL_INC=$(INC)Pixel.hpp
 
 # Source files of 'Clip' class
 CLIP_SRC=$(SRC)Clip.cpp
-CLIP_INC=$(INC)Clip.h
+CLIP_INC=$(INC)Clip.hpp
 
 # Source files of 'Preprocessor' class
 PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
-PREPROCESSOR_INC=$(INC)Preprocessor.h
+PREPROCESSOR_INC=$(INC)Preprocessor.hpp
 
 # Source files of 'Recognizer' class
 RECOGNIZER_SRC=$(SRC)Recognizer.cpp
-RECOGNIZER_INC=$(INC)Recognizer.h
+RECOGNIZER_INC=$(INC)Recognizer.hpp
+
+# Source files of 'ClipLocation' class
+CLIP_LOCATION_SRC=$(SRC)ClipLocation.cpp
+CLIP_LOCATION_INC=$(INC)ClipLocation.hpp
 
 # Object files
 MAIN_OBJ=$(SRC)main.o
@@ -62,6 +66,7 @@ STATISTICS_OBJ=$(SRC)Statistics.o
 TEXT_OBJ=$(SRC)Text.o
 PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
+CLIP_LOCATION_OBJ=$(SRC)ClipLocation.o
 PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
 RECOGNIZER_OBJ=$(SRC)Recognizer.o
 
@@ -72,12 +77,13 @@ WORD_RATE=$(WORD_RATE_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
+CLIP_LOCATION=$(CLIP_LOCATION_INC) $(CLIP_LOCATION_SRC)
 PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
 
 # Object files
-OBJECTS=$(RECOGNIZER_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
+OBJECTS=$(RECOGNIZER_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
@@ -115,7 +121,7 @@ endif
 	mv main.o $(SRC)
 	@printf "$(NL)"
 	
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(RECOGNIZER)
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -199,6 +205,19 @@ endif
 	mv Pixel.o $(SRC)
 	@printf "$(NL)"
 
+$(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
+	@printf "** Making rule $(CLIP_LOCATION_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(CLIP_LOCATION_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLIP_LOCATION_SRC)
+endif
+	@printf "$(TAB)"
+	mv ClipLocation.o $(SRC)
+	@printf "$(NL)"
+
+
 
 # Make everything
 all: clean main
@@ -209,5 +228,5 @@ clean:
 	@printf "** Removing object and executable files$(NL)"
 	@rm -f $(SRC)*.o
 	@printf "** Restoring permissions$(NL)"
-	@chmod 0644 $(SRC)*.cpp $(INC)*.h
+	@chmod 0644 $(SRC)*.cpp $(INC)*.hpp
 	@printf "$(NL)"

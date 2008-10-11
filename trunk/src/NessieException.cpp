@@ -3,7 +3,7 @@
 /// @brief Implementation of the class NessieException
 ///
 
-#include "NessieException.h"
+#include "NessieException.hpp"
 
 
 ///

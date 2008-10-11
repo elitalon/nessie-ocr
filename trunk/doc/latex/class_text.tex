@@ -2,7 +2,7 @@
 \section{Text Class Reference}
 \label{class_text}\index{Text@{Text}}
 }
-{\tt \#include $<$Text.h$>$}
+{\tt \#include $<$Text.hpp$>$}
 
 Collaboration diagram for Text:\nopagebreak
 \begin{figure}[H]
@@ -24,7 +24,7 @@ This class stores the text that has been extracted from the press clip during th
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 25 of file Text.h.\subsection*{Public Member Functions}
+Definition at line 25 of file Text.hpp.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_text_b3e26143fccc52699bcc5149cae852bc}{Text} ()
@@ -43,7 +43,7 @@ void \hyperlink{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{content} (const std
 \begin{CompactList}\small\item\em Sets the text's content. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{length} () const 
 \begin{CompactList}\small\item\em Returns the text's length. \item\end{CompactList}\item 
-std::vector$<$ \hyperlink{_word_rate_8h_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_1387d9767b65f80355f1bdede26a0f7b}{wordRates} () const 
+std::vector$<$ \hyperlink{_word_rate_8hpp_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_1387d9767b65f80355f1bdede26a0f7b}{wordRates} () const 
 \begin{CompactList}\small\item\em Returns the appearance rates of every single word in text. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Member Functions}
 \begin{CompactItemize}
@@ -63,7 +63,7 @@ std::string \hyperlink{class_text_8c5acddb86730d41099c87da7e386f6c}{content\_\-}
 
 \begin{CompactList}\small\item\em The text's content. \item\end{CompactList}\item 
 \hypertarget{class_text_ee3a9a1486714df08c8e73ccb605e729}{
-std::vector$<$ \hyperlink{_word_rate_8h_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_ee3a9a1486714df08c8e73ccb605e729}{wordRates\_\-}}
+std::vector$<$ \hyperlink{_word_rate_8hpp_8cfef8793106ac45a83059bd5573cbb3}{WordRate} $>$ \hyperlink{class_text_ee3a9a1486714df08c8e73ccb605e729}{wordRates\_\-}}
 \label{class_text_ee3a9a1486714df08c8e73ccb605e729}
 
 \begin{CompactList}\small\item\em A list of appearance rates of every single word in text. \item\end{CompactList}\end{CompactItemize}
@@ -185,7 +185,7 @@ Returns the text's content.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 183 of file Text.h.\hypertarget{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{
+Definition at line 183 of file Text.hpp.\hypertarget{class_text_eca454f28010b6b3e7bd0d771b8eaeb2}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}void Text::content (const std::string \& {\em content})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -205,7 +205,7 @@ Sets the text's content.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 192 of file Text.h.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
+Definition at line 192 of file Text.hpp.\hypertarget{class_text_8d76db538f8617fb8880ba3e4ff3e6a5}{
 \index{Text@{Text}!length@{length}}
 \index{length@{length}!Text@{Text}}
 \subsubsection[length]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::length () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -222,7 +222,7 @@ Returns the text's length.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 204 of file Text.h.\hypertarget{class_text_1387d9767b65f80355f1bdede26a0f7b}{
+Definition at line 204 of file Text.hpp.\hypertarget{class_text_1387d9767b65f80355f1bdede26a0f7b}{
 \index{Text@{Text}!wordRates@{wordRates}}
 \index{wordRates@{wordRates}!Text@{Text}}
 \subsubsection[wordRates]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf WordRate} $>$ Text::wordRates () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -234,14 +234,14 @@ Returns the appearance rates of every single word in text.
 \begin{Desc}
 \item[Returns:]A vector with every different word and their appearance rate\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_word_rate_8h_8cfef8793106ac45a83059bd5573cbb3}{WordRate}\end{Desc}
+\item[See also:]\hyperlink{_word_rate_8hpp_8cfef8793106ac45a83059bd5573cbb3}{WordRate}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 213 of file Text.h.
+Definition at line 213 of file Text.hpp.
 
 Referenced by updateWordRate().\hypertarget{class_text_8239e13039bcc1c713f66f1236693706}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
@@ -308,5 +308,5 @@ Referenced by computeWordRates().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_text_8h}{Text.h (136)}\item 
+\hyperlink{_text_8hpp}{Text.hpp}\item 
 \hyperlink{_text_8cpp}{Text.cpp (136)}\end{CompactItemize}

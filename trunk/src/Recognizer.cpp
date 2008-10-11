@@ -3,15 +3,15 @@
 /// @brief Implementation of the class Recognizer
 ///
 
-#include "Recognizer.h"
+#include "Recognizer.hpp"
 
 #include <iostream>
 #include <string>
 #include <cmath>
 
-#include "Clip.h"
-#include "Preprocessor.h"
-#include "NessieException.h"
+#include "Clip.hpp"
+#include "Preprocessor.hpp"
+#include "NessieException.hpp"
 
 
 ///
@@ -63,9 +63,9 @@ void Recognizer::obtainText ()
 ///
 /// @details Each set of points provides us a clip that can be located within the page.
 /// 
-void Recognizer::obtainText (const std::vector<int> &coordinates)
+void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
 {
-	//std::vector<int>::iterator coordinatesIterator;
+	//std::vector<ClipLocation>::iterator coordinatesIterator;
 	// 
 	// for ( coordinatesIterator = coordinates.begin(); coordinatesIterator not_eq coordinates.end(); ++coordinatesIterator )
 	// {

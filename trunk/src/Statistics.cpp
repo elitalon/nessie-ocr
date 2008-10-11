@@ -3,7 +3,7 @@
 /// @brief Implementation of the class Statistics
 ///
 
-#include "Statistics.h"
+#include "Statistics.hpp"
 
 
 ///

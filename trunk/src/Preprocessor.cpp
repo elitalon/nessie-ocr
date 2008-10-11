@@ -3,13 +3,13 @@
 /// @brief Implementation of the class Preprocessor
 ///
 
-#include "Preprocessor.h"
+#include "Preprocessor.hpp"
 
 #include <cmath>
 #include <vector>
 #include <algorithm>
 
-#include "Clip.h"
+#include "Clip.hpp"
 #include "boost/timer.hpp"
 
 

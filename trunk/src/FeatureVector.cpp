@@ -1,14 +1,14 @@
 /**
- * FeatureVector.cpp - Nessie, reconocedor óptico de texto en recortes de prensa escrita
+ * FeatureVector.cpp - Nessie, reconocedor Ã³ptico de texto en recortes de prensa escrita
  *
- * @author Eliezer Talón
+ * @author Eliezer TalÃ³n
  * @date 16/09/2008
  * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
+ * @company Instituto Universitario de Ciencias y TecnologÃ­as CibernÃ©ticas (IUCTC)
  */
 
-#include "FeatureVector.h"
-#include "Shape.h"
+#include "FeatureVector.hpp"
+#include "Shape.hpp"
 
 void FeatureVector::computeMoment0()
 {

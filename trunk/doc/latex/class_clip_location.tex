@@ -1,0 +1,286 @@
+\hypertarget{class_clip_location}{
+\section{ClipLocation Class Reference}
+\label{class_clip_location}\index{ClipLocation@{ClipLocation}}
+}
+{\tt \#include $<$ClipLocation.hpp$>$}
+
+Collaboration diagram for ClipLocation:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_clip_location__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Location of a press clip within a newspaper page. 
+
+This class stores the coordinates of the top left-most pixel of a clip, its height and its width. The x coordinate corresponds to the row, while the y coordinate corresponds to the column. The height and width attributes are expressed in pixels.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 20 of file ClipLocation.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_clip_location_fb51ec03e0a8f9b33f4d785550bc6b84}{ClipLocation} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_clip_location_df3b25b12a4ce75a657ae79f241c61c2}{ClipLocation} (const unsigned int \&x, const unsigned int \&y, const unsigned int \&height, const unsigned int \&width)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_location_580a48aeda8a2714b14c25435da044b3}{x} () const 
+\begin{CompactList}\small\item\em Returns the x coordinate. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_location_5677e50c8b19980344877fc6d8e0aec0}{y} () const 
+\begin{CompactList}\small\item\em Returns the y coordinate. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_location_8484a9c0483766baff2c11069290da79}{height} () const 
+\begin{CompactList}\small\item\em Returns the height. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_location_880badb9dceecb7878a08b7bdc5a4287}{width} () const 
+\begin{CompactList}\small\item\em Returns the width. \item\end{CompactList}\item 
+void \hyperlink{class_clip_location_f983f4cfe6ad80aa96cbbb4b53aec968}{x} (const unsigned int \&x)
+\begin{CompactList}\small\item\em Sets the x coordinate. \item\end{CompactList}\item 
+void \hyperlink{class_clip_location_3c665324e5faf6bae4013d936f0ce2dc}{y} (const unsigned int \&y)
+\begin{CompactList}\small\item\em Sets the y coordinate. \item\end{CompactList}\item 
+void \hyperlink{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}{height} (const unsigned int \&height)
+\begin{CompactList}\small\item\em Sets the height. \item\end{CompactList}\item 
+void \hyperlink{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}{width} (const unsigned int \&width)
+\begin{CompactList}\small\item\em Sets the width. \item\end{CompactList}\item 
+unsigned int \hyperlink{class_clip_location_2d01b03e23d610b26bbb2e18278cf5a8}{size} () const 
+\begin{CompactList}\small\item\em Returns the number of pixels. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_clip_location_6c92086530b70510102fec51da1b8929}{
+unsigned int \hyperlink{class_clip_location_6c92086530b70510102fec51da1b8929}{x\_\-}}
+\label{class_clip_location_6c92086530b70510102fec51da1b8929}
+
+\begin{CompactList}\small\item\em x coordinate \item\end{CompactList}\item 
+\hypertarget{class_clip_location_f7f79f07cf214a952d99c7d567034a31}{
+unsigned int \hyperlink{class_clip_location_f7f79f07cf214a952d99c7d567034a31}{y\_\-}}
+\label{class_clip_location_f7f79f07cf214a952d99c7d567034a31}
+
+\begin{CompactList}\small\item\em y coordinate \item\end{CompactList}\item 
+\hypertarget{class_clip_location_bf304a78eade46f1b5c6cfcf42e15643}{
+unsigned int \hyperlink{class_clip_location_bf304a78eade46f1b5c6cfcf42e15643}{height\_\-}}
+\label{class_clip_location_bf304a78eade46f1b5c6cfcf42e15643}
+
+\begin{CompactList}\small\item\em Height of the press clip. \item\end{CompactList}\item 
+\hypertarget{class_clip_location_e39508c504ce7807d730e58c0270d2f9}{
+unsigned int \hyperlink{class_clip_location_e39508c504ce7807d730e58c0270d2f9}{width\_\-}}
+\label{class_clip_location_e39508c504ce7807d730e58c0270d2f9}
+
+\begin{CompactList}\small\item\em Width of the press clip. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_clip_location_fb51ec03e0a8f9b33f4d785550bc6b84}{
+\index{ClipLocation@{ClipLocation}!ClipLocation@{ClipLocation}}
+\index{ClipLocation@{ClipLocation}!ClipLocation@{ClipLocation}}
+\subsubsection[ClipLocation]{\setlength{\rightskip}{0pt plus 5cm}ClipLocation::ClipLocation ()}}
+\label{class_clip_location_fb51ec03e0a8f9b33f4d785550bc6b84}
+
+
+Constructor. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11\end{Desc}
+Initializes a \hyperlink{class_clip_location}{ClipLocation} object with every data set to 0 
+
+Definition at line 12 of file ClipLocation.cpp.\hypertarget{class_clip_location_df3b25b12a4ce75a657ae79f241c61c2}{
+\index{ClipLocation@{ClipLocation}!ClipLocation@{ClipLocation}}
+\index{ClipLocation@{ClipLocation}!ClipLocation@{ClipLocation}}
+\subsubsection[ClipLocation]{\setlength{\rightskip}{0pt plus 5cm}ClipLocation::ClipLocation (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const unsigned int \& {\em height}, \/  const unsigned int \& {\em width})}}
+\label{class_clip_location_df3b25b12a4ce75a657ae79f241c61c2}
+
+
+Constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]The upper left-most pixel X coordinate of the clip \item[{\em y}]The upper left-most pixel Y coordinate of the clip \item[{\em height}]The height of the clip \item[{\em width}]The width of the clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11\end{Desc}
+Initializes a \hyperlink{class_clip_location}{ClipLocation} object with every data set according to the values passed 
+
+Definition at line 22 of file ClipLocation.cpp.
+
+\subsection{Member Function Documentation}
+\hypertarget{class_clip_location_580a48aeda8a2714b14c25435da044b3}{
+\index{ClipLocation@{ClipLocation}!x@{x}}
+\index{x@{x}!ClipLocation@{ClipLocation}}
+\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ClipLocation::x () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_580a48aeda8a2714b14c25435da044b3}
+
+
+Returns the x coordinate. 
+
+\begin{Desc}
+\item[Returns:]X coordinate\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 161 of file ClipLocation.hpp.\hypertarget{class_clip_location_5677e50c8b19980344877fc6d8e0aec0}{
+\index{ClipLocation@{ClipLocation}!y@{y}}
+\index{y@{y}!ClipLocation@{ClipLocation}}
+\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ClipLocation::y () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_5677e50c8b19980344877fc6d8e0aec0}
+
+
+Returns the y coordinate. 
+
+\begin{Desc}
+\item[Returns:]Y coordinate\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 167 of file ClipLocation.hpp.\hypertarget{class_clip_location_8484a9c0483766baff2c11069290da79}{
+\index{ClipLocation@{ClipLocation}!height@{height}}
+\index{height@{height}!ClipLocation@{ClipLocation}}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ClipLocation::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_8484a9c0483766baff2c11069290da79}
+
+
+Returns the height. 
+
+\begin{Desc}
+\item[Returns:]Height of the press clip\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 173 of file ClipLocation.hpp.\hypertarget{class_clip_location_880badb9dceecb7878a08b7bdc5a4287}{
+\index{ClipLocation@{ClipLocation}!width@{width}}
+\index{width@{width}!ClipLocation@{ClipLocation}}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ClipLocation::width () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_880badb9dceecb7878a08b7bdc5a4287}
+
+
+Returns the width. 
+
+\begin{Desc}
+\item[Returns:]Width of the pixel\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 179 of file ClipLocation.hpp.\hypertarget{class_clip_location_f983f4cfe6ad80aa96cbbb4b53aec968}{
+\index{ClipLocation@{ClipLocation}!x@{x}}
+\index{x@{x}!ClipLocation@{ClipLocation}}
+\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::x (const unsigned int \& {\em x})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_f983f4cfe6ad80aa96cbbb4b53aec968}
+
+
+Sets the x coordinate. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]The x coordinate of the top left-most pixel of the press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 185 of file ClipLocation.hpp.\hypertarget{class_clip_location_3c665324e5faf6bae4013d936f0ce2dc}{
+\index{ClipLocation@{ClipLocation}!y@{y}}
+\index{y@{y}!ClipLocation@{ClipLocation}}
+\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::y (const unsigned int \& {\em y})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_3c665324e5faf6bae4013d936f0ce2dc}
+
+
+Sets the y coordinate. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em y}]The y coordinate of the top left-most pixel of the press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 191 of file ClipLocation.hpp.\hypertarget{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}{
+\index{ClipLocation@{ClipLocation}!height@{height}}
+\index{height@{height}!ClipLocation@{ClipLocation}}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::height (const unsigned int \& {\em height})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}
+
+
+Sets the height. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em height}]The height of the press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 197 of file ClipLocation.hpp.\hypertarget{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}{
+\index{ClipLocation@{ClipLocation}!width@{width}}
+\index{width@{width}!ClipLocation@{ClipLocation}}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::width (const unsigned int \& {\em width})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}
+
+
+Sets the width. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width}]The width coordinate of the press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 203 of file ClipLocation.hpp.\hypertarget{class_clip_location_2d01b03e23d610b26bbb2e18278cf5a8}{
+\index{ClipLocation@{ClipLocation}!size@{size}}
+\index{size@{size}!ClipLocation@{ClipLocation}}
+\subsubsection[size]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ClipLocation::size () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_location_2d01b03e23d610b26bbb2e18278cf5a8}
+
+
+Returns the number of pixels. 
+
+\begin{Desc}
+\item[Returns:]Number of pixels of the press clip\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
+Definition at line 209 of file ClipLocation.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{_clip_location_8hpp}{ClipLocation.hpp}\item 
+\hyperlink{_clip_location_8cpp}{ClipLocation.cpp}\end{CompactItemize}

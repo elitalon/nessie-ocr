@@ -4,7 +4,7 @@ using namespace std;
 #include <Magick++.h>
 using namespace Magick;
 
-#include "Recognizer.h"
+#include "Recognizer.hpp"
 
 ///
 /// Command line program for testing purposes.

@@ -1,15 +1,15 @@
 /**
- * Classifier.cpp - Nessie, reconocedor óptico de texto en recortes de prensa escrita
+ * Classifier.cpp - Nessie, reconocedor Ã³ptico de texto en recortes de prensa escrita
  *
- * @author Eliezer Talón
+ * @author Eliezer TalÃ³n
  * @date 16/09/2008
  * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
+ * @company Instituto Universitario de Ciencias y TecnologÃ­as CibernÃ©ticas (IUCTC)
  */
 
-#include "Classifier.h"
-#include "Style.h"
-#include "Text.h"
+#include "Classifier.hpp"
+#include "Style.hpp"
+#include "Text.hpp"
 
 void Classifier::buildFeatureVectors()
 {

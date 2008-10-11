@@ -3,8 +3,8 @@
 /// @brief Implementation of the class Clip
 ///
 
-#include "Clip.h"
-#include "NessieException.h"
+#include "Clip.hpp"
+#include "NessieException.hpp"
 
 #include <iostream>
 

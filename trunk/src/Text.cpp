@@ -3,7 +3,7 @@
 /// @brief Implementation of the class Text
 ///
 
-#include "Text.h"
+#include "Text.hpp"
 
 #include <algorithm>
 #include <string>
