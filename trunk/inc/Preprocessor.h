@@ -20,7 +20,7 @@ class Clip;	// Forward declaration
 /// @see Clip
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
+/// @date 2008-10-11
 ///
 class Preprocessor
 {
@@ -66,17 +66,6 @@ class Preprocessor
 		///
 		unsigned char backgroundReferenceGrayLevel () const;
 				
-		
-		///
-		/// Sets the background reference gray level to use in algorithms
-		///
-		/// @param grayLevel Background reference gray level to use in algorithms
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
-		///
-		void backgroundReferenceGrayLevel (const unsigned char &grayLevel);
-		
 
 		///
 		/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
@@ -113,13 +102,15 @@ class Preprocessor
 		
 		///
 		/// Computes the optimal threshold value within a clip
+		/// 
+		/// @pre You MUST call findBackgroundReferenceGrayLevel() method before calling this one, since it sets internal attributes.
 		///
 		/// @param clip The clip where applying the algorithm over
 		/// 
 		/// @return The optimal threshold of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-11
 		///
 		unsigned char computeOptimalThreshold (const Clip &clip);
 
@@ -133,7 +124,7 @@ class Preprocessor
 		/// @return The reference gray level of the background
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-11
 		///
 		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 
@@ -141,14 +132,14 @@ class Preprocessor
 		///
 		/// Applies the 'isolated noise removal' algorithm
 		///
-		/// @remarks You MUST call Preprocessor::computeOptimalThreshold method before calling this, since the optimalThreshold attribute
-		/// is used internally to know whether a pixel is noisy or not.
+		/// @pre You MUST call computeOptimalThreshold() and findBackgroundReferenceGrayLevel() methods before calling this one,
+		/// since they set internal attributes.
 		/// 
 		/// @param[in,out]	clip					The clip where applying the algorithm over
 		/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-11
 		///
 		void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 1);
 		
@@ -211,15 +202,6 @@ inline void Preprocessor::optimalThreshold (const unsigned char &threshold)
 inline unsigned char Preprocessor::backgroundReferenceGrayLevel () const
 {
 	return backgroundReferenceGrayLevel_;
-};
-
-
-///
-/// @details
-///
-inline void Preprocessor::backgroundReferenceGrayLevel (const unsigned char &grayLevel)
-{
-	backgroundReferenceGrayLevel_ = grayLevel;
 };
 
 

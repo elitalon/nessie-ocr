@@ -23,7 +23,7 @@ This class encapsulates all the methods related to preprocessing stage. Its task
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-11 \end{Desc}
 
 
 Definition at line 25 of file Preprocessor.h.\subsection*{Public Member Functions}
@@ -37,8 +37,6 @@ void \hyperlink{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{optimalThre
 \begin{CompactList}\small\item\em Sets the optimal threshold to use in algorithms. \item\end{CompactList}\item 
 unsigned char \hyperlink{class_preprocessor_9a2684181b5f43051fe53d7d2950dd36}{backgroundReferenceGrayLevel} () const 
 \begin{CompactList}\small\item\em Returns the background reference gray level in the last clip used. \item\end{CompactList}\item 
-void \hyperlink{class_preprocessor_03340329e31bd1f01ace27d77b5616ef}{backgroundReferenceGrayLevel} (const unsigned char \&grayLevel)
-\begin{CompactList}\small\item\em Sets the background reference gray level to use in algorithms. \item\end{CompactList}\item 
 double \hyperlink{class_preprocessor_0cccd23820430541f18f2b24dbfd0784}{noiseRemovalTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the 'isolated noise removal' algorithm. \item\end{CompactList}\item 
 double \hyperlink{class_preprocessor_72dd29238c4202698e67dcb26a47f4b5}{optimalThresholdComputingTime} () const 
@@ -97,7 +95,7 @@ Constructor.
 \item[Date:]2008-10-08\end{Desc}
 Initializes a \hyperlink{class_preprocessor}{Preprocessor} object 
 
-Definition at line 18 of file Preprocessor.cpp.
+Definition at line 20 of file Preprocessor.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_preprocessor_1d8eaa1cf786941dbfa1eca95b46ce0c}{
@@ -117,7 +115,7 @@ Returns the optimal threshold found in the last clip used.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 193 of file Preprocessor.h.\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
+Definition at line 184 of file Preprocessor.h.\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
 \index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
 \index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
 \subsubsection[optimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::optimalThreshold (const unsigned char \& {\em threshold})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -137,7 +135,7 @@ Sets the optimal threshold to use in algorithms.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 202 of file Preprocessor.h.\hypertarget{class_preprocessor_9a2684181b5f43051fe53d7d2950dd36}{
+Definition at line 193 of file Preprocessor.h.\hypertarget{class_preprocessor_9a2684181b5f43051fe53d7d2950dd36}{
 \index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}}
 \index{backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}!Preprocessor@{Preprocessor}}
 \subsubsection[backgroundReferenceGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Preprocessor::backgroundReferenceGrayLevel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -154,27 +152,7 @@ Returns the background reference gray level in the last clip used.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 211 of file Preprocessor.h.\hypertarget{class_preprocessor_03340329e31bd1f01ace27d77b5616ef}{
-\index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}}
-\index{backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}!Preprocessor@{Preprocessor}}
-\subsubsection[backgroundReferenceGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::backgroundReferenceGrayLevel (const unsigned char \& {\em grayLevel})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_preprocessor_03340329e31bd1f01ace27d77b5616ef}
-
-
-Sets the background reference gray level to use in algorithms. 
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em grayLevel}]Background reference gray level to use in algorithms\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
-
-
-Definition at line 220 of file Preprocessor.h.\hypertarget{class_preprocessor_0cccd23820430541f18f2b24dbfd0784}{
+Definition at line 202 of file Preprocessor.h.\hypertarget{class_preprocessor_0cccd23820430541f18f2b24dbfd0784}{
 \index{Preprocessor@{Preprocessor}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Preprocessor@{Preprocessor}}
 \subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}double Preprocessor::noiseRemovalTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -191,7 +169,9 @@ Returns the elapsed time while applying the 'isolated noise removal' algorithm.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 229 of file Preprocessor.h.\hypertarget{class_preprocessor_72dd29238c4202698e67dcb26a47f4b5}{
+Definition at line 211 of file Preprocessor.h.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_72dd29238c4202698e67dcb26a47f4b5}{
 \index{Preprocessor@{Preprocessor}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Preprocessor@{Preprocessor}}
 \subsubsection[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}double Preprocessor::optimalThresholdComputingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -208,7 +188,9 @@ Returns the elapsed time while founding the optimal threshold within the clip.
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 238 of file Preprocessor.h.\hypertarget{class_preprocessor_3189cad5515476d54cc14effcf983fc7}{
+Definition at line 220 of file Preprocessor.h.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_3189cad5515476d54cc14effcf983fc7}{
 \index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Preprocessor@{Preprocessor}}
 \subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}double Preprocessor::backgroundReferenceGrayLevelFindingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -225,7 +207,9 @@ Returns the elapsed time while computing the background reference gray level wit
 \item[Date:]2008-10-08 \end{Desc}
 
 
-Definition at line 247 of file Preprocessor.h.\hypertarget{class_preprocessor_0e146cafa6b8b31f4f4ed189a970db7a}{
+Definition at line 229 of file Preprocessor.h.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_0e146cafa6b8b31f4f4ed189a970db7a}{
 \index{Preprocessor@{Preprocessor}!computeOptimalThreshold@{computeOptimalThreshold}}
 \index{computeOptimalThreshold@{computeOptimalThreshold}!Preprocessor@{Preprocessor}}
 \subsubsection[computeOptimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Preprocessor::computeOptimalThreshold (const {\bf Clip} \& {\em clip})}}
@@ -234,6 +218,8 @@ Definition at line 247 of file Preprocessor.h.\hypertarget{class_preprocessor_0e
 
 Computes the optimal threshold value within a clip. 
 
+\begin{Desc}
+\item[Precondition:]You MUST call \hyperlink{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{findBackgroundReferenceGrayLevel()} method before calling this one, since it sets internal attributes.\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -244,10 +230,10 @@ Computes the optimal threshold value within a clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10\end{Desc}
-To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in \char`\"{}Image Processing, Analysis and Machine Vision\char`\"{} (Thomson Learning, 2008). The target is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value. That initial threshold is in fact provided by the \hyperlink{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{Preprocessor::findBackgroundReferenceGrayLevel} method. 
+\item[Date:]2008-10-11\end{Desc}
+To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in \char`\"{}Image Processing, Analysis and Machine Vision\char`\"{} (Thomson Learning, 2008). The target is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value. 
 
-Definition at line 32 of file Preprocessor.cpp.
+Definition at line 33 of file Preprocessor.cpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{
 \index{Preprocessor@{Preprocessor}!findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}}
@@ -268,12 +254,12 @@ Computes the background reference gray level value within a clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10\end{Desc}
+\item[Date:]2008-10-11\end{Desc}
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values. 
 
-Definition at line 86 of file Preprocessor.cpp.
+Definition at line 91 of file Preprocessor.cpp.
 
-Referenced by computeOptimalThreshold(), and removeIsolatedNoise().\hypertarget{class_preprocessor_a365f69af48cae608071e9943f300dd5}{
+Referenced by Recognizer::obtainText().\hypertarget{class_preprocessor_a365f69af48cae608071e9943f300dd5}{
 \index{Preprocessor@{Preprocessor}!removeIsolatedNoise@{removeIsolatedNoise}}
 \index{removeIsolatedNoise@{removeIsolatedNoise}!Preprocessor@{Preprocessor}}
 \subsubsection[removeIsolatedNoise]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::removeIsolatedNoise ({\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em isolationCoefficient} = {\tt 1})}}
@@ -283,7 +269,7 @@ Referenced by computeOptimalThreshold(), and removeIsolatedNoise().\hypertarget{
 Applies the 'isolated noise removal' algorithm. 
 
 \begin{Desc}
-\item[Remarks:]You MUST call \hyperlink{class_preprocessor_0e146cafa6b8b31f4f4ed189a970db7a}{Preprocessor::computeOptimalThreshold} method before calling this, since the optimalThreshold attribute is used internally to know whether a pixel is noisy or not.\end{Desc}
+\item[Precondition:]You MUST call \hyperlink{class_preprocessor_0e146cafa6b8b31f4f4ed189a970db7a}{computeOptimalThreshold()} and \hyperlink{class_preprocessor_19aa90451cf6f99854833c05d3e71270}{findBackgroundReferenceGrayLevel()} methods before calling this one, since they set internal attributes.\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -292,14 +278,14 @@ Applies the 'isolated noise removal' algorithm.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10\end{Desc}
+\item[Date:]2008-10-11\end{Desc}
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
 
-Definition at line 150 of file Preprocessor.cpp.
+Definition at line 163 of file Preprocessor.cpp.
 
 Referenced by Recognizer::obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_preprocessor_8h}{Preprocessor.h (137)}\item 
-\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (137)}\end{CompactItemize}
+\hyperlink{_preprocessor_8h}{Preprocessor.h (138)}\item 
+\hyperlink{_preprocessor_8cpp}{Preprocessor.cpp (138)}\end{CompactItemize}

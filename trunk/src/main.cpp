@@ -6,8 +6,6 @@ using namespace Magick;
 
 #include "Recognizer.h"
 
-#include "boost/timer.hpp"
-
 ///
 /// Command line program for testing purposes.
 ///
@@ -18,18 +16,12 @@ int main (int argc, char const *argv[])
 		Image image( argv[1] );
 		Recognizer recon( image );
 		
-		boost::timer timer; 
+		recon.obtainText();
+		cout << "Background finding time:     " << recon.statistic().backgroundReferenceGrayLevelFindingTime() << endl;
+		cout << "Thresholding computing time: " << recon.statistic().optimalThresholdComputingTime() << endl;
+		cout << "Noise removal time:          " << recon.statistic().noiseRemovalTime() << endl;
+		cout << "Preprocessing time:          " << recon.statistic().preprocessingTime() << endl;
 		
-		double microseconds = 0.0;
-		
-		for ( unsigned int i = 0; i < 1000; ++i )
-		{
-			timer.restart();
-			recon.obtainText();
-			microseconds += timer.elapsed();
-		}
-		
-		cout << microseconds / 1000.0 << endl;
 		recon.writeExternalImage(image);
 		image.write("results.png");
 	}

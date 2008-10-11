@@ -94,7 +94,7 @@ class Recognizer
 		/// @param width	Clip's width
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-09
+		/// @date 2008-10-11
 		///
 		void obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width);
 
@@ -107,9 +107,9 @@ class Recognizer
 		/// @see Text
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-11
 		///
-		Text text (const unsigned int& label=1) const;
+		Text text (const unsigned int& label=0) const;
 		
 		
 		///
@@ -135,9 +135,9 @@ class Recognizer
 		/// @see Statistics
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-11
 		///
-		Statistics statistic (const unsigned int& label=1) const;
+		Statistics statistic (const unsigned int& label=0) const;
 		
 		
 		///

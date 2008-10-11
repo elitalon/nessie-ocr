@@ -105,21 +105,39 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	if ((y + width) > width_)
 		width = width_ - y;
 	
+	
 	// Creates the clip
 	Clip clip(image_, x, y, height, width);
 	
-	
+
+	//
 	// Preprocessing stage
+	//
 	Preprocessor preprocessor;
+	preprocessor.findBackgroundReferenceGrayLevel(clip);
 	preprocessor.computeOptimalThreshold(clip);
 	preprocessor.removeIsolatedNoise(clip);
 	updateImage(clip);
 	
 	
+	//
 	// Segmentation stage
+	//
 	
 	
+	//
 	// Classification stage
+	//
+	
+	
+	// Gather execution times
+	Statistics stats;
+	
+	stats.backgroundReferenceGrayLevelFindingTime( preprocessor.backgroundReferenceGrayLevelFindingTime() );
+	stats.optimalThresholdComputingTime( preprocessor.optimalThresholdComputingTime() );
+	stats.noiseRemovalTime( preprocessor.noiseRemovalTime() );
+	
+	statistics_.push_back(stats);	// ¿Substitute by statistics_[0]?
 };
 
 

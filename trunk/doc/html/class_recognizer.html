@@ -101,15 +101,15 @@ In future modifications any library may be added to load the images. A developer
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269">obtainText</a> (const unsigned int &amp;x, const unsigned int &amp;y, unsigned int &amp;height, unsigned int &amp;width)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Recognizes the text within a single press clip located at coordinates (x,y).  <a href="#d117f344b1f77711e6cbab0f15dbc269"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_text.html">Text</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#343b5b6f98ab483fd239ecddb9b43f2d">text</a> (const unsigned int &amp;label=1) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_text.html">Text</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#9c749916101383461aa2fa63e3f46dbc">text</a> (const unsigned int &amp;label=0) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text of a single clip.  <a href="#343b5b6f98ab483fd239ecddb9b43f2d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text of a single clip.  <a href="#9c749916101383461aa2fa63e3f46dbc"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="class_text.html">Text</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#603c290af256c63a8b292f8efc6aa61d">texts</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text of every loaded clip.  <a href="#603c290af256c63a8b292f8efc6aa61d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_statistics.html">Statistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#7fd7d8cb29549f884b68f80628a6b8c9">statistic</a> (const unsigned int &amp;label=1) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_statistics.html">Statistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#23ded078bf5e8d4047d8f4470b178619">statistic</a> (const unsigned int &amp;label=0) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the statistical data regarding the recognition process of a single clip.  <a href="#7fd7d8cb29549f884b68f80628a6b8c9"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the statistical data regarding the recognition process of a single clip.  <a href="#23ded078bf5e8d4047d8f4470b178619"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="class_statistics.html">Statistics</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#cc73ac66cb62b99b4d84f09e43b9af52">statistics</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the statistical data regarding the recognition process of every loaded clip.  <a href="#cc73ac66cb62b99b4d84f09e43b9af52"></a><br></td></tr>
@@ -230,7 +230,7 @@ Recognizes the text within the whole page at once.
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-09</dd></dl>
-It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling <a class="el" href="class_recognizer.html#343b5b6f98ab483fd239ecddb9b43f2d" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#cc73ac66cb62b99b4d84f09e43b9af52" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
+It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling <a class="el" href="class_recognizer.html#9c749916101383461aa2fa63e3f46dbc" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#cc73ac66cb62b99b4d84f09e43b9af52" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
 <p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00057">57</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
@@ -315,13 +315,13 @@ Recognizes the text within a single press clip located at coordinates (x,y).
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-09</dd></dl>
-If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling <a class="el" href="class_recognizer.html#343b5b6f98ab483fd239ecddb9b43f2d" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#cc73ac66cb62b99b4d84f09e43b9af52" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
+If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling <a class="el" href="class_recognizer.html#9c749916101383461aa2fa63e3f46dbc" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#cc73ac66cb62b99b4d84f09e43b9af52" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
 <p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00082">82</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="343b5b6f98ab483fd239ecddb9b43f2d"></a><!-- doxytag: member="Recognizer::text" ref="343b5b6f98ab483fd239ecddb9b43f2d" args="(const unsigned int &amp;label=1) const " -->
+<a class="anchor" name="9c749916101383461aa2fa63e3f46dbc"></a><!-- doxytag: member="Recognizer::text" ref="9c749916101383461aa2fa63e3f46dbc" args="(const unsigned int &amp;label=0) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -329,7 +329,7 @@ If the clip falls outside the image an exception is thrown unless it can ne trun
           <td class="memname"><a class="el" href="class_text.html">Text</a> Recognizer::text           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>label</em> = <code>1</code>          </td>
+          <td class="paramname"> <em>label</em> = <code>0</code>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -347,7 +347,7 @@ Returns the text of a single clip.
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
 
 <p>Definition at line <a class="el" href="_recognizer_8h-source.html#l00235">235</a> of file <a class="el" href="_recognizer_8h-source.html">Recognizer.h</a>.</p>
 
@@ -380,7 +380,7 @@ Returns the text of every loaded clip.
 
 </div>
 </div><p>
-<a class="anchor" name="7fd7d8cb29549f884b68f80628a6b8c9"></a><!-- doxytag: member="Recognizer::statistic" ref="7fd7d8cb29549f884b68f80628a6b8c9" args="(const unsigned int &amp;label=1) const " -->
+<a class="anchor" name="23ded078bf5e8d4047d8f4470b178619"></a><!-- doxytag: member="Recognizer::statistic" ref="23ded078bf5e8d4047d8f4470b178619" args="(const unsigned int &amp;label=0) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -388,7 +388,7 @@ Returns the text of every loaded clip.
           <td class="memname"><a class="el" href="class_statistics.html">Statistics</a> Recognizer::statistic           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>label</em> = <code>1</code>          </td>
+          <td class="paramname"> <em>label</em> = <code>0</code>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -407,7 +407,7 @@ Returns the statistical data regarding the recognition process of a single clip.
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Statistical data about the recognition process of a single clip</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
 
 <p>Definition at line <a class="el" href="_recognizer_8h-source.html#l00256">256</a> of file <a class="el" href="_recognizer_8h-source.html">Recognizer.h</a>.</p>
 
@@ -469,7 +469,7 @@ Writes the information of the internal data into an external image.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 If either the source or the target are bigger or smaller than its counterpart, only the pixels that match each other are changed. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00129">129</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00147">147</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -502,7 +502,7 @@ Loads an Image object created with the Magick++ API into the internal data struc
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00170">170</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00188">188</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00021">Recognizer()</a>.</p>
 
@@ -536,16 +536,16 @@ Writes the information of a clip into the underlying image.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 Since the only way of loading a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object is executing the <a class="el" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText()</a> method, and there the dimensions are controlled, here it is assumed that all the coordinates are valid. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00197">197</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00215">215</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00082">obtainText()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_recognizer_8h-source.html">Recognizer.h (136)</a><li><a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp (137)</a></ul>
+<li><a class="el" href="_recognizer_8h-source.html">Recognizer.h (136)</a><li><a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp (138)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 10 21:06:50 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 11 12:51:31 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

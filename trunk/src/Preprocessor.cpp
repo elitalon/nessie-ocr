@@ -5,12 +5,14 @@
 
 #include "Preprocessor.h"
 
-#include "Clip.h"
-
 #include <cmath>
 #include <vector>
 #include <algorithm>
-#include <iostream>
+
+#include "Clip.h"
+#include "boost/timer.hpp"
+
+
 
 ///
 /// @details Initializes a Preprocessor object
@@ -26,13 +28,13 @@ Preprocessor::Preprocessor ()
 ///
 /// @details To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in
 /// "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008). The target is to find a mean value between
-/// the mean value of background's gray level and the mean value of objects' gray level, assuming we have an initial threshold value.
-/// That initial threshold is in fact provided by the Preprocessor::findBackgroundReferenceGrayLevel method.
+/// the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value.
 /// 
 unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 {
-	// Find background reference gray level
-	findBackgroundReferenceGrayLevel(clip);
+	// Start timing
+	boost::timer timer;
+	timer.restart();
 	
 	
 	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
@@ -73,7 +75,10 @@ unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 		currentThreshold = optimalThreshold_;
 		optimalThreshold_ = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2) );
 	}
-
+	
+	// Gather elapsed time
+	optimalThresholdComputingTime_ = timer.elapsed();
+	
 	return optimalThreshold_;
 };
 
@@ -85,6 +90,11 @@ unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 /// 
 unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
+	// Start timing
+	boost::timer timer;
+	timer.restart();
+	
+	
 	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
 	std::vector<unsigned char> pixels = clip.pixels();
 	
@@ -135,9 +145,12 @@ unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, 
 		}
 	}
 
-
 	// Set the background reference gray level found
 	backgroundReferenceGrayLevel_ = static_cast<unsigned char>( round(referenceGrayLevel / nFrequencies) );
+	
+	// Gather elapsed time
+	backgroundReferenceGrayLevelFindingTime_ = timer.elapsed();
+	
 	return backgroundReferenceGrayLevel_;
 };
 
@@ -149,10 +162,11 @@ unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, 
 /// 
 void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolationCoefficient)
 {
-	// Find background reference gray level
-	findBackgroundReferenceGrayLevel(clip);
-
-
+	// Start timing
+	boost::timer timer;
+	timer.restart();
+	
+	
 	// Loop over the clip to remove every noisy isolated pixel
 	for (unsigned int i=0; i < clip.height(); ++i)
 	{
@@ -205,4 +219,7 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 			}
 		}
 	}
+	
+	// Gather elapsed time
+	noiseRemovalTime_ = timer.elapsed();
 };
