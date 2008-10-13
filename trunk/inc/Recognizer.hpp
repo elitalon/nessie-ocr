@@ -81,7 +81,7 @@ class Recognizer
 		/// @param coordinates A list of coordinates to locate a number of clips within the page
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-09
+		/// @date 2008-10-13
 		///
 		void obtainText (const std::vector<ClipLocation> &coordinates);
 		
@@ -95,7 +95,7 @@ class Recognizer
 		/// @param width	Clip's width
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
 		void obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width);
 
@@ -218,7 +218,7 @@ class Recognizer
 		/// @see Clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-13
 		///
 		void updateImage (const Clip &clip);
 };

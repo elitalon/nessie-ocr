@@ -65,12 +65,17 @@ void Recognizer::obtainText ()
 /// 
 void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
 {
-	//std::vector<ClipLocation>::iterator coordinatesIterator;
-	// 
-	// for ( coordinatesIterator = coordinates.begin(); coordinatesIterator not_eq coordinates.end(); ++coordinatesIterator )
-	// {
-	// 	obtainText(0,0,0,0);
-	// }
+	std::vector<ClipLocation>::const_iterator coordinatesIterator;
+	 
+	for ( coordinatesIterator = coordinates.begin(); coordinatesIterator not_eq coordinates.end(); ++coordinatesIterator )
+	{
+		unsigned int x		= (*coordinatesIterator).x();
+		unsigned int y		= (*coordinatesIterator).y();
+		unsigned int height	= (*coordinatesIterator).height();
+		unsigned int width	= (*coordinatesIterator).width();
+		
+		obtainText(x, y, height, width);
+	}
 };
 
 
@@ -91,11 +96,11 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	
 	// Test the clip's height is not bigger than the image
 	if ( (height > height_) or (height < 0) )
-		throw NessieException ("Recognizer::obtainText() : The height of the clip is bigger than the image's height or less than 0");
+		throw NessieException ("Recognizer::obtainText() : The height of the clip is either bigger than the image's height, or less than 0");
 		
 	// Test the clip's width is not bigger than the image
 	if ( (width > width_) or (width < 0) )
-		throw NessieException ("Recognizer::obtainText() : The width of the clip is bigger than the image's width or less than 0");
+		throw NessieException ("Recognizer::obtainText() : The width of the clip is either bigger than the image's width, or less than 0");
 		
 	// Truncate the clip's height if it is outside the source image
 	if ((x + height) > height_)
@@ -107,7 +112,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	
 	
 	// Creates the clip
-	Clip clip(image_, x, y, height, width);
+	Clip clip(image_, width_, x, y, height, width);
 	
 
 	//
@@ -218,9 +223,9 @@ void Recognizer::updateImage (const Clip &clip)
 	std::vector<unsigned char> pixels = clip.pixels();
 	std::vector<unsigned char>::iterator pixelsIterator = pixels.begin();
 	
-	for ( unsigned int i = clip.x(); i < clip.height(); ++i )
+	for ( unsigned int i = clip.x(); i < (clip.x() + clip.height()); ++i )
 	{
-		for ( unsigned int j = clip.y(); j < clip.width(); ++j )
+		for ( unsigned int j = clip.y(); j < (clip.y() + clip.width()); ++j )
 			image_[(i * width_) + j] = *pixelsIterator++;
 	}
 };

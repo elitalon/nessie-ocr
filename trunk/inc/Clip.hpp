@@ -26,16 +26,17 @@ class Clip
 		///
 		/// Constructor
 		///
-		/// @param image	The underlying image where the clip belongs to
-		/// @param x		The upper left-most pixel X coordinate of the clip
-		/// @param y		The upper left-most pixel Y coordinate of the clip
-		/// @param height	The height of the clip
-		/// @param width	The width of the clip
+		/// @param image		The underlying image where the clip belongs to
+		/// @param imageWidth	The width of the underlying image
+		/// @param x			The upper left-most pixel X coordinate of the clip
+		/// @param y			The upper left-most pixel Y coordinate of the clip
+		/// @param height		The height of the clip
+		/// @param width		The width of the clip
 		///
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
+		Clip (const std::vector<unsigned char> &image, const unsigned int &imageWidth, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width);
 		
 				
 		///

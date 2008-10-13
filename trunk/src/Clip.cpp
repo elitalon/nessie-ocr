@@ -13,7 +13,7 @@
 /// The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders,
 /// an exception is thrown. If the width and height are over the image borders the clip is truncated.
 /// 
-Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width)
+Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &imageWidth, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width)
 	: x_(x), y_(y), width_(width), height_(height)
 {
 	// Compute the number of pixels within the clip
@@ -23,10 +23,17 @@ Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &x, cons
 	pixels_.reserve(nPixels_);
 	
 	// Copy the contents of the frame within the source image to the clip
-	unsigned int index = (x * width_) + y;
-	std::vector<unsigned char>::const_iterator imageIterator = image.begin() + index;
-	
-	pixels_.assign (imageIterator, (imageIterator + nPixels_));
+	for ( unsigned int i = x; i < (x + height_); ++i )
+	{
+		std::vector<unsigned char>::const_iterator rowIterator = image.begin();
+		advance (rowIterator, (i * imageWidth) + y);
+		
+		for ( unsigned int j = 0; j < width_; ++j )
+		{
+			pixels_.push_back(*rowIterator);
+			advance (rowIterator, 1);
+		}
+	}
 };
 
 
