@@ -6,6 +6,7 @@ using namespace std;
 using namespace Magick;
 
 #include "Recognizer.hpp"
+#include "Pixel.hpp"
 
 ///
 /// Command line program for testing purposes.
@@ -18,9 +19,9 @@ int main (int argc, char const *argv[])
 		Recognizer recon( image );
 		
 		vector<ClipLocation> c;
-		c.push_back( ClipLocation(0,	100,	147, 	206) );
-		c.push_back( ClipLocation(147,	100,	147, 	206) );
-		c.push_back( ClipLocation(294,	100,	147, 	206) );
+		c.push_back( ClipLocation(0,	0,	147, 	206) );
+		c.push_back( ClipLocation(147,	0,	147, 	206) );
+		c.push_back( ClipLocation(294,	0,	147, 	206) );
 		
 		
 		recon.obtainText(c);
