@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (140) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (141) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -83,7 +83,7 @@ window.onload = initDynSections;
 <a name="l00025"></a>00025 };
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 
-<a name="l00033"></a><a class="code" href="class_preprocessor.html#0e146cafa6b8b31f4f4ed189a970db7a">00033</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#0e146cafa6b8b31f4f4ed189a970db7a" title="Computes the optimal threshold value within a clip.">Preprocessor::computeOptimalThreshold</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip)
+<a name="l00033"></a><a class="code" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634">00033</a> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;<a class="code" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value within a clip.">Preprocessor::computeOptimalThreshold</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip)
 <a name="l00034"></a>00034 {
 <a name="l00035"></a>00035     <span class="comment">// Start timing</span>
 <a name="l00036"></a>00036     boost::timer timer;
@@ -91,7 +91,7 @@ window.onload = initDynSections;
 <a name="l00038"></a>00038     
 <a name="l00039"></a>00039     
 <a name="l00040"></a>00040     <span class="comment">// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)</span>
-<a name="l00041"></a>00041     std::vector&lt;unsigned char&gt; pixels = clip.<a class="code" href="class_clip.html#c41089906750f03863854504db8f7e5c" title="Returns the pixels that defines the press clip.">pixels</a>();
+<a name="l00041"></a>00041     std::vector&lt;unsigned char&gt; pixels = clip.<a class="code" href="class_clip.html#2d705268c905b41efd5caad63e4b3b4f" title="Returns the pixels that defines the press clip.">pixels</a>();
 <a name="l00042"></a>00042     
 <a name="l00043"></a>00043     
 <a name="l00044"></a>00044     <span class="comment">// Start with an initial threshold</span>
@@ -121,7 +121,7 @@ window.onload = initDynSections;
 <a name="l00068"></a>00068                 objectsMeanValue += grayLevel;
 <a name="l00069"></a>00069         }
 <a name="l00070"></a>00070         backgroundMeanValue = round(backgroundMeanValue / nSamples);
-<a name="l00071"></a>00071         objectsMeanValue = round(objectsMeanValue / (clip.<a class="code" href="class_clip.html#23ad153e40b62cc9178ff6b439ad7d92" title="Returns the number of pixels within the press clip.">nPixels</a>() - nSamples));
+<a name="l00071"></a>00071         objectsMeanValue = round(objectsMeanValue / (clip.<a class="code" href="class_clip.html#9acfff7074239516465bcca11586c48d" title="Returns the number of pixels within the press clip.">nPixels</a>() - nSamples));
 <a name="l00072"></a>00072 
 <a name="l00073"></a>00073 
 <a name="l00074"></a>00074         <span class="comment">// Update the optimal threshold keeping the last one</span>
@@ -136,7 +136,7 @@ window.onload = initDynSections;
 <a name="l00083"></a>00083 };
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085 
-<a name="l00091"></a><a class="code" href="class_preprocessor.html#19aa90451cf6f99854833c05d3e71270">00091</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_preprocessor.html#19aa90451cf6f99854833c05d3e71270" title="Computes the background reference gray level value within a clip.">Preprocessor::findBackgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;referenceGrayLevelNeighbours)
+<a name="l00091"></a><a class="code" href="class_preprocessor.html#a7292c538487f65641327b934fcfba80">00091</a> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;<a class="code" href="class_preprocessor.html#a7292c538487f65641327b934fcfba80" title="Computes the background reference gray level value within a clip.">Preprocessor::findBackgroundReferenceGrayLevel</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;referenceGrayLevelNeighbours)
 <a name="l00092"></a>00092 {
 <a name="l00093"></a>00093     <span class="comment">// Start timing</span>
 <a name="l00094"></a>00094     boost::timer timer;
@@ -144,7 +144,7 @@ window.onload = initDynSections;
 <a name="l00096"></a>00096     
 <a name="l00097"></a>00097     
 <a name="l00098"></a>00098     <span class="comment">// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)</span>
-<a name="l00099"></a>00099     std::vector&lt;unsigned char&gt; pixels = clip.<a class="code" href="class_clip.html#c41089906750f03863854504db8f7e5c" title="Returns the pixels that defines the press clip.">pixels</a>();
+<a name="l00099"></a>00099     std::vector&lt;unsigned char&gt; pixels = clip.<a class="code" href="class_clip.html#2d705268c905b41efd5caad63e4b3b4f" title="Returns the pixels that defines the press clip.">pixels</a>();
 <a name="l00100"></a>00100     
 <a name="l00101"></a>00101     
 <a name="l00102"></a>00102     <span class="comment">// Compute clip histogram</span>
@@ -211,11 +211,11 @@ window.onload = initDynSections;
 <a name="l00168"></a>00168     
 <a name="l00169"></a>00169     
 <a name="l00170"></a>00170     <span class="comment">// Loop over the clip to remove every noisy isolated pixel</span>
-<a name="l00171"></a>00171     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the height of the clip.">height</a>(); ++i)
+<a name="l00171"></a>00171     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">height</a>(); ++i)
 <a name="l00172"></a>00172     {
-<a name="l00173"></a>00173         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the width of the clip.">width</a>(); ++j)
+<a name="l00173"></a>00173         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">width</a>(); ++j)
 <a name="l00174"></a>00174         {
-<a name="l00175"></a>00175             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pixelGrayLevel = clip.<a class="code" href="class_clip.html#334577b60ef51e42f977f952a29d1b66" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i, j);
+<a name="l00175"></a>00175             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> pixelGrayLevel = clip.<a class="code" href="class_clip.html#85d16f086803860fae205c48161a3c38" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i, j);
 <a name="l00176"></a>00176             
 <a name="l00177"></a>00177             <span class="comment">// Comparison values to avoid pixels that clearly belong to the background</span>
 <a name="l00178"></a>00178             <span class="keywordtype">bool</span> backgroundPixelOnWhite = (<a class="code" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (pixelGrayLevel &gt; <a class="code" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>);
@@ -231,8 +231,8 @@ window.onload = initDynSections;
 <a name="l00188"></a>00188                     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> q = j-1; q &lt; static_cast&lt;int&gt;(j+2); q++)
 <a name="l00189"></a>00189                     {
 <a name="l00190"></a>00190                         <span class="comment">// Comparison values to avoid step outside the image and the central pixel</span>
-<a name="l00191"></a>00191                         <span class="keywordtype">bool</span> heightOverflow = (p &lt; 0) or (p &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(clip.<a class="code" href="class_clip.html#393710a6b136f400dd5c900f8831e1a8" title="Returns the height of the clip.">height</a>()));
-<a name="l00192"></a>00192                         <span class="keywordtype">bool</span> widthOverflow  = (q &lt; 0) or (q &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(clip.<a class="code" href="class_clip.html#d3e816599913e4051e5d50fae17ecd76" title="Returns the width of the clip.">width</a>()));
+<a name="l00191"></a>00191                         <span class="keywordtype">bool</span> heightOverflow = (p &lt; 0) or (p &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(clip.<a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">height</a>()));
+<a name="l00192"></a>00192                         <span class="keywordtype">bool</span> widthOverflow  = (q &lt; 0) or (q &gt;= <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(clip.<a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">width</a>()));
 <a name="l00193"></a>00193                         <span class="keywordtype">bool</span> isCentralPixel = (p == <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i)) and (q == static_cast&lt;int&gt;(j));
 <a name="l00194"></a>00194                         
 <a name="l00195"></a>00195                         <span class="keywordflow">if</span> ( not heightOverflow and not widthOverflow and not isCentralPixel )
@@ -241,7 +241,7 @@ window.onload = initDynSections;
 <a name="l00198"></a>00198                             nPixels++;
 <a name="l00199"></a>00199 
 <a name="l00200"></a>00200                             <span class="comment">// Get neighbour pixel gray level</span>
-<a name="l00201"></a>00201                             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> neighbourPixelGrayLevel = clip.<a class="code" href="class_clip.html#334577b60ef51e42f977f952a29d1b66" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(p, q);
+<a name="l00201"></a>00201                             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> neighbourPixelGrayLevel = clip.<a class="code" href="class_clip.html#85d16f086803860fae205c48161a3c38" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(p, q);
 <a name="l00202"></a>00202 
 <a name="l00203"></a>00203                             <span class="comment">// When background gray level is close to white but not the pixel, update the noisy neighbours counter</span>
 <a name="l00204"></a>00204                             <span class="keywordflow">if</span> ( (<a class="code" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a> &gt; <a class="code" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a>) and (neighbourPixelGrayLevel &gt; <a class="code" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a>) )
@@ -267,7 +267,7 @@ window.onload = initDynSections;
 <a name="l00224"></a>00224     <a class="code" href="class_preprocessor.html#386a5118bd982b2377c1fc5d67ebb7ac" title="Elapsed time when applying the &amp;#39;isolated noise removal&amp;#39; algorithm.">noiseRemovalTime_</a> = timer.elapsed();
 <a name="l00225"></a>00225 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 11 13:53:11 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 13:36:25 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

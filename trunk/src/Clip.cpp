@@ -6,7 +6,6 @@
 #include "Clip.hpp"
 #include "NessieException.hpp"
 
-#include <iostream>
 
 ///
 /// @details Initializes a Clip object located at coordinates (x,y) in the source image, with the height and width passed.
@@ -55,7 +54,7 @@ void Clip::setPixelGrayLevel (const unsigned int &x, const unsigned int &y, cons
 ///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
 /// 
-unsigned char Clip::getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const
+const unsigned char &Clip::getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const
 {
 	unsigned int index = (x * width_) + y;
 	

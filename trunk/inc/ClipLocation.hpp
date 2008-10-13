@@ -49,9 +49,9 @@ class ClipLocation
 		/// @return X coordinate
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned int x () const;
+		const unsigned int &x () const;
 		
 		
 		///
@@ -60,9 +60,9 @@ class ClipLocation
 		/// @return Y coordinate
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned int y () const;
+		const unsigned int &y () const;
 		
 		
 		///
@@ -71,9 +71,9 @@ class ClipLocation
 		/// @return Height of the press clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned int height () const;
+		const unsigned int &height () const;
 		
 		
 		///
@@ -82,9 +82,9 @@ class ClipLocation
 		/// @return Width of the pixel
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned int width () const;
+		const unsigned int &width () const;
 		
 		
 		///
@@ -158,25 +158,25 @@ class ClipLocation
 // Implementation of inline functions
 // 
 
-inline unsigned int ClipLocation::x () const
+inline const unsigned int &ClipLocation::x () const
 {
 	return x_;
 };
 
 
-inline unsigned int ClipLocation::y () const
+inline const unsigned int &ClipLocation::y () const
 {
 	return y_;
 };
 
 
-inline unsigned int ClipLocation::height () const
+inline const unsigned int &ClipLocation::height () const
 {
 	return height_;
 };
 
 
-inline unsigned int ClipLocation::width () const
+inline const unsigned int &ClipLocation::width () const
 {
 	return width_;
 };

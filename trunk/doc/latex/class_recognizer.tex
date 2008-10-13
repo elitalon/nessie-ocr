@@ -43,13 +43,13 @@ void \hyperlink{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{obtainText} (
 \begin{CompactList}\small\item\em Recognizes the text within multiple press clips whose coordinates are passed. \item\end{CompactList}\item 
 void \hyperlink{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{obtainText} (const unsigned int \&x, const unsigned int \&y, unsigned int \&height, unsigned int \&width)
 \begin{CompactList}\small\item\em Recognizes the text within a single press clip located at coordinates (x,y). \item\end{CompactList}\item 
-\hyperlink{class_text}{Text} \hyperlink{class_recognizer_9c749916101383461aa2fa63e3f46dbc}{text} (const unsigned int \&label=0) const 
+const \hyperlink{class_text}{Text} \& \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text} (const unsigned int \&label=0) const 
 \begin{CompactList}\small\item\em Returns the text of a single clip. \item\end{CompactList}\item 
-std::vector$<$ \hyperlink{class_text}{Text} $>$ \hyperlink{class_recognizer_603c290af256c63a8b292f8efc6aa61d}{texts} () const 
+const std::vector$<$ \hyperlink{class_text}{Text} $>$ \& \hyperlink{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{texts} () const 
 \begin{CompactList}\small\item\em Returns the text of every loaded clip. \item\end{CompactList}\item 
-\hyperlink{class_statistics}{Statistics} \hyperlink{class_recognizer_23ded078bf5e8d4047d8f4470b178619}{statistic} (const unsigned int \&label=0) const 
+const \hyperlink{class_statistics}{Statistics} \& \hyperlink{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}{statistic} (const unsigned int \&label=0) const 
 \begin{CompactList}\small\item\em Returns the statistical data regarding the recognition process of a single clip. \item\end{CompactList}\item 
-std::vector$<$ \hyperlink{class_statistics}{Statistics} $>$ \hyperlink{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{statistics} () const 
+const std::vector$<$ \hyperlink{class_statistics}{Statistics} $>$ \& \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics} () const 
 \begin{CompactList}\small\item\em Returns the statistical data regarding the recognition process of every loaded clip. \item\end{CompactList}\item 
 void \hyperlink{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{writeExternalImage} (Magick::Image \&externalImage) const 
 \begin{CompactList}\small\item\em Writes the information of the internal data into an external image. \item\end{CompactList}\end{CompactItemize}
@@ -149,9 +149,11 @@ Recognizes the text within the whole page at once.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-09\end{Desc}
-It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_9c749916101383461aa2fa63e3f46dbc}{text()} and \hyperlink{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{statistics()} with no parameters at all. 
+It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-Definition at line 57 of file Recognizer.cpp.\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
+Definition at line 57 of file Recognizer.cpp.
+
+Referenced by obtainText().\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \subsubsection[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ {\bf ClipLocation} $>$ \& {\em coordinates})}}
@@ -168,7 +170,7 @@ Recognizes the text within multiple press clips whose coordinates are passed.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-09\end{Desc}
+\item[Date:]2008-10-13\end{Desc}
 Each set of points provides us a clip that can be located within the page. 
 
 Definition at line 66 of file Recognizer.cpp.\hypertarget{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{
@@ -188,14 +190,14 @@ Recognizes the text within a single press clip located at coordinates (x,y).
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-11\end{Desc}
-If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_9c749916101383461aa2fa63e3f46dbc}{text()} and \hyperlink{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{statistics()} with no parameters at all. 
+\item[Date:]2008-10-13\end{Desc}
+If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-Definition at line 82 of file Recognizer.cpp.\hypertarget{class_recognizer_9c749916101383461aa2fa63e3f46dbc}{
+Definition at line 87 of file Recognizer.cpp.\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{
 \index{Recognizer@{Recognizer}!text@{text}}
 \index{text@{text}!Recognizer@{Recognizer}}
-\subsubsection[text]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text} Recognizer::text (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_recognizer_9c749916101383461aa2fa63e3f46dbc}
+\subsubsection[text]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Text} \& Recognizer::text (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}
 
 
 Returns the text of a single clip. 
@@ -210,14 +212,14 @@ Returns the text of a single clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-11 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 236 of file Recognizer.hpp.\hypertarget{class_recognizer_603c290af256c63a8b292f8efc6aa61d}{
+Definition at line 236 of file Recognizer.hpp.\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{
 \index{Recognizer@{Recognizer}!texts@{texts}}
 \index{texts@{texts}!Recognizer@{Recognizer}}
-\subsubsection[texts]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf Text} $>$ Recognizer::texts () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_recognizer_603c290af256c63a8b292f8efc6aa61d}
+\subsubsection[texts]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Text} $>$ \& Recognizer::texts () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}
 
 
 Returns the text of every loaded clip. 
@@ -229,14 +231,14 @@ Returns the text of every loaded clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 248 of file Recognizer.hpp.\hypertarget{class_recognizer_23ded078bf5e8d4047d8f4470b178619}{
+Definition at line 248 of file Recognizer.hpp.\hypertarget{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}{
 \index{Recognizer@{Recognizer}!statistic@{statistic}}
 \index{statistic@{statistic}!Recognizer@{Recognizer}}
-\subsubsection[statistic]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics} Recognizer::statistic (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_recognizer_23ded078bf5e8d4047d8f4470b178619}
+\subsubsection[statistic]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Statistics} \& Recognizer::statistic (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}
 
 
 Returns the statistical data regarding the recognition process of a single clip. 
@@ -253,14 +255,14 @@ Returns the statistical data regarding the recognition process of a single clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-11 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 257 of file Recognizer.hpp.\hypertarget{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}{
+Definition at line 257 of file Recognizer.hpp.\hypertarget{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{
 \index{Recognizer@{Recognizer}!statistics@{statistics}}
 \index{statistics@{statistics}!Recognizer@{Recognizer}}
-\subsubsection[statistics]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf Statistics} $>$ Recognizer::statistics () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_recognizer_cc73ac66cb62b99b4d84f09e43b9af52}
+\subsubsection[statistics]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Statistics} $>$ \& Recognizer::statistics () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_recognizer_8b38356d2741969e67cd6b4f507897ba}
 
 
 Returns the statistical data regarding the recognition process of every loaded clip. 
@@ -272,7 +274,7 @@ Returns the statistical data regarding the recognition process of every loaded c
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
 Definition at line 269 of file Recognizer.hpp.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{
@@ -299,7 +301,7 @@ Writes the information of the internal data into an external image.
 \item[Date:]2008-10-10\end{Desc}
 If either the source or the target are bigger or smaller than its counterpart, only the pixels that match each other are changed. 
 
-Definition at line 147 of file Recognizer.cpp.\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
+Definition at line 152 of file Recognizer.cpp.\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
 \index{Recognizer@{Recognizer}!loadImage@{loadImage}}
 \index{loadImage@{loadImage}!Recognizer@{Recognizer}}
 \subsubsection[loadImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::loadImage (Magick::Image \& {\em image})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
@@ -323,7 +325,7 @@ Loads an Image object created with the Magick++ API into the internal data struc
 \item[Date:]2008-10-10\end{Desc}
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
 
-Definition at line 188 of file Recognizer.cpp.
+Definition at line 193 of file Recognizer.cpp.
 
 Referenced by Recognizer().\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
 \index{Recognizer@{Recognizer}!updateImage@{updateImage}}
@@ -344,14 +346,14 @@ Writes the information of a clip into the underlying image.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10\end{Desc}
+\item[Date:]2008-10-13\end{Desc}
 Since the only way of loading a \hyperlink{class_clip}{Clip} object is executing the \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{obtainText()} method, and there the dimensions are controlled, here it is assumed that all the coordinates are valid. 
 
-Definition at line 215 of file Recognizer.cpp.
+Definition at line 220 of file Recognizer.cpp.
 
 Referenced by obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_recognizer_8hpp}{Recognizer.hpp}\item 
-\hyperlink{_recognizer_8cpp}{Recognizer.cpp (140)}\end{CompactItemize}
+\hyperlink{_recognizer_8hpp}{Recognizer.hpp (142)}\item 
+\hyperlink{_recognizer_8cpp}{Recognizer.cpp (142)}\end{CompactItemize}

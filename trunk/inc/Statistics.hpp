@@ -35,9 +35,9 @@ class Statistics
 		/// @return Elapsed time in the reference gray level of the background finding algorithm
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double backgroundReferenceGrayLevelFindingTime () const;
+		const double &backgroundReferenceGrayLevelFindingTime () const;
 		
 		
 		///
@@ -46,9 +46,9 @@ class Statistics
 		/// @return Elapsed time in the optimal threshold computing algorithm
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double optimalThresholdComputingTime () const;
+		const double &optimalThresholdComputingTime () const;
 		
 		
 		///
@@ -57,9 +57,9 @@ class Statistics
 		/// @return Elapsed time in the noise removal algorithm
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double noiseRemovalTime () const;		
+		const double &noiseRemovalTime () const;		
 		
 		
 		///
@@ -68,9 +68,9 @@ class Statistics
 		/// @return Total elapsed time within the preprocessing stage
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double preprocessingTime () const;
+		const double &preprocessingTime () const;
 		
 		
 	private:
@@ -143,7 +143,7 @@ class Statistics
 ///
 /// @details
 ///
-inline double Statistics::backgroundReferenceGrayLevelFindingTime () const
+inline const double &Statistics::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };
@@ -152,7 +152,7 @@ inline double Statistics::backgroundReferenceGrayLevelFindingTime () const
 ///
 /// @details
 ///
-inline double Statistics::optimalThresholdComputingTime () const
+inline const double &Statistics::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
@@ -161,7 +161,7 @@ inline double Statistics::optimalThresholdComputingTime () const
 ///
 /// @details
 ///
-inline double Statistics::noiseRemovalTime () const
+inline const double &Statistics::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
@@ -170,7 +170,7 @@ inline double Statistics::noiseRemovalTime () const
 ///
 /// @details
 ///
-inline double Statistics::preprocessingTime () const
+inline const double &Statistics::preprocessingTime () const
 {
 	return preprocessingTime_;
 };

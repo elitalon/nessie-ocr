@@ -50,9 +50,9 @@ class Pixel
 		/// @return The x coordinate (row) of the pixel
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned int x () const;		
+		const unsigned int &x () const;		
 		
 		
 		/// 
@@ -61,9 +61,9 @@ class Pixel
 		/// @return The y coordinate (column) of the pixel
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned int y () const;		
+		const unsigned int &y () const;		
 		
 		
 		///
@@ -72,9 +72,9 @@ class Pixel
 		/// @return The gray level of the pixel
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-09-26
+		/// @date 2008-10-13
 		///
-		unsigned char grayLevel () const;
+		const unsigned char &grayLevel () const;
 		
 		
 		///
@@ -115,7 +115,7 @@ class Pixel
 /// 
 /// @details
 /// 
-inline unsigned int Pixel::x () const
+inline const unsigned int &Pixel::x () const
 {
 	return x_;
 };
@@ -124,7 +124,7 @@ inline unsigned int Pixel::x () const
 /// 
 /// @details
 /// 
-inline unsigned int Pixel::y () const
+inline const unsigned int &Pixel::y () const
 {
 	return y_;
 };
@@ -134,7 +134,7 @@ inline unsigned int Pixel::y () const
 /// @details
 /// 
 
-inline unsigned char Pixel::grayLevel () const
+inline const unsigned char &Pixel::grayLevel () const
 {
 	return grayLevel_;
 };

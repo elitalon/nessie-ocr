@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Text.cpp (136) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Text.cpp (141) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -78,7 +78,7 @@ window.onload = initDynSections;
 <a name="l00020"></a>00020 };
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022 
-<a name="l00026"></a><a class="code" href="class_text.html#d8c7b52db022f4351e31b2b7609a8180">00026</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83" title="Returns the text&amp;#39;s content.">content</a>) : <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>(content), <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>(std::vector&lt;<a class="code" href="_word_rate_8hpp.html#8cfef8793106ac45a83059bd5573cbb3" title="Appearance rate of a word.">WordRate</a>&gt;(0))
+<a name="l00026"></a><a class="code" href="class_text.html#d8c7b52db022f4351e31b2b7609a8180">00026</a> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text::Text</a> (<span class="keyword">const</span> std::string &amp;<a class="code" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c" title="Returns the text&amp;#39;s content.">content</a>) : <a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text&amp;#39;s content.">content_</a>(content), <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>(std::vector&lt;<a class="code" href="_word_rate_8hpp.html#8cfef8793106ac45a83059bd5573cbb3" title="Appearance rate of a word.">WordRate</a>&gt;(0))
 <a name="l00027"></a>00027 {
 <a name="l00028"></a>00028     <span class="comment">// Build the appearance rate of every word in text</span>
 <a name="l00029"></a>00029     <a class="code" href="class_text.html#8239e13039bcc1c713f66f1236693706" title="Builds the vector of appearance rates of every word.">computeWordRates</a>();
@@ -129,7 +129,7 @@ window.onload = initDynSections;
 <a name="l00089"></a><a class="code" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5">00089</a> <span class="keywordtype">void</span> <a class="code" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5" title="Increases by one the number of appearances of a word.">Text::updateWordRate</a> (<span class="keyword">const</span> std::string &amp;word)
 <a name="l00090"></a>00090 {
 <a name="l00091"></a>00091     <span class="comment">// Searches the word in the vector</span>
-<a name="l00092"></a>00092     std::vector&lt;WordRate&gt;::iterator <a class="code" href="class_text.html#1387d9767b65f80355f1bdede26a0f7b" title="Returns the appearance rates of every single word in text.">wordRates</a>;
+<a name="l00092"></a>00092     std::vector&lt;WordRate&gt;::iterator <a class="code" href="class_text.html#46d23c2236172369e2dc57a4baf10f6c" title="Returns the appearance rates of every single word in text.">wordRates</a>;
 <a name="l00093"></a>00093     <span class="keywordflow">for</span> (wordRates = <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.begin(); wordRates not_eq <a class="code" href="class_text.html#ee3a9a1486714df08c8e73ccb605e729" title="A list of appearance rates of every single word in text.">wordRates_</a>.end(); ++wordRates)
 <a name="l00094"></a>00094     {
 <a name="l00095"></a>00095         <span class="comment">// Updates its appearance rate</span>
@@ -184,7 +184,7 @@ window.onload = initDynSections;
 <a name="l00151"></a>00151     }
 <a name="l00152"></a>00152 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 11 13:53:11 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 13:36:25 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -30,7 +30,7 @@ Preprocessor::Preprocessor ()
 /// "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008). The target is to find a mean value between
 /// the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value.
 /// 
-unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
+const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip)
 {
 	// Start timing
 	boost::timer timer;
@@ -88,7 +88,7 @@ unsigned char Preprocessor::computeOptimalThreshold (const Clip &clip)
 /// background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
 /// a gray level weighted mean using all those values.
 /// 
-unsigned char Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
+const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
 	// Start timing
 	boost::timer timer;

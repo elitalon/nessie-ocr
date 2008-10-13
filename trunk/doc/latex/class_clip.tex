@@ -27,23 +27,23 @@ This class stores a press clip as a set of pixels from the source image that rep
 Definition at line 23 of file Clip.hpp.\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_clip_7e151616bf9c24c77aa5d1a0d341aa2a}{Clip} (const std::vector$<$ unsigned char $>$ \&image, const unsigned int \&x, const unsigned int \&y, const unsigned int \&height, const unsigned int \&width)
+\hyperlink{class_clip_bcda5a8d32fda0933bce32d6d9f2c5a1}{Clip} (const std::vector$<$ unsigned char $>$ \&image, const unsigned int \&imageWidth, const unsigned int \&x, const unsigned int \&y, const unsigned int \&height, const unsigned int \&width)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 void \hyperlink{class_clip_454ff6070d0918e56a09a3f28ff430c3}{setPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y, const unsigned char \&grayLevel)
 \begin{CompactList}\small\item\em Sets the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
-unsigned char \hyperlink{class_clip_334577b60ef51e42f977f952a29d1b66}{getPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y) const 
+const unsigned char \& \hyperlink{class_clip_85d16f086803860fae205c48161a3c38}{getPixelGrayLevel} (const unsigned int \&x, const unsigned int \&y) const 
 \begin{CompactList}\small\item\em Returns the gray level of a pixel at coordinates (x,y). \item\end{CompactList}\item 
-std::vector$<$ unsigned char $>$ \hyperlink{class_clip_c41089906750f03863854504db8f7e5c}{pixels} () const 
+const std::vector$<$ unsigned char $>$ \& \hyperlink{class_clip_2d705268c905b41efd5caad63e4b3b4f}{pixels} () const 
 \begin{CompactList}\small\item\em Returns the pixels that defines the press clip. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{nPixels} () const 
+const unsigned int \& \hyperlink{class_clip_9acfff7074239516465bcca11586c48d}{nPixels} () const 
 \begin{CompactList}\small\item\em Returns the number of pixels within the press clip. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_clip_de984337b7b13fb63a3d3b1797b544c8}{x} () const 
+const unsigned int \& \hyperlink{class_clip_fcedad938315faff5d577670f9219c61}{x} () const 
 \begin{CompactList}\small\item\em Returns the top left-most pixel x coordinate. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_clip_998a62506ffab457184ec7083cb154e4}{y} () const 
+const unsigned int \& \hyperlink{class_clip_e06a2ad12ef2144a9d7d970b574c9c14}{y} () const 
 \begin{CompactList}\small\item\em Returns the top left-most pixel y coordinate. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_clip_d3e816599913e4051e5d50fae17ecd76}{width} () const 
+const unsigned int \& \hyperlink{class_clip_88d1a47c0ec077e8c6680785509389b0}{width} () const 
 \begin{CompactList}\small\item\em Returns the width of the clip. \item\end{CompactList}\item 
-unsigned int \hyperlink{class_clip_393710a6b136f400dd5c900f8831e1a8}{height} () const 
+const unsigned int \& \hyperlink{class_clip_939908a8dde602d25335792cc0fd5d97}{height} () const 
 \begin{CompactList}\small\item\em Returns the height of the clip. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
@@ -81,11 +81,11 @@ unsigned int \hyperlink{class_clip_7e2bd80cd0cc06f6d4c3ebe6a22c573d}{nPixels\_\-
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_clip_7e151616bf9c24c77aa5d1a0d341aa2a}{
+\hypertarget{class_clip_bcda5a8d32fda0933bce32d6d9f2c5a1}{
 \index{Clip@{Clip}!Clip@{Clip}}
 \index{Clip@{Clip}!Clip@{Clip}}
-\subsubsection[Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (const std::vector$<$ unsigned char $>$ \& {\em image}, \/  const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const unsigned int \& {\em height}, \/  const unsigned int \& {\em width})}}
-\label{class_clip_7e151616bf9c24c77aa5d1a0d341aa2a}
+\subsubsection[Clip]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (const std::vector$<$ unsigned char $>$ \& {\em image}, \/  const unsigned int \& {\em imageWidth}, \/  const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  const unsigned int \& {\em height}, \/  const unsigned int \& {\em width})}}
+\label{class_clip_bcda5a8d32fda0933bce32d6d9f2c5a1}
 
 
 Constructor. 
@@ -93,15 +93,15 @@ Constructor.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em image}]The underlying image where the clip belongs to \item[{\em x}]The upper left-most pixel X coordinate of the clip \item[{\em y}]The upper left-most pixel Y coordinate of the clip \item[{\em height}]The height of the clip \item[{\em width}]The width of the clip\end{description}
+\item[{\em image}]The underlying image where the clip belongs to \item[{\em imageWidth}]The width of the underlying image \item[{\em x}]The upper left-most pixel X coordinate of the clip \item[{\em y}]The upper left-most pixel Y coordinate of the clip \item[{\em height}]The height of the clip \item[{\em width}]The width of the clip\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08\end{Desc}
+\item[Date:]2008-10-13\end{Desc}
 Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated. 
 
-Definition at line 16 of file Clip.cpp.
+Definition at line 15 of file Clip.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_clip_454ff6070d0918e56a09a3f28ff430c3}{
@@ -124,13 +124,13 @@ Sets the gray level of a pixel at coordinates (x,y).
 \item[Date:]2008-10-08\end{Desc}
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated. 
 
-Definition at line 37 of file Clip.cpp.
+Definition at line 43 of file Clip.cpp.
 
-Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_334577b60ef51e42f977f952a29d1b66}{
+Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_85d16f086803860fae205c48161a3c38}{
 \index{Clip@{Clip}!getPixelGrayLevel@{getPixelGrayLevel}}
 \index{getPixelGrayLevel@{getPixelGrayLevel}!Clip@{Clip}}
-\subsubsection[getPixelGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Clip::getPixelGrayLevel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}) const}}
-\label{class_clip_334577b60ef51e42f977f952a29d1b66}
+\subsubsection[getPixelGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Clip::getPixelGrayLevel (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}) const}}
+\label{class_clip_85d16f086803860fae205c48161a3c38}
 
 
 Returns the gray level of a pixel at coordinates (x,y). 
@@ -145,16 +145,16 @@ Returns the gray level of a pixel at coordinates (x,y).
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08\end{Desc}
+\item[Date:]2008-10-13\end{Desc}
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
 
-Definition at line 51 of file Clip.cpp.
+Definition at line 57 of file Clip.cpp.
 
-Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_c41089906750f03863854504db8f7e5c}{
+Referenced by Preprocessor::removeIsolatedNoise().\hypertarget{class_clip_2d705268c905b41efd5caad63e4b3b4f}{
 \index{Clip@{Clip}!pixels@{pixels}}
 \index{pixels@{pixels}!Clip@{Clip}}
-\subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ unsigned char $>$ Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_c41089906750f03863854504db8f7e5c}
+\subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ unsigned char $>$ \& Clip::pixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_2d705268c905b41efd5caad63e4b3b4f}
 
 
 Returns the pixels that defines the press clip. 
@@ -162,16 +162,16 @@ Returns the pixels that defines the press clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-07 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 163 of file Clip.hpp.
+Definition at line 164 of file Clip.hpp.
 
-Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Recognizer::updateImage().\hypertarget{class_clip_23ad153e40b62cc9178ff6b439ad7d92}{
+Referenced by Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), and Recognizer::updateImage().\hypertarget{class_clip_9acfff7074239516465bcca11586c48d}{
 \index{Clip@{Clip}!nPixels@{nPixels}}
 \index{nPixels@{nPixels}!Clip@{Clip}}
-\subsubsection[nPixels]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::nPixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_23ad153e40b62cc9178ff6b439ad7d92}
+\subsubsection[nPixels]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::nPixels () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_9acfff7074239516465bcca11586c48d}
 
 
 Returns the number of pixels within the press clip. 
@@ -179,16 +179,16 @@ Returns the number of pixels within the press clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-07 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 172 of file Clip.hpp.
+Definition at line 173 of file Clip.hpp.
 
-Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_de984337b7b13fb63a3d3b1797b544c8}{
+Referenced by Preprocessor::computeOptimalThreshold().\hypertarget{class_clip_fcedad938315faff5d577670f9219c61}{
 \index{Clip@{Clip}!x@{x}}
 \index{x@{x}!Clip@{Clip}}
-\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::x () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_de984337b7b13fb63a3d3b1797b544c8}
+\subsubsection[x]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::x () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_fcedad938315faff5d577670f9219c61}
 
 
 Returns the top left-most pixel x coordinate. 
@@ -196,16 +196,16 @@ Returns the top left-most pixel x coordinate.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 181 of file Clip.hpp.
+Definition at line 182 of file Clip.hpp.
 
-Referenced by Recognizer::updateImage().\hypertarget{class_clip_998a62506ffab457184ec7083cb154e4}{
+Referenced by Recognizer::updateImage().\hypertarget{class_clip_e06a2ad12ef2144a9d7d970b574c9c14}{
 \index{Clip@{Clip}!y@{y}}
 \index{y@{y}!Clip@{Clip}}
-\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::y () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_998a62506ffab457184ec7083cb154e4}
+\subsubsection[y]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::y () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_e06a2ad12ef2144a9d7d970b574c9c14}
 
 
 Returns the top left-most pixel y coordinate. 
@@ -213,16 +213,16 @@ Returns the top left-most pixel y coordinate.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 190 of file Clip.hpp.
+Definition at line 191 of file Clip.hpp.
 
-Referenced by Recognizer::updateImage().\hypertarget{class_clip_d3e816599913e4051e5d50fae17ecd76}{
+Referenced by Recognizer::updateImage().\hypertarget{class_clip_88d1a47c0ec077e8c6680785509389b0}{
 \index{Clip@{Clip}!width@{width}}
 \index{width@{width}!Clip@{Clip}}
-\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::width () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_d3e816599913e4051e5d50fae17ecd76}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::width () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_88d1a47c0ec077e8c6680785509389b0}
 
 
 Returns the width of the clip. 
@@ -230,16 +230,16 @@ Returns the width of the clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 199 of file Clip.hpp.
+Definition at line 200 of file Clip.hpp.
 
-Referenced by Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_393710a6b136f400dd5c900f8831e1a8}{
+Referenced by Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_939908a8dde602d25335792cc0fd5d97}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
-\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Clip::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_clip_393710a6b136f400dd5c900f8831e1a8}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_clip_939908a8dde602d25335792cc0fd5d97}
 
 
 Returns the height of the clip. 
@@ -247,14 +247,14 @@ Returns the height of the clip.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 208 of file Clip.hpp.
+Definition at line 209 of file Clip.hpp.
 
 Referenced by Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_clip_8hpp}{Clip.hpp}\item 
-\hyperlink{_clip_8cpp}{Clip.cpp (136)}\end{CompactItemize}
+\hyperlink{_clip_8hpp}{Clip.hpp (142)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (142)}\end{CompactItemize}

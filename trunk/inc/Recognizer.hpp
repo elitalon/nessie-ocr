@@ -108,9 +108,9 @@ class Recognizer
 		/// @see Text
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		Text text (const unsigned int& label=0) const;
+		const Text &text (const unsigned int& label=0) const;
 		
 		
 		///
@@ -121,9 +121,9 @@ class Recognizer
 		/// @see Text
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		std::vector<Text> texts () const;
+		const std::vector<Text> &texts () const;
 
 
 		///
@@ -136,9 +136,9 @@ class Recognizer
 		/// @see Statistics
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		Statistics statistic (const unsigned int& label=0) const;
+		const Statistics &statistic (const unsigned int& label=0) const;
 		
 		
 		///
@@ -149,9 +149,9 @@ class Recognizer
 		/// @see Statistics
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		std::vector<Statistics> statistics () const;
+		const std::vector<Statistics> &statistics () const;
 		
 		
 		///
@@ -233,7 +233,7 @@ class Recognizer
 ///
 /// @details
 /// 
-inline Text Recognizer::text (const unsigned int& label) const
+inline const Text &Recognizer::text (const unsigned int& label) const
 {
 	if ( label <= texts_.size() )
 		return texts_[label];
@@ -245,7 +245,7 @@ inline Text Recognizer::text (const unsigned int& label) const
 ///
 /// @details
 /// 
-inline std::vector<Text> Recognizer::texts () const
+inline const std::vector<Text> &Recognizer::texts () const
 {
 	return texts_;
 };
@@ -254,7 +254,7 @@ inline std::vector<Text> Recognizer::texts () const
 ///
 /// @details
 /// 
-inline Statistics Recognizer::statistic (const unsigned int& label) const
+inline const Statistics &Recognizer::statistic (const unsigned int& label) const
 {
 	if ( label <= statistics_.size() )
 		return statistics_[label];
@@ -266,7 +266,7 @@ inline Statistics Recognizer::statistic (const unsigned int& label) const
 ///
 /// @details
 /// 
-inline std::vector<Statistics> Recognizer::statistics () const
+inline const std::vector<Statistics> &Recognizer::statistics () const
 {
 	return statistics_;
 };

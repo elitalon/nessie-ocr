@@ -29,13 +29,13 @@ Definition at line 20 of file Statistics.hpp.\subsection*{Public Member Function
 \item 
 \hyperlink{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_565e90b1940d12bb2a2661f6dcea230d}{backgroundReferenceGrayLevelFindingTime} () const 
+const double \& \hyperlink{class_statistics_d70a464a72d94c795097608e2a18550a}{backgroundReferenceGrayLevelFindingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{optimalThresholdComputingTime} () const 
+const double \& \hyperlink{class_statistics_87bdb5b4f7a88cb74d0072fd0c7a2248}{optimalThresholdComputingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time in the optimal threshold computing algorithm. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{noiseRemovalTime} () const 
+const double \& \hyperlink{class_statistics_ba44f1b2567a77f99ee15c11bda6312a}{noiseRemovalTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time in the noise removal algorithm. \item\end{CompactList}\item 
-double \hyperlink{class_statistics_d88deb57349fedd7035ccffa06b4859b}{preprocessingTime} () const 
+const double \& \hyperlink{class_statistics_9b1c2d1f1338069346c80293a2c11b6d}{preprocessingTime} () const 
 \begin{CompactList}\small\item\em Returns the total elapsed time within the preprocessing stage. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Member Functions}
 \begin{CompactItemize}
@@ -98,11 +98,11 @@ Initializes a \hyperlink{class_statistics}{Statistics} object with timers set to
 Definition at line 12 of file Statistics.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_statistics_565e90b1940d12bb2a2661f6dcea230d}{
+\hypertarget{class_statistics_d70a464a72d94c795097608e2a18550a}{
 \index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Statistics@{Statistics}}
-\subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::backgroundReferenceGrayLevelFindingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_statistics_565e90b1940d12bb2a2661f6dcea230d}
+\subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::backgroundReferenceGrayLevelFindingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_d70a464a72d94c795097608e2a18550a}
 
 
 Returns the elapsed time in the reference gray level of the background finding algorithm. 
@@ -112,16 +112,16 @@ Returns the elapsed time in the reference gray level of the background finding a
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
 Definition at line 146 of file Statistics.hpp.
 
-Referenced by Recognizer::obtainText().\hypertarget{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}{
+Referenced by Recognizer::obtainText().\hypertarget{class_statistics_87bdb5b4f7a88cb74d0072fd0c7a2248}{
 \index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Statistics@{Statistics}}
-\subsubsection[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::optimalThresholdComputingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_statistics_ca10ccbc4137e9ad184ff6dc9a3e5a46}
+\subsubsection[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::optimalThresholdComputingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_87bdb5b4f7a88cb74d0072fd0c7a2248}
 
 
 Returns the elapsed time in the optimal threshold computing algorithm. 
@@ -131,16 +131,16 @@ Returns the elapsed time in the optimal threshold computing algorithm.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
 Definition at line 155 of file Statistics.hpp.
 
-Referenced by Recognizer::obtainText().\hypertarget{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}{
+Referenced by Recognizer::obtainText().\hypertarget{class_statistics_ba44f1b2567a77f99ee15c11bda6312a}{
 \index{Statistics@{Statistics}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Statistics@{Statistics}}
-\subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::noiseRemovalTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_statistics_25b35c7f7f33d55ee86f4e7ba6cd0c48}
+\subsubsection[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::noiseRemovalTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_ba44f1b2567a77f99ee15c11bda6312a}
 
 
 Returns the elapsed time in the noise removal algorithm. 
@@ -150,16 +150,16 @@ Returns the elapsed time in the noise removal algorithm.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
 Definition at line 164 of file Statistics.hpp.
 
-Referenced by Recognizer::obtainText().\hypertarget{class_statistics_d88deb57349fedd7035ccffa06b4859b}{
+Referenced by Recognizer::obtainText().\hypertarget{class_statistics_9b1c2d1f1338069346c80293a2c11b6d}{
 \index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
 \index{preprocessingTime@{preprocessingTime}!Statistics@{Statistics}}
-\subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}double Statistics::preprocessingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_statistics_d88deb57349fedd7035ccffa06b4859b}
+\subsubsection[preprocessingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::preprocessingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_9b1c2d1f1338069346c80293a2c11b6d}
 
 
 Returns the total elapsed time within the preprocessing stage. 
@@ -169,7 +169,7 @@ Returns the total elapsed time within the preprocessing stage.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
+\item[Date:]2008-10-13 \end{Desc}
 
 
 Definition at line 173 of file Statistics.hpp.\hypertarget{class_statistics_f8a60e8a89be8fe8b2c46782681c1a2c}{
@@ -236,5 +236,5 @@ Definition at line 44 of file Statistics.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_statistics_8hpp}{Statistics.hpp}\item 
-\hyperlink{_statistics_8cpp}{Statistics.cpp (136)}\end{CompactItemize}
+\hyperlink{_statistics_8hpp}{Statistics.hpp (141)}\item 
+\hyperlink{_statistics_8cpp}{Statistics.cpp (141)}\end{CompactItemize}

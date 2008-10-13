@@ -40,9 +40,9 @@ class Preprocessor
 		/// @return Current optimal threshold computed from the last clip used
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned char optimalThreshold () const;
+		const unsigned char &optimalThreshold () const;
 				
 		
 		///
@@ -62,9 +62,9 @@ class Preprocessor
 		/// @return Reference background gray level in the last clip used
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned char backgroundReferenceGrayLevel () const;
+		const unsigned char &backgroundReferenceGrayLevel () const;
 				
 
 		///
@@ -73,9 +73,9 @@ class Preprocessor
 		/// @return Elapsed time when applying the 'isolated noise removal' algorithm
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double noiseRemovalTime () const;
+		const double &noiseRemovalTime () const;
 		
 				
 		///
@@ -84,9 +84,9 @@ class Preprocessor
 		/// @return Elapsed time while founding the optimal threshold within the clip
 		///
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double optimalThresholdComputingTime () const;
+		const double &optimalThresholdComputingTime () const;
 		
 		
 		///
@@ -95,9 +95,9 @@ class Preprocessor
 		/// @return Elapsed time while computing the background reference gray level
 		///
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		double backgroundReferenceGrayLevelFindingTime () const;
+		const double &backgroundReferenceGrayLevelFindingTime () const;
 		
 		
 		///
@@ -110,9 +110,9 @@ class Preprocessor
 		/// @return The optimal threshold of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned char computeOptimalThreshold (const Clip &clip);
+		const unsigned char &computeOptimalThreshold (const Clip &clip);
 
 		
 		///
@@ -124,9 +124,9 @@ class Preprocessor
 		/// @return The reference gray level of the background
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-11
+		/// @date 2008-10-13
 		///
-		unsigned char findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
+		const unsigned char &findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
 
 		
 		///
@@ -181,7 +181,7 @@ class Preprocessor
 ///
 /// @details
 ///
-inline unsigned char Preprocessor::optimalThreshold () const
+inline const unsigned char &Preprocessor::optimalThreshold () const
 {
 	return optimalThreshold_;
 };
@@ -199,7 +199,7 @@ inline void Preprocessor::optimalThreshold (const unsigned char &threshold)
 ///
 /// @details
 ///
-inline unsigned char Preprocessor::backgroundReferenceGrayLevel () const
+inline const unsigned char &Preprocessor::backgroundReferenceGrayLevel () const
 {
 	return backgroundReferenceGrayLevel_;
 };
@@ -208,7 +208,7 @@ inline unsigned char Preprocessor::backgroundReferenceGrayLevel () const
 ///
 /// @details
 ///
-inline double Preprocessor::noiseRemovalTime () const
+inline const double &Preprocessor::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
@@ -217,7 +217,7 @@ inline double Preprocessor::noiseRemovalTime () const
 ///
 /// @details
 ///
-inline double Preprocessor::optimalThresholdComputingTime () const
+inline const double &Preprocessor::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
@@ -226,7 +226,7 @@ inline double Preprocessor::optimalThresholdComputingTime () const
 ///
 /// @details
 ///
-inline double Preprocessor::backgroundReferenceGrayLevelFindingTime () const
+inline const double &Preprocessor::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };

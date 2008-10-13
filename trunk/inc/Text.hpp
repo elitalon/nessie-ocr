@@ -86,9 +86,9 @@ class Text
 		/// @return The content of the text
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		std::string content () const;
+		const std::string &content () const;
 
 
 		///
@@ -121,9 +121,9 @@ class Text
 		/// @see WordRate
 		///
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		std::vector<WordRate> wordRates () const;
+		const std::vector<WordRate> &wordRates () const;
 
 
 	private:
@@ -180,7 +180,7 @@ class Text
 ///
 /// @details
 ///
-inline std::string Text::content () const
+inline const std::string &Text::content () const
 {
 	return content_;
 };
@@ -210,7 +210,7 @@ inline unsigned int Text::length () const
 ///
 /// @details
 /// 
-inline std::vector<WordRate> Text::wordRates () const
+inline const std::vector<WordRate> &Text::wordRates () const
 {
 	return wordRates_;
 };

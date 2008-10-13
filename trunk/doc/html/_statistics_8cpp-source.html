@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.cpp (136) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.cpp (141) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -74,7 +74,7 @@ window.onload = initDynSections;
 <a name="l00016"></a>00016 };
 <a name="l00017"></a>00017 
 <a name="l00018"></a>00018 
-<a name="l00022"></a><a class="code" href="class_statistics.html#f8a60e8a89be8fe8b2c46782681c1a2c">00022</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#565e90b1940d12bb2a2661f6dcea230d" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">Statistics::backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
+<a name="l00022"></a><a class="code" href="class_statistics.html#f8a60e8a89be8fe8b2c46782681c1a2c">00022</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#d70a464a72d94c795097608e2a18550a" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">Statistics::backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
 <a name="l00023"></a>00023 {
 <a name="l00024"></a>00024     <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a> = time;
 <a name="l00025"></a>00025     
@@ -82,7 +82,7 @@ window.onload = initDynSections;
 <a name="l00027"></a>00027 };
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029 
-<a name="l00033"></a><a class="code" href="class_statistics.html#eed35a930f29f4596f3715306e1e1dbc">00033</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ca10ccbc4137e9ad184ff6dc9a3e5a46" title="Returns the elapsed time in the optimal threshold computing algorithm.">Statistics::optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
+<a name="l00033"></a><a class="code" href="class_statistics.html#eed35a930f29f4596f3715306e1e1dbc">00033</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#87bdb5b4f7a88cb74d0072fd0c7a2248" title="Returns the elapsed time in the optimal threshold computing algorithm.">Statistics::optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
 <a name="l00034"></a>00034 {
 <a name="l00035"></a>00035     <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a> = time;
 <a name="l00036"></a>00036     
@@ -90,14 +90,14 @@ window.onload = initDynSections;
 <a name="l00038"></a>00038 };
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 
-<a name="l00044"></a><a class="code" href="class_statistics.html#4ad24aec4e5491b7d3afca143e6deb05">00044</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#25b35c7f7f33d55ee86f4e7ba6cd0c48" title="Returns the elapsed time in the noise removal algorithm.">Statistics::noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
+<a name="l00044"></a><a class="code" href="class_statistics.html#4ad24aec4e5491b7d3afca143e6deb05">00044</a> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ba44f1b2567a77f99ee15c11bda6312a" title="Returns the elapsed time in the noise removal algorithm.">Statistics::noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time)
 <a name="l00045"></a>00045 {
 <a name="l00046"></a>00046     <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a> = time;
 <a name="l00047"></a>00047     
 <a name="l00048"></a>00048     <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a> = <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a> + <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a> + <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
 <a name="l00049"></a>00049 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Oct 11 13:53:11 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 13:36:25 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

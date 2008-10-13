@@ -61,63 +61,63 @@ class Clip
 		/// @return The gray level of the pixel
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned char getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
+		const unsigned char &getPixelGrayLevel (const unsigned int &x, const unsigned int &y) const;
 		
 		
 		///
 		/// Returns the pixels that defines the press clip.
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-07
+		/// @date 2008-10-13
 		///
-		std::vector<unsigned char> pixels () const;
+		const std::vector<unsigned char> &pixels () const;
 		
 		
 		///
 		/// Returns the number of pixels within the press clip.
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-07
+		/// @date 2008-10-13
 		///
-		unsigned int nPixels () const;
+		const unsigned int &nPixels () const;
 		
 		
 		///
 		/// Returns the top left-most pixel x coordinate
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-13
 		///
-		unsigned int x () const;
+		const unsigned int &x () const;
 		
 		
 		///
 		/// Returns the top left-most pixel y coordinate
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
+		/// @date 2008-10-13
 		///
-		unsigned int y () const;
+		const unsigned int &y () const;
 		
 		
 		///
 		/// Returns the width of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned int width () const;
+		const unsigned int &width () const;
 		
 		
 		///
 		/// Returns the height of the clip
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
+		/// @date 2008-10-13
 		///
-		unsigned int height () const;
+		const unsigned int &height () const;
 		
 	private:
 		///
@@ -161,7 +161,7 @@ class Clip
 ///
 /// @details
 /// 
-inline std::vector<unsigned char> Clip::pixels () const
+inline const std::vector<unsigned char> &Clip::pixels () const
 {
 	return pixels_;
 };
@@ -170,7 +170,7 @@ inline std::vector<unsigned char> Clip::pixels () const
 ///
 /// @details
 /// 
-inline unsigned int Clip::nPixels () const
+inline const unsigned int &Clip::nPixels () const
 {
 	return nPixels_;
 };
@@ -179,7 +179,7 @@ inline unsigned int Clip::nPixels () const
 ///
 /// @details
 /// 
-inline unsigned int Clip::x () const
+inline const unsigned int &Clip::x () const
 {
 	return x_;
 };
@@ -188,7 +188,7 @@ inline unsigned int Clip::x () const
 ///
 /// @details
 /// 
-inline unsigned int Clip::y () const
+inline const unsigned int &Clip::y () const
 {
 	return y_;
 };
@@ -197,7 +197,7 @@ inline unsigned int Clip::y () const
 ///
 /// @details
 /// 
-inline unsigned int Clip::width () const
+inline const unsigned int &Clip::width () const
 {
 	return width_;
 };
@@ -206,7 +206,7 @@ inline unsigned int Clip::width () const
 ///
 /// @details
 /// 
-inline unsigned int Clip::height () const
+inline const unsigned int &Clip::height () const
 {
 	return height_;
 };
