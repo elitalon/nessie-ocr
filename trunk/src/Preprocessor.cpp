@@ -8,6 +8,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 #include "Clip.hpp"
 #include "boost/timer.hpp"
@@ -26,58 +27,16 @@ Preprocessor::Preprocessor ()
 
 
 ///
-/// @details To compute the optimal threshold we follow the strategy proposed by Sonka M., Hlavac V. and Boyle R. in
-/// "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008). The target is to find a mean value between
-/// the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value.
+/// @details To compute the optimal threshold we may follow two different strategies. The Sonka's method is faster but sometimes less
+/// accurate, while Otsu's method is more accurate but slower and sometimes does not perform well if there are more than three representative
+/// gray levels. Unless you are testing both algorithms or have specific domain knowledge we strongly recommend the Sonka's technique.
 /// 
-const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip)
+const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip, const unsigned int &technique)
 {
-	// Start timing
-	boost::timer timer;
-	timer.restart();
-	
-	
-	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
-	std::vector<unsigned char> pixels = clip.pixels();
-	
-	
-	// Start with an initial threshold
-	optimalThreshold_ = backgroundReferenceGrayLevel_;
-	unsigned char currentThreshold = not optimalThreshold_;	// Enforces current threshold to be different so the firts loop is always made
-	
-	
-	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
-	while (currentThreshold not_eq optimalThreshold_)
-	{
-		unsigned int backgroundMeanValue = 0, objectsMeanValue = 0;
-		unsigned int nSamples = 0;
-		
-		std::vector<unsigned char>::iterator pixelsIterator;
-		
-		// Compute the background and objects mean values
-		for ( pixelsIterator = pixels.begin(); pixelsIterator not_eq pixels.end(); ++pixelsIterator )
-		{
-			unsigned char grayLevel = *pixelsIterator;
-			
-			if ( grayLevel >= optimalThreshold_ )
-			{
-				backgroundMeanValue += grayLevel;
-				nSamples++;
-			}
-			else
-				objectsMeanValue += grayLevel;
-		}
-		backgroundMeanValue = round(backgroundMeanValue / nSamples);
-		objectsMeanValue = round(objectsMeanValue / (clip.nPixels() - nSamples));
-
-
-		// Update the optimal threshold keeping the last one
-		currentThreshold = optimalThreshold_;
-		optimalThreshold_ = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2) );
-	}
-	
-	// Gather elapsed time
-	optimalThresholdComputingTime_ = timer.elapsed();
+	if ( technique == 0 )
+		computeSonkaOptimalThreshold (clip);
+	else
+		computeOtsuOptimalThreshold (clip);
 	
 	return optimalThreshold_;
 };
@@ -175,8 +134,8 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 			unsigned char pixelGrayLevel = clip.getPixelGrayLevel(i, j);
 			
 			// Comparison values to avoid pixels that clearly belong to the background
-			bool backgroundPixelOnWhite = (backgroundReferenceGrayLevel_ > optimalThreshold_) and (pixelGrayLevel > backgroundReferenceGrayLevel_);
-			bool backgroundPixelOnBlack = (backgroundReferenceGrayLevel_ < optimalThreshold_) and (pixelGrayLevel < backgroundReferenceGrayLevel_);
+			bool backgroundPixelOnWhite = (backgroundReferenceGrayLevel_ > optimalThreshold_) and (pixelGrayLevel >= backgroundReferenceGrayLevel_);
+			bool backgroundPixelOnBlack = (backgroundReferenceGrayLevel_ < optimalThreshold_) and (pixelGrayLevel <= backgroundReferenceGrayLevel_);
 			
 			if ( not backgroundPixelOnBlack and not backgroundPixelOnWhite )
 			{
@@ -201,12 +160,12 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 							unsigned char neighbourPixelGrayLevel = clip.getPixelGrayLevel(p, q);
 
 							// When background gray level is close to white but not the pixel, update the noisy neighbours counter
-							if ( (backgroundReferenceGrayLevel_ > optimalThreshold_) and (neighbourPixelGrayLevel > optimalThreshold_) )
+							if ( (backgroundReferenceGrayLevel_ >= optimalThreshold_) and (neighbourPixelGrayLevel >= optimalThreshold_) )
 								nBackgroundPixels++;
 							else
 							{
 								// When background gray level is close to black but not the pixel, update the noisy neighbours counter
-								if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel < optimalThreshold_) )
+								if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel <= optimalThreshold_) )
 									nBackgroundPixels++;
 							}
 						}
@@ -222,4 +181,145 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 	
 	// Gather elapsed time
 	noiseRemovalTime_ = timer.elapsed();
+};
+
+
+///
+/// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008)
+/// is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial
+/// threshold value that is given by the member #backgroundReferenceGrayLevel_.
+/// 
+void Preprocessor::computeSonkaOptimalThreshold (const Clip &clip)
+{
+	// Start timing
+	boost::timer timer;
+	timer.restart();
+	
+	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
+	std::vector<unsigned char> pixels = clip.pixels();
+	
+	
+	// Start with an initial threshold
+	optimalThreshold_ = backgroundReferenceGrayLevel_;
+	unsigned char currentThreshold = not optimalThreshold_;	// Enforces current threshold to be different so the firts loop is always made
+	
+	
+	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
+	while (currentThreshold not_eq optimalThreshold_)
+	{
+		unsigned int backgroundMeanValue = 0, objectsMeanValue = 0;
+		unsigned int nSamples = 0;
+		
+		std::vector<unsigned char>::iterator pixelsIterator;
+		
+		// Compute the background and objects mean values
+		for ( pixelsIterator = pixels.begin(); pixelsIterator not_eq pixels.end(); ++pixelsIterator )
+		{
+			unsigned char grayLevel = *pixelsIterator;
+			
+			if ( grayLevel >= optimalThreshold_ )
+			{
+				backgroundMeanValue += grayLevel;
+				nSamples++;
+			}
+			else
+				objectsMeanValue += grayLevel;
+		}
+		backgroundMeanValue = round(backgroundMeanValue / nSamples);
+		objectsMeanValue = round(objectsMeanValue / (clip.nPixels() - nSamples));
+
+
+		// Update the optimal threshold keeping the last one
+		currentThreshold = optimalThreshold_;
+		optimalThreshold_ = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2) );
+	}
+	
+	// Gather elapsed time
+	optimalThresholdComputingTime_ = timer.elapsed();
+};
+
+
+///
+/// @details The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms"
+/// (IEEE Transactions on Systems, Man, and Cybernetics, 1979) maximises the likelihood that the threshold is chosen so as to split the image between
+/// and object and its background. An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the
+/// resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and the first-order cumulative moments of the
+/// gray-level histogram.
+///
+void Preprocessor::computeOtsuOptimalThreshold (const Clip &clip)
+{
+	// Start timing
+	boost::timer timer;
+	timer.restart();
+	
+	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
+	std::vector<unsigned char> pixels	= clip.pixels();
+	
+	
+	///
+	/// 1. Compute the gray-level histogram and normalized it.
+	///
+	std::vector<double> histogram(256,0.0);
+	std::vector<unsigned char>::iterator pixelsIterator;
+	
+	for ( pixelsIterator = pixels.begin(); pixelsIterator not_eq pixels.end(); ++pixelsIterator )
+		histogram[static_cast<int>(*pixelsIterator)] += 1.0;
+	
+	double nPixels = static_cast<double>( clip.nPixels() );
+	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), nPixels) );
+	
+	
+	///
+	/// 2. Compute the total mean level of the image \f$\mu_T\f$.
+	///
+	double meanGrayLevel = 0.0;
+	for ( unsigned int k = 1; k <= 256; ++k )
+		meanGrayLevel += histogram[k-1] * static_cast<double>(k);
+		
+	
+	///
+	/// 3. For each gray level \f$k\f$ compute \f$\omega(k)\f$ y \f$\mu(k)\f$, which are the zeroth- and the first-order cumulative moments of the histogram
+	/// up to the \f$k\f$th level.
+	///
+	std::vector<double> omega(256,0.0);
+	std::vector<double> mu(256,0.0);
+	for ( unsigned int k = 0; k < 256; ++k )
+	{
+		for ( unsigned int i = 0; i <= k; ++i )
+		{
+			omega[k]	+= histogram[i];
+			mu[k]		+= histogram[i] * static_cast<double>(i+1) ;
+		}
+	}
+	
+	
+	///
+	/// 4. Compute the variance of the class separability \f$\sigma_B^2(k)\f$.
+	///
+	std::vector<double> sigma(256,0.0);
+	for ( unsigned int k = 0; k < 256; ++k )
+	{
+		double numerator	= (meanGrayLevel * omega[k]) - mu[k];
+		double denominator	= omega[k] - (1.0 - omega[k]);
+		
+		sigma[k] = pow(numerator, 2) / denominator;
+	}
+	
+	
+	///
+	/// 5. Find the \f$k\f$th level that makes a \f$\sigma_B^2(k)\f$ value the maximum.
+	///
+	optimalThreshold_ = 0;
+	double maximumSigma = sigma[0];
+	for ( unsigned int k = 1; k < 256; ++k )
+	{
+		if ( sigma[k] > maximumSigma )
+		{
+			maximumSigma		= sigma[k];
+			optimalThreshold_	= static_cast<unsigned char>(k);
+		}
+	}
+	
+	// Gather elapsed time
+	optimalThresholdComputingTime_ = timer.elapsed();
 };

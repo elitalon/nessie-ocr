@@ -159,7 +159,7 @@ class Recognizer
 		///
 		/// @param externalImage The destination Image object from the Magick++ API previously created
 		/// 
-		/// @remarks The image will be converted to a grayscale colorspace
+		/// @post The external image is converted to a grayscale colorspace
 		/// 
 		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
 		/// 
@@ -200,7 +200,7 @@ class Recognizer
 		///
 		/// @param image An Image object from the Magick++ API previously created
 		/// 
-		/// @remarks The image is converted to a grayscale colorspace internally
+		/// @post The internal image is converted to a grayscale colorspace
 		/// 
 		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
 		/// 
