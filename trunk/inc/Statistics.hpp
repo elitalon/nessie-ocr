@@ -7,7 +7,6 @@
 #define _STATISTICS_H
 
 
-
 ///
 /// Statistics about the text recognition process.
 /// 
@@ -27,12 +26,12 @@ class Statistics
 		/// @date 2008-10-04
 		///
 		Statistics ();
-		
+
 		
 		///
 		/// Returns the elapsed time in the reference gray level of the background finding algorithm
 		///
-		/// @return Elapsed time in the reference gray level of the background finding algorithm
+		/// @return Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
@@ -43,7 +42,7 @@ class Statistics
 		///
 		/// Returns the elapsed time in the optimal threshold computing algorithm
 		///
-		/// @return Elapsed time in the optimal threshold computing algorithm
+		/// @return Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
@@ -54,7 +53,7 @@ class Statistics
 		///
 		/// Returns the elapsed time in the noise removal algorithm
 		///
-		/// @return Elapsed time in the noise removal algorithm
+		/// @return Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
@@ -65,12 +64,45 @@ class Statistics
 		///
 		/// Returns the total elapsed time within the preprocessing stage
 		///
-		/// @return Total elapsed time within the preprocessing stage
+		/// @return Total elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///
 		const double &preprocessingTime () const;
+		
+		
+		///
+		/// Returns the elapsed time while applying the thresholding algorithm.
+		/// 
+		/// @return Elapsed time in seconds
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-13
+		///
+		const double &thresholdingTime () const;
+		
+		
+		///
+		/// Returns the elapsed time while applying the flood fill algorithm.
+		/// 
+		/// @return Elapsed time in seconds
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-13
+		///
+		const double &floodFillingTime () const;
+		
+		
+		///
+		/// Returns the total elapsed time within the segmentation stage
+		///
+		/// @return Total elapsed time in seconds
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-13
+		///
+		const double &Statistics::segmentationTime () const;
 		
 		
 	private:
@@ -99,11 +131,26 @@ class Statistics
 		/// 
 		double preprocessingTime_;
 		
+		///
+		/// Elapsed time while applying the thresholding algorithm
+		///
+		double thresholdingTime_;
+		
+		///
+		/// Elapsed time while applying the flood fill algorithm
+		///
+		double floodFillingTime_;
+		
+		///
+		/// Total elapsed time within the segmentation stage
+		///
+		double segmentationTime_;
+		
 		
 		///
 		/// Sets the elapsed time in the reference gray level of the background finding algorithm.
 		/// 
-		/// @param	time	Elapsed time in the reference gray level of the background finding algorithm
+		/// @param	time	Elapsed time in seconds
 		///
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-06
@@ -114,7 +161,7 @@ class Statistics
 		///
 		/// Sets the elapsed time in the optimal threshold computing algorithm
 		///
-		/// @param	time	Elapsed time in the optimal threshold computing algorithm
+		/// @param	time	Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-06
@@ -125,12 +172,34 @@ class Statistics
 		///
 		/// Sets the elapsed time in the noise removal algorithm
 		///
-		/// @param	time	Elapsed time in the noise removal algorithm
+		/// @param	time	Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-06
 		///
 		void noiseRemovalTime (const double &time);
+		
+		
+		///
+		/// Sets the elapsed time in the thresholding algorithm
+		///
+		/// @param	time	Elapsed time in seconds
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-13
+		///
+		void thresholdingTime (const double &time);
+		
+		
+		///
+		/// Sets the elapsed time in the flood filling algorithm
+		///
+		/// @param	time	Elapsed time in seconds
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-13
+		///
+		void floodFillingTime (const double &time);
 };
 
 
@@ -173,6 +242,33 @@ inline const double &Statistics::noiseRemovalTime () const
 inline const double &Statistics::preprocessingTime () const
 {
 	return preprocessingTime_;
+};
+
+
+///
+/// @details
+///
+inline const double &Statistics::thresholdingTime () const
+{
+	return thresholdingTime_;
+};
+
+
+///
+/// @details
+/// 
+inline const double &Statistics::floodFillingTime () const
+{
+	return floodFillingTime_;
+};
+
+
+///
+/// @details
+///
+inline const double &Statistics::segmentationTime () const
+{
+	return segmentationTime_;
 };
 
 
