@@ -31,6 +31,9 @@ NESSIE_EXCEPTION_INC=$(INC)NessieException.hpp
 # Source file of 'WordRate' pair
 WORD_RATE_INC=$(INC)WordRate.hpp
 
+# Source files of 'Pixel' pair
+PIXEL_INC=$(INC)Pixel.hpp
+
 # Source files of 'Statistics' struct
 STATISTICS_SRC=$(SRC)Statistics.cpp
 STATISTICS_INC=$(INC)Statistics.hpp
@@ -38,10 +41,6 @@ STATISTICS_INC=$(INC)Statistics.hpp
 # Source files of 'Text' class
 TEXT_SRC=$(SRC)Text.cpp
 TEXT_INC=$(INC)Text.hpp
-
-# Source files of 'Pixel' class
-PIXEL_SRC=$(SRC)Pixel.cpp
-PIXEL_INC=$(INC)Pixel.hpp
 
 # Source files of 'Clip' class
 CLIP_SRC=$(SRC)Clip.cpp
@@ -51,6 +50,10 @@ CLIP_INC=$(INC)Clip.hpp
 PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
 PREPROCESSOR_INC=$(INC)Preprocessor.hpp
 
+# Source files of 'Preprocessor' class
+SEGMENTER_SRC=$(SRC)Segmenter.cpp
+SEGMENTER_INC=$(INC)Segmenter.hpp
+
 # Source files of 'Recognizer' class
 RECOGNIZER_SRC=$(SRC)Recognizer.cpp
 RECOGNIZER_INC=$(INC)Recognizer.hpp
@@ -59,31 +62,40 @@ RECOGNIZER_INC=$(INC)Recognizer.hpp
 CLIP_LOCATION_SRC=$(SRC)ClipLocation.cpp
 CLIP_LOCATION_INC=$(INC)ClipLocation.hpp
 
+# Source files of 'Shape' class
+SHAPE_SRC=$(SRC)Shape.cpp
+SHAPE_INC=$(INC)Shape.hpp
+
+
 # Object files
 MAIN_OBJ=$(SRC)main.o
 NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
 STATISTICS_OBJ=$(SRC)Statistics.o
 TEXT_OBJ=$(SRC)Text.o
-PIXEL_OBJ=$(SRC)Pixel.o
 CLIP_OBJ=$(SRC)Clip.o
 CLIP_LOCATION_OBJ=$(SRC)ClipLocation.o
+SHAPE_OBJ=$(SRC)Shape.o
 PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
+SEGMENTER_OBJ=$(SRC)Segmenter.o
 RECOGNIZER_OBJ=$(SRC)Recognizer.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
 NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
 WORD_RATE=$(WORD_RATE_INC)
+PIXEL=$(PIXEL_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
 CLIP_LOCATION=$(CLIP_LOCATION_INC) $(CLIP_LOCATION_SRC)
-PIXEL=$(PIXEL_INC) $(PIXEL_SRC)
+SHAPE=$(SHAPE_INC) $(SHAPE_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
+SEGMENTER=$(SEGMENTER_INC) $(SEGMENTER_SRC)
 RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
 
+
 # Object files
-OBJECTS=$(RECOGNIZER_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
+OBJECTS=$(RECOGNIZER_OBJ) $(SEGMENTER_OBJ) $(PREPROCESSOR_OBJ) $(SHAPE_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
@@ -121,7 +133,7 @@ endif
 	mv main.o $(SRC)
 	@printf "$(NL)"
 	
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(RECOGNIZER)
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(SEGMENTER_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -193,18 +205,6 @@ endif
 	mv NessieException.o $(SRC)
 	@printf "$(NL)"
 
-$(PIXEL_OBJ): $(PIXEL)
-	@printf "** Making rule $(PIXEL_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(PIXEL_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(PIXEL_SRC)
-endif
-	@printf "$(TAB)"
-	mv Pixel.o $(SRC)
-	@printf "$(NL)"
-
 $(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
 	@printf "** Making rule $(CLIP_LOCATION_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -215,6 +215,30 @@ else
 endif
 	@printf "$(TAB)"
 	mv ClipLocation.o $(SRC)
+	@printf "$(NL)"
+
+$(SEGMENTER_OBJ): $(PIXEL) $(SHAPE_OBJ) $(SEGMENTER)
+	@printf "** Making rule $(SEGMENTER_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(SEGMENTER_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(SEGMENTER_SRC)
+endif
+	@printf "$(TAB)"
+	mv Segmenter.o $(SRC)
+	@printf "$(NL)"
+
+$(SHAPE_OBJ): $(PIXEL) $(SHAPE)
+	@printf "** Making rule $(SHAPE_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(SHAPE_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(SHAPE_SRC)
+endif
+	@printf "$(TAB)"
+	mv Shape.o $(SRC)
 	@printf "$(NL)"
 
 

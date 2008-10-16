@@ -7,14 +7,14 @@
 #define _RECOGNIZER_H
 
 #include <vector>
-class string; 	// Forward declaration
+#include <string>
 
 #include <Magick++.h>
 
+#include "Clip.hpp"
 #include "Text.hpp"
 #include "Statistics.hpp"
 #include "ClipLocation.hpp"
-class Clip;		// Forward declaration
 
 
 
@@ -34,7 +34,7 @@ class Clip;		// Forward declaration
 /// modify the constructor Recognizer(const std::string &path) or add a new constructor with specific parameters,
 /// and overload a writeExternalImage() method.
 /// 
-/// @see Text, Statistics, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>, Clip
+/// @see Clip, Text, Statistics, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-10
@@ -159,7 +159,8 @@ class Recognizer
 		///
 		/// @param externalImage The destination Image object from the Magick++ API previously created
 		/// 
-		/// @post The external image is converted to a grayscale colorspace
+		/// @post The external image is converted to a grayscale colorspace and its pixels are overwritten according
+		/// to the information of the internal image
 		/// 
 		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
 		/// 

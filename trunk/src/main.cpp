@@ -1,50 +1,53 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
+///
+/// @file
+/// @brief Implementation of a command line program for testing purposes
+///
 #include <Magick++.h>
-using namespace Magick;
 
 #include "Recognizer.hpp"
-#include "Pixel.hpp"
+
+#include <iostream>
+
 
 ///
-/// Command line program for testing purposes.
+/// @todo Develop an adaptative threshold algorithm
+/// @todo Develop an algorithm to fill characters that may have white pixels within
+/// @todo Enhance Preprocessor::computeOptimalThreshold()
+/// 
+/// @param argc Number of command line arguments
+/// @param argv Command line arguments
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2008-10-16
 ///
 int main (int argc, char const *argv[])
 {
 	try
 	{
-		Image image( argv[1] );
+		// Load an image object with the filename passed
+		Magick::Image image( argv[1] );
+		
+		// Create a Recognizer object from the image loaded
 		Recognizer recon( image );
 		
-		vector<ClipLocation> c;
-		c.push_back( ClipLocation(0,	0,	147, 	206) );
-		c.push_back( ClipLocation(147,	0,	147, 	206) );
-		c.push_back( ClipLocation(294,	0,	147, 	206) );
+		// Execute the OCR process
+		recon.obtainText();		
+		std::cout << "Background finding time:     " << recon.statistic().backgroundReferenceGrayLevelFindingTime() << std::endl;
+		std::cout << "Threshold computing time:    " << recon.statistic().optimalThresholdComputingTime() << std::endl;
+		std::cout << "Noise removal time:          " << recon.statistic().noiseRemovalTime() << std::endl;
+		std::cout << "Preprocessing time:          " << recon.statistic().preprocessingTime() << std::endl;
+		std::cout << std::endl;
+				
+		std::cout << "Thresholding time:           " << recon.statistic().thresholdingTime() << std::endl;
+		std::cout << "Segmentation time:           " << recon.statistic().segmentationTime() << std::endl;
+		std::cout << std::endl;
 		
-		
-		recon.obtainText(c);
-		cout << "Background finding time:     " << recon.statistic(0).backgroundReferenceGrayLevelFindingTime() << endl;
-		cout << "Thresholding computing time: " << recon.statistic(0).optimalThresholdComputingTime() << endl;
-		cout << "Noise removal time:          " << recon.statistic(0).noiseRemovalTime() << endl;
-		cout << "Preprocessing time:          " << recon.statistic(0).preprocessingTime() << endl;
-		cout << endl;
-		
-		cout << "Background finding time:     " << recon.statistic(1).backgroundReferenceGrayLevelFindingTime() << endl;
-		cout << "Thresholding computing time: " << recon.statistic(1).optimalThresholdComputingTime() << endl;
-		cout << "Noise removal time:          " << recon.statistic(1).noiseRemovalTime() << endl;
-		cout << "Preprocessing time:          " << recon.statistic(1).preprocessingTime() << endl;
-		cout << endl;
-		
-		cout << "Background finding time:     " << recon.statistic(2).backgroundReferenceGrayLevelFindingTime() << endl;
-		cout << "Thresholding computing time: " << recon.statistic(2).optimalThresholdComputingTime() << endl;
-		cout << "Noise removal time:          " << recon.statistic(2).noiseRemovalTime() << endl;
-		cout << "Preprocessing time:          " << recon.statistic(2).preprocessingTime() << endl;
-		cout << endl;
-		
+		// Write results to the internal image
 		recon.writeExternalImage(image);
-		image.write("results.png");
+		
+		// Create a new image with the results of OCR process
+		std::string filename(argv[1]);
+		image.write( filename.insert(filename.find_last_of('.'), "results") );
 	}
 	catch (std::exception &e)
 	{
