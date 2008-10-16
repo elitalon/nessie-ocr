@@ -217,7 +217,7 @@ void Preprocessor::computeSonkaOptimalThreshold (const Clip &clip)
 	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
 	while (currentThreshold not_eq optimalThreshold_)
 	{
-		unsigned int backgroundMeanValue = 0, objectsMeanValue = 0;
+		double backgroundMeanValue = 0, objectsMeanValue = 0;
 		unsigned int nSamples = 0;
 		
 		std::vector<unsigned char>::iterator pixelsIterator;
@@ -229,19 +229,19 @@ void Preprocessor::computeSonkaOptimalThreshold (const Clip &clip)
 			
 			if ( grayLevel >= optimalThreshold_ )
 			{
-				backgroundMeanValue += grayLevel;
+				backgroundMeanValue += static_cast<double>(grayLevel);
 				nSamples++;
 			}
 			else
-				objectsMeanValue += grayLevel;
+				objectsMeanValue += static_cast<double>(grayLevel);
 		}
-		backgroundMeanValue = round(backgroundMeanValue / nSamples);
-		objectsMeanValue = round(objectsMeanValue / (clip.nPixels() - nSamples));
+		backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
+		objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip.nPixels() - nSamples));
 
 
 		// Update the optimal threshold keeping the last one
 		currentThreshold = optimalThreshold_;
-		optimalThreshold_ = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2) );
+		optimalThreshold_ = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
 	}
 	
 	// Gather elapsed time

@@ -21,7 +21,8 @@ Segmenter::Segmenter ()
 
 
 ///
-/// @details Simple thresholding by comparing every pixel gray level with a threshold value
+/// @details Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken
+/// into account to decide the final gray level that must be applied to the pixel.
 ///
 void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, const unsigned char &backgroundReference)
 {
@@ -36,25 +37,21 @@ void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, cons
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
 			unsigned char grayLevel = clip.getPixelGrayLevel(i, j);
-		
-			if ( grayLevel > threshold )
+			
+			if ( (backgroundReference > threshold) and (grayLevel >= threshold) )	// The background is near white
 				clip.setPixelGrayLevel(i, j, 255);
 			else
-				clip.setPixelGrayLevel(i, j, 0);
-			// if ( (backgroundReference > threshold) and (grayLevel >= threshold) )	// The background is near white
-			// 				clip.setPixelGrayLevel(i, j, 255);
-			// 			else
-			// 			{
-			// 				if ( (backgroundReference > threshold) and (grayLevel < threshold) )
-			// 					clip.setPixelGrayLevel(i,j, 0);
-			// 				else
-			// 				{
-			// 					if ( (backgroundReference < threshold) and (grayLevel >= threshold) )	// The background is near black
-			// 						clip.setPixelGrayLevel(i,j, 255);
-			// 					else
-			// 						clip.setPixelGrayLevel(i,j, 0);
-			// 				}
-			// 			}	
+			{
+				if ( (backgroundReference > threshold) and (grayLevel < threshold) )
+					clip.setPixelGrayLevel(i,j, 0);
+				else
+				{
+					if ( (backgroundReference < threshold) and (grayLevel < threshold) )	// The background is near black
+						clip.setPixelGrayLevel(i,j, 0);
+					else
+						clip.setPixelGrayLevel(i,j, 255);
+				}
+			}	
 		}
 	}
 	

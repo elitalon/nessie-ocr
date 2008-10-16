@@ -79,60 +79,56 @@ window.onload = initDynSections;
 <a name="l00020"></a>00020 };
 <a name="l00021"></a>00021 
 <a name="l00022"></a>00022 
-<a name="l00026"></a><a class="code" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">00026</a> <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies the threshold algorithm.">Segmenter::applyThreshold</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;threshold, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;backgroundReference)
-<a name="l00027"></a>00027 {
-<a name="l00028"></a>00028     <span class="comment">// Start timing</span>
-<a name="l00029"></a>00029     boost::timer timer;
-<a name="l00030"></a>00030     timer.restart();
-<a name="l00031"></a>00031     
+<a name="l00027"></a><a class="code" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">00027</a> <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies the threshold algorithm.">Segmenter::applyThreshold</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;threshold, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> &amp;backgroundReference)
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029     <span class="comment">// Start timing</span>
+<a name="l00030"></a>00030     boost::timer timer;
+<a name="l00031"></a>00031     timer.restart();
 <a name="l00032"></a>00032     
-<a name="l00033"></a>00033     <span class="comment">// Threshold every pixel</span>
-<a name="l00034"></a>00034     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">height</a>(); ++i)
-<a name="l00035"></a>00035     {
-<a name="l00036"></a>00036         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">width</a>(); ++j)
-<a name="l00037"></a>00037         {
-<a name="l00038"></a>00038             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> grayLevel = clip.<a class="code" href="class_clip.html#85d16f086803860fae205c48161a3c38" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i, j);
-<a name="l00039"></a>00039         
-<a name="l00040"></a>00040             <span class="keywordflow">if</span> ( grayLevel &gt; threshold )
-<a name="l00041"></a>00041                 clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i, j, 255);
-<a name="l00042"></a>00042             <span class="keywordflow">else</span>
-<a name="l00043"></a>00043                 clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i, j, 0);
-<a name="l00044"></a>00044             <span class="comment">// if ( (backgroundReference &gt; threshold) and (grayLevel &gt;= threshold) )    // The background is near white</span>
-<a name="l00045"></a>00045             <span class="comment">//              clip.setPixelGrayLevel(i, j, 255);</span>
-<a name="l00046"></a>00046             <span class="comment">//          else</span>
-<a name="l00047"></a>00047             <span class="comment">//          {</span>
-<a name="l00048"></a>00048             <span class="comment">//              if ( (backgroundReference &gt; threshold) and (grayLevel &lt; threshold) )</span>
-<a name="l00049"></a>00049             <span class="comment">//                  clip.setPixelGrayLevel(i,j, 0);</span>
-<a name="l00050"></a>00050             <span class="comment">//              else</span>
-<a name="l00051"></a>00051             <span class="comment">//              {</span>
-<a name="l00052"></a>00052             <span class="comment">//                  if ( (backgroundReference &lt; threshold) and (grayLevel &gt;= threshold) )   // The background is near black</span>
-<a name="l00053"></a>00053             <span class="comment">//                      clip.setPixelGrayLevel(i,j, 255);</span>
-<a name="l00054"></a>00054             <span class="comment">//                  else</span>
-<a name="l00055"></a>00055             <span class="comment">//                      clip.setPixelGrayLevel(i,j, 0);</span>
-<a name="l00056"></a>00056             <span class="comment">//              }</span>
-<a name="l00057"></a>00057             <span class="comment">//          }   </span>
-<a name="l00058"></a>00058         }
-<a name="l00059"></a>00059     }
-<a name="l00060"></a>00060     
-<a name="l00061"></a>00061     
-<a name="l00062"></a>00062     <span class="comment">// Gather elapsed time</span>
-<a name="l00063"></a>00063     <a class="code" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a> = timer.elapsed();
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 
-<a name="l00070"></a><a class="code" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426">00070</a> <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426" title="Applies the flood fill algorithm.">Segmenter::applyFloodFill</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip)
-<a name="l00071"></a>00071 {
-<a name="l00072"></a>00072     <span class="comment">// Start timing</span>
-<a name="l00073"></a>00073     boost::timer timer;
-<a name="l00074"></a>00074     timer.restart();
-<a name="l00075"></a>00075     
-<a name="l00076"></a>00076     
-<a name="l00077"></a>00077     
-<a name="l00078"></a>00078     <span class="comment">// Gather elapsed time</span>
-<a name="l00079"></a>00079     <a class="code" href="class_segmenter.html#9f24d008767ba4741cf3d1e599ee119a" title="Elapsed time while applying the flood fill algorithm.">floodFillingTime_</a> = timer.elapsed();
-<a name="l00080"></a>00080 };
+<a name="l00033"></a>00033     
+<a name="l00034"></a>00034     <span class="comment">// Threshold every pixel</span>
+<a name="l00035"></a>00035     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; clip.<a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">height</a>(); ++i)
+<a name="l00036"></a>00036     {
+<a name="l00037"></a>00037         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j &lt; clip.<a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">width</a>(); ++j)
+<a name="l00038"></a>00038         {
+<a name="l00039"></a>00039             <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> grayLevel = clip.<a class="code" href="class_clip.html#85d16f086803860fae205c48161a3c38" title="Returns the gray level of a pixel at coordinates (x,y).">getPixelGrayLevel</a>(i, j);
+<a name="l00040"></a>00040             
+<a name="l00041"></a>00041             <span class="keywordflow">if</span> ( (backgroundReference &gt; threshold) and (grayLevel &gt;= threshold) )   <span class="comment">// The background is near white</span>
+<a name="l00042"></a>00042                 clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i, j, 255);
+<a name="l00043"></a>00043             <span class="keywordflow">else</span>
+<a name="l00044"></a>00044             {
+<a name="l00045"></a>00045                 <span class="keywordflow">if</span> ( (backgroundReference &gt; threshold) and (grayLevel &lt; threshold) )
+<a name="l00046"></a>00046                     clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i,j, 0);
+<a name="l00047"></a>00047                 <span class="keywordflow">else</span>
+<a name="l00048"></a>00048                 {
+<a name="l00049"></a>00049                     <span class="keywordflow">if</span> ( (backgroundReference &lt; threshold) and (grayLevel &lt; threshold) )    <span class="comment">// The background is near black</span>
+<a name="l00050"></a>00050                         clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i,j, 0);
+<a name="l00051"></a>00051                     <span class="keywordflow">else</span>
+<a name="l00052"></a>00052                         clip.<a class="code" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3" title="Sets the gray level of a pixel at coordinates (x,y).">setPixelGrayLevel</a>(i,j, 255);
+<a name="l00053"></a>00053                 }
+<a name="l00054"></a>00054             }   
+<a name="l00055"></a>00055         }
+<a name="l00056"></a>00056     }
+<a name="l00057"></a>00057     
+<a name="l00058"></a>00058     
+<a name="l00059"></a>00059     <span class="comment">// Gather elapsed time</span>
+<a name="l00060"></a>00060     <a class="code" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a> = timer.elapsed();
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00067"></a><a class="code" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426">00067</a> <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426" title="Applies the flood fill algorithm.">Segmenter::applyFloodFill</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip)
+<a name="l00068"></a>00068 {
+<a name="l00069"></a>00069     <span class="comment">// Start timing</span>
+<a name="l00070"></a>00070     boost::timer timer;
+<a name="l00071"></a>00071     timer.restart();
+<a name="l00072"></a>00072     
+<a name="l00073"></a>00073     
+<a name="l00074"></a>00074     
+<a name="l00075"></a>00075     <span class="comment">// Gather elapsed time</span>
+<a name="l00076"></a>00076     <a class="code" href="class_segmenter.html#9f24d008767ba4741cf3d1e599ee119a" title="Elapsed time while applying the flood fill algorithm.">floodFillingTime_</a> = timer.elapsed();
+<a name="l00077"></a>00077 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:53:51 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 18:23:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

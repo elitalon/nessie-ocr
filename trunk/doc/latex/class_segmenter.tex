@@ -102,9 +102,11 @@ Applies the threshold algorithm.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
-Simple thresholding by comparing every pixel gray level with a threshold value 
+Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
 
-Definition at line 26 of file Segmenter.cpp.\hypertarget{class_segmenter_327c88f2d55cb606a67ce778c06cf426}{
+Definition at line 27 of file Segmenter.cpp.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_327c88f2d55cb606a67ce778c06cf426}{
 \index{Segmenter@{Segmenter}!applyFloodFill@{applyFloodFill}}
 \index{applyFloodFill@{applyFloodFill}!Segmenter@{Segmenter}}
 \subsubsection[applyFloodFill]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::applyFloodFill (const {\bf Clip} \& {\em clip})}}
@@ -126,7 +128,7 @@ Applies the flood fill algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 70 of file Segmenter.cpp.\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
+Definition at line 67 of file Segmenter.cpp.\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
 \index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
 \index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
 \subsubsection[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Segmenter::thresholdingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (145) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.cpp (148) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -252,7 +252,7 @@ window.onload = initDynSections;
 <a name="l00217"></a>00217     <span class="comment">// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels</span>
 <a name="l00218"></a>00218     <span class="keywordflow">while</span> (currentThreshold not_eq optimalThreshold_)
 <a name="l00219"></a>00219     {
-<a name="l00220"></a>00220         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> backgroundMeanValue = 0, objectsMeanValue = 0;
+<a name="l00220"></a>00220         <span class="keywordtype">double</span> backgroundMeanValue = 0, objectsMeanValue = 0;
 <a name="l00221"></a>00221         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nSamples = 0;
 <a name="l00222"></a>00222         
 <a name="l00223"></a>00223         std::vector&lt;unsigned char&gt;::iterator pixelsIterator;
@@ -264,19 +264,19 @@ window.onload = initDynSections;
 <a name="l00229"></a>00229             
 <a name="l00230"></a>00230             <span class="keywordflow">if</span> ( grayLevel &gt;= optimalThreshold_ )
 <a name="l00231"></a>00231             {
-<a name="l00232"></a>00232                 backgroundMeanValue += grayLevel;
+<a name="l00232"></a>00232                 backgroundMeanValue += <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(grayLevel);
 <a name="l00233"></a>00233                 nSamples++;
 <a name="l00234"></a>00234             }
 <a name="l00235"></a>00235             <span class="keywordflow">else</span>
-<a name="l00236"></a>00236                 objectsMeanValue += grayLevel;
+<a name="l00236"></a>00236                 objectsMeanValue += <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(grayLevel);
 <a name="l00237"></a>00237         }
-<a name="l00238"></a>00238         backgroundMeanValue = round(backgroundMeanValue / nSamples);
-<a name="l00239"></a>00239         objectsMeanValue = round(objectsMeanValue / (clip.<a class="code" href="class_clip.html#9acfff7074239516465bcca11586c48d" title="Returns the number of pixels within the press clip.">nPixels</a>() - nSamples));
+<a name="l00238"></a>00238         backgroundMeanValue = round(backgroundMeanValue / static_cast&lt;double&gt;(nSamples));
+<a name="l00239"></a>00239         objectsMeanValue = round(objectsMeanValue / static_cast&lt;double&gt;(clip.<a class="code" href="class_clip.html#9acfff7074239516465bcca11586c48d" title="Returns the number of pixels within the press clip.">nPixels</a>() - nSamples));
 <a name="l00240"></a>00240 
 <a name="l00241"></a>00241 
 <a name="l00242"></a>00242         <span class="comment">// Update the optimal threshold keeping the last one</span>
 <a name="l00243"></a>00243         currentThreshold = optimalThreshold_;
-<a name="l00244"></a>00244         optimalThreshold_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>( round((objectsMeanValue + backgroundMeanValue) / 2) );
+<a name="l00244"></a>00244         optimalThreshold_ = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
 <a name="l00245"></a>00245     }
 <a name="l00246"></a>00246     
 <a name="l00247"></a>00247     <span class="comment">// Gather elapsed time</span>
@@ -346,7 +346,7 @@ window.onload = initDynSections;
 <a name="l00334"></a>00334     <a class="code" href="class_preprocessor.html#d606fe1f0be7f7be60583f59278e2df6" title="Elapsed time when converting the image to a grayscale colorspace.">optimalThresholdComputingTime_</a> = timer.elapsed();
 <a name="l00335"></a>00335 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:53:51 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 18:23:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

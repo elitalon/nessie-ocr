@@ -120,16 +120,14 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	Preprocessor preprocessor;
 	std::cout << "Background reference level:  " << static_cast<unsigned int>(preprocessor.findBackgroundReferenceGrayLevel(clip)) << std::endl;
 	std::cout << "Optimal threshold:           " << static_cast<unsigned int>(preprocessor.computeOptimalThreshold(clip)) << std::endl << std::endl;
-	preprocessor.removeIsolatedNoise(clip);
-	updateImage(clip);
-	
+	preprocessor.removeIsolatedNoise(clip);	
 	
 	//
 	// Segmentation stage
 	//
 	Segmenter segmenter;
-	// segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
-	// 	updateImage(clip);
+	segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
+	updateImage(clip);
 	// 	segmenter.applyFloodFill(clip);
 	
 	
@@ -159,7 +157,10 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 {
 	// Test if the image is empty to create a new one
 	if ( (externalImage.rows() == 0) and (externalImage.columns() == 0) )
+	{
+		std::cout << "Creating external Image object" << std::endl;
 		externalImage = Magick::Image(Magick::Geometry(width_, height_), "white");
+	}
 	
 	
 	// Assume the internal image dimensions are at least greater or equal to the external image dimensions
@@ -185,21 +186,22 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 	// Allocate pixel view
 	Magick::Pixels view(externalImage);
 	Magick::PixelPacket *originPixel = view.get(0, 0, columns, rows);
-
+	Magick::PixelPacket *pixel;
+	
 	// Copy the current data into the external image
-	for ( unsigned int i = 0; i < rows; ++i )
+	for ( unsigned int i = 0; i < view.rows(); ++i )
 	{
-		for ( unsigned int j = 0; j < columns; ++j )
+		for ( unsigned int j = 0; j < view.columns(); ++j )
 		{
-			unsigned int index = (i * columns) + j;
-			Magick::PixelPacket *pixel = originPixel + index;
-
-			*pixel = Magick::ColorGray( static_cast<double>(image_[index]) / 255.0 );
+			pixel = originPixel + (i * view.columns()) + j;
+			
+			*pixel = Magick::ColorGray ( static_cast<double>(image_[(i * columns) + j]) / 255.0 );
 		}
 	}
 	
 	// Synchronize changes to the image
 	view.sync();
+	externalImage.syncPixels();
 };
 
 

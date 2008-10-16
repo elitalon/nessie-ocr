@@ -189,8 +189,10 @@ Applies the threshold algorithm.
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Simple thresholding by comparing every pixel gray level with a threshold value 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00026">26</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00027">27</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -222,7 +224,7 @@ Applies the flood fill algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00070">70</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00067">67</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -312,7 +314,7 @@ Returns the shapes found in the last segmentation process.
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp (146)</a><li><a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp (146)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:54:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 18:23:40 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
