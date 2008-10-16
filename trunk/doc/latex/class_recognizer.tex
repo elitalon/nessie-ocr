@@ -23,7 +23,7 @@ At the moment, this class manages the press clips within an image loaded with th
 In future modifications any library may be added to load the images. A developer should overload a \hyperlink{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{loadImage()} method, modify the constructor \hyperlink{class_recognizer_50ffc181208bb07ae651aba6249ee7e4}{Recognizer(const std::string \&path)} or add a new constructor with specific parameters, and overload a \hyperlink{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{writeExternalImage()} method.
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_text}{Text}, \hyperlink{class_statistics}{Statistics}, \href{http://www.imagemagick.org/Magick++/}{\tt Magick++ API}, \hyperlink{class_clip}{Clip}\end{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_text}{Text}, \hyperlink{class_statistics}{Statistics}, \href{http://www.imagemagick.org/Magick++/}{\tt Magick++ API}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -111,7 +111,7 @@ Constructor.
 \item[Date:]2008-10-10\end{Desc}
 Creates a new \hyperlink{class_recognizer}{Recognizer} object loading the image from disk. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
 
-Definition at line 21 of file Recognizer.cpp.\hypertarget{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640}{
+Definition at line 20 of file Recognizer.cpp.\hypertarget{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640}{
 \index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
 \index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
 \subsubsection[Recognizer]{\setlength{\rightskip}{0pt plus 5cm}Recognizer::Recognizer (Magick::Image \& {\em image})}}
@@ -133,7 +133,7 @@ Constructor.
 \item[Date:]2008-10-10\end{Desc}
 Creates a new \hyperlink{class_recognizer}{Recognizer} object from an image loaded externally with methods from Magick++ API. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
 
-Definition at line 42 of file Recognizer.cpp.
+Definition at line 41 of file Recognizer.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{
@@ -151,9 +151,9 @@ Recognizes the text within the whole page at once.
 \item[Date:]2008-10-09\end{Desc}
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-Definition at line 57 of file Recognizer.cpp.
+Definition at line 56 of file Recognizer.cpp.
 
-Referenced by obtainText().\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
+Referenced by main(), and obtainText().\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \subsubsection[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ {\bf ClipLocation} $>$ \& {\em coordinates})}}
@@ -173,7 +173,7 @@ Recognizes the text within multiple press clips whose coordinates are passed.
 \item[Date:]2008-10-13\end{Desc}
 Each set of points provides us a clip that can be located within the page. 
 
-Definition at line 66 of file Recognizer.cpp.\hypertarget{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{
+Definition at line 65 of file Recognizer.cpp.\hypertarget{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \subsubsection[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  unsigned int \& {\em height}, \/  unsigned int \& {\em width})}}
@@ -191,9 +191,9 @@ Recognizes the text within a single press clip located at coordinates (x,y).
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
-If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
+If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-Definition at line 87 of file Recognizer.cpp.\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{
+Definition at line 86 of file Recognizer.cpp.\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{
 \index{Recognizer@{Recognizer}!text@{text}}
 \index{text@{text}!Recognizer@{Recognizer}}
 \subsubsection[text]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Text} \& Recognizer::text (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -215,7 +215,7 @@ Returns the text of a single clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 236 of file Recognizer.hpp.\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{
+Definition at line 237 of file Recognizer.hpp.\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{
 \index{Recognizer@{Recognizer}!texts@{texts}}
 \index{texts@{texts}!Recognizer@{Recognizer}}
 \subsubsection[texts]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Text} $>$ \& Recognizer::texts () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -234,7 +234,7 @@ Returns the text of every loaded clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 248 of file Recognizer.hpp.\hypertarget{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}{
+Definition at line 249 of file Recognizer.hpp.\hypertarget{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}{
 \index{Recognizer@{Recognizer}!statistic@{statistic}}
 \index{statistic@{statistic}!Recognizer@{Recognizer}}
 \subsubsection[statistic]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Statistics} \& Recognizer::statistic (const unsigned int \& {\em label} = {\tt 0}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -258,7 +258,9 @@ Returns the statistical data regarding the recognition process of a single clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 257 of file Recognizer.hpp.\hypertarget{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{
+Definition at line 258 of file Recognizer.hpp.
+
+Referenced by main().\hypertarget{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{
 \index{Recognizer@{Recognizer}!statistics@{statistics}}
 \index{statistics@{statistics}!Recognizer@{Recognizer}}
 \subsubsection[statistics]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Statistics} $>$ \& Recognizer::statistics () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -277,7 +279,7 @@ Returns the statistical data regarding the recognition process of every loaded c
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 269 of file Recognizer.hpp.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{
+Definition at line 270 of file Recognizer.hpp.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{
 \index{Recognizer@{Recognizer}!writeExternalImage@{writeExternalImage}}
 \index{writeExternalImage@{writeExternalImage}!Recognizer@{Recognizer}}
 \subsubsection[writeExternalImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::writeExternalImage (Magick::Image \& {\em externalImage}) const}}
@@ -292,16 +294,18 @@ Writes the information of the internal data into an external image.
 \item[{\em externalImage}]The destination Image object from the Magick++ API previously created\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Remarks:]The image will be converted to a grayscale colorspace\end{Desc}
+\item[Postcondition:]The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image\end{Desc}
 \begin{Desc}
 \item[See also:]\href{http://www.imagemagick.org/Magick++/Image.html}{\tt Image}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-10\end{Desc}
-If either the source or the target are bigger or smaller than its counterpart, only the pixels that match each other are changed. 
+If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed. 
 
-Definition at line 152 of file Recognizer.cpp.\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
+Definition at line 158 of file Recognizer.cpp.
+
+Referenced by main().\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
 \index{Recognizer@{Recognizer}!loadImage@{loadImage}}
 \index{loadImage@{loadImage}!Recognizer@{Recognizer}}
 \subsubsection[loadImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::loadImage (Magick::Image \& {\em image})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
@@ -316,7 +320,7 @@ Loads an Image object created with the Magick++ API into the internal data struc
 \item[{\em image}]An Image object from the Magick++ API previously created\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Remarks:]The image is converted to a grayscale colorspace internally\end{Desc}
+\item[Postcondition:]The internal image is converted to a grayscale colorspace\end{Desc}
 \begin{Desc}
 \item[See also:]\href{http://www.imagemagick.org/Magick++/Image.html}{\tt Image}\end{Desc}
 \begin{Desc}
@@ -325,7 +329,7 @@ Loads an Image object created with the Magick++ API into the internal data struc
 \item[Date:]2008-10-10\end{Desc}
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
 
-Definition at line 193 of file Recognizer.cpp.
+Definition at line 210 of file Recognizer.cpp.
 
 Referenced by Recognizer().\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
 \index{Recognizer@{Recognizer}!updateImage@{updateImage}}
@@ -347,13 +351,13 @@ Writes the information of a clip into the underlying image.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
-Since the only way of loading a \hyperlink{class_clip}{Clip} object is executing the \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{obtainText()} method, and there the dimensions are controlled, here it is assumed that all the coordinates are valid. 
+Since the only way of passing a \hyperlink{class_clip}{Clip} object to this method is invoking \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{Recognizer::obtainText()}, and the dimensions are controlled inside that method, here it is assumed that all the coordinates are valid. 
 
-Definition at line 220 of file Recognizer.cpp.
+Definition at line 244 of file Recognizer.cpp.
 
 Referenced by obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_recognizer_8hpp}{Recognizer.hpp (143)}\item 
-\hyperlink{_recognizer_8cpp}{Recognizer.cpp (142)}\end{CompactItemize}
+\hyperlink{_recognizer_8hpp}{Recognizer.hpp (147)}\item 
+\hyperlink{_recognizer_8cpp}{Recognizer.cpp (147)}\end{CompactItemize}

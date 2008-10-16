@@ -1,9 +1,6 @@
-<area shape="rect" href="$main_8cpp-source.html" title="main.cpp" alt="" coords="5,84,85,111">
-<area shape="rect" href="$_pixel_8cpp.html" title="Implementation of the class Pixel." alt="" coords="109,84,189,111">
-<area shape="rect" href="$_segmenter_8cpp-source.html" title="Segmenter.cpp" alt="" coords="264,239,387,265">
-<area shape="rect" href="$_shape_8cpp-source.html" title="Shape.cpp" alt="" coords="411,161,501,188">
-<area shape="rect" href="$_shape_8hpp-source.html" title="Shape.hpp" alt="" coords="493,84,584,111">
-<area shape="rect" href="$_segmenter_8hpp-source.html" title="Segmenter.hpp" alt="" coords="264,161,387,188">
-<area shape="rect" href="$_feature_vector_8cpp-source.html" title="FeatureVector.cpp" alt="" coords="719,239,865,265">
-<area shape="rect" href="$_feature_vector_8hpp-source.html" title="FeatureVector.hpp" alt="" coords="627,161,773,188">
-<area shape="rect" href="$_classifier_8hpp-source.html" title="Classifier.hpp" alt="" coords="553,239,660,265">
+<area shape="rect" href="$_shape_8hpp.html" title="Declaration of the class Shape." alt="" coords="199,84,289,111">
+<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of the class Segmenter." alt="" coords="360,161,483,188">
+<area shape="rect" href="$_feature_vector_8cpp-source.html" title="FeatureVector.cpp" alt="" coords="5,239,152,265">
+<area shape="rect" href="$_shape_8cpp.html" title="Implementation of the class Shape." alt="" coords="24,161,115,188">
+<area shape="rect" href="$_feature_vector_8hpp-source.html" title="FeatureVector.hpp" alt="" coords="139,161,285,188">
+<area shape="rect" href="$_classifier_8hpp-source.html" title="Classifier.hpp" alt="" coords="213,239,320,265">

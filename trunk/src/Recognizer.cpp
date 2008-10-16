@@ -120,7 +120,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	Preprocessor preprocessor;
 	std::cout << "Background reference level:  " << static_cast<unsigned int>(preprocessor.findBackgroundReferenceGrayLevel(clip)) << std::endl;
 	std::cout << "Optimal threshold:           " << static_cast<unsigned int>(preprocessor.computeOptimalThreshold(clip)) << std::endl << std::endl;
-	preprocessor.removeIsolatedNoise(clip, 0);
+	preprocessor.removeIsolatedNoise(clip);
 	updateImage(clip);
 	
 	

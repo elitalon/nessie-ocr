@@ -1,0 +1,4 @@
+\label{bug__bug000001}
+\hypertarget{bug__bug000001}{}
+ \begin{description}
+\item[Global \hyperlink{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{Preprocessor::findBackgroundReferenceGrayLevel}(const \hyperlink{class_clip}{Clip} \&clip, const unsigned int \&referenceGrayLevelNeighbours=2) ]There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. \end{description}

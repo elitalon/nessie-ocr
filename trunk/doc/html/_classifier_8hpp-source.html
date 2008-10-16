@@ -50,6 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -64,7 +65,7 @@ window.onload = initDynSections;
 <a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define _CLASSIFIER_H</span>
 <a name="l00012"></a>00012 <span class="preprocessor"></span>
 <a name="l00013"></a>00013 <span class="preprocessor">#include "FeatureVector.hpp"</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include "Shape.hpp"</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include "<a class="code" href="_shape_8hpp.html" title="Declaration of the class Shape.">Shape.hpp</a>"</span>
 <a name="l00015"></a>00015 <span class="preprocessor">#include "Style.hpp"</span>
 <a name="l00016"></a>00016 <span class="preprocessor">#include "<a class="code" href="_text_8hpp.html" title="Declaration of the class Text.">Text.hpp</a>"</span>
 <a name="l00017"></a>00017 
@@ -72,14 +73,14 @@ window.onload = initDynSections;
 <a name="l00019"></a>00019 {
 <a name="l00020"></a>00020 <span class="keyword">private</span>:
 <a name="l00021"></a>00021     FeatureVector featureVectors;
-<a name="l00022"></a>00022     Shape shapes;
+<a name="l00022"></a>00022     <a class="code" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> shapes;
 <a name="l00023"></a>00023     <span class="keywordtype">double</span> buildingFeatureVectorsTime;
 <a name="l00024"></a>00024     <span class="keywordtype">double</span> extractingCharactersTime;
 <a name="l00025"></a>00025     <span class="keywordtype">void</span> buildFeatureVectors();
 <a name="l00026"></a>00026     <span class="keywordtype">char</span> identifyCharacter();
 <a name="l00027"></a>00027     Style identifyCharacterStyle();
 <a name="l00028"></a>00028 <span class="keyword">public</span>:
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> Classifier(Shape[] shapes);
+<a name="l00029"></a>00029     <span class="keywordtype">void</span> Classifier(<a class="code" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a>[] shapes);
 <a name="l00030"></a>00030     <a class="code" href="class_text.html" title="Text extracted by the recognizer.">Text</a> extractCharacters();
 <a name="l00031"></a>00031     <span class="keywordtype">double</span> buildingFeatureVectorsTime();
 <a name="l00032"></a>00032     <span class="keywordtype">double</span> extractingCharactersTime();
@@ -87,7 +88,7 @@ window.onload = initDynSections;
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 15:25:37 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:53:51 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

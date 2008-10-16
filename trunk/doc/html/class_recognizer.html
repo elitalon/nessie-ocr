@@ -50,6 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -70,7 +71,7 @@ Collaboration diagram for Recognizer:</div>
 <div class="dynsection">
 <p><center><img src="class_recognizer__coll__graph.png" border="0" usemap="#_recognizer__coll__map" alt="Collaboration graph"></center>
 <map name="_recognizer__coll__map">
-<area shape="rect" href="class_statistics.html" title="Statistics about the text recognition process." alt="" coords="5,24,344,280"><area shape="rect" href="class_text.html" title="Text extracted by the recognizer." alt="" coords="368,7,544,297"></map>
+<area shape="rect" href="class_statistics.html" title="Statistics about the text recognition process." alt="" coords="5,7,344,401"><area shape="rect" href="class_text.html" title="Text extracted by the recognizer." alt="" coords="368,59,544,349"></map>
 </div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Manager of the whole OCR process. 
@@ -78,7 +79,7 @@ Manager of the whole OCR process.
 This class encapsulates all the stages related to the optical character recognition process of every clip within a newspaper's page. For each image provided (via constructors) representing the page, you can obtain its text and a number of statistics regarding the recognition process performance.<p>
 At the moment, this class manages the press clips within an image loaded with the Magick++ utilities. The newspaper pages should be an image that comes in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format. The idea behind this class is to encapsulate all the interactions with Magick++, so that the rest of the classes have an unified way to work.<p>
 In future modifications any library may be added to load the images. A developer should overload a <a class="el" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure...">loadImage()</a> method, modify the constructor <a class="el" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer(const std::string &amp;path)</a> or add a new constructor with specific parameters, and overload a <a class="el" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image.">writeExternalImage()</a> method.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a>, <a class="el" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>, <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a>, <a class="el" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10 </dd></dl>
 
@@ -173,7 +174,7 @@ Constructor.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 Creates a new <a class="el" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a> object loading the image from disk. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00021">21</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00020">20</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -205,7 +206,7 @@ Constructor.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 Creates a new <a class="el" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a> object from an image loaded externally with methods from Magick++ API. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00042">42</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00041">41</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -231,9 +232,9 @@ Recognizes the text within the whole page at once.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-09</dd></dl>
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00057">57</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00056">56</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00066">obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00022">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00065">obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -264,7 +265,7 @@ Recognizes the text within multiple press clips whose coordinates are passed.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Each set of points provides us a clip that can be located within the page. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00066">66</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00065">65</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -318,8 +319,8 @@ Recognizes the text within a single press clip located at coordinates (x,y).
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-If the clip falls outside the image an exception is thrown unless it can ne truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00087">87</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00086">86</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -351,7 +352,7 @@ Returns the text of a single clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00236">236</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00237">237</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -378,7 +379,7 @@ Returns the text of every loaded clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00248">248</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00249">249</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -411,7 +412,9 @@ Returns the statistical data regarding the recognition process of a single clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00257">257</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00258">258</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
+
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00022">main()</a>.</p>
 
 </div>
 </div><p>
@@ -438,7 +441,7 @@ Returns the statistical data regarding the recognition process of every loaded c
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00269">269</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8hpp-source.html#l00270">270</a> of file <a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -466,12 +469,14 @@ Writes the information of the internal data into an external image.
     <tr><td valign="top"></td><td valign="top"><em>externalImage</em>&nbsp;</td><td>The destination Image object from the Magick++ API previously created</td></tr>
   </table>
 </dl>
-<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>The image will be converted to a grayscale colorspace</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/Image.html">Image</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
-If either the source or the target are bigger or smaller than its counterpart, only the pixels that match each other are changed. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00152">152</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed. 
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00158">158</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00022">main()</a>.</p>
 
 </div>
 </div><p>
@@ -499,14 +504,14 @@ Loads an Image object created with the Magick++ API into the internal data struc
     <tr><td valign="top"></td><td valign="top"><em>image</em>&nbsp;</td><td>An Image object from the Magick++ API previously created</td></tr>
   </table>
 </dl>
-<dl class="remark" compact><dt><b>Remarks:</b></dt><dd>The image is converted to a grayscale colorspace internally</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The internal image is converted to a grayscale colorspace</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/Image.html">Image</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00193">193</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00210">210</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00021">Recognizer()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00020">Recognizer()</a>.</p>
 
 </div>
 </div><p>
@@ -537,17 +542,17 @@ Writes the information of a clip into the underlying image.
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Since the only way of loading a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object is executing the <a class="el" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText()</a> method, and there the dimensions are controlled, here it is assumed that all the coordinates are valid. 
-<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00220">220</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
+Since the only way of passing a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object to this method is invoking <a class="el" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">Recognizer::obtainText()</a>, and the dimensions are controlled inside that method, here it is assumed that all the coordinates are valid. 
+<p>Definition at line <a class="el" href="_recognizer_8cpp-source.html#l00244">244</a> of file <a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00087">obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">obtainText()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp (143)</a><li><a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp (142)</a></ul>
+<li><a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp (147)</a><li><a class="el" href="_recognizer_8cpp-source.html">Recognizer.cpp (147)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 15:25:47 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:54:04 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

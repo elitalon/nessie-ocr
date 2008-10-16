@@ -140,7 +140,7 @@ class Preprocessor
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///
-		const unsigned char &findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 4);
+		const unsigned char &findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 2);
 
 		
 		///

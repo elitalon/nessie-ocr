@@ -10,9 +10,8 @@
 
 
 ///
-/// @todo Develop an adaptative threshold algorithm
 /// @todo Develop an algorithm to fill characters that may have white pixels within
-/// @todo Enhance Preprocessor::computeOptimalThreshold()
+/// @todo Develop an adaptative threshold algorithm
 /// 
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
@@ -31,16 +30,16 @@ int main (int argc, char const *argv[])
 		Recognizer recon( image );
 		
 		// Execute the OCR process
-		recon.obtainText();		
+		recon.obtainText();
 		std::cout << "Background finding time:     " << recon.statistic().backgroundReferenceGrayLevelFindingTime() << std::endl;
 		std::cout << "Threshold computing time:    " << recon.statistic().optimalThresholdComputingTime() << std::endl;
 		std::cout << "Noise removal time:          " << recon.statistic().noiseRemovalTime() << std::endl;
 		std::cout << "Preprocessing time:          " << recon.statistic().preprocessingTime() << std::endl;
 		std::cout << std::endl;
 				
-		std::cout << "Thresholding time:           " << recon.statistic().thresholdingTime() << std::endl;
-		std::cout << "Segmentation time:           " << recon.statistic().segmentationTime() << std::endl;
-		std::cout << std::endl;
+		//std::cout << "Thresholding time:           " << recon.statistic().thresholdingTime() << std::endl;
+		//std::cout << "Segmentation time:           " << recon.statistic().segmentationTime() << std::endl;
+		//std::cout << std::endl;
 		
 		// Write results to the internal image
 		recon.writeExternalImage(image);

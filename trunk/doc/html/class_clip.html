@@ -50,6 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -200,8 +201,8 @@ Constructor.
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders, an exception is thrown. If the width and height are over the image borders the clip is truncated. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00015">15</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. 
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00014">14</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -250,9 +251,9 @@ Sets the gray level of a pixel at coordinates (x,y).
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00043">43</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00042">42</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00163">Preprocessor::removeIsolatedNoise()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00026">Segmenter::applyThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00132">Preprocessor::removeIsolatedNoise()</a>.</p>
 
 </div>
 </div><p>
@@ -294,9 +295,9 @@ Returns the gray level of a pixel at coordinates (x,y).
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00057">57</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00056">56</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00163">Preprocessor::removeIsolatedNoise()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00026">Segmenter::applyThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00132">Preprocessor::removeIsolatedNoise()</a>.</p>
 
 </div>
 </div><p>
@@ -323,7 +324,7 @@ Returns the pixels that defines the press clip.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00164">164</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00033">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00091">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00220">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00259">Preprocessor::computeOtsuOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00202">Preprocessor::computeSonkaOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00056">Preprocessor::findBackgroundReferenceGrayLevel()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00244">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -350,7 +351,7 @@ Returns the number of pixels within the press clip.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00173">173</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00033">Preprocessor::computeOptimalThreshold()</a>.</p>
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00259">Preprocessor::computeOtsuOptimalThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00202">Preprocessor::computeSonkaOptimalThreshold()</a>.</p>
 
 </div>
 </div><p>
@@ -377,7 +378,7 @@ Returns the top left-most pixel x coordinate.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00182">182</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00220">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00244">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -404,7 +405,7 @@ Returns the top left-most pixel y coordinate.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00191">191</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00220">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00244">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -431,7 +432,7 @@ Returns the width of the clip.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00200">200</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00163">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00220">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00026">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00132">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00244">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -458,14 +459,14 @@ Returns the height of the clip.
 
 <p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00209">209</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00163">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00220">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00026">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00132">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00244">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_clip_8hpp-source.html">Clip.hpp (143)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (143)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 15:25:45 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:54:01 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

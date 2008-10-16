@@ -9,6 +9,8 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <utility>
+#include <iostream>
 
 #include "Clip.hpp"
 #include "boost/timer.hpp"
@@ -47,6 +49,10 @@ const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip, co
 /// background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
 /// a gray level weighted mean using all those values.
 /// 
+/// @bug There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about
+/// the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work,
+/// everything must be undone and start again with the second reference gray level.
+/// 
 const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
 {
 	// Start timing
@@ -63,17 +69,21 @@ const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip 
 	std::vector<unsigned char>::iterator pixelsIterator;
 	
 	for ( pixelsIterator = pixels.begin(); pixelsIterator not_eq pixels.end(); ++pixelsIterator )
-		histogram[*pixelsIterator] += 1;
+		histogram[static_cast<unsigned int>(*pixelsIterator)] += 1;
 	
 		
 	// Search the more frequent level of gray
 	std::vector<unsigned int>::iterator histogramIterator;
-	unsigned char moreFrequentGrayLevel = 0, levelCounter = 0;
-
-	for (histogramIterator = histogram.begin(); histogramIterator not_eq histogram.end(); ++histogramIterator, ++levelCounter)
+	unsigned int moreFrequentGrayLevel = 0;
+	unsigned int maximumAppearances	= histogram[0];
+	
+	for ( unsigned int l = 1; l < 256; ++l )
 	{
-		if ( *histogramIterator > histogram[moreFrequentGrayLevel] )
-			moreFrequentGrayLevel = levelCounter;
+		if ( histogram[l] > maximumAppearances )
+		{
+			moreFrequentGrayLevel	= l;
+			maximumAppearances		= histogram[l];
+		}
 	}
 	unsigned int referenceGrayLevel = moreFrequentGrayLevel * histogram[moreFrequentGrayLevel];
 
@@ -109,7 +119,7 @@ const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip 
 	
 	// Gather elapsed time
 	backgroundReferenceGrayLevelFindingTime_ = timer.elapsed();
-	
+
 	return backgroundReferenceGrayLevel_;
 };
 

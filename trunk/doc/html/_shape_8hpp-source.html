@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Shape.hpp (141) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Shape.hpp (146) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -50,6 +50,7 @@ window.onload = initDynSections;
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
@@ -59,47 +60,128 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Shape.hpp</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00010"></a>00010 <span class="preprocessor">#if !defined(_SHAPE_H)</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define _SHAPE_H</span>
-<a name="l00012"></a>00012 <span class="preprocessor"></span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include "<a class="code" href="_pixel_8hpp.html" title="Declaration of the class Pixel.">Pixel.hpp</a>"</span>
+<h1>Shape.hpp</h1><a href="_shape_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 <span class="preprocessor">#if !defined(_SHAPE_H)</span>
+<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define _SHAPE_H</span>
+<a name="l00008"></a>00008 <span class="preprocessor"></span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_pixel_8hpp.html" title="Declaration of the custom type Pixel.">Pixel.hpp</a>"</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="keyword">class </span>Shape
-<a name="l00016"></a>00016 {
-<a name="l00017"></a>00017 <span class="keyword">private</span>:
-<a name="l00018"></a>00018     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> leftPixel;
-<a name="l00019"></a>00019     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> rightPixel;
-<a name="l00020"></a>00020     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> topPixel;
-<a name="l00021"></a>00021     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> bottomPixel;
-<a name="l00022"></a>00022     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> centroid;
-<a name="l00023"></a>00023     <span class="keywordtype">double</span> inkArea;
-<a name="l00024"></a>00024     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> orderInText;
-<a name="l00025"></a>00025     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> pixels;
-<a name="l00026"></a>00026 <span class="keyword">public</span>:
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> Shape();
-<a name="l00028"></a>00028     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> leftPixel();
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> leftPixel(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity);
-<a name="l00030"></a>00030     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> rightPixel();
-<a name="l00031"></a>00031     <span class="keywordtype">void</span> rightPixel(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity);
-<a name="l00032"></a>00032     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> topPixel();
-<a name="l00033"></a>00033     <span class="keywordtype">void</span> topPixel(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity);
-<a name="l00034"></a>00034     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bottomPixel();
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> bottomPixel(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity);
-<a name="l00036"></a>00036     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> centroid();
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> centroid(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> intensity);
-<a name="l00038"></a>00038     <span class="keywordtype">double</span> inkArea();
-<a name="l00039"></a>00039     <span class="keywordtype">void</span> inkArea(<span class="keywordtype">double</span> area);
-<a name="l00040"></a>00040     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> orderInText();
-<a name="l00041"></a>00041     <span class="keywordtype">void</span> orderInText(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> order);
-<a name="l00042"></a>00042     <span class="keywordtype">void</span> addPixel(<a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> pixel);
-<a name="l00043"></a>00043     <span class="keywordtype">void</span> removePixel(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> xCoordinate, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> yCoordinate);
-<a name="l00044"></a>00044     <a class="code" href="class_pixel.html" title="Information about an image pixel.">Pixel</a> pixels();
-<a name="l00045"></a>00045 };
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="preprocessor">#endif  //_SHAPE_H</span>
+<a name="l00029"></a><a class="code" href="class_shape.html">00029</a> <span class="keyword">class </span><a class="code" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a>
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031     <span class="keyword">public</span>:
+<a name="l00032"></a>00032         
+<a name="l00039"></a>00039         <a class="code" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7" title="Constructor.">Shape</a>();
+<a name="l00040"></a>00040         
+<a name="l00041"></a>00041         
+<a name="l00052"></a>00052         <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#2459925c87fd67a5fe3baf25f0ff41d3" title="Returns the coordinates of the left-most pixel.">leftPixel</a> ();
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054         
+<a name="l00065"></a>00065         <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#86841a53f5d82ba696406ef29f908d4f" title="Returns the coordinates of the right-most pixel.">rightPixel</a> ();
+<a name="l00066"></a>00066         
+<a name="l00067"></a>00067         
+<a name="l00078"></a>00078         <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#070525c7002c5f02361a102d0351520e" title="Returns the coordinates of the top pixel.">topPixel</a> ();
+<a name="l00079"></a>00079         
+<a name="l00080"></a>00080         
+<a name="l00091"></a>00091         <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#0454e59e7572927e4a29b40c950bc52f" title="Returns the coordinates of the bottom pixel.">bottomPixel</a> ();
+<a name="l00092"></a>00092         
+<a name="l00093"></a>00093         
+<a name="l00104"></a>00104         <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#cae0adae98c38009c8241ef0baa169c3" title="Returns the coordinates of the central pixel.">centralPixel</a> ();
+<a name="l00105"></a>00105         
+<a name="l00106"></a>00106         
+<a name="l00115"></a>00115         <span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;<a class="code" href="class_shape.html#7623c856a1a7916fc000f43d5efdba5b" title="Returns the set of pixels that defines the shape.">pixels</a> ();
+<a name="l00116"></a>00116         
+<a name="l00117"></a>00117         
+<a name="l00126"></a>00126         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_shape.html#7a417d1fc74acae89f4d96ac36e0b73e" title="Returns the height of the shape.">height</a> ();
+<a name="l00127"></a>00127         
+<a name="l00128"></a>00128         
+<a name="l00137"></a>00137         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_shape.html#aa9328cb87de52f53496b6a1eb3a60b9" title="Returns the width of the shape.">width</a> ();
+<a name="l00138"></a>00138         
+<a name="l00139"></a>00139         
+<a name="l00151"></a>00151         <span class="keywordtype">void</span> <a class="code" href="class_shape.html#813980f9a7b40e042a148c6ce5192111" title="Adds a pixel to the shape.">addPixel</a> (<span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;pixel, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;hasInk);
+<a name="l00152"></a>00152 
+<a name="l00153"></a>00153         
+<a name="l00154"></a>00154     <span class="keyword">private</span>:
+<a name="l00158"></a><a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4">00158</a>         <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink on the left-most position.">leftPixel_</a>;
+<a name="l00159"></a>00159         
+<a name="l00163"></a><a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd">00163</a>         <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink on the right-most position.">rightPixel_</a>;
+<a name="l00164"></a>00164         
+<a name="l00168"></a><a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918">00168</a>         <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a>;
+<a name="l00169"></a>00169         
+<a name="l00173"></a><a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1">00173</a>         <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a>;
+<a name="l00174"></a>00174         
+<a name="l00178"></a><a class="code" href="class_shape.html#f66f42ad506f5c8e31f1993111ea4878">00178</a>         <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> <a class="code" href="class_shape.html#f66f42ad506f5c8e31f1993111ea4878" title="Pixel of ink at central position.">centralPixel_</a>;
+<a name="l00179"></a>00179         
+<a name="l00183"></a><a class="code" href="class_shape.html#4753b295c12e83195d8fd9bb6fb86ec4">00183</a>         std::vector&lt;unsigned char&gt; <a class="code" href="class_shape.html#4753b295c12e83195d8fd9bb6fb86ec4" title="Set of pixels that defines the whole shape.">pixels_</a>;
+<a name="l00184"></a>00184         
+<a name="l00188"></a><a class="code" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c">00188</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c" title="Height of the shape.">height_</a>;
+<a name="l00189"></a>00189         
+<a name="l00193"></a><a class="code" href="class_shape.html#863661d529942b525830d2208259583b">00193</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_shape.html#863661d529942b525830d2208259583b" title="Width of the shape.">width_</a>;
+<a name="l00194"></a>00194 };
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196 
+<a name="l00197"></a>00197 <span class="comment">//</span>
+<a name="l00198"></a>00198 <span class="comment">// Implementation of inline functions</span>
+<a name="l00199"></a>00199 <span class="comment">// </span>
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201 
+<a name="l00205"></a><a class="code" href="class_shape.html#2459925c87fd67a5fe3baf25f0ff41d3">00205</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#2459925c87fd67a5fe3baf25f0ff41d3" title="Returns the coordinates of the left-most pixel.">Shape::leftPixel</a> ()
+<a name="l00206"></a>00206 {
+<a name="l00207"></a>00207     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink on the left-most position.">leftPixel_</a>;
+<a name="l00208"></a>00208 };
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 
+<a name="l00214"></a><a class="code" href="class_shape.html#86841a53f5d82ba696406ef29f908d4f">00214</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#86841a53f5d82ba696406ef29f908d4f" title="Returns the coordinates of the right-most pixel.">Shape::rightPixel</a> ()
+<a name="l00215"></a>00215 {
+<a name="l00216"></a>00216     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink on the right-most position.">rightPixel_</a>;
+<a name="l00217"></a>00217 };
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219         
+<a name="l00223"></a><a class="code" href="class_shape.html#070525c7002c5f02361a102d0351520e">00223</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#070525c7002c5f02361a102d0351520e" title="Returns the coordinates of the top pixel.">Shape::topPixel</a> ()
+<a name="l00224"></a>00224 {
+<a name="l00225"></a>00225     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a>;
+<a name="l00226"></a>00226 };
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228         
+<a name="l00232"></a><a class="code" href="class_shape.html#0454e59e7572927e4a29b40c950bc52f">00232</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#0454e59e7572927e4a29b40c950bc52f" title="Returns the coordinates of the bottom pixel.">Shape::bottomPixel</a> ()
+<a name="l00233"></a>00233 {
+<a name="l00234"></a>00234     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a>;
+<a name="l00235"></a>00235 };
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237         
+<a name="l00241"></a><a class="code" href="class_shape.html#cae0adae98c38009c8241ef0baa169c3">00241</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;<a class="code" href="class_shape.html#cae0adae98c38009c8241ef0baa169c3" title="Returns the coordinates of the central pixel.">Shape::centralPixel</a> ()
+<a name="l00242"></a>00242 {
+<a name="l00243"></a>00243     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#f66f42ad506f5c8e31f1993111ea4878" title="Pixel of ink at central position.">centralPixel_</a>;
+<a name="l00244"></a>00244 };
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246 
+<a name="l00250"></a><a class="code" href="class_shape.html#7623c856a1a7916fc000f43d5efdba5b">00250</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;<a class="code" href="class_shape.html#7623c856a1a7916fc000f43d5efdba5b" title="Returns the set of pixels that defines the shape.">Shape::pixels</a> ()
+<a name="l00251"></a>00251 {
+<a name="l00252"></a>00252     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#4753b295c12e83195d8fd9bb6fb86ec4" title="Set of pixels that defines the whole shape.">pixels_</a>;
+<a name="l00253"></a>00253 };
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255 
+<a name="l00259"></a><a class="code" href="class_shape.html#7a417d1fc74acae89f4d96ac36e0b73e">00259</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_shape.html#7a417d1fc74acae89f4d96ac36e0b73e" title="Returns the height of the shape.">Shape::height</a> ()
+<a name="l00260"></a>00260 {
+<a name="l00261"></a>00261     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c" title="Height of the shape.">height_</a>;
+<a name="l00262"></a>00262 };
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264 
+<a name="l00268"></a><a class="code" href="class_shape.html#aa9328cb87de52f53496b6a1eb3a60b9">00268</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_shape.html#aa9328cb87de52f53496b6a1eb3a60b9" title="Returns the width of the shape.">Shape::width</a> ()
+<a name="l00269"></a>00269 {
+<a name="l00270"></a>00270     <span class="keywordflow">return</span> <a class="code" href="class_shape.html#863661d529942b525830d2208259583b" title="Width of the shape.">width_</a>;
+<a name="l00271"></a>00271 };
+<a name="l00272"></a>00272 
+<a name="l00273"></a>00273 <span class="preprocessor">#endif  //_SHAPE_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 13 15:25:38 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 16 15:53:51 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

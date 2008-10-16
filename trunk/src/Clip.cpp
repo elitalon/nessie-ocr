@@ -9,8 +9,7 @@
 
 ///
 /// @details Initializes a Clip object located at coordinates (x,y) in the source image, with the height and width passed.
-/// The x value indicates the row within the image, while the y value indicates the column. If x or y are out of the image borders,
-/// an exception is thrown. If the width and height are over the image borders the clip is truncated.
+/// The x value indicates the row within the image, while the y value indicates the column.
 /// 
 Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &imageWidth, const unsigned int &x, const unsigned int &y, const unsigned int &height, const unsigned int &width)
 	: x_(x), y_(y), width_(width), height_(height)
