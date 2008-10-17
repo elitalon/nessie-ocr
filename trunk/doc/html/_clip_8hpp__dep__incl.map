@@ -1,6 +1,7 @@
 <area shape="rect" href="$_clip_8cpp.html" title="Implementation of the class Clip." alt="" coords="5,84,77,111">
-<area shape="rect" href="$_preprocessor_8cpp.html" title="Implementation of the class Preprocessor." alt="" coords="101,84,237,111">
-<area shape="rect" href="$_segmenter_8cpp.html" title="Definition of the class Segmenter." alt="" coords="261,84,384,111">
+<area shape="rect" href="$_segmenter_8cpp.html" title="Definition of the class Segmenter." alt="" coords="101,84,224,111">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of the class Preprocessor." alt="" coords="248,84,384,111">
 <area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="408,84,531,111">
-<area shape="rect" href="$main_8cpp.html" title="Implementation of a command line program for testing purposes." alt="" coords="367,161,447,188">
-<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of the class Recognizer." alt="" coords="471,161,593,188">
+<area shape="rect" href="$_preprocessor_8cpp.html" title="Implementation of the class Preprocessor." alt="" coords="185,161,321,188">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of the class Recognizer." alt="" coords="345,161,468,188">
+<area shape="rect" href="$main_8cpp.html" title="Implementation of a command line program for testing purposes." alt="" coords="492,161,572,188">

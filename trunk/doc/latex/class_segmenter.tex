@@ -8,7 +8,7 @@ Collaboration diagram for Segmenter:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=400pt]{class_segmenter__coll__graph}
+\includegraphics[width=400pt]{class_segmenter__coll__graph}
 \end{center}
 \end{figure}
 
@@ -40,10 +40,22 @@ const double \& \hyperlink{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{thr
 const double \& \hyperlink{class_segmenter_e7c93cb16e314baeb713bbd6ca9b667b}{floodFillingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the flood fill algorithm. \item\end{CompactList}\item 
 const std::vector$<$ \hyperlink{class_shape}{Shape} $>$ \& \hyperlink{class_segmenter_f2dd7f34c8b0f902323005335e41bd57}{shapes} () const 
-\begin{CompactList}\small\item\em Returns the shapes found in the last segmentation process. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Returns the shapes found in the last segmentation process. \item\end{CompactList}\item 
+const std::vector$<$ \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \& \hyperlink{class_segmenter_100bffdc0fe9834d81ddc63661b4c1ec}{seeds} () const 
+\begin{CompactList}\small\item\em Returns the seeds found in the last segmentation process. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{findSeeds} (const \hyperlink{class_clip}{Clip} \&clip)
+\begin{CompactList}\small\item\em Finds all the ink pixels within a clip that may grow up as a shape. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
+\hypertarget{class_segmenter_fa6183f99aa6011399783652b341a43b}{
+unsigned char \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}}
+\label{class_segmenter_fa6183f99aa6011399783652b341a43b}
+
+\begin{CompactList}\small\item\em Gray level value of the pixels that have ink. \item\end{CompactList}\item 
 \hypertarget{class_segmenter_3040cc000907ef44e820ddcf70de6f08}{
 std::vector$<$ \hyperlink{class_shape}{Shape} $>$ \hyperlink{class_segmenter_3040cc000907ef44e820ddcf70de6f08}{shapes\_\-}}
 \label{class_segmenter_3040cc000907ef44e820ddcf70de6f08}
@@ -58,7 +70,12 @@ double \hyperlink{class_segmenter_13c768c0dfa734bb6ca0c548511bc7bb}{thresholding
 double \hyperlink{class_segmenter_9f24d008767ba4741cf3d1e599ee119a}{floodFillingTime\_\-}}
 \label{class_segmenter_9f24d008767ba4741cf3d1e599ee119a}
 
-\begin{CompactList}\small\item\em Elapsed time while applying the flood fill algorithm. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Elapsed time while applying the flood fill algorithm. \item\end{CompactList}\item 
+\hypertarget{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}{
+std::vector$<$ \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}{seeds\_\-}}
+\label{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}
+
+\begin{CompactList}\small\item\em A set of ink pixels from where the flood fill method find the shapes. \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -95,7 +112,9 @@ Applies the threshold algorithm.
 \item[{\em clip}]Press clip \item[{\em threshold}]Threshold value to differentiate between back- and foreground pixels \item[{\em backgroundReference}]Background reference gray level\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Postcondition:]Every pixel has either a gray level of 0 or 255.\end{Desc}
+\item[Postcondition:]Every pixel has either a gray level of 0 or 255. 
+
+The \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-} member is initialized to the gray level that represents the ink's gray level\end{Desc}
 \begin{Desc}
 \item[See also:]\hyperlink{class_clip}{Clip}\end{Desc}
 \begin{Desc}
@@ -116,6 +135,12 @@ Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_327c88f2d55c
 Applies the flood fill algorithm. 
 
 \begin{Desc}
+\item[Precondition:]The clip MUST be thresholded by calling \hyperlink{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{applyThreshold()} method before.\end{Desc}
+\begin{Desc}
+\item[Postcondition:]The \hyperlink{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}{seeds\_\-} member is initialized to a vector of pixels that generates each shape found. 
+
+The \hyperlink{class_segmenter_3040cc000907ef44e820ddcf70de6f08}{shapes\_\-} member is initialized to a vector of shapes that represents character within the clip.\end{Desc}
+\begin{Desc}
 \item[Parameters:]
 \begin{description}
 \item[{\em clip}]Press clip\end{description}
@@ -125,10 +150,16 @@ Applies the flood fill algorithm.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
+\item[Date:]2008-10-13\end{Desc}
+The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character. Every shape is built starting from a seed, i.e. an ink pixel, exploring recursively its neighbourhood and adding every ink pixel that is connected to the seed. The process ends when there are not more ink pixels connected and the shape is completely isolated. 
 
+2. For each seed explore its neighbourhood
 
-Definition at line 67 of file Segmenter.cpp.\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
+3. Sort shapes according to their position within the clip 
+
+Definition at line 74 of file Segmenter.cpp.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
 \index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
 \index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
 \subsubsection[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Segmenter::thresholdingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -145,7 +176,7 @@ Returns the elapsed time while applying the thresholding algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 146 of file Segmenter.hpp.
+Definition at line 187 of file Segmenter.hpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_e7c93cb16e314baeb713bbd6ca9b667b}{
 \index{Segmenter@{Segmenter}!floodFillingTime@{floodFillingTime}}
@@ -164,7 +195,7 @@ Returns the elapsed time while applying the flood fill algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 156 of file Segmenter.hpp.
+Definition at line 197 of file Segmenter.hpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_f2dd7f34c8b0f902323005335e41bd57}{
 \index{Segmenter@{Segmenter}!shapes@{shapes}}
@@ -185,9 +216,54 @@ Returns the shapes found in the last segmentation process.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 165 of file Segmenter.hpp.
+Definition at line 206 of file Segmenter.hpp.\hypertarget{class_segmenter_100bffdc0fe9834d81ddc63661b4c1ec}{
+\index{Segmenter@{Segmenter}!seeds@{seeds}}
+\index{seeds@{seeds}!Segmenter@{Segmenter}}
+\subsubsection[seeds]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Pixel} $>$ \& Segmenter::seeds () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_segmenter_100bffdc0fe9834d81ddc63661b4c1ec}
+
+
+Returns the seeds found in the last segmentation process. 
+
+\begin{Desc}
+\item[Returns:]A vector of Pixel objects\end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-17 \end{Desc}
+
+
+Definition at line 215 of file Segmenter.hpp.
+
+Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
+\index{Segmenter@{Segmenter}!findSeeds@{findSeeds}}
+\index{findSeeds@{findSeeds}!Segmenter@{Segmenter}}
+\subsubsection[findSeeds]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSeeds (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}
+
+
+Finds all the ink pixels within a clip that may grow up as a shape. 
+
+\begin{Desc}
+\item[Postcondition:]The \hyperlink{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}{seeds\_\-} member is initialized\end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em clip}]The press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-17\end{Desc}
+All the pixels of the clip are explored, adding to the vector of \hyperlink{class_segmenter_32db9acb9fe721613eb98c7bb8d2a8f0}{seeds\_\-} those whose gray level is equal to the ink's gray level stablished in the call to \hyperlink{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{applyThreshold()} method. 
+
+Definition at line 103 of file Segmenter.cpp.
+
+Referenced by applyFloodFill().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
 \hyperlink{_segmenter_8hpp}{Segmenter.hpp (146)}\item 
-\hyperlink{_segmenter_8cpp}{Segmenter.cpp (146)}\end{CompactItemize}
+\hyperlink{_segmenter_8cpp}{Segmenter.cpp (149)}\end{CompactItemize}

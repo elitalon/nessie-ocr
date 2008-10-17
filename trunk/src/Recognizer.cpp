@@ -118,9 +118,10 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	// Preprocessing stage
 	//
 	Preprocessor preprocessor;
-	std::cout << "Background reference level:  " << static_cast<unsigned int>(preprocessor.findBackgroundReferenceGrayLevel(clip)) << std::endl;
-	std::cout << "Optimal threshold:           " << static_cast<unsigned int>(preprocessor.computeOptimalThreshold(clip)) << std::endl << std::endl;
-	preprocessor.removeIsolatedNoise(clip);	
+	std::cout << "Background reference level   : " << static_cast<unsigned int>(preprocessor.findBackgroundReferenceGrayLevel(clip)) << std::endl;
+	std::cout << "Optimal threshold            : " << static_cast<unsigned int>(preprocessor.computeOptimalThreshold(clip)) << std::endl << std::endl;
+	preprocessor.removeIsolatedNoise(clip);
+	
 	
 	//
 	// Segmentation stage
@@ -128,7 +129,8 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	Segmenter segmenter;
 	segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
 	updateImage(clip);
-	// 	segmenter.applyFloodFill(clip);
+	segmenter.applyFloodFill(clip);
+	std::cout << "Seeds found                  : " << segmenter.seeds().size() << std::endl << std::endl;
 	
 	
 	//

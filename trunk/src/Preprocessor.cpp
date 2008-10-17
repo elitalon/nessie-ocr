@@ -9,10 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include <utility>
-#include <iostream>
 
-#include "Clip.hpp"
 #include "boost/timer.hpp"
 
 
@@ -211,7 +208,7 @@ void Preprocessor::computeSonkaOptimalThreshold (const Clip &clip)
 	
 	// Start with an initial threshold
 	optimalThreshold_ = backgroundReferenceGrayLevel_;
-	unsigned char currentThreshold = not optimalThreshold_;	// Enforces current threshold to be different so the firts loop is always made
+	unsigned char currentThreshold = ~optimalThreshold_;	// Enforces current threshold to be different so the firts loop is always made
 	
 	
 	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
@@ -333,3 +330,64 @@ void Preprocessor::computeOtsuOptimalThreshold (const Clip &clip)
 	// Gather elapsed time
 	optimalThresholdComputingTime_ = timer.elapsed();
 };
+
+// ///
+// /// @details To compute the optimal threshold following an adaptive strategy we divided the clip into <em>n</em> subclips and apply the Sonka's method
+// /// over them. Thus, a list of threshold values are returned, one for each subimage, that allows a thresholding technique to be more accurate.
+// ///
+// unsigned int Preprocessor::computeOptimalAdaptiveThreshold (const Clip &clip, std::vector<unsigned char> &thresholds)
+// {
+// 	// Stablish the side's size of the subimages
+// 	const unsigned int subclipSide	= 100;
+// 
+// 	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
+// 	std::vector<unsigned char> pixels = clip.pixels();
+// 	
+// 	// Empty output vector
+// 	thresholds.clear();
+// 	
+// 	// Explore subimages
+// 	for ( unsigned int row = 0; row < ceil(static_cast<double>(clip.height()) / static_cast<double>(subclipSide)) ; ++row )
+// 	{
+// 		for ( unsigned int column = 0; column < ceil(static_cast<double>(clip.width()) / static_cast<double>(subclipSide)) ; ++column )
+// 		{
+// 			// Start with an initial threshold
+// 			unsigned char optimalThreshold = backgroundReferenceGrayLevel_;
+// 			unsigned char currentThreshold = ~optimalThreshold;	// Enforces current threshold to be different so the firts loop is always made
+// 
+// 			// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
+// 			while (currentThreshold not_eq optimalThreshold)
+// 			{
+// 				double backgroundMeanValue = 0, objectsMeanValue = 0;
+// 				unsigned int nSamples = 0;
+// 
+// 				for ( unsigned int i = row * subclipSide; (i < ((row * subclipSide) + subclipSide)) and (i < clip.height()); ++i )
+// 				{
+// 					for ( unsigned int j = column * subclipSide; (j < ((column * subclipSide) + subclipSide)) and (j < clip.width()); ++j )
+// 					{
+// 						unsigned char grayLevel = pixels[i * clip.width() + j];
+// 
+// 						if ( grayLevel >= optimalThreshold )
+// 						{
+// 							backgroundMeanValue += static_cast<double>(grayLevel);
+// 							nSamples++;
+// 						}
+// 						else
+// 							objectsMeanValue += static_cast<double>(grayLevel);
+// 					}
+// 				}
+// 
+// 				backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
+// 				objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip.nPixels() - nSamples));
+// 
+// 
+// 				// Update the optimal threshold keeping the last one
+// 				currentThreshold = optimalThreshold;
+// 				optimalThreshold = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
+// 			}
+// 			thresholds.push_back(optimalThreshold);
+// 		}
+// 	}
+// 
+// 	return thresholds.size();
+// };

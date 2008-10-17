@@ -46,6 +46,7 @@ class Segmenter
 		/// @param	backgroundReference	Background reference gray level
 		/// 
 		/// @post Every pixel has either a gray level of 0 or 255.
+		/// @post The #inkValue_ member is initialized to the gray level that represents the ink's gray level
 		/// 
 		/// @see Clip
 		/// 
@@ -57,6 +58,11 @@ class Segmenter
 		
 		///
 		/// Applies the flood fill algorithm.
+		/// 
+		/// @pre The clip MUST be thresholded by calling applyThreshold() method before.
+		/// 
+		/// @post The #seeds_ member is initialized to a vector of pixels that generates each shape found.
+		/// @post The #shapes_ member is initialized to a vector of shapes that represents character within the clip.
 		/// 
 		/// @param clip	Press clip
 		/// 
@@ -100,10 +106,28 @@ class Segmenter
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///
-		const std::vector<Shape> &shapes() const;
+		const std::vector<Shape> &shapes () const;
+		
+		
+		///
+		/// Returns the seeds found in the last segmentation process
+		/// 
+		/// @return A vector of Pixel objects
+		/// 
+		/// @see Pixel
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-17
+		///
+		const std::vector<Pixel> &seeds () const;
 		
 
 	private:
+		///
+		/// Gray level value of the pixels that have ink
+		///
+		unsigned char inkValue_;
+		
 		///
 		/// A set of shapes that represents every character found within the press clip
 		///
@@ -119,8 +143,25 @@ class Segmenter
 		///
 		double floodFillingTime_;
 		
+		///
+		/// A set of ink pixels from where the flood fill method find the shapes
+		///
+		std::vector<Pixel> seeds_;
+		
 
-		// void findSeeds(Clip clip);
+		///
+		/// Finds all the ink pixels within a clip that may grow up as a shape
+		/// 
+		/// @post The #seeds_ member is initialized
+		/// 
+		/// @param clip	The press clip
+		/// 
+		/// @author Eliezer Talón (elitalon@gmail.com)
+		/// @date 2008-10-17
+		///
+		void findSeeds (const Clip &clip);
+		
+		
 		// void addSeed(Pixel seed);
 		// Pixel selectRandomSeed();
 		// void exploreSeedNeighbourhood(Pixel seed);
@@ -165,6 +206,15 @@ inline const double &Segmenter::floodFillingTime () const
 inline const std::vector<Shape> &Segmenter::shapes() const
 {
 	return shapes_;
+};
+
+
+///
+/// @details
+///
+inline const std::vector<Pixel> &Segmenter::seeds() const
+{
+	return seeds_;
 };
 
 #endif  //_SEGMENTER_H

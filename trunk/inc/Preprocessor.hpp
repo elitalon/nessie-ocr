@@ -7,7 +7,7 @@
 #define _PREPROCESSOR_H
 
 
-class Clip;	// Forward declaration
+#include "Clip.hpp"
 
 
 ///
@@ -123,7 +123,7 @@ class Preprocessor
 		/// @date 2008-10-13
 		///
 		const unsigned char &computeOptimalThreshold (const Clip &clip, const unsigned int &technique=0);
-
+		
 		
 		///
 		/// Computes the background reference gray level value within a clip.
@@ -148,6 +148,7 @@ class Preprocessor
 		///
 		/// @pre	You MUST call computeOptimalThreshold() and findBackgroundReferenceGrayLevel() methods before calling this one,
 		/// since they set internal attributes.
+		/// 
 		/// @post	The clip may be modified if any noise is found.
 		/// 
 		/// @param[in,out]	clip					The clip where applying the algorithm over
