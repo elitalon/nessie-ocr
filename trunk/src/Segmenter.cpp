@@ -5,19 +5,22 @@
 
 #include "Segmenter.hpp"
 
-#include "Clip.hpp"
 #include "boost/timer.hpp"
 
+#include <algorithm>
 #include <iostream>
+
+
 
 ///
 /// @details Initializes a Segmenter object
 ///
 Segmenter::Segmenter ()
-	:	inkValue_(0), shapes_(std::vector<Shape>(0)), thresholdingTime_(0.0), floodFillingTime_(0.0), seeds_(std::vector<Pixel>(0))
+	:	inkValue_(0), shapes_(std::vector<Shape>(0)), thresholdingTime_(0.0), floodFillingTime_(0.0), seeds_(std::list<Pixel>(0))
 {
 	
 };
+
 
 
 ///
@@ -66,10 +69,11 @@ void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, cons
 };
 
 
+
 ///
 /// @details The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character.
-/// Every shape is built starting from a seed, i.e. an ink pixel, exploring recursively its neighbourhood and adding every ink pixel that is
-/// connected to the seed. The process ends when there are not more ink pixels connected and the shape is completely isolated.
+/// Every shape is built starting from a seed, i.e. an ink pixel, exploring its neighbourhood and adding every ink pixel that is
+/// connected to the seed. The process ends when there are not more seeds to explore and the shapes are completely isolated.
 /// 
 void Segmenter::applyFloodFill (const Clip &clip)
 {
@@ -77,14 +81,16 @@ void Segmenter::applyFloodFill (const Clip &clip)
 	boost::timer timer;
 	timer.restart();
 	
-	
 	// Find the seeds where the flooding process will start from
 	findSeeds(clip);
 	
-	
-	///
-	/// 2. For each seed explore its neighbourhood
-	///
+	// Explore the neighbourhood of each seed. Since a subset of seeds are removed for each shape, the
+	// 'while' style avoids to make an error by modifying a list that is being reading
+	while ( seeds_.size() > 0 )
+	{
+		shapes_.push_back(Shape());
+		exploreSeedNeighbourhood(*(seeds_.begin()), clip);
+	}
 	
 	///
 	/// 3. Sort shapes according to their position within the clip
@@ -96,9 +102,10 @@ void Segmenter::applyFloodFill (const Clip &clip)
 };
 
 
+
 ///
 /// @details All the pixels of the clip are explored, adding to the vector of #seeds_ those whose gray level is equal to the ink's gray level
-/// stablished in the call to applyThreshold() method.
+/// stablished in #inkValue_ member.
 ///
 void Segmenter::findSeeds (const Clip &clip)
 {
@@ -114,6 +121,59 @@ void Segmenter::findSeeds (const Clip &clip)
 				seeds_.push_back(Pixel(i, j));
 		}
 	}
+};
+
+
+
+///
+/// @details
+///
+bool Segmenter::isSeed (const Pixel& pixel) const
+{
+	if( static_cast<int>(std::count(seeds_.begin(), seeds_.end(), pixel)) > 0 )
+		return true;
+	else
+		return false;
+};
+
+
+
+///
+/// @details
+///
+void Segmenter::exploreSeedNeighbourhood (const Pixel &seed, const Clip &clip)
+{
+	// Check that seed's coordinates fall inside the clip
+	if ( (seed.first < 0) or (seed.first >= clip.height()) )
+		return;
+	
+	if ( (seed.second < 0) or (seed.second >= clip.width()) )
+		return;
+
+
+	// Test this pixel has a gray level equal to the character's ink value
+	if ( clip.getPixelGrayLevel(seed.first, seed.second) not_eq inkValue_ )
+		return;
+		
+	// Test this pixel has already been explored
+	if ( not isSeed(seed) )
+		return;
+	
+	
+	// Save the coordinates and remove this seed from the list
+	unsigned int x = seed.first, y = seed.second;
+	seeds_.remove(seed);
+
+
+	// Recursive calls
+	exploreSeedNeighbourhood( Pixel(x, y+1), clip );	// East
+	exploreSeedNeighbourhood( Pixel(x, y-1), clip );	// West
+	exploreSeedNeighbourhood( Pixel(x+1, y), clip );	// South
+	exploreSeedNeighbourhood( Pixel(x-1, y), clip );	// North
+	exploreSeedNeighbourhood( Pixel(x+1, y+1), clip );	// South-East
+	exploreSeedNeighbourhood( Pixel(x+1, y-1), clip );	// South-West
+	exploreSeedNeighbourhood( Pixel(x-1, y+1), clip );	// North-East
+	exploreSeedNeighbourhood( Pixel(x-1, y-1), clip );	// North-West
 };
 
 

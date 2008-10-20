@@ -111,10 +111,17 @@ char &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el"
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aa9328cb87de52f53496b6a1eb3a60b9">width</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the shape.  <a href="#aa9328cb87de52f53496b6a1eb3a60b9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#813980f9a7b40e042a148c6ce5192111">addPixel</a> (const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;pixel, const bool &amp;hasInk)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">addPixel</a> (const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;pixel)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a pixel to the shape.  <a href="#813980f9a7b40e042a148c6ce5192111"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a pixel to the shape.  <a href="#f6114234203d9473f1fef9e6391f9243"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3d0e3348fdb5d2d8c9997d579c3383e2"></a><!-- doxytag: member="Shape::nPixels" ref="3d0e3348fdb5d2d8c9997d579c3383e2" args="()" -->
+const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>nPixels</b> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ec8d5884f4c136898e25922ae978ea65"></a><!-- doxytag: member="Shape::nPixels_" ref="ec8d5884f4c136898e25922ae978ea65" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#ec8d5884f4c136898e25922ae978ea65">nPixels_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of ink pixels within the shape. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="812cd080959b320038aae54729831ce4"></a><!-- doxytag: member="Shape::leftPixel_" ref="812cd080959b320038aae54729831ce4" args="" -->
 <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#812cd080959b320038aae54729831ce4">leftPixel_</a></td></tr>
 
@@ -198,7 +205,7 @@ Returns the coordinates of the left-most pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00205">205</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00217">217</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -225,7 +232,7 @@ Returns the coordinates of the right-most pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00214">214</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00226">226</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -252,7 +259,7 @@ Returns the coordinates of the top pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00223">223</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00235">235</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -279,7 +286,7 @@ Returns the coordinates of the bottom pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00232">232</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00244">244</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -306,7 +313,7 @@ Returns the coordinates of the central pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00241">241</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00253">253</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -332,7 +339,7 @@ Returns the set of pixels that defines the shape.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00250">250</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00262">262</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -358,7 +365,7 @@ Returns the height of the shape.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00259">259</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00271">271</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -384,11 +391,11 @@ Returns the width of the shape.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00268">268</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00280">280</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="813980f9a7b40e042a148c6ce5192111"></a><!-- doxytag: member="Shape::addPixel" ref="813980f9a7b40e042a148c6ce5192111" args="(const Pixel &amp;pixel, const bool &amp;hasInk)" -->
+<a class="anchor" name="f6114234203d9473f1fef9e6391f9243"></a><!-- doxytag: member="Shape::addPixel" ref="f6114234203d9473f1fef9e6391f9243" args="(const Pixel &amp;pixel)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -396,18 +403,9 @@ Returns the width of the shape.
           <td class="memname">void Shape::addPixel           </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>pixel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"> <em>pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
           <td></td>
-          <td class="paramtype">const bool &amp;&nbsp;</td>
-          <td class="paramname"> <em>hasInk</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -433,7 +431,7 @@ Adds a pixel to the shape.
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_shape_8hpp-source.html">Shape.hpp (146)</a><li><a class="el" href="_shape_8cpp-source.html">Shape.cpp (146)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 17 17:03:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:40 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

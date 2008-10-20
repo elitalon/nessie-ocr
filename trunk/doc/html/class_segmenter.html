@@ -71,7 +71,7 @@ Collaboration diagram for Segmenter:</div>
 <div class="dynsection">
 <p><center><img src="class_segmenter__coll__graph.png" border="0" usemap="#_segmenter__coll__map" alt="Collaboration graph"></center>
 <map name="_segmenter__coll__map">
-<area shape="rect" href="class_shape.html" title="The shape of a character within a press clip." alt="" coords="443,7,571,367"></map>
+<area shape="rect" href="class_shape.html" title="The shape of a character within a press clip." alt="" coords="269,7,397,401"></map>
 </div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 <a class="el" href="class_segmenter.html" title="Segmenter of the OCR process.">Segmenter</a> of the OCR process. 
@@ -81,19 +81,13 @@ This class encapsulates all the methods related to segmentation stage. Its task 
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00029">29</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00030">30</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#d39ec3bda31be180820aa0bdca7b125d">Segmenter</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#d39ec3bda31be180820aa0bdca7b125d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">applyThreshold</a> (<a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned char &amp;threshold, const unsigned char &amp;backgroundReference)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies the threshold algorithm.  <a href="#6854315e3320f9d9a8ece14cbb8570ee"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426">applyFloodFill</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies the flood fill algorithm.  <a href="#327c88f2d55cb606a67ce778c06cf426"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#52f771c61d667df4f552ee73dc9f22e7">thresholdingTime</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while applying the thresholding algorithm.  <a href="#52f771c61d667df4f552ee73dc9f22e7"></a><br></td></tr>
@@ -103,13 +97,28 @@ This class encapsulates all the methods related to segmentation stage. Its task 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; <a class="el" href="class_shape.html">Shape</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#f2dd7f34c8b0f902323005335e41bd57">shapes</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the shapes found in the last segmentation process.  <a href="#f2dd7f34c8b0f902323005335e41bd57"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#100bffdc0fe9834d81ddc63661b4c1ec">seeds</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::list&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#519d84c033b647342c3397a0bf479d9e">seeds</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the seeds found in the last segmentation process.  <a href="#100bffdc0fe9834d81ddc63661b4c1ec"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the seeds found in the last segmentation process.  <a href="#519d84c033b647342c3397a0bf479d9e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#e9bc56ddcbe5ea4abb40fcc85e3d9fbe">inkValue</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the gray level that represents the ink used in characters.  <a href="#e9bc56ddcbe5ea4abb40fcc85e3d9fbe"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">applyThreshold</a> (<a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned char &amp;threshold, const unsigned char &amp;backgroundReference)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies the threshold algorithm.  <a href="#6854315e3320f9d9a8ece14cbb8570ee"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426">applyFloodFill</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies the flood fill algorithm.  <a href="#327c88f2d55cb606a67ce778c06cf426"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb">findSeeds</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Finds all the ink pixels within a clip that may grow up as a shape.  <a href="#bacab187b543a51c5322c01fc0a29ffb"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#eb86d455481f794cb4870eba98ee4340">isSeed</a> (const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;pixel) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the pixel belongs to the vector of seeds.  <a href="#eb86d455481f794cb4870eba98ee4340"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#684df74b0e810a837669823c47b6ed87">exploreSeedNeighbourhood</a> (const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;seed, const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makes a recursive exploration searching for ink pixels that are neighbours of the pixel passed building a <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a>.  <a href="#684df74b0e810a837669823c47b6ed87"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="fa6183f99aa6011399783652b341a43b"></a><!-- doxytag: member="Segmenter::inkValue_" ref="fa6183f99aa6011399783652b341a43b" args="" -->
 unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b">inkValue_</a></td></tr>
@@ -127,8 +136,8 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#9f24d008767ba4741cf3d1e599ee119a">floodFillingTime_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the flood fill algorithm. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="32db9acb9fe721613eb98c7bb8d2a8f0"></a><!-- doxytag: member="Segmenter::seeds_" ref="32db9acb9fe721613eb98c7bb8d2a8f0" args="" -->
-std::vector&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#32db9acb9fe721613eb98c7bb8d2a8f0">seeds_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="48b7c2c842b26bebda9d0fc13cf81e58"></a><!-- doxytag: member="Segmenter::seeds_" ref="48b7c2c842b26bebda9d0fc13cf81e58" args="" -->
+std::list&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58">seeds_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A set of ink pixels from where the flood fill method find the shapes. <br></td></tr>
 </table>
@@ -154,11 +163,149 @@ Constructor.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Initializes a <a class="el" href="class_segmenter.html" title="Segmenter of the OCR process.">Segmenter</a> object 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00016">16</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00018">18</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="52f771c61d667df4f552ee73dc9f22e7"></a><!-- doxytag: member="Segmenter::thresholdingTime" ref="52f771c61d667df4f552ee73dc9f22e7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; Segmenter::thresholdingTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the elapsed time while applying the thresholding algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00228">228</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e7c93cb16e314baeb713bbd6ca9b667b"></a><!-- doxytag: member="Segmenter::floodFillingTime" ref="e7c93cb16e314baeb713bbd6ca9b667b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; Segmenter::floodFillingTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the elapsed time while applying the flood fill algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00238">238</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="f2dd7f34c8b0f902323005335e41bd57"></a><!-- doxytag: member="Segmenter::shapes" ref="f2dd7f34c8b0f902323005335e41bd57" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_shape.html">Shape</a> &gt; &amp; Segmenter::shapes           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the shapes found in the last segmentation process. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> objects</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a></dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00247">247</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="519d84c033b647342c3397a0bf479d9e"></a><!-- doxytag: member="Segmenter::seeds" ref="519d84c033b647342c3397a0bf479d9e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::list&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt; &amp; Segmenter::seeds           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the seeds found in the last segmentation process. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A list of Pixel objects</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a></dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-17 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00256">256</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e9bc56ddcbe5ea4abb40fcc85e3d9fbe"></a><!-- doxytag: member="Segmenter::inkValue" ref="e9bc56ddcbe5ea4abb40fcc85e3d9fbe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned char &amp; Segmenter::inkValue           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the gray level that represents the ink used in characters. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Either a value of 0 or 255</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00265">265</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="6854315e3320f9d9a8ece14cbb8570ee"></a><!-- doxytag: member="Segmenter::applyThreshold" ref="6854315e3320f9d9a8ece14cbb8570ee" args="(Clip &amp;clip, const unsigned char &amp;threshold, const unsigned char &amp;backgroundReference)" -->
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +353,7 @@ The <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00027">27</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00030">30</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
 
@@ -232,8 +379,8 @@ Simple thresholding that compares each pixel's gray level with a threshold value
 Applies the flood fill algorithm. 
 <p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The clip MUST be thresholded by calling <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies the threshold algorithm.">applyThreshold()</a> method before.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_segmenter.html#32db9acb9fe721613eb98c7bb8d2a8f0" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> member is initialized to a vector of pixels that generates each shape found. <p>
-The <a class="el" href="class_segmenter.html#3040cc000907ef44e820ddcf70de6f08" title="A set of shapes that represents every character found within the press clip.">shapes_</a> member is initialized to a vector of shapes that represents character within the clip.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> member is initialized with the pixels that generates each shape found. <p>
+The <a class="el" href="class_segmenter.html#3040cc000907ef44e820ddcf70de6f08" title="A set of shapes that represents every character found within the press clip.">shapes_</a> member is initialized with the shapes that represents character within the clip.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>Press clip</td></tr>
@@ -242,123 +389,10 @@ The <a class="el" href="class_segmenter.html#3040cc000907ef44e820ddcf70de6f08" t
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character. Every shape is built starting from a seed, i.e. an ink pixel, exploring recursively its neighbourhood and adding every ink pixel that is connected to the seed. The process ends when there are not more ink pixels connected and the shape is completely isolated. 
+The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character. Every shape is built starting from a seed, i.e. an ink pixel, exploring its neighbourhood and adding every ink pixel that is connected to the seed. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
 <p>
-2. For each seed explore its neighbourhood<p>
 3. Sort shapes according to their position within the clip 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00074">74</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="52f771c61d667df4f552ee73dc9f22e7"></a><!-- doxytag: member="Segmenter::thresholdingTime" ref="52f771c61d667df4f552ee73dc9f22e7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Segmenter::thresholdingTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the elapsed time while applying the thresholding algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00187">187</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="e7c93cb16e314baeb713bbd6ca9b667b"></a><!-- doxytag: member="Segmenter::floodFillingTime" ref="e7c93cb16e314baeb713bbd6ca9b667b" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Segmenter::floodFillingTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the elapsed time while applying the flood fill algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00197">197</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="f2dd7f34c8b0f902323005335e41bd57"></a><!-- doxytag: member="Segmenter::shapes" ref="f2dd7f34c8b0f902323005335e41bd57" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; <a class="el" href="class_shape.html">Shape</a> &gt; &amp; Segmenter::shapes           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the shapes found in the last segmentation process. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> objects</dd></dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a></dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00206">206</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="100bffdc0fe9834d81ddc63661b4c1ec"></a><!-- doxytag: member="Segmenter::seeds" ref="100bffdc0fe9834d81ddc63661b4c1ec" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt; &amp; Segmenter::seeds           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the seeds found in the last segmentation process. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of Pixel objects</dd></dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a></dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-17 </dd></dl>
-
-<p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00215">215</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00078">78</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
 
@@ -383,7 +417,8 @@ Returns the seeds found in the last segmentation process.
 <p>
 Finds all the ink pixels within a clip that may grow up as a shape. 
 <p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_segmenter.html#32db9acb9fe721613eb98c7bb8d2a8f0" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> member is initialized</dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The clip MUST be thresholded by calling <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies the threshold algorithm.">applyThreshold()</a> method before.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> member is initialized with all the ink pixels within the clip</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The press clip</td></tr>
@@ -391,17 +426,96 @@ Finds all the ink pixels within a clip that may grow up as a shape.
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-17</dd></dl>
-All the pixels of the clip are explored, adding to the vector of <a class="el" href="class_segmenter.html#32db9acb9fe721613eb98c7bb8d2a8f0" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> those whose gray level is equal to the ink's gray level stablished in the call to <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies the threshold algorithm.">applyThreshold()</a> method. 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00103">103</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+All the pixels of the clip are explored, adding to the vector of <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> those whose gray level is equal to the ink's gray level stablished in <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" title="Gray level value of the pixels that have ink.">inkValue_</a> member. 
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00110">110</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00074">applyFloodFill()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00078">applyFloodFill()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="eb86d455481f794cb4870eba98ee4340"></a><!-- doxytag: member="Segmenter::isSeed" ref="eb86d455481f794cb4870eba98ee4340" args="(const Pixel &amp;pixel) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Segmenter::isSeed           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>pixel</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns true if the pixel belongs to the vector of seeds. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pixel</em>&nbsp;</td><td>A pixel of the clip</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the pixel is a seed</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00131">131</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00144">exploreSeedNeighbourhood()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="684df74b0e810a837669823c47b6ed87"></a><!-- doxytag: member="Segmenter::exploreSeedNeighbourhood" ref="684df74b0e810a837669823c47b6ed87" args="(const Pixel &amp;seed, const Clip &amp;clip)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Segmenter::exploreSeedNeighbourhood           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>seed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Makes a recursive exploration searching for ink pixels that are neighbours of the pixel passed building a <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a>. 
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A new <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> object is added to <a class="el" href="class_segmenter.html#3040cc000907ef44e820ddcf70de6f08" title="A set of shapes that represents every character found within the press clip.">shapes_</a>. <p>
+The pixels that belongs to the new <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> object are removed from <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a>.</dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>seed</em>&nbsp;</td><td>The pixel where starting the exploration from </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where doing the exploration</td></tr>
+  </table>
+</dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
+
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00144">144</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00078">applyFloodFill()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp (146)</a><li><a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp (149)</a></ul>
+<li><a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp (150)</a><li><a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp (150)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 17 17:03:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:40 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

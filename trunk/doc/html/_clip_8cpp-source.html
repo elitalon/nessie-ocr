@@ -97,7 +97,7 @@ window.onload = initDynSections;
 <a name="l00043"></a>00043 {
 <a name="l00044"></a>00044     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = (x * <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>) + y;
 <a name="l00045"></a>00045     
-<a name="l00046"></a>00046     <span class="keywordflow">if</span> ( index &gt;= <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>.size() )
+<a name="l00046"></a>00046     <span class="keywordflow">if</span> ( (index &gt;= <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>.size()) or (index &lt; 0) )
 <a name="l00047"></a>00047         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::setPixelGrayLevel() : The coordinates are outside the clip"</span>);
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049     <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>[index] = grayLevel;
@@ -108,13 +108,13 @@ window.onload = initDynSections;
 <a name="l00057"></a>00057 <span class="keyword"></span>{
 <a name="l00058"></a>00058     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = (x * <a class="code" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa" title="The width of the pixels.">width_</a>) + y;
 <a name="l00059"></a>00059     
-<a name="l00060"></a>00060     <span class="keywordflow">if</span> ( index &gt;= <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>.size() )
-<a name="l00061"></a>00061         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::getPixelGrayLevel() : The coordinates are outside the clip"</span>);
+<a name="l00060"></a>00060     <span class="keywordflow">if</span> ( (index &gt;= <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>.size()) or (index &lt; 0))
+<a name="l00061"></a>00061         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"Clip::getPixelGrayLevel() : The coordinates are outside the clip borders"</span>);
 <a name="l00062"></a>00062         
 <a name="l00063"></a>00063     <span class="keywordflow">return</span> <a class="code" href="class_clip.html#54f166ae724cecf9473d2836b452e89c" title="A set of pixels that defines the press clip.">pixels_</a>[index];
 <a name="l00064"></a>00064 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 17 17:03:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:36 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -129,8 +129,9 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	Segmenter segmenter;
 	segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
 	updateImage(clip);
+	
 	segmenter.applyFloodFill(clip);
-	std::cout << "Seeds found                  : " << segmenter.seeds().size() << std::endl << std::endl;
+	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl << std::endl;
 	
 	
 	//

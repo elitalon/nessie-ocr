@@ -43,7 +43,7 @@ void Clip::setPixelGrayLevel (const unsigned int &x, const unsigned int &y, cons
 {
 	unsigned int index = (x * width_) + y;
 	
-	if ( index >= pixels_.size() )
+	if ( (index >= pixels_.size()) or (index < 0) )
 		throw NessieException ("Clip::setPixelGrayLevel() : The coordinates are outside the clip");
 
 	pixels_[index] = grayLevel;
@@ -57,8 +57,8 @@ const unsigned char &Clip::getPixelGrayLevel (const unsigned int &x, const unsig
 {
 	unsigned int index = (x * width_) + y;
 	
-	if ( index >= pixels_.size() )
-		throw NessieException ("Clip::getPixelGrayLevel() : The coordinates are outside the clip");
+	if ( (index >= pixels_.size()) or (index < 0))
+		throw NessieException ("Clip::getPixelGrayLevel() : The coordinates are outside the clip borders");
 		
 	return pixels_[index];
 };

@@ -10,7 +10,7 @@
 /// @details Initializes a Shape object.
 ///
 Shape::Shape ()
-	:	leftPixel_(Pixel(0,0)), rightPixel_(Pixel(0,0)), topPixel_(Pixel(0,0)), bottomPixel_(Pixel(0,0)), centralPixel_(Pixel(0,0)),
+	:	nPixels_(0), leftPixel_(Pixel(0,0)), rightPixel_(Pixel(0,0)), topPixel_(Pixel(0,0)), bottomPixel_(Pixel(0,0)), centralPixel_(Pixel(0,0)),
 		pixels_(std::vector<unsigned char>(0)), height_(0), width_(0)
 {
 
@@ -20,7 +20,7 @@ Shape::Shape ()
 /// 
 /// @details
 ///	
-void Shape::addPixel (const Pixel &pixel, const bool &isInk)
+void Shape::addPixel (const Pixel &pixel)
 {
 	
 };

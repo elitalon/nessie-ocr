@@ -148,10 +148,15 @@ class Shape
 		/// @author	Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///	
-		void addPixel (const Pixel &pixel, const bool &hasInk);
+		void addPixel (const Pixel &pixel);
 
-		
+		const unsigned int &nPixels ();
 	private:
+		///
+		/// Number of ink pixels within the shape
+		///
+		unsigned int nPixels_;
+		
 		///
 		/// Pixel of ink on the left-most position
 		///
@@ -198,6 +203,13 @@ class Shape
 // Implementation of inline functions
 // 
 
+///
+/// @details
+///
+inline const unsigned int &Shape::nPixels ()
+{
+	return nPixels_;
+};
 
 ///
 /// @details

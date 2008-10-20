@@ -75,6 +75,7 @@ window.onload = initDynSections;
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
@@ -101,7 +102,7 @@ Here is a list of all documented struct and union fields with links to the struc
 <li>addCharacter()
 : <a class="el" href="class_text.html#6e6da63c90af68639adc7dd1336f6bf9">Text</a>
 <li>addPixel()
-: <a class="el" href="class_shape.html#813980f9a7b40e042a148c6ce5192111">Shape</a>
+: <a class="el" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">Shape</a>
 <li>applyFloodFill()
 : <a class="el" href="class_segmenter.html#327c88f2d55cb606a67ce778c06cf426">Segmenter</a>
 <li>applyThreshold()
@@ -145,6 +146,10 @@ Here is a list of all documented struct and union fields with links to the struc
 <li>content_
 : <a class="el" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">Text</a>
 </ul>
+<h3><a class="anchor" name="index_e">- e -</a></h3><ul>
+<li>exploreSeedNeighbourhood()
+: <a class="el" href="class_segmenter.html#684df74b0e810a837669823c47b6ed87">Segmenter</a>
+</ul>
 <h3><a class="anchor" name="index_f">- f -</a></h3><ul>
 <li>findBackgroundReferenceGrayLevel()
 : <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4">Preprocessor</a>
@@ -176,8 +181,12 @@ Here is a list of all documented struct and union fields with links to the struc
 <h3><a class="anchor" name="index_i">- i -</a></h3><ul>
 <li>image_
 : <a class="el" href="class_recognizer.html#11fc98298edb98302bdd69e71dfb8d13">Recognizer</a>
+<li>inkValue()
+: <a class="el" href="class_segmenter.html#e9bc56ddcbe5ea4abb40fcc85e3d9fbe">Segmenter</a>
 <li>inkValue_
 : <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b">Segmenter</a>
+<li>isSeed()
+: <a class="el" href="class_segmenter.html#eb86d455481f794cb4870eba98ee4340">Segmenter</a>
 </ul>
 <h3><a class="anchor" name="index_l">- l -</a></h3><ul>
 <li>leftPixel()
@@ -202,6 +211,7 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_clip.html#9acfff7074239516465bcca11586c48d">Clip</a>
 <li>nPixels_
 : <a class="el" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d">Clip</a>
+, <a class="el" href="class_shape.html#ec8d5884f4c136898e25922ae978ea65">Shape</a>
 </ul>
 <h3><a class="anchor" name="index_o">- o -</a></h3><ul>
 <li>obtainText()
@@ -246,9 +256,9 @@ Here is a list of all documented struct and union fields with links to the struc
 </ul>
 <h3><a class="anchor" name="index_s">- s -</a></h3><ul>
 <li>seeds()
-: <a class="el" href="class_segmenter.html#100bffdc0fe9834d81ddc63661b4c1ec">Segmenter</a>
+: <a class="el" href="class_segmenter.html#519d84c033b647342c3397a0bf479d9e">Segmenter</a>
 <li>seeds_
-: <a class="el" href="class_segmenter.html#32db9acb9fe721613eb98c7bb8d2a8f0">Segmenter</a>
+: <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58">Segmenter</a>
 <li>segmentationTime()
 : <a class="el" href="class_statistics.html#f4c992e9970bce97b9a33100db689739">Statistics</a>
 <li>segmentationTime_
@@ -267,10 +277,10 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_clip_location.html#2d01b03e23d610b26bbb2e18278cf5a8">ClipLocation</a>
 <li>statistic()
 : <a class="el" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de">Recognizer</a>
-<li>Statistics()
-: <a class="el" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63">Statistics</a>
 <li>statistics()
 : <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba">Recognizer</a>
+<li>Statistics()
+: <a class="el" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63">Statistics</a>
 <li>statistics_
 : <a class="el" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a">Recognizer</a>
 </ul>
@@ -345,7 +355,7 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">NessieException</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 17 17:03:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

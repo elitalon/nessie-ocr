@@ -12,21 +12,19 @@
 
 #include "FeatureVector.hpp"
 #include "Shape.hpp"
-#include "Style.hpp"
 #include "Text.hpp"
 
 class Classifier
 {
 private:
-	FeatureVector featureVectors;
-	Shape shapes;
-	double buildingFeatureVectorsTime;
-	double extractingCharactersTime;
+	FeatureVector featureVectors_;
+	Shape shapes_;
+	double buildingFeatureVectorsTime_;
+	double extractingCharactersTime_;
 	void buildFeatureVectors();
 	char identifyCharacter();
-	Style identifyCharacterStyle();
 public:
-	void Classifier(Shape[] shapes);
+	Classifier(Shape shapes);
 	Text extractCharacters();
 	double buildingFeatureVectorsTime();
 	double extractingCharactersTime();

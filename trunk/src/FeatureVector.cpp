@@ -45,7 +45,7 @@ void FeatureVector::computeMoment6()
 
 }
 
-void FeatureVector::FeatureVector(Shape shape)
+FeatureVector::FeatureVector()
 {
 
 }

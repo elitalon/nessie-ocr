@@ -8,7 +8,6 @@
  */
 
 #include "Classifier.hpp"
-#include "Style.hpp"
 #include "Text.hpp"
 
 void Classifier::buildFeatureVectors()
@@ -18,31 +17,27 @@ void Classifier::buildFeatureVectors()
 
 char Classifier::identifyCharacter()
 {
-
+	return 'a';
 }
 
-Style Classifier::identifyCharacterStyle()
-{
-
-}
-
-void Classifier::Classifier(Shape[] shapes)
+Classifier::Classifier(Shape shapes)
+: featureVectors_(FeatureVector()), shapes_(Shape()), buildingFeatureVectorsTime_(0.0), extractingCharactersTime_(0.0)
 {
 
 }
 
 Text Classifier::extractCharacters()
 {
-
+	return Text();
 }
 
 double Classifier::buildingFeatureVectorsTime()
 {
-
+	return buildingFeatureVectorsTime_;
 }
 
 double Classifier::extractingCharactersTime()
 {
-
+	return extractingCharactersTime_;
 }
 

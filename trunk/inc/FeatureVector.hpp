@@ -33,7 +33,7 @@ public:
 	double moment4;
 	double moment5;
 	double moment6;
-	void FeatureVector(Shape shape);
+	FeatureVector();
 };
 
 #endif  //_FEATUREVECTOR_H

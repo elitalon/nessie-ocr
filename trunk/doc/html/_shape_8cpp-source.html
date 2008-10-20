@@ -69,19 +69,19 @@ window.onload = initDynSections;
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
 <a name="l00012"></a><a class="code" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7">00012</a> <a class="code" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7" title="Constructor.">Shape::Shape</a> ()
-<a name="l00013"></a>00013     :   leftPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), rightPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), topPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), bottomPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), centralPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
+<a name="l00013"></a>00013     :   nPixels_(0), leftPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), rightPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), topPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), bottomPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), centralPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
 <a name="l00014"></a>00014         pixels_(std::vector&lt;unsigned char&gt;(0)), height_(0), width_(0)
 <a name="l00015"></a>00015 {
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 };
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 
-<a name="l00023"></a><a class="code" href="class_shape.html#813980f9a7b40e042a148c6ce5192111">00023</a> <span class="keywordtype">void</span> <a class="code" href="class_shape.html#813980f9a7b40e042a148c6ce5192111" title="Adds a pixel to the shape.">Shape::addPixel</a> (<span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;pixel, <span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;isInk)
+<a name="l00023"></a><a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">00023</a> <span class="keywordtype">void</span> <a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243" title="Adds a pixel to the shape.">Shape::addPixel</a> (<span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;pixel)
 <a name="l00024"></a>00024 {
 <a name="l00025"></a>00025     
 <a name="l00026"></a>00026 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 17 17:03:49 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:36 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

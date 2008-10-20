@@ -10,8 +10,12 @@
 
 
 ///
-/// @todo Develop a method to remove a pixel from the list of seeds
-/// @todo Develop a method to sort the list of shapes according to their position in text
+/// @todo Improve the performance of Segmenter::exploreSeedNeighbourhood() by developing a non-recursive approach
+/// @todo Develop a method to sort the list of shapes according to their position in text.
+/// @todo Change the Clip::setPixelGrayLevel() and Clip::getPixelGrayLevel methods for operator() overloading.
+/// @todo Overload operator+ for the class Text.
+/// @todo Overload operator- and operator+ for the class Statistics.
+/// 
 /// 
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments

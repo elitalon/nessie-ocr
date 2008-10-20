@@ -47,11 +47,21 @@ const unsigned int \& \hyperlink{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}{h
 \begin{CompactList}\small\item\em Returns the height of the shape. \item\end{CompactList}\item 
 const unsigned int \& \hyperlink{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}{width} ()
 \begin{CompactList}\small\item\em Returns the width of the shape. \item\end{CompactList}\item 
-void \hyperlink{class_shape_813980f9a7b40e042a148c6ce5192111}{addPixel} (const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel, const bool \&hasInk)
-\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\end{CompactItemize}
+void \hyperlink{class_shape_f6114234203d9473f1fef9e6391f9243}{addPixel} (const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel)
+\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\item 
+\hypertarget{class_shape_3d0e3348fdb5d2d8c9997d579c3383e2}{
+const unsigned int \& \textbf{nPixels} ()}
+\label{class_shape_3d0e3348fdb5d2d8c9997d579c3383e2}
+
+\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
+\hypertarget{class_shape_ec8d5884f4c136898e25922ae978ea65}{
+unsigned int \hyperlink{class_shape_ec8d5884f4c136898e25922ae978ea65}{nPixels\_\-}}
+\label{class_shape_ec8d5884f4c136898e25922ae978ea65}
+
+\begin{CompactList}\small\item\em Number of ink pixels within the shape. \item\end{CompactList}\item 
 \hypertarget{class_shape_812cd080959b320038aae54729831ce4}{
 \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_812cd080959b320038aae54729831ce4}{leftPixel\_\-}}
 \label{class_shape_812cd080959b320038aae54729831ce4}
@@ -132,7 +142,7 @@ Returns the coordinates of the left-most pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 205 of file Shape.hpp.\hypertarget{class_shape_86841a53f5d82ba696406ef29f908d4f}{
+Definition at line 217 of file Shape.hpp.\hypertarget{class_shape_86841a53f5d82ba696406ef29f908d4f}{
 \index{Shape@{Shape}!rightPixel@{rightPixel}}
 \index{rightPixel@{rightPixel}!Shape@{Shape}}
 \subsubsection[rightPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::rightPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -151,7 +161,7 @@ Returns the coordinates of the right-most pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 214 of file Shape.hpp.\hypertarget{class_shape_070525c7002c5f02361a102d0351520e}{
+Definition at line 226 of file Shape.hpp.\hypertarget{class_shape_070525c7002c5f02361a102d0351520e}{
 \index{Shape@{Shape}!topPixel@{topPixel}}
 \index{topPixel@{topPixel}!Shape@{Shape}}
 \subsubsection[topPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::topPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -170,7 +180,7 @@ Returns the coordinates of the top pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 223 of file Shape.hpp.\hypertarget{class_shape_0454e59e7572927e4a29b40c950bc52f}{
+Definition at line 235 of file Shape.hpp.\hypertarget{class_shape_0454e59e7572927e4a29b40c950bc52f}{
 \index{Shape@{Shape}!bottomPixel@{bottomPixel}}
 \index{bottomPixel@{bottomPixel}!Shape@{Shape}}
 \subsubsection[bottomPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::bottomPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -189,7 +199,7 @@ Returns the coordinates of the bottom pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 232 of file Shape.hpp.\hypertarget{class_shape_cae0adae98c38009c8241ef0baa169c3}{
+Definition at line 244 of file Shape.hpp.\hypertarget{class_shape_cae0adae98c38009c8241ef0baa169c3}{
 \index{Shape@{Shape}!centralPixel@{centralPixel}}
 \index{centralPixel@{centralPixel}!Shape@{Shape}}
 \subsubsection[centralPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::centralPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -208,7 +218,7 @@ Returns the coordinates of the central pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 241 of file Shape.hpp.\hypertarget{class_shape_7623c856a1a7916fc000f43d5efdba5b}{
+Definition at line 253 of file Shape.hpp.\hypertarget{class_shape_7623c856a1a7916fc000f43d5efdba5b}{
 \index{Shape@{Shape}!pixels@{pixels}}
 \index{pixels@{pixels}!Shape@{Shape}}
 \subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ unsigned char $>$ \& Shape::pixels ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -225,7 +235,7 @@ Returns the set of pixels that defines the shape.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 250 of file Shape.hpp.\hypertarget{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}{
+Definition at line 262 of file Shape.hpp.\hypertarget{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}{
 \index{Shape@{Shape}!height@{height}}
 \index{height@{height}!Shape@{Shape}}
 \subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::height ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -242,7 +252,7 @@ Returns the height of the shape.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 259 of file Shape.hpp.\hypertarget{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}{
+Definition at line 271 of file Shape.hpp.\hypertarget{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}{
 \index{Shape@{Shape}!width@{width}}
 \index{width@{width}!Shape@{Shape}}
 \subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::width ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -259,11 +269,11 @@ Returns the width of the shape.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 268 of file Shape.hpp.\hypertarget{class_shape_813980f9a7b40e042a148c6ce5192111}{
+Definition at line 280 of file Shape.hpp.\hypertarget{class_shape_f6114234203d9473f1fef9e6391f9243}{
 \index{Shape@{Shape}!addPixel@{addPixel}}
 \index{addPixel@{addPixel}!Shape@{Shape}}
-\subsubsection[addPixel]{\setlength{\rightskip}{0pt plus 5cm}void Shape::addPixel (const {\bf Pixel} \& {\em pixel}, \/  const bool \& {\em hasInk})}}
-\label{class_shape_813980f9a7b40e042a148c6ce5192111}
+\subsubsection[addPixel]{\setlength{\rightskip}{0pt plus 5cm}void Shape::addPixel (const {\bf Pixel} \& {\em pixel})}}
+\label{class_shape_f6114234203d9473f1fef9e6391f9243}
 
 
 Adds a pixel to the shape. 

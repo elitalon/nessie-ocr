@@ -1,9 +1,8 @@
-<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="428,84,551,111">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of the class Preprocessor." alt="" coords="589,84,725,111">
-<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of the class Segmenter." alt="" coords="757,84,880,111">
+<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="420,84,543,111">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of the class Preprocessor." alt="" coords="581,84,717,111">
+<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of the class Segmenter." alt="" coords="749,84,872,111">
 <area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of the class NessieException." alt="" coords="5,84,168,111">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="709,161,781,188">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="555,161,635,188">
-<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="139,161,253,188">
-<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="277,161,408,188">
-<area shape="rect" href="$_pixel_8hpp.html" title="Declaration of the custom type Pixel." alt="" coords="856,161,936,188">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="705,161,777,188">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="551,161,631,188">
+<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="84,161,199,188">
+<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="223,161,353,188">
