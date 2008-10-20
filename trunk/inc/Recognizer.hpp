@@ -41,187 +41,187 @@
 ///
 class Recognizer
 {
-	public:
-		///
-		/// Constructor.
-		/// 
-		/// @param path Relative path to the image within the filesystem
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10		
-		///
-		Recognizer (const std::string &path);
-		
-		
-		///
-		/// Constructor.
-		///
-		/// @param image An Image object from the Magick++ API previously loaded
-		/// 
-		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
-		///
-		Recognizer (Magick::Image &image);
-		
-		
-		///
-		/// Recognizes the text within the whole page at once.
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-09
-		///
-		void obtainText ();
-		
-		
-		///
-		/// Recognizes the text within multiple press clips whose coordinates are passed.
-		///
-		/// @param coordinates A list of coordinates to locate a number of clips within the page
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		void obtainText (const std::vector<ClipLocation> &coordinates);
-		
-		
-		///
-		/// Recognizes the text within a single press clip located at coordinates (x,y)
-		///
-		/// @param x		Top left-most pixel X coordinate
-		/// @param y		Top left-most pixel Y coordinate
-		/// @param height	Clip's height
-		/// @param width	Clip's width
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		void obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width);
+public:
+	///
+	/// Constructor.
+	/// 
+	/// @param path Relative path to the image within the filesystem
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-10		
+	///
+	Recognizer (const std::string &path);
+	
+	
+	///
+	/// Constructor.
+	///
+	/// @param image An Image object from the Magick++ API previously loaded
+	/// 
+	/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-10
+	///
+	Recognizer (Magick::Image &image);
+	
+	
+	///
+	/// Recognizes the text within the whole page at once.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-09
+	///
+	void obtainText ();
+	
+	
+	///
+	/// Recognizes the text within multiple press clips whose coordinates are passed.
+	///
+	/// @param coordinates A list of coordinates to locate a number of clips within the page
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	void obtainText (const std::vector<ClipLocation> &coordinates);
+	
+	
+	///
+	/// Recognizes the text within a single press clip located at coordinates (x,y)
+	///
+	/// @param x		Top left-most pixel X coordinate
+	/// @param y		Top left-most pixel Y coordinate
+	/// @param height	Clip's height
+	/// @param width	Clip's width
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	void obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width);
 
 
-		///
-		/// Returns the text of a single clip
-		/// 
-		/// @param label A number that tells the clip where the requested text belongs to
-		/// 
-		/// @see Text
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const Text &text (const unsigned int& label=0) const;
-		
-		
-		///
-		/// Returns the text of every loaded clip
-		/// 
-		/// @return A list of texts recognized in the clips previously loaded
-		/// 
-		/// @see Text
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const std::vector<Text> &texts () const;
+	///
+	/// Returns the text of a single clip
+	/// 
+	/// @param label A number that tells the clip where the requested text belongs to
+	/// 
+	/// @see Text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const Text &text (const unsigned int& label=0) const;
+	
+	
+	///
+	/// Returns the text of every loaded clip
+	/// 
+	/// @return A list of texts recognized in the clips previously loaded
+	/// 
+	/// @see Text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const std::vector<Text> &texts () const;
 
 
-		///
-		/// Returns the statistical data regarding the recognition process of a single clip 
-		/// 
-		/// @param label A number that tells the clip where the requested statistical data belongs to
-		/// 
-		/// @return Statistical data about the recognition process of a single clip
-		/// 
-		/// @see Statistics
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const Statistics &statistic (const unsigned int& label=0) const;
-		
-		
-		///
-		/// Returns the statistical data regarding the recognition process of every loaded clip
-		/// 
-		/// @return Statistical data about the recognition process of every clip within the image
-		/// 
-		/// @see Statistics
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const std::vector<Statistics> &statistics () const;
-		
-		
-		///
-		/// Writes the information of the internal data into an external image.
-		///
-		/// @param externalImage The destination Image object from the Magick++ API previously created
-		/// 
-		/// @post The external image is converted to a grayscale colorspace and its pixels are overwritten according
-		/// to the information of the internal image
-		/// 
-		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
-		///
-		void writeExternalImage (Magick::Image &externalImage) const;
-		
-	private:
-		///
-		/// Underlying image where where clip belongs to
-		///
-		std::vector<unsigned char> image_;
-		
-		///
-		/// Height of the underlying image
-		///
-		unsigned int height_;
-		
-		///
-		/// Width of the underlying image
-		///
-		unsigned int width_;
-		
-		///
-		/// Text obtained after the recognition process 
-		///
-		std::vector<Text> texts_;
-		
-		///
-		/// Statistics gathered during the recognition process
-		///
-		std::vector<Statistics> statistics_;
-		
-		
-		///
-		/// Loads an Image object created with the Magick++ API into the internal data structure.
-		///
-		/// @param image An Image object from the Magick++ API previously created
-		/// 
-		/// @post The internal image is converted to a grayscale colorspace
-		/// 
-		/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-10
-		///
-		void loadImage (Magick::Image &image);
-		
-		
-		///
-		/// Writes the information of a clip into the underlying image
-		///
-		/// @param clip The clip where the new data is taken
-		/// 
-		/// @see Clip
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		void updateImage (const Clip &clip);
+	///
+	/// Returns the statistical data regarding the recognition process of a single clip 
+	/// 
+	/// @param label A number that tells the clip where the requested statistical data belongs to
+	/// 
+	/// @return Statistical data about the recognition process of a single clip
+	/// 
+	/// @see Statistics
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const Statistics &statistic (const unsigned int& label=0) const;
+	
+	
+	///
+	/// Returns the statistical data regarding the recognition process of every loaded clip
+	/// 
+	/// @return Statistical data about the recognition process of every clip within the image
+	/// 
+	/// @see Statistics
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const std::vector<Statistics> &statistics () const;
+	
+	
+	///
+	/// Writes the information of the internal data into an external image.
+	///
+	/// @param externalImage The destination Image object from the Magick++ API previously created
+	/// 
+	/// @post The external image is converted to a grayscale colorspace and its pixels are overwritten according
+	/// to the information of the internal image
+	/// 
+	/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-10
+	///
+	void writeExternalImage (Magick::Image &externalImage) const;
+	
+private:
+	///
+	/// Underlying image where where clip belongs to
+	///
+	std::vector<unsigned char> image_;
+	
+	///
+	/// Height of the underlying image
+	///
+	unsigned int height_;
+	
+	///
+	/// Width of the underlying image
+	///
+	unsigned int width_;
+	
+	///
+	/// Text obtained after the recognition process 
+	///
+	std::vector<Text> texts_;
+	
+	///
+	/// Statistics gathered during the recognition process
+	///
+	std::vector<Statistics> statistics_;
+	
+	
+	///
+	/// Loads an Image object created with the Magick++ API into the internal data structure.
+	///
+	/// @param image An Image object from the Magick++ API previously created
+	/// 
+	/// @post The internal image is converted to a grayscale colorspace
+	/// 
+	/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-10
+	///
+	void loadImage (Magick::Image &image);
+	
+	
+	///
+	/// Writes the information of a clip into the underlying image
+	///
+	/// @param clip The clip where the new data is taken
+	/// 
+	/// @see Clip
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	void updateImage (const Clip &clip);
 };
 
 

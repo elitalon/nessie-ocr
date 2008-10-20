@@ -82,52 +82,52 @@ window.onload = initDynSections;
 <a name="l00020"></a>00020 
 <a name="l00042"></a><a class="code" href="class_recognizer.html">00042</a> <span class="keyword">class </span><a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>
 <a name="l00043"></a>00043 {
-<a name="l00044"></a>00044     <span class="keyword">public</span>:
-<a name="l00053"></a>00053         <a class="code" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> std::string &amp;path);
-<a name="l00054"></a>00054         
-<a name="l00055"></a>00055         
-<a name="l00066"></a>00066         <a class="code" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer</a> (Magick::Image &amp;image);
-<a name="l00067"></a>00067         
-<a name="l00068"></a>00068         
-<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> ();
-<a name="l00076"></a>00076         
-<a name="l00077"></a>00077         
-<a name="l00086"></a>00086         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> (<span class="keyword">const</span> std::vector&lt;ClipLocation&gt; &amp;coordinates);
-<a name="l00087"></a>00087         
-<a name="l00088"></a>00088         
-<a name="l00100"></a>00100         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
+<a name="l00044"></a>00044 <span class="keyword">public</span>:
+<a name="l00053"></a>00053     <a class="code" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> std::string &amp;path);
+<a name="l00054"></a>00054     
+<a name="l00055"></a>00055     
+<a name="l00066"></a>00066     <a class="code" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer</a> (Magick::Image &amp;image);
+<a name="l00067"></a>00067     
+<a name="l00068"></a>00068     
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> ();
+<a name="l00076"></a>00076     
+<a name="l00077"></a>00077     
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> (<span class="keyword">const</span> std::vector&lt;ClipLocation&gt; &amp;coordinates);
+<a name="l00087"></a>00087     
+<a name="l00088"></a>00088     
+<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
 <a name="l00101"></a>00101 
 <a name="l00102"></a>00102 
-<a name="l00113"></a>00113         <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted by the recognizer.">Text</a> &amp;<a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
-<a name="l00114"></a>00114         
-<a name="l00115"></a>00115         
-<a name="l00126"></a>00126         <span class="keyword">const</span> std::vector&lt;Text&gt; &amp;<a class="code" href="class_recognizer.html#2a365c34f1447cdc3311d311e02bf2ed" title="Returns the text of every loaded clip.">texts</a> () <span class="keyword">const</span>;
+<a name="l00113"></a>00113     <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted by the recognizer.">Text</a> &amp;<a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
+<a name="l00114"></a>00114     
+<a name="l00115"></a>00115     
+<a name="l00126"></a>00126     <span class="keyword">const</span> std::vector&lt;Text&gt; &amp;<a class="code" href="class_recognizer.html#2a365c34f1447cdc3311d311e02bf2ed" title="Returns the text of every loaded clip.">texts</a> () <span class="keyword">const</span>;
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128 
-<a name="l00141"></a>00141         <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
-<a name="l00142"></a>00142         
-<a name="l00143"></a>00143         
-<a name="l00154"></a>00154         <span class="keyword">const</span> std::vector&lt;Statistics&gt; &amp;<a class="code" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics</a> () <span class="keyword">const</span>;
-<a name="l00155"></a>00155         
-<a name="l00156"></a>00156         
-<a name="l00170"></a>00170         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image.">writeExternalImage</a> (Magick::Image &amp;externalImage) <span class="keyword">const</span>;
-<a name="l00171"></a>00171         
-<a name="l00172"></a>00172     <span class="keyword">private</span>:
-<a name="l00176"></a><a class="code" href="class_recognizer.html#11fc98298edb98302bdd69e71dfb8d13">00176</a>         std::vector&lt;unsigned char&gt; <a class="code" href="class_recognizer.html#11fc98298edb98302bdd69e71dfb8d13" title="Underlying image where where clip belongs to.">image_</a>;
-<a name="l00177"></a>00177         
-<a name="l00181"></a><a class="code" href="class_recognizer.html#c9da570bfac5adee1dcd253fc76ab747">00181</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_recognizer.html#c9da570bfac5adee1dcd253fc76ab747" title="Height of the underlying image.">height_</a>;
-<a name="l00182"></a>00182         
-<a name="l00186"></a><a class="code" href="class_recognizer.html#401c3d8736c8779ad69f92c4c2703c26">00186</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_recognizer.html#401c3d8736c8779ad69f92c4c2703c26" title="Width of the underlying image.">width_</a>;
-<a name="l00187"></a>00187         
-<a name="l00191"></a><a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e">00191</a>         std::vector&lt;Text&gt; <a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e" title="Text obtained after the recognition process.">texts_</a>;
-<a name="l00192"></a>00192         
-<a name="l00196"></a><a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a">00196</a>         std::vector&lt;Statistics&gt; <a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a" title="Statistics gathered during the recognition process.">statistics_</a>;
-<a name="l00197"></a>00197         
-<a name="l00198"></a>00198         
-<a name="l00211"></a>00211         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure...">loadImage</a> (Magick::Image &amp;image);
-<a name="l00212"></a>00212         
-<a name="l00213"></a>00213         
-<a name="l00224"></a>00224         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#0779d8bb035f7d51cb26fdc3d410e019" title="Writes the information of a clip into the underlying image.">updateImage</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip);
+<a name="l00141"></a>00141     <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
+<a name="l00142"></a>00142     
+<a name="l00143"></a>00143     
+<a name="l00154"></a>00154     <span class="keyword">const</span> std::vector&lt;Statistics&gt; &amp;<a class="code" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics</a> () <span class="keyword">const</span>;
+<a name="l00155"></a>00155     
+<a name="l00156"></a>00156     
+<a name="l00170"></a>00170     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image.">writeExternalImage</a> (Magick::Image &amp;externalImage) <span class="keyword">const</span>;
+<a name="l00171"></a>00171     
+<a name="l00172"></a>00172 <span class="keyword">private</span>:
+<a name="l00176"></a><a class="code" href="class_recognizer.html#11fc98298edb98302bdd69e71dfb8d13">00176</a>     std::vector&lt;unsigned char&gt; <a class="code" href="class_recognizer.html#11fc98298edb98302bdd69e71dfb8d13" title="Underlying image where where clip belongs to.">image_</a>;
+<a name="l00177"></a>00177     
+<a name="l00181"></a><a class="code" href="class_recognizer.html#c9da570bfac5adee1dcd253fc76ab747">00181</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_recognizer.html#c9da570bfac5adee1dcd253fc76ab747" title="Height of the underlying image.">height_</a>;
+<a name="l00182"></a>00182     
+<a name="l00186"></a><a class="code" href="class_recognizer.html#401c3d8736c8779ad69f92c4c2703c26">00186</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_recognizer.html#401c3d8736c8779ad69f92c4c2703c26" title="Width of the underlying image.">width_</a>;
+<a name="l00187"></a>00187     
+<a name="l00191"></a><a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e">00191</a>     std::vector&lt;Text&gt; <a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e" title="Text obtained after the recognition process.">texts_</a>;
+<a name="l00192"></a>00192     
+<a name="l00196"></a><a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a">00196</a>     std::vector&lt;Statistics&gt; <a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a" title="Statistics gathered during the recognition process.">statistics_</a>;
+<a name="l00197"></a>00197     
+<a name="l00198"></a>00198     
+<a name="l00211"></a>00211     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure...">loadImage</a> (Magick::Image &amp;image);
+<a name="l00212"></a>00212     
+<a name="l00213"></a>00213     
+<a name="l00224"></a>00224     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#0779d8bb035f7d51cb26fdc3d410e019" title="Writes the information of a clip into the underlying image.">updateImage</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> &amp;clip);
 <a name="l00225"></a>00225 };
 <a name="l00226"></a>00226 
 <a name="l00227"></a>00227 
@@ -169,7 +169,7 @@ window.onload = initDynSections;
 <a name="l00275"></a>00275 
 <a name="l00276"></a>00276 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:36 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:44 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

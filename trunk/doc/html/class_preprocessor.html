@@ -104,22 +104,15 @@ This class encapsulates all the methods related to preprocessing stage. Its task
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#2cb04f2116b4afc783ff070026bc1297">backgroundReferenceGrayLevelFindingTime</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while computing the background reference gray level within the clip.  <a href="#2cb04f2116b4afc783ff070026bc1297"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#aaeb94a3b52b835bc26efebb40be25bc">computeOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned int &amp;technique=0)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634">computeOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the optimal threshold value within a clip.  <a href="#aaeb94a3b52b835bc26efebb40be25bc"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the optimal threshold value in a clip following the Sonka's technique.  <a href="#ac2f414d6f4f917419f33f6067eb8634"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4">findBackgroundReferenceGrayLevel</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned int &amp;referenceGrayLevelNeighbours=2)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the background reference gray level value within a clip.  <a href="#a941f81382bd8e235e4dd12481342be4"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#a3e047486a0a80f2103f51d7141e41c5">removeIsolatedNoise</a> (<a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned int &amp;isolationCoefficient=0)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies the 'isolated noise removal' algorithm.  <a href="#a3e047486a0a80f2103f51d7141e41c5"></a><br></td></tr>
-<tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#3d4fa7e4721c62997beb93a41d729c99">computeSonkaOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Implementation of optimal threshold computing following the Sonka's technique.  <a href="#3d4fa7e4721c62997beb93a41d729c99"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#faa4368f471a3e5d0cb46865a2a1ccb7">computeOtsuOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Implementation of optimal threshold computing following the Otsu's technique.  <a href="#faa4368f471a3e5d0cb46865a2a1ccb7"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="865b1e28dd9535b96f70727a550104fe"></a><!-- doxytag: member="Preprocessor::optimalThreshold_" ref="865b1e28dd9535b96f70727a550104fe" args="" -->
 unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe">optimalThreshold_</a></td></tr>
@@ -164,7 +157,7 @@ Constructor.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
 Initializes a <a class="el" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> object 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00020">20</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00019">19</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
 </div>
 </div><p>
@@ -191,9 +184,9 @@ Returns the optimal threshold found in the last clip used.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00233">233</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00204">204</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -224,7 +217,7 @@ Sets the optimal threshold to use in algorithms.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00242">242</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00213">213</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -250,9 +243,9 @@ Returns the background reference gray level in the last clip used.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00251">251</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00222">222</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -279,9 +272,9 @@ Returns the elapsed time while applying the 'isolated noise removal' algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00260">260</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00231">231</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -304,13 +297,13 @@ Returns the elapsed time while applying the 'isolated noise removal' algorithm.
 Returns the elapsed time while founding the optimal threshold within the clip. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time while founding the optimal threshold within the clip</dd></dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_preprocessor.html#aaeb94a3b52b835bc26efebb40be25bc" title="Computes the optimal threshold value within a clip.">computeOptimalThreshold()</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique...">computeOptimalThreshold()</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00269">269</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00240">240</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -337,13 +330,13 @@ Returns the elapsed time while computing the background reference gray level wit
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00278">278</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8hpp-source.html#l00249">249</a> of file <a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="aaeb94a3b52b835bc26efebb40be25bc"></a><!-- doxytag: member="Preprocessor::computeOptimalThreshold" ref="aaeb94a3b52b835bc26efebb40be25bc" args="(const Clip &amp;clip, const unsigned int &amp;technique=0)" -->
+<a class="anchor" name="ac2f414d6f4f917419f33f6067eb8634"></a><!-- doxytag: member="Preprocessor::computeOptimalThreshold" ref="ac2f414d6f4f917419f33f6067eb8634" args="(const Clip &amp;clip)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -351,42 +344,33 @@ Returns the elapsed time while computing the background reference gray level wit
           <td class="memname">const unsigned char &amp; Preprocessor::computeOptimalThreshold           </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>clip</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"> <em>clip</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
           <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>technique</em> = <code>0</code></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Computes the optimal threshold value within a clip. 
+Computes the optimal threshold value in a clip following the Sonka's technique. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> method before calling this one, since it sets internal attributes. </dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The member <a class="el" href="class_preprocessor.html#d606fe1f0be7f7be60583f59278e2df6" title="Elapsed time when converting the image to a grayscale colorspace.">optimalThresholdComputingTime_</a> is modified.</dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> method before calling this one, since it sets internal attributes.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The member <a class="el" href="class_preprocessor.html#d606fe1f0be7f7be60583f59278e2df6" title="Elapsed time when converting the image to a grayscale colorspace.">optimalThresholdComputingTime_</a> is modified. <p>
+The attribute <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a> is initialized to the threshold found</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>technique</em>&nbsp;</td><td>An integer that tells the technique that must be used: 0 for Sonka's method or 1 for Otsu's method.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over</td></tr>
   </table>
 </dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_preprocessor.html#3d4fa7e4721c62997beb93a41d729c99" title="Implementation of optimal threshold computing following the Sonka&#39;s technique...">computeSonkaOptimalThreshold()</a>, <a class="el" href="class_preprocessor.html#faa4368f471a3e5d0cb46865a2a1ccb7" title="Implementation of optimal threshold computing following the Otsu&#39;s technique...">computeOtsuOptimalThreshold()</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The optimal threshold of the clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-To compute the optimal threshold we may follow two different strategies. The Sonka's method is faster but sometimes less accurate, while Otsu's method is more accurate but slower and sometimes does not perform well if there are more than three representative gray levels. Unless you are testing both algorithms or have specific domain knowledge we strongly recommend the Sonka's technique. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00033">33</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
+The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member <a class="el" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>. 
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00036">36</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -432,9 +416,9 @@ Computes the background reference gray level value within a clip.
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.<p>
 <dl compact><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. </dd></dl>
 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00053">53</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00096">96</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -466,7 +450,7 @@ To find the reference gray level of the background it is assumed that there are 
 <p>
 Applies the 'isolated noise removal' algorithm. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#aaeb94a3b52b835bc26efebb40be25bc" title="Computes the optimal threshold value within a clip.">computeOptimalThreshold()</a> and <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> methods before calling this one, since they set internal attributes.</dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique...">computeOptimalThreshold()</a> and <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> methods before calling this one, since they set internal attributes.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The clip may be modified if any noise is found.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -478,92 +462,16 @@ Applies the 'isolated noise removal' algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00129">129</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00172">172</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="3d4fa7e4721c62997beb93a41d729c99"></a><!-- doxytag: member="Preprocessor::computeSonkaOptimalThreshold" ref="3d4fa7e4721c62997beb93a41d729c99" args="(const Clip &amp;clip)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::computeSonkaOptimalThreshold           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>clip</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Implementation of optimal threshold computing following the Sonka's technique. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over</td></tr>
-  </table>
-</dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The attribute <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a> is initialized to the threshold found</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-14</dd></dl>
-The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member <a class="el" href="class_preprocessor.html#2c9e44ff6522b2ce35d6bc6161ad2680" title="Background reference gray level.">backgroundReferenceGrayLevel_</a>. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00199">199</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00033">computeOptimalThreshold()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="faa4368f471a3e5d0cb46865a2a1ccb7"></a><!-- doxytag: member="Preprocessor::computeOtsuOptimalThreshold" ref="faa4368f471a3e5d0cb46865a2a1ccb7" args="(const Clip &amp;clip)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::computeOtsuOptimalThreshold           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>clip</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Implementation of optimal threshold computing following the Otsu's technique. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The clip where applying the algorithm over</td></tr>
-  </table>
-</dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The attribute <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a> is initialized to the threshold found</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-14</dd></dl>
-The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (IEEE Transactions on Systems, Man, and Cybernetics, 1979) maximises the likelihood that the threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and the first-order cumulative moments of the gray-level histogram. 
-<p>
-1. Compute the gray-level histogram and normalized it.<p>
-2. Compute the total mean level of the image <img class="formulaInl" alt="$\mu_T$" src="form_0.png">.<p>
-3. For each gray level <img class="formulaInl" alt="$k$" src="form_1.png"> compute <img class="formulaInl" alt="$\omega(k)$" src="form_2.png"> y <img class="formulaInl" alt="$\mu(k)$" src="form_3.png">, which are the zeroth- and the first-order cumulative moments of the histogram up to the <img class="formulaInl" alt="$k$" src="form_1.png">th level.<p>
-4. Compute the variance of the class separability <img class="formulaInl" alt="$\sigma_B^2(k)$" src="form_4.png">.<p>
-5. Find the <img class="formulaInl" alt="$k$" src="form_1.png">th level that makes a <img class="formulaInl" alt="$\sigma_B^2(k)$" src="form_4.png"> value the maximum. 
-<p>Definition at line <a class="el" href="_preprocessor_8cpp-source.html#l00256">256</a> of file <a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00033">computeOptimalThreshold()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_preprocessor_8hpp-source.html">Preprocessor.hpp (150)</a><li><a class="el" href="_preprocessor_8cpp-source.html">Preprocessor.cpp (150)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:54 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -224,7 +224,7 @@ The \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-} m
 \item[Date:]2008-10-13\end{Desc}
 Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
 
-Definition at line 30 of file Segmenter.cpp.
+Definition at line 34 of file Segmenter.cpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_327c88f2d55cb606a67ce778c06cf426}{
 \index{Segmenter@{Segmenter}!applyFloodFill@{applyFloodFill}}
@@ -256,7 +256,7 @@ The 'flood fill' algorithm is a segmentation technique that isolates every shape
 
 3. Sort shapes according to their position within the clip 
 
-Definition at line 78 of file Segmenter.cpp.
+Definition at line 83 of file Segmenter.cpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
 \index{Segmenter@{Segmenter}!findSeeds@{findSeeds}}
@@ -282,7 +282,7 @@ Finds all the ink pixels within a clip that may grow up as a shape.
 \item[Date:]2008-10-17\end{Desc}
 All the pixels of the clip are explored, adding to the vector of \hyperlink{class_segmenter_48b7c2c842b26bebda9d0fc13cf81e58}{seeds\_\-} those whose gray level is equal to the ink's gray level stablished in \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-} member. 
 
-Definition at line 110 of file Segmenter.cpp.
+Definition at line 115 of file Segmenter.cpp.
 
 Referenced by applyFloodFill().\hypertarget{class_segmenter_eb86d455481f794cb4870eba98ee4340}{
 \index{Segmenter@{Segmenter}!isSeed@{isSeed}}
@@ -306,7 +306,7 @@ Returns true if the pixel belongs to the vector of seeds.
 \item[Date:]2008-10-18 \end{Desc}
 
 
-Definition at line 131 of file Segmenter.cpp.
+Definition at line 133 of file Segmenter.cpp.
 
 Referenced by exploreSeedNeighbourhood().\hypertarget{class_segmenter_684df74b0e810a837669823c47b6ed87}{
 \index{Segmenter@{Segmenter}!exploreSeedNeighbourhood@{exploreSeedNeighbourhood}}
@@ -332,11 +332,11 @@ The pixels that belongs to the new \hyperlink{class_shape}{Shape} object are rem
 \item[Date:]2008-10-18 \end{Desc}
 
 
-Definition at line 144 of file Segmenter.cpp.
+Definition at line 146 of file Segmenter.cpp.
 
 Referenced by applyFloodFill().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_segmenter_8hpp}{Segmenter.hpp (150)}\item 
-\hyperlink{_segmenter_8cpp}{Segmenter.cpp (150)}\end{CompactItemize}
+\hyperlink{_segmenter_8hpp}{Segmenter.hpp (151)}\item 
+\hyperlink{_segmenter_8cpp}{Segmenter.cpp (151)}\end{CompactItemize}

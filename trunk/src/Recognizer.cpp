@@ -13,6 +13,7 @@
 #include "NessieException.hpp"
 
 
+
 ///
 /// @details Creates a new Recognizer object loading the image from disk. If the image is multi-frame only the first one is
 /// taken, e.g. the first page of a PDF with multiple pages.
@@ -34,6 +35,7 @@ Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)),
 };
 
 
+
 ///
 /// @details Creates a new Recognizer object from an image loaded externally with methods from Magick++ API.
 /// If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages.
@@ -49,6 +51,7 @@ Recognizer::Recognizer (Magick::Image &image) : texts_(std::vector<Text>(0)), st
 };
 
 
+
 ///
 /// @details It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only
 /// one clip you can gather its text and its statistics by simply calling text() and statistics() with no parameters at all.
@@ -57,6 +60,7 @@ void Recognizer::obtainText ()
 {
 	obtainText(0, 0, height_, width_);
 };
+
 
 
 ///
@@ -76,6 +80,7 @@ void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
 		obtainText(x, y, height, width);
 	}
 };
+
 
 
 ///
@@ -153,6 +158,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 };
 
 
+
 ///
 /// @details If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed.
 /// 
@@ -208,6 +214,7 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 };
 
 
+
 ///
 /// @details The image is automatically converted into a grayscale colorspace according with the RGB values within
 /// the original source. If the image comes already in a grayscale colorspace no conversion is applied.
@@ -242,25 +249,21 @@ void Recognizer::loadImage (Magick::Image &image)
 };
 
 
+
 ///
 /// @details Since the only way of passing a Clip object to this method is invoking Recognizer::obtainText(), and the dimensions are controlled inside
 /// that method, here it is assumed that all the coordinates are valid.
 /// 
 void Recognizer::updateImage (const Clip &clip)
 {
-	// Get all the pixels of the clip (this is faster than calling Clip::getPixelGrayLevel() each time)
-	std::vector<unsigned char> pixels = clip.pixels();
-	std::vector<unsigned char>::iterator pixelsIterator = pixels.begin();
+	unsigned int clipBottomBorder	= clip.row()	+ clip.height();
+	unsigned int clipLeftBorder		= clip.column()	+ clip.width();
 	
-	unsigned int clipBottomBorder	= clip.x() + clip.height();
-	unsigned int clipLeftBorder		= clip.y() + clip.width();
-	
-	for ( unsigned int i = clip.x(); i < clipBottomBorder; ++i )
+	for ( unsigned int i = clip.row(); i < clipBottomBorder; ++i )
 	{
-		for ( unsigned int j = clip.y(); j < clipLeftBorder; ++j )
+		for ( unsigned int j = clip.column(); j < clipLeftBorder; ++j )
 		{
-			image_[(i * width_) + j] = *pixelsIterator;
-			advance(pixelsIterator, 1);
+			image_[(i * width_) + j] = clip(i, j);
 		}
 	}
 };

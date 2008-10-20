@@ -192,7 +192,7 @@ Returns the elapsed time while applying the thresholding algorithm.
 
 <p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00228">228</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -220,7 +220,7 @@ Returns the elapsed time while applying the flood fill algorithm.
 
 <p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00238">238</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -249,7 +249,7 @@ Returns the shapes found in the last segmentation process.
 
 <p>Definition at line <a class="el" href="_segmenter_8hpp-source.html#l00247">247</a> of file <a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -353,9 +353,9 @@ The <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00030">30</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00034">34</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -392,9 +392,9 @@ The <a class="el" href="class_segmenter.html#3040cc000907ef44e820ddcf70de6f08" t
 The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character. Every shape is built starting from a seed, i.e. an ink pixel, exploring its neighbourhood and adding every ink pixel that is connected to the seed. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
 <p>
 3. Sort shapes according to their position within the clip 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00078">78</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00083">83</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00086">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -427,9 +427,9 @@ Finds all the ink pixels within a clip that may grow up as a shape.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-17</dd></dl>
 All the pixels of the clip are explored, adding to the vector of <a class="el" href="class_segmenter.html#48b7c2c842b26bebda9d0fc13cf81e58" title="A set of ink pixels from where the flood fill method find the shapes.">seeds_</a> those whose gray level is equal to the ink's gray level stablished in <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" title="Gray level value of the pixels that have ink.">inkValue_</a> member. 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00110">110</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00115">115</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00078">applyFloodFill()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00083">applyFloodFill()</a>.</p>
 
 </div>
 </div><p>
@@ -461,9 +461,9 @@ Returns true if the pixel belongs to the vector of seeds.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00131">131</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00133">133</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00144">exploreSeedNeighbourhood()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00146">exploreSeedNeighbourhood()</a>.</p>
 
 </div>
 </div><p>
@@ -506,16 +506,16 @@ The pixels that belongs to the new <a class="el" href="class_shape.html" title="
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
 
-<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00144">144</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_segmenter_8cpp-source.html#l00146">146</a> of file <a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00078">applyFloodFill()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00083">applyFloodFill()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp (150)</a><li><a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp (150)</a></ul>
+<li><a class="el" href="_segmenter_8hpp-source.html">Segmenter.hpp (151)</a><li><a class="el" href="_segmenter_8cpp-source.html">Segmenter.cpp (151)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:40 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

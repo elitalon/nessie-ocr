@@ -16,7 +16,11 @@
 /// @details Initializes a Segmenter object
 ///
 Segmenter::Segmenter ()
-	:	inkValue_(0), shapes_(std::vector<Shape>(0)), thresholdingTime_(0.0), floodFillingTime_(0.0), seeds_(std::list<Pixel>(0))
+	:	inkValue_(0),
+		shapes_(std::vector<Shape>(0)),
+		thresholdingTime_(0.0),
+		floodFillingTime_(0.0),
+		seeds_(std::list<Pixel>(0))
 {
 	
 };
@@ -39,24 +43,25 @@ void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, cons
 	{
 		for (unsigned int j=0; j < clip.width(); ++j)
 		{
-			unsigned char grayLevel = clip.getPixelGrayLevel(i, j);
+			unsigned char grayLevel = clip(i, j);
 			
 			if ( (backgroundReference >= threshold) and (grayLevel >= threshold) )	// The background is near white
-				clip.setPixelGrayLevel(i, j, 255);
+				clip(i, j) = 255;
 			else
 			{
 				if ( (backgroundReference >= threshold) and (grayLevel < threshold) )
-					clip.setPixelGrayLevel(i,j, 0);
+					clip(i, j) = 0;
 				else
 				{
 					if ( (backgroundReference < threshold) and (grayLevel < threshold) )	// The background is near black
-						clip.setPixelGrayLevel(i,j, 0);
+						clip(i, j) = 0;
 					else
-						clip.setPixelGrayLevel(i,j, 255);
+						clip(i, j) = 255;
 				}
 			}	
 		}
 	}
+	
 	
 	// Stablish the value of the ink pixels
 	if ( backgroundReference >= threshold )
@@ -109,15 +114,12 @@ void Segmenter::applyFloodFill (const Clip &clip)
 ///
 void Segmenter::findSeeds (const Clip &clip)
 {
-	// Get the pixels of the clip (this is faster than calling clip.getPixelGrayLevel() each time)
-	std::vector<unsigned char> pixels = clip.pixels();
-	
 	// Explore the whole clip adding the ink pixels
 	for ( unsigned int i = 0; i < clip.height(); ++i )
 	{
 		for ( unsigned int j = 0; j < clip.width(); ++j )
 		{
-			if ( pixels[i * clip.width() + j] == inkValue_ )
+			if ( clip(i, j) == inkValue_ )
 				seeds_.push_back(Pixel(i, j));
 		}
 	}
@@ -152,7 +154,7 @@ void Segmenter::exploreSeedNeighbourhood (const Pixel &seed, const Clip &clip)
 
 
 	// Test this pixel has a gray level equal to the character's ink value
-	if ( clip.getPixelGrayLevel(seed.first, seed.second) not_eq inkValue_ )
+	if ( clip(seed.first, seed.second) not_eq inkValue_ )
 		return;
 		
 	// Test this pixel has already been explored

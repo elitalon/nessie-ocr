@@ -74,70 +74,69 @@ Collaboration diagram for Clip:</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Press clip where the recognizer has to extract the text from. 
 <p>
-This class stores a press clip as a set of pixels from the source image that representes the whole page of a newspaper. The class that creates a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object must ensure that all the coordinates passed to the constructor are inside the underlying image, since internally <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> only tests the coordinates when accesing the object later.<p>
+This class stores a press clip as a set of pixels from an underlying image that representes the whole page of a newspaper. The class that creates a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object should ensure that all the coordinates passed to the constructor are correct, though the constructor makes some simple tests.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00023">23</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00024">24</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#bcda5a8d32fda0933bce32d6d9f2c5a1">Clip</a> (const std::vector&lt; unsigned char &gt; &amp;image, const unsigned int &amp;imageWidth, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#6264e0334483ad8e0631842a18ac5bc9">Clip</a> (const std::vector&lt; unsigned char &gt; &amp;image, const unsigned int &amp;imageWidth, const unsigned int &amp;row, const unsigned int &amp;column, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#bcda5a8d32fda0933bce32d6d9f2c5a1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#454ff6070d0918e56a09a3f28ff430c3">setPixelGrayLevel</a> (const unsigned int &amp;x, const unsigned int &amp;y, const unsigned char &amp;grayLevel)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#6264e0334483ad8e0631842a18ac5bc9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa">~Clip</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the gray level of a pixel at coordinates (x,y).  <a href="#454ff6070d0918e56a09a3f28ff430c3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#85d16f086803860fae205c48161a3c38">getPixelGrayLevel</a> (const unsigned int &amp;x, const unsigned int &amp;y) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#88647ed65e3482b5e0533ec98667b0fa"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be">operator()</a> (const unsigned int &amp;row, const unsigned int &amp;column)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the gray level of a pixel at coordinates (x,y).  <a href="#85d16f086803860fae205c48161a3c38"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; unsigned <br>
-char &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#2d705268c905b41efd5caad63e4b3b4f">pixels</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows access to a pixel in the clip.  <a href="#0f80c2b0f0f177fe9c780c93596f77be"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">operator()</a> (const unsigned int &amp;row, const unsigned int &amp;column) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pixels that defines the press clip.  <a href="#2d705268c905b41efd5caad63e4b3b4f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#9acfff7074239516465bcca11586c48d">nPixels</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows access to a pixel in the clip.  <a href="#16b24276181affc5086cb4fe83269fb8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8">row</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels within the press clip.  <a href="#9acfff7074239516465bcca11586c48d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#fcedad938315faff5d577670f9219c61">x</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the row in the underlying image where the upper left-most pixel of the clip is at.  <a href="#1a1d1fd626d1325f0f2b9184de4c89b8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#06a34378fa0f23425d10bb04e9972a26">column</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the top left-most pixel x coordinate.  <a href="#fcedad938315faff5d577670f9219c61"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#e06a2ad12ef2144a9d7d970b574c9c14">y</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the top left-most pixel y coordinate.  <a href="#e06a2ad12ef2144a9d7d970b574c9c14"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the column in the underlying image where the upper left-most pixel of the clip is at.  <a href="#06a34378fa0f23425d10bb04e9972a26"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0">width</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the clip.  <a href="#88d1a47c0ec077e8c6680785509389b0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#939908a8dde602d25335792cc0fd5d97">height</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the clip.  <a href="#939908a8dde602d25335792cc0fd5d97"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">size</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels in the clip.  <a href="#eb6b12a1a0570b529d6a09633b991fcd"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="427a67e1feda16230eb9d1d8134ac142"></a><!-- doxytag: member="Clip::x_" ref="427a67e1feda16230eb9d1d8134ac142" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#427a67e1feda16230eb9d1d8134ac142">x_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0cd08f7e03723520abc92275edb576e2"></a><!-- doxytag: member="Clip::row_" ref="0cd08f7e03723520abc92275edb576e2" args="" -->
+const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#0cd08f7e03723520abc92275edb576e2">row_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Top left-most pixel x coordinate. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="df1fa9449a9457a581d4ac755583af5b"></a><!-- doxytag: member="Clip::y_" ref="df1fa9449a9457a581d4ac755583af5b" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#df1fa9449a9457a581d4ac755583af5b">y_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Row in the underlying image where the upper left-most pixel of the clip is at. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d9977cd397e167b9185bdeb0fda68120"></a><!-- doxytag: member="Clip::column_" ref="d9977cd397e167b9185bdeb0fda68120" args="" -->
+const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#d9977cd397e167b9185bdeb0fda68120">column_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Top left-most pixel y coordinate. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Column in the underlying image where the upper left-most pixel of the clip is at. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f8547b17e2ad42a17e39b25f7951faaa"></a><!-- doxytag: member="Clip::width_" ref="f8547b17e2ad42a17e39b25f7951faaa" args="" -->
 const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa">width_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The width of the pixels. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The width of the clip. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="35dd13977f3e15d04053260154ebf42e"></a><!-- doxytag: member="Clip::height_" ref="35dd13977f3e15d04053260154ebf42e" args="" -->
 const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#35dd13977f3e15d04053260154ebf42e">height_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The height of the pixel. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="54f166ae724cecf9473d2836b452e89c"></a><!-- doxytag: member="Clip::pixels_" ref="54f166ae724cecf9473d2836b452e89c" args="" -->
-std::vector&lt; unsigned char &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#54f166ae724cecf9473d2836b452e89c">pixels_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The height of the clip. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e8dc6d41fb103eaafa9bc5963ab6d826"></a><!-- doxytag: member="Clip::pixels_" ref="e8dc6d41fb103eaafa9bc5963ab6d826" args="" -->
+unsigned char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#e8dc6d41fb103eaafa9bc5963ab6d826">pixels_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A set of pixels that defines the press clip. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7e2bd80cd0cc06f6d4c3ebe6a22c573d"></a><!-- doxytag: member="Clip::nPixels_" ref="7e2bd80cd0cc06f6d4c3ebe6a22c573d" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#7e2bd80cd0cc06f6d4c3ebe6a22c573d">nPixels_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="b88daf5fdd2b57dec8335ff8fd4a6d4e"></a><!-- doxytag: member="Clip::size_" ref="b88daf5fdd2b57dec8335ff8fd4a6d4e" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#b88daf5fdd2b57dec8335ff8fd4a6d4e">size_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of pixels within the image. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of pixels in the clip. <br></td></tr>
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="bcda5a8d32fda0933bce32d6d9f2c5a1"></a><!-- doxytag: member="Clip::Clip" ref="bcda5a8d32fda0933bce32d6d9f2c5a1" args="(const std::vector&lt; unsigned char &gt; &amp;image, const unsigned int &amp;imageWidth, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)" -->
+<a class="anchor" name="6264e0334483ad8e0631842a18ac5bc9"></a><!-- doxytag: member="Clip::Clip" ref="6264e0334483ad8e0631842a18ac5bc9" args="(const std::vector&lt; unsigned char &gt; &amp;image, const unsigned int &amp;imageWidth, const unsigned int &amp;row, const unsigned int &amp;column, const unsigned int &amp;height, const unsigned int &amp;width)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -157,13 +156,13 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
+          <td class="paramname"> <em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
+          <td class="paramname"> <em>column</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -193,120 +192,135 @@ Constructor.
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>image</em>&nbsp;</td><td>The underlying image where the clip belongs to </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>imageWidth</em>&nbsp;</td><td>The width of the underlying image </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>The row in the underlying image where the upper left-most pixel of the clip is at </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>column</em>&nbsp;</td><td>The column in the underlying image where the upper left-most pixel of the clip is at </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The height of the clip </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The width of the clip</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (x,y) in the source image, with the height and width passed. The x value indicates the row within the image, while the y value indicates the column. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00014">14</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (row,column) in the source image, with the height and width passed. 
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00013">13</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="88647ed65e3482b5e0533ec98667b0fa"></a><!-- doxytag: member="Clip::~Clip" ref="88647ed65e3482b5e0533ec98667b0fa" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Clip::~Clip           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Destructor. 
+<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
+Destroys a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object. 
+<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00050">50</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="454ff6070d0918e56a09a3f28ff430c3"></a><!-- doxytag: member="Clip::setPixelGrayLevel" ref="454ff6070d0918e56a09a3f28ff430c3" args="(const unsigned int &amp;x, const unsigned int &amp;y, const unsigned char &amp;grayLevel)" -->
+<a class="anchor" name="0f80c2b0f0f177fe9c780c93596f77be"></a><!-- doxytag: member="Clip::operator()" ref="0f80c2b0f0f177fe9c780c93596f77be" args="(const unsigned int &amp;row, const unsigned int &amp;column)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Clip::setPixelGrayLevel           </td>
+          <td class="memname">unsigned char &amp; Clip::operator()           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
+          <td class="paramname"> <em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned char &amp;&nbsp;</td>
-          <td class="paramname"> <em>grayLevel</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>column</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td></td>
+          <td></td><td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Sets the gray level of a pixel at coordinates (x,y). 
+Allows access to a pixel in the clip. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>grayLevel</em>&nbsp;</td><td>The new gray level for the pixel at coordinates (x,y)</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>The row where the pixel is at. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>column</em>&nbsp;</td><td>The column where the pixel is at.</td></tr>
   </table>
 </dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the gray level of the pixel at the desired location that allows modifications.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08</dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00042">42</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00030">Segmenter::applyThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00129">Preprocessor::removeIsolatedNoise()</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00168">168</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="85d16f086803860fae205c48161a3c38"></a><!-- doxytag: member="Clip::getPixelGrayLevel" ref="85d16f086803860fae205c48161a3c38" args="(const unsigned int &amp;x, const unsigned int &amp;y) const " -->
+<a class="anchor" name="16b24276181affc5086cb4fe83269fb8"></a><!-- doxytag: member="Clip::operator()" ref="16b24276181affc5086cb4fe83269fb8" args="(const unsigned int &amp;row, const unsigned int &amp;column) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned char &amp; Clip::getPixelGrayLevel           </td>
+          <td class="memname">unsigned char Clip::operator()           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
+          <td class="paramname"> <em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>column</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td> const</td>
+          <td></td><td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the gray level of a pixel at coordinates (x,y). 
+Allows access to a pixel in the clip. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>The row where the pixel is at. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>column</em>&nbsp;</td><td>The column where the pixel is at.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The gray level of the pixel at the desired location.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
-<p>Definition at line <a class="el" href="_clip_8cpp-source.html#l00056">56</a> of file <a class="el" href="_clip_8cpp-source.html">Clip.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00030">Segmenter::applyThreshold()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00144">Segmenter::exploreSeedNeighbourhood()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00129">Preprocessor::removeIsolatedNoise()</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00180">180</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="2d705268c905b41efd5caad63e4b3b4f"></a><!-- doxytag: member="Clip::pixels" ref="2d705268c905b41efd5caad63e4b3b4f" args="() const " -->
+<a class="anchor" name="1a1d1fd626d1325f0f2b9184de4c89b8"></a><!-- doxytag: member="Clip::row" ref="1a1d1fd626d1325f0f2b9184de4c89b8" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; unsigned char &gt; &amp; Clip::pixels           </td>
+          <td class="memname">const unsigned int &amp; Clip::row           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -317,23 +331,23 @@ If either the x coordinate or the y coordinate are out of the image borders, an 
 <div class="memdoc">
 
 <p>
-Returns the pixels that defines the press clip. 
+Returns the row in the underlying image where the upper left-most pixel of the clip is at. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00164">164</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00192">192</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00256">Preprocessor::computeOtsuOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00199">Preprocessor::computeSonkaOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00053">Preprocessor::findBackgroundReferenceGrayLevel()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00110">Segmenter::findSeeds()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00249">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00257">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="9acfff7074239516465bcca11586c48d"></a><!-- doxytag: member="Clip::nPixels" ref="9acfff7074239516465bcca11586c48d" args="() const " -->
+<a class="anchor" name="06a34378fa0f23425d10bb04e9972a26"></a><!-- doxytag: member="Clip::column" ref="06a34378fa0f23425d10bb04e9972a26" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int &amp; Clip::nPixels           </td>
+          <td class="memname">const unsigned int &amp; Clip::column           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -344,68 +358,14 @@ Returns the pixels that defines the press clip.
 <div class="memdoc">
 
 <p>
-Returns the number of pixels within the press clip. 
+Returns the column in the underlying image where the upper left-most pixel of the clip is at. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00173">173</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00201">201</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00256">Preprocessor::computeOtsuOptimalThreshold()</a>, and <a class="el" href="_preprocessor_8cpp-source.html#l00199">Preprocessor::computeSonkaOptimalThreshold()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="fcedad938315faff5d577670f9219c61"></a><!-- doxytag: member="Clip::x" ref="fcedad938315faff5d577670f9219c61" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Clip::x           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the top left-most pixel x coordinate. 
-<p>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00182">182</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00249">Recognizer::updateImage()</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="e06a2ad12ef2144a9d7d970b574c9c14"></a><!-- doxytag: member="Clip::y" ref="e06a2ad12ef2144a9d7d970b574c9c14" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Clip::y           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the top left-most pixel y coordinate. 
-<p>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00191">191</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00249">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00257">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -430,9 +390,9 @@ Returns the width of the clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00200">200</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00210">210</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00030">Segmenter::applyThreshold()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00144">Segmenter::exploreSeedNeighbourhood()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00110">Segmenter::findSeeds()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00129">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00249">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00034">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00036">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00146">Segmenter::exploreSeedNeighbourhood()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00096">Preprocessor::findBackgroundReferenceGrayLevel()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00115">Segmenter::findSeeds()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00172">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00257">Recognizer::updateImage()</a>.</p>
 
 </div>
 </div><p>
@@ -457,16 +417,43 @@ Returns the height of the clip.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00209">209</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00219">219</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00030">Segmenter::applyThreshold()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00144">Segmenter::exploreSeedNeighbourhood()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00110">Segmenter::findSeeds()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00129">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00249">Recognizer::updateImage()</a>.</p>
+<p>Referenced by <a class="el" href="_segmenter_8cpp-source.html#l00034">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00036">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00146">Segmenter::exploreSeedNeighbourhood()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00096">Preprocessor::findBackgroundReferenceGrayLevel()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00115">Segmenter::findSeeds()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00172">Preprocessor::removeIsolatedNoise()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00257">Recognizer::updateImage()</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="eb6b12a1a0570b529d6a09633b991fcd"></a><!-- doxytag: member="Clip::size" ref="eb6b12a1a0570b529d6a09633b991fcd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Clip::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the number of pixels in the clip. 
+<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_clip_8hpp-source.html#l00228">228</a> of file <a class="el" href="_clip_8hpp-source.html">Clip.hpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_preprocessor_8cpp-source.html#l00036">Preprocessor::computeOptimalThreshold()</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_clip_8hpp-source.html">Clip.hpp (143)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (148)</a></ul>
+<li><a class="el" href="_clip_8hpp-source.html">Clip.hpp (143)</a><li><a class="el" href="_clip_8cpp-source.html">Clip.cpp (151)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 17:24:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:53 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
