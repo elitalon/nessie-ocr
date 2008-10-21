@@ -84,14 +84,14 @@ class Statistics
 		
 		
 		///
-		/// Returns the elapsed time while applying the flood fill algorithm.
+		/// Returns the elapsed time while finding the shapes in a clip
 		/// 
 		/// @return Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///
-		const double &floodFillingTime () const;
+		const double &shapesFindingTime () const;
 		
 		
 		///
@@ -137,9 +137,9 @@ class Statistics
 		double thresholdingTime_;
 		
 		///
-		/// Elapsed time while applying the flood fill algorithm
+		/// Elapsed time while finding the shapes in a clip
 		///
-		double floodFillingTime_;
+		double shapesFindingTime_;
 		
 		///
 		/// Total elapsed time within the segmentation stage
@@ -192,14 +192,14 @@ class Statistics
 		
 		
 		///
-		/// Sets the elapsed time in the flood filling algorithm
+		/// Sets the elapsed time in the shapes finding algorithm
 		///
 		/// @param	time	Elapsed time in seconds
 		/// 
 		/// @author Eliezer Talón (elitalon@gmail.com)
 		/// @date 2008-10-13
 		///
-		void floodFillingTime (const double &time);
+		void shapesFindingTime (const double &time);
 };
 
 
@@ -257,9 +257,9 @@ inline const double &Statistics::thresholdingTime () const
 ///
 /// @details
 /// 
-inline const double &Statistics::floodFillingTime () const
+inline const double &Statistics::shapesFindingTime () const
 {
-	return floodFillingTime_;
+	return shapesFindingTime_;
 };
 
 

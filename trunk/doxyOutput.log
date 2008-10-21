@@ -1,4 +1,2 @@
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/FeatureVector.hpp:16: Warning: Compound FeatureVector is not documented.
 /Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Classifier.hpp:18: Warning: Compound Classifier is not documented.
-/Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Shape.hpp:153: Warning: Member nPixels() (function) of class Shape is not documented.
-/Users/elitalon/Facultad/nessie/reconocimiento/trunk/inc/Shape.hpp:140: Warning: argument 'hasInk' of command @param is not found in the argument list of Shape::addPixel(const Pixel &pixel)

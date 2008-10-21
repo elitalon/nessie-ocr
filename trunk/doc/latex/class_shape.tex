@@ -14,16 +14,16 @@ Collaboration diagram for Shape:\nopagebreak
 
 
 \subsection{Detailed Description}
-The shape of a character within a press clip. 
+The shape of a character in a press clip. 
 
-This class stores a set of pixels and all the information necessary to identify a shape that represents a character within a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right. If there is more than one pixel sharing a extreme position, the pixel at the center is taken. In addition, a pixel on the centra position is taken by computing the centroid of the shape.
+This class stores a set of pixels and all the information necessary to identify a shape that represents a character in a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right. In addition, a pixel on the central position is set by computing the centroid of the shape.
 
 \begin{Desc}
 \item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
+\item[Date:]2008-10-21 \end{Desc}
 
 
 Definition at line 29 of file Shape.hpp.\subsection*{Public Member Functions}
@@ -31,47 +31,59 @@ Definition at line 29 of file Shape.hpp.\subsection*{Public Member Functions}
 \item 
 \hyperlink{class_shape_aa8d87171e65e0d8ba3c5459978992a7}{Shape} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_2459925c87fd67a5fe3baf25f0ff41d3}{leftPixel} ()
-\begin{CompactList}\small\item\em Returns the coordinates of the left-most pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_86841a53f5d82ba696406ef29f908d4f}{rightPixel} ()
-\begin{CompactList}\small\item\em Returns the coordinates of the right-most pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_070525c7002c5f02361a102d0351520e}{topPixel} ()
-\begin{CompactList}\small\item\em Returns the coordinates of the top pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_0454e59e7572927e4a29b40c950bc52f}{bottomPixel} ()
-\begin{CompactList}\small\item\em Returns the coordinates of the bottom pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_cae0adae98c38009c8241ef0baa169c3}{centralPixel} ()
-\begin{CompactList}\small\item\em Returns the coordinates of the central pixel. \item\end{CompactList}\item 
-const std::vector$<$ unsigned char $>$ \& \hyperlink{class_shape_7623c856a1a7916fc000f43d5efdba5b}{pixels} ()
-\begin{CompactList}\small\item\em Returns the set of pixels that defines the shape. \item\end{CompactList}\item 
-const unsigned int \& \hyperlink{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}{height} ()
-\begin{CompactList}\small\item\em Returns the height of the shape. \item\end{CompactList}\item 
-const unsigned int \& \hyperlink{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}{width} ()
+\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{operator()} (const unsigned int \&index)
+\begin{CompactList}\small\item\em Allows access to a pixel in the shape. \item\end{CompactList}\item 
+\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_79caae3047826779e0c8094e9882843b}{operator()} (const unsigned int \&index) const 
+\begin{CompactList}\small\item\em Allows access to a pixel in the shape. \item\end{CompactList}\item 
+const unsigned int \& \hyperlink{class_shape_6773dfedb96ef750e5469e22d51ecf0f}{width} () const 
 \begin{CompactList}\small\item\em Returns the width of the shape. \item\end{CompactList}\item 
+const unsigned int \& \hyperlink{class_shape_8400155046b2190bce621f8f366ef2be}{height} () const 
+\begin{CompactList}\small\item\em Returns the height of the shape. \item\end{CompactList}\item 
+const unsigned int \& \hyperlink{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{size} () const 
+\begin{CompactList}\small\item\em Returns the number of ink pixels in the shape. \item\end{CompactList}\item 
+const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_53d49d362234068aad0b80986fabb85d}{leftPixel} () const 
+\begin{CompactList}\small\item\em Returns the coordinates of the left-most pixel. \item\end{CompactList}\item 
+const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{rightPixel} () const 
+\begin{CompactList}\small\item\em Returns the coordinates of the right-most pixel. \item\end{CompactList}\item 
+const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{topPixel} () const 
+\begin{CompactList}\small\item\em Returns the coordinates of the top pixel. \item\end{CompactList}\item 
+const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_99293804122214fa366d7f7ae794d077}{bottomPixel} () const 
+\begin{CompactList}\small\item\em Returns the coordinates of the bottom pixel. \item\end{CompactList}\item 
 void \hyperlink{class_shape_f6114234203d9473f1fef9e6391f9243}{addPixel} (const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel)
-\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\item 
-\hypertarget{class_shape_3d0e3348fdb5d2d8c9997d579c3383e2}{
-const unsigned int \& \textbf{nPixels} ()}
-\label{class_shape_3d0e3348fdb5d2d8c9997d579c3383e2}
-
-\end{CompactItemize}
+\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
-\hypertarget{class_shape_ec8d5884f4c136898e25922ae978ea65}{
-unsigned int \hyperlink{class_shape_ec8d5884f4c136898e25922ae978ea65}{nPixels\_\-}}
-\label{class_shape_ec8d5884f4c136898e25922ae978ea65}
+\hypertarget{class_shape_863661d529942b525830d2208259583b}{
+unsigned int \hyperlink{class_shape_863661d529942b525830d2208259583b}{width\_\-}}
+\label{class_shape_863661d529942b525830d2208259583b}
+
+\begin{CompactList}\small\item\em Width of the shape. \item\end{CompactList}\item 
+\hypertarget{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}{
+unsigned int \hyperlink{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}{height\_\-}}
+\label{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}
+
+\begin{CompactList}\small\item\em Height of the shape. \item\end{CompactList}\item 
+\hypertarget{class_shape_286ebb0c6010efe288d5e79192e309dc}{
+std::vector$<$ \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_shape_286ebb0c6010efe288d5e79192e309dc}{pixels\_\-}}
+\label{class_shape_286ebb0c6010efe288d5e79192e309dc}
+
+\begin{CompactList}\small\item\em A set of pixel coordinates that defines the whole shape. \item\end{CompactList}\item 
+\hypertarget{class_shape_adec7080fb17de89d2f6c9d53d4b0283}{
+unsigned int \hyperlink{class_shape_adec7080fb17de89d2f6c9d53d4b0283}{size\_\-}}
+\label{class_shape_adec7080fb17de89d2f6c9d53d4b0283}
 
 \begin{CompactList}\small\item\em Number of ink pixels within the shape. \item\end{CompactList}\item 
 \hypertarget{class_shape_812cd080959b320038aae54729831ce4}{
 \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_812cd080959b320038aae54729831ce4}{leftPixel\_\-}}
 \label{class_shape_812cd080959b320038aae54729831ce4}
 
-\begin{CompactList}\small\item\em Pixel of ink on the left-most position. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Pixel of ink at the left-most position. \item\end{CompactList}\item 
 \hypertarget{class_shape_16adfccce492a7a0e34c5ade941c32fd}{
 \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_16adfccce492a7a0e34c5ade941c32fd}{rightPixel\_\-}}
 \label{class_shape_16adfccce492a7a0e34c5ade941c32fd}
 
-\begin{CompactList}\small\item\em Pixel of ink on the right-most position. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Pixel of ink at the right-most position. \item\end{CompactList}\item 
 \hypertarget{class_shape_c6755e0dbd9d2eaf537e232fd003c918}{
 \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_c6755e0dbd9d2eaf537e232fd003c918}{topPixel\_\-}}
 \label{class_shape_c6755e0dbd9d2eaf537e232fd003c918}
@@ -81,27 +93,7 @@ unsigned int \hyperlink{class_shape_ec8d5884f4c136898e25922ae978ea65}{nPixels\_\
 \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_8277820de6ff8da989a0659f4e5d82d1}{bottomPixel\_\-}}
 \label{class_shape_8277820de6ff8da989a0659f4e5d82d1}
 
-\begin{CompactList}\small\item\em Pixel of ink at the bottom position. \item\end{CompactList}\item 
-\hypertarget{class_shape_f66f42ad506f5c8e31f1993111ea4878}{
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_f66f42ad506f5c8e31f1993111ea4878}{centralPixel\_\-}}
-\label{class_shape_f66f42ad506f5c8e31f1993111ea4878}
-
-\begin{CompactList}\small\item\em Pixel of ink at central position. \item\end{CompactList}\item 
-\hypertarget{class_shape_4753b295c12e83195d8fd9bb6fb86ec4}{
-std::vector$<$ unsigned char $>$ \hyperlink{class_shape_4753b295c12e83195d8fd9bb6fb86ec4}{pixels\_\-}}
-\label{class_shape_4753b295c12e83195d8fd9bb6fb86ec4}
-
-\begin{CompactList}\small\item\em Set of pixels that defines the whole shape. \item\end{CompactList}\item 
-\hypertarget{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}{
-unsigned int \hyperlink{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}{height\_\-}}
-\label{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}
-
-\begin{CompactList}\small\item\em Height of the shape. \item\end{CompactList}\item 
-\hypertarget{class_shape_863661d529942b525830d2208259583b}{
-unsigned int \hyperlink{class_shape_863661d529942b525830d2208259583b}{width\_\-}}
-\label{class_shape_863661d529942b525830d2208259583b}
-
-\begin{CompactList}\small\item\em Width of the shape. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Pixel of ink at the bottom position. \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -117,17 +109,112 @@ Constructor.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-13\end{Desc}
-Initializes a \hyperlink{class_shape}{Shape} object. 
+\item[Date:]2008-10-21\end{Desc}
+Initializes an empty \hyperlink{class_shape}{Shape} object. 
 
 Definition at line 12 of file Shape.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_shape_2459925c87fd67a5fe3baf25f0ff41d3}{
+\hypertarget{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{
+\index{Shape@{Shape}!operator()@{operator()}}
+\index{operator()@{operator()}!Shape@{Shape}}
+\subsubsection[operator()]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} \& Shape::operator() (const unsigned int \& {\em index})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}
+
+
+Allows access to a pixel in the shape. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em index}]The position in the shape\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A reference to the coordinates of the pixel at the desired index that allows modifications.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-21 \end{Desc}
+
+
+Definition at line 219 of file Shape.hpp.\hypertarget{class_shape_79caae3047826779e0c8094e9882843b}{
+\index{Shape@{Shape}!operator()@{operator()}}
+\index{operator()@{operator()}!Shape@{Shape}}
+\subsubsection[operator()]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Shape::operator() (const unsigned int \& {\em index}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_79caae3047826779e0c8094e9882843b}
+
+
+Allows access to a pixel in the shape. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em index}]The position in the shape\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A reference to the coordinates of the pixel at the desired index.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-21 \end{Desc}
+
+
+Definition at line 228 of file Shape.hpp.\hypertarget{class_shape_6773dfedb96ef750e5469e22d51ecf0f}{
+\index{Shape@{Shape}!width@{width}}
+\index{width@{width}!Shape@{Shape}}
+\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::width () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_6773dfedb96ef750e5469e22d51ecf0f}
+
+
+Returns the width of the shape. 
+
+\begin{Desc}
+\item[Returns:]The width of the shape\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+Definition at line 237 of file Shape.hpp.\hypertarget{class_shape_8400155046b2190bce621f8f366ef2be}{
+\index{Shape@{Shape}!height@{height}}
+\index{height@{height}!Shape@{Shape}}
+\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_8400155046b2190bce621f8f366ef2be}
+
+
+Returns the height of the shape. 
+
+\begin{Desc}
+\item[Returns:]The height of the shape\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+Definition at line 246 of file Shape.hpp.\hypertarget{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{
+\index{Shape@{Shape}!size@{size}}
+\index{size@{size}!Shape@{Shape}}
+\subsubsection[size]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::size () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_8504d3be338d2fa594c35fe1444a9ed8}
+
+
+Returns the number of ink pixels in the shape. 
+
+\begin{Desc}
+\item[Returns:]The number of ink pixels\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-21 \end{Desc}
+
+
+Definition at line 255 of file Shape.hpp.\hypertarget{class_shape_53d49d362234068aad0b80986fabb85d}{
 \index{Shape@{Shape}!leftPixel@{leftPixel}}
 \index{leftPixel@{leftPixel}!Shape@{Shape}}
-\subsubsection[leftPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::leftPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_2459925c87fd67a5fe3baf25f0ff41d3}
+\subsubsection[leftPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::leftPixel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_53d49d362234068aad0b80986fabb85d}
 
 
 Returns the coordinates of the left-most pixel. 
@@ -142,11 +229,11 @@ Returns the coordinates of the left-most pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 217 of file Shape.hpp.\hypertarget{class_shape_86841a53f5d82ba696406ef29f908d4f}{
+Definition at line 264 of file Shape.hpp.\hypertarget{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{
 \index{Shape@{Shape}!rightPixel@{rightPixel}}
 \index{rightPixel@{rightPixel}!Shape@{Shape}}
-\subsubsection[rightPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::rightPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_86841a53f5d82ba696406ef29f908d4f}
+\subsubsection[rightPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::rightPixel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}
 
 
 Returns the coordinates of the right-most pixel. 
@@ -161,11 +248,11 @@ Returns the coordinates of the right-most pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 226 of file Shape.hpp.\hypertarget{class_shape_070525c7002c5f02361a102d0351520e}{
+Definition at line 273 of file Shape.hpp.\hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{
 \index{Shape@{Shape}!topPixel@{topPixel}}
 \index{topPixel@{topPixel}!Shape@{Shape}}
-\subsubsection[topPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::topPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_070525c7002c5f02361a102d0351520e}
+\subsubsection[topPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::topPixel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}
 
 
 Returns the coordinates of the top pixel. 
@@ -180,11 +267,11 @@ Returns the coordinates of the top pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 235 of file Shape.hpp.\hypertarget{class_shape_0454e59e7572927e4a29b40c950bc52f}{
+Definition at line 282 of file Shape.hpp.\hypertarget{class_shape_99293804122214fa366d7f7ae794d077}{
 \index{Shape@{Shape}!bottomPixel@{bottomPixel}}
 \index{bottomPixel@{bottomPixel}!Shape@{Shape}}
-\subsubsection[bottomPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::bottomPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_0454e59e7572927e4a29b40c950bc52f}
+\subsubsection[bottomPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::bottomPixel () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_shape_99293804122214fa366d7f7ae794d077}
 
 
 Returns the coordinates of the bottom pixel. 
@@ -199,77 +286,7 @@ Returns the coordinates of the bottom pixel.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 244 of file Shape.hpp.\hypertarget{class_shape_cae0adae98c38009c8241ef0baa169c3}{
-\index{Shape@{Shape}!centralPixel@{centralPixel}}
-\index{centralPixel@{centralPixel}!Shape@{Shape}}
-\subsubsection[centralPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::centralPixel ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_cae0adae98c38009c8241ef0baa169c3}
-
-
-Returns the coordinates of the central pixel. 
-
-\begin{Desc}
-\item[Returns:]A pair of coordinates\end{Desc}
-\begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-Definition at line 253 of file Shape.hpp.\hypertarget{class_shape_7623c856a1a7916fc000f43d5efdba5b}{
-\index{Shape@{Shape}!pixels@{pixels}}
-\index{pixels@{pixels}!Shape@{Shape}}
-\subsubsection[pixels]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ unsigned char $>$ \& Shape::pixels ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_7623c856a1a7916fc000f43d5efdba5b}
-
-
-Returns the set of pixels that defines the shape. 
-
-\begin{Desc}
-\item[Returns:]A vector of values, where each value is the value of ink of each pixel\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-Definition at line 262 of file Shape.hpp.\hypertarget{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}{
-\index{Shape@{Shape}!height@{height}}
-\index{height@{height}!Shape@{Shape}}
-\subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::height ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_7a417d1fc74acae89f4d96ac36e0b73e}
-
-
-Returns the height of the shape. 
-
-\begin{Desc}
-\item[Returns:]The height of the shape\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-Definition at line 271 of file Shape.hpp.\hypertarget{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}{
-\index{Shape@{Shape}!width@{width}}
-\index{width@{width}!Shape@{Shape}}
-\subsubsection[width]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::width ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_shape_aa9328cb87de52f53496b6a1eb3a60b9}
-
-
-Returns the width of the shape. 
-
-\begin{Desc}
-\item[Returns:]The width of the shape\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-Definition at line 280 of file Shape.hpp.\hypertarget{class_shape_f6114234203d9473f1fef9e6391f9243}{
+Definition at line 291 of file Shape.hpp.\hypertarget{class_shape_f6114234203d9473f1fef9e6391f9243}{
 \index{Shape@{Shape}!addPixel@{addPixel}}
 \index{addPixel@{addPixel}!Shape@{Shape}}
 \subsubsection[addPixel]{\setlength{\rightskip}{0pt plus 5cm}void Shape::addPixel (const {\bf Pixel} \& {\em pixel})}}
@@ -281,17 +298,17 @@ Adds a pixel to the shape.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em pixel}]Coordinates of the pixel \item[{\em hasInk}]Tells whether the pixel has ink or not\end{description}
+\item[{\em pixel}]The pixel to add\end{description}
 \end{Desc}
 \begin{Desc}
 \item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
+\item[Date:]2008-10-21 \end{Desc}
 
 
-Definition at line 23 of file Shape.cpp.
+Definition at line 30 of file Shape.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 

@@ -163,7 +163,6 @@ private:
 
 ///
 /// @details If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown.
-/// The gray level must be normalized in a value from 0 to 255, otherwise it is truncated.
 ///
 inline unsigned char &Clip::operator() (const unsigned int &row, const unsigned int &column)
 {

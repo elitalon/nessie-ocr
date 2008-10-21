@@ -135,8 +135,9 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
 	updateImage(clip);
 	
-	segmenter.applyFloodFill(clip);
-	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl << std::endl;
+	segmenter.findShapes(clip);
+	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl;
+	
 	
 	
 	//
@@ -152,7 +153,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	stats.noiseRemovalTime( preprocessor.noiseRemovalTime() );
 	
 	stats.thresholdingTime( segmenter.thresholdingTime() );
-	stats.floodFillingTime( segmenter.floodFillingTime() );
+	stats.shapesFindingTime( segmenter.shapesFindingTime() );
 	
 	statistics_.push_back(stats);
 };

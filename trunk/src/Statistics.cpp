@@ -11,11 +11,11 @@
 /// 
 Statistics::Statistics ()
 	:	backgroundReferenceGrayLevelFindingTime_(0.0), optimalThresholdComputingTime_(0.0), noiseRemovalTime_(0.0),
-		thresholdingTime_(0.0), floodFillingTime_(0.0)
+		thresholdingTime_(0.0), shapesFindingTime_(0.0)
 {
 	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
 	
-	segmentationTime_ = thresholdingTime_ + floodFillingTime_;
+	segmentationTime_ = thresholdingTime_ + shapesFindingTime_;
 };
 
 
@@ -59,16 +59,16 @@ void Statistics::thresholdingTime (const double &time)
 {
 	thresholdingTime_ = time;
 	
-	segmentationTime_ = thresholdingTime_ + floodFillingTime_;
+	segmentationTime_ = thresholdingTime_ + shapesFindingTime_;
 };
 
 
 ///
 /// @details
 ///
-void Statistics::floodFillingTime (const double &time)
+void Statistics::shapesFindingTime (const double &time)
 {
-	floodFillingTime_ = time;
+	shapesFindingTime_ = time;
 	
-	segmentationTime_ = thresholdingTime_ + floodFillingTime_;
+	segmentationTime_ = thresholdingTime_ + shapesFindingTime_;
 };

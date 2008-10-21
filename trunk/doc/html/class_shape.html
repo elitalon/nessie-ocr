@@ -72,12 +72,12 @@ Collaboration diagram for Shape:</div>
 <p><center><img src="class_shape__coll__graph.png" border="0" usemap="#_shape__coll__map" alt="Collaboration graph"></center>
 </div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-The shape of a character within a press clip. 
+The shape of a character in a press clip. 
 <p>
-This class stores a set of pixels and all the information necessary to identify a shape that represents a character within a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right. If there is more than one pixel sharing a extreme position, the pixel at the center is taken. In addition, a pixel on the centra position is taken by computing the centroid of the shape.<p>
+This class stores a set of pixels and all the information necessary to identify a shape that represents a character in a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right. In addition, a pixel on the central position is set by computing the centroid of the shape.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21 </dd></dl>
 
 <p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00029">29</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -86,50 +86,61 @@ This class stores a set of pixels and all the information necessary to identify 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7">Shape</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#aa8d87171e65e0d8ba3c5459978992a7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#2459925c87fd67a5fe3baf25f0ff41d3">leftPixel</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#7d12f3a76e2bfb7963c00237eba41e0a">operator()</a> (const unsigned int &amp;index)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the left-most pixel.  <a href="#2459925c87fd67a5fe3baf25f0ff41d3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#86841a53f5d82ba696406ef29f908d4f">rightPixel</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows access to a pixel in the shape.  <a href="#7d12f3a76e2bfb7963c00237eba41e0a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#79caae3047826779e0c8094e9882843b">operator()</a> (const unsigned int &amp;index) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the right-most pixel.  <a href="#86841a53f5d82ba696406ef29f908d4f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#070525c7002c5f02361a102d0351520e">topPixel</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows access to a pixel in the shape.  <a href="#79caae3047826779e0c8094e9882843b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#6773dfedb96ef750e5469e22d51ecf0f">width</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the top pixel.  <a href="#070525c7002c5f02361a102d0351520e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#0454e59e7572927e4a29b40c950bc52f">bottomPixel</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the shape.  <a href="#6773dfedb96ef750e5469e22d51ecf0f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#8400155046b2190bce621f8f366ef2be">height</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the bottom pixel.  <a href="#0454e59e7572927e4a29b40c950bc52f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#cae0adae98c38009c8241ef0baa169c3">centralPixel</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the shape.  <a href="#8400155046b2190bce621f8f366ef2be"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the central pixel.  <a href="#cae0adae98c38009c8241ef0baa169c3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; unsigned <br>
-char &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#7623c856a1a7916fc000f43d5efdba5b">pixels</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of ink pixels in the shape.  <a href="#8504d3be338d2fa594c35fe1444a9ed8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#53d49d362234068aad0b80986fabb85d">leftPixel</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the set of pixels that defines the shape.  <a href="#7623c856a1a7916fc000f43d5efdba5b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#7a417d1fc74acae89f4d96ac36e0b73e">height</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the left-most pixel.  <a href="#53d49d362234068aad0b80986fabb85d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#c265e43fa90ee2ab7c9cd3a3d1e96d82">rightPixel</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the shape.  <a href="#7a417d1fc74acae89f4d96ac36e0b73e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aa9328cb87de52f53496b6a1eb3a60b9">width</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the right-most pixel.  <a href="#c265e43fa90ee2ab7c9cd3a3d1e96d82"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#063c4934d8c1cd4b02e4e3e4a604f62e">topPixel</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the shape.  <a href="#aa9328cb87de52f53496b6a1eb3a60b9"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the top pixel.  <a href="#063c4934d8c1cd4b02e4e3e4a604f62e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#99293804122214fa366d7f7ae794d077">bottomPixel</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the bottom pixel.  <a href="#99293804122214fa366d7f7ae794d077"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">addPixel</a> (const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp;pixel)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a pixel to the shape.  <a href="#f6114234203d9473f1fef9e6391f9243"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3d0e3348fdb5d2d8c9997d579c3383e2"></a><!-- doxytag: member="Shape::nPixels" ref="3d0e3348fdb5d2d8c9997d579c3383e2" args="()" -->
-const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>nPixels</b> ()</td></tr>
-
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ec8d5884f4c136898e25922ae978ea65"></a><!-- doxytag: member="Shape::nPixels_" ref="ec8d5884f4c136898e25922ae978ea65" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#ec8d5884f4c136898e25922ae978ea65">nPixels_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="863661d529942b525830d2208259583b"></a><!-- doxytag: member="Shape::width_" ref="863661d529942b525830d2208259583b" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#863661d529942b525830d2208259583b">width_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Width of the shape. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="76354eeb3b4c5c6c9125f4195c3c274c"></a><!-- doxytag: member="Shape::height_" ref="76354eeb3b4c5c6c9125f4195c3c274c" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c">height_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Height of the shape. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="286ebb0c6010efe288d5e79192e309dc"></a><!-- doxytag: member="Shape::pixels_" ref="286ebb0c6010efe288d5e79192e309dc" args="" -->
+std::vector&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc">pixels_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A set of pixel coordinates that defines the whole shape. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="adec7080fb17de89d2f6c9d53d4b0283"></a><!-- doxytag: member="Shape::size_" ref="adec7080fb17de89d2f6c9d53d4b0283" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283">size_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of ink pixels within the shape. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="812cd080959b320038aae54729831ce4"></a><!-- doxytag: member="Shape::leftPixel_" ref="812cd080959b320038aae54729831ce4" args="" -->
 <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#812cd080959b320038aae54729831ce4">leftPixel_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink on the left-most position. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink at the left-most position. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="16adfccce492a7a0e34c5ade941c32fd"></a><!-- doxytag: member="Shape::rightPixel_" ref="16adfccce492a7a0e34c5ade941c32fd" args="" -->
 <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd">rightPixel_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink on the right-most position. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink at the right-most position. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="c6755e0dbd9d2eaf537e232fd003c918"></a><!-- doxytag: member="Shape::topPixel_" ref="c6755e0dbd9d2eaf537e232fd003c918" args="" -->
 <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918">topPixel_</a></td></tr>
 
@@ -138,22 +149,6 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1">bottomPixel_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink at the bottom position. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f66f42ad506f5c8e31f1993111ea4878"></a><!-- doxytag: member="Shape::centralPixel_" ref="f66f42ad506f5c8e31f1993111ea4878" args="" -->
-<a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#f66f42ad506f5c8e31f1993111ea4878">centralPixel_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Pixel of ink at central position. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="4753b295c12e83195d8fd9bb6fb86ec4"></a><!-- doxytag: member="Shape::pixels_" ref="4753b295c12e83195d8fd9bb6fb86ec4" args="" -->
-std::vector&lt; unsigned char &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#4753b295c12e83195d8fd9bb6fb86ec4">pixels_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set of pixels that defines the whole shape. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="76354eeb3b4c5c6c9125f4195c3c274c"></a><!-- doxytag: member="Shape::height_" ref="76354eeb3b4c5c6c9125f4195c3c274c" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c">height_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Height of the shape. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="863661d529942b525830d2208259583b"></a><!-- doxytag: member="Shape::width_" ref="863661d529942b525830d2208259583b" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#863661d529942b525830d2208259583b">width_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Width of the shape. <br></td></tr>
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="aa8d87171e65e0d8ba3c5459978992a7"></a><!-- doxytag: member="Shape::Shape" ref="aa8d87171e65e0d8ba3c5459978992a7" args="()" -->
@@ -175,14 +170,156 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 Constructor. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Initializes a <a class="el" href="class_shape.html" title="The shape of a character within a press clip.">Shape</a> object. 
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21</dd></dl>
+Initializes an empty <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a> object. 
 <p>Definition at line <a class="el" href="_shape_8cpp-source.html#l00012">12</a> of file <a class="el" href="_shape_8cpp-source.html">Shape.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="2459925c87fd67a5fe3baf25f0ff41d3"></a><!-- doxytag: member="Shape::leftPixel" ref="2459925c87fd67a5fe3baf25f0ff41d3" args="()" -->
+<a class="anchor" name="7d12f3a76e2bfb7963c00237eba41e0a"></a><!-- doxytag: member="Shape::operator()" ref="7d12f3a76e2bfb7963c00237eba41e0a" args="(const unsigned int &amp;index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp; Shape::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>index</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Allows access to a pixel in the shape. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position in the shape</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the coordinates of the pixel at the desired index that allows modifications.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21 </dd></dl>
+
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00219">219</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="79caae3047826779e0c8094e9882843b"></a><!-- doxytag: member="Shape::operator()" ref="79caae3047826779e0c8094e9882843b" args="(const unsigned int &amp;index) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> Shape::operator()           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>index</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Allows access to a pixel in the shape. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position in the shape</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the coordinates of the pixel at the desired index.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21 </dd></dl>
+
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00228">228</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="6773dfedb96ef750e5469e22d51ecf0f"></a><!-- doxytag: member="Shape::width" ref="6773dfedb96ef750e5469e22d51ecf0f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Shape::width           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the width of the shape. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The width of the shape</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00237">237</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="8400155046b2190bce621f8f366ef2be"></a><!-- doxytag: member="Shape::height" ref="8400155046b2190bce621f8f366ef2be" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Shape::height           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the height of the shape. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The height of the shape</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00246">246</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="8504d3be338d2fa594c35fe1444a9ed8"></a><!-- doxytag: member="Shape::size" ref="8504d3be338d2fa594c35fe1444a9ed8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Shape::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the number of ink pixels in the shape. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of ink pixels</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21 </dd></dl>
+
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00255">255</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="53d49d362234068aad0b80986fabb85d"></a><!-- doxytag: member="Shape::leftPixel" ref="53d49d362234068aad0b80986fabb85d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -191,7 +328,7 @@ Initializes a <a class="el" href="class_shape.html" title="The shape of a charac
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -205,11 +342,11 @@ Returns the coordinates of the left-most pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00217">217</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00264">264</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="86841a53f5d82ba696406ef29f908d4f"></a><!-- doxytag: member="Shape::rightPixel" ref="86841a53f5d82ba696406ef29f908d4f" args="()" -->
+<a class="anchor" name="c265e43fa90ee2ab7c9cd3a3d1e96d82"></a><!-- doxytag: member="Shape::rightPixel" ref="c265e43fa90ee2ab7c9cd3a3d1e96d82" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -218,7 +355,7 @@ Returns the coordinates of the left-most pixel.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -232,11 +369,11 @@ Returns the coordinates of the right-most pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00226">226</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00273">273</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="070525c7002c5f02361a102d0351520e"></a><!-- doxytag: member="Shape::topPixel" ref="070525c7002c5f02361a102d0351520e" args="()" -->
+<a class="anchor" name="063c4934d8c1cd4b02e4e3e4a604f62e"></a><!-- doxytag: member="Shape::topPixel" ref="063c4934d8c1cd4b02e4e3e4a604f62e" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -245,7 +382,7 @@ Returns the coordinates of the right-most pixel.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -259,11 +396,11 @@ Returns the coordinates of the top pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00235">235</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00282">282</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="0454e59e7572927e4a29b40c950bc52f"></a><!-- doxytag: member="Shape::bottomPixel" ref="0454e59e7572927e4a29b40c950bc52f" args="()" -->
+<a class="anchor" name="99293804122214fa366d7f7ae794d077"></a><!-- doxytag: member="Shape::bottomPixel" ref="99293804122214fa366d7f7ae794d077" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -272,7 +409,7 @@ Returns the coordinates of the top pixel.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -286,112 +423,7 @@ Returns the coordinates of the bottom pixel.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00244">244</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="cae0adae98c38009c8241ef0baa169c3"></a><!-- doxytag: member="Shape::centralPixel" ref="cae0adae98c38009c8241ef0baa169c3" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &amp; Shape::centralPixel           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the coordinates of the central pixel. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates</dd></dl>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a></dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00253">253</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="7623c856a1a7916fc000f43d5efdba5b"></a><!-- doxytag: member="Shape::pixels" ref="7623c856a1a7916fc000f43d5efdba5b" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; unsigned char &gt; &amp; Shape::pixels           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the set of pixels that defines the shape. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of values, where each value is the value of ink of each pixel</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00262">262</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="7a417d1fc74acae89f4d96ac36e0b73e"></a><!-- doxytag: member="Shape::height" ref="7a417d1fc74acae89f4d96ac36e0b73e" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Shape::height           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the height of the shape. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The height of the shape</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00271">271</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="aa9328cb87de52f53496b6a1eb3a60b9"></a><!-- doxytag: member="Shape::width" ref="aa9328cb87de52f53496b6a1eb3a60b9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Shape::width           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the width of the shape. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The width of the shape</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00280">280</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8hpp-source.html#l00291">291</a> of file <a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>.</p>
 
 </div>
 </div><p>
@@ -416,22 +448,21 @@ Adds a pixel to the shape.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>pixel</em>&nbsp;</td><td>Coordinates of the pixel </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>hasInk</em>&nbsp;</td><td>Tells whether the pixel has ink or not</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pixel</em>&nbsp;</td><td>The pixel to add</td></tr>
   </table>
 </dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21 </dd></dl>
 
-<p>Definition at line <a class="el" href="_shape_8cpp-source.html#l00023">23</a> of file <a class="el" href="_shape_8cpp-source.html">Shape.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_shape_8cpp-source.html#l00030">30</a> of file <a class="el" href="_shape_8cpp-source.html">Shape.cpp</a>.</p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_shape_8hpp-source.html">Shape.hpp (151)</a><li><a class="el" href="_shape_8cpp-source.html">Shape.cpp (151)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:56 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 21 16:36:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

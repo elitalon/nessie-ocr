@@ -5,8 +5,11 @@
 
 #include "Segmenter.hpp"
 
+#include "Clip.hpp"
+#include "Pixel.hpp"
 #include "boost/timer.hpp"
 
+#include <list>
 #include <algorithm>
 #include <iostream>
 
@@ -19,8 +22,7 @@ Segmenter::Segmenter ()
 	:	inkValue_(0),
 		shapes_(std::vector<Shape>(0)),
 		thresholdingTime_(0.0),
-		floodFillingTime_(0.0),
-		seeds_(std::list<Pixel>(0))
+		shapesFindingTime_(0.0)
 {
 	
 };
@@ -76,107 +78,101 @@ void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, cons
 
 
 ///
-/// @details The 'flood fill' algorithm is a segmentation technique that isolates every shape in a clip that represents a character.
-/// Every shape is built starting from a seed, i.e. an ink pixel, exploring its neighbourhood and adding every ink pixel that is
-/// connected to the seed. The process ends when there are not more seeds to explore and the shapes are completely isolated.
+/// @details This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents
+/// a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process
+/// ends when there are not more seeds to explore and the shapes are completely isolated.
 /// 
-void Segmenter::applyFloodFill (const Clip &clip)
+void Segmenter::findShapes (const Clip &clip)
 {
 	// Start timing
 	boost::timer timer;
 	timer.restart();
 	
 	// Find the seeds where the flooding process will start from
-	findSeeds(clip);
-	
-	// Explore the neighbourhood of each seed. Since a subset of seeds are removed for each shape, the
-	// 'while' style avoids to make an error by modifying a list that is being reading
-	while ( seeds_.size() > 0 )
-	{
-		shapes_.push_back(Shape());
-		exploreSeedNeighbourhood(*(seeds_.begin()), clip);
-	}
-	
-	///
-	/// 3. Sort shapes according to their position within the clip
-	///
-
-	
-	// Gather elapsed time
-	floodFillingTime_ = timer.elapsed();
-};
-
-
-
-///
-/// @details All the pixels of the clip are explored, adding to the vector of #seeds_ those whose gray level is equal to the ink's gray level
-/// stablished in #inkValue_ member.
-///
-void Segmenter::findSeeds (const Clip &clip)
-{
-	// Explore the whole clip adding the ink pixels
+	std::list<Pixel> seeds;
 	for ( unsigned int i = 0; i < clip.height(); ++i )
 	{
 		for ( unsigned int j = 0; j < clip.width(); ++j )
 		{
 			if ( clip(i, j) == inkValue_ )
-				seeds_.push_back(Pixel(i, j));
+				seeds.push_back(Pixel(i, j));
 		}
 	}
-};
-
-
-
-///
-/// @details
-///
-bool Segmenter::isSeed (const Pixel& pixel) const
-{
-	if( static_cast<int>(std::count(seeds_.begin(), seeds_.end(), pixel)) > 0 )
-		return true;
-	else
-		return false;
-};
-
-
-
-///
-/// @details
-///
-void Segmenter::exploreSeedNeighbourhood (const Pixel &seed, const Clip &clip)
-{
-	// Check that seed's coordinates fall inside the clip
-	if ( (seed.first < 0) or (seed.first >= clip.height()) )
-		return;
 	
-	if ( (seed.second < 0) or (seed.second >= clip.width()) )
-		return;
-
-
-	// Test this pixel has a gray level equal to the character's ink value
-	if ( clip(seed.first, seed.second) not_eq inkValue_ )
-		return;
+	
+	// A vector of "visited/non visited" status for the pixels in the clip
+	std::vector<bool> visited(clip.size(), false);
+	
+	
+	// Explore the neighbourhood of each seed. For each pixel explored, the vector above tells if it has already been explored
+	std::list<Pixel>::iterator seedsIterator;
+	for (  seedsIterator = seeds.begin(); seedsIterator not_eq seeds.end(); ++seedsIterator )
+	{
+		unsigned int row	= (*seedsIterator).first;
+		unsigned int column	= (*seedsIterator).second;
 		
-	// Test this pixel has already been explored
-	if ( not isSeed(seed) )
-		return;
-	
-	
-	// Save the coordinates and remove this seed from the list
-	unsigned int x = seed.first, y = seed.second;
-	seeds_.remove(seed);
+		if ( not visited.at(row * clip.width() + column) )	// This seed has not already been visited
+		{
+			visited.at(row * clip.width() + column) = true;
+			
+			// This seed begins a new shape
+			shapes_.push_back(Shape());
+			shapes_.back().addPixel( Pixel(row, column) );
+			
+			
+			// Explore the seed's neighbourhood
+			for ( unsigned int i = row-1; (i <= row+1) and (i < clip.height()); ++i )
+			{
+				for ( unsigned int j = column-1; (j <= column+1) and (j < clip.width()); ++j )
+				{
+					// Test clip borders are not passed
+					if ( i >= 0 and j >= 0 )
+					{
+						// Add this neighbour if has ink and has already not been visited
+						if ( clip(i,j) == inkValue_ and not visited.at(i * clip.width() + j) )
+						{
+							visited.at(i * clip.width() + j) = true;
+							shapes_.back().addPixel( Pixel(i, j) );
+						}
+					}
+				}
+			}
+			
+			
+			// Explore the neighbours of the neighbours of the seed.
+			unsigned int index = 1;
+			while ( shapes_.back().size() > index )
+			{
+				Pixel pixel( shapes_.back()(index) );
+				
+				// Explore the neighbour's neighbourhood
+				for ( unsigned int i = pixel.first-1; (i <= pixel.first+1) and (i < clip.height()); ++i )
+				{
+					for ( unsigned int j = pixel.second-1; (j <= pixel.second+1) and (j < clip.width()); ++j )
+					{
+						// Test clip borders are not passed
+						if ( i >= 0 and j >= 0 )
+						{
+							// Add this neighbour if has ink and has already not been visited
+							if ( clip(i,j) == inkValue_ and not visited.at(i * clip.width() + j) )
+							{
+								visited.at(i * clip.width() + j) = true;
+								shapes_.back().addPixel( Pixel(i, j) );
+							}
+						}
+					}
+				}
+				index++;
+			}
+		}
+	}
 
 
-	// Recursive calls
-	exploreSeedNeighbourhood( Pixel(x, y+1), clip );	// East
-	exploreSeedNeighbourhood( Pixel(x, y-1), clip );	// West
-	exploreSeedNeighbourhood( Pixel(x+1, y), clip );	// South
-	exploreSeedNeighbourhood( Pixel(x-1, y), clip );	// North
-	exploreSeedNeighbourhood( Pixel(x+1, y+1), clip );	// South-East
-	exploreSeedNeighbourhood( Pixel(x+1, y-1), clip );	// South-West
-	exploreSeedNeighbourhood( Pixel(x-1, y+1), clip );	// North-East
-	exploreSeedNeighbourhood( Pixel(x-1, y-1), clip );	// North-West
+	// Gather elapsed time
+	shapesFindingTime_ = timer.elapsed();
 };
+
+
 
 
 

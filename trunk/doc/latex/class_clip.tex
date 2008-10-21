@@ -139,9 +139,9 @@ Allows access to a pixel in the clip.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-20\end{Desc}
-If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. The gray level must be normalized in a value from 0 to 255, otherwise it is truncated. 
+If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
 
-Definition at line 168 of file Clip.hpp.\hypertarget{class_clip_16b24276181affc5086cb4fe83269fb8}{
+Definition at line 167 of file Clip.hpp.\hypertarget{class_clip_16b24276181affc5086cb4fe83269fb8}{
 \index{Clip@{Clip}!operator()@{operator()}}
 \index{operator()@{operator()}!Clip@{Clip}}
 \subsubsection[operator()]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Clip::operator() (const unsigned int \& {\em row}, \/  const unsigned int \& {\em column}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -163,7 +163,7 @@ Allows access to a pixel in the clip.
 \item[Date:]2008-10-20\end{Desc}
 If either the x coordinate or the y coordinate are out of the image borders, an exception is thrown. 
 
-Definition at line 180 of file Clip.hpp.\hypertarget{class_clip_1a1d1fd626d1325f0f2b9184de4c89b8}{
+Definition at line 179 of file Clip.hpp.\hypertarget{class_clip_1a1d1fd626d1325f0f2b9184de4c89b8}{
 \index{Clip@{Clip}!row@{row}}
 \index{row@{row}!Clip@{Clip}}
 \subsubsection[row]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::row () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -178,7 +178,7 @@ Returns the row in the underlying image where the upper left-most pixel of the c
 \item[Date:]2008-10-20 \end{Desc}
 
 
-Definition at line 192 of file Clip.hpp.
+Definition at line 191 of file Clip.hpp.
 
 Referenced by Recognizer::updateImage().\hypertarget{class_clip_06a34378fa0f23425d10bb04e9972a26}{
 \index{Clip@{Clip}!column@{column}}
@@ -195,7 +195,7 @@ Returns the column in the underlying image where the upper left-most pixel of th
 \item[Date:]2008-10-20 \end{Desc}
 
 
-Definition at line 201 of file Clip.hpp.
+Definition at line 200 of file Clip.hpp.
 
 Referenced by Recognizer::updateImage().\hypertarget{class_clip_88d1a47c0ec077e8c6680785509389b0}{
 \index{Clip@{Clip}!width@{width}}
@@ -212,9 +212,9 @@ Returns the width of the clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 210 of file Clip.hpp.
+Definition at line 209 of file Clip.hpp.
 
-Referenced by Segmenter::applyThreshold(), Preprocessor::computeOptimalThreshold(), Segmenter::exploreSeedNeighbourhood(), Preprocessor::findBackgroundReferenceGrayLevel(), Segmenter::findSeeds(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_939908a8dde602d25335792cc0fd5d97}{
+Referenced by Segmenter::applyThreshold(), Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Segmenter::findShapes(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_939908a8dde602d25335792cc0fd5d97}{
 \index{Clip@{Clip}!height@{height}}
 \index{height@{height}!Clip@{Clip}}
 \subsubsection[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::height () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -229,9 +229,9 @@ Returns the height of the clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 219 of file Clip.hpp.
+Definition at line 218 of file Clip.hpp.
 
-Referenced by Segmenter::applyThreshold(), Preprocessor::computeOptimalThreshold(), Segmenter::exploreSeedNeighbourhood(), Preprocessor::findBackgroundReferenceGrayLevel(), Segmenter::findSeeds(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_eb6b12a1a0570b529d6a09633b991fcd}{
+Referenced by Segmenter::applyThreshold(), Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Segmenter::findShapes(), Preprocessor::removeIsolatedNoise(), and Recognizer::updateImage().\hypertarget{class_clip_eb6b12a1a0570b529d6a09633b991fcd}{
 \index{Clip@{Clip}!size@{size}}
 \index{size@{size}!Clip@{Clip}}
 \subsubsection[size]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Clip::size () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -246,11 +246,11 @@ Returns the number of pixels in the clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 228 of file Clip.hpp.
+Definition at line 227 of file Clip.hpp.
 
-Referenced by Preprocessor::computeOptimalThreshold().
+Referenced by Preprocessor::computeOptimalThreshold(), and Segmenter::findShapes().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_clip_8hpp}{Clip.hpp (143)}\item 
-\hyperlink{_clip_8cpp}{Clip.cpp (151)}\end{CompactItemize}
+\hyperlink{_clip_8hpp}{Clip.hpp (152)}\item 
+\hyperlink{_clip_8cpp}{Clip.cpp (152)}\end{CompactItemize}

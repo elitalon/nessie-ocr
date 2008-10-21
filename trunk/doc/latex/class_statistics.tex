@@ -39,8 +39,8 @@ const double \& \hyperlink{class_statistics_9b1c2d1f1338069346c80293a2c11b6d}{pr
 \begin{CompactList}\small\item\em Returns the total elapsed time within the preprocessing stage. \item\end{CompactList}\item 
 const double \& \hyperlink{class_statistics_51a8c70011a201873db8f388dad733ac}{thresholdingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the thresholding algorithm. \item\end{CompactList}\item 
-const double \& \hyperlink{class_statistics_dc9b7a52ce3d760815c7f2e4668a931b}{floodFillingTime} () const 
-\begin{CompactList}\small\item\em Returns the elapsed time while applying the flood fill algorithm. \item\end{CompactList}\item 
+const double \& \hyperlink{class_statistics_9437fbc6726c6179b3ee4c130520e642}{shapesFindingTime} () const 
+\begin{CompactList}\small\item\em Returns the elapsed time while finding the shapes in a clip. \item\end{CompactList}\item 
 const double \& \hyperlink{class_statistics_f4c992e9970bce97b9a33100db689739}{segmentationTime} () const 
 \begin{CompactList}\small\item\em Returns the total elapsed time within the segmentation stage. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Member Functions}
@@ -54,8 +54,8 @@ void \hyperlink{class_statistics_4ad24aec4e5491b7d3afca143e6deb05}{noiseRemovalT
 \begin{CompactList}\small\item\em Sets the elapsed time in the noise removal algorithm. \item\end{CompactList}\item 
 void \hyperlink{class_statistics_ca6e07bda50783e324e8c51d8c815019}{thresholdingTime} (const double \&time)
 \begin{CompactList}\small\item\em Sets the elapsed time in the thresholding algorithm. \item\end{CompactList}\item 
-void \hyperlink{class_statistics_757eb55f4f96d9ea62e2e2af7602e017}{floodFillingTime} (const double \&time)
-\begin{CompactList}\small\item\em Sets the elapsed time in the flood filling algorithm. \item\end{CompactList}\end{CompactItemize}
+void \hyperlink{class_statistics_bc0a0e96adba6828ffb915a617b58ed2}{shapesFindingTime} (const double \&time)
+\begin{CompactList}\small\item\em Sets the elapsed time in the shapes finding algorithm. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
@@ -84,11 +84,11 @@ double \hyperlink{class_statistics_e830ef1e50443eda784cadb18ca2b0d1}{thresholdin
 \label{class_statistics_e830ef1e50443eda784cadb18ca2b0d1}
 
 \begin{CompactList}\small\item\em Elapsed time while applying the thresholding algorithm. \item\end{CompactList}\item 
-\hypertarget{class_statistics_3eed3007d23278115ca2f28db1aa4fba}{
-double \hyperlink{class_statistics_3eed3007d23278115ca2f28db1aa4fba}{floodFillingTime\_\-}}
-\label{class_statistics_3eed3007d23278115ca2f28db1aa4fba}
+\hypertarget{class_statistics_902172424d5011a89726319dfd32fa19}{
+double \hyperlink{class_statistics_902172424d5011a89726319dfd32fa19}{shapesFindingTime\_\-}}
+\label{class_statistics_902172424d5011a89726319dfd32fa19}
 
-\begin{CompactList}\small\item\em Elapsed time while applying the flood fill algorithm. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Elapsed time while finding the shapes in a clip. \item\end{CompactList}\item 
 \hypertarget{class_statistics_89ff84bd9b9b80585822c461ec25c8eb}{
 double \hyperlink{class_statistics_89ff84bd9b9b80585822c461ec25c8eb}{segmentationTime\_\-}}
 \label{class_statistics_89ff84bd9b9b80585822c461ec25c8eb}
@@ -218,14 +218,14 @@ Returns the elapsed time while applying the thresholding algorithm.
 
 Definition at line 251 of file Statistics.hpp.
 
-Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_dc9b7a52ce3d760815c7f2e4668a931b}{
-\index{Statistics@{Statistics}!floodFillingTime@{floodFillingTime}}
-\index{floodFillingTime@{floodFillingTime}!Statistics@{Statistics}}
-\subsubsection[floodFillingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::floodFillingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_statistics_dc9b7a52ce3d760815c7f2e4668a931b}
+Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_9437fbc6726c6179b3ee4c130520e642}{
+\index{Statistics@{Statistics}!shapesFindingTime@{shapesFindingTime}}
+\index{shapesFindingTime@{shapesFindingTime}!Statistics@{Statistics}}
+\subsubsection[shapesFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::shapesFindingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_9437fbc6726c6179b3ee4c130520e642}
 
 
-Returns the elapsed time while applying the flood fill algorithm. 
+Returns the elapsed time while finding the shapes in a clip. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -237,7 +237,7 @@ Returns the elapsed time while applying the flood fill algorithm.
 
 Definition at line 260 of file Statistics.hpp.
 
-Referenced by Recognizer::obtainText().\hypertarget{class_statistics_f4c992e9970bce97b9a33100db689739}{
+Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_f4c992e9970bce97b9a33100db689739}{
 \index{Statistics@{Statistics}!segmentationTime@{segmentationTime}}
 \index{segmentationTime@{segmentationTime}!Statistics@{Statistics}}
 \subsubsection[segmentationTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::segmentationTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -336,14 +336,14 @@ Sets the elapsed time in the thresholding algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 58 of file Statistics.cpp.\hypertarget{class_statistics_757eb55f4f96d9ea62e2e2af7602e017}{
-\index{Statistics@{Statistics}!floodFillingTime@{floodFillingTime}}
-\index{floodFillingTime@{floodFillingTime}!Statistics@{Statistics}}
-\subsubsection[floodFillingTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::floodFillingTime (const double \& {\em time})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
-\label{class_statistics_757eb55f4f96d9ea62e2e2af7602e017}
+Definition at line 58 of file Statistics.cpp.\hypertarget{class_statistics_bc0a0e96adba6828ffb915a617b58ed2}{
+\index{Statistics@{Statistics}!shapesFindingTime@{shapesFindingTime}}
+\index{shapesFindingTime@{shapesFindingTime}!Statistics@{Statistics}}
+\subsubsection[shapesFindingTime]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::shapesFindingTime (const double \& {\em time})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_statistics_bc0a0e96adba6828ffb915a617b58ed2}
 
 
-Sets the elapsed time in the flood filling algorithm. 
+Sets the elapsed time in the shapes finding algorithm. 
 
 \begin{Desc}
 \item[Parameters:]

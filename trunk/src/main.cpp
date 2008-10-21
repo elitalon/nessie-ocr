@@ -10,9 +10,8 @@
 
 
 ///
-/// @todo Improve the performance of Segmenter::exploreSeedNeighbourhood() by developing a non-recursive approach
+/// @todo Substitute the [] operator for the at() method when using std::vector
 /// @todo Develop a method to sort the list of shapes according to their position in text.
-/// @todo Change the Clip::setPixelGrayLevel() and Clip::getPixelGrayLevel methods for operator() overloading.
 /// @todo Overload operator+ for the class Text.
 /// @todo Overload operator- and operator+ for the class Statistics.
 /// 
@@ -43,6 +42,7 @@ int main (int argc, char const *argv[])
 		std::cout << std::endl;
 						
 		std::cout << "Thresholding time            : " << recon.statistic().thresholdingTime() << std::endl;
+		std::cout << "Shapes finding time          : " << recon.statistic().shapesFindingTime() << std::endl;
 		std::cout << "Segmentation time            : " << recon.statistic().segmentationTime() << std::endl;
 		std::cout << std::endl;
 		

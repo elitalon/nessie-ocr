@@ -69,19 +69,57 @@ window.onload = initDynSections;
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
 <a name="l00012"></a><a class="code" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7">00012</a> <a class="code" href="class_shape.html#aa8d87171e65e0d8ba3c5459978992a7" title="Constructor.">Shape::Shape</a> ()
-<a name="l00013"></a>00013     :   nPixels_(0), leftPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), rightPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), topPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), bottomPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)), centralPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
-<a name="l00014"></a>00014         pixels_(std::vector&lt;unsigned char&gt;(0)), height_(0), width_(0)
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 };
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 
-<a name="l00023"></a><a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">00023</a> <span class="keywordtype">void</span> <a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243" title="Adds a pixel to the shape.">Shape::addPixel</a> (<span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;pixel)
-<a name="l00024"></a>00024 {
-<a name="l00025"></a>00025     
-<a name="l00026"></a>00026 };
+<a name="l00013"></a>00013     :   width_(0),
+<a name="l00014"></a>00014         height_(0),
+<a name="l00015"></a>00015         pixels_(std::vector&lt;<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>&gt;(0)),
+<a name="l00016"></a>00016         size_(0),
+<a name="l00017"></a>00017         leftPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
+<a name="l00018"></a>00018         rightPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
+<a name="l00019"></a>00019         topPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0)),
+<a name="l00020"></a>00020         bottomPixel_(<a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a>(0,0))
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 };
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 
+<a name="l00030"></a><a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">00030</a> <span class="keywordtype">void</span> <a class="code" href="class_shape.html#f6114234203d9473f1fef9e6391f9243" title="Adds a pixel to the shape.">Shape::addPixel</a> (<span class="keyword">const</span> <a class="code" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Information about an image pixel.">Pixel</a> &amp;pixel)
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032     <span class="comment">// Add the pixel and update the size_ member</span>
+<a name="l00033"></a>00033     <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.push_back( pixel );
+<a name="l00034"></a>00034     <a class="code" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283" title="Number of ink pixels within the shape.">size_</a> = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.size();
+<a name="l00035"></a>00035     
+<a name="l00036"></a>00036     
+<a name="l00037"></a>00037     <span class="comment">// Initialize the extreme pixels the first time we invoke this method</span>
+<a name="l00038"></a>00038     <span class="keywordflow">if</span> ( <a class="code" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283" title="Number of ink pixels within the shape.">size_</a> == 1 )
+<a name="l00039"></a>00039     {
+<a name="l00040"></a>00040         <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a>       = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.at(0);
+<a name="l00041"></a>00041         <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a>    = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.at(0);
+<a name="l00042"></a>00042         <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink at the left-most position.">leftPixel_</a>      = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.at(0);
+<a name="l00043"></a>00043         <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink at the right-most position.">rightPixel_</a>     = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.at(0);
+<a name="l00044"></a>00044     }
+<a name="l00045"></a>00045     <span class="keywordflow">else</span>    <span class="comment">// Update the extreme pixel</span>
+<a name="l00046"></a>00046     {
+<a name="l00047"></a>00047         <span class="keywordflow">if</span> ( pixel.first &lt; <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a>.first )
+<a name="l00048"></a>00048             <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a> = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.back();
+<a name="l00049"></a>00049         
+<a name="l00050"></a>00050         <span class="keywordflow">if</span> ( pixel.first &gt; <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a>.first )
+<a name="l00051"></a>00051             <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a> = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.back();
+<a name="l00052"></a>00052         
+<a name="l00053"></a>00053         <span class="keywordflow">if</span> ( pixel.second &gt; <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink at the right-most position.">rightPixel_</a>.second )
+<a name="l00054"></a>00054             <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink at the right-most position.">rightPixel_</a> = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.back();
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         <span class="keywordflow">if</span> ( pixel.second &lt; <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink at the left-most position.">leftPixel_</a>.second )
+<a name="l00057"></a>00057             <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink at the left-most position.">leftPixel_</a> = <a class="code" href="class_shape.html#286ebb0c6010efe288d5e79192e309dc" title="A set of pixel coordinates that defines the whole shape.">pixels_</a>.back();
+<a name="l00058"></a>00058     }
+<a name="l00059"></a>00059     
+<a name="l00060"></a>00060     
+<a name="l00061"></a>00061     <span class="comment">// Update the width and height of shape</span>
+<a name="l00062"></a>00062     <a class="code" href="class_shape.html#863661d529942b525830d2208259583b" title="Width of the shape.">width_</a> = <a class="code" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd" title="Pixel of ink at the right-most position.">rightPixel_</a>.second - <a class="code" href="class_shape.html#812cd080959b320038aae54729831ce4" title="Pixel of ink at the left-most position.">leftPixel_</a>.second + 1;
+<a name="l00063"></a>00063     <a class="code" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c" title="Height of the shape.">height_</a> = <a class="code" href="class_shape.html#8277820de6ff8da989a0659f4e5d82d1" title="Pixel of ink at the bottom position.">bottomPixel_</a>.second - <a class="code" href="class_shape.html#c6755e0dbd9d2eaf537e232fd003c918" title="Pixel of ink at the top position.">topPixel_</a>.second + 1;
+<a name="l00064"></a>00064 };
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:44 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 21 16:36:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

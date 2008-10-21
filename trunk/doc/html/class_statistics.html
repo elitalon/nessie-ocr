@@ -100,9 +100,9 @@ This class stores a number of statistical data regarding the elapsed time during
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#51a8c70011a201873db8f388dad733ac">thresholdingTime</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while applying the thresholding algorithm.  <a href="#51a8c70011a201873db8f388dad733ac"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#dc9b7a52ce3d760815c7f2e4668a931b">floodFillingTime</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#9437fbc6726c6179b3ee4c130520e642">shapesFindingTime</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while applying the flood fill algorithm.  <a href="#dc9b7a52ce3d760815c7f2e4668a931b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while finding the shapes in a clip.  <a href="#9437fbc6726c6179b3ee4c130520e642"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#f4c992e9970bce97b9a33100db689739">segmentationTime</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the total elapsed time within the segmentation stage.  <a href="#f4c992e9970bce97b9a33100db689739"></a><br></td></tr>
@@ -119,9 +119,9 @@ This class stores a number of statistical data regarding the elapsed time during
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#ca6e07bda50783e324e8c51d8c815019">thresholdingTime</a> (const double &amp;time)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the elapsed time in the thresholding algorithm.  <a href="#ca6e07bda50783e324e8c51d8c815019"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#757eb55f4f96d9ea62e2e2af7602e017">floodFillingTime</a> (const double &amp;time)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#bc0a0e96adba6828ffb915a617b58ed2">shapesFindingTime</a> (const double &amp;time)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the elapsed time in the flood filling algorithm.  <a href="#757eb55f4f96d9ea62e2e2af7602e017"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the elapsed time in the shapes finding algorithm.  <a href="#bc0a0e96adba6828ffb915a617b58ed2"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ac1d32288eac323391e66b2ff1a878e8"></a><!-- doxytag: member="Statistics::backgroundReferenceGrayLevelFindingTime_" ref="ac1d32288eac323391e66b2ff1a878e8" args="" -->
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8">backgroundReferenceGrayLevelFindingTime_</a></td></tr>
@@ -143,10 +143,10 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#e830ef1e50443eda784cadb18ca2b0d1">thresholdingTime_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the thresholding algorithm. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3eed3007d23278115ca2f28db1aa4fba"></a><!-- doxytag: member="Statistics::floodFillingTime_" ref="3eed3007d23278115ca2f28db1aa4fba" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#3eed3007d23278115ca2f28db1aa4fba">floodFillingTime_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="902172424d5011a89726319dfd32fa19"></a><!-- doxytag: member="Statistics::shapesFindingTime_" ref="902172424d5011a89726319dfd32fa19" args="" -->
+double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#902172424d5011a89726319dfd32fa19">shapesFindingTime_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the flood fill algorithm. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while finding the shapes in a clip. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="89ff84bd9b9b80585822c461ec25c8eb"></a><!-- doxytag: member="Statistics::segmentationTime_" ref="89ff84bd9b9b80585822c461ec25c8eb" args="" -->
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#89ff84bd9b9b80585822c461ec25c8eb">segmentationTime_</a></td></tr>
 
@@ -208,7 +208,7 @@ Returns the elapsed time in the reference gray level of the background finding a
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00215">215</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -236,7 +236,7 @@ Returns the elapsed time in the optimal threshold computing algorithm.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00224">224</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -264,7 +264,7 @@ Returns the elapsed time in the noise removal algorithm.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00233">233</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -292,7 +292,7 @@ Returns the total elapsed time within the preprocessing stage.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00242">242</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>.</p>
 
 </div>
 </div><p>
@@ -320,16 +320,16 @@ Returns the elapsed time while applying the thresholding algorithm.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00251">251</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="dc9b7a52ce3d760815c7f2e4668a931b"></a><!-- doxytag: member="Statistics::floodFillingTime" ref="dc9b7a52ce3d760815c7f2e4668a931b" args="() const " -->
+<a class="anchor" name="9437fbc6726c6179b3ee4c130520e642"></a><!-- doxytag: member="Statistics::shapesFindingTime" ref="9437fbc6726c6179b3ee4c130520e642" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; Statistics::floodFillingTime           </td>
+          <td class="memname">const double &amp; Statistics::shapesFindingTime           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -340,7 +340,7 @@ Returns the elapsed time while applying the thresholding algorithm.
 <div class="memdoc">
 
 <p>
-Returns the elapsed time while applying the flood fill algorithm. 
+Returns the elapsed time while finding the shapes in a clip. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
@@ -348,7 +348,7 @@ Returns the elapsed time while applying the flood fill algorithm.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00260">260</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00091">Recognizer::obtainText()</a>.</p>
 
 </div>
 </div><p>
@@ -376,7 +376,7 @@ Returns the total elapsed time within the segmentation stage.
 
 <p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00269">269</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00026">main()</a>.</p>
+<p>Referenced by <a class="el" href="main_8cpp-source.html#l00025">main()</a>.</p>
 
 </div>
 </div><p>
@@ -504,12 +504,12 @@ Sets the elapsed time in the thresholding algorithm.
 
 </div>
 </div><p>
-<a class="anchor" name="757eb55f4f96d9ea62e2e2af7602e017"></a><!-- doxytag: member="Statistics::floodFillingTime" ref="757eb55f4f96d9ea62e2e2af7602e017" args="(const double &amp;time)" -->
+<a class="anchor" name="bc0a0e96adba6828ffb915a617b58ed2"></a><!-- doxytag: member="Statistics::shapesFindingTime" ref="bc0a0e96adba6828ffb915a617b58ed2" args="(const double &amp;time)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Statistics::floodFillingTime           </td>
+          <td class="memname">void Statistics::shapesFindingTime           </td>
           <td>(</td>
           <td class="paramtype">const double &amp;&nbsp;</td>
           <td class="paramname"> <em>time</em>          </td>
@@ -521,7 +521,7 @@ Sets the elapsed time in the thresholding algorithm.
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the flood filling algorithm. 
+Sets the elapsed time in the shapes finding algorithm. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -538,7 +538,7 @@ Sets the elapsed time in the flood filling algorithm.
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_statistics_8hpp-source.html">Statistics.hpp (146)</a><li><a class="el" href="_statistics_8cpp-source.html">Statistics.cpp (146)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Oct 20 19:12:56 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 21 16:36:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
