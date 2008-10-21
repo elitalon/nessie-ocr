@@ -11,7 +11,7 @@
 
 #include <Magick++.h>
 
-#include "Clip.hpp"
+class Clip;
 #include "Text.hpp"
 #include "Statistics.hpp"
 #include "ClipLocation.hpp"

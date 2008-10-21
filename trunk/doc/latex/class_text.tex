@@ -105,7 +105,7 @@ Constructor.
 \item[Date:]2008-10-04\end{Desc}
 Initializes a \hyperlink{class_text}{Text} object with the content passed 
 
-Definition at line 26 of file Text.cpp.
+Definition at line 28 of file Text.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_text_6e6da63c90af68639adc7dd1336f6bf9}{
@@ -128,7 +128,7 @@ Adds a character to text.
 \item[Date:]2008-10-03\end{Desc}
 The character passed is appended to the end of the text 
 
-Definition at line 58 of file Text.cpp.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
+Definition at line 60 of file Text.cpp.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
 \subsubsection[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character}, \/  const unsigned int \& {\em position})}}
@@ -148,7 +148,7 @@ Adds a character to text.
 \item[Date:]2008-10-06\end{Desc}
 The character is inserted within the text at position passed. If the position passed is over the text total length, the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning of the text. 
 
-Definition at line 38 of file Text.cpp.\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
+Definition at line 40 of file Text.cpp.\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
 \index{Text@{Text}!removeCharacter@{removeCharacter}}
 \index{removeCharacter@{removeCharacter}!Text@{Text}}
 \subsubsection[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (const unsigned int \& {\em position})}}
@@ -168,7 +168,7 @@ Removes a character from text.
 \item[Date:]2008-10-03\end{Desc}
 The character is removed from text at position passed. If the position passed is over the text total length, the last character is removed. If the position passed is less than 0 the first character is removed. 
 
-Definition at line 69 of file Text.cpp.\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
+Definition at line 71 of file Text.cpp.\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \subsubsection[content]{\setlength{\rightskip}{0pt plus 5cm}const std::string \& Text::content () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -258,7 +258,7 @@ Builds the vector of appearance rates of every word.
 \item[Date:]2008-10-04\end{Desc}
 This method must be called every time the content changes, since there is no public method for a class user to make it by itself. 
 
-Definition at line 112 of file Text.cpp.
+Definition at line 114 of file Text.cpp.
 
 Referenced by addCharacter(), content(), removeCharacter(), and Text().\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
 \index{Text@{Text}!updateWordRate@{updateWordRate}}
@@ -280,7 +280,7 @@ Increases by one the number of appearances of a word.
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 89 of file Text.cpp.
+Definition at line 91 of file Text.cpp.
 
 Referenced by computeWordRates().\hypertarget{class_text_6b26c004c1cac61015f7d49c364a007d}{
 \index{Text@{Text}!tokenize@{tokenize}}
@@ -302,7 +302,7 @@ Extracts every word surrounded by a set of delimiters.
 \item[Date:]2008-10-04 \end{Desc}
 
 
-Definition at line 132 of file Text.cpp.
+Definition at line 134 of file Text.cpp.
 
 Referenced by computeWordRates().
 

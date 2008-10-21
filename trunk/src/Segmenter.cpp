@@ -10,7 +10,6 @@
 #include "boost/timer.hpp"
 
 #include <list>
-#include <algorithm>
 #include <iostream>
 
 

@@ -19,7 +19,7 @@ Collaboration diagram for Segmenter:\nopagebreak
 This class encapsulates all the methods related to segmentation stage. Its task is to isolate every shape within a clip that represents a character, storing them in a data structure for further classification.
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}, \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -84,7 +84,7 @@ Constructor.
 \item[Date:]2008-10-13\end{Desc}
 Initializes a \hyperlink{class_segmenter}{Segmenter} object 
 
-Definition at line 21 of file Segmenter.cpp.
+Definition at line 20 of file Segmenter.cpp.
 
 \subsection{Member Function Documentation}
 \hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
@@ -189,7 +189,7 @@ The \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-} m
 \item[Date:]2008-10-13\end{Desc}
 Simple thresholding that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that must be applied to the pixel. 
 
-Definition at line 36 of file Segmenter.cpp.
+Definition at line 35 of file Segmenter.cpp.
 
 Referenced by Recognizer::obtainText().\hypertarget{class_segmenter_465c8e755bb56d247add080a04377520}{
 \index{Segmenter@{Segmenter}!findShapes@{findShapes}}
@@ -217,11 +217,11 @@ Finds the shapes in the clip by searching connected pixels.
 \item[Date:]2008-10-21\end{Desc}
 This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
 
-Definition at line 85 of file Segmenter.cpp.
+Definition at line 84 of file Segmenter.cpp.
 
 Referenced by Recognizer::obtainText().
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_segmenter_8hpp}{Segmenter.hpp (151)}\item 
-\hyperlink{_segmenter_8cpp}{Segmenter.cpp (152)}\end{CompactItemize}
+\hyperlink{_segmenter_8hpp}{Segmenter.hpp (153)}\item 
+\hyperlink{_segmenter_8cpp}{Segmenter.cpp (153)}\end{CompactItemize}

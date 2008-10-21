@@ -13,7 +13,9 @@
 ///
 /// @details Initializes a Text object with no content
 ///
-Text::Text () : content_(std::string("")), wordRates_(std::vector<WordRate>(0))
+Text::Text ()
+	:	content_(std::string("")),
+		wordRates_(std::vector<WordRate>(0))
 {
 	// Build the appearance rate of every word in text
 	computeWordRates();

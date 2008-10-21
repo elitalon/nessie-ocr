@@ -8,6 +8,8 @@
 #include <cmath>
 #include <iostream>
 
+#include "Clip.hpp"
+
 #include "Preprocessor.hpp"
 #include "Segmenter.hpp"
 #include "NessieException.hpp"
@@ -24,7 +26,7 @@ Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)),
 	std::vector<Magick::Image> images;
 	Magick::readImages( &images, path );
 	
-	Magick::Image image = images[0];
+	Magick::Image image = images.at(0);
 	
 	// Store the image dimensions
 	width_	= image.columns();
@@ -167,10 +169,7 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 {
 	// Test if the image is empty to create a new one
 	if ( (externalImage.rows() == 0) and (externalImage.columns() == 0) )
-	{
-		std::cout << "Creating external Image object" << std::endl;
 		externalImage = Magick::Image(Magick::Geometry(width_, height_), "white");
-	}
 	
 	
 	// Assume the internal image dimensions are at least greater or equal to the external image dimensions
@@ -244,7 +243,7 @@ void Recognizer::loadImage (Magick::Image &image)
 		{
 			Magick::ColorGray grayLevel(*pixels++);
 
-			image_[(i * width_) + j] = static_cast<unsigned char>( round(grayLevel.shade() * 255.0) );
+			image_.at(i * width_ + j) = static_cast<unsigned char>( round(grayLevel.shade() * 255.0) );
 		}
 	}	
 };
@@ -264,7 +263,7 @@ void Recognizer::updateImage (const Clip &clip)
 	{
 		for ( unsigned int j = clip.column(); j < clipLeftBorder; ++j )
 		{
-			image_[(i * width_) + j] = clip(i, j);
+			image_.at(i * width_ + j) = clip(i, j);
 		}
 	}
 };

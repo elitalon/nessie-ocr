@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.hpp (146) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.hpp (153) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -71,62 +71,62 @@ window.onload = initDynSections;
 <a name="l00009"></a>00009 
 <a name="l00019"></a><a class="code" href="class_statistics.html">00019</a> <span class="keyword">class </span><a class="code" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a>
 <a name="l00020"></a>00020 {
-<a name="l00021"></a>00021     <span class="keyword">public</span>:
-<a name="l00028"></a>00028         <a class="code" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics</a> ();
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00028"></a>00028     <a class="code" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics</a> ();
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030         
-<a name="l00039"></a>00039         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#d70a464a72d94c795097608e2a18550a" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> () <span class="keyword">const</span>;
-<a name="l00040"></a>00040         
-<a name="l00041"></a>00041         
-<a name="l00050"></a>00050         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#87bdb5b4f7a88cb74d0072fd0c7a2248" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> () <span class="keyword">const</span>;
-<a name="l00051"></a>00051         
-<a name="l00052"></a>00052         
-<a name="l00061"></a>00061         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#ba44f1b2567a77f99ee15c11bda6312a" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> () <span class="keyword">const</span>;        
-<a name="l00062"></a>00062         
-<a name="l00063"></a>00063         
-<a name="l00072"></a>00072         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#9b1c2d1f1338069346c80293a2c11b6d" title="Returns the total elapsed time within the preprocessing stage.">preprocessingTime</a> () <span class="keyword">const</span>;
-<a name="l00073"></a>00073         
-<a name="l00074"></a>00074         
-<a name="l00083"></a>00083         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#51a8c70011a201873db8f388dad733ac" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> () <span class="keyword">const</span>;
-<a name="l00084"></a>00084         
-<a name="l00085"></a>00085         
-<a name="l00094"></a>00094         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#9437fbc6726c6179b3ee4c130520e642" title="Returns the elapsed time while finding the shapes in a clip.">shapesFindingTime</a> () <span class="keyword">const</span>;
-<a name="l00095"></a>00095         
-<a name="l00096"></a>00096         
-<a name="l00105"></a>00105         <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#f4c992e9970bce97b9a33100db689739" title="Returns the total elapsed time within the segmentation stage.">Statistics::segmentationTime</a> () <span class="keyword">const</span>;
-<a name="l00106"></a>00106         
-<a name="l00107"></a>00107         
-<a name="l00108"></a>00108     <span class="keyword">private</span>:
-<a name="l00112"></a><a class="code" href="class_statistics.html#11123fa51c07995419270030024a7dfe">00112</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>;
-<a name="l00113"></a>00113         
-<a name="l00117"></a><a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8">00117</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a>;
-<a name="l00118"></a>00118         
-<a name="l00122"></a><a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943">00122</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a>;
-<a name="l00123"></a>00123         
-<a name="l00127"></a><a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b">00127</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
-<a name="l00128"></a>00128                 
-<a name="l00132"></a><a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd">00132</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a>;
-<a name="l00133"></a>00133         
-<a name="l00137"></a><a class="code" href="class_statistics.html#e830ef1e50443eda784cadb18ca2b0d1">00137</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#e830ef1e50443eda784cadb18ca2b0d1" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;
-<a name="l00138"></a>00138         
-<a name="l00142"></a><a class="code" href="class_statistics.html#902172424d5011a89726319dfd32fa19">00142</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#902172424d5011a89726319dfd32fa19" title="Elapsed time while finding the shapes in a clip.">shapesFindingTime_</a>;
-<a name="l00143"></a>00143         
-<a name="l00147"></a><a class="code" href="class_statistics.html#89ff84bd9b9b80585822c461ec25c8eb">00147</a>         <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#89ff84bd9b9b80585822c461ec25c8eb" title="Total elapsed time within the segmentation stage.">segmentationTime_</a>;
-<a name="l00148"></a>00148         
-<a name="l00149"></a>00149         
-<a name="l00158"></a>00158         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#d70a464a72d94c795097608e2a18550a" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00159"></a>00159         
-<a name="l00160"></a>00160         
-<a name="l00169"></a>00169         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#87bdb5b4f7a88cb74d0072fd0c7a2248" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00170"></a>00170         
-<a name="l00171"></a>00171         
-<a name="l00180"></a>00180         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ba44f1b2567a77f99ee15c11bda6312a" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00181"></a>00181         
-<a name="l00182"></a>00182         
-<a name="l00191"></a>00191         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#51a8c70011a201873db8f388dad733ac" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
-<a name="l00192"></a>00192         
-<a name="l00193"></a>00193         
-<a name="l00202"></a>00202         <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#9437fbc6726c6179b3ee4c130520e642" title="Returns the elapsed time while finding the shapes in a clip.">shapesFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00030"></a>00030     
+<a name="l00039"></a>00039     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#d70a464a72d94c795097608e2a18550a" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> () <span class="keyword">const</span>;
+<a name="l00040"></a>00040     
+<a name="l00041"></a>00041     
+<a name="l00050"></a>00050     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#87bdb5b4f7a88cb74d0072fd0c7a2248" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> () <span class="keyword">const</span>;
+<a name="l00051"></a>00051     
+<a name="l00052"></a>00052     
+<a name="l00061"></a>00061     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#ba44f1b2567a77f99ee15c11bda6312a" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> () <span class="keyword">const</span>;        
+<a name="l00062"></a>00062     
+<a name="l00063"></a>00063     
+<a name="l00072"></a>00072     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#9b1c2d1f1338069346c80293a2c11b6d" title="Returns the total elapsed time within the preprocessing stage.">preprocessingTime</a> () <span class="keyword">const</span>;
+<a name="l00073"></a>00073     
+<a name="l00074"></a>00074     
+<a name="l00083"></a>00083     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#51a8c70011a201873db8f388dad733ac" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> () <span class="keyword">const</span>;
+<a name="l00084"></a>00084     
+<a name="l00085"></a>00085     
+<a name="l00094"></a>00094     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#9437fbc6726c6179b3ee4c130520e642" title="Returns the elapsed time while finding the shapes in a clip.">shapesFindingTime</a> () <span class="keyword">const</span>;
+<a name="l00095"></a>00095     
+<a name="l00096"></a>00096     
+<a name="l00105"></a>00105     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_statistics.html#f4c992e9970bce97b9a33100db689739" title="Returns the total elapsed time within the segmentation stage.">Statistics::segmentationTime</a> () <span class="keyword">const</span>;
+<a name="l00106"></a>00106     
+<a name="l00107"></a>00107     
+<a name="l00108"></a>00108 <span class="keyword">private</span>:
+<a name="l00112"></a><a class="code" href="class_statistics.html#11123fa51c07995419270030024a7dfe">00112</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>;
+<a name="l00113"></a>00113     
+<a name="l00117"></a><a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8">00117</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#ac1d32288eac323391e66b2ff1a878e8" title="Elapsed time in the reference gray level of the background finding algorithm.">backgroundReferenceGrayLevelFindingTime_</a>;
+<a name="l00118"></a>00118     
+<a name="l00122"></a><a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943">00122</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#b8cb0f26533cee29b94f3a556b00e943" title="Elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime_</a>;
+<a name="l00123"></a>00123     
+<a name="l00127"></a><a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b">00127</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#acacd5443d740dda6ddd83deb777ec4b" title="Elapsed time in the noise removal algorithm.">noiseRemovalTime_</a>;
+<a name="l00128"></a>00128             
+<a name="l00132"></a><a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd">00132</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#91e724d9ef7b96e1df3310c61234ebbd" title="Total elapsed time within the preprocessing stage.">preprocessingTime_</a>;
+<a name="l00133"></a>00133     
+<a name="l00137"></a><a class="code" href="class_statistics.html#e830ef1e50443eda784cadb18ca2b0d1">00137</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#e830ef1e50443eda784cadb18ca2b0d1" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;
+<a name="l00138"></a>00138     
+<a name="l00142"></a><a class="code" href="class_statistics.html#902172424d5011a89726319dfd32fa19">00142</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#902172424d5011a89726319dfd32fa19" title="Elapsed time while finding the shapes in a clip.">shapesFindingTime_</a>;
+<a name="l00143"></a>00143     
+<a name="l00147"></a><a class="code" href="class_statistics.html#89ff84bd9b9b80585822c461ec25c8eb">00147</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#89ff84bd9b9b80585822c461ec25c8eb" title="Total elapsed time within the segmentation stage.">segmentationTime_</a>;
+<a name="l00148"></a>00148     
+<a name="l00149"></a>00149     
+<a name="l00158"></a>00158     <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#d70a464a72d94c795097608e2a18550a" title="Returns the elapsed time in the reference gray level of the background finding algorithm...">backgroundReferenceGrayLevelFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00159"></a>00159     
+<a name="l00160"></a>00160     
+<a name="l00169"></a>00169     <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#87bdb5b4f7a88cb74d0072fd0c7a2248" title="Returns the elapsed time in the optimal threshold computing algorithm.">optimalThresholdComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00170"></a>00170     
+<a name="l00171"></a>00171     
+<a name="l00180"></a>00180     <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#ba44f1b2567a77f99ee15c11bda6312a" title="Returns the elapsed time in the noise removal algorithm.">noiseRemovalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00181"></a>00181     
+<a name="l00182"></a>00182     
+<a name="l00191"></a>00191     <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#51a8c70011a201873db8f388dad733ac" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
+<a name="l00192"></a>00192     
+<a name="l00193"></a>00193     
+<a name="l00202"></a>00202     <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#9437fbc6726c6179b3ee4c130520e642" title="Returns the elapsed time while finding the shapes in a clip.">shapesFindingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;time);
 <a name="l00203"></a>00203 };
 <a name="l00204"></a>00204 
 <a name="l00205"></a>00205 
@@ -180,7 +180,7 @@ window.onload = initDynSections;
 <a name="l00274"></a>00274 
 <a name="l00275"></a>00275 <span class="preprocessor">#endif  //_STATISTICS_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 21 16:36:03 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Oct 21 16:55:23 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

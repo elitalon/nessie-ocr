@@ -1,6 +1,4 @@
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="101,84,173,111">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="371,84,451,111">
-<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="525,84,640,111">
-<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="664,84,795,111">
-<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of the class NessieException." alt="" coords="5,161,168,188">
-<area shape="rect" href="$_word_rate_8hpp.html" title="Declaration of the custom type WordRate." alt="" coords="283,161,400,188">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="188,84,268,111">
+<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="292,84,407,111">
+<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="431,84,561,111">
+<area shape="rect" href="$_word_rate_8hpp.html" title="Declaration of the custom type WordRate." alt="" coords="169,161,287,188">

@@ -24,150 +24,150 @@
 ///
 class Text
 {
-	public:
-		
-		///
-		/// Constructor
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-04
-		/// 
-		Text ();
-		
-		
-		///
-		/// Constructor
-		///
-		/// @param content Initial text
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-04
-		/// 
-		Text (const std::string &content);
+public:
+	
+	///
+	/// Constructor
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-04
+	/// 
+	Text ();
+	
+	
+	///
+	/// Constructor
+	///
+	/// @param content Initial text
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-04
+	/// 
+	Text (const std::string &content);
 
-		
-		///
-		/// Adds a character to text
-		///
-		/// @param character	Character to add
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-03
-		/// 
-		void addCharacter (const char &character);
-		
-		
-		///
-		/// Adds a character to text
-		///
-		/// @param character	Character to add
-		/// @param position		Position where adding the character to
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-06
-		/// 
-		void addCharacter (const char &character, const unsigned int &position);
-
-
-		///
-		/// Removes a character from text
-		///
-		/// @param position		Position where removing the character from
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-03
-		/// 
-		void removeCharacter (const unsigned int &position);
-
-				
-		///
-		/// Returns the text's content
-		///
-		/// @return The content of the text
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const std::string &content () const;
+	
+	///
+	/// Adds a character to text
+	///
+	/// @param character	Character to add
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-03
+	/// 
+	void addCharacter (const char &character);
+	
+	
+	///
+	/// Adds a character to text
+	///
+	/// @param character	Character to add
+	/// @param position		Position where adding the character to
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-06
+	/// 
+	void addCharacter (const char &character, const unsigned int &position);
 
 
-		///
-		/// Sets the text's content
-		/// 
-		/// @param content The content of the text
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
-		///
-		void content (const std::string &content);
-		
-		
-		///
-		/// Returns the text's length
-		///
-		/// @return The length of the text
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-08
-		///
-		unsigned int length () const;
-		
-		
-		///
-		/// Returns the appearance rates of every single word in text.
-		/// 
-		/// @return A vector with every different word and their appearance rate
-		/// 
-		/// @see WordRate
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-13
-		///
-		const std::vector<WordRate> &wordRates () const;
+	///
+	/// Removes a character from text
+	///
+	/// @param position		Position where removing the character from
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-03
+	/// 
+	void removeCharacter (const unsigned int &position);
+
+			
+	///
+	/// Returns the text's content
+	///
+	/// @return The content of the text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const std::string &content () const;
 
 
-	private:
-		///
-		/// The text's content
-		///		
-		std::string content_;
-				
-		///
-		/// A list of appearance rates of every single word in text
-		///
-		std::vector<WordRate> wordRates_;
-		
-		
-		///
-		/// Builds the vector of appearance rates of every word
-		///
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-04
-		/// 
-		void computeWordRates ();
-		
-		
-		///
-		/// Increases by one the number of appearances of a word
-		///
-		/// @param word	Word whose appearance rate must be update
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-04
-		///
-		void updateWordRate (const std::string &word);
-		
-		
-		///
-		/// Extracts every word surrounded by a set of delimiters
-		///
-		/// @param[out]	tokens		Vector where storing the words found to
-		/// @param		delimiters	Characters that may delimiter a valid word
-		/// 
-		/// @author Eliezer Talón (elitalon@gmail.com)
-		/// @date 2008-10-04
-		///
-		void tokenize(std::vector<std::string> &tokens, const std::string &delimiters = " ,.\n\t:;!¡¿?&/()=\"'") const;
+	///
+	/// Sets the text's content
+	/// 
+	/// @param content The content of the text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-08
+	///
+	void content (const std::string &content);
+	
+	
+	///
+	/// Returns the text's length
+	///
+	/// @return The length of the text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-08
+	///
+	unsigned int length () const;
+	
+	
+	///
+	/// Returns the appearance rates of every single word in text.
+	/// 
+	/// @return A vector with every different word and their appearance rate
+	/// 
+	/// @see WordRate
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const std::vector<WordRate> &wordRates () const;
+
+
+private:
+	///
+	/// The text's content
+	///		
+	std::string content_;
+			
+	///
+	/// A list of appearance rates of every single word in text
+	///
+	std::vector<WordRate> wordRates_;
+	
+	
+	///
+	/// Builds the vector of appearance rates of every word
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-04
+	/// 
+	void computeWordRates ();
+	
+	
+	///
+	/// Increases by one the number of appearances of a word
+	///
+	/// @param word	Word whose appearance rate must be update
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-04
+	///
+	void updateWordRate (const std::string &word);
+	
+	
+	///
+	/// Extracts every word surrounded by a set of delimiters
+	///
+	/// @param[out]	tokens		Vector where storing the words found to
+	/// @param		delimiters	Characters that may delimiter a valid word
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-04
+	///
+	void tokenize(std::vector<std::string> &tokens, const std::string &delimiters = " ,.\n\t:;!¡¿?&/()=\"'") const;
 };
 
 

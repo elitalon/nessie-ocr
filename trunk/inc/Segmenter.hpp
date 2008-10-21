@@ -19,7 +19,7 @@ class Clip;
 /// is to isolate every shape within a clip that represents a character, storing them in a data structure
 /// for further classification.
 /// 
-/// @see Clip, Shape, Pixel
+/// @see Clip, Shape
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-13 

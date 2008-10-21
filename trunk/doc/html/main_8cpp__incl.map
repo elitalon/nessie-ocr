@@ -1,5 +1,4 @@
-<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="203,84,325,111">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="179,161,251,188">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="275,161,355,188">
-<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="429,161,544,188">
-<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="568,161,699,188">
+<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="157,84,280,111">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="179,161,259,188">
+<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="333,161,448,188">
+<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="472,161,603,188">
