@@ -60,5 +60,5 @@ void Shape::addPixel (const Pixel &pixel)
 	
 	// Update the width and height of shape
 	width_ = rightPixel_.second - leftPixel_.second + 1;
-	height_ = bottomPixel_.second - topPixel_.second + 1;
+	height_ = bottomPixel_.first - topPixel_.first + 1;
 };
