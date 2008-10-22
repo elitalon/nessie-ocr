@@ -12,7 +12,6 @@
 ///
 /// @todo Develop a method to sort the list of shapes according to their position in text.
 /// @todo Overload operator+ for the class Text.
-/// @todo Overload operator- and operator+ for the class Statistics.
 /// 
 /// 
 /// @param argc Number of command line arguments

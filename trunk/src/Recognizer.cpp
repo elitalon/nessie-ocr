@@ -198,7 +198,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	//
 	
 	
-	// Gather execution times
+	// Gather execution times from each stage and set the statistical data
 	Statistics stats;
 	
 	stats.backgroundReferenceGrayLevelFindingTime( preprocessor.backgroundReferenceGrayLevelFindingTime() );

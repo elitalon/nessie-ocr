@@ -26,7 +26,33 @@ public:
 	/// @date 2008-10-04
 	///
 	Statistics ();
+	
+	
+	///
+	/// Allows the sum of two different statistics
+	/// 
+	/// @param statistics A set of statistical data as the second operand
+	/// 
+	/// @return A new set of statistical data as a result of summing the time parameters of both objects each other
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-22
+	///
+	Statistics operator+ (const Statistics& statistics) const;
 
+
+	///
+	/// Allows the subtraction of two different statistics
+	/// 
+	/// @param statistics A set of statistical data as the second operand
+	/// 
+	/// @return A new set of statistical data as a result of subtracting the time parameters of both objects each other
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-22
+	///
+	Statistics operator- (const Statistics& statistics) const;
+	
 	
 	///
 	/// Returns the elapsed time in the reference gray level of the background finding algorithm
@@ -207,6 +233,44 @@ private:
 //
 // Implementation of inline functions
 //
+
+
+///
+/// @details
+///
+inline Statistics Statistics::operator+ (const Statistics& statistics) const
+{
+	Statistics temp;
+	
+	temp.backgroundReferenceGrayLevelFindingTime_	= this->backgroundReferenceGrayLevelFindingTime_	+ statistics.backgroundReferenceGrayLevelFindingTime_;
+	temp.optimalThresholdComputingTime_				= this->optimalThresholdComputingTime_				+ statistics.optimalThresholdComputingTime_;
+	temp.noiseRemovalTime_							= this->noiseRemovalTime_	+ statistics.noiseRemovalTime_;
+	temp.preprocessingTime_							= this->preprocessingTime_	+ statistics.preprocessingTime_;
+	temp.thresholdingTime_							= this->thresholdingTime_	+ statistics.thresholdingTime_;
+	temp.shapesFindingTime_							= this->shapesFindingTime_	+ statistics.shapesFindingTime_;
+	temp.segmentationTime_							= this->segmentationTime_	+ statistics.segmentationTime_;
+	
+	return (temp);
+};
+
+
+///
+/// @details
+///
+inline Statistics Statistics::operator- (const Statistics& statistics) const
+{
+	Statistics temp;
+	
+	temp.backgroundReferenceGrayLevelFindingTime_	= this->backgroundReferenceGrayLevelFindingTime_	- statistics.backgroundReferenceGrayLevelFindingTime_;
+	temp.optimalThresholdComputingTime_				= this->optimalThresholdComputingTime_				- statistics.optimalThresholdComputingTime_;
+	temp.noiseRemovalTime_							= this->noiseRemovalTime_	- statistics.noiseRemovalTime_;
+	temp.preprocessingTime_							= this->preprocessingTime_	- statistics.preprocessingTime_;
+	temp.thresholdingTime_							= this->thresholdingTime_	- statistics.thresholdingTime_;
+	temp.shapesFindingTime_							= this->shapesFindingTime_	- statistics.shapesFindingTime_;
+	temp.segmentationTime_							= this->segmentationTime_	- statistics.segmentationTime_;
+	
+	return (temp);
+};
 
 
 ///

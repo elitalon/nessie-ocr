@@ -29,6 +29,10 @@ Definition at line 19 of file Statistics.hpp.\subsection*{Public Member Function
 \item 
 \hyperlink{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_statistics}{Statistics} \hyperlink{class_statistics_cb07c98a63e07fdb1476ffb282b84676}{operator+} (const \hyperlink{class_statistics}{Statistics} \&statistics) const 
+\begin{CompactList}\small\item\em Allows the sum of two different statistics. \item\end{CompactList}\item 
+\hyperlink{class_statistics}{Statistics} \hyperlink{class_statistics_529bed34d909d88440214d6983779043}{operator-} (const \hyperlink{class_statistics}{Statistics} \&statistics) const 
+\begin{CompactList}\small\item\em Allows the subtraction of two different statistics. \item\end{CompactList}\item 
 const double \& \hyperlink{class_statistics_d70a464a72d94c795097608e2a18550a}{backgroundReferenceGrayLevelFindingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time in the reference gray level of the background finding algorithm. \item\end{CompactList}\item 
 const double \& \hyperlink{class_statistics_87bdb5b4f7a88cb74d0072fd0c7a2248}{optimalThresholdComputingTime} () const 
@@ -123,7 +127,51 @@ Initializes a \hyperlink{class_statistics}{Statistics} object with timers set to
 Definition at line 12 of file Statistics.cpp.
 
 \subsection{Member Function Documentation}
-\hypertarget{class_statistics_d70a464a72d94c795097608e2a18550a}{
+\hypertarget{class_statistics_cb07c98a63e07fdb1476ffb282b84676}{
+\index{Statistics@{Statistics}!operator+@{operator+}}
+\index{operator+@{operator+}!Statistics@{Statistics}}
+\subsubsection[operator+]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics} Statistics::operator+ (const {\bf Statistics} \& {\em statistics}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_cb07c98a63e07fdb1476ffb282b84676}
+
+
+Allows the sum of two different statistics. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em statistics}]A set of statistical data as the second operand\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A new set of statistical data as a result of summing the time parameters of both objects each other\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-22 \end{Desc}
+
+
+Definition at line 241 of file Statistics.hpp.\hypertarget{class_statistics_529bed34d909d88440214d6983779043}{
+\index{Statistics@{Statistics}!operator-@{operator-}}
+\index{operator-@{operator-}!Statistics@{Statistics}}
+\subsubsection[operator-]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics} Statistics::operator- (const {\bf Statistics} \& {\em statistics}) const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_statistics_529bed34d909d88440214d6983779043}
+
+
+Allows the subtraction of two different statistics. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em statistics}]A set of statistical data as the second operand\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A new set of statistical data as a result of subtracting the time parameters of both objects each other\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-22 \end{Desc}
+
+
+Definition at line 260 of file Statistics.hpp.\hypertarget{class_statistics_d70a464a72d94c795097608e2a18550a}{
 \index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Statistics@{Statistics}}
 \subsubsection[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Statistics::backgroundReferenceGrayLevelFindingTime () const\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
@@ -140,7 +188,7 @@ Returns the elapsed time in the reference gray level of the background finding a
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 215 of file Statistics.hpp.
+Definition at line 279 of file Statistics.hpp.
 
 Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_87bdb5b4f7a88cb74d0072fd0c7a2248}{
 \index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
@@ -159,7 +207,7 @@ Returns the elapsed time in the optimal threshold computing algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 224 of file Statistics.hpp.
+Definition at line 288 of file Statistics.hpp.
 
 Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_ba44f1b2567a77f99ee15c11bda6312a}{
 \index{Statistics@{Statistics}!noiseRemovalTime@{noiseRemovalTime}}
@@ -178,7 +226,7 @@ Returns the elapsed time in the noise removal algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 233 of file Statistics.hpp.
+Definition at line 297 of file Statistics.hpp.
 
 Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_9b1c2d1f1338069346c80293a2c11b6d}{
 \index{Statistics@{Statistics}!preprocessingTime@{preprocessingTime}}
@@ -197,7 +245,7 @@ Returns the total elapsed time within the preprocessing stage.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 242 of file Statistics.hpp.
+Definition at line 306 of file Statistics.hpp.
 
 Referenced by main().\hypertarget{class_statistics_51a8c70011a201873db8f388dad733ac}{
 \index{Statistics@{Statistics}!thresholdingTime@{thresholdingTime}}
@@ -216,7 +264,7 @@ Returns the elapsed time while applying the thresholding algorithm.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 251 of file Statistics.hpp.
+Definition at line 315 of file Statistics.hpp.
 
 Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_9437fbc6726c6179b3ee4c130520e642}{
 \index{Statistics@{Statistics}!shapesFindingTime@{shapesFindingTime}}
@@ -235,7 +283,7 @@ Returns the elapsed time while finding the shapes in a clip.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 260 of file Statistics.hpp.
+Definition at line 324 of file Statistics.hpp.
 
 Referenced by main(), and Recognizer::obtainText().\hypertarget{class_statistics_f4c992e9970bce97b9a33100db689739}{
 \index{Statistics@{Statistics}!segmentationTime@{segmentationTime}}
@@ -254,7 +302,7 @@ Returns the total elapsed time within the segmentation stage.
 \item[Date:]2008-10-13 \end{Desc}
 
 
-Definition at line 269 of file Statistics.hpp.
+Definition at line 333 of file Statistics.hpp.
 
 Referenced by main().\hypertarget{class_statistics_f8a60e8a89be8fe8b2c46782681c1a2c}{
 \index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
@@ -360,5 +408,5 @@ Definition at line 69 of file Statistics.cpp.
 
 The documentation for this class was generated from the following files:\begin{CompactItemize}
 \item 
-\hyperlink{_statistics_8hpp}{Statistics.hpp (153)}\item 
+\hyperlink{_statistics_8hpp}{Statistics.hpp (154)}\item 
 \hyperlink{_statistics_8cpp}{Statistics.cpp (153)}\end{CompactItemize}

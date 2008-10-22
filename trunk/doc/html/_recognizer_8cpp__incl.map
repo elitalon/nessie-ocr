@@ -1,9 +1,8 @@
-<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="487,84,609,111">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="719,84,791,111">
-<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of the class NessieException." alt="" coords="843,161,1005,188">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of the class Preprocessor." alt="" coords="1057,84,1193,111">
-<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of the class Segmenter." alt="" coords="72,84,195,111">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="637,161,717,188">
-<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="344,161,459,188">
-<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="483,161,613,188">
-<area shape="rect" href="$_shape_8hpp.html" title="Declaration of the class Shape." alt="" coords="5,161,96,188">
+<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="484,84,607,111">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of the class Clip." alt="" coords="700,84,772,111">
+<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of the class NessieException." alt="" coords="824,161,987,188">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of the class Preprocessor." alt="" coords="1140,84,1276,111">
+<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of the class Segmenter." alt="" coords="5,161,128,188">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of the class Text." alt="" coords="619,161,699,188">
+<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of the class Statistics." alt="" coords="203,161,317,188">
+<area shape="rect" href="$_clip_location_8hpp.html" title="Declaration of the class ClipLocation." alt="" coords="341,161,472,188">
