@@ -128,7 +128,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double &Statistics::segmentationTime () const;
+	const double &segmentationTime () const;
 	
 	
 private:

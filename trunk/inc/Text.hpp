@@ -7,17 +7,16 @@
 #define _TEXT_H
 
 
-#include "WordRate.hpp"
 
 #include <string>
-#include <vector>
+#include <map>
 
 
 ///
-/// Text extracted by the recognizer
+/// @brief Text extracted by the recognizer.
 /// 
-/// This class stores the text that has been extracted from the press clip during the recognition process.
-/// It also keeps the appearance rate of every word in text.
+/// @details This class stores the text that has been extracted from the press clip during the recognition process.
+/// It also keeps the appearance rates of every word in text, i.e. the number of appearances of a single word in the text.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-08
@@ -27,7 +26,7 @@ class Text
 public:
 	
 	///
-	/// Constructor
+	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-04
@@ -36,14 +35,73 @@ public:
 	
 	
 	///
-	/// Constructor
-	///
-	/// @param content Initial text
+	/// Constructor.
+	/// 
+	/// @param content The initial content of the text
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-04
+	///
+	Text (const std::string content);
+	
+	
+	///
+	/// Allows the concatenation of two texts
 	/// 
-	Text (const std::string &content);
+	/// @param text A text as the second operand
+	/// 
+	/// @return A new text as a result of appending the content of both Text objects
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-23
+	///
+	Text operator+ (const Text& text) const;
+	
+	
+	///
+	/// Returns the text's content
+	///
+	/// @return The content of the text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const std::string &content () const;
+	
+	
+	///
+	/// Returns the appearance rates of every single word in text.
+	/// 
+	/// @return An associative map with every different word and their appearance rate
+	/// 
+	/// @see WordRate
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-23
+	///
+	const std::map<std::string, unsigned int> &wordRates () const;
+	
+	
+	///
+	/// Returns the size of the text
+	///
+	/// @return The size of the text in number of characters
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-23
+	///
+	unsigned int size () const;
+	
+	
+	///
+	/// Returns the number of words in the text
+	///
+	/// @return The number of words in the text
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-23
+	///
+	unsigned int words () const;
 
 	
 	///
@@ -79,52 +137,6 @@ public:
 	/// 
 	void removeCharacter (const unsigned int &position);
 
-			
-	///
-	/// Returns the text's content
-	///
-	/// @return The content of the text
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const std::string &content () const;
-
-
-	///
-	/// Sets the text's content
-	/// 
-	/// @param content The content of the text
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-08
-	///
-	void content (const std::string &content);
-	
-	
-	///
-	/// Returns the text's length
-	///
-	/// @return The length of the text
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-08
-	///
-	unsigned int length () const;
-	
-	
-	///
-	/// Returns the appearance rates of every single word in text.
-	/// 
-	/// @return A vector with every different word and their appearance rate
-	/// 
-	/// @see WordRate
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const std::vector<WordRate> &wordRates () const;
-
 
 private:
 	///
@@ -135,16 +147,18 @@ private:
 	///
 	/// A list of appearance rates of every single word in text
 	///
-	std::vector<WordRate> wordRates_;
+	std::map<std::string, unsigned int> wordRates_;
 	
 	
 	///
-	/// Builds the vector of appearance rates of every word
+	/// Builds the vector of appearance rates of each word in the text
 	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
+	/// @param		delimiters	Characters that may delimiter a valid word
 	/// 
-	void computeWordRates ();
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-23
+	/// 
+	void computeWordRates (const std::string &delimiters = " ,:¡!.;()¿?\"'[]{}<>");
 	
 	
 	///
@@ -153,21 +167,9 @@ private:
 	/// @param word	Word whose appearance rate must be update
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
+	/// @date 2008-10-23
 	///
 	void updateWordRate (const std::string &word);
-	
-	
-	///
-	/// Extracts every word surrounded by a set of delimiters
-	///
-	/// @param[out]	tokens		Vector where storing the words found to
-	/// @param		delimiters	Characters that may delimiter a valid word
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
-	///
-	void tokenize(std::vector<std::string> &tokens, const std::string &delimiters = " ,.\n\t:;!¡¿?&/()=\"'") const;
 };
 
 
@@ -175,6 +177,19 @@ private:
 //
 // Implementation of inline functions
 // 
+
+
+
+///
+/// @details
+///
+inline Text Text::operator+ (const Text& text) const
+{
+	Text temp(this->content() + text.content());
+	
+	return temp;
+};
+
 
 
 ///
@@ -186,33 +201,24 @@ inline const std::string &Text::content () const
 };
 
 
-///
-/// @details
-/// 
-inline void Text::content (const std::string &content)
-{
-	content_.assign(content);
-
-	// Rebuild the appearance rate of every word in the new text
-	computeWordRates();
-};
-
-
-///
-/// @details
-///
-inline unsigned int Text::length () const
-{
-	return content_.length();
-};
-
 
 ///
 /// @details
 /// 
-inline const std::vector<WordRate> &Text::wordRates () const
+inline const std::map<std::string, unsigned int> &Text::wordRates () const
 {
 	return wordRates_;
 };
+
+
+
+///
+/// @details
+///
+inline unsigned int Text::size () const
+{
+	return content_.size();
+};
+
 
 #endif  //_TEXT_H

@@ -28,9 +28,6 @@ MAIN_SRC=$(SRC)main.cpp
 NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
 NESSIE_EXCEPTION_INC=$(INC)NessieException.hpp
 
-# Source file of 'WordRate' pair
-WORD_RATE_INC=$(INC)WordRate.hpp
-
 # Source files of 'Pixel' pair
 PIXEL_INC=$(INC)Pixel.hpp
 
@@ -82,7 +79,6 @@ RECOGNIZER_OBJ=$(SRC)Recognizer.o
 # Dependencies
 MAIN=$(MAIN_SRC)
 NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
-WORD_RATE=$(WORD_RATE_INC)
 PIXEL=$(PIXEL_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
@@ -145,7 +141,7 @@ endif
 	mv Recognizer.o $(SRC)
 	@printf "$(NL)"
 
-$(TEXT_OBJ): $(WORD_RATE) $(TEXT)
+$(TEXT_OBJ): $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)

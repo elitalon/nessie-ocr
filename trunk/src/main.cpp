@@ -9,9 +9,9 @@
 #include <iostream>
 
 
+
 ///
 /// @todo Develop a method to sort the list of shapes according to their position in text.
-/// @todo Overload operator+ for the class Text.
 /// 
 /// 
 /// @param argc Number of command line arguments
@@ -22,6 +22,23 @@
 ///
 int main (int argc, char const *argv[])
 {
+	try
+	{
+		Text t1("alfa");
+		Text t2(" y ");
+		Text t3("omega y");
+		Text t4(t1+t2+t3);
+		
+		std::cout << t4.wordRates().size() << std::endl;
+		
+		return 0;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
+	
 	try
 	{
 		// Load an image object with the filename passed
@@ -57,6 +74,7 @@ int main (int argc, char const *argv[])
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
+		return 1;
 	}
 	return 0;
 }
