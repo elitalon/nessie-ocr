@@ -41,7 +41,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11
 	///
-	ClipLocation (const unsigned int &row, const unsigned int &column, const unsigned int &height, const unsigned int &width);
+	ClipLocation (const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width);
 
 
 	///
@@ -52,7 +52,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &row () const;
+	const unsigned int& row () const;
 
 
 	///
@@ -63,7 +63,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11		
 	///
-	void row (const unsigned int &row);
+	void row (const unsigned int& row);
 
 
 	///
@@ -74,7 +74,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &column () const;
+	const unsigned int& column () const;
 
 
 	///
@@ -85,7 +85,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11
 	///
-	void column (const unsigned int &column);
+	void column (const unsigned int& column);
 
 
 	///
@@ -96,7 +96,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &height () const;
+	const unsigned int& height () const;
 
 
 	///
@@ -107,7 +107,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11
 	///
-	void height (const unsigned int &height);
+	void height (const unsigned int& height);
 
 
 	///
@@ -118,7 +118,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &width () const;
+	const unsigned int& width () const;
 
 
 	///
@@ -129,10 +129,11 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11
 	///
-	void width (const unsigned int &width);
+	void width (const unsigned int& width);
 
 
 private:
+	
 	unsigned int	row_;		///< Row where the upper leftmost pixel is at.
 
 	unsigned int	column_;	///< Column where the upper leftmost pixel is at.
@@ -144,49 +145,49 @@ private:
 
 
 
-inline const unsigned int &ClipLocation::row () const
+inline const unsigned int& ClipLocation::row () const
 {
 	return row_;
 };
 
 
-inline const unsigned int &ClipLocation::column () const
+inline const unsigned int& ClipLocation::column () const
 {
 	return column_;
 };
 
 
-inline const unsigned int &ClipLocation::height () const
+inline const unsigned int& ClipLocation::height () const
 {
 	return height_;
 };
 
 
-inline const unsigned int &ClipLocation::width () const
+inline const unsigned int& ClipLocation::width () const
 {
 	return width_;
 };
 
 
-inline void ClipLocation::row (const unsigned int &row)
+inline void ClipLocation::row (const unsigned int& row)
 {
 	row_ = row;
 };
 
 
-inline void ClipLocation::column (const unsigned int &column)
+inline void ClipLocation::column (const unsigned int& column)
 {
 	column_ = column;
 };
 
 
-inline void ClipLocation::height (const unsigned int &height)
+inline void ClipLocation::height (const unsigned int& height)
 {
 	height_ = height;
 };
 
 
-inline void ClipLocation::width (const unsigned int &width)
+inline void ClipLocation::width (const unsigned int& width)
 {
 	width_ = width;
 };

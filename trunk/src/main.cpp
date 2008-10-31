@@ -15,7 +15,7 @@
 /// @todo Decide where should be declared the typedef ShapeIterator.
 /// @todo Substitute the double type for float type.
 /// @todo Check documentation for pre- and post-conditions.
-/// @todo Put the reference operator next to the type rather than next to the variable name.
+/// @todo Put the reference operator next to the type rather than next to the variable name. (DONE)
 /// 
 /// 
 /// @param argc Number of command line arguments

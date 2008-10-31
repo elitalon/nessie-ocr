@@ -10,7 +10,7 @@
 ///
 /// @details Initializes a Clip object located at coordinates (row,column) in the underlying image, with the height and width passed.
 /// 
-Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &imageWidth, const unsigned int &row, const unsigned int &column, const unsigned int &height, const unsigned int &width)
+Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWidth, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width)
 	:	row_(row),
 		column_(column),
 		width_(width),
@@ -44,9 +44,6 @@ Clip::Clip (const std::vector<unsigned char> &image, const unsigned int &imageWi
 
 
 
-///
-/// @details Destroys a Clip object.
-///
 Clip::~Clip ()
 {
 	delete[] pixels_;

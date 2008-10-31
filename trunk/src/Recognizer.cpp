@@ -21,11 +21,11 @@
 /// @details Creates a new Recognizer object loading the image from disk. If the image is multi-frame only the first one is
 /// taken, e.g. the first page of a PDF with multiple pages.
 ///
-Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
+Recognizer::Recognizer (const std::string& path) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
 {
 	// Load image from disk
 	std::vector<Magick::Image> images;
-	Magick::readImages( &images, path );
+	Magick::readImages(& images, path );
 	
 	Magick::Image image = images.at(0);
 	
@@ -43,7 +43,7 @@ Recognizer::Recognizer (const std::string &path) : texts_(std::vector<Text>(0)),
 /// @details Creates a new Recognizer object from an image loaded externally with methods from Magick++ API.
 /// If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages.
 /// 
-Recognizer::Recognizer (Magick::Image &image) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
+Recognizer::Recognizer (Magick::Image& image) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
 {
 	// Store the image dimensions
 	width_	= image.columns();
@@ -66,10 +66,7 @@ void Recognizer::obtainText ()
 
 
 
-///
-/// @details Each set of points provides us a clip that can be located within the page.
-/// 
-void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
+void Recognizer::obtainText (const std::vector<ClipLocation>& coordinates)
 {
 	std::vector<ClipLocation>::const_iterator coordinatesIterator;
 	 
@@ -91,7 +88,7 @@ void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
 /// extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures.
 /// That means you can gather them by simply calling text() and statistics() with no parameters at all.
 /// 
-void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width)
+void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsigned int& height, unsigned int& width)
 {
 	// Test the upper left-most pixel X coordinate is inside the source image
 	if ( (x >= height_) or (x < 0) )
@@ -200,10 +197,7 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 
 
 
-///
-/// @details If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed.
-/// 
-void Recognizer::writeExternalImage (Magick::Image &externalImage) const
+void Recognizer::writeExternalImage (Magick::Image& externalImage) const
 {
 	// Test if the image is empty to create a new one
 	if ( (externalImage.rows() == 0) and (externalImage.columns() == 0) )
@@ -257,7 +251,7 @@ void Recognizer::writeExternalImage (Magick::Image &externalImage) const
 /// @details The image is automatically converted into a grayscale colorspace according with the RGB values within
 /// the original source. If the image comes already in a grayscale colorspace no conversion is applied.
 /// 
-void Recognizer::loadImage (Magick::Image &image)
+void Recognizer::loadImage (Magick::Image& image)
 {
 	// Reserve enough space
 	image_.reserve(height_ * width_);
@@ -292,7 +286,7 @@ void Recognizer::loadImage (Magick::Image &image)
 /// @details Since the only way of passing a Clip object to this method is invoking Recognizer::obtainText(), and the dimensions are controlled inside
 /// that method, here it is assumed that all the coordinates are valid.
 /// 
-void Recognizer::updateImage (const Clip &clip)
+void Recognizer::updateImage (const Clip& clip)
 {
 	unsigned int clipBottomBorder	= clip.row()	+ clip.height();
 	unsigned int clipLeftBorder		= clip.column()	+ clip.width();

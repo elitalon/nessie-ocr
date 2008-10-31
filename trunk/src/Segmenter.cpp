@@ -31,7 +31,7 @@ Segmenter::Segmenter ()
 /// reference gray level is taken into account to decide the final gray level that is applied to the pixel, so that the ink value is assumed as the
 /// very opposite gray level of background reference.
 ///
-void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, const unsigned char &backgroundReference)
+void Segmenter::applyThreshold (Clip& clip, const unsigned char& threshold, const unsigned char& backgroundReference)
 {
 	// Start timing
 	boost::timer timer;
@@ -78,7 +78,7 @@ void Segmenter::applyThreshold (Clip &clip, const unsigned char &threshold, cons
 /// may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list
 /// of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down.
 /// 
-void Segmenter::findShapes (const Clip &clip)
+void Segmenter::findShapes (const Clip& clip)
 {
 	// Start timing
 	boost::timer timer;
@@ -142,7 +142,7 @@ void Segmenter::findShapes (const Clip &clip)
 /// @details A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method
 /// are actually all the pixels that do not belong to the background in the clip.
 ///
-void Segmenter::findSeeds (const Clip &clip)
+void Segmenter::findSeeds (const Clip& clip)
 {
 	// Traverse the clip searching the seeds
 	for ( unsigned int i = 0; i < clip.height(); ++i )
@@ -165,7 +165,7 @@ void Segmenter::findSeeds (const Clip &clip)
 /// a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process
 /// ends when there are not more seeds to explore and the shapes are completely isolated.
 ///
-void Segmenter::growSeedsIntoInitialShapes (const Clip &clip)
+void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 {
 	// Initialize the visited_ deque
 	visited_ = std::deque<bool>(clip.size(), false);
@@ -242,7 +242,7 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip &clip)
 /// a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before
 /// that last blank line is set as the bottom marker of the line.
 ///
-void Segmenter::findLineMarkers (const Clip &clip)
+void Segmenter::findLineMarkers (const Clip& clip)
 {
 	unsigned int topRow = 0;
 	bool rowHasInk = false, previousRowHasInk;
@@ -388,7 +388,7 @@ ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigned int& line
 
 
 
-// void Segmenter::applyAdaptiveThreshold (Clip &clip, const std::vector<unsigned char> &thresholds, const unsigned char &backgroundReference, const unsigned int &subclipSide)
+// void Segmenter::applyAdaptiveThreshold (Clip& clip, const std::vector<unsigned char>& thresholds, const unsigned char& backgroundReference, const unsigned int& subclipSide)
 // {
 // 	// Explore subimages
 // 	for ( unsigned int row = 0; row < ceil(static_cast<double>(clip.height()) / static_cast<double>(subclipSide)) ; ++row )

@@ -38,7 +38,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	Clip (const std::vector<unsigned char> &image, const unsigned int &imageWidth, const unsigned int &row, const unsigned int &column, const unsigned int &height, const unsigned int &width);
+	Clip (const std::vector<unsigned char>& image, const unsigned int& imageWidth, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width);
 
 
 	///
@@ -61,7 +61,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-20
 	///
-	unsigned char &operator() (const unsigned int &row, const unsigned int &column);
+	unsigned char& operator() (const unsigned int& row, const unsigned int& column);
 
 
 	///
@@ -75,7 +75,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-20
 	///
-	unsigned char operator() (const unsigned int &row, const unsigned int &column) const;
+	unsigned char operator() (const unsigned int& row, const unsigned int& column) const;
 
 
 	///
@@ -86,7 +86,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-20
 	///
-	const unsigned int &row () const;
+	const unsigned int& row () const;
 
 
 	///
@@ -97,7 +97,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-20
 	///
-	const unsigned int &column () const;
+	const unsigned int& column () const;
 
 
 	///
@@ -108,7 +108,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &width () const;
+	const unsigned int& width () const;
 
 
 	///
@@ -119,7 +119,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &height () const;
+	const unsigned int& height () const;
 
 
 	///
@@ -130,7 +130,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &size () const;
+	const unsigned int& size () const;
 
 
 private:
@@ -151,7 +151,7 @@ private:
 
 
 
-inline unsigned char &Clip::operator() (const unsigned int &row, const unsigned int &column)
+inline unsigned char& Clip::operator() (const unsigned int &row, const unsigned int &column)
 {
 	if ( (row < 0) or (column < 0) or (row >= height_) or (column >= width_) )
 		throw NessieException ("Clip::operator() : Subscripts are out bounds");
@@ -169,31 +169,31 @@ inline unsigned char Clip::operator() (const unsigned int &row, const unsigned i
 };
 
 
-inline const unsigned int &Clip::row () const
+inline const unsigned int& Clip::row () const
 {
 	return row_;
 };
 
 
-inline const unsigned int &Clip::column () const
+inline const unsigned int& Clip::column () const
 {
 	return column_;
 };
 
 
-inline const unsigned int &Clip::width () const
+inline const unsigned int& Clip::width () const
 {
 	return width_;
 };
 
 
-inline const unsigned int &Clip::height () const
+inline const unsigned int& Clip::height () const
 {
 	return height_;
 };
 
 
-inline const unsigned int &Clip::size () const
+inline const unsigned int& Clip::size () const
 {
 	return size_;
 };

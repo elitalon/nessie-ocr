@@ -32,7 +32,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	NessieException (const std::string &what);
+	NessieException (const std::string& what);
 
 
 	///

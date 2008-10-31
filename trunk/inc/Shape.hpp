@@ -47,7 +47,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-21
 	///
-	Pixel &operator() (const unsigned int &index);
+	Pixel& operator() (const unsigned int& index);
 	
 	
 	///
@@ -60,7 +60,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-21
 	///
-	Pixel operator() (const unsigned int &index) const;
+	Pixel operator() (const unsigned int& index) const;
 
 	
 	///
@@ -97,7 +97,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &width () const;
+	const unsigned int& width () const;
 	
 	
 	///
@@ -108,7 +108,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned int &height () const;
+	const unsigned int& height () const;
 	
 	
 	///
@@ -119,7 +119,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-21
 	///
-	const unsigned int &size () const;
+	const unsigned int& size () const;
 	
 	
 	///
@@ -132,7 +132,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const Pixel &leftPixel () const;
+	const Pixel& leftPixel () const;
 	
 	
 	///
@@ -145,7 +145,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const Pixel &rightPixel () const;
+	const Pixel& rightPixel () const;
 	
 	
 	///
@@ -158,7 +158,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///		
-	const Pixel &topPixel () const;
+	const Pixel& topPixel () const;
 	
 	
 	///
@@ -171,7 +171,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///		
-	const Pixel &bottomPixel () const;
+	const Pixel& bottomPixel () const;
 	
 	
 	///
@@ -197,7 +197,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-21
 	///	
-	void addPixel (const Pixel &pixel);
+	void addPixel (const Pixel& pixel);
 	
 	
 private:
@@ -223,13 +223,13 @@ private:
 
 
 
-inline Pixel &Shape::operator() (const unsigned int &index)
+inline Pixel& Shape::operator() (const unsigned int& index)
 {
 	return pixels_.at(index);
 };
 
 
-inline Pixel Shape::operator() (const unsigned int &index) const
+inline Pixel Shape::operator() (const unsigned int& index) const
 {
 	return pixels_.at(index);
 };
@@ -283,43 +283,43 @@ inline bool Shape::operator< (const Shape& shape)
 };
 
 
-inline const unsigned int &Shape::width () const
+inline const unsigned int& Shape::width () const
 {
 	return width_;
 };
 
 
-inline const unsigned int &Shape::height () const
+inline const unsigned int& Shape::height () const
 {
 	return height_;
 };
 
 
-inline const unsigned int &Shape::size () const
+inline const unsigned int& Shape::size () const
 {
 	return size_;
 };
 
 
-inline const Pixel &Shape::leftPixel () const
+inline const Pixel& Shape::leftPixel () const
 {
 	return leftPixel_;
 };
 
 
-inline const Pixel &Shape::rightPixel () const
+inline const Pixel& Shape::rightPixel () const
 {
 	return rightPixel_;
 };
 
 		
-inline const Pixel &Shape::topPixel () const
+inline const Pixel& Shape::topPixel () const
 {
 	return topPixel_;
 };
 
 		
-inline const Pixel &Shape::bottomPixel () const
+inline const Pixel& Shape::bottomPixel () const
 {
 	return bottomPixel_;
 };

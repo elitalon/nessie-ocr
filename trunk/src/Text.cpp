@@ -10,9 +10,7 @@
 
 
 
-///
-/// @details Initializes a Text object with no content.
-///
+
 Text::Text ()
 	:	content_(std::string("")),
 		wordRates_(std::map<std::string, unsigned int>())
@@ -22,9 +20,6 @@ Text::Text ()
 
 
 
-///
-/// @details Initializes a Text object initialized with the content passed.
-///
 Text::Text (const std::string content)
 	:	content_(content),
 		wordRates_(std::map<std::string, unsigned int>())
@@ -51,7 +46,7 @@ unsigned int Text::words () const
 /// @details If the position passed is above the text total length the character is appended to the end of the text. If the position passed
 /// is less than 0, the character is inserted at the beginning of the text.
 /// 
-void Text::addCharacter (const char &character, const unsigned int &position)
+void Text::addCharacter (const char& character, const unsigned int& position)
 {
 	if(position > content_.length())
 		content_.append(1, character);
@@ -69,7 +64,7 @@ void Text::addCharacter (const char &character, const unsigned int &position)
 
 
 
-void Text::addCharacter (const char &character)
+void Text::addCharacter (const char& character)
 {
 	// Call the generic 'addCharacter' function
 	addCharacter(character, content_.length());
@@ -81,7 +76,7 @@ void Text::addCharacter (const char &character)
 /// @details If the position passed is above the text total length the last character is removed. If the position passed is less than 0
 /// the first character is removed.
 ///
-void Text::removeCharacter (const unsigned int &position)
+void Text::removeCharacter (const unsigned int& position)
 {
 	if (position > content_.length())
 		content_.erase(content_.end());
@@ -99,7 +94,7 @@ void Text::removeCharacter (const unsigned int &position)
 
 
 
-void Text::updateWordRate (const std::string &word)
+void Text::updateWordRate (const std::string& word)
 {
 	// Convenience typedefs
 	typedef std::map<std::string, unsigned int>::iterator wordRatesIterator;
@@ -115,7 +110,7 @@ void Text::updateWordRate (const std::string &word)
 };
 
 
-void Text::computeWordRates (const std::string &delimiters)
+void Text::computeWordRates (const std::string& delimiters)
 {
 	// Remove previous rates
 	wordRates_.clear();

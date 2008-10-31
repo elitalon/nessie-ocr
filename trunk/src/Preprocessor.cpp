@@ -13,9 +13,6 @@
 
 
 
-///
-/// @details Initializes a Preprocessor object
-/// 
 Preprocessor::Preprocessor ()
 	:	optimalThreshold_(0),
 		backgroundReferenceGrayLevel_(255),
@@ -33,7 +30,7 @@ Preprocessor::Preprocessor ()
 /// is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial
 /// threshold value that is given by the member ::backgroundReferenceGrayLevel_.
 ///
-const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip)
+const unsigned char& Preprocessor::computeOptimalThreshold (const Clip& clip)
 {
 	// Start timing
 	boost::timer timer;
@@ -93,7 +90,7 @@ const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip)
 /// the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work,
 /// everything must be undone and start again with the second reference gray level.
 /// 
-const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours)
+const unsigned char& Preprocessor::findBackgroundReferenceGrayLevel (const Clip& clip, const unsigned int& referenceGrayLevelNeighbours)
 {
 	// Start timing
 	boost::timer timer;
@@ -169,7 +166,7 @@ const unsigned char &Preprocessor::findBackgroundReferenceGrayLevel (const Clip 
 /// The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means
 /// a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient.
 /// 
-void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolationCoefficient)
+void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolationCoefficient)
 {
 	// Start timing
 	boost::timer timer;
@@ -243,7 +240,7 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 // /// resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and the first-order cumulative moments of the
 // /// gray-level histogram.
 // ///
-// void Preprocessor::computeOtsuOptimalThreshold (const Clip &clip)
+// void Preprocessor::computeOtsuOptimalThreshold (const Clip& clip)
 // {
 // 	// Start timing
 // 	boost::timer timer;
@@ -327,7 +324,7 @@ void Preprocessor::removeIsolatedNoise (Clip &clip, const unsigned int &isolatio
 // /// @details To compute the optimal threshold following an adaptive strategy we divided the clip into <em>n</em> subclips and apply the Sonka's method
 // /// over them. Thus, a list of threshold values are returned, one for each subimage, that allows a thresholding technique to be more accurate.
 // ///
-// unsigned int Preprocessor::computeOptimalAdaptiveThreshold (const Clip &clip, std::vector<unsigned char> &thresholds)
+// unsigned int Preprocessor::computeOptimalAdaptiveThreshold (const Clip& clip, std::vector<unsigned char>& thresholds)
 // {
 // 	// Stablish the side's size of the subimages
 // 	const unsigned int subclipSide	= 100;

@@ -22,7 +22,7 @@ Shape::Shape ()
 
 
 
-void Shape::addPixel (const Pixel &pixel)
+void Shape::addPixel (const Pixel& pixel)
 {
 	// Add the pixel and update the size_ member
 	pixels_.push_back( pixel );

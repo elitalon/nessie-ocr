@@ -66,7 +66,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const std::string &content () const;
+	const std::string& content () const;
 
 
 	///
@@ -77,7 +77,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
 	///
-	const std::map<std::string, unsigned int> &wordRates () const;
+	const std::map<std::string, unsigned int>& wordRates () const;
 
 
 	///
@@ -110,7 +110,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	void addCharacter (const char &character);
+	void addCharacter (const char& character);
 
 
 	///
@@ -122,7 +122,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-06
 	/// 
-	void addCharacter (const char &character, const unsigned int &position);
+	void addCharacter (const char& character, const unsigned int& position);
 
 
 	///
@@ -133,7 +133,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	void removeCharacter (const unsigned int &position);
+	void removeCharacter (const unsigned int& position);
 
 
 private:
@@ -151,7 +151,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
 	/// 
-	void computeWordRates (const std::string &delimiters = " ,:¡!.;()¿?\"'[]{}<>");
+	void computeWordRates (const std::string& delimiters = " ,:¡!.;()¿?\"'[]{}<>");
 
 
 	///
@@ -166,7 +166,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
 	///
-	void updateWordRate (const std::string &word);
+	void updateWordRate (const std::string& word);
 };
 
 
@@ -180,13 +180,13 @@ inline Text Text::operator+ (const Text& text) const
 };
 
 
-inline const std::string &Text::content () const
+inline const std::string& Text::content () const
 {
 	return content_;
 };
 
 
-inline const std::map<std::string, unsigned int> &Text::wordRates () const
+inline const std::map<std::string, unsigned int>& Text::wordRates () const
 {
 	return wordRates_;
 };

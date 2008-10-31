@@ -31,7 +31,7 @@ class Clip;
 /// all the interactions with Magick++, so that the rest of the classes have an unified way to work.
 /// 
 /// In future modifications any library may be added to load the images. A developer should overload a loadImage() method,
-/// modify the constructor Recognizer(const std::string &path) or add a new constructor with specific parameters,
+/// modify the constructor Recognizer(const std::string& path) or add a new constructor with specific parameters,
 /// and overload a writeExternalImage() method.
 /// 
 /// @see Clip, Text, Statistics, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
@@ -50,7 +50,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-10		
 	///
-	Recognizer (const std::string &path);
+	Recognizer (const std::string& path);
 	
 	
 	///
@@ -63,7 +63,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-10
 	///
-	Recognizer (Magick::Image &image);
+	Recognizer (Magick::Image& image);
 	
 	
 	///
@@ -83,7 +83,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	void obtainText (const std::vector<ClipLocation> &coordinates);
+	void obtainText (const std::vector<ClipLocation>& coordinates);
 	
 	
 	///
@@ -97,7 +97,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	void obtainText (const unsigned int &x, const unsigned int &y, unsigned int &height, unsigned int &width);
+	void obtainText (const unsigned int& x, const unsigned int& y, unsigned int& height, unsigned int& width);
 
 
 	///
@@ -110,7 +110,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const Text &text (const unsigned int& label=0) const;
+	const Text& text (const unsigned int& label=0) const;
 	
 	
 	///
@@ -123,7 +123,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const std::vector<Text> &texts () const;
+	const std::vector<Text>& texts () const;
 
 
 	///
@@ -138,7 +138,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const Statistics &statistic (const unsigned int& label=0) const;
+	const Statistics& statistic (const unsigned int& label=0) const;
 	
 	
 	///
@@ -151,7 +151,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const std::vector<Statistics> &statistics () const;
+	const std::vector<Statistics>& statistics () const;
 	
 	
 	///
@@ -160,40 +160,28 @@ public:
 	/// @param externalImage The destination Image object from the Magick++ API previously created
 	/// 
 	/// @post The external image is converted to a grayscale colorspace and its pixels are overwritten according
-	/// to the information of the internal image
+	/// to the information of the internal image.
+	/// @post If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed.
 	/// 
 	/// @see <a href="http://www.imagemagick.org/Magick++/Image.html">Image</a>
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-10
 	///
-	void writeExternalImage (Magick::Image &externalImage) const;
+	void writeExternalImage (Magick::Image& externalImage) const;
+	
 	
 private:
-	///
-	/// Underlying image where where clip belongs to
-	///
-	std::vector<unsigned char> image_;
+
+	std::vector<unsigned char>	image_;			///< Underlying image where where clip belongs to
 	
-	///
-	/// Height of the underlying image
-	///
-	unsigned int height_;
+	unsigned int				height_;		///< Height of the underlying image
 	
-	///
-	/// Width of the underlying image
-	///
-	unsigned int width_;
+	unsigned int				width_;			///< Width of the underlying image
 	
-	///
-	/// Text obtained after the recognition process 
-	///
-	std::vector<Text> texts_;
+	std::vector<Text>			texts_;			///< Text obtained after the recognition process
 	
-	///
-	/// Statistics gathered during the recognition process
-	///
-	std::vector<Statistics> statistics_;
+	std::vector<Statistics>		statistics_;	///< Statistics gathered during the recognition process
 	
 	
 	///
@@ -208,7 +196,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-10
 	///
-	void loadImage (Magick::Image &image);
+	void loadImage (Magick::Image& image);
 	
 	
 	///
@@ -221,20 +209,13 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	void updateImage (const Clip &clip);
+	void updateImage (const Clip& clip);
 };
 
 
 
-//
-// Implementation of inline functions
-//
 
-
-///
-/// @details
-/// 
-inline const Text &Recognizer::text (const unsigned int& label) const
+inline const Text& Recognizer::text (const unsigned int& label) const
 {
 	if ( label <= texts_.size() )
 		return texts_[label];
@@ -243,19 +224,13 @@ inline const Text &Recognizer::text (const unsigned int& label) const
 };
 
 
-///
-/// @details
-/// 
-inline const std::vector<Text> &Recognizer::texts () const
+inline const std::vector<Text>& Recognizer::texts () const
 {
 	return texts_;
 };
 
 
-///
-/// @details
-/// 
-inline const Statistics &Recognizer::statistic (const unsigned int& label) const
+inline const Statistics& Recognizer::statistic (const unsigned int& label) const
 {
 	if ( label <= statistics_.size() )
 		return statistics_[label];
@@ -264,10 +239,7 @@ inline const Statistics &Recognizer::statistic (const unsigned int& label) const
 };
 
 
-///
-/// @details
-/// 
-inline const std::vector<Statistics> &Recognizer::statistics () const
+inline const std::vector<Statistics>& Recognizer::statistics () const
 {
 	return statistics_;
 };

@@ -43,7 +43,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned char &optimalThreshold () const;
+	const unsigned char& optimalThreshold () const;
 
 
 	///
@@ -54,7 +54,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-08
 	///
-	void optimalThreshold (const unsigned char &threshold);
+	void optimalThreshold (const unsigned char& threshold);
 
 
 	///
@@ -65,7 +65,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned char &backgroundReferenceGrayLevel () const;
+	const unsigned char& backgroundReferenceGrayLevel () const;
 
 
 	///
@@ -78,7 +78,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double &noiseRemovalTime () const;
+	const double& noiseRemovalTime () const;
 
 
 	///
@@ -91,7 +91,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double &optimalThresholdComputingTime () const;
+	const double& optimalThresholdComputingTime () const;
 
 
 	///
@@ -104,7 +104,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double &backgroundReferenceGrayLevelFindingTime () const;
+	const double& backgroundReferenceGrayLevelFindingTime () const;
 
 
 	///
@@ -124,7 +124,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-20
 	///
-	const unsigned char &computeOptimalThreshold (const Clip &clip);
+	const unsigned char& computeOptimalThreshold (const Clip& clip);
 
 
 	///
@@ -142,7 +142,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned char &findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 2);
+	const unsigned char& findBackgroundReferenceGrayLevel (const Clip& clip, const unsigned int& referenceGrayLevelNeighbours = 2);
 
 
 	///
@@ -161,7 +161,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-11
 	///
-	void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 0);
+	void removeIsolatedNoise (Clip& clip, const unsigned int& isolationCoefficient = 0);
 
 
 private:
@@ -181,37 +181,37 @@ private:
 
 
 
-inline const unsigned char &Preprocessor::optimalThreshold () const
+inline const unsigned char& Preprocessor::optimalThreshold () const
 {
 	return optimalThreshold_;
 };
 
 
-inline void Preprocessor::optimalThreshold (const unsigned char &threshold)
+inline void Preprocessor::optimalThreshold (const unsigned char& threshold)
 {
 	optimalThreshold_ = threshold;
 };
 
 
-inline const unsigned char &Preprocessor::backgroundReferenceGrayLevel () const
+inline const unsigned char& Preprocessor::backgroundReferenceGrayLevel () const
 {
 	return backgroundReferenceGrayLevel_;
 };
 
 
-inline const double &Preprocessor::noiseRemovalTime () const
+inline const double& Preprocessor::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
 
 
-inline const double &Preprocessor::optimalThresholdComputingTime () const
+inline const double& Preprocessor::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
 
 
-inline const double &Preprocessor::backgroundReferenceGrayLevelFindingTime () const
+inline const double& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };
