@@ -63,7 +63,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& backgroundReferenceGrayLevelFindingTime () const;
+	const float& backgroundReferenceGrayLevelFindingTime () const;
 
 
 	///
@@ -74,7 +74,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& optimalThresholdComputingTime () const;
+	const float& optimalThresholdComputingTime () const;
 
 
 	///
@@ -85,7 +85,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& noiseRemovalTime () const;		
+	const float& noiseRemovalTime () const;		
 
 
 	///
@@ -96,7 +96,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& preprocessingTime () const;
+	const float& preprocessingTime () const;
 
 
 	///
@@ -107,7 +107,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& thresholdingTime () const;
+	const float& thresholdingTime () const;
 
 
 	///
@@ -118,7 +118,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& shapesFindingTime () const;
+	const float& shapesFindingTime () const;
 
 
 	///
@@ -129,26 +129,26 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& segmentationTime () const;
+	const float& segmentationTime () const;
 
 
 private:
 
 	friend class	Recognizer;									///< Declares the class Recognizer as friend
 	
-	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time in the reference gray level of the background finding algorithm
+	float			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time in the reference gray level of the background finding algorithm
 	
-	double			optimalThresholdComputingTime_;				///< Elapsed time in the optimal threshold computing algorithm
+	float			optimalThresholdComputingTime_;				///< Elapsed time in the optimal threshold computing algorithm
 
-	double			noiseRemovalTime_;							///< Elapsed time in the noise removal algorithm
+	float			noiseRemovalTime_;							///< Elapsed time in the noise removal algorithm
 
-	double			preprocessingTime_;							///< Total elapsed time within the preprocessing stage
+	float			preprocessingTime_;							///< Total elapsed time within the preprocessing stage
 
-	double			thresholdingTime_;							///< Elapsed time while applying the thresholding algorithm
+	float			thresholdingTime_;							///< Elapsed time while applying the thresholding algorithm
 
-	double			shapesFindingTime_;							///< Elapsed time while finding the shapes in a clip
+	float			shapesFindingTime_;							///< Elapsed time while finding the shapes in a clip
 
-	double			segmentationTime_;							///< Total elapsed time within the segmentation stage
+	float			segmentationTime_;							///< Total elapsed time within the segmentation stage
 
 
 	///
@@ -159,7 +159,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-06
 	///
-	void backgroundReferenceGrayLevelFindingTime (const double& time);
+	void backgroundReferenceGrayLevelFindingTime (const float& time);
 
 
 	///
@@ -170,7 +170,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-06
 	///
-	void optimalThresholdComputingTime (const double& time);
+	void optimalThresholdComputingTime (const float& time);
 
 
 	///
@@ -181,7 +181,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-06
 	///
-	void noiseRemovalTime (const double& time);
+	void noiseRemovalTime (const float& time);
 
 
 	///
@@ -192,7 +192,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	void thresholdingTime (const double& time);
+	void thresholdingTime (const float& time);
 
 
 	///
@@ -203,7 +203,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	void shapesFindingTime (const double& time);
+	void shapesFindingTime (const float& time);
 };
 
 
@@ -241,48 +241,48 @@ inline Statistics Statistics::operator- (const Statistics& statistics) const
 };
 
 
-inline const double& Statistics::backgroundReferenceGrayLevelFindingTime () const
+inline const float& Statistics::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };
 
 
-inline const double& Statistics::optimalThresholdComputingTime () const
+inline const float& Statistics::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
 
 
-inline const double& Statistics::noiseRemovalTime () const
+inline const float& Statistics::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
 
 
-inline const double& Statistics::preprocessingTime () const
+inline const float& Statistics::preprocessingTime () const
 {
 	return preprocessingTime_;
 };
 
 
-inline const double& Statistics::thresholdingTime () const
+inline const float& Statistics::thresholdingTime () const
 {
 	return thresholdingTime_;
 };
 
 
-inline const double& Statistics::shapesFindingTime () const
+inline const float& Statistics::shapesFindingTime () const
 {
 	return shapesFindingTime_;
 };
 
 
-inline const double& Statistics::segmentationTime () const
+inline const float& Statistics::segmentationTime () const
 {
 	return segmentationTime_;
 };
 
-inline void Statistics::backgroundReferenceGrayLevelFindingTime (const double& time)
+inline void Statistics::backgroundReferenceGrayLevelFindingTime (const float& time)
 {
 	backgroundReferenceGrayLevelFindingTime_ = time;
 	
@@ -290,7 +290,7 @@ inline void Statistics::backgroundReferenceGrayLevelFindingTime (const double& t
 };
 
 
-inline void Statistics::optimalThresholdComputingTime (const double& time)
+inline void Statistics::optimalThresholdComputingTime (const float& time)
 {
 	optimalThresholdComputingTime_ = time;
 	
@@ -298,7 +298,7 @@ inline void Statistics::optimalThresholdComputingTime (const double& time)
 };
 
 
-inline void Statistics::noiseRemovalTime (const double& time)
+inline void Statistics::noiseRemovalTime (const float& time)
 {
 	noiseRemovalTime_ = time;
 	
@@ -306,7 +306,7 @@ inline void Statistics::noiseRemovalTime (const double& time)
 };
 
 
-inline void Statistics::thresholdingTime (const double& time)
+inline void Statistics::thresholdingTime (const float& time)
 {
 	thresholdingTime_ = time;
 	
@@ -314,7 +314,7 @@ inline void Statistics::thresholdingTime (const double& time)
 };
 
 
-inline void Statistics::shapesFindingTime (const double& time)
+inline void Statistics::shapesFindingTime (const float& time)
 {
 	shapesFindingTime_ = time;
 	

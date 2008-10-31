@@ -391,9 +391,9 @@ ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigned int& line
 // void Segmenter::applyAdaptiveThreshold (Clip& clip, const std::vector<unsigned char>& thresholds, const unsigned char& backgroundReference, const unsigned int& subclipSide)
 // {
 // 	// Explore subimages
-// 	for ( unsigned int row = 0; row < ceil(static_cast<double>(clip.height()) / static_cast<double>(subclipSide)) ; ++row )
+// 	for ( unsigned int row = 0; row < ceil(static_cast<float>(clip.height()) / static_cast<float>(subclipSide)) ; ++row )
 // 	{
-// 		for ( unsigned int column = 0; column < ceil(static_cast<double>(clip.width()) / static_cast<double>(subclipSide)) ; ++column )
+// 		for ( unsigned int column = 0; column < ceil(static_cast<float>(clip.width()) / static_cast<float>(subclipSide)) ; ++column )
 // 		{
 // 			for ( unsigned int i = row * subclipSide; (i < ((row * subclipSide) + subclipSide)) and (i < clip.height()); ++i )
 // 			{

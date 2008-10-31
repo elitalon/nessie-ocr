@@ -102,7 +102,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& thresholdingTime () const;
+	const float& thresholdingTime () const;
 	
 	
 	///
@@ -113,7 +113,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& shapesFindingTime () const;
+	const float& shapesFindingTime () const;
 	
 	
 	///
@@ -165,9 +165,9 @@ private:
 	
 	std::list<LineMarker>	lineMarkers_;			///< A list of integer pairs that defines the limits of every line of characters in a press clip
 
-	double					thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
+	float					thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
 	
-	double					shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
+	float					shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
 	
 		
 	///
@@ -264,13 +264,13 @@ inline const std::list<Shape>& Segmenter::shapes() const
 };
 
 
-inline const double& Segmenter::thresholdingTime () const
+inline const float& Segmenter::thresholdingTime () const
 {
 	return thresholdingTime_;
 };
 
 
-inline const double& Segmenter::shapesFindingTime () const
+inline const float& Segmenter::shapesFindingTime () const
 {
 	return shapesFindingTime_;
 };

@@ -78,7 +78,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& noiseRemovalTime () const;
+	const float& noiseRemovalTime () const;
 
 
 	///
@@ -91,7 +91,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& optimalThresholdComputingTime () const;
+	const float& optimalThresholdComputingTime () const;
 
 
 	///
@@ -104,7 +104,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const double& backgroundReferenceGrayLevelFindingTime () const;
+	const float& backgroundReferenceGrayLevelFindingTime () const;
 
 
 	///
@@ -170,11 +170,11 @@ private:
 
 	unsigned char	backgroundReferenceGrayLevel_;				///< Background reference gray level
 	
-	double			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
+	float			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
 	
-	double			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
+	float			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
 	
-	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
+	float			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
 
 };
 
@@ -199,19 +199,19 @@ inline const unsigned char& Preprocessor::backgroundReferenceGrayLevel () const
 };
 
 
-inline const double& Preprocessor::noiseRemovalTime () const
+inline const float& Preprocessor::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
 
 
-inline const double& Preprocessor::optimalThresholdComputingTime () const
+inline const float& Preprocessor::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
 
 
-inline const double& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
+inline const float& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };
