@@ -53,7 +53,6 @@ window.onload = initDynSections;
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
   <div class="tabs">
@@ -70,15 +69,11 @@ window.onload = initDynSections;
 Collaboration diagram for Statistics:</div>
 <div class="dynsection">
 <p><center><img src="class_statistics__coll__graph.png" border="0" usemap="#_statistics__coll__map" alt="Collaboration graph"></center>
-</div>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-<a class="el" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> about the text recognition process. 
-<p>
-This class stores a number of statistical data regarding the elapsed time during the text recognition process, accumulated internally mostly in algorithms.<p>
+This class stores a various statistical information regarding the elapsed time during the text recognition process, accumulated internally mostly in algorithms.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
-
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00019">19</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -87,7 +82,7 @@ This class stores a number of statistical data regarding the elapsed time during
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#60ddd90a571ed4c3ce8c0f6317a36d63"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_statistics.html">Statistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#cb07c98a63e07fdb1476ffb282b84676">operator+</a> (const <a class="el" href="class_statistics.html">Statistics</a> &amp;statistics) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows the sum of two different statistics.  <a href="#cb07c98a63e07fdb1476ffb282b84676"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows the sum of times stored in two different statistics.  <a href="#cb07c98a63e07fdb1476ffb282b84676"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_statistics.html">Statistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#529bed34d909d88440214d6983779043">operator-</a> (const <a class="el" href="class_statistics.html">Statistics</a> &amp;statistics) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows the subtraction of two different statistics.  <a href="#529bed34d909d88440214d6983779043"></a><br></td></tr>
@@ -180,12 +175,10 @@ class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <div class="memdoc">
 
 <p>
-Constructor. 
-<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04</dd></dl>
-Initializes a <a class="el" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> object with timers set to 0.0 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00012">12</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+Initializes a <a class="el" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a> object with timers set to 0.0 
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -200,25 +193,23 @@ Initializes a <a class="el" href="class_statistics.html" title="Statistics about
           <td class="paramtype">const <a class="el" href="class_statistics.html">Statistics</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>statistics</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Allows the sum of two different statistics. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand.</td></tr>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A new set of statistical data as a result of summing the time parameters of both objects each other</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-22 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00241">241</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -232,25 +223,23 @@ Allows the sum of two different statistics.
           <td class="paramtype">const <a class="el" href="class_statistics.html">Statistics</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>statistics</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Allows the subtraction of two different statistics. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand.</td></tr>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A new set of statistical data as a result of subtracting the time parameters of both objects each other</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-22 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00260">260</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -263,22 +252,18 @@ Allows the subtraction of two different statistics.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the elapsed time in the reference gray level of the background finding algorithm. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00279">279</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00094">Recognizer::obtainText()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -291,22 +276,18 @@ Returns the elapsed time in the reference gray level of the background finding a
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the elapsed time in the optimal threshold computing algorithm. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00288">288</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00094">Recognizer::obtainText()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -319,22 +300,18 @@ Returns the elapsed time in the optimal threshold computing algorithm.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the elapsed time in the noise removal algorithm. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00297">297</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00094">Recognizer::obtainText()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>.</p>
 
 </div>
 </div><p>
@@ -347,22 +324,18 @@ Returns the elapsed time in the noise removal algorithm.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the total elapsed time within the preprocessing stage. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Total elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00306">306</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -375,22 +348,18 @@ Returns the total elapsed time within the preprocessing stage.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the elapsed time while applying the thresholding algorithm. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00315">315</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00094">Recognizer::obtainText()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -403,22 +372,18 @@ Returns the elapsed time while applying the thresholding algorithm.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the elapsed time while finding the shapes in a clip. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00324">324</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>, and <a class="el" href="_recognizer_8cpp-source.html#l00094">Recognizer::obtainText()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -431,22 +396,18 @@ Returns the elapsed time while finding the shapes in a clip.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the total elapsed time within the segmentation stage. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Total elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8hpp-source.html#l00333">333</a> of file <a class="el" href="_statistics_8hpp-source.html">Statistics.hpp</a>.</p>
-
-<p>Referenced by <a class="el" href="main_8cpp-source.html#l00023">main()</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>.</p>
 
 </div>
 </div><p>
@@ -467,8 +428,6 @@ Returns the total elapsed time within the segmentation stage.
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the reference gray level of the background finding algorithm. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -477,7 +436,7 @@ Sets the elapsed time in the reference gray level of the background finding algo
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00025">25</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -498,8 +457,6 @@ Sets the elapsed time in the reference gray level of the background finding algo
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the optimal threshold computing algorithm. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -508,7 +465,7 @@ Sets the elapsed time in the optimal threshold computing algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00036">36</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -529,8 +486,6 @@ Sets the elapsed time in the optimal threshold computing algorithm.
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the noise removal algorithm. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -539,7 +494,7 @@ Sets the elapsed time in the noise removal algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00047">47</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00138">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00142">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00140">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00144">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -560,8 +515,6 @@ Sets the elapsed time in the noise removal algorithm.
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the thresholding algorithm. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -570,7 +523,7 @@ Sets the elapsed time in the thresholding algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00058">58</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -591,8 +544,6 @@ Sets the elapsed time in the thresholding algorithm.
 <div class="memdoc">
 
 <p>
-Sets the elapsed time in the shapes finding algorithm. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -601,14 +552,12 @@ Sets the elapsed time in the shapes finding algorithm.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_statistics_8cpp-source.html#l00069">69</a> of file <a class="el" href="_statistics_8cpp-source.html">Statistics.cpp</a>.</p>
+<p>References <a class="el" href="_statistics_8hpp-source.html#l00150">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00148">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00146">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
-<hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_statistics_8hpp-source.html">Statistics.hpp (156)</a><li><a class="el" href="_statistics_8cpp-source.html">Statistics.cpp (153)</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 15:39:28 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:20 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

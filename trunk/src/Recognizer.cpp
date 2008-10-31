@@ -75,12 +75,12 @@ void Recognizer::obtainText (const std::vector<ClipLocation> &coordinates)
 	 
 	for ( coordinatesIterator = coordinates.begin(); coordinatesIterator not_eq coordinates.end(); ++coordinatesIterator )
 	{
-		unsigned int x		= (*coordinatesIterator).x();
-		unsigned int y		= (*coordinatesIterator).y();
+		unsigned int row	= (*coordinatesIterator).row();
+		unsigned int column	= (*coordinatesIterator).column();
 		unsigned int height	= (*coordinatesIterator).height();
 		unsigned int width	= (*coordinatesIterator).width();
 		
-		obtainText(x, y, height, width);
+		obtainText(row, column, height, width);
 	}
 };
 
@@ -141,23 +141,11 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 	segmenter.findShapes(clip);
 	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl << std::endl;
 	
-	for ( unsigned int k = 0; k < segmenter.shapes().size(); ++k )
+	unsigned int k = 0;
+	std::list<Shape> shapes = segmenter.shapes();
+	for ( std::list<Shape>::iterator s = shapes.begin(); s not_eq shapes.end(); ++s )
 	{
-		std::cout << "Shape #" << k << std::endl;
-		Shape shape(segmenter.shapes().at(k));
-		
-		unsigned int x = shape.topPixel().first;
-		unsigned int y = shape.leftPixel().second;
-		
-		unsigned int xBorder = shape.bottomPixel().first;
-		unsigned int yBorder = shape.rightPixel().second;
-		
-		std::cout << "  >> X      : " << x << std::endl;
-		std::cout << "  >> Y      : " << y << std::endl;
-		std::cout << "  >> X limit: " << xBorder << std::endl;
-		std::cout << "  >> Y limit: " << yBorder << std::endl;
-		std::cout << "  >> Height : " << shape.height() << std::endl;
-		std::cout << "  >> Width  : " << shape.width() << std::endl;
+		Shape shape(*s);
 		
 		Magick::Image img( Magick::Geometry(shape.width(), shape.height()), "white" );
 		
@@ -171,14 +159,12 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 		// Allocate pixel view
 		Magick::Pixels view(img);
 		Magick::PixelPacket *originPixel = view.get(0, 0, shape.width(), shape.height());
-
+		
 		// Copy the current data into the external image
-		for ( unsigned int i = x; i <= xBorder; ++i )
+		for ( unsigned int i = shape.topPixel().first; i <= shape.bottomPixel().first; ++i )
 		{
-			for ( unsigned int j = y; j <= yBorder; ++j )
-			{
+			for ( unsigned int j = shape.leftPixel().second; j <= shape.rightPixel().second; ++j )
 				*originPixel++ = Magick::ColorGray ( static_cast<double>(image_[i * width_ + j]) / 255.0 );
-			}
 		}
 
 		// Synchronize changes to the image
@@ -187,9 +173,10 @@ void Recognizer::obtainText (const unsigned int &x, const unsigned int &y, unsig
 		
 		std::ostringstream o;
 		if (!(o << k))
-		     throw NessieException ("Cannot convert unsigned int to string");
+		     throw NessieException ("Recognizer::obtainText() : Cannot convert unsigned int to string");
 
-		img.write("shape" + o.str() + ".png");
+		img.write("results/shape" + o.str() + ".png");
+		k++;
 	}
 	
 	

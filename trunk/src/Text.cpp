@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of the class Text
+/// @brief Definition of Text class
 ///
 
 #include "Text.hpp"
@@ -11,7 +11,7 @@
 
 
 ///
-/// @details Initializes a Text object with no content
+/// @details Initializes a Text object with no content.
 ///
 Text::Text ()
 	:	content_(std::string("")),
@@ -23,7 +23,7 @@ Text::Text ()
 
 
 ///
-/// @details Initializes a Text object initialized with the content passed
+/// @details Initializes a Text object initialized with the content passed.
 ///
 Text::Text (const std::string content)
 	:	content_(content),
@@ -35,9 +35,6 @@ Text::Text (const std::string content)
 
 
 
-///
-/// @details
-///
 unsigned int Text::words () const
 {
 	unsigned int nWords = 0;
@@ -51,9 +48,8 @@ unsigned int Text::words () const
 
 
 ///
-/// @details The character is inserted within the text at position passed. If the position passed is over the text total length,
-/// the character is appended to the end of the text. If th position passed is less than 0, the character is inserted at the beginning
-/// of the text.
+/// @details If the position passed is above the text total length the character is appended to the end of the text. If the position passed
+/// is less than 0, the character is inserted at the beginning of the text.
 /// 
 void Text::addCharacter (const char &character, const unsigned int &position)
 {
@@ -73,9 +69,6 @@ void Text::addCharacter (const char &character, const unsigned int &position)
 
 
 
-///
-/// @details The character passed is appended to the end of the text
-///
 void Text::addCharacter (const char &character)
 {
 	// Call the generic 'addCharacter' function
@@ -85,8 +78,8 @@ void Text::addCharacter (const char &character)
 
 
 ///
-/// @details The character is removed from text at position passed. If the position passed is over the text total length,
-/// the last character is removed. If the position passed is less than 0 the first character is removed.
+/// @details If the position passed is above the text total length the last character is removed. If the position passed is less than 0
+/// the first character is removed.
 ///
 void Text::removeCharacter (const unsigned int &position)
 {
@@ -106,9 +99,6 @@ void Text::removeCharacter (const unsigned int &position)
 
 
 
-///
-/// @details
-///
 void Text::updateWordRate (const std::string &word)
 {
 	// Convenience typedefs
@@ -125,11 +115,6 @@ void Text::updateWordRate (const std::string &word)
 };
 
 
-
-///
-/// @details This method must be called whenever the content changes, since there is no public method for a user to make it.
-/// Each time it is called, the previous word rates are cleared and computed again.
-///
 void Text::computeWordRates (const std::string &delimiters)
 {
 	// Remove previous rates

@@ -1,14 +1,12 @@
 ///
 /// @file
-/// @brief Implementation of the class Shape
+/// @brief Definition of Shape class
 ///
 
 #include "Shape.hpp"
 
 
-///
-/// @details Initializes an empty Shape object.
-///
+
 Shape::Shape ()
 	:	width_(0),
 		height_(0),
@@ -24,9 +22,6 @@ Shape::Shape ()
 
 
 
-/// 
-/// @details
-///	
 void Shape::addPixel (const Pixel &pixel)
 {
 	// Add the pixel and update the size_ member
@@ -42,19 +37,19 @@ void Shape::addPixel (const Pixel &pixel)
 		leftPixel_		= pixels_.at(0);
 		rightPixel_		= pixels_.at(0);
 	}
-	else	// Update the extreme pixel
+	else	// Update the significant pixels
 	{
 		if ( pixel.first < topPixel_.first )
-			topPixel_ = pixels_.back();
-		
+			topPixel_ = pixel;
+			
 		if ( pixel.first > bottomPixel_.first )
-			bottomPixel_ = pixels_.back();
+			bottomPixel_ = pixel;
 		
 		if ( pixel.second > rightPixel_.second )
-			rightPixel_ = pixels_.back();
+			rightPixel_ = pixel;
 		
 		if ( pixel.second < leftPixel_.second )
-			leftPixel_ = pixels_.back();
+			leftPixel_ = pixel;			
 	}
 	
 	

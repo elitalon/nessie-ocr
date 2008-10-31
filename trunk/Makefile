@@ -128,7 +128,8 @@ endif
 	@printf "$(TAB)"
 	mv main.o $(SRC)
 	@printf "$(NL)"
-	
+
+
 $(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(SEGMENTER_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -140,6 +141,7 @@ endif
 	@printf "$(TAB)"
 	mv Recognizer.o $(SRC)
 	@printf "$(NL)"
+
 
 $(TEXT_OBJ): $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
@@ -153,6 +155,7 @@ endif
 	mv Text.o $(SRC)
 	@printf "$(NL)"
 
+
 $(STATISTICS_OBJ): $(STATISTICS) 
 	@printf "** Making rule $(STATISTICS_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -164,6 +167,7 @@ endif
 	@printf "$(TAB)"
 	mv Statistics.o $(SRC)
 	@printf "$(NL)"
+
 
 $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
@@ -177,6 +181,7 @@ endif
 	mv Preprocessor.o $(SRC)
 	@printf "$(NL)"
 
+
 $(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
 	@printf "** Making rule $(CLIP_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -188,6 +193,7 @@ endif
 	@printf "$(TAB)"
 	mv Clip.o $(SRC)
 	@printf "$(NL)"
+
 
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
 	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
@@ -201,6 +207,7 @@ endif
 	mv NessieException.o $(SRC)
 	@printf "$(NL)"
 
+
 $(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
 	@printf "** Making rule $(CLIP_LOCATION_OBJ):$(NL)"
 	@printf "$(TAB)"
@@ -213,7 +220,8 @@ endif
 	mv ClipLocation.o $(SRC)
 	@printf "$(NL)"
 
-$(SEGMENTER_OBJ): $(PIXEL) $(SHAPE_OBJ) $(SEGMENTER)
+
+$(SEGMENTER_OBJ): $(PIXEL) $(CLIP_OBJ) $(SHAPE_OBJ) $(SEGMENTER)
 	@printf "** Making rule $(SEGMENTER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -224,6 +232,7 @@ endif
 	@printf "$(TAB)"
 	mv Segmenter.o $(SRC)
 	@printf "$(NL)"
+
 
 $(SHAPE_OBJ): $(PIXEL) $(SHAPE)
 	@printf "** Making rule $(SHAPE_OBJ):$(NL)"

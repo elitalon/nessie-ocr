@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Declaration of the class Preprocessor
+/// @brief Declaration of Preprocessor class
 ///
 
 #if !defined(_PREPROCESSOR_H)
@@ -10,12 +10,13 @@
 class Clip;	// Forward declaration
 
 
+
 ///
-/// Preprocessor of the OCR process
+/// Preprocessor of the OCR process.
 /// 
-/// This class encapsulates all the methods related to preprocessing stage. Its task
-/// is to enhance the image quality by applying some techniques of image preprocessing theory and compute
-/// a number of parameters such as the optimal thresolding value or the background reference gray level
+/// This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task
+/// is to enhance the image quality by applying some techniques of image processing theory and compute
+/// a number of parameters such as the optimal thresolding value or the background reference gray level.
 /// 
 /// @see Clip
 /// 
@@ -26,38 +27,38 @@ class Preprocessor
 {
 public:
 	///
-	/// Constructor
+	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-08
 	///
 	Preprocessor ();
-	
+
 
 	///
-	/// Returns the optimal threshold found in the last clip used
+	/// Returns the optimal threshold found in the last clip used.
 	///
-	/// @return Current optimal threshold computed from the last clip used
+	/// @return Optimal threshold computed from the last clip used.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
 	const unsigned char &optimalThreshold () const;
-			
-	
+
+
 	///
-	/// Sets the optimal threshold to use in algorithms
+	/// Sets the optimal threshold to use in algorithms.
 	///
-	/// @param threshold A value between 0 and 255 that stablishes the optimal threshold of a clip
+	/// @param threshold Value between 0 and 255 that stablishes the optimal threshold of a clip.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-08
 	///
 	void optimalThreshold (const unsigned char &threshold);
-			
-	
+
+
 	///
-	/// Returns the background reference gray level in the last clip used
+	/// Returns the background reference gray level in the last clip used.
 	///
 	/// @return Reference background gray level in the last clip used
 	/// 
@@ -65,7 +66,7 @@ public:
 	/// @date 2008-10-13
 	///
 	const unsigned char &backgroundReferenceGrayLevel () const;
-			
+
 
 	///
 	/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
@@ -78,8 +79,8 @@ public:
 	/// @date 2008-10-13
 	///
 	const double &noiseRemovalTime () const;
-	
-			
+
+
 	///
 	/// Returns the elapsed time while founding the optimal threshold within the clip
 	///
@@ -91,8 +92,8 @@ public:
 	/// @date 2008-10-13
 	///
 	const double &optimalThresholdComputingTime () const;
-	
-	
+
+
 	///
 	/// Returns the elapsed time while computing the background reference gray level within the clip
 	///
@@ -104,15 +105,15 @@ public:
 	/// @date 2008-10-13
 	///
 	const double &backgroundReferenceGrayLevelFindingTime () const;
-	
-	
+
+
 	///
 	/// Computes the optimal threshold value in a clip following the Sonka's technique.
 	/// 
 	/// @pre	You MUST call findBackgroundReferenceGrayLevel() method before calling this one, since it sets internal attributes.
 	/// 
-	/// @post	The member #optimalThresholdComputingTime_ is modified.
-	/// @post	The attribute #optimalThreshold_ is initialized to the threshold found
+	/// @post	The #optimalThresholdComputingTime_ member is modified.
+	/// @post	The #optimalThreshold_ member is initialized to the threshold found
 	///
 	/// @param clip			The clip where applying the algorithm over
 	/// 
@@ -124,12 +125,12 @@ public:
 	/// @date 2008-10-20
 	///
 	const unsigned char &computeOptimalThreshold (const Clip &clip);
-	
-	
+
+
 	///
 	/// Computes the background reference gray level value within a clip.
 	/// 
-	/// @post	The member #backgroundReferenceGrayLevelFindingTime_ is modified.
+	/// @post	The #backgroundReferenceGrayLevelFindingTime_ member is modified.
 	///
 	/// @param	clip							The clip where applying the algorithm over
 	/// @param	referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
@@ -143,7 +144,7 @@ public:
 	///
 	const unsigned char &findBackgroundReferenceGrayLevel (const Clip &clip, const unsigned int &referenceGrayLevelNeighbours = 2);
 
-	
+
 	///
 	/// Applies the 'isolated noise removal' algorithm.
 	///
@@ -161,91 +162,55 @@ public:
 	/// @date 2008-10-11
 	///
 	void removeIsolatedNoise (Clip& clip, const unsigned int &isolationCoefficient = 0);
-	
-	
+
+
 private:
-	///
-	/// Optimal threshold value within the clip
-	///
-	unsigned char optimalThreshold_;
 	
-	///
-	/// Background reference gray level
-	///
-	unsigned char backgroundReferenceGrayLevel_;
-			
-	///
-	/// Elapsed time when applying the 'isolated noise removal' algorithm
-	///
-	double noiseRemovalTime_;
+	unsigned char	optimalThreshold_;							///< Optimal threshold value within the clip
+
+	unsigned char	backgroundReferenceGrayLevel_;				///< Background reference gray level
 	
-	///
-	/// Elapsed time when converting the image to a grayscale colorspace
-	///
-	double optimalThresholdComputingTime_;
+	double			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
 	
-	///
-	/// Elapsed time when computing the background gray level
-	///
-	double backgroundReferenceGrayLevelFindingTime_;
+	double			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
 	
+	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
+
 };
 
 
 
-//
-// Implementation of inline functions
-// 
 
-
-///
-/// @details
-///
 inline const unsigned char &Preprocessor::optimalThreshold () const
 {
 	return optimalThreshold_;
 };
 
 
-///
-/// @details
-///
 inline void Preprocessor::optimalThreshold (const unsigned char &threshold)
 {
 	optimalThreshold_ = threshold;
 };
 
 
-///
-/// @details
-///
 inline const unsigned char &Preprocessor::backgroundReferenceGrayLevel () const
 {
 	return backgroundReferenceGrayLevel_;
 };
 
 
-///
-/// @details
-///
 inline const double &Preprocessor::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
 
-		
-///
-/// @details
-///
+
 inline const double &Preprocessor::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
 
 
-///
-/// @details
-///
 inline const double &Preprocessor::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;

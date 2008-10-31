@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Implementation of the class Preprocessor
+/// @brief Definition of Preprocessor class
 ///
 
 #include "Preprocessor.hpp"
@@ -31,7 +31,7 @@ Preprocessor::Preprocessor ()
 ///
 /// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008)
 /// is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial
-/// threshold value that is given by the member #backgroundReferenceGrayLevel_.
+/// threshold value that is given by the member ::backgroundReferenceGrayLevel_.
 ///
 const unsigned char &Preprocessor::computeOptimalThreshold (const Clip &clip)
 {

@@ -1,6 +1,6 @@
 ///
 /// @file
-/// @brief Declaration of the custom type Pixel
+/// @brief Declaration of Pixel type definition
 ///
 
 #if !defined(_PIXEL_H)
@@ -12,9 +12,9 @@
 ///
 /// @typedef Pixel
 /// 
-/// @brief Information about an image pixel.
+/// @brief Coordinates of an image pixel.
 ///
-/// @details This pair keeps the coordinates of a pixel within a press clip. The first member representes the x coordinate (the row)
+/// @details This pair keeps the coordinates of a pixel in a press clip. The first member representes the x coordinate (the row)
 /// and the second member representes the y coordinate (the column)
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)

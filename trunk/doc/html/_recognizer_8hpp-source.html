@@ -53,14 +53,9 @@ window.onload = initDynSections;
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
-      <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
-  <div class="navpath"><a class="el" href="dir_ef15eccf5bd9eca446a41a18c57ac0fd.html">inc</a>
-  </div>
-</div>
-<div class="contents">
-<h1>Recognizer.hpp</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Recognizer.hpp (154)</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
@@ -74,9 +69,9 @@ window.onload = initDynSections;
 <a name="l00012"></a>00012 <span class="preprocessor">#include &lt;Magick++.h&gt;</span>
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 <span class="keyword">class </span><a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>;
-<a name="l00015"></a>00015 <span class="preprocessor">#include "<a class="code" href="_text_8hpp.html" title="Declaration of the class Text.">Text.hpp</a>"</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include "<a class="code" href="_statistics_8hpp.html" title="Declaration of the class Statistics.">Statistics.hpp</a>"</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include "<a class="code" href="_clip_location_8hpp.html" title="Declaration of the class ClipLocation.">ClipLocation.hpp</a>"</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include "<a class="code" href="_text_8hpp.html" title="Declaration of Text class.">Text.hpp</a>"</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include "<a class="code" href="_statistics_8hpp.html" title="Declaration of Statistics class.">Statistics.hpp</a>"</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include "<a class="code" href="_clip_location_8hpp.html" title="Declaration of ClipLocation class.">ClipLocation.hpp</a>"</span>
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020 
@@ -104,7 +99,7 @@ window.onload = initDynSections;
 <a name="l00126"></a>00126     <span class="keyword">const</span> std::vector&lt;Text&gt; &amp;<a class="code" href="class_recognizer.html#2a365c34f1447cdc3311d311e02bf2ed" title="Returns the text of every loaded clip.">texts</a> () <span class="keyword">const</span>;
 <a name="l00127"></a>00127 
 <a name="l00128"></a>00128 
-<a name="l00141"></a>00141     <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
+<a name="l00141"></a>00141     <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
 <a name="l00142"></a>00142     
 <a name="l00143"></a>00143     
 <a name="l00154"></a>00154     <span class="keyword">const</span> std::vector&lt;Statistics&gt; &amp;<a class="code" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics</a> () <span class="keyword">const</span>;
@@ -152,7 +147,7 @@ window.onload = initDynSections;
 <a name="l00252"></a>00252 };
 <a name="l00253"></a>00253 
 <a name="l00254"></a>00254 
-<a name="l00258"></a><a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de">00258</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistics about the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">Recognizer::statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label)<span class="keyword"> const</span>
+<a name="l00258"></a><a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de">00258</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a> &amp;<a class="code" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip.">Recognizer::statistic</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label)<span class="keyword"> const</span>
 <a name="l00259"></a>00259 <span class="keyword"></span>{
 <a name="l00260"></a>00260     <span class="keywordflow">if</span> ( label &lt;= <a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a" title="Statistics gathered during the recognition process.">statistics_</a>.size() )
 <a name="l00261"></a>00261         <span class="keywordflow">return</span> <a class="code" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a" title="Statistics gathered during the recognition process.">statistics_</a>[label];
@@ -169,7 +164,7 @@ window.onload = initDynSections;
 <a name="l00275"></a>00275 
 <a name="l00276"></a>00276 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 15:39:15 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:16 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

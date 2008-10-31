@@ -53,14 +53,9 @@ window.onload = initDynSections;
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
-      <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
-  <div class="navpath"><a class="el" href="dir_ef15eccf5bd9eca446a41a18c57ac0fd.html">inc</a>
-  </div>
-</div>
-<div class="contents">
-<h1>ClipLocation.hpp</h1><a href="_clip_location_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>ClipLocation.hpp (143)</h1><a href="_clip_location_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
@@ -70,114 +65,102 @@ window.onload = initDynSections;
 <a name="l00008"></a>00008 <span class="preprocessor"></span>
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 
-<a name="l00020"></a><a class="code" href="class_clip_location.html">00020</a> <span class="keyword">class </span><a class="code" href="class_clip_location.html" title="Location of a press clip within a newspaper page.">ClipLocation</a>
+<a name="l00020"></a><a class="code" href="class_clip_location.html">00020</a> <span class="keyword">class </span><a class="code" href="class_clip_location.html" title="Location of a press clip inside a newspaper page.">ClipLocation</a>
 <a name="l00021"></a>00021 {
-<a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00029"></a>00029         <a class="code" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84" title="Constructor.">ClipLocation</a> ();
-<a name="l00030"></a>00030         
-<a name="l00031"></a>00031         
-<a name="l00043"></a>00043         <a class="code" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84" title="Constructor.">ClipLocation</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">x</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">y</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">height</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">width</a>);
-<a name="l00044"></a>00044         
-<a name="l00045"></a>00045         
-<a name="l00054"></a>00054         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">x</a> () <span class="keyword">const</span>;
-<a name="l00055"></a>00055         
-<a name="l00056"></a>00056         
-<a name="l00065"></a>00065         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">y</a> () <span class="keyword">const</span>;
-<a name="l00066"></a>00066         
-<a name="l00067"></a>00067         
-<a name="l00076"></a>00076         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">height</a> () <span class="keyword">const</span>;
-<a name="l00077"></a>00077         
-<a name="l00078"></a>00078         
-<a name="l00087"></a>00087         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">width</a> () <span class="keyword">const</span>;
-<a name="l00088"></a>00088         
-<a name="l00089"></a>00089         
-<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">x</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;x);
-<a name="l00099"></a>00099         
-<a name="l00100"></a>00100         
-<a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">y</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;y);
-<a name="l00110"></a>00110         
-<a name="l00111"></a>00111         
-<a name="l00120"></a>00120         <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height);
-<a name="l00121"></a>00121         
-<a name="l00122"></a>00122         
-<a name="l00131"></a>00131         <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
-<a name="l00132"></a>00132         
-<a name="l00133"></a>00133         
-<a name="l00142"></a>00142         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#2d01b03e23d610b26bbb2e18278cf5a8" title="Returns the number of pixels.">size</a> () <span class="keyword">const</span>;
-<a name="l00143"></a>00143 
+<a name="l00022"></a>00022 <span class="keyword">public</span>:
+<a name="l00023"></a>00023 
+<a name="l00030"></a>00030     <a class="code" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84" title="Constructor.">ClipLocation</a> ();
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 
+<a name="l00044"></a>00044     <a class="code" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84" title="Constructor.">ClipLocation</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">row</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">column</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">height</a>, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">width</a>);
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
+<a name="l00055"></a>00055     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">row</a> () <span class="keyword">const</span>;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">row</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;row);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00077"></a>00077     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">column</a> () <span class="keyword">const</span>;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 
+<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">column</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;column);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00099"></a>00099     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">height</a> () <span class="keyword">const</span>;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;height);
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 
+<a name="l00121"></a>00121     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">width</a> () <span class="keyword">const</span>;
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 
+<a name="l00132"></a>00132     <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;width);
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 <span class="keyword">private</span>:
+<a name="l00136"></a><a class="code" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39">00136</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    <a class="code" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39" title="Row where the upper leftmost pixel is at.">row_</a>;       
+<a name="l00137"></a>00137 
+<a name="l00138"></a><a class="code" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138">00138</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    <a class="code" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138" title="Column where the upper leftmost pixel is at.">column_</a>;    
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643">00140</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a>;    
+<a name="l00141"></a>00141 
+<a name="l00142"></a><a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9">00142</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a>;     
+<a name="l00143"></a>00143 };
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145     <span class="keyword">private</span>:
-<a name="l00146"></a><a class="code" href="class_clip_location.html#6c92086530b70510102fec51da1b8929">00146</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#6c92086530b70510102fec51da1b8929" title="x coordinate">x_</a>;            
-<a name="l00147"></a>00147     
-<a name="l00148"></a><a class="code" href="class_clip_location.html#f7f79f07cf214a952d99c7d567034a31">00148</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#f7f79f07cf214a952d99c7d567034a31" title="y coordinate">y_</a>;            
-<a name="l00149"></a>00149     
-<a name="l00150"></a><a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643">00150</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a>;       
-<a name="l00151"></a>00151     
-<a name="l00152"></a><a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9">00152</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a>;        
-<a name="l00153"></a>00153 };
-<a name="l00154"></a>00154 
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156 
-<a name="l00157"></a>00157 <span class="comment">//</span>
-<a name="l00158"></a>00158 <span class="comment">// Implementation of inline functions</span>
-<a name="l00159"></a>00159 <span class="comment">// </span>
-<a name="l00160"></a>00160 
-<a name="l00161"></a><a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576">00161</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">ClipLocation::x</a> ()<span class="keyword"> const</span>
-<a name="l00162"></a>00162 <span class="keyword"></span>{
-<a name="l00163"></a>00163     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#6c92086530b70510102fec51da1b8929" title="x coordinate">x_</a>;
-<a name="l00164"></a>00164 };
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166 
-<a name="l00167"></a><a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b">00167</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">ClipLocation::y</a> ()<span class="keyword"> const</span>
-<a name="l00168"></a>00168 <span class="keyword"></span>{
-<a name="l00169"></a>00169     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#f7f79f07cf214a952d99c7d567034a31" title="y coordinate">y_</a>;
-<a name="l00170"></a>00170 };
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172 
-<a name="l00173"></a><a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659">00173</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">ClipLocation::height</a> ()<span class="keyword"> const</span>
-<a name="l00174"></a>00174 <span class="keyword"></span>{
-<a name="l00175"></a>00175     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a>;
-<a name="l00176"></a>00176 };
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178 
-<a name="l00179"></a><a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7">00179</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">ClipLocation::width</a> ()<span class="keyword"> const</span>
-<a name="l00180"></a>00180 <span class="keyword"></span>{
-<a name="l00181"></a>00181     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a>;
-<a name="l00182"></a>00182 };
-<a name="l00183"></a>00183 
-<a name="l00184"></a>00184 
-<a name="l00185"></a><a class="code" href="class_clip_location.html#f983f4cfe6ad80aa96cbbb4b53aec968">00185</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">ClipLocation::x</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576" title="Returns the x coordinate.">x</a>)
-<a name="l00186"></a>00186 {
-<a name="l00187"></a>00187     <a class="code" href="class_clip_location.html#6c92086530b70510102fec51da1b8929" title="x coordinate">x_</a> = x;
-<a name="l00188"></a>00188 };
-<a name="l00189"></a>00189 
-<a name="l00190"></a>00190 
-<a name="l00191"></a><a class="code" href="class_clip_location.html#3c665324e5faf6bae4013d936f0ce2dc">00191</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">ClipLocation::y</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b" title="Returns the y coordinate.">y</a>)
-<a name="l00192"></a>00192 {
-<a name="l00193"></a>00193     <a class="code" href="class_clip_location.html#f7f79f07cf214a952d99c7d567034a31" title="y coordinate">y_</a> = y;
-<a name="l00194"></a>00194 };
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196 
-<a name="l00197"></a><a class="code" href="class_clip_location.html#f0e979e989c1cecbca6fe2da92b383f7">00197</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">ClipLocation::height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height.">height</a>)
-<a name="l00198"></a>00198 {
-<a name="l00199"></a>00199     <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a> = height;
-<a name="l00200"></a>00200 };
-<a name="l00201"></a>00201 
-<a name="l00202"></a>00202 
-<a name="l00203"></a><a class="code" href="class_clip_location.html#7dc15a35acc1594dfc1e5f64ca33d3b9">00203</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">ClipLocation::width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width.">width</a>)
-<a name="l00204"></a>00204 {
-<a name="l00205"></a>00205     <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a> = width;
-<a name="l00206"></a>00206 };
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 
-<a name="l00209"></a><a class="code" href="class_clip_location.html#2d01b03e23d610b26bbb2e18278cf5a8">00209</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_clip_location.html#2d01b03e23d610b26bbb2e18278cf5a8" title="Returns the number of pixels.">ClipLocation::size</a> ()<span class="keyword"> const</span>
-<a name="l00210"></a>00210 <span class="keyword"></span>{
-<a name="l00211"></a>00211     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a> * <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a>;
-<a name="l00212"></a>00212 };
-<a name="l00213"></a>00213 
-<a name="l00214"></a>00214 <span class="preprocessor">#endif  //_CLIP_LOCATION_H</span>
+<a name="l00145"></a>00145 
+<a name="l00146"></a>00146 
+<a name="l00147"></a><a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f">00147</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">ClipLocation::row</a> ()<span class="keyword"> const</span>
+<a name="l00148"></a>00148 <span class="keyword"></span>{
+<a name="l00149"></a>00149     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39" title="Row where the upper leftmost pixel is at.">row_</a>;
+<a name="l00150"></a>00150 };
+<a name="l00151"></a>00151 
+<a name="l00152"></a>00152 
+<a name="l00153"></a><a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58">00153</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">ClipLocation::column</a> ()<span class="keyword"> const</span>
+<a name="l00154"></a>00154 <span class="keyword"></span>{
+<a name="l00155"></a>00155     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138" title="Column where the upper leftmost pixel is at.">column_</a>;
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 
+<a name="l00159"></a><a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659">00159</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">ClipLocation::height</a> ()<span class="keyword"> const</span>
+<a name="l00160"></a>00160 <span class="keyword"></span>{
+<a name="l00161"></a>00161     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a>;
+<a name="l00162"></a>00162 };
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 
+<a name="l00165"></a><a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7">00165</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">ClipLocation::width</a> ()<span class="keyword"> const</span>
+<a name="l00166"></a>00166 <span class="keyword"></span>{
+<a name="l00167"></a>00167     <span class="keywordflow">return</span> <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a>;
+<a name="l00168"></a>00168 };
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170 
+<a name="l00171"></a><a class="code" href="class_clip_location.html#5a95f9fae24adf0b6d227714b9b69e2e">00171</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">ClipLocation::row</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f" title="Returns the row where the upper leftmost pixel is at.">row</a>)
+<a name="l00172"></a>00172 {
+<a name="l00173"></a>00173     <a class="code" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39" title="Row where the upper leftmost pixel is at.">row_</a> = row;
+<a name="l00174"></a>00174 };
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 
+<a name="l00177"></a><a class="code" href="class_clip_location.html#321238ca06a98bcce5f5292c1ea3e6c0">00177</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">ClipLocation::column</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58" title="Returns the column where the upper leftmost pixel is at.">column</a>)
+<a name="l00178"></a>00178 {
+<a name="l00179"></a>00179     <a class="code" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138" title="Column where the upper leftmost pixel is at.">column_</a> = column;
+<a name="l00180"></a>00180 };
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182 
+<a name="l00183"></a><a class="code" href="class_clip_location.html#f0e979e989c1cecbca6fe2da92b383f7">00183</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">ClipLocation::height</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659" title="Returns the height of the press clip.">height</a>)
+<a name="l00184"></a>00184 {
+<a name="l00185"></a>00185     <a class="code" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643" title="Height of the press clip.">height_</a> = height;
+<a name="l00186"></a>00186 };
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 
+<a name="l00189"></a><a class="code" href="class_clip_location.html#7dc15a35acc1594dfc1e5f64ca33d3b9">00189</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">ClipLocation::width</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7" title="Returns the width of the press clip.">width</a>)
+<a name="l00190"></a>00190 {
+<a name="l00191"></a>00191     <a class="code" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9" title="Width of the press clip.">width_</a> = width;
+<a name="l00192"></a>00192 };
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194 <span class="preprocessor">#endif  //_CLIP_LOCATION_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 15:39:15 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:16 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

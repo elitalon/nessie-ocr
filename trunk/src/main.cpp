@@ -5,13 +5,17 @@
 #include <Magick++.h>
 
 #include "Recognizer.hpp"
-
 #include <iostream>
 
 
 
-///
-/// @todo Develop a method to sort the list of shapes according to their position in text.
+/// 
+/// @todo Study the possibility of moving the typedef Pixel inside the Shape.hpp file.
+/// @todo Decide where should be declared the typedef LineMarker.
+/// @todo Decide where should be declared the typedef ShapeIterator.
+/// @todo Substitute the double type for float type.
+/// @todo Check documentation for pre- and post-conditions.
+/// @todo Put the reference operator next to the type rather than next to the variable name.
 /// 
 /// 
 /// @param argc Number of command line arguments
@@ -22,23 +26,6 @@
 ///
 int main (int argc, char const *argv[])
 {
-	try
-	{
-		Text t1("alfa");
-		Text t2(" y ");
-		Text t3("omega y");
-		Text t4(t1+t2+t3);
-		
-		std::cout << t4.wordRates().size() << std::endl;
-		
-		return 0;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-		return 1;
-	}
-	
 	try
 	{
 		// Load an image object with the filename passed

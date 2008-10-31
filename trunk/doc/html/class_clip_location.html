@@ -53,7 +53,6 @@ window.onload = initDynSections;
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
   <div class="tabs">
@@ -70,60 +69,53 @@ window.onload = initDynSections;
 Collaboration diagram for ClipLocation:</div>
 <div class="dynsection">
 <p><center><img src="class_clip_location__coll__graph.png" border="0" usemap="#_clip_location__coll__map" alt="Collaboration graph"></center>
-</div>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Location of a press clip within a newspaper page. 
-<p>
-This class stores the coordinates of the top left-most pixel of a clip, its height and its width. The x coordinate corresponds to the row, while the y coordinate corresponds to the column. The height and width attributes are expressed in pixels.<p>
+This class stores all the necessary information to locate a press clip inside a newspaper page. This information includes the coordinates of the press clip's top leftmost pixel, its height and its width.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00020">20</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84">ClipLocation</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#fb51ec03e0a8f9b33f4d785550bc6b84"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#df3b25b12a4ce75a657ae79f241c61c2">ClipLocation</a> (const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#b41ff36c161d2d909c6e75474f5f2f31">ClipLocation</a> (const unsigned int &amp;row, const unsigned int &amp;column, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#df3b25b12a4ce75a657ae79f241c61c2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#6dd58945e53e1d04ae736dafb3c43576">x</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#b41ff36c161d2d909c6e75474f5f2f31"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f">row</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the x coordinate.  <a href="#6dd58945e53e1d04ae736dafb3c43576"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#f80b2bfd8f35cb5e0a6e02c73f21695b">y</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the row where the upper leftmost pixel is at.  <a href="#8816c925e80c2e55bbbbdd6da799f53f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#5a95f9fae24adf0b6d227714b9b69e2e">row</a> (const unsigned int &amp;row)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the y coordinate.  <a href="#f80b2bfd8f35cb5e0a6e02c73f21695b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the row where the upper leftmost pixel is at.  <a href="#5a95f9fae24adf0b6d227714b9b69e2e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58">column</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the column where the upper leftmost pixel is at.  <a href="#50409bab2a256787fcc59e5d213d6a58"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#321238ca06a98bcce5f5292c1ea3e6c0">column</a> (const unsigned int &amp;column)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the column where the upper leftmost pixel is at.  <a href="#321238ca06a98bcce5f5292c1ea3e6c0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#e18ec2c31e76a983acdbaec9d3bad659">height</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height.  <a href="#e18ec2c31e76a983acdbaec9d3bad659"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7">width</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width.  <a href="#e48a4531c0473ec63dbc992e866a50e7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#f983f4cfe6ad80aa96cbbb4b53aec968">x</a> (const unsigned int &amp;x)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the x coordinate.  <a href="#f983f4cfe6ad80aa96cbbb4b53aec968"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#3c665324e5faf6bae4013d936f0ce2dc">y</a> (const unsigned int &amp;y)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the y coordinate.  <a href="#3c665324e5faf6bae4013d936f0ce2dc"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the press clip.  <a href="#e18ec2c31e76a983acdbaec9d3bad659"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#f0e979e989c1cecbca6fe2da92b383f7">height</a> (const unsigned int &amp;height)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the height.  <a href="#f0e979e989c1cecbca6fe2da92b383f7"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the height of the press clip.  <a href="#f0e979e989c1cecbca6fe2da92b383f7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#e48a4531c0473ec63dbc992e866a50e7">width</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the press clip.  <a href="#e48a4531c0473ec63dbc992e866a50e7"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#7dc15a35acc1594dfc1e5f64ca33d3b9">width</a> (const unsigned int &amp;width)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the width.  <a href="#7dc15a35acc1594dfc1e5f64ca33d3b9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#2d01b03e23d610b26bbb2e18278cf5a8">size</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels.  <a href="#2d01b03e23d610b26bbb2e18278cf5a8"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the width of the press clip.  <a href="#7dc15a35acc1594dfc1e5f64ca33d3b9"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="6c92086530b70510102fec51da1b8929"></a><!-- doxytag: member="ClipLocation::x_" ref="6c92086530b70510102fec51da1b8929" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#6c92086530b70510102fec51da1b8929">x_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1b2df7d88f1e70c6092704f0a5844d39"></a><!-- doxytag: member="ClipLocation::row_" ref="1b2df7d88f1e70c6092704f0a5844d39" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39">row_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">x coordinate <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f7f79f07cf214a952d99c7d567034a31"></a><!-- doxytag: member="ClipLocation::y_" ref="f7f79f07cf214a952d99c7d567034a31" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#f7f79f07cf214a952d99c7d567034a31">y_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Row where the upper leftmost pixel is at. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="333e41e770e4cc18938b639a9072c138"></a><!-- doxytag: member="ClipLocation::column_" ref="333e41e770e4cc18938b639a9072c138" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138">column_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">y coordinate <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Column where the upper leftmost pixel is at. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="bf304a78eade46f1b5c6cfcf42e15643"></a><!-- doxytag: member="ClipLocation::height_" ref="bf304a78eade46f1b5c6cfcf42e15643" args="" -->
 unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643">height_</a></td></tr>
 
@@ -150,16 +142,12 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <div class="memdoc">
 
 <p>
-Constructor. 
-<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
-Initializes a <a class="el" href="class_clip_location.html" title="Location of a press clip within a newspaper page.">ClipLocation</a> object with every data set to 0 
-<p>Definition at line <a class="el" href="_clip_location_8cpp-source.html#l00012">12</a> of file <a class="el" href="_clip_location_8cpp-source.html">ClipLocation.cpp</a>.</p>
-
+Initializes a <a class="el" href="class_clip_location.html" title="Location of a press clip inside a newspaper page.">ClipLocation</a> object with every data set to 0. 
 </div>
 </div><p>
-<a class="anchor" name="df3b25b12a4ce75a657ae79f241c61c2"></a><!-- doxytag: member="ClipLocation::ClipLocation" ref="df3b25b12a4ce75a657ae79f241c61c2" args="(const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)" -->
+<a class="anchor" name="b41ff36c161d2d909c6e75474f5f2f31"></a><!-- doxytag: member="ClipLocation::ClipLocation" ref="b41ff36c161d2d909c6e75474f5f2f31" args="(const unsigned int &amp;row, const unsigned int &amp;column, const unsigned int &amp;height, const unsigned int &amp;width)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -167,13 +155,13 @@ Initializes a <a class="el" href="class_clip_location.html" title="Location of a
           <td class="memname">ClipLocation::ClipLocation           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
+          <td class="paramname"> <em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
+          <td class="paramname"> <em>column</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -197,73 +185,123 @@ Initializes a <a class="el" href="class_clip_location.html" title="Location of a
 <div class="memdoc">
 
 <p>
-Constructor. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The upper left-most pixel X coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The upper left-most pixel Y coordinate of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The height of the clip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The width of the clip</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>Row where the upper leftmost pixel is at. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>column</em>&nbsp;</td><td>Column where the upper leftmost pixel is at. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Height of the clip. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>Width of the clip.</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
-Initializes a <a class="el" href="class_clip_location.html" title="Location of a press clip within a newspaper page.">ClipLocation</a> object with every data set according to the values passed 
-<p>Definition at line <a class="el" href="_clip_location_8cpp-source.html#l00022">22</a> of file <a class="el" href="_clip_location_8cpp-source.html">ClipLocation.cpp</a>.</p>
-
+Initializes a <a class="el" href="class_clip_location.html" title="Location of a press clip inside a newspaper page.">ClipLocation</a> object with every data set according to the values passed. 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="6dd58945e53e1d04ae736dafb3c43576"></a><!-- doxytag: member="ClipLocation::x" ref="6dd58945e53e1d04ae736dafb3c43576" args="() const " -->
+<a class="anchor" name="8816c925e80c2e55bbbbdd6da799f53f"></a><!-- doxytag: member="ClipLocation::row" ref="8816c925e80c2e55bbbbdd6da799f53f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int &amp; ClipLocation::x           </td>
+          <td class="memname">const unsigned int &amp; ClipLocation::row           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the x coordinate. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>X coordinate</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Row where the upper leftmost pixel is at.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00161">161</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00136">row_</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="f80b2bfd8f35cb5e0a6e02c73f21695b"></a><!-- doxytag: member="ClipLocation::y" ref="f80b2bfd8f35cb5e0a6e02c73f21695b" args="() const " -->
+<a class="anchor" name="5a95f9fae24adf0b6d227714b9b69e2e"></a><!-- doxytag: member="ClipLocation::row" ref="5a95f9fae24adf0b6d227714b9b69e2e" args="(const unsigned int &amp;row)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int &amp; ClipLocation::y           </td>
+          <td class="memname">void ClipLocation::row           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>row</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Returns the y coordinate. 
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>row</em>&nbsp;</td><td>New row value where the upper leftmost pixel will be set.</td></tr>
+  </table>
+</dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
+
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00136">row_</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="50409bab2a256787fcc59e5d213d6a58"></a><!-- doxytag: member="ClipLocation::column" ref="50409bab2a256787fcc59e5d213d6a58" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; ClipLocation::column           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Y coordinate</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Column where the upper leftmost pixel is at.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00167">167</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00138">column_</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="321238ca06a98bcce5f5292c1ea3e6c0"></a><!-- doxytag: member="ClipLocation::column" ref="321238ca06a98bcce5f5292c1ea3e6c0" args="(const unsigned int &amp;column)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClipLocation::column           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>column</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>column</em>&nbsp;</td><td>New column value where the upper leftmost pixel will be set.</td></tr>
+  </table>
+</dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
+
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00138">column_</a>.</p>
 
 </div>
 </div><p>
@@ -276,108 +314,18 @@ Returns the y coordinate.
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>
-Returns the height. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Height of the press clip</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00173">173</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="e48a4531c0473ec63dbc992e866a50e7"></a><!-- doxytag: member="ClipLocation::width" ref="e48a4531c0473ec63dbc992e866a50e7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; ClipLocation::width           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the width. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Width of the pixel</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00179">179</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="f983f4cfe6ad80aa96cbbb4b53aec968"></a><!-- doxytag: member="ClipLocation::x" ref="f983f4cfe6ad80aa96cbbb4b53aec968" args="(const unsigned int &amp;x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClipLocation::x           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the x coordinate. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>The x coordinate of the top left-most pixel of the press clip</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00185">185</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="3c665324e5faf6bae4013d936f0ce2dc"></a><!-- doxytag: member="ClipLocation::y" ref="3c665324e5faf6bae4013d936f0ce2dc" args="(const unsigned int &amp;y)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ClipLocation::y           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Sets the y coordinate. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>The y coordinate of the top left-most pixel of the press clip</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00191">191</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00140">height_</a>.</p>
 
 </div>
 </div><p>
@@ -391,24 +339,46 @@ Sets the y coordinate.
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>height</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Sets the height. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>The height of the press clip</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>New height value of the press clip</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00197">197</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00140">height_</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="e48a4531c0473ec63dbc992e866a50e7"></a><!-- doxytag: member="ClipLocation::width" ref="e48a4531c0473ec63dbc992e866a50e7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; ClipLocation::width           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Width of the press clip</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00142">width_</a>.</p>
 
 </div>
 </div><p>
@@ -422,57 +392,27 @@ Sets the height.
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>width</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Sets the width. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>The width coordinate of the press clip</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>New width value of the press clip</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
 
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00203">203</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
+<p>References <a class="el" href="_clip_location_8hpp-source.html#l00142">width_</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="2d01b03e23d610b26bbb2e18278cf5a8"></a><!-- doxytag: member="ClipLocation::size" ref="2d01b03e23d610b26bbb2e18278cf5a8" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int ClipLocation::size           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
 </div>
-<div class="memdoc">
-
-<p>
-Returns the number of pixels. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels of the press clip</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11 </dd></dl>
-
-<p>Definition at line <a class="el" href="_clip_location_8hpp-source.html#l00209">209</a> of file <a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp</a>.</p>
-
-</div>
-</div><p>
-<hr>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_clip_location_8hpp-source.html">ClipLocation.hpp (143)</a><li><a class="el" href="_clip_location_8cpp-source.html">ClipLocation.cpp (141)</a></ul>
-</div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Oct 23 15:39:25 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:17 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
