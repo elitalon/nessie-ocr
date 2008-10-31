@@ -1,0 +1,10 @@
+<area shape="rect" href="$class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies a thresholding algorithm." alt="" coords="572,9,777,36">
+<area shape="rect" href="$class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique..." alt="" coords="527,67,823,93">
+<area shape="rect" href="$class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip." alt="" coords="495,129,855,156">
+<area shape="rect" href="$class_segmenter.html#ad8893282742e811dd7fff172ec03c85" title="Finds the pairs of rows that delimit every line of shapes in a press clip." alt="" coords="193,157,404,184">
+<area shape="rect" href="$class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb" title="Find the seeds where the shapes will grow up from." alt="" coords="213,208,384,235">
+<area shape="rect" href="$class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50" title="Builds a list of shapes founded in a clip by growing seeds into isolated shapes." alt="" coords="153,259,444,285">
+<area shape="rect" href="$class_preprocessor.html#a3e047486a0a80f2103f51d7141e41c5" title="Applies the &#39;isolated noise removal&#39; algorithm." alt="" coords="544,284,805,311">
+<area shape="rect" href="$class_recognizer.html#0779d8bb035f7d51cb26fdc3d410e019" title="Writes the information of a clip into the underlying image." alt="" coords="200,360,397,387">
+<area shape="rect" href="$class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="905,168,1084,195">
+<area shape="rect" href="$class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="585,205,764,232">

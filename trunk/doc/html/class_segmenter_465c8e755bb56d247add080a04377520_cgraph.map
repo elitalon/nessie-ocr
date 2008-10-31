@@ -1,0 +1,8 @@
+<area shape="rect" href="$class_segmenter.html#ad8893282742e811dd7fff172ec03c85" title="Finds the pairs of rows that delimit every line of shapes in a press clip." alt="" coords="288,56,499,83">
+<area shape="rect" href="$class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb" title="Find the seeds where the shapes will grow up from." alt="" coords="308,5,479,32">
+<area shape="rect" href="$class_segmenter.html#0961de0db6a0b1de51882024bfc830a1" title="Finds a shape that is vertically overlapped to the shape passed, both being in the..." alt="" coords="237,157,549,184">
+<area shape="rect" href="$class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50" title="Builds a list of shapes founded in a clip by growing seeds into isolated shapes." alt="" coords="248,107,539,133">
+<area shape="rect" href="$class_segmenter.html#a6fc98922155143cf36f542118c33f3a" title="Joins two shapes that are vertically overlapped." alt="" coords="235,208,552,235">
+<area shape="rect" href="$class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="600,56,699,83">
+<area shape="rect" href="$class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="604,5,695,32">
+<area shape="rect" href="$class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip." alt="" coords="608,107,691,133">

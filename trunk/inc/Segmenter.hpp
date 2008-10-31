@@ -13,7 +13,6 @@
 
 
 #include "Shape.hpp"
-#include "Pixel.hpp"
 class Clip;
 
 

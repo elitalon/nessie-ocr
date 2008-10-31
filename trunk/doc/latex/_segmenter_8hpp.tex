@@ -1,48 +1,36 @@
 \hypertarget{_segmenter_8hpp}{
 \subsection{Segmenter.hpp File Reference}
-\label{_segmenter_8hpp}\index{Segmenter.hpp(154)@{Segmenter.hpp(154)}}
+\label{_segmenter_8hpp}\index{Segmenter.hpp(164)@{Segmenter.hpp(164)}}
 }
 
 
 \subsubsection{Detailed Description}
 
 
+{\tt \#include $<$deque$>$}\par
+{\tt \#include $<$list$>$}\par
+{\tt \#include $<$utility$>$}\par
+{\tt \#include \char`\"{}Shape.hpp\char`\"{}}\par
+
+
+Include dependency graph for Segmenter.hpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{_segmenter_8hpp__incl}
+\end{center}
+\end{figure}
+
+
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{_segmenter_8hpp__dep__incl}
+\end{center}
+\end{figure}
 \subsubsection*{Data Structures}
 \begin{CompactItemize}
 \item 
 class \hyperlink{class_segmenter}{Segmenter}
 \begin{CompactList}\small\item\em \hyperlink{class_segmenter}{Segmenter} of the OCR process. \item\end{CompactList}\end{CompactItemize}
-\subsubsection*{Typedefs}
-\begin{CompactItemize}
-\item 
-typedef std::pair$<$ unsigned int, unsigned int $>$ \hyperlink{_segmenter_8hpp_1d71cceafbb01dafa22c8672ecf80328}{LineMarker}
-\begin{CompactList}\small\item\em Information about the limits of a text line. \item\end{CompactList}\item 
-typedef std::list$<$ \hyperlink{class_shape}{Shape} $>$::iterator \hyperlink{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{ShapeIterator}
-\begin{CompactList}\small\item\em An iterator to a list of \hyperlink{class_shape}{Shape} objects. \item\end{CompactList}\end{CompactItemize}
-
-
-\subsubsection{Typedef Documentation}
-\hypertarget{_segmenter_8hpp_1d71cceafbb01dafa22c8672ecf80328}{
-\index{Segmenter.hpp@{Segmenter.hpp}!LineMarker@{LineMarker}}
-\index{LineMarker@{LineMarker}!Segmenter.hpp@{Segmenter.hpp}}
-\paragraph[LineMarker]{\setlength{\rightskip}{0pt plus 5cm}{\bf LineMarker}}\hfill}
-\label{_segmenter_8hpp_1d71cceafbb01dafa22c8672ecf80328}
-
-
-This pair keeps the rows of a press clip that delimits a single line of characters. The first member representes the row of pixels at the top of the line, while the second member represents the row of pixels at the bottom of the line.
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-24 \end{Desc}
-\hypertarget{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{
-\index{Segmenter.hpp@{Segmenter.hpp}!ShapeIterator@{ShapeIterator}}
-\index{ShapeIterator@{ShapeIterator}!Segmenter.hpp@{Segmenter.hpp}}
-\paragraph[ShapeIterator]{\setlength{\rightskip}{0pt plus 5cm}{\bf ShapeIterator}}\hfill}
-\label{_segmenter_8hpp_214be30884388589f55c966fafe805a7}
-
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-30 \end{Desc}

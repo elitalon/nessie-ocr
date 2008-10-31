@@ -17,7 +17,7 @@ Collaboration diagram for Shape:\nopagebreak
 This class stores a set of pixels and all the information necessary to identify a shape that represents a character in a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right.
 
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -27,9 +27,9 @@ This class stores a set of pixels and all the information necessary to identify 
 \item 
 \hyperlink{class_shape_aa8d87171e65e0d8ba3c5459978992a7}{Shape} ()
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{operator()} (const unsigned int \&index)
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{operator()} (const unsigned int \&index)
 \begin{CompactList}\small\item\em Allows read-and-write access to a pixel in the shape. \item\end{CompactList}\item 
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_79caae3047826779e0c8094e9882843b}{operator()} (const unsigned int \&index) const 
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_79caae3047826779e0c8094e9882843b}{operator()} (const unsigned int \&index) const 
 \begin{CompactList}\small\item\em Allows read-only access to a pixel in the shape. \item\end{CompactList}\item 
 \hyperlink{class_shape}{Shape} \hyperlink{class_shape_4e1517d6e14471df4750bc241f517b4e}{operator+} (const \hyperlink{class_shape}{Shape} \&shape) const 
 \begin{CompactList}\small\item\em Appends a shape to a current one. \item\end{CompactList}\item 
@@ -41,17 +41,17 @@ const unsigned int \& \hyperlink{class_shape_8400155046b2190bce621f8f366ef2be}{h
 \begin{CompactList}\small\item\em Returns the height of the shape. \item\end{CompactList}\item 
 const unsigned int \& \hyperlink{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{size} () const 
 \begin{CompactList}\small\item\em Returns the number of pixels in the shape. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_53d49d362234068aad0b80986fabb85d}{leftPixel} () const 
+const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_53d49d362234068aad0b80986fabb85d}{leftPixel} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the leftmost pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{rightPixel} () const 
+const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{rightPixel} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the rightmost pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{topPixel} () const 
+const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{topPixel} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the top pixel. \item\end{CompactList}\item 
-const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_99293804122214fa366d7f7ae794d077}{bottomPixel} () const 
+const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperlink{class_shape_99293804122214fa366d7f7ae794d077}{bottomPixel} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the bottom pixel. \item\end{CompactList}\item 
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_a935b8870ea61569990b304b77513923}{barycenter} () const 
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_a935b8870ea61569990b304b77513923}{barycenter} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the shape's barycenter. \item\end{CompactList}\item 
-void \hyperlink{class_shape_f6114234203d9473f1fef9e6391f9243}{addPixel} (const \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel)
+void \hyperlink{class_shape_f6114234203d9473f1fef9e6391f9243}{addPixel} (const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel)
 \begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\end{CompactItemize}
 \subsubsection*{Private Attributes}
 \begin{CompactItemize}
@@ -67,7 +67,7 @@ unsigned int \hyperlink{class_shape_76354eeb3b4c5c6c9125f4195c3c274c}{height\_\-
 
 \begin{CompactList}\small\item\em Height of the shape. \item\end{CompactList}\item 
 \hypertarget{class_shape_286ebb0c6010efe288d5e79192e309dc}{
-std::vector$<$ \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_shape_286ebb0c6010efe288d5e79192e309dc}{pixels\_\-}}
+std::vector$<$ \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_shape_286ebb0c6010efe288d5e79192e309dc}{pixels\_\-}}
 \label{class_shape_286ebb0c6010efe288d5e79192e309dc}
 
 \begin{CompactList}\small\item\em Set of pixel coordinates that defines the whole shape. \item\end{CompactList}\item 
@@ -77,22 +77,22 @@ unsigned int \hyperlink{class_shape_adec7080fb17de89d2f6c9d53d4b0283}{size\_\-}}
 
 \begin{CompactList}\small\item\em Number of pixels in the shape. \item\end{CompactList}\item 
 \hypertarget{class_shape_812cd080959b320038aae54729831ce4}{
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_812cd080959b320038aae54729831ce4}{leftPixel\_\-}}
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_812cd080959b320038aae54729831ce4}{leftPixel\_\-}}
 \label{class_shape_812cd080959b320038aae54729831ce4}
 
 \begin{CompactList}\small\item\em Pixel at the leftmost position. \item\end{CompactList}\item 
 \hypertarget{class_shape_16adfccce492a7a0e34c5ade941c32fd}{
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_16adfccce492a7a0e34c5ade941c32fd}{rightPixel\_\-}}
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_16adfccce492a7a0e34c5ade941c32fd}{rightPixel\_\-}}
 \label{class_shape_16adfccce492a7a0e34c5ade941c32fd}
 
 \begin{CompactList}\small\item\em Pixel at the rightmost position. \item\end{CompactList}\item 
 \hypertarget{class_shape_c6755e0dbd9d2eaf537e232fd003c918}{
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_c6755e0dbd9d2eaf537e232fd003c918}{topPixel\_\-}}
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_c6755e0dbd9d2eaf537e232fd003c918}{topPixel\_\-}}
 \label{class_shape_c6755e0dbd9d2eaf537e232fd003c918}
 
 \begin{CompactList}\small\item\em Pixel at the top position. \item\end{CompactList}\item 
 \hypertarget{class_shape_8277820de6ff8da989a0659f4e5d82d1}{
-\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_8277820de6ff8da989a0659f4e5d82d1}{bottomPixel\_\-}}
+\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_8277820de6ff8da989a0659f4e5d82d1}{bottomPixel\_\-}}
 \label{class_shape_8277820de6ff8da989a0659f4e5d82d1}
 
 \begin{CompactList}\small\item\em Pixel at the bottom position. \item\end{CompactList}\end{CompactItemize}
@@ -173,7 +173,16 @@ References pixels\_\-.\hypertarget{class_shape_4e1517d6e14471df4750bc241f517b4e}
 \item[Date:]2008-10-28 \end{Desc}
 
 
-References addPixel(), and size().\hypertarget{class_shape_183a6bc428172ced8122ffb68d0f04ef}{
+References addPixel(), and size().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{class_shape_4e1517d6e14471df4750bc241f517b4e_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_183a6bc428172ced8122ffb68d0f04ef}{
 \index{Shape@{Shape}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Shape@{Shape}}
 \paragraph[operator$<$]{\setlength{\rightskip}{0pt plus 5cm}bool Shape::operator$<$ (const {\bf Shape} \& {\em shape})}\hfill}
@@ -193,7 +202,16 @@ References addPixel(), and size().\hypertarget{class_shape_183a6bc428172ced8122f
 \item[Date:]2008-10-30 \end{Desc}
 
 
-References bottomPixel(), leftPixel(), rightPixel(), and topPixel().\hypertarget{class_shape_6773dfedb96ef750e5469e22d51ecf0f}{
+References bottomPixel(), leftPixel(), rightPixel(), and topPixel().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{class_shape_183a6bc428172ced8122ffb68d0f04ef_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_6773dfedb96ef750e5469e22d51ecf0f}{
 \index{Shape@{Shape}!width@{width}}
 \index{width@{width}!Shape@{Shape}}
 \paragraph[width]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::width () const}\hfill}
@@ -208,7 +226,16 @@ References bottomPixel(), leftPixel(), rightPixel(), and topPixel().\hypertarget
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References width\_\-.\hypertarget{class_shape_8400155046b2190bce621f8f366ef2be}{
+References width\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{class_shape_6773dfedb96ef750e5469e22d51ecf0f_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_8400155046b2190bce621f8f366ef2be}{
 \index{Shape@{Shape}!height@{height}}
 \index{height@{height}!Shape@{Shape}}
 \paragraph[height]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::height () const}\hfill}
@@ -223,7 +250,16 @@ References width\_\-.\hypertarget{class_shape_8400155046b2190bce621f8f366ef2be}{
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References height\_\-.\hypertarget{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{
+References height\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{class_shape_8400155046b2190bce621f8f366ef2be_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{
 \index{Shape@{Shape}!size@{size}}
 \index{size@{size}!Shape@{Shape}}
 \paragraph[size]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& Shape::size () const}\hfill}
@@ -238,7 +274,16 @@ References height\_\-.\hypertarget{class_shape_8504d3be338d2fa594c35fe1444a9ed8}
 \item[Date:]2008-10-21 \end{Desc}
 
 
-References size\_\-.\hypertarget{class_shape_53d49d362234068aad0b80986fabb85d}{
+References size\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=131pt]{class_shape_8504d3be338d2fa594c35fe1444a9ed8_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_53d49d362234068aad0b80986fabb85d}{
 \index{Shape@{Shape}!leftPixel@{leftPixel}}
 \index{leftPixel@{leftPixel}!Shape@{Shape}}
 \paragraph[leftPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::leftPixel () const}\hfill}
@@ -248,14 +293,23 @@ References size\_\-.\hypertarget{class_shape_53d49d362234068aad0b80986fabb85d}{
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References leftPixel\_\-.\hypertarget{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{
+References leftPixel\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_shape_53d49d362234068aad0b80986fabb85d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}{
 \index{Shape@{Shape}!rightPixel@{rightPixel}}
 \index{rightPixel@{rightPixel}!Shape@{Shape}}
 \paragraph[rightPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::rightPixel () const}\hfill}
@@ -265,14 +319,23 @@ References leftPixel\_\-.\hypertarget{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References rightPixel\_\-.\hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{
+References rightPixel\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{
 \index{Shape@{Shape}!topPixel@{topPixel}}
 \index{topPixel@{topPixel}!Shape@{Shape}}
 \paragraph[topPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::topPixel () const}\hfill}
@@ -282,14 +345,23 @@ References rightPixel\_\-.\hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References topPixel\_\-.\hypertarget{class_shape_99293804122214fa366d7f7ae794d077}{
+References topPixel\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_99293804122214fa366d7f7ae794d077}{
 \index{Shape@{Shape}!bottomPixel@{bottomPixel}}
 \index{bottomPixel@{bottomPixel}!Shape@{Shape}}
 \paragraph[bottomPixel]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::bottomPixel () const}\hfill}
@@ -299,14 +371,23 @@ References topPixel\_\-.\hypertarget{class_shape_99293804122214fa366d7f7ae794d07
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References bottomPixel\_\-.\hypertarget{class_shape_a935b8870ea61569990b304b77513923}{
+References bottomPixel\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_shape_99293804122214fa366d7f7ae794d077_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_shape_a935b8870ea61569990b304b77513923}{
 \index{Shape@{Shape}!barycenter@{barycenter}}
 \index{barycenter@{barycenter}!Shape@{Shape}}
 \paragraph[barycenter]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Shape::barycenter () const}\hfill}
@@ -316,7 +397,7 @@ References bottomPixel\_\-.\hypertarget{class_shape_a935b8870ea61569990b304b7751
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -336,7 +417,7 @@ References pixels\_\-, and size\_\-.\hypertarget{class_shape_f6114234203d9473f1f
 \item[{\em pixel}]The pixel to add\end{description}
 \end{Desc}
 \begin{Desc}
-\item[See also:]\hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -344,3 +425,11 @@ References pixels\_\-, and size\_\-.\hypertarget{class_shape_f6114234203d9473f1f
 
 
 References bottomPixel\_\-, height\_\-, leftPixel\_\-, pixels\_\-, rightPixel\_\-, size\_\-, topPixel\_\-, and width\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{class_shape_f6114234203d9473f1fef9e6391f9243_icgraph}
+\end{center}
+\end{figure}

@@ -18,7 +18,7 @@ This class encapsulates all the stages related to the optical character recognit
 
 At the moment, this class manages the press clips within an image loaded with the Magick++ utilities. The newspaper pages should be an image that comes in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format. The idea behind this class is to encapsulate all the interactions with Magick++, so that the rest of the classes have an unified way to work.
 
-In future modifications any library may be added to load the images. A developer should overload a \hyperlink{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{loadImage()} method, modify the constructor \hyperlink{class_recognizer_50ffc181208bb07ae651aba6249ee7e4}{Recognizer(const std::string \&path)} or add a new constructor with specific parameters, and overload a \hyperlink{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{writeExternalImage()} method.
+In future modifications any library may be added to load the images. A developer should overload a \hyperlink{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{loadImage()} method, modify the constructor \hyperlink{class_recognizer_50ffc181208bb07ae651aba6249ee7e4}{Recognizer(const std::string\& path)} or add a new constructor with specific parameters, and overload a \hyperlink{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}{writeExternalImage()} method.
 
 \begin{Desc}
 \item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_text}{Text}, \hyperlink{class_statistics}{Statistics}, \href{http://www.imagemagick.org/Magick++/}{\tt Magick++ API}\end{Desc}
@@ -105,7 +105,16 @@ std::vector$<$ \hyperlink{class_statistics}{Statistics} $>$ \hyperlink{class_rec
 \item[Date:]2008-10-10\end{Desc}
 Creates a new \hyperlink{class_recognizer}{Recognizer} object loading the image from disk. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
 
-References height\_\-, loadImage(), and width\_\-.\hypertarget{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640}{
+References height\_\-, loadImage(), and width\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_recognizer_50ffc181208bb07ae651aba6249ee7e4_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640}{
 \index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
 \index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
 \paragraph[Recognizer]{\setlength{\rightskip}{0pt plus 5cm}Recognizer::Recognizer (Magick::Image \& {\em image})}\hfill}
@@ -127,6 +136,15 @@ Creates a new \hyperlink{class_recognizer}{Recognizer} object from an image load
 
 References height\_\-, loadImage(), and width\_\-.
 
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640_cgraph}
+\end{center}
+\end{figure}
+
+
 \subsubsection{Member Function Documentation}
 \hypertarget{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
@@ -141,7 +159,16 @@ References height\_\-, loadImage(), and width\_\-.
 \item[Date:]2008-10-09\end{Desc}
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-References height\_\-, and width\_\-.\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
+References height\_\-, and width\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \paragraph[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ {\bf ClipLocation} $>$ \& {\em coordinates})}\hfill}
@@ -156,10 +183,19 @@ References height\_\-, and width\_\-.\hypertarget{class_recognizer_4b3b27b3746ed
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-13\end{Desc}
-Each set of points provides us a clip that can be located within the page. 
+\item[Date:]2008-10-13 \end{Desc}
 
-References obtainText().\hypertarget{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{
+
+References obtainText().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_recognizer_4b3b27b3746edcf831d142eddfb81f19_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \paragraph[obtainText]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const unsigned int \& {\em x}, \/  const unsigned int \& {\em y}, \/  unsigned int \& {\em height}, \/  unsigned int \& {\em width})}\hfill}
@@ -236,7 +272,16 @@ References texts\_\-.\hypertarget{class_recognizer_b941b1ad42c3bacb3c829acf7fc68
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References statistics\_\-.\hypertarget{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{
+References statistics\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=122pt]{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{
 \index{Recognizer@{Recognizer}!statistics@{statistics}}
 \index{statistics@{statistics}!Recognizer@{Recognizer}}
 \paragraph[statistics]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Statistics} $>$ \& Recognizer::statistics () const}\hfill}
@@ -266,16 +311,27 @@ References statistics\_\-.\hypertarget{class_recognizer_559f62a3e3e2d0b799bab38e
 \item[{\em externalImage}]The destination Image object from the Magick++ API previously created\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Postcondition:]The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image\end{Desc}
+\item[Postcondition:]The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image. 
+
+If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed.\end{Desc}
 \begin{Desc}
 \item[See also:]\href{http://www.imagemagick.org/Magick++/Image.html}{\tt Image}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-10\end{Desc}
-If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed. 
+\item[Date:]2008-10-10 \end{Desc}
 
-References height\_\-, image\_\-, and width\_\-.\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
+
+References height\_\-, image\_\-, and width\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}{
 \index{Recognizer@{Recognizer}!loadImage@{loadImage}}
 \index{loadImage@{loadImage}!Recognizer@{Recognizer}}
 \paragraph[loadImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::loadImage (Magick::Image \& {\em image})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -297,7 +353,16 @@ References height\_\-, image\_\-, and width\_\-.\hypertarget{class_recognizer_ac
 \item[Date:]2008-10-10\end{Desc}
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
 
-References height\_\-, image\_\-, and width\_\-.\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
+References height\_\-, image\_\-, and width\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_recognizer_acc4244738f2577a0c344c3b3af22eb0_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
 \index{Recognizer@{Recognizer}!updateImage@{updateImage}}
 \index{updateImage@{updateImage}!Recognizer@{Recognizer}}
 \paragraph[updateImage]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::updateImage (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -318,3 +383,20 @@ References height\_\-, image\_\-, and width\_\-.\hypertarget{class_recognizer_07
 Since the only way of passing a \hyperlink{class_clip}{Clip} object to this method is invoking \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{Recognizer::obtainText()}, and the dimensions are controlled inside that method, here it is assumed that all the coordinates are valid. 
 
 References Clip::column(), Clip::height(), image\_\-, Clip::row(), Clip::width(), and width\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_icgraph}
+\end{center}
+\end{figure}

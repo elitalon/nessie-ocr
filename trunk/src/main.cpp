@@ -2,8 +2,8 @@
 /// @file
 /// @brief Implementation of a command line program for testing purposes
 ///
-#include <Magick++.h>
 
+#include <Magick++.h>	
 #include "Recognizer.hpp"
 #include <iostream>
 

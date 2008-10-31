@@ -33,11 +33,11 @@ void \hyperlink{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{optimalThre
 \begin{CompactList}\small\item\em Sets the optimal threshold to use in algorithms. \item\end{CompactList}\item 
 const unsigned char \& \hyperlink{class_preprocessor_b435116619b7b254d9e788476c012e8a}{backgroundReferenceGrayLevel} () const 
 \begin{CompactList}\small\item\em Returns the background reference gray level in the last clip used. \item\end{CompactList}\item 
-const double \& \hyperlink{class_preprocessor_e54e2a5703a0f39ddff8e9936f9a2275}{noiseRemovalTime} () const 
+const float \& \hyperlink{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}{noiseRemovalTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the 'isolated noise removal' algorithm. \item\end{CompactList}\item 
-const double \& \hyperlink{class_preprocessor_2bd63a7e7aba300ddf79b2c956e943e9}{optimalThresholdComputingTime} () const 
+const float \& \hyperlink{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}{optimalThresholdComputingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while founding the optimal threshold within the clip. \item\end{CompactList}\item 
-const double \& \hyperlink{class_preprocessor_2cb04f2116b4afc783ff070026bc1297}{backgroundReferenceGrayLevelFindingTime} () const 
+const float \& \hyperlink{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}{backgroundReferenceGrayLevelFindingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while computing the background reference gray level within the clip. \item\end{CompactList}\item 
 const unsigned char \& \hyperlink{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{computeOptimalThreshold} (const \hyperlink{class_clip}{Clip} \&clip)
 \begin{CompactList}\small\item\em Computes the optimal threshold value in a clip following the Sonka's technique. \item\end{CompactList}\item 
@@ -58,19 +58,19 @@ unsigned char \hyperlink{class_preprocessor_2c9e44ff6522b2ce35d6bc6161ad2680}{ba
 \label{class_preprocessor_2c9e44ff6522b2ce35d6bc6161ad2680}
 
 \begin{CompactList}\small\item\em Background reference gray level. \item\end{CompactList}\item 
-\hypertarget{class_preprocessor_386a5118bd982b2377c1fc5d67ebb7ac}{
-double \hyperlink{class_preprocessor_386a5118bd982b2377c1fc5d67ebb7ac}{noiseRemovalTime\_\-}}
-\label{class_preprocessor_386a5118bd982b2377c1fc5d67ebb7ac}
+\hypertarget{class_preprocessor_d6e3bee674df10921f29612bc5bc6978}{
+float \hyperlink{class_preprocessor_d6e3bee674df10921f29612bc5bc6978}{noiseRemovalTime\_\-}}
+\label{class_preprocessor_d6e3bee674df10921f29612bc5bc6978}
 
 \begin{CompactList}\small\item\em Elapsed time when applying the 'isolated noise removal' algorithm. \item\end{CompactList}\item 
-\hypertarget{class_preprocessor_d606fe1f0be7f7be60583f59278e2df6}{
-double \hyperlink{class_preprocessor_d606fe1f0be7f7be60583f59278e2df6}{optimalThresholdComputingTime\_\-}}
-\label{class_preprocessor_d606fe1f0be7f7be60583f59278e2df6}
+\hypertarget{class_preprocessor_d52352691de7d8f0738b67e93a5898fc}{
+float \hyperlink{class_preprocessor_d52352691de7d8f0738b67e93a5898fc}{optimalThresholdComputingTime\_\-}}
+\label{class_preprocessor_d52352691de7d8f0738b67e93a5898fc}
 
 \begin{CompactList}\small\item\em Elapsed time when converting the image to a grayscale colorspace. \item\end{CompactList}\item 
-\hypertarget{class_preprocessor_140ea3fa7bbd4e8fef54912d65c4e926}{
-double \hyperlink{class_preprocessor_140ea3fa7bbd4e8fef54912d65c4e926}{backgroundReferenceGrayLevelFindingTime\_\-}}
-\label{class_preprocessor_140ea3fa7bbd4e8fef54912d65c4e926}
+\hypertarget{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{
+float \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{backgroundReferenceGrayLevelFindingTime\_\-}}
+\label{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}
 
 \begin{CompactList}\small\item\em Elapsed time when computing the background gray level. \item\end{CompactList}\end{CompactItemize}
 
@@ -86,8 +86,8 @@ double \hyperlink{class_preprocessor_140ea3fa7bbd4e8fef54912d65c4e926}{backgroun
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-08\end{Desc}
-Initializes a \hyperlink{class_preprocessor}{Preprocessor} object 
+\item[Date:]2008-10-08 \end{Desc}
+
 
 \subsubsection{Member Function Documentation}
 \hypertarget{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}{
@@ -105,7 +105,16 @@ Initializes a \hyperlink{class_preprocessor}{Preprocessor} object
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References optimalThreshold\_\-.\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
+References optimalThreshold\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
 \index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
 \index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
 \paragraph[optimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::optimalThreshold (const unsigned char \& {\em threshold})}\hfill}
@@ -138,11 +147,20 @@ References optimalThreshold\_\-.\hypertarget{class_preprocessor_b435116619b7b254
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References backgroundReferenceGrayLevel\_\-.\hypertarget{class_preprocessor_e54e2a5703a0f39ddff8e9936f9a2275}{
+References backgroundReferenceGrayLevel\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_preprocessor_b435116619b7b254d9e788476c012e8a_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}{
 \index{Preprocessor@{Preprocessor}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Preprocessor@{Preprocessor}}
-\paragraph[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Preprocessor::noiseRemovalTime () const}\hfill}
-\label{class_preprocessor_e54e2a5703a0f39ddff8e9936f9a2275}
+\paragraph[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::noiseRemovalTime () const}\hfill}
+\label{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}
 
 
 \begin{Desc}
@@ -155,11 +173,20 @@ References backgroundReferenceGrayLevel\_\-.\hypertarget{class_preprocessor_e54e
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References noiseRemovalTime\_\-.\hypertarget{class_preprocessor_2bd63a7e7aba300ddf79b2c956e943e9}{
+References noiseRemovalTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{class_preprocessor_ff8eee937760e42c0c2bea307849ada1_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}{
 \index{Preprocessor@{Preprocessor}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Preprocessor@{Preprocessor}}
-\paragraph[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Preprocessor::optimalThresholdComputingTime () const}\hfill}
-\label{class_preprocessor_2bd63a7e7aba300ddf79b2c956e943e9}
+\paragraph[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::optimalThresholdComputingTime () const}\hfill}
+\label{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}
 
 
 \begin{Desc}
@@ -172,11 +199,20 @@ References noiseRemovalTime\_\-.\hypertarget{class_preprocessor_2bd63a7e7aba300d
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References optimalThresholdComputingTime\_\-.\hypertarget{class_preprocessor_2cb04f2116b4afc783ff070026bc1297}{
+References optimalThresholdComputingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}{
 \index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Preprocessor@{Preprocessor}}
-\paragraph[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Preprocessor::backgroundReferenceGrayLevelFindingTime () const}\hfill}
-\label{class_preprocessor_2cb04f2116b4afc783ff070026bc1297}
+\paragraph[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::backgroundReferenceGrayLevelFindingTime () const}\hfill}
+\label{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}
 
 
 \begin{Desc}
@@ -189,7 +225,16 @@ References optimalThresholdComputingTime\_\-.\hypertarget{class_preprocessor_2cb
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References backgroundReferenceGrayLevelFindingTime\_\-.\hypertarget{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{
+References backgroundReferenceGrayLevelFindingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{
 \index{Preprocessor@{Preprocessor}!computeOptimalThreshold@{computeOptimalThreshold}}
 \index{computeOptimalThreshold@{computeOptimalThreshold}!Preprocessor@{Preprocessor}}
 \paragraph[computeOptimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::computeOptimalThreshold (const {\bf Clip} \& {\em clip})}\hfill}
@@ -199,7 +244,7 @@ References backgroundReferenceGrayLevelFindingTime\_\-.\hypertarget{class_prepro
 \begin{Desc}
 \item[Precondition:]You MUST call \hyperlink{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{findBackgroundReferenceGrayLevel()} method before calling this one, since it sets internal attributes.\end{Desc}
 \begin{Desc}
-\item[Postcondition:]The \hyperlink{class_preprocessor_d606fe1f0be7f7be60583f59278e2df6}{optimalThresholdComputingTime\_\-} member is modified. 
+\item[Postcondition:]The \hyperlink{class_preprocessor_d52352691de7d8f0738b67e93a5898fc}{optimalThresholdComputingTime\_\-} member is modified. 
 
 The \hyperlink{class_preprocessor_865b1e28dd9535b96f70727a550104fe}{optimalThreshold\_\-} member is initialized to the threshold found\end{Desc}
 \begin{Desc}
@@ -217,7 +262,25 @@ The \hyperlink{class_preprocessor_865b1e28dd9535b96f70727a550104fe}{optimalThres
 \item[Date:]2008-10-20\end{Desc}
 The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in \char`\"{}Image Processing, Analysis and Machine Vision\char`\"{} (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member backgroundReferenceGrayLevel\_\-. 
 
-References backgroundReferenceGrayLevel\_\-, Clip::height(), optimalThreshold\_\-, optimalThresholdComputingTime\_\-, Clip::size(), and Clip::width().\hypertarget{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{
+References backgroundReferenceGrayLevel\_\-, Clip::height(), optimalThreshold\_\-, optimalThresholdComputingTime\_\-, Clip::size(), and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{
 \index{Preprocessor@{Preprocessor}!findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}}
 \index{findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}!Preprocessor@{Preprocessor}}
 \paragraph[findBackgroundReferenceGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::findBackgroundReferenceGrayLevel (const {\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em referenceGrayLevelNeighbours} = {\tt 2})}\hfill}
@@ -225,7 +288,7 @@ References backgroundReferenceGrayLevel\_\-, Clip::height(), optimalThreshold\_\
 
 
 \begin{Desc}
-\item[Postcondition:]The \hyperlink{class_preprocessor_140ea3fa7bbd4e8fef54912d65c4e926}{backgroundReferenceGrayLevelFindingTime\_\-} member is modified.\end{Desc}
+\item[Postcondition:]The \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{backgroundReferenceGrayLevelFindingTime\_\-} member is modified.\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -245,7 +308,25 @@ To find the reference gray level of the background it is assumed that there are 
 \item[\hyperlink{bug__bug000001}{Bug}]There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. \end{Desc}
 
 
-References backgroundReferenceGrayLevel\_\-, backgroundReferenceGrayLevelFindingTime\_\-, Clip::height(), and Clip::width().\hypertarget{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}{
+References backgroundReferenceGrayLevel\_\-, backgroundReferenceGrayLevelFindingTime\_\-, Clip::height(), and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{class_preprocessor_a941f81382bd8e235e4dd12481342be4_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{class_preprocessor_a941f81382bd8e235e4dd12481342be4_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}{
 \index{Preprocessor@{Preprocessor}!removeIsolatedNoise@{removeIsolatedNoise}}
 \index{removeIsolatedNoise@{removeIsolatedNoise}!Preprocessor@{Preprocessor}}
 \paragraph[removeIsolatedNoise]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::removeIsolatedNoise ({\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em isolationCoefficient} = {\tt 0})}\hfill}
@@ -270,3 +351,20 @@ References backgroundReferenceGrayLevel\_\-, backgroundReferenceGrayLevelFinding
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
 
 References backgroundReferenceGrayLevel\_\-, Clip::height(), noiseRemovalTime\_\-, optimalThreshold\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5_icgraph}
+\end{center}
+\end{figure}

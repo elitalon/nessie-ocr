@@ -70,11 +70,11 @@ Collaboration diagram for Segmenter:</div>
 <div class="dynsection">
 <p><center><img src="class_segmenter__coll__graph.png" border="0" usemap="#_segmenter__coll__map" alt="Collaboration graph"></center>
 <map name="_segmenter__coll__map">
-<area shape="rect" href="class_shape.html" title="The shape of a character in a press clip." alt="" coords="101,7,229,436"></map>
+<area shape="rect" href="class_shape.html" title="The shape of a character in a press clip." alt="" coords="13,7,141,436"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This class encapsulates all the methods related to segmentation stage of the OCR process. Its task is to isolate every shape in a clip that represents a character, storing them in a data structure for further classification.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>, <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Coordinates of an image pixel.">Pixel</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>, <a class="el" href="_shape_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Coordinates of an image pixel.">Pixel</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -89,18 +89,31 @@ This class encapsulates all the methods related to segmentation stage of the OCR
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::list&lt; <a class="el" href="class_shape.html">Shape</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#7ddded12f26e94e6f5cba2752d2c4142">shapes</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the shapes found in the last segmentation process.  <a href="#7ddded12f26e94e6f5cba2752d2c4142"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#52f771c61d667df4f552ee73dc9f22e7">thresholdingTime</a> () const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const float &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#9114d0f3934b43478fb55077b7722d3d">thresholdingTime</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while applying the thresholding algorithm.  <a href="#52f771c61d667df4f552ee73dc9f22e7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#53761a65661587c45e34988b90401888">shapesFindingTime</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while applying the thresholding algorithm.  <a href="#9114d0f3934b43478fb55077b7722d3d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const float &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#8d7304b35b1891b1c7154a3ac2ff2c4b">shapesFindingTime</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while finding the shapes.  <a href="#53761a65661587c45e34988b90401888"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the elapsed time while finding the shapes.  <a href="#8d7304b35b1891b1c7154a3ac2ff2c4b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">applyThreshold</a> (<a class="el" href="class_clip.html">Clip</a> &amp;clip, const unsigned char &amp;threshold, const unsigned char &amp;backgroundReference)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies a thresholding algorithm.  <a href="#6854315e3320f9d9a8ece14cbb8570ee"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#465c8e755bb56d247add080a04377520">findShapes</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Finds a list of isolated shapes in the press clip by joining connected pixels.  <a href="#465c8e755bb56d247add080a04377520"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Private Types</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef std::pair&lt; unsigned <br>
+int, unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#ae134abed2f1d55197820f4027d10999">LineMarker</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Limits of a line of shapes.  <a href="#ae134abed2f1d55197820f4027d10999"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef std::list&lt; <a class="el" href="class_segmenter.html#ae134abed2f1d55197820f4027d10999">LineMarker</a> &gt;<br>
+::iterator&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#b3190459e52101e495e49e936bbb6440">LineMarkerIterator</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">An iterator to a list of LineMarker objects.  <a href="#b3190459e52101e495e49e936bbb6440"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">typedef std::list&lt; <a class="el" href="class_shape.html">Shape</a> &gt;<br>
+::iterator&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">An iterator to a list of <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a> objects.  <a href="#1190be7ec081a96ee2ae91e0bb256a0d"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb">findSeeds</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
 
@@ -111,19 +124,19 @@ This class encapsulates all the methods related to segmentation stage of the OCR
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#ad8893282742e811dd7fff172ec03c85">findLineMarkers</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Finds the pairs of rows that delimit every line of shapes in a press clip.  <a href="#ad8893282742e811dd7fff172ec03c85"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#a6fc98922155143cf36f542118c33f3a">joinVerticallyOverlappedShapes</a> (<a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;s1, <a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;s2)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#a6fc98922155143cf36f542118c33f3a">joinVerticallyOverlappedShapes</a> (<a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;s1, <a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;s2)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Joins two shapes that are vertically overlapped.  <a href="#a6fc98922155143cf36f542118c33f3a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#dc1e127fcaa1084a990648b7f4ec1461">findVerticallyOverlappedShape</a> (const unsigned int &amp;lineTop, const unsigned int &amp;lineBottom, const <a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;shape)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#0961de0db6a0b1de51882024bfc830a1">findVerticallyOverlappedShape</a> (const unsigned int &amp;lineTop, const unsigned int &amp;lineBottom, const <a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;shape)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Finds a shape that is vertically overlapped to the shape passed, both being in the same line of shapes.  <a href="#dc1e127fcaa1084a990648b7f4ec1461"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Finds a shape that is vertically overlapped to the shape passed, both being in the same line of shapes.  <a href="#0961de0db6a0b1de51882024bfc830a1"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="fa6183f99aa6011399783652b341a43b"></a><!-- doxytag: member="Segmenter::inkValue_" ref="fa6183f99aa6011399783652b341a43b" args="" -->
 unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b">inkValue_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gray level value of the pixels that have ink. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7859d050250b9fdf7c96374f80008d6e"></a><!-- doxytag: member="Segmenter::seeds_" ref="7859d050250b9fdf7c96374f80008d6e" args="" -->
-std::deque&lt; <a class="el" href="_pixel_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#7859d050250b9fdf7c96374f80008d6e">seeds_</a></td></tr>
+std::deque&lt; <a class="el" href="_shape_8hpp.html#535e59456e3e633842529cfa8ea103c4">Pixel</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#7859d050250b9fdf7c96374f80008d6e">seeds_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A list with the coordinates of every pixel that has a gray level equal to <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" title="Gray level value of the pixels that have ink.">inkValue_</a>. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="fe4dd18749f268aae2b26a1abff6a607"></a><!-- doxytag: member="Segmenter::visited_" ref="fe4dd18749f268aae2b26a1abff6a607" args="" -->
@@ -135,18 +148,71 @@ std::list&lt; <a class="el" href="class_shape.html">Shape</a> &gt;&nbsp;</td><td
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A list of shapes that represents every character found within the press clip. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2789fd760ed7604765b3b147be454c09"></a><!-- doxytag: member="Segmenter::lineMarkers_" ref="2789fd760ed7604765b3b147be454c09" args="" -->
-std::list&lt; <a class="el" href="_segmenter_8hpp.html#1d71cceafbb01dafa22c8672ecf80328">LineMarker</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#2789fd760ed7604765b3b147be454c09">lineMarkers_</a></td></tr>
+std::list&lt; <a class="el" href="class_segmenter.html#ae134abed2f1d55197820f4027d10999">LineMarker</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#2789fd760ed7604765b3b147be454c09">lineMarkers_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A list of integer pairs that defines the limits of every line of characters in a press clip. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="13c768c0dfa734bb6ca0c548511bc7bb"></a><!-- doxytag: member="Segmenter::thresholdingTime_" ref="13c768c0dfa734bb6ca0c548511bc7bb" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb">thresholdingTime_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1b02328044551876a7b878fc1549bc70"></a><!-- doxytag: member="Segmenter::thresholdingTime_" ref="1b02328044551876a7b878fc1549bc70" args="" -->
+float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#1b02328044551876a7b878fc1549bc70">thresholdingTime_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the thresholding algorithm. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ebe750333b882a982362ac18114ce915"></a><!-- doxytag: member="Segmenter::shapesFindingTime_" ref="ebe750333b882a982362ac18114ce915" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#ebe750333b882a982362ac18114ce915">shapesFindingTime_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e0ade77ddbdc2f6c5eaa1efe372c5a7b"></a><!-- doxytag: member="Segmenter::shapesFindingTime_" ref="e0ade77ddbdc2f6c5eaa1efe372c5a7b" args="" -->
+float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b">shapesFindingTime_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the shapes finding algorithm. <br></td></tr>
 </table>
+<hr><h2>Member Typedef Documentation</h2>
+<a class="anchor" name="ae134abed2f1d55197820f4027d10999"></a><!-- doxytag: member="Segmenter::LineMarker" ref="ae134abed2f1d55197820f4027d10999" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_segmenter.html#ae134abed2f1d55197820f4027d10999">Segmenter::LineMarker</a><code> [private]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+This pair keeps the rows of a press clip that delimits a single line of shapes. The first member representes the row of pixels at the top of the line, while the second member represents the row of pixels at the bottom of the line.<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b3190459e52101e495e49e936bbb6440"></a><!-- doxytag: member="Segmenter::LineMarkerIterator" ref="b3190459e52101e495e49e936bbb6440" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_segmenter.html#b3190459e52101e495e49e936bbb6440">Segmenter::LineMarkerIterator</a><code> [private]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-31 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1190be7ec081a96ee2ae91e0bb256a0d"></a><!-- doxytag: member="Segmenter::ShapeIterator" ref="1190be7ec081a96ee2ae91e0bb256a0d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">Segmenter::ShapeIterator</a><code> [private]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-30 </dd></dl>
+
+</div>
+</div><p>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="d39ec3bda31be180820aa0bdca7b125d"></a><!-- doxytag: member="Segmenter::Segmenter" ref="d39ec3bda31be180820aa0bdca7b125d" args="()" -->
 <div class="memitem">
@@ -190,7 +256,7 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00158">inkValue_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00167">inkValue_</a>.</p>
 
 </div>
 </div><p>
@@ -215,16 +281,25 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph.png" border="0" usemap="#class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph_map" alt=""></center>
+<map name="class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="209,5,388,32"></map>
+</div>
 
 </div>
 </div><p>
-<a class="anchor" name="52f771c61d667df4f552ee73dc9f22e7"></a><!-- doxytag: member="Segmenter::thresholdingTime" ref="52f771c61d667df4f552ee73dc9f22e7" args="() const " -->
+<a class="anchor" name="9114d0f3934b43478fb55077b7722d3d"></a><!-- doxytag: member="Segmenter::thresholdingTime" ref="9114d0f3934b43478fb55077b7722d3d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; Segmenter::thresholdingTime           </td>
+          <td class="memname">const float &amp; Segmenter::thresholdingTime           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -239,16 +314,25 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00168">thresholdingTime_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00177">thresholdingTime_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph.png" border="0" usemap="#class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph_map" alt=""></center>
+<map name="class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="279,5,457,32"></map>
+</div>
 
 </div>
 </div><p>
-<a class="anchor" name="53761a65661587c45e34988b90401888"></a><!-- doxytag: member="Segmenter::shapesFindingTime" ref="53761a65661587c45e34988b90401888" args="() const " -->
+<a class="anchor" name="8d7304b35b1891b1c7154a3ac2ff2c4b"></a><!-- doxytag: member="Segmenter::shapesFindingTime" ref="8d7304b35b1891b1c7154a3ac2ff2c4b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; Segmenter::shapesFindingTime           </td>
+          <td class="memname">const float &amp; Segmenter::shapesFindingTime           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -263,7 +347,16 @@ double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00170">shapesFindingTime_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00179">shapesFindingTime_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph.png" border="0" usemap="#class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph_map" alt=""></center>
+<map name="class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="289,5,468,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -312,7 +405,25 @@ The <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 This method implements a simple thresholding algorithm that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that is applied to the pixel, so that the ink value is assumed as the very opposite gray level of background reference. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00158">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00168">thresholdingTime_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00167">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00177">thresholdingTime_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_cgraph.png" border="0" usemap="#class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_cgraph_map" alt=""></center>
+<map name="class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_cgraph_map">
+<area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="261,5,360,32"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="265,56,356,83"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_icgraph.png" border="0" usemap="#class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_icgraph_map" alt=""></center>
+<map name="class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="263,5,441,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -346,7 +457,25 @@ The <a class="el" href="class_segmenter.html#41b94ede2829063e0937dc150756e77e" t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21</dd></dl>
 This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down. 
-<p>References <a class="el" href="_segmenter_8cpp-source.html#l00245">findLineMarkers()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00145">findSeeds()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00357">findVerticallyOverlappedShape()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00168">growSeedsIntoInitialShapes()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00333">joinVerticallyOverlappedShapes()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00166">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>, and <a class="el" href="_segmenter_8hpp-source.html#l00170">shapesFindingTime_</a>.</p>
+<p>References <a class="el" href="_segmenter_8cpp-source.html#l00245">findLineMarkers()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00145">findSeeds()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00357">findVerticallyOverlappedShape()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00168">growSeedsIntoInitialShapes()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00333">joinVerticallyOverlappedShapes()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00175">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>, and <a class="el" href="_segmenter_8hpp-source.html#l00179">shapesFindingTime_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_465c8e755bb56d247add080a04377520_cgraph.png" border="0" usemap="#class_segmenter_465c8e755bb56d247add080a04377520_cgraph_map" alt=""></center>
+<map name="class_segmenter_465c8e755bb56d247add080a04377520_cgraph_map">
+<area shape="rect" href="class_segmenter.html#ad8893282742e811dd7fff172ec03c85" title="Finds the pairs of rows that delimit every line of shapes in a press clip." alt="" coords="288,56,499,83"><area shape="rect" href="class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb" title="Find the seeds where the shapes will grow up from." alt="" coords="308,5,479,32"><area shape="rect" href="class_segmenter.html#0961de0db6a0b1de51882024bfc830a1" title="Finds a shape that is vertically overlapped to the shape passed, both being in the..." alt="" coords="237,157,549,184"><area shape="rect" href="class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50" title="Builds a list of shapes founded in a clip by growing seeds into isolated shapes." alt="" coords="248,107,539,133"><area shape="rect" href="class_segmenter.html#a6fc98922155143cf36f542118c33f3a" title="Joins two shapes that are vertically overlapped." alt="" coords="235,208,552,235"><area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="600,56,699,83"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="604,5,695,32"><area shape="rect" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip." alt="" coords="608,107,691,133"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_465c8e755bb56d247add080a04377520_icgraph.png" border="0" usemap="#class_segmenter_465c8e755bb56d247add080a04377520_icgraph_map" alt=""></center>
+<map name="class_segmenter_465c8e755bb56d247add080a04377520_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="236,5,415,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -377,7 +506,25 @@ This method isolates every shape in a press clip by connecting pixels of ink tha
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method are actually all the pixels that do not belong to the background in the clip. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00158">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00160">seeds_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00167">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00169">seeds_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph.png" border="0" usemap="#class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph_map" alt=""></center>
+<map name="class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph_map">
+<area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="227,5,325,32"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="231,56,321,83"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph.png" border="0" usemap="#class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph_map" alt=""></center>
+<map name="class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph_map">
+<area shape="rect" href="class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="228,5,407,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="457,5,636,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -410,7 +557,25 @@ A seed is a pixel that has a gray level equal to the gray level of characters in
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 The initial shapes are a set of shapes that are inconsistent with the real characters in the press clip. That is because a further processing is necessary to join accents to vocals, split shapes that represents two characters joined, etc.<p>
 This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00158">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00160">seeds_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>, <a class="el" href="_clip_8hpp-source.html#l00196">Clip::size()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00162">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00167">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00169">seeds_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>, <a class="el" href="_clip_8hpp-source.html#l00196">Clip::size()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00171">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_72c007e345fad7abbf6e9d4edb615a50_cgraph.png" border="0" usemap="#class_segmenter_72c007e345fad7abbf6e9d4edb615a50_cgraph_map" alt=""></center>
+<map name="class_segmenter_72c007e345fad7abbf6e9d4edb615a50_cgraph_map">
+<area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="347,5,445,32"><area shape="rect" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip." alt="" coords="355,56,437,83"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="351,107,441,133"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_72c007e345fad7abbf6e9d4edb615a50_icgraph.png" border="0" usemap="#class_segmenter_72c007e345fad7abbf6e9d4edb615a50_icgraph_map" alt=""></center>
+<map name="class_segmenter_72c007e345fad7abbf6e9d4edb615a50_icgraph_map">
+<area shape="rect" href="class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="348,5,527,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="577,5,756,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -440,7 +605,25 @@ This method follows a strategy similar to the 'flood fill' algorithm. The main t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before that last blank line is set as the bottom marker of the line. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00166">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00162">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00175">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00171">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph.png" border="0" usemap="#class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph_map" alt=""></center>
+<map name="class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph_map">
+<area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="267,5,365,32"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="271,56,361,83"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph.png" border="0" usemap="#class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph_map" alt=""></center>
+<map name="class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph_map">
+<area shape="rect" href="class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="268,5,447,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="497,5,676,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -451,13 +634,13 @@ Each row is isolated by searching horizontal blank lines between characters. Eve
         <tr>
           <td class="memname">void Segmenter::joinVerticallyOverlappedShapes           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;&nbsp;</td>
+          <td class="paramtype"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>s1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;&nbsp;</td>
+          <td class="paramtype"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>s2</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -482,16 +665,25 @@ The iterator s1 is updated by pointing to the next shape in <a class="el" href="
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-27 </dd></dl>
 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_a6fc98922155143cf36f542118c33f3a_icgraph.png" border="0" usemap="#class_segmenter_a6fc98922155143cf36f542118c33f3a_icgraph_map" alt=""></center>
+<map name="class_segmenter_a6fc98922155143cf36f542118c33f3a_icgraph_map">
+<area shape="rect" href="class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="372,5,551,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="601,5,780,32"></map>
+</div>
 
 </div>
 </div><p>
-<a class="anchor" name="dc1e127fcaa1084a990648b7f4ec1461"></a><!-- doxytag: member="Segmenter::findVerticallyOverlappedShape" ref="dc1e127fcaa1084a990648b7f4ec1461" args="(const unsigned int &amp;lineTop, const unsigned int &amp;lineBottom, const ShapeIterator &amp;shape)" -->
+<a class="anchor" name="0961de0db6a0b1de51882024bfc830a1"></a><!-- doxytag: member="Segmenter::findVerticallyOverlappedShape" ref="0961de0db6a0b1de51882024bfc830a1" args="(const unsigned int &amp;lineTop, const unsigned int &amp;lineBottom, const ShapeIterator &amp;shape)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> Segmenter::findVerticallyOverlappedShape           </td>
+          <td class="memname"><a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">Segmenter::ShapeIterator</a> Segmenter::findVerticallyOverlappedShape           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>lineTop</em>, </td>
@@ -505,7 +697,7 @@ The iterator s1 is updated by pointing to the next shape in <a class="el" href="
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_segmenter_8hpp.html#214be30884388589f55c966fafe805a7">ShapeIterator</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_segmenter.html#1190be7ec081a96ee2ae91e0bb256a0d">ShapeIterator</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>shape</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -530,12 +722,21 @@ The iterator s1 is updated by pointing to the next shape in <a class="el" href="
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-30</dd></dl>
 The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that are too small. 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00164">shapes_</a>.</p>
+<p>References <a class="el" href="_segmenter_8hpp-source.html#l00173">shapes_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph.png" border="0" usemap="#class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph_map" alt=""></center>
+<map name="class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph_map">
+<area shape="rect" href="class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="367,5,545,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="596,5,775,32"></map>
+</div>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 16:41:34 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

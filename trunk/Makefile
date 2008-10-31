@@ -28,9 +28,6 @@ MAIN_SRC=$(SRC)main.cpp
 NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
 NESSIE_EXCEPTION_INC=$(INC)NessieException.hpp
 
-# Source files of 'Pixel' pair
-PIXEL_INC=$(INC)Pixel.hpp
-
 # Source files of 'Statistics' struct
 STATISTICS_SRC=$(SRC)Statistics.cpp
 STATISTICS_INC=$(INC)Statistics.hpp
@@ -79,7 +76,6 @@ RECOGNIZER_OBJ=$(SRC)Recognizer.o
 # Dependencies
 MAIN=$(MAIN_SRC)
 NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
-PIXEL=$(PIXEL_INC)
 STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
 TEXT=$(TEXT_INC) $(TEXT_SRC)
 CLIP=$(CLIP_INC) $(CLIP_SRC)
@@ -221,7 +217,7 @@ endif
 	@printf "$(NL)"
 
 
-$(SEGMENTER_OBJ): $(PIXEL) $(CLIP_OBJ) $(SHAPE_OBJ) $(SEGMENTER)
+$(SEGMENTER_OBJ): $(CLIP_OBJ) $(SHAPE_OBJ) $(SEGMENTER)
 	@printf "** Making rule $(SEGMENTER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -234,7 +230,7 @@ endif
 	@printf "$(NL)"
 
 
-$(SHAPE_OBJ): $(PIXEL) $(SHAPE)
+$(SHAPE_OBJ): $(SHAPE)
 	@printf "** Making rule $(SHAPE_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)

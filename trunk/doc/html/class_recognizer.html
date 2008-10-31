@@ -75,7 +75,7 @@ Collaboration diagram for Recognizer:</div>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This class encapsulates all the stages related to the optical character recognition process of every clip within a newspaper's page. For each image provided (via constructors) representing the page, you can obtain its text and a number of statistics regarding the recognition process performance.<p>
 At the moment, this class manages the press clips within an image loaded with the Magick++ utilities. The newspaper pages should be an image that comes in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format. The idea behind this class is to encapsulate all the interactions with Magick++, so that the rest of the classes have an unified way to work.<p>
-In future modifications any library may be added to load the images. A developer should overload a <a class="el" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure...">loadImage()</a> method, modify the constructor <a class="el" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer(const std::string &amp;path)</a> or add a new constructor with specific parameters, and overload a <a class="el" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image.">writeExternalImage()</a> method.<p>
+In future modifications any library may be added to load the images. A developer should overload a <a class="el" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure...">loadImage()</a> method, modify the constructor <a class="el" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor.">Recognizer(const std::string&amp; path)</a> or add a new constructor with specific parameters, and overload a <a class="el" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image.">writeExternalImage()</a> method.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a>, <a class="el" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>, <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10 </dd></dl>
@@ -167,7 +167,16 @@ std::vector&lt; <a class="el" href="class_statistics.html">Statistics</a> &gt;&n
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 Creates a new <a class="el" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a> object loading the image from disk. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, <a class="el" href="_recognizer_8cpp-source.html#l00260">loadImage()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, <a class="el" href="_recognizer_8cpp-source.html#l00254">loadImage()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_50ffc181208bb07ae651aba6249ee7e4_cgraph.png" border="0" usemap="#class_recognizer_50ffc181208bb07ae651aba6249ee7e4_cgraph_map" alt=""></center>
+<map name="class_recognizer_50ffc181208bb07ae651aba6249ee7e4_cgraph_map">
+<area shape="rect" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure..." alt="" coords="237,5,413,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -197,7 +206,16 @@ Creates a new <a class="el" href="class_recognizer.html" title="Manager of the w
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 Creates a new <a class="el" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a> object from an image loaded externally with methods from Magick++ API. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, <a class="el" href="_recognizer_8cpp-source.html#l00260">loadImage()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, <a class="el" href="_recognizer_8cpp-source.html#l00254">loadImage()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640_cgraph.png" border="0" usemap="#class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640_cgraph_map" alt=""></center>
+<map name="class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640_cgraph_map">
+<area shape="rect" href="class_recognizer.html#acc4244738f2577a0c344c3b3af22eb0" title="Loads an Image object created with the Magick++ API into the internal data structure..." alt="" coords="237,5,413,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -221,7 +239,16 @@ Creates a new <a class="el" href="class_recognizer.html" title="Manager of the w
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-09</dd></dl>
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph.png" border="0" usemap="#class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph_map" alt=""></center>
+<map name="class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph_map">
+<area shape="rect" href="main_8cpp.html#bf9e6b7e6f15df4b525a2e7705ba3089" title="main" alt="" coords="299,5,352,32"><area shape="rect" href="class_recognizer.html#4b3b27b3746edcf831d142eddfb81f19" title="Recognizes the text within multiple press clips whose coordinates are passed." alt="" coords="236,56,415,83"></map>
+</div>
 
 </div>
 </div><p>
@@ -248,9 +275,18 @@ It is assumed that the image is a clip itself we can obtain the text processing 
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
-Each set of points provides us a clip that can be located within the page. 
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
 <p>References <a class="el" href="_recognizer_8cpp-source.html#l00062">obtainText()</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_4b3b27b3746edcf831d142eddfb81f19_cgraph.png" border="0" usemap="#class_recognizer_4b3b27b3746edcf831d142eddfb81f19_cgraph_map" alt=""></center>
+<map name="class_recognizer_4b3b27b3746edcf831d142eddfb81f19_cgraph_map">
+<area shape="rect" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once." alt="" coords="236,5,415,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -303,7 +339,7 @@ Each set of points provides us a clip that can be located within the page.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text()</a> and <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba" title="Returns the statistical data regarding the recognition process of every loaded clip...">statistics()</a> with no parameters at all. 
-<p>References <a class="el" href="_segmenter_8cpp-source.html#l00034">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00196">Preprocessor::backgroundReferenceGrayLevel()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00214">Preprocessor::backgroundReferenceGrayLevelFindingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00243">Statistics::backgroundReferenceGrayLevelFindingTime()</a>, <a class="el" href="_shape_8hpp-source.html#l00322">Shape::bottomPixel()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00036">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00096">Preprocessor::findBackgroundReferenceGrayLevel()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00081">Segmenter::findShapes()</a>, <a class="el" href="_shape_8hpp-source.html#l00292">Shape::height()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, <a class="el" href="_shape_8hpp-source.html#l00304">Shape::leftPixel()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00202">Preprocessor::noiseRemovalTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00255">Statistics::noiseRemovalTime()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00184">Preprocessor::optimalThreshold()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00208">Preprocessor::optimalThresholdComputingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00249">Statistics::optimalThresholdComputingTime()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00172">Preprocessor::removeIsolatedNoise()</a>, <a class="el" href="_shape_8hpp-source.html#l00310">Shape::rightPixel()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00261">Segmenter::shapes()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00273">Segmenter::shapesFindingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00273">Statistics::shapesFindingTime()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00196">statistics_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00267">Segmenter::thresholdingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00267">Statistics::thresholdingTime()</a>, <a class="el" href="_shape_8hpp-source.html#l00316">Shape::topPixel()</a>, <a class="el" href="_recognizer_8cpp-source.html#l00295">updateImage()</a>, <a class="el" href="_shape_8hpp-source.html#l00286">Shape::width()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_segmenter_8cpp-source.html#l00034">Segmenter::applyThreshold()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00196">Preprocessor::backgroundReferenceGrayLevel()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00214">Preprocessor::backgroundReferenceGrayLevelFindingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00244">Statistics::backgroundReferenceGrayLevelFindingTime()</a>, <a class="el" href="_shape_8hpp-source.html#l00338">Shape::bottomPixel()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00033">Preprocessor::computeOptimalThreshold()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00093">Preprocessor::findBackgroundReferenceGrayLevel()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00081">Segmenter::findShapes()</a>, <a class="el" href="_shape_8hpp-source.html#l00308">Shape::height()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, <a class="el" href="_shape_8hpp-source.html#l00320">Shape::leftPixel()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00202">Preprocessor::noiseRemovalTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00256">Statistics::noiseRemovalTime()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00184">Preprocessor::optimalThreshold()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00208">Preprocessor::optimalThresholdComputingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00250">Statistics::optimalThresholdComputingTime()</a>, <a class="el" href="_preprocessor_8cpp-source.html#l00169">Preprocessor::removeIsolatedNoise()</a>, <a class="el" href="_shape_8hpp-source.html#l00326">Shape::rightPixel()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00270">Segmenter::shapes()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00282">Segmenter::shapesFindingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00274">Statistics::shapesFindingTime()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00184">statistics_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00276">Segmenter::thresholdingTime()</a>, <a class="el" href="_statistics_8hpp-source.html#l00268">Statistics::thresholdingTime()</a>, <a class="el" href="_shape_8hpp-source.html#l00332">Shape::topPixel()</a>, <a class="el" href="_recognizer_8cpp-source.html#l00289">updateImage()</a>, <a class="el" href="_shape_8hpp-source.html#l00302">Shape::width()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
 
 </div>
 </div><p>
@@ -333,7 +369,7 @@ If the clip falls outside the image an exception is thrown unless it can be trun
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00191">texts_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00182">texts_</a>.</p>
 
 </div>
 </div><p>
@@ -358,7 +394,7 @@ If the clip falls outside the image an exception is thrown unless it can be trun
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00191">texts_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00182">texts_</a>.</p>
 
 </div>
 </div><p>
@@ -389,7 +425,16 @@ If the clip falls outside the image an exception is thrown unless it can be trun
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00196">statistics_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00184">statistics_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_b941b1ad42c3bacb3c829acf7fc689de_icgraph.png" border="0" usemap="#class_recognizer_b941b1ad42c3bacb3c829acf7fc689de_icgraph_map" alt=""></center>
+<map name="class_recognizer_b941b1ad42c3bacb3c829acf7fc689de_icgraph_map">
+<area shape="rect" href="main_8cpp.html#bf9e6b7e6f15df4b525a2e7705ba3089" title="main" alt="" coords="219,5,272,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -414,7 +459,7 @@ If the clip falls outside the image an exception is thrown unless it can be trun
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00196">statistics_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00184">statistics_</a>.</p>
 
 </div>
 </div><p>
@@ -440,12 +485,22 @@ If the clip falls outside the image an exception is thrown unless it can be trun
     <tr><td valign="top"></td><td valign="top"><em>externalImage</em>&nbsp;</td><td>The destination Image object from the Magick++ API previously created</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The external image is converted to a grayscale colorspace and its pixels are overwritten according to the information of the internal image. <p>
+If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed.</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/Image.html">Image</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
-If either the source or the target are bigger or smaller than its counterpart, only the pixels whose coordinates match are changed. 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10 </dd></dl>
+
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_559f62a3e3e2d0b799bab38e975b4b67_icgraph.png" border="0" usemap="#class_recognizer_559f62a3e3e2d0b799bab38e975b4b67_icgraph_map" alt=""></center>
+<map name="class_recognizer_559f62a3e3e2d0b799bab38e975b4b67_icgraph_map">
+<area shape="rect" href="main_8cpp.html#bf9e6b7e6f15df4b525a2e7705ba3089" title="main" alt="" coords="296,5,349,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -476,7 +531,16 @@ If either the source or the target are bigger or smaller than its counterpart, o
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-10</dd></dl>
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
-<p>References <a class="el" href="_recognizer_8hpp-source.html#l00181">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_recognizer_8hpp-source.html#l00178">height_</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_acc4244738f2577a0c344c3b3af22eb0_icgraph.png" border="0" usemap="#class_recognizer_acc4244738f2577a0c344c3b3af22eb0_icgraph_map" alt=""></center>
+<map name="class_recognizer_acc4244738f2577a0c344c3b3af22eb0_icgraph_map">
+<area shape="rect" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4" title="Constructor." alt="" coords="229,5,413,32"></map>
+</div>
 
 </div>
 </div><p>
@@ -506,12 +570,30 @@ The image is automatically converted into a grayscale colorspace according with 
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Since the only way of passing a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object to this method is invoking <a class="el" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">Recognizer::obtainText()</a>, and the dimensions are controlled inside that method, here it is assumed that all the coordinates are valid. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00178">Clip::column()</a>, <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, <a class="el" href="_clip_8hpp-source.html#l00172">Clip::row()</a>, <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00186">width_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00178">Clip::column()</a>, <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_recognizer_8hpp-source.html#l00176">image_</a>, <a class="el" href="_clip_8hpp-source.html#l00172">Clip::row()</a>, <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>, and <a class="el" href="_recognizer_8hpp-source.html#l00180">width_</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_cgraph.png" border="0" usemap="#class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_cgraph_map" alt=""></center>
+<map name="class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_cgraph_map">
+<area shape="rect" href="class_clip.html#06a34378fa0f23425d10bb04e9972a26" title="Returns the column in the underlying image where the upper leftmost pixel of the..." alt="" coords="251,5,355,32"><area shape="rect" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="253,56,352,83"><area shape="rect" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8" title="Returns the row in the underlying image where the upper leftmost pixel of the clip..." alt="" coords="263,107,343,133"><area shape="rect" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="257,157,348,184"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_icgraph.png" border="0" usemap="#class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_icgraph_map" alt=""></center>
+<map name="class_recognizer_0779d8bb035f7d51cb26fdc3d410e019_icgraph_map">
+<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="252,5,431,32"></map>
+</div>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 12:11:19 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 16:41:30 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

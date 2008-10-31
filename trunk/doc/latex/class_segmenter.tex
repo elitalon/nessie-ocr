@@ -17,7 +17,7 @@ Collaboration diagram for Segmenter:\nopagebreak
 This class encapsulates all the methods related to segmentation stage of the OCR process. Its task is to isolate every shape in a clip that represents a character, storing them in a data structure for further classification.
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}, \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}, \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -31,14 +31,23 @@ const unsigned char \& \hyperlink{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9f
 \begin{CompactList}\small\item\em Returns the gray level that represents the ink used in characters. \item\end{CompactList}\item 
 const std::list$<$ \hyperlink{class_shape}{Shape} $>$ \& \hyperlink{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}{shapes} () const 
 \begin{CompactList}\small\item\em Returns the shapes found in the last segmentation process. \item\end{CompactList}\item 
-const double \& \hyperlink{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{thresholdingTime} () const 
+const float \& \hyperlink{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{thresholdingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the thresholding algorithm. \item\end{CompactList}\item 
-const double \& \hyperlink{class_segmenter_53761a65661587c45e34988b90401888}{shapesFindingTime} () const 
+const float \& \hyperlink{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{shapesFindingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while finding the shapes. \item\end{CompactList}\item 
 void \hyperlink{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{applyThreshold} (\hyperlink{class_clip}{Clip} \&clip, const unsigned char \&threshold, const unsigned char \&backgroundReference)
 \begin{CompactList}\small\item\em Applies a thresholding algorithm. \item\end{CompactList}\item 
 void \hyperlink{class_segmenter_465c8e755bb56d247add080a04377520}{findShapes} (const \hyperlink{class_clip}{Clip} \&clip)
 \begin{CompactList}\small\item\em Finds a list of isolated shapes in the press clip by joining connected pixels. \item\end{CompactList}\end{CompactItemize}
+\subsubsection*{Private Types}
+\begin{CompactItemize}
+\item 
+typedef std::pair$<$ unsigned int, unsigned int $>$ \hyperlink{class_segmenter_ae134abed2f1d55197820f4027d10999}{LineMarker}
+\begin{CompactList}\small\item\em Limits of a line of shapes. \item\end{CompactList}\item 
+typedef std::list$<$ \hyperlink{class_segmenter_ae134abed2f1d55197820f4027d10999}{LineMarker} $>$::iterator \hyperlink{class_segmenter_b3190459e52101e495e49e936bbb6440}{LineMarkerIterator}
+\begin{CompactList}\small\item\em An iterator to a list of LineMarker objects. \item\end{CompactList}\item 
+typedef std::list$<$ \hyperlink{class_shape}{Shape} $>$::iterator \hyperlink{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{ShapeIterator}
+\begin{CompactList}\small\item\em An iterator to a list of \hyperlink{class_shape}{Shape} objects. \item\end{CompactList}\end{CompactItemize}
 \subsubsection*{Private Member Functions}
 \begin{CompactItemize}
 \item 
@@ -48,9 +57,9 @@ void \hyperlink{class_segmenter_72c007e345fad7abbf6e9d4edb615a50}{growSeedsIntoI
 \begin{CompactList}\small\item\em Builds a list of shapes founded in a clip by growing seeds into isolated shapes. \item\end{CompactList}\item 
 void \hyperlink{class_segmenter_ad8893282742e811dd7fff172ec03c85}{findLineMarkers} (const \hyperlink{class_clip}{Clip} \&clip)
 \begin{CompactList}\small\item\em Finds the pairs of rows that delimit every line of shapes in a press clip. \item\end{CompactList}\item 
-void \hyperlink{class_segmenter_a6fc98922155143cf36f542118c33f3a}{joinVerticallyOverlappedShapes} (\hyperlink{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{ShapeIterator} \&s1, \hyperlink{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{ShapeIterator} \&s2)
+void \hyperlink{class_segmenter_a6fc98922155143cf36f542118c33f3a}{joinVerticallyOverlappedShapes} (\hyperlink{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{ShapeIterator} \&s1, \hyperlink{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{ShapeIterator} \&s2)
 \begin{CompactList}\small\item\em Joins two shapes that are vertically overlapped. \item\end{CompactList}\item 
-\hyperlink{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{ShapeIterator} \hyperlink{class_segmenter_dc1e127fcaa1084a990648b7f4ec1461}{findVerticallyOverlappedShape} (const unsigned int \&lineTop, const unsigned int \&lineBottom, const \hyperlink{_segmenter_8hpp_214be30884388589f55c966fafe805a7}{ShapeIterator} \&shape)
+\hyperlink{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{ShapeIterator} \hyperlink{class_segmenter_0961de0db6a0b1de51882024bfc830a1}{findVerticallyOverlappedShape} (const unsigned int \&lineTop, const unsigned int \&lineBottom, const \hyperlink{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{ShapeIterator} \&shape)
 \begin{CompactList}\small\item\em Finds a shape that is vertically overlapped to the shape passed, both being in the same line of shapes. \item\end{CompactList}\end{CompactItemize}
 \subsubsection*{Private Attributes}
 \begin{CompactItemize}
@@ -61,7 +70,7 @@ unsigned char \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkVa
 
 \begin{CompactList}\small\item\em Gray level value of the pixels that have ink. \item\end{CompactList}\item 
 \hypertarget{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{
-std::deque$<$ \hyperlink{_pixel_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-}}
+std::deque$<$ \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} $>$ \hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-}}
 \label{class_segmenter_7859d050250b9fdf7c96374f80008d6e}
 
 \begin{CompactList}\small\item\em A list with the coordinates of every pixel that has a gray level equal to \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}. \item\end{CompactList}\item 
@@ -76,20 +85,58 @@ std::list$<$ \hyperlink{class_shape}{Shape} $>$ \hyperlink{class_segmenter_41b94
 
 \begin{CompactList}\small\item\em A list of shapes that represents every character found within the press clip. \item\end{CompactList}\item 
 \hypertarget{class_segmenter_2789fd760ed7604765b3b147be454c09}{
-std::list$<$ \hyperlink{_segmenter_8hpp_1d71cceafbb01dafa22c8672ecf80328}{LineMarker} $>$ \hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-}}
+std::list$<$ \hyperlink{class_segmenter_ae134abed2f1d55197820f4027d10999}{LineMarker} $>$ \hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-}}
 \label{class_segmenter_2789fd760ed7604765b3b147be454c09}
 
 \begin{CompactList}\small\item\em A list of integer pairs that defines the limits of every line of characters in a press clip. \item\end{CompactList}\item 
-\hypertarget{class_segmenter_13c768c0dfa734bb6ca0c548511bc7bb}{
-double \hyperlink{class_segmenter_13c768c0dfa734bb6ca0c548511bc7bb}{thresholdingTime\_\-}}
-\label{class_segmenter_13c768c0dfa734bb6ca0c548511bc7bb}
+\hypertarget{class_segmenter_1b02328044551876a7b878fc1549bc70}{
+float \hyperlink{class_segmenter_1b02328044551876a7b878fc1549bc70}{thresholdingTime\_\-}}
+\label{class_segmenter_1b02328044551876a7b878fc1549bc70}
 
 \begin{CompactList}\small\item\em Elapsed time while applying the thresholding algorithm. \item\end{CompactList}\item 
-\hypertarget{class_segmenter_ebe750333b882a982362ac18114ce915}{
-double \hyperlink{class_segmenter_ebe750333b882a982362ac18114ce915}{shapesFindingTime\_\-}}
-\label{class_segmenter_ebe750333b882a982362ac18114ce915}
+\hypertarget{class_segmenter_e0ade77ddbdc2f6c5eaa1efe372c5a7b}{
+float \hyperlink{class_segmenter_e0ade77ddbdc2f6c5eaa1efe372c5a7b}{shapesFindingTime\_\-}}
+\label{class_segmenter_e0ade77ddbdc2f6c5eaa1efe372c5a7b}
 
 \begin{CompactList}\small\item\em Elapsed time while applying the shapes finding algorithm. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsubsection{Member Typedef Documentation}
+\hypertarget{class_segmenter_ae134abed2f1d55197820f4027d10999}{
+\index{Segmenter@{Segmenter}!LineMarker@{LineMarker}}
+\index{LineMarker@{LineMarker}!Segmenter@{Segmenter}}
+\paragraph[LineMarker]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarker}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_ae134abed2f1d55197820f4027d10999}
+
+
+This pair keeps the rows of a press clip that delimits a single line of shapes. The first member representes the row of pixels at the top of the line, while the second member represents the row of pixels at the bottom of the line.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-24 \end{Desc}
+\hypertarget{class_segmenter_b3190459e52101e495e49e936bbb6440}{
+\index{Segmenter@{Segmenter}!LineMarkerIterator@{LineMarkerIterator}}
+\index{LineMarkerIterator@{LineMarkerIterator}!Segmenter@{Segmenter}}
+\paragraph[LineMarkerIterator]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarkerIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_b3190459e52101e495e49e936bbb6440}
+
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-31 \end{Desc}
+\hypertarget{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{
+\index{Segmenter@{Segmenter}!ShapeIterator@{ShapeIterator}}
+\index{ShapeIterator@{ShapeIterator}!Segmenter@{Segmenter}}
+\paragraph[ShapeIterator]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}
+
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-30 \end{Desc}
 
 
 \subsubsection{Constructor \& Destructor Documentation}
@@ -139,11 +186,20 @@ References inkValue\_\-.\hypertarget{class_segmenter_7ddded12f26e94e6f5cba2752d2
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References shapes\_\-.\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}{
+References shapes\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{
 \index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
 \index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
-\paragraph[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Segmenter::thresholdingTime () const}\hfill}
-\label{class_segmenter_52f771c61d667df4f552ee73dc9f22e7}
+\paragraph[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::thresholdingTime () const}\hfill}
+\label{class_segmenter_9114d0f3934b43478fb55077b7722d3d}
 
 
 \begin{Desc}
@@ -154,11 +210,20 @@ References shapes\_\-.\hypertarget{class_segmenter_52f771c61d667df4f552ee73dc9f2
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References thresholdingTime\_\-.\hypertarget{class_segmenter_53761a65661587c45e34988b90401888}{
+References thresholdingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{
 \index{Segmenter@{Segmenter}!shapesFindingTime@{shapesFindingTime}}
 \index{shapesFindingTime@{shapesFindingTime}!Segmenter@{Segmenter}}
-\paragraph[shapesFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const double \& Segmenter::shapesFindingTime () const}\hfill}
-\label{class_segmenter_53761a65661587c45e34988b90401888}
+\paragraph[shapesFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::shapesFindingTime () const}\hfill}
+\label{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}
 
 
 \begin{Desc}
@@ -169,7 +234,16 @@ References thresholdingTime\_\-.\hypertarget{class_segmenter_53761a65661587c45e3
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References shapesFindingTime\_\-.\hypertarget{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{
+References shapesFindingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{
 \index{Segmenter@{Segmenter}!applyThreshold@{applyThreshold}}
 \index{applyThreshold@{applyThreshold}!Segmenter@{Segmenter}}
 \paragraph[applyThreshold]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::applyThreshold ({\bf Clip} \& {\em clip}, \/  const unsigned char \& {\em threshold}, \/  const unsigned char \& {\em backgroundReference})}\hfill}
@@ -193,7 +267,25 @@ The \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-} m
 \item[Date:]2008-10-13\end{Desc}
 This method implements a simple thresholding algorithm that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that is applied to the pixel, so that the ink value is assumed as the very opposite gray level of background reference. 
 
-References Clip::height(), inkValue\_\-, thresholdingTime\_\-, and Clip::width().\hypertarget{class_segmenter_465c8e755bb56d247add080a04377520}{
+References Clip::height(), inkValue\_\-, thresholdingTime\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_465c8e755bb56d247add080a04377520}{
 \index{Segmenter@{Segmenter}!findShapes@{findShapes}}
 \index{findShapes@{findShapes}!Segmenter@{Segmenter}}
 \paragraph[findShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findShapes (const {\bf Clip} \& {\em clip})}\hfill}
@@ -221,7 +313,25 @@ The \hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} mem
 \item[Date:]2008-10-21\end{Desc}
 This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down. 
 
-References findLineMarkers(), findSeeds(), findVerticallyOverlappedShape(), growSeedsIntoInitialShapes(), joinVerticallyOverlappedShapes(), lineMarkers\_\-, shapes\_\-, and shapesFindingTime\_\-.\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
+References findLineMarkers(), findSeeds(), findVerticallyOverlappedShape(), growSeedsIntoInitialShapes(), joinVerticallyOverlappedShapes(), lineMarkers\_\-, shapes\_\-, and shapesFindingTime\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_segmenter_465c8e755bb56d247add080a04377520_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_segmenter_465c8e755bb56d247add080a04377520_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
 \index{Segmenter@{Segmenter}!findSeeds@{findSeeds}}
 \index{findSeeds@{findSeeds}!Segmenter@{Segmenter}}
 \paragraph[findSeeds]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSeeds (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -243,7 +353,25 @@ References findLineMarkers(), findSeeds(), findVerticallyOverlappedShape(), grow
 \item[Date:]2008-10-24\end{Desc}
 A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method are actually all the pixels that do not belong to the background in the clip. 
 
-References Clip::height(), inkValue\_\-, seeds\_\-, and Clip::width().\hypertarget{class_segmenter_72c007e345fad7abbf6e9d4edb615a50}{
+References Clip::height(), inkValue\_\-, seeds\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_72c007e345fad7abbf6e9d4edb615a50}{
 \index{Segmenter@{Segmenter}!growSeedsIntoInitialShapes@{growSeedsIntoInitialShapes}}
 \index{growSeedsIntoInitialShapes@{growSeedsIntoInitialShapes}!Segmenter@{Segmenter}}
 \paragraph[growSeedsIntoInitialShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::growSeedsIntoInitialShapes (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -269,7 +397,25 @@ The initial shapes are a set of shapes that are inconsistent with the real chara
 
 This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
 
-References Clip::height(), inkValue\_\-, seeds\_\-, shapes\_\-, Clip::size(), visited\_\-, and Clip::width().\hypertarget{class_segmenter_ad8893282742e811dd7fff172ec03c85}{
+References Clip::height(), inkValue\_\-, seeds\_\-, shapes\_\-, Clip::size(), visited\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_segmenter_72c007e345fad7abbf6e9d4edb615a50_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_segmenter_72c007e345fad7abbf6e9d4edb615a50_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_ad8893282742e811dd7fff172ec03c85}{
 \index{Segmenter@{Segmenter}!findLineMarkers@{findLineMarkers}}
 \index{findLineMarkers@{findLineMarkers}!Segmenter@{Segmenter}}
 \paragraph[findLineMarkers]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findLineMarkers (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -289,7 +435,25 @@ References Clip::height(), inkValue\_\-, seeds\_\-, shapes\_\-, Clip::size(), vi
 \item[Date:]2008-10-24\end{Desc}
 Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before that last blank line is set as the bottom marker of the line. 
 
-References Clip::height(), lineMarkers\_\-, shapes\_\-, visited\_\-, and Clip::width().\hypertarget{class_segmenter_a6fc98922155143cf36f542118c33f3a}{
+References Clip::height(), lineMarkers\_\-, shapes\_\-, visited\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_a6fc98922155143cf36f542118c33f3a}{
 \index{Segmenter@{Segmenter}!joinVerticallyOverlappedShapes@{joinVerticallyOverlappedShapes}}
 \index{joinVerticallyOverlappedShapes@{joinVerticallyOverlappedShapes}!Segmenter@{Segmenter}}
 \paragraph[joinVerticallyOverlappedShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::joinVerticallyOverlappedShapes ({\bf ShapeIterator} \& {\em s1}, \/  {\bf ShapeIterator} \& {\em s2})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -313,11 +477,20 @@ The iterator s1 is updated by pointing to the next shape in \hyperlink{class_seg
 \item[Date:]2008-10-27 \end{Desc}
 
 
-References shapes\_\-.\hypertarget{class_segmenter_dc1e127fcaa1084a990648b7f4ec1461}{
+References shapes\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{class_segmenter_a6fc98922155143cf36f542118c33f3a_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_0961de0db6a0b1de51882024bfc830a1}{
 \index{Segmenter@{Segmenter}!findVerticallyOverlappedShape@{findVerticallyOverlappedShape}}
 \index{findVerticallyOverlappedShape@{findVerticallyOverlappedShape}!Segmenter@{Segmenter}}
-\paragraph[findVerticallyOverlappedShape]{\setlength{\rightskip}{0pt plus 5cm}{\bf ShapeIterator} Segmenter::findVerticallyOverlappedShape (const unsigned int \& {\em lineTop}, \/  const unsigned int \& {\em lineBottom}, \/  const {\bf ShapeIterator} \& {\em shape})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
-\label{class_segmenter_dc1e127fcaa1084a990648b7f4ec1461}
+\paragraph[findVerticallyOverlappedShape]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator} Segmenter::findVerticallyOverlappedShape (const unsigned int \& {\em lineTop}, \/  const unsigned int \& {\em lineBottom}, \/  const {\bf ShapeIterator} \& {\em shape})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_0961de0db6a0b1de51882024bfc830a1}
 
 
 \begin{Desc}
@@ -336,3 +509,11 @@ References shapes\_\-.\hypertarget{class_segmenter_dc1e127fcaa1084a990648b7f4ec1
 The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that are too small. 
 
 References shapes\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph}
+\end{center}
+\end{figure}

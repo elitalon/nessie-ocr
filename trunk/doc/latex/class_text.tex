@@ -76,8 +76,8 @@ std::map$<$ std::string, unsigned int $>$ \hyperlink{class_text_5f7e6b9d9ba0dbd7
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-04\end{Desc}
-Initializes a \hyperlink{class_text}{Text} object with no content. \hypertarget{class_text_c3c20ee8baeb7b88e2622724f57e50a2}{
+\item[Date:]2008-10-04 \end{Desc}
+\hypertarget{class_text_c3c20ee8baeb7b88e2622724f57e50a2}{
 \index{Text@{Text}!Text@{Text}}
 \index{Text@{Text}!Text@{Text}}
 \paragraph[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (const std::string {\em content})}\hfill}
@@ -92,10 +92,19 @@ Initializes a \hyperlink{class_text}{Text} object with no content. \hypertarget{
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-04\end{Desc}
-Initializes a \hyperlink{class_text}{Text} object initialized with the content passed. 
+\item[Date:]2008-10-04 \end{Desc}
+
 
 References computeWordRates().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_text_c3c20ee8baeb7b88e2622724f57e50a2_cgraph}
+\end{center}
+\end{figure}
+
 
 \subsubsection{Member Function Documentation}
 \hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}{
@@ -118,7 +127,16 @@ References computeWordRates().
 \item[Date:]2008-10-23 \end{Desc}
 
 
-References content().\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
+References content().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_text_c8887fb224e0402448ede4f3b9f7452d_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
 \index{Text@{Text}!content@{content}}
 \index{content@{content}!Text@{Text}}
 \paragraph[content]{\setlength{\rightskip}{0pt plus 5cm}const std::string \& Text::content () const}\hfill}
@@ -133,7 +151,16 @@ References content().\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References content\_\-.\hypertarget{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}{
+References content\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_text_8b6ac381338c5b3f719600b5f9be222c_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}{
 \index{Text@{Text}!wordRates@{wordRates}}
 \index{wordRates@{wordRates}!Text@{Text}}
 \paragraph[wordRates]{\setlength{\rightskip}{0pt plus 5cm}const std::map$<$ std::string, unsigned int $>$ \& Text::wordRates () const}\hfill}
@@ -214,7 +241,16 @@ References content\_\-.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}
 \item[Date:]2008-10-06\end{Desc}
 If the position passed is above the text total length the character is appended to the end of the text. If the position passed is less than 0, the character is inserted at the beginning of the text. 
 
-References computeWordRates(), and content\_\-.\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
+References computeWordRates(), and content\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_text_fdd11ad0c90ca483d4cff3d74a64da9e_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
 \index{Text@{Text}!removeCharacter@{removeCharacter}}
 \index{removeCharacter@{removeCharacter}!Text@{Text}}
 \paragraph[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (const unsigned int \& {\em position})}\hfill}
@@ -232,7 +268,16 @@ References computeWordRates(), and content\_\-.\hypertarget{class_text_e04500eea
 \item[Date:]2008-10-03\end{Desc}
 If the position passed is above the text total length the last character is removed. If the position passed is less than 0 the first character is removed. 
 
-References computeWordRates(), and content\_\-.\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
+References computeWordRates(), and content\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{class_text_e04500eeada2a4a3bb00554b32263c52_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
 \index{computeWordRates@{computeWordRates}!Text@{Text}}
 \paragraph[computeWordRates]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates (const std::string \& {\em delimiters} = {\tt \char`\"{}~,:¡!.;()¿?$\backslash$\char`\"{}'\mbox{[}\mbox{]}\{\}$<$$>$\char`\"{}})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -250,7 +295,25 @@ References computeWordRates(), and content\_\-.\hypertarget{class_text_e954a3562
 \item[Date:]2008-10-23 \end{Desc}
 
 
-References content\_\-, updateWordRate(), and wordRates\_\-.\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
+References content\_\-, updateWordRate(), and wordRates\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_text_e954a35628c72537e2ee5ca6e9609ac1_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{class_text_e954a35628c72537e2ee5ca6e9609ac1_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
 \index{Text@{Text}!updateWordRate@{updateWordRate}}
 \index{updateWordRate@{updateWordRate}!Text@{Text}}
 \paragraph[updateWordRate]{\setlength{\rightskip}{0pt plus 5cm}void Text::updateWordRate (const std::string \& {\em word})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
@@ -273,3 +336,11 @@ References content\_\-, updateWordRate(), and wordRates\_\-.\hypertarget{class_t
 
 
 References wordRates\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{class_text_5ab8f9bfa566de537a167991fe10eff5_icgraph}
+\end{center}
+\end{figure}
