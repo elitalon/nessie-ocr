@@ -18,32 +18,6 @@ class Clip;
 
 
 
-///
-/// @typedef LineMarker
-/// 
-/// @brief Information about the limits of a text line.
-///
-/// @details This pair keeps the rows of a press clip that delimits a single line of characters. The first member representes the row of pixels
-/// at the top of the line, while the second member represents the row of pixels at the bottom of the line.
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-24
-/// 
-typedef std::pair<unsigned int, unsigned int> LineMarker;
-
-
-///
-/// @typedef ShapeIterator
-/// 
-/// @brief An iterator to a list of Shape objects.
-/// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-30
-///
-typedef std::list<Shape>::iterator ShapeIterator;
-
-
-
 
 ///
 /// Segmenter of the OCR process.
@@ -154,6 +128,42 @@ public:
 	
 
 private:
+	
+	///
+	/// @typedef LineMarker
+	/// 
+	/// @brief Limits of a line of shapes.
+	///
+	/// @details This pair keeps the rows of a press clip that delimits a single line of shapes. The first member representes the row of pixels
+	/// at the top of the line, while the second member represents the row of pixels at the bottom of the line.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-24
+	/// 
+	typedef std::pair<unsigned int, unsigned int> LineMarker;
+	
+	
+	///
+	/// @typedef LineMarkerIterator
+	/// 
+	/// @brief An iterator to a list of LineMarker objects.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-31
+	///
+	typedef std::list<LineMarker>::iterator LineMarkerIterator;
+	
+	
+	///
+	/// @typedef ShapeIterator
+	/// 
+	/// @brief An iterator to a list of Shape objects.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-30
+	///
+	typedef std::list<Shape>::iterator ShapeIterator;
+	
 	
 	unsigned char			inkValue_;				///< Gray level value of the pixels that have ink
 

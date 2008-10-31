@@ -98,7 +98,7 @@ void Segmenter::findShapes (const Clip& clip)
 
 
 	// Join accents to their vocals in a line of characters
-	for ( std::list<LineMarker>::iterator i = lineMarkers_.begin(); i not_eq lineMarkers_.end(); ++i )
+	for ( LineMarkerIterator i = lineMarkers_.begin(); i not_eq lineMarkers_.end(); ++i )
 	{
 		unsigned int lineTop	= (*i).first;
 		unsigned int lineBottom	= (*i).second;
@@ -290,8 +290,8 @@ void Segmenter::findLineMarkers (const Clip& clip)
 	
 	
 	// Point iterators to the first two elements
-	std::list<LineMarker>::iterator previousLineMarkerIterator	= lineMarkers_.begin();
-	std::list<LineMarker>::iterator currentLineMarkerIterator	= lineMarkers_.begin();
+	LineMarkerIterator previousLineMarkerIterator	= lineMarkers_.begin();
+	LineMarkerIterator currentLineMarkerIterator	= lineMarkers_.begin();
 	advance( currentLineMarkerIterator, 1 );
 	
 	// Search for lines that are too close to each other, probably because there are characters with accents in a single line
@@ -311,7 +311,7 @@ void Segmenter::findLineMarkers (const Clip& clip)
 			
 			lineMarkers_.insert( previousLineMarkerIterator, LineMarker((*previousLineMarkerIterator).first, (*currentLineMarkerIterator).second) );
 			
-			std::list<LineMarker>::iterator newLineMarkerIterator = previousLineMarkerIterator;
+			LineMarkerIterator newLineMarkerIterator = previousLineMarkerIterator;
 			advance ( newLineMarkerIterator, -1 );
 			
 			// Delete the first line marker
@@ -354,7 +354,7 @@ void Segmenter::joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeIterator
 /// as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that
 /// are too small.
 ///
-ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape)
+Segmenter::ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape)
 {
 	for ( ShapeIterator i = shapes_.begin(); i not_eq shapes_.end(); ++i )
 	{
