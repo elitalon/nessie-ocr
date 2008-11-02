@@ -68,6 +68,17 @@ public:
 	
 	
 	///
+	/// Returns the location of spaces that must be inserted when building a text from a list of shapes
+	/// 
+	/// @return A vector of integers
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-31
+	///
+	const std::deque<unsigned int>& spaces () const;
+	
+	
+	///
 	/// Returns the elapsed time while applying the thresholding algorithm.
 	/// 
 	/// @return The elapsed time in seconds
@@ -112,9 +123,10 @@ public:
 	/// 
 	/// @pre The clip MUST be thresholded by calling applyThreshold() method before.
 	/// 
-	/// @post The #seeds_ member is initialized with the seeds that grew into the shapes.
-	/// @post The #visited_ member is initialized with the positions of the seeds set to true.
-	/// @post The #shapes_ member is initialized with the shapes that represents character within the clip.
+	/// @post #seeds_ contains the seeds that grew into the shapes.
+	/// @post #visited_ contains the positions of the seeds set to true.
+	/// @post #shapes_ contains the shapes that represents character within the clip.
+	/// @post #shapes_ is sorted according with the position of characters in text
 	/// 
 	/// @param clip	The press clip
 	/// 
@@ -124,6 +136,19 @@ public:
 	/// @date 2008-10-21
 	///
 	void findShapes (const Clip& clip);
+	
+	
+	///
+	/// Finds every position in the list of shapes where a blank space must be inserted when building the text.
+	/// 
+	/// @pre #shapes_ must be sorted according with the position of characters in text.
+	/// 
+	/// @post #spaceLocations_ contains indexes to #shapes_.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-31
+	///
+	void findSpaceLocations ();
 	
 
 private:
@@ -164,19 +189,21 @@ private:
 	typedef std::list<Shape>::iterator ShapeIterator;
 	
 	
-	unsigned char			inkValue_;				///< Gray level value of the pixels that have ink
+	unsigned char				inkValue_;				///< Gray level value of the pixels that have ink
 
-	std::deque<Pixel> 		seeds_;					///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
+	std::deque<Pixel> 			seeds_;					///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 	
-	std::deque<bool>		visited_;				///< A list of "visited/non visited" status for the pixels in the press clip
+	std::deque<bool>			visited_;				///< A list of "visited/non visited" status for the pixels in the press clip
 	
-	std::list<Shape>		shapes_;				///< A list of shapes that represents every character found within the press clip
+	std::list<Shape>			shapes_;				///< A list of shapes that represents every character found within the press clip
 	
-	std::list<LineMarker>	lineMarkers_;			///< A list of integer pairs that defines the limits of every line of characters in a press clip
+	std::list<LineMarker>		lineMarkers_;			///< A list of integer pairs that defines the limits of every line of characters in a press clip
+	
+	std::deque<unsigned int>	spaceLocations_;		///< A list of positions in the #shapes_ where a space must be inserted when building the text.
 
-	float					thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
+	float						thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
 	
-	float					shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
+	float						shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
 	
 		
 	///
@@ -215,7 +242,7 @@ private:
 	/// 
 	/// @param clip The press clip
 	/// 
-	/// @post The #lineMarkers_ member contains pairs of numbers that delimits every isolated line of shapes.
+	/// @post #lineMarkers_ contains pairs of numbers that delimits every isolated line of shapes.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-24
@@ -255,7 +282,7 @@ private:
 	/// @date 2008-10-30
 	///
 	ShapeIterator findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape);
-
+	
 };
 
 
@@ -270,6 +297,12 @@ inline const unsigned char& Segmenter::inkValue () const
 inline const std::list<Shape>& Segmenter::shapes() const
 {
 	return shapes_;
+};
+
+
+inline const std::deque<unsigned int>& Segmenter::spaces() const
+{
+	return spaceLocations_;
 };
 
 

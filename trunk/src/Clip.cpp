@@ -14,7 +14,9 @@ Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWi
 	:	row_(row),
 		column_(column),
 		width_(width),
-		height_(height)
+		height_(height),
+		pixels_(0),
+		size_(0)
 {
 	if ( (height == 0) and (width == 0) )
 		throw NessieException ("Clip::Clip() : Constructor has 0 size");
@@ -40,6 +42,24 @@ Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWi
 			advance (rowIterator, 1);
 		}
 	}
+};
+
+
+
+Clip::Clip (const Clip& clip)
+	:	row_(clip.row_),
+		column_(clip.column_),
+		width_(clip.width_),
+		height_(clip.height_),
+		pixels_(0),
+		size_(clip.size_)
+{
+	// Space allocation for the clip
+	this->pixels_ = new unsigned char[clip.size_];
+	
+	// Copy the data from the source clip
+	for ( unsigned int i = 0; i < clip.size_; ++i )
+		this->pixels_[i] = clip.pixels_[i];
 };
 
 

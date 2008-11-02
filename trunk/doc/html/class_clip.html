@@ -80,6 +80,9 @@ This class stores a press clip as a set of pixels from an underlying image that 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#6264e0334483ad8e0631842a18ac5bc9">Clip</a> (const std::vector&lt; unsigned char &gt; &amp;image, const unsigned int &amp;imageWidth, const unsigned int &amp;row, const unsigned int &amp;column, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#6264e0334483ad8e0631842a18ac5bc9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#affe2f754bd92ded1959f4a7f79d1717">Clip</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy constructor.  <a href="#affe2f754bd92ded1959f4a7f79d1717"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa">~Clip</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#88647ed65e3482b5e0533ec98667b0fa"></a><br></td></tr>
@@ -89,6 +92,9 @@ This class stores a press clip as a set of pixels from an underlying image that 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">operator()</a> (const unsigned int &amp;row, const unsigned int &amp;column) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a pixel in the clip.  <a href="#16b24276181affc5086cb4fe83269fb8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#8f5c91715408d74402666ab79b952edd">operator=</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows assignment of one <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object to another.  <a href="#8f5c91715408d74402666ab79b952edd"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8">row</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the row in the underlying image where the upper leftmost pixel of the clip is at.  <a href="#1a1d1fd626d1325f0f2b9184de4c89b8"></a><br></td></tr>
@@ -105,20 +111,20 @@ This class stores a press clip as a set of pixels from an underlying image that 
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels in the clip.  <a href="#eb6b12a1a0570b529d6a09633b991fcd"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0cd08f7e03723520abc92275edb576e2"></a><!-- doxytag: member="Clip::row_" ref="0cd08f7e03723520abc92275edb576e2" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#0cd08f7e03723520abc92275edb576e2">row_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5941d987375ec246785b4688705f44f1"></a><!-- doxytag: member="Clip::row_" ref="5941d987375ec246785b4688705f44f1" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#5941d987375ec246785b4688705f44f1">row_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Row in the underlying image where the upper leftmost pixel of the clip is at. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d9977cd397e167b9185bdeb0fda68120"></a><!-- doxytag: member="Clip::column_" ref="d9977cd397e167b9185bdeb0fda68120" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#d9977cd397e167b9185bdeb0fda68120">column_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="9539a222508d1f6ff514c8aa705fd0c2"></a><!-- doxytag: member="Clip::column_" ref="9539a222508d1f6ff514c8aa705fd0c2" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#9539a222508d1f6ff514c8aa705fd0c2">column_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Column in the underlying image where the upper leftmost pixel of the clip is at. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="f8547b17e2ad42a17e39b25f7951faaa"></a><!-- doxytag: member="Clip::width_" ref="f8547b17e2ad42a17e39b25f7951faaa" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa">width_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ba0048c33d63c40629e568d301f64f59"></a><!-- doxytag: member="Clip::width_" ref="ba0048c33d63c40629e568d301f64f59" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">width_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Width of the clip. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="35dd13977f3e15d04053260154ebf42e"></a><!-- doxytag: member="Clip::height_" ref="35dd13977f3e15d04053260154ebf42e" args="" -->
-const unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#35dd13977f3e15d04053260154ebf42e">height_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="eac813b06cee742c237240d9b7ccc336"></a><!-- doxytag: member="Clip::height_" ref="eac813b06cee742c237240d9b7ccc336" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">height_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Height of the clip. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e8dc6d41fb103eaafa9bc5963ab6d826"></a><!-- doxytag: member="Clip::pixels_" ref="e8dc6d41fb103eaafa9bc5963ab6d826" args="" -->
@@ -194,7 +200,36 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 Initializes a <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object located at coordinates (row,column) in the underlying image, with the height and width passed. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00146">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00148">size_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00172">size_</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="affe2f754bd92ded1959f4a7f79d1717"></a><!-- doxytag: member="Clip::Clip" ref="affe2f754bd92ded1959f4a7f79d1717" args="(const Clip &amp;clip)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Clip::Clip           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The source press clip</td></tr>
+  </table>
+</dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-01 </dd></dl>
+
+<p>References <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00172">size_</a>.</p>
 
 </div>
 </div><p>
@@ -217,7 +252,7 @@ Initializes a <a class="el" href="class_clip.html" title="Press clip where the r
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00146">pixels_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>.</p>
 
 </div>
 </div><p>
@@ -258,7 +293,7 @@ Initializes a <a class="el" href="class_clip.html" title="Press clip where the r
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00144">height_</a>, <a class="el" href="_clip_8hpp-source.html#l00146">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00142">width_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00168">height_</a>, <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00166">width_</a>.</p>
 
 </div>
 </div><p>
@@ -298,7 +333,37 @@ Initializes a <a class="el" href="class_clip.html" title="Press clip where the r
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00144">height_</a>, <a class="el" href="_clip_8hpp-source.html#l00146">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00142">width_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00168">height_</a>, <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>, and <a class="el" href="_clip_8hpp-source.html#l00166">width_</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="8f5c91715408d74402666ab79b952edd"></a><!-- doxytag: member="Clip::operator=" ref="8f5c91715408d74402666ab79b952edd" args="(const Clip &amp;clip)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_clip.html">Clip</a> &amp; Clip::operator=           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The source press clip</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the recently update <a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a> object</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-01 </dd></dl>
+
+<p>References <a class="el" href="_clip_8hpp-source.html#l00164">column_</a>, <a class="el" href="_clip_8hpp-source.html#l00168">height_</a>, <a class="el" href="_clip_8hpp-source.html#l00170">pixels_</a>, <a class="el" href="_clip_8hpp-source.html#l00162">row_</a>, <a class="el" href="_clip_8hpp-source.html#l00172">size_</a>, and <a class="el" href="_clip_8hpp-source.html#l00166">width_</a>.</p>
 
 </div>
 </div><p>
@@ -322,7 +387,7 @@ Initializes a <a class="el" href="class_clip.html" title="Press clip where the r
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00138">row_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00162">row_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -355,7 +420,7 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00140">column_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00164">column_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -388,7 +453,7 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00142">width_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00166">width_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -421,7 +486,7 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00144">height_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00168">height_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -454,7 +519,7 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00148">size_</a>.</p>
+<p>References <a class="el" href="_clip_8hpp-source.html#l00172">size_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -468,7 +533,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 16:41:22 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Nov 2 10:55:43 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

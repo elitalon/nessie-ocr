@@ -127,13 +127,13 @@ Here is a list of all documented struct and union fields with links to the struc
 <li>Clip()
 : <a class="el" href="class_clip.html#6264e0334483ad8e0631842a18ac5bc9">Clip</a>
 <li>ClipLocation()
-: <a class="el" href="class_clip_location.html#fb51ec03e0a8f9b33f4d785550bc6b84">ClipLocation</a>
+: <a class="el" href="class_clip_location.html#b41ff36c161d2d909c6e75474f5f2f31">ClipLocation</a>
 <li>column()
 : <a class="el" href="class_clip.html#06a34378fa0f23425d10bb04e9972a26">Clip</a>
 , <a class="el" href="class_clip_location.html#50409bab2a256787fcc59e5d213d6a58">ClipLocation</a>
 <li>column_
-: <a class="el" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138">ClipLocation</a>
-, <a class="el" href="class_clip.html#d9977cd397e167b9185bdeb0fda68120">Clip</a>
+: <a class="el" href="class_clip.html#9539a222508d1f6ff514c8aa705fd0c2">Clip</a>
+, <a class="el" href="class_clip_location.html#333e41e770e4cc18938b639a9072c138">ClipLocation</a>
 <li>computeOptimalThreshold()
 : <a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634">Preprocessor</a>
 <li>computeWordRates()
@@ -152,6 +152,8 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb">Segmenter</a>
 <li>findShapes()
 : <a class="el" href="class_segmenter.html#465c8e755bb56d247add080a04377520">Segmenter</a>
+<li>findSpaceLocations()
+: <a class="el" href="class_segmenter.html#7f4ab775f61d92c4d051f6ef4685cf6f">Segmenter</a>
 <li>findVerticallyOverlappedShape()
 : <a class="el" href="class_segmenter.html#0961de0db6a0b1de51882024bfc830a1">Segmenter</a>
 </ul>
@@ -166,7 +168,7 @@ Here is a list of all documented struct and union fields with links to the struc
 , <a class="el" href="class_shape.html#8400155046b2190bce621f8f366ef2be">Shape</a>
 , <a class="el" href="class_clip_location.html#f0e979e989c1cecbca6fe2da92b383f7">ClipLocation</a>
 <li>height_
-: <a class="el" href="class_clip.html#35dd13977f3e15d04053260154ebf42e">Clip</a>
+: <a class="el" href="class_clip.html#eac813b06cee742c237240d9b7ccc336">Clip</a>
 , <a class="el" href="class_shape.html#76354eeb3b4c5c6c9125f4195c3c274c">Shape</a>
 , <a class="el" href="class_clip_location.html#bf304a78eade46f1b5c6cfcf42e15643">ClipLocation</a>
 , <a class="el" href="class_recognizer.html#c9da570bfac5adee1dcd253fc76ab747">Recognizer</a>
@@ -221,13 +223,15 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_statistics.html#529bed34d909d88440214d6983779043">Statistics</a>
 <li>operator&lt;()
 : <a class="el" href="class_shape.html#183a6bc428172ced8122ffb68d0f04ef">Shape</a>
+<li>operator=()
+: <a class="el" href="class_clip.html#8f5c91715408d74402666ab79b952edd">Clip</a>
 <li>optimalThreshold()
-: <a class="el" href="class_preprocessor.html#a44dff024a5b29752780bd4aa0d53d81">Preprocessor</a>
+: <a class="el" href="class_preprocessor.html#1fc44d7d19944f3c3addd3a576c37414">Preprocessor</a>
 <li>optimalThreshold_
 : <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe">Preprocessor</a>
 <li>optimalThresholdComputingTime()
-: <a class="el" href="class_preprocessor.html#72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e">Preprocessor</a>
-, <a class="el" href="class_statistics.html#90380f820c043813aafb85c1dc9a6393">Statistics</a>
+: <a class="el" href="class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d">Statistics</a>
+, <a class="el" href="class_preprocessor.html#72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e">Preprocessor</a>
 <li>optimalThresholdComputingTime_
 : <a class="el" href="class_statistics.html#62f53a6e46b95f69399aeacd9633cede">Statistics</a>
 , <a class="el" href="class_preprocessor.html#d52352691de7d8f0738b67e93a5898fc">Preprocessor</a>
@@ -260,7 +264,7 @@ Here is a list of all documented struct and union fields with links to the struc
 , <a class="el" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8">Clip</a>
 <li>row_
 : <a class="el" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39">ClipLocation</a>
-, <a class="el" href="class_clip.html#0cd08f7e03723520abc92275edb576e2">Clip</a>
+, <a class="el" href="class_clip.html#5941d987375ec246785b4688705f44f1">Clip</a>
 </ul>
 <h3><a class="anchor" name="index_s">- s -</a></h3><ul>
 <li>seeds_
@@ -286,12 +290,16 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b">Segmenter</a>
 , <a class="el" href="class_statistics.html#182c5f187a09c799cf37338b73ae37cd">Statistics</a>
 <li>size()
-: <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">Text</a>
-, <a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">Shape</a>
+: <a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">Shape</a>
+, <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">Text</a>
 , <a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">Clip</a>
 <li>size_
-: <a class="el" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283">Shape</a>
-, <a class="el" href="class_clip.html#b88daf5fdd2b57dec8335ff8fd4a6d4e">Clip</a>
+: <a class="el" href="class_clip.html#b88daf5fdd2b57dec8335ff8fd4a6d4e">Clip</a>
+, <a class="el" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283">Shape</a>
+<li>spaceLocations_
+: <a class="el" href="class_segmenter.html#b6a330577017efe9e49c174c04c4f7c3">Segmenter</a>
+<li>spaces()
+: <a class="el" href="class_segmenter.html#eed49de2d6548ae8016bf6c9c78cec99">Segmenter</a>
 <li>statistic()
 : <a class="el" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de">Recognizer</a>
 <li>statistics()
@@ -302,10 +310,10 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_recognizer.html#c30a3d75c7c7cc3b3422f5aa4f594b5a">Recognizer</a>
 </ul>
 <h3><a class="anchor" name="index_t">- t -</a></h3><ul>
-<li>text()
-: <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2">Recognizer</a>
 <li>Text()
 : <a class="el" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">Text</a>
+<li>text()
+: <a class="el" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2">Recognizer</a>
 <li>texts()
 : <a class="el" href="class_recognizer.html#2a365c34f1447cdc3311d311e02bf2ed">Recognizer</a>
 <li>texts_
@@ -344,7 +352,7 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_clip_location.html#e39508c504ce7807d730e58c0270d2f9">ClipLocation</a>
 , <a class="el" href="class_recognizer.html#401c3d8736c8779ad69f92c4c2703c26">Recognizer</a>
 , <a class="el" href="class_shape.html#863661d529942b525830d2208259583b">Shape</a>
-, <a class="el" href="class_clip.html#f8547b17e2ad42a17e39b25f7951faaa">Clip</a>
+, <a class="el" href="class_clip.html#ba0048c33d63c40629e568d301f64f59">Clip</a>
 <li>wordRates()
 : <a class="el" href="class_text.html#f1588ae161a4c4894b2ce1a1d29ebc22">Text</a>
 <li>wordRates_
@@ -361,7 +369,7 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">NessieException</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 16:41:20 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Nov 2 10:55:43 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

@@ -31,6 +31,8 @@ const unsigned char \& \hyperlink{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9f
 \begin{CompactList}\small\item\em Returns the gray level that represents the ink used in characters. \item\end{CompactList}\item 
 const std::list$<$ \hyperlink{class_shape}{Shape} $>$ \& \hyperlink{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}{shapes} () const 
 \begin{CompactList}\small\item\em Returns the shapes found in the last segmentation process. \item\end{CompactList}\item 
+const std::deque$<$ unsigned int $>$ \& \hyperlink{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}{spaces} () const 
+\begin{CompactList}\small\item\em Returns the location of spaces that must be inserted when building a text from a list of shapes. \item\end{CompactList}\item 
 const float \& \hyperlink{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{thresholdingTime} () const 
 \begin{CompactList}\small\item\em Returns the elapsed time while applying the thresholding algorithm. \item\end{CompactList}\item 
 const float \& \hyperlink{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{shapesFindingTime} () const 
@@ -38,7 +40,9 @@ const float \& \hyperlink{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{shap
 void \hyperlink{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{applyThreshold} (\hyperlink{class_clip}{Clip} \&clip, const unsigned char \&threshold, const unsigned char \&backgroundReference)
 \begin{CompactList}\small\item\em Applies a thresholding algorithm. \item\end{CompactList}\item 
 void \hyperlink{class_segmenter_465c8e755bb56d247add080a04377520}{findShapes} (const \hyperlink{class_clip}{Clip} \&clip)
-\begin{CompactList}\small\item\em Finds a list of isolated shapes in the press clip by joining connected pixels. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Finds a list of isolated shapes in the press clip by joining connected pixels. \item\end{CompactList}\item 
+void \hyperlink{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f}{findSpaceLocations} ()
+\begin{CompactList}\small\item\em Finds every position in the list of shapes where a blank space must be inserted when building the text. \item\end{CompactList}\end{CompactItemize}
 \subsubsection*{Private Types}
 \begin{CompactItemize}
 \item 
@@ -89,6 +93,11 @@ std::list$<$ \hyperlink{class_segmenter_ae134abed2f1d55197820f4027d10999}{LineMa
 \label{class_segmenter_2789fd760ed7604765b3b147be454c09}
 
 \begin{CompactList}\small\item\em A list of integer pairs that defines the limits of every line of characters in a press clip. \item\end{CompactList}\item 
+\hypertarget{class_segmenter_b6a330577017efe9e49c174c04c4f7c3}{
+std::deque$<$ unsigned int $>$ \hyperlink{class_segmenter_b6a330577017efe9e49c174c04c4f7c3}{spaceLocations\_\-}}
+\label{class_segmenter_b6a330577017efe9e49c174c04c4f7c3}
+
+\begin{CompactList}\small\item\em A list of positions in the \hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} where a space must be inserted when building the text. \item\end{CompactList}\item 
 \hypertarget{class_segmenter_1b02328044551876a7b878fc1549bc70}{
 float \hyperlink{class_segmenter_1b02328044551876a7b878fc1549bc70}{thresholdingTime\_\-}}
 \label{class_segmenter_1b02328044551876a7b878fc1549bc70}
@@ -195,6 +204,30 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=166pt]{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph}
 \end{center}
 \end{figure}
+\hypertarget{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}{
+\index{Segmenter@{Segmenter}!spaces@{spaces}}
+\index{spaces@{spaces}!Segmenter@{Segmenter}}
+\paragraph[spaces]{\setlength{\rightskip}{0pt plus 5cm}const std::deque$<$ unsigned int $>$ \& Segmenter::spaces () const}\hfill}
+\label{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}
+
+
+\begin{Desc}
+\item[Returns:]A vector of integers\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-31 \end{Desc}
+
+
+References spaceLocations\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99_icgraph}
+\end{center}
+\end{figure}
 \hypertarget{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{
 \index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
 \index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
@@ -295,11 +328,13 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Precondition:]The clip MUST be thresholded by calling \hyperlink{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{applyThreshold()} method before.\end{Desc}
 \begin{Desc}
-\item[Postcondition:]The \hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-} member is initialized with the seeds that grew into the shapes. 
+\item[Postcondition:]\hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-} contains the seeds that grew into the shapes. 
 
-The \hyperlink{class_segmenter_fe4dd18749f268aae2b26a1abff6a607}{visited\_\-} member is initialized with the positions of the seeds set to true. 
+\hyperlink{class_segmenter_fe4dd18749f268aae2b26a1abff6a607}{visited\_\-} contains the positions of the seeds set to true. 
 
-The \hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} member is initialized with the shapes that represents character within the clip.\end{Desc}
+\hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} contains the shapes that represents character within the clip. 
+
+\hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} is sorted according with the position of characters in text\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -329,6 +364,41 @@ Here is the caller graph for this function:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=176pt]{class_segmenter_465c8e755bb56d247add080a04377520_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f}{
+\index{Segmenter@{Segmenter}!findSpaceLocations@{findSpaceLocations}}
+\index{findSpaceLocations@{findSpaceLocations}!Segmenter@{Segmenter}}
+\paragraph[findSpaceLocations]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSpaceLocations ()}\hfill}
+\label{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f}
+
+
+\begin{Desc}
+\item[Precondition:]\hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} must be sorted according with the position of characters in text.\end{Desc}
+\begin{Desc}
+\item[Postcondition:]\hyperlink{class_segmenter_b6a330577017efe9e49c174c04c4f7c3}{spaceLocations\_\-} contains indexes to \hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-}.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-31\end{Desc}
+In order to find th spaces between words it is assumed that the mean inter-character space is always less than the mean inter-word space. Once the mean inter-character space is computed, a simple searching for each line gives the location of every space between words. 
+
+References shapes\_\-, and spaces().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
@@ -428,7 +498,7 @@ Here is the caller graph for this function:\nopagebreak
 \item[{\em clip}]The press clip\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Postcondition:]The \hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-} member contains pairs of numbers that delimits every isolated line of shapes.\end{Desc}
+\item[Postcondition:]\hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-} contains pairs of numbers that delimits every isolated line of shapes.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}

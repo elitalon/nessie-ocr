@@ -10,7 +10,6 @@
 
 
 /// 
-/// @todo Study the possibility of moving the typedef Pixel inside the Shape.hpp file.
 /// @todo Check documentation for pre- and post-conditions.
 /// 
 /// @param argc Number of command line arguments

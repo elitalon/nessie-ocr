@@ -20,7 +20,7 @@ Preprocessor::Preprocessor ()
 		optimalThresholdComputingTime_(0.0),
 		backgroundReferenceGrayLevelFindingTime_(0.0)
 {
-
+	
 };
 
 

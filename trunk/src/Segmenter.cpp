@@ -8,6 +8,7 @@
 #include "Clip.hpp"
 #include "boost/timer.hpp"
 
+#include <iostream>
 #include <cmath>
 
 
@@ -18,6 +19,7 @@ Segmenter::Segmenter ()
 		visited_(std::deque<bool>(0)),
 		shapes_(std::list<Shape>(0)),
 		lineMarkers_(std::list<LineMarker>(0)),
+		spaceLocations_(std::deque<unsigned int>(0)),
 		thresholdingTime_(0.0),
 		shapesFindingTime_(0.0)
 {
@@ -95,7 +97,7 @@ void Segmenter::findShapes (const Clip& clip)
 	
 	// Find the markers that delimit the lines
 	findLineMarkers(clip);
-
+	
 
 	// Join accents to their vocals in a line of characters
 	for ( LineMarkerIterator i = lineMarkers_.begin(); i not_eq lineMarkers_.end(); ++i )
@@ -173,8 +175,8 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 	// Explore the neighbourhood of each seed. For each pixel explored, the vector above tells if it has already been explored
 	for ( std::deque<Pixel>::iterator seedsIterator = seeds_.begin(); seedsIterator not_eq seeds_.end(); ++seedsIterator )
 	{
-		unsigned int row	= (*seedsIterator).first;
-		unsigned int column	= (*seedsIterator).second;
+		int row	= (*seedsIterator).first;
+		int column	= (*seedsIterator).second;
 	
 		if ( not visited_.at(row * clip.width() + column) )	// This seed has not already been visited
 		{
@@ -186,9 +188,9 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 		
 		
 			// Explore the seed's neighbourhood
-			for ( unsigned int i = row-1; (i <= row+1) and (i < clip.height()); ++i )
+			for ( int i = row-1; (i <= row+1) and (i < static_cast<int>(clip.height())); ++i )
 			{
-				for ( unsigned int j = column-1; (j <= column+1) and (j < clip.width()); ++j )
+				for ( int j = column-1; (j <= column+1) and (j < static_cast<int>(clip.width())); ++j )
 				{
 					// Test clip borders are not passed
 					if ( i >= 0 and j >= 0 )
@@ -211,9 +213,9 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 				Pixel pixel( shapes_.back()(lastPixelPosition) );
 			
 				// Explore the neighbour's neighbourhood
-				for ( unsigned int i = pixel.first-1; (i <= pixel.first+1) and (i < clip.height()); ++i )
+				for ( int i = pixel.first-1; (i <= static_cast<int>(pixel.first+1)) and (i < static_cast<int>(clip.height())); ++i )
 				{
-					for ( unsigned int j = pixel.second-1; (j <= pixel.second+1) and (j < clip.width()); ++j )
+					for ( int j = pixel.second-1; (j <= static_cast<int>(pixel.second+1)) and (j < static_cast<int>(clip.width())); ++j )
 					{
 						// Test clip borders are not passed
 						if ( i >= 0 and j >= 0 )
@@ -260,8 +262,8 @@ void Segmenter::findLineMarkers (const Clip& clip)
 				nVisitedPixels++;
 		}
 		
-		// A line with less than two pixels of ink is assumed as a blank line
-		if ( nVisitedPixels > 1 )
+		// A line with less than three pixels of ink is assumed as a blank line
+		if ( nVisitedPixels > 2 )
 			rowHasInk = true;
 		
 		// Check if a new line border has been found
@@ -362,8 +364,8 @@ Segmenter::ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigne
 		if ( shape == i )
 			continue;
 		
-		bool candidateShapeIsAboveShapeOfInterest = ((*i).topPixel().first < lineTop) and ((*i).bottomPixel().first < lineTop);
-		bool candidateShapeIsBelowShapeOfInterest = ((*i).topPixel().first > lineBottom) and ((*i).bottomPixel().first > lineBottom);
+		bool candidateShapeIsAboveShapeOfInterest = ((*i).topPixel().first < lineTop) and ((*i).bottomPixel().first <= lineTop);
+		bool candidateShapeIsBelowShapeOfInterest = ((*i).topPixel().first >= lineBottom) and ((*i).bottomPixel().first > lineBottom);
 
 		// Avoid processing a shape that is outside the line borders
 		if ( candidateShapeIsAboveShapeOfInterest or candidateShapeIsBelowShapeOfInterest )
@@ -384,6 +386,58 @@ Segmenter::ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigne
 	}
 	return shape;
 };
+
+
+
+///
+/// @details In order to find th spaces between words it is assumed that the mean inter-character space is always less than the mean inter-word space.
+/// Once the mean inter-character space is computed, a simple searching for each line gives the location of every space between words.
+///
+void Segmenter::findSpaceLocations ()
+{
+	// Compute the mean inter-character space
+	ShapeIterator iShape = shapes_.begin();
+	advance (iShape, 1);
+
+	ShapeIterator jShape = shapes_.begin();
+	
+	float meanIntercharacterSpace = 0.0;
+	while ( iShape not_eq shapes_.end() )
+	{
+		if ( (*iShape).leftPixel().second >= (*jShape).rightPixel().second )
+			meanIntercharacterSpace += (*iShape).leftPixel().second - (*jShape).rightPixel().second;
+		
+		advance (iShape, 1);
+		advance (jShape, 1);
+	}
+	meanIntercharacterSpace = round(meanIntercharacterSpace / shapes_.size());
+	std::cout << "Mean intercharacter space    : " << meanIntercharacterSpace << std::endl;
+	
+	
+	// Count the number of spaces within a text
+	iShape = shapes_.begin();
+	advance (iShape, 1);
+
+	jShape = shapes_.begin();
+	
+	float spaces = 0;
+	while ( iShape not_eq shapes_.end() )
+	{
+		if ( (*iShape).leftPixel().second < (*jShape).rightPixel().second )	// end-of-line
+			spaces++;
+		else
+		{
+			unsigned int distanceBetweenCharacters = (*iShape).leftPixel().second - (*jShape).rightPixel().second;
+
+			if ( distanceBetweenCharacters > meanIntercharacterSpace )
+				spaces++;
+		}
+		advance (iShape, 1);
+		advance (jShape, 1);
+	}
+	std::cout << "Number of spaces             : " << spaces << std::endl << std::endl;
+};
+
 
 
 

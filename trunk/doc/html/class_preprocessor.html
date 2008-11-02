@@ -380,7 +380,7 @@ The <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
 The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member backgroundReferenceGrayLevel_. 
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00175">optimalThresholdComputingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00196">Clip::size()</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00175">optimalThresholdComputingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00244">Clip::size()</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -442,7 +442,7 @@ Here is the caller graph for this function:</div>
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.<p>
 <dl compact><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. </dd></dl>
 
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00177">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00177">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -502,7 +502,7 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00190">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00173">noiseRemovalTime_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, and <a class="el" href="_clip_8hpp-source.html#l00184">Clip::width()</a>.</p>
+<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00173">noiseRemovalTime_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -525,7 +525,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Oct 31 16:41:27 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Nov 2 10:55:43 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>

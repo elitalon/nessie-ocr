@@ -51,12 +51,7 @@ void Text::addCharacter (const char& character, const unsigned int& position)
 	if(position > content_.length())
 		content_.append(1, character);
 	else
-	{
-		if (position < 0)
-			content_.insert(0, 1, character);
-		else
-			content_.insert(position, 1, character);
-	}
+		content_.insert(position, 1, character);
 	
 	// Rebuild the appearance rate of every word in text
 	computeWordRates();
@@ -73,20 +68,14 @@ void Text::addCharacter (const char& character)
 
 
 ///
-/// @details If the position passed is above the text total length the last character is removed. If the position passed is less than 0
-/// the first character is removed.
+/// @details If the position passed is above the text total length the last character is removed.
 ///
 void Text::removeCharacter (const unsigned int& position)
 {
 	if (position > content_.length())
 		content_.erase(content_.end());
 	else
-	{
-		if ( position < 0 )
-			content_.erase(content_.begin());
-		else
-			content_.erase(position, 1);
-	}
+		content_.erase(position, 1);
 	
 	// Rebuild the appearance rate of every word in text
 	computeWordRates();

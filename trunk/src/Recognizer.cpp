@@ -21,7 +21,12 @@
 /// @details Creates a new Recognizer object loading the image from disk. If the image is multi-frame only the first one is
 /// taken, e.g. the first page of a PDF with multiple pages.
 ///
-Recognizer::Recognizer (const std::string& path) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
+Recognizer::Recognizer (const std::string& path)
+	:	image_(std::vector<unsigned char>(0)),
+		height_(0),
+		width_(0),
+		texts_(std::vector<Text>(0)),
+		statistics_(std::vector<Statistics>(0))
 {
 	// Load image from disk
 	std::vector<Magick::Image> images;
@@ -43,7 +48,12 @@ Recognizer::Recognizer (const std::string& path) : texts_(std::vector<Text>(0)),
 /// @details Creates a new Recognizer object from an image loaded externally with methods from Magick++ API.
 /// If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages.
 /// 
-Recognizer::Recognizer (Magick::Image& image) : texts_(std::vector<Text>(0)), statistics_(std::vector<Statistics>(0))
+Recognizer::Recognizer (Magick::Image& image)
+	:	image_(std::vector<unsigned char>(0)),
+		height_(0),
+		width_(0),
+		texts_(std::vector<Text>(0)),
+		statistics_(std::vector<Statistics>(0))
 {
 	// Store the image dimensions
 	width_	= image.columns();
@@ -91,19 +101,19 @@ void Recognizer::obtainText (const std::vector<ClipLocation>& coordinates)
 void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsigned int& height, unsigned int& width)
 {
 	// Test the upper left-most pixel X coordinate is inside the source image
-	if ( (x >= height_) or (x < 0) )
+	if ( x >= height_ )
 		throw NessieException ("Recognizer::obtainText() : The x coordinate of the clip's top left-most pixel is outside the image");
 		
 	// Test the upper left-most pixel Y coordinate is inside the source image
-	if ( (y >= width_) or (y < 0) )
+	if ( y >= width_ )
 		throw NessieException ("Recognizer::obtainText() : The y coordinate of the clip's top left-most pixel is outside the image");
 	
 	// Truncate the clip's height if it is higher than the image
-	if ( (height > height_) or (height < 0) )
+	if ( height > height_ )
 		height = height_;
 		
 	// Truncate the clip's width if it is wider than the image
-	if ( (width > width_) or (width < 0) )
+	if ( width > width_ )
 		width = width_;
 		
 	// Truncate the clip's height if it is outside the source image
@@ -136,7 +146,8 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	updateImage(clip);
 	
 	segmenter.findShapes(clip);
-	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl << std::endl;
+	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl;
+	segmenter.findSpaceLocations();
 	
 	unsigned int k = 0;
 	std::list<Shape> shapes = segmenter.shapes();
