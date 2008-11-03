@@ -251,54 +251,6 @@ inline Pixel Shape::operator() (const unsigned int& index) const
 };
 
 
-inline Shape Shape::operator+ (const Shape& shape) const
-{
-	Shape temp;
-	
-	// Copy the pixels of this shape
-	for ( unsigned int i = 0; i < this->size(); ++i )
-		temp.addPixel( (*this)(i) );
-	
-	// Copy the pixels of the second shape
-	for ( unsigned int i = 0; i < shape.size(); ++i )
-		temp.addPixel( shape(i) );
-	
-	return temp;
-};
-
-
-inline bool Shape::operator< (const Shape& shape)
-{
-	bool shapeAbove = (this->bottomPixel().first < shape.topPixel().first) and (this->topPixel().first < shape.topPixel().first);
-	
-	if ( shapeAbove )
-		return true;
-	else
-	{
-		bool shapeBelow = (this->bottomPixel().first > shape.bottomPixel().first) and (this->topPixel().first > shape.bottomPixel().first);
-		
-		if ( shapeBelow )
-			return false;
-		else
-		{
-			// Shapes in the same line
-			bool shapeOnTheLeft		= (this->leftPixel().second < shape.leftPixel().second) and (this->rightPixel().second <= shape.leftPixel().second);
-			bool shapeOnTheRight	= (this->leftPixel().second >= shape.rightPixel().second) and (this->rightPixel().second > shape.rightPixel().second);
-			
-			if ( shapeOnTheLeft )
-				return true;
-			else
-			{
-				if ( shapeOnTheRight )
-					return false;
-				else
-					return true;
-			}
-		}
-	}
-};
-
-
 inline const unsigned int& Shape::width () const
 {
 	return width_;
@@ -354,6 +306,54 @@ inline Pixel Shape::barycenter () const
 	barycenter.second	= barycenter.second / size_;
 	
 	return barycenter;
+};
+
+
+inline Shape Shape::operator+ (const Shape& shape) const
+{
+	Shape temp;
+	
+	// Copy the pixels of this shape
+	for ( unsigned int i = 0; i < this->size(); ++i )
+		temp.addPixel( (*this)(i) );
+	
+	// Copy the pixels of the second shape
+	for ( unsigned int i = 0; i < shape.size(); ++i )
+		temp.addPixel( shape(i) );
+	
+	return temp;
+};
+
+
+inline bool Shape::operator< (const Shape& shape)
+{
+	bool shapeAbove = (this->bottomPixel().first < shape.topPixel().first) and (this->topPixel().first < shape.topPixel().first);
+	
+	if ( shapeAbove )
+		return true;
+	else
+	{
+		bool shapeBelow = (this->bottomPixel().first > shape.bottomPixel().first) and (this->topPixel().first > shape.bottomPixel().first);
+		
+		if ( shapeBelow )
+			return false;
+		else
+		{
+			// Shapes in the same line
+			bool shapeOnTheLeft		= (this->leftPixel().second < shape.leftPixel().second) and (this->rightPixel().second <= shape.leftPixel().second);
+			bool shapeOnTheRight	= (this->leftPixel().second >= shape.rightPixel().second) and (this->rightPixel().second > shape.rightPixel().second);
+			
+			if ( shapeOnTheLeft )
+				return true;
+			else
+			{
+				if ( shapeOnTheRight )
+					return false;
+				else
+					return true;
+			}
+		}
+	}
 };
 
 #endif  //_SHAPE_H

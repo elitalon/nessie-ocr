@@ -174,9 +174,7 @@ private:
 
 inline Text Text::operator+ (const Text& text) const
 {
-	Text temp(this->content() + text.content());
-
-	return temp;
+	return Text(this->content_ + text.content_);
 };
 
 
