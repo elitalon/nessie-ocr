@@ -68,6 +68,8 @@ float \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{background
 
 
 \subsubsection{Detailed Description}
+\hyperlink{class_preprocessor}{Preprocessor} of the OCR process. 
+
 This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to enhance the image quality by applying some techniques of image processing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level.
 
 \begin{Desc}
@@ -86,6 +88,8 @@ This class encapsulates all the algorithms related to preprocessing stage of the
 \label{class_preprocessor_da966c8b83e7c3bcd8759549c3cdf688}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -100,6 +104,8 @@ This class encapsulates all the algorithms related to preprocessing stage of the
 \label{class_preprocessor_b435116619b7b254d9e788476c012e8a}
 
 
+Returns the background reference gray level in the last clip used. 
+
 \begin{Desc}
 \item[Returns:]Reference background gray level in the last clip used\end{Desc}
 \begin{Desc}
@@ -107,8 +113,6 @@ This class encapsulates all the algorithms related to preprocessing stage of the
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References backgroundReferenceGrayLevel\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -124,6 +128,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}
 
 
+Returns the elapsed time while computing the background reference gray level within the clip. 
+
 \begin{Desc}
 \item[Returns:]Elapsed time while computing the background reference gray level\end{Desc}
 \begin{Desc}
@@ -133,8 +139,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References backgroundReferenceGrayLevelFindingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -149,6 +153,8 @@ Here is the caller graph for this function:\nopagebreak
 \paragraph[{computeOptimalThreshold}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::computeOptimalThreshold (const {\bf Clip} \& {\em clip})}\hfill}
 \label{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}
 
+
+Computes the optimal threshold value in a clip following the Sonka's technique. 
 
 \begin{Desc}
 \item[Precondition:]You MUST call \hyperlink{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{findBackgroundReferenceGrayLevel()} method before calling this one, since it sets internal attributes.\end{Desc}
@@ -170,8 +176,6 @@ The \hyperlink{class_preprocessor_865b1e28dd9535b96f70727a550104fe}{optimalThres
 \begin{Desc}
 \item[Date:]2008-10-20\end{Desc}
 The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in \char`\"{}Image Processing, Analysis and Machine Vision\char`\"{} (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member backgroundReferenceGrayLevel\_\-. 
-
-References backgroundReferenceGrayLevel\_\-, Clip::height(), optimalThreshold\_\-, optimalThresholdComputingTime\_\-, Clip::size(), and Clip::width().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -196,6 +200,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_preprocessor_a941f81382bd8e235e4dd12481342be4}
 
 
+Computes the background reference gray level value within a clip. 
+
 \begin{Desc}
 \item[Postcondition:]The \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{backgroundReferenceGrayLevelFindingTime\_\-} member is modified.\end{Desc}
 \begin{Desc}
@@ -216,8 +222,6 @@ To find the reference gray level of the background it is assumed that there are 
 \begin{Desc}
 \item[\hyperlink{bug__bug000001}{Bug}]There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. \end{Desc}
 
-
-References backgroundReferenceGrayLevel\_\-, backgroundReferenceGrayLevelFindingTime\_\-, Clip::height(), and Clip::width().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -242,6 +246,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}
 
 
+Returns the elapsed time while applying the 'isolated noise removal' algorithm. 
+
 \begin{Desc}
 \item[Returns:]Elapsed time when applying the 'isolated noise removal' algorithm\end{Desc}
 \begin{Desc}
@@ -251,8 +257,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References noiseRemovalTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -268,6 +272,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}
 
 
+Sets the optimal threshold to use in algorithms. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -277,14 +283,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-08 \end{Desc}
-
-
-References optimalThreshold\_\-.\hypertarget{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}{
+\hypertarget{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}{
 \index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
 \index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
 \paragraph[{optimalThreshold}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::optimalThreshold () const}\hfill}
 \label{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}
 
+
+Returns the optimal threshold found in the last clip used. 
 
 \begin{Desc}
 \item[Returns:]Optimal threshold computed from the last clip used.\end{Desc}
@@ -293,8 +299,6 @@ References optimalThreshold\_\-.\hypertarget{class_preprocessor_a44dff024a5b2975
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References optimalThreshold\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -310,6 +314,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}
 
 
+Returns the elapsed time while founding the optimal threshold within the clip. 
+
 \begin{Desc}
 \item[Returns:]Elapsed time while founding the optimal threshold within the clip\end{Desc}
 \begin{Desc}
@@ -319,8 +325,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References optimalThresholdComputingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -335,6 +339,8 @@ Here is the caller graph for this function:\nopagebreak
 \paragraph[{removeIsolatedNoise}]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::removeIsolatedNoise ({\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em isolationCoefficient} = {\tt 0})}\hfill}
 \label{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}
 
+
+Applies the 'isolated noise removal' algorithm. 
 
 \begin{Desc}
 \item[Precondition:]You MUST call \hyperlink{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{computeOptimalThreshold()} and \hyperlink{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{findBackgroundReferenceGrayLevel()} methods before calling this one, since they set internal attributes.\end{Desc}
@@ -352,8 +358,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-11\end{Desc}
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
-
-References backgroundReferenceGrayLevel\_\-, Clip::height(), noiseRemovalTime\_\-, optimalThreshold\_\-, and Clip::width().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]

@@ -44,9 +44,13 @@ CLIP_INC=$(INC)Clip.hpp
 PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
 PREPROCESSOR_INC=$(INC)Preprocessor.hpp
 
-# Source files of 'Preprocessor' class
+# Source files of 'Segmenter' class
 SEGMENTER_SRC=$(SRC)Segmenter.cpp
 SEGMENTER_INC=$(INC)Segmenter.hpp
+
+# Source files of 'Classifier' class
+CLASSIFIER_SRC=$(SRC)Classifier.cpp
+CLASSIFIER_INC=$(INC)Classifier.hpp
 
 # Source files of 'Recognizer' class
 RECOGNIZER_SRC=$(SRC)Recognizer.cpp
@@ -71,6 +75,7 @@ CLIP_LOCATION_OBJ=$(SRC)ClipLocation.o
 SHAPE_OBJ=$(SRC)Shape.o
 PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
 SEGMENTER_OBJ=$(SRC)Segmenter.o
+CLASSIFIER_OBJ=$(SRC)Classifier.o
 RECOGNIZER_OBJ=$(SRC)Recognizer.o
 
 # Dependencies
@@ -83,18 +88,19 @@ CLIP_LOCATION=$(CLIP_LOCATION_INC) $(CLIP_LOCATION_SRC)
 SHAPE=$(SHAPE_INC) $(SHAPE_SRC)
 PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 SEGMENTER=$(SEGMENTER_INC) $(SEGMENTER_SRC)
+CLASSIFIER=$(CLASSIFIER_INC) $(CLASSIFIER_SRC)
 RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
 
 
 # Object files
-OBJECTS=$(RECOGNIZER_OBJ) $(SEGMENTER_OBJ) $(PREPROCESSOR_OBJ) $(SHAPE_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
+OBJECTS=$(RECOGNIZER_OBJ) $(CLASSIFIER_OBJ) $(SEGMENTER_OBJ) $(PREPROCESSOR_OBJ) $(SHAPE_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
 DEBUG=NO
 COMPILER_DEBUGGING_OPTIONS=-g
 LINKER_DEBUGGING_OPTIONS=
-EXTRA_WARNINGS=-Wextra -Weffc++ -Winline -Wold-style-cast
+EXTRA_WARNINGS=-Wextra -Weffc++ -Wold-style-cast -Winline
 FLAGS=-Wall -O2 -I$(INC) -I$(LIB)
 
 # Formatted output commands
@@ -127,7 +133,7 @@ endif
 	@printf "$(NL)"
 
 
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(SEGMENTER_OBJ) $(RECOGNIZER)
+$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(RECOGNIZER)
 	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -241,6 +247,19 @@ else
 endif
 	@printf "$(TAB)"
 	mv Shape.o $(SRC)
+	@printf "$(NL)"
+
+
+$(CLASSIFIER_OBJ): $(SHAPE_OBJ) $(CLASSIFIER)
+	@printf "** Making rule $(CLASSIFIER_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(CLASSIFIER_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLASSIFIER_SRC)
+endif
+	@printf "$(TAB)"
+	mv Classifier.o $(SRC)
 	@printf "$(NL)"
 
 

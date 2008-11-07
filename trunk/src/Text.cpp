@@ -46,12 +46,12 @@ unsigned int Text::words () const
 /// @details If the position passed is above the text total length the character is appended to the end of the text. If the position passed
 /// is less than 0, the character is inserted at the beginning of the text.
 /// 
-void Text::addCharacter (const char& character, const unsigned int& position)
+void Text::addCharacter (const std::string& character, const unsigned int& position)
 {
 	if(position > content_.length())
-		content_.append(1, character);
+		content_.append(1, character.at(0));
 	else
-		content_.insert(position, 1, character);
+		content_.insert(position, 1, character.at(0));
 	
 	// Rebuild the appearance rate of every word in text
 	computeWordRates();
@@ -59,7 +59,7 @@ void Text::addCharacter (const char& character, const unsigned int& position)
 
 
 
-void Text::addCharacter (const char& character)
+void Text::addCharacter (const std::string& character)
 {
 	// Call the generic 'addCharacter' function
 	addCharacter(character, content_.length());

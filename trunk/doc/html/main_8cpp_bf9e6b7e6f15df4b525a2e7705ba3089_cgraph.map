@@ -1,10 +1,10 @@
 <area shape="rect" href="$class_statistics.html#d65adc1b3bd1d560408c5f9e06fde3d4" title="Returns the elapsed time in the reference gray level of the background finding algorithm..." alt="" coords="107,5,499,32">
 <area shape="rect" href="$class_statistics.html#2851ad08e1bd9604fe76c78cccc50e84" title="Returns the elapsed time in the noise removal algorithm." alt="" coords="191,56,415,83">
-<area shape="rect" href="$class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once." alt="" coords="213,107,392,133">
-<area shape="rect" href="$class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d" title="Returns the elapsed time in the optimal threshold computing algorithm." alt="" coords="145,157,460,184">
-<area shape="rect" href="$class_statistics.html#96aafebb86be480130007bd437875156" title="Returns the total elapsed time within the preprocessing stage." alt="" coords="192,208,413,235">
-<area shape="rect" href="$class_statistics.html#4cea19c3705fc315ce2b4300b3725ab8" title="Returns the total elapsed time within the segmentation stage." alt="" coords="191,259,415,285">
-<area shape="rect" href="$class_statistics.html#cdb8852bc99d12a619d130ae2e6948ee" title="Returns the elapsed time while finding the shapes in a clip." alt="" coords="192,309,413,336">
-<area shape="rect" href="$class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip." alt="" coords="221,360,384,387">
-<area shape="rect" href="$class_statistics.html#79a7c11e89528f21b663153c2636216a" title="Returns the elapsed time while applying the thresholding algorithm." alt="" coords="197,411,408,437">
-<area shape="rect" href="$class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image." alt="" coords="183,461,423,488">
+<area shape="rect" href="$class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once." alt="" coords="213,131,392,157">
+<area shape="rect" href="$class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d" title="Returns the elapsed time in the optimal threshold computing algorithm." alt="" coords="145,181,460,208">
+<area shape="rect" href="$class_statistics.html#96aafebb86be480130007bd437875156" title="Returns the total elapsed time within the preprocessing stage." alt="" coords="192,232,413,259">
+<area shape="rect" href="$class_statistics.html#4cea19c3705fc315ce2b4300b3725ab8" title="Returns the total elapsed time within the segmentation stage." alt="" coords="191,283,415,309">
+<area shape="rect" href="$class_statistics.html#cdb8852bc99d12a619d130ae2e6948ee" title="Returns the elapsed time while finding the shapes in a clip." alt="" coords="192,333,413,360">
+<area shape="rect" href="$class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip." alt="" coords="221,384,384,411">
+<area shape="rect" href="$class_statistics.html#79a7c11e89528f21b663153c2636216a" title="Returns the elapsed time while applying the thresholding algorithm." alt="" coords="197,435,408,461">
+<area shape="rect" href="$class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image." alt="" coords="183,485,423,512">

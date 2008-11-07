@@ -31,9 +31,9 @@ unsigned int \hyperlink{class_text_b66729ba84c2698ed888f641b3838a8b}{size} () co
 \begin{CompactList}\small\item\em Returns the size of the text. \item\end{CompactList}\item 
 unsigned int \hyperlink{class_text_edfd71af7802a2d72eed7365f081a66d}{words} () const 
 \begin{CompactList}\small\item\em Returns the number words in the text. \item\end{CompactList}\item 
-void \hyperlink{class_text_6e6da63c90af68639adc7dd1336f6bf9}{addCharacter} (const char \&character)
+void \hyperlink{class_text_d2c0cb733cef33657a44e4efc9e518ee}{addCharacter} (const std::string \&character)
 \begin{CompactList}\small\item\em Adds a character at the end of the text. \item\end{CompactList}\item 
-void \hyperlink{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{addCharacter} (const char \&character, const unsigned int \&position)
+void \hyperlink{class_text_585f0fde5ef0796ccde09a059d90cc3b}{addCharacter} (const std::string \&character, const unsigned int \&position)
 \begin{CompactList}\small\item\em Adds a character to text at the given position. \item\end{CompactList}\item 
 void \hyperlink{class_text_e04500eeada2a4a3bb00554b32263c52}{removeCharacter} (const unsigned int \&position)
 \begin{CompactList}\small\item\em Removes a character from text. \item\end{CompactList}\end{CompactItemize}
@@ -60,6 +60,8 @@ std::map$<$ std::string, unsigned int $>$ \hyperlink{class_text_5f7e6b9d9ba0dbd7
 
 
 \subsubsection{Detailed Description}
+\hyperlink{class_text}{Text} extracted by the recognizer. 
+
 This class stores the text that has been extracted from the press clip during the recognition process. It also keeps the number of appearances of every word in text.
 
 \begin{Desc}
@@ -75,6 +77,8 @@ This class stores the text that has been extracted from the press clip during th
 \paragraph[{Text}]{\setlength{\rightskip}{0pt plus 5cm}Text::Text ()}\hfill}
 \label{class_text_b3e26143fccc52699bcc5149cae852bc}
 
+
+Constructor. 
 
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
@@ -96,6 +100,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_text_c3c20ee8baeb7b88e2622724f57e50a2}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -107,8 +113,6 @@ Here is the caller graph for this function:\nopagebreak
 \item[Date:]2008-10-04 \end{Desc}
 
 
-References computeWordRates().
-
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -119,13 +123,17 @@ Here is the call graph for this function:\nopagebreak
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
+\hypertarget{class_text_585f0fde5ef0796ccde09a059d90cc3b}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
-\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character}, \/  const unsigned int \& {\em position})}\hfill}
-\label{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}
+\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const std::string \& {\em character}, \/  const unsigned int \& {\em position})}\hfill}
+\label{class_text_585f0fde5ef0796ccde09a059d90cc3b}
 
 
+Adds a character to text at the given position. 
+
+\begin{Desc}
+\item[Precondition:]Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -137,22 +145,24 @@ Here is the call graph for this function:\nopagebreak
 \item[Date:]2008-10-06\end{Desc}
 If the position passed is above the text total length the character is appended to the end of the text. If the position passed is less than 0, the character is inserted at the beginning of the text. 
 
-References computeWordRates(), and content\_\-.
-
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{class_text_fdd11ad0c90ca483d4cff3d74a64da9e_cgraph}
+\includegraphics[width=258pt]{class_text_585f0fde5ef0796ccde09a059d90cc3b_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_text_6e6da63c90af68639adc7dd1336f6bf9}{
+\hypertarget{class_text_d2c0cb733cef33657a44e4efc9e518ee}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
-\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character})}\hfill}
-\label{class_text_6e6da63c90af68639adc7dd1336f6bf9}
+\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const std::string \& {\em character})}\hfill}
+\label{class_text_d2c0cb733cef33657a44e4efc9e518ee}
 
 
+Adds a character at the end of the text. 
+
+\begin{Desc}
+\item[Precondition:]Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.\end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -164,12 +174,21 @@ Here is the call graph for this function:\nopagebreak
 \item[Date:]2008-10-03 \end{Desc}
 
 
-References content\_\-.\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_text_d2c0cb733cef33657a44e4efc9e518ee_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
 \index{computeWordRates@{computeWordRates}!Text@{Text}}
 \paragraph[{computeWordRates}]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates (const std::string \& {\em delimiters} = {\tt \char`\"{}~,:¡!.;()¿?$\backslash$\char`\"{}'\mbox{[}\mbox{]}\{\}$<$$>$\char`\"{}})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_text_e954a35628c72537e2ee5ca6e9609ac1}
 
+
+Builds the map of number of appearances of every word in the text. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -181,8 +200,6 @@ References content\_\-.\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}
 \begin{Desc}
 \item[Date:]2008-10-23 \end{Desc}
 
-
-References content\_\-, updateWordRate(), and wordRates\_\-.
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -207,20 +224,22 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_text_8b6ac381338c5b3f719600b5f9be222c}
 
 
+Returns the text's content. 
+
 \begin{Desc}
 \item[Returns:]Content of the text\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References content\_\-.\hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}{
+\hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}{
 \index{Text@{Text}!operator+@{operator+}}
 \index{operator+@{operator+}!Text@{Text}}
 \paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text} Text::operator+ (const {\bf Text} \& {\em text}) const}\hfill}
 \label{class_text_c8887fb224e0402448ede4f3b9f7452d}
 
+
+Appends a text to the current one. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -234,8 +253,6 @@ References content\_\-.\hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}
 \begin{Desc}
 \item[Date:]2008-10-23 \end{Desc}
 
-
-References content\_\-, and Text().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -251,6 +268,8 @@ Here is the call graph for this function:\nopagebreak
 \label{class_text_e04500eeada2a4a3bb00554b32263c52}
 
 
+Removes a character from text. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -261,8 +280,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-03\end{Desc}
 If the position passed is above the text total length the last character is removed. 
-
-References computeWordRates(), and content\_\-.
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -278,20 +295,22 @@ Here is the call graph for this function:\nopagebreak
 \label{class_text_b66729ba84c2698ed888f641b3838a8b}
 
 
+Returns the size of the text. 
+
 \begin{Desc}
 \item[Returns:]Size of the text in number of characters\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-23 \end{Desc}
-
-
-References content\_\-.\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
+\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
 \index{Text@{Text}!updateWordRate@{updateWordRate}}
 \index{updateWordRate@{updateWordRate}!Text@{Text}}
 \paragraph[{updateWordRate}]{\setlength{\rightskip}{0pt plus 5cm}void Text::updateWordRate (const std::string \& {\em word})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_text_5ab8f9bfa566de537a167991fe10eff5}
 
+
+Increases by one the number of appearances of a word. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -308,8 +327,6 @@ References content\_\-.\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}
 \item[Date:]2008-10-23 \end{Desc}
 
 
-References wordRates\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -324,20 +341,22 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}
 
 
+Returns the number of appearances of every single word in text. 
+
 \begin{Desc}
 \item[Returns:]An associative map with every different word and their number of appearances.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-23 \end{Desc}
-
-
-References wordRates\_\-.\hypertarget{class_text_edfd71af7802a2d72eed7365f081a66d}{
+\hypertarget{class_text_edfd71af7802a2d72eed7365f081a66d}{
 \index{Text@{Text}!words@{words}}
 \index{words@{words}!Text@{Text}}
 \paragraph[{words}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::words () const}\hfill}
 \label{class_text_edfd71af7802a2d72eed7365f081a66d}
 
+
+Returns the number words in the text. 
 
 \begin{Desc}
 \item[Returns:]Number of words in the text\end{Desc}
@@ -345,6 +364,3 @@ References wordRates\_\-.\hypertarget{class_text_edfd71af7802a2d72eed7365f081a66
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-23 \end{Desc}
-
-
-References wordRates\_\-.

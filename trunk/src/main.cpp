@@ -12,6 +12,17 @@
 /// 
 /// @todo Check documentation for pre- and post-conditions.
 /// 
+/// @todo Design a data structure to represent a classification dataset, also its representation in a file.
+/// 
+/// @todo Develop the KNN algorithm.
+/// 
+/// @todo Develop the Classifier, FeatureVector and Dataset classes.
+/// 
+/// @todo Change the internal representation once the clip has been segmented. This is necessary because the ink cannot have
+/// zero as its representative value in further calculations.
+/// 
+/// @todo Develop a method to split a shape in two parts.
+/// 
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
 /// 

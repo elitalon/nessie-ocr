@@ -63,6 +63,8 @@ unsigned int \hyperlink{class_clip_location_e39508c504ce7807d730e58c0270d2f9}{wi
 
 
 \subsubsection{Detailed Description}
+Location of a press clip inside a newspaper page. 
+
 This class stores all the necessary information to locate a press clip inside a newspaper page. This information includes the coordinates of the press clip's top leftmost pixel, its height and its width.
 
 \begin{Desc}
@@ -79,6 +81,8 @@ This class stores all the necessary information to locate a press clip inside a 
 \label{class_clip_location_fb51ec03e0a8f9b33f4d785550bc6b84}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -89,6 +93,8 @@ This class stores all the necessary information to locate a press clip inside a 
 \paragraph[{ClipLocation}]{\setlength{\rightskip}{0pt plus 5cm}ClipLocation::ClipLocation (const unsigned int \& {\em row}, \/  const unsigned int \& {\em column}, \/  const unsigned int \& {\em height}, \/  const unsigned int \& {\em width})}\hfill}
 \label{class_clip_location_b41ff36c161d2d909c6e75474f5f2f31}
 
+
+Constructor. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -109,6 +115,8 @@ This class stores all the necessary information to locate a press clip inside a 
 \label{class_clip_location_321238ca06a98bcce5f5292c1ea3e6c0}
 
 
+Sets the column where the upper leftmost pixel is at. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -118,14 +126,14 @@ This class stores all the necessary information to locate a press clip inside a 
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-11 \end{Desc}
-
-
-References column\_\-.\hypertarget{class_clip_location_50409bab2a256787fcc59e5d213d6a58}{
+\hypertarget{class_clip_location_50409bab2a256787fcc59e5d213d6a58}{
 \index{ClipLocation@{ClipLocation}!column@{column}}
 \index{column@{column}!ClipLocation@{ClipLocation}}
 \paragraph[{column}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& ClipLocation::column () const}\hfill}
 \label{class_clip_location_50409bab2a256787fcc59e5d213d6a58}
 
+
+Returns the column where the upper leftmost pixel is at. 
 
 \begin{Desc}
 \item[Returns:]Column where the upper leftmost pixel is at.\end{Desc}
@@ -133,14 +141,14 @@ References column\_\-.\hypertarget{class_clip_location_50409bab2a256787fcc59e5d2
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References column\_\-.\hypertarget{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}{
+\hypertarget{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}{
 \index{ClipLocation@{ClipLocation}!height@{height}}
 \index{height@{height}!ClipLocation@{ClipLocation}}
 \paragraph[{height}]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::height (const unsigned int \& {\em height})}\hfill}
 \label{class_clip_location_f0e979e989c1cecbca6fe2da92b383f7}
 
+
+Sets the height of the press clip. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -151,14 +159,14 @@ References column\_\-.\hypertarget{class_clip_location_f0e979e989c1cecbca6fe2da9
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-11 \end{Desc}
-
-
-References height\_\-.\hypertarget{class_clip_location_e18ec2c31e76a983acdbaec9d3bad659}{
+\hypertarget{class_clip_location_e18ec2c31e76a983acdbaec9d3bad659}{
 \index{ClipLocation@{ClipLocation}!height@{height}}
 \index{height@{height}!ClipLocation@{ClipLocation}}
 \paragraph[{height}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& ClipLocation::height () const}\hfill}
 \label{class_clip_location_e18ec2c31e76a983acdbaec9d3bad659}
 
+
+Returns the height of the press clip. 
 
 \begin{Desc}
 \item[Returns:]Height of the press clip\end{Desc}
@@ -166,14 +174,14 @@ References height\_\-.\hypertarget{class_clip_location_e18ec2c31e76a983acdbaec9d
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References height\_\-.\hypertarget{class_clip_location_5a95f9fae24adf0b6d227714b9b69e2e}{
+\hypertarget{class_clip_location_5a95f9fae24adf0b6d227714b9b69e2e}{
 \index{ClipLocation@{ClipLocation}!row@{row}}
 \index{row@{row}!ClipLocation@{ClipLocation}}
 \paragraph[{row}]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::row (const unsigned int \& {\em row})}\hfill}
 \label{class_clip_location_5a95f9fae24adf0b6d227714b9b69e2e}
 
+
+Sets the row where the upper leftmost pixel is at. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -184,14 +192,14 @@ References height\_\-.\hypertarget{class_clip_location_5a95f9fae24adf0b6d227714b
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-11 \end{Desc}
-
-
-References row\_\-.\hypertarget{class_clip_location_8816c925e80c2e55bbbbdd6da799f53f}{
+\hypertarget{class_clip_location_8816c925e80c2e55bbbbdd6da799f53f}{
 \index{ClipLocation@{ClipLocation}!row@{row}}
 \index{row@{row}!ClipLocation@{ClipLocation}}
 \paragraph[{row}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& ClipLocation::row () const}\hfill}
 \label{class_clip_location_8816c925e80c2e55bbbbdd6da799f53f}
 
+
+Returns the row where the upper leftmost pixel is at. 
 
 \begin{Desc}
 \item[Returns:]Row where the upper leftmost pixel is at.\end{Desc}
@@ -199,14 +207,14 @@ References row\_\-.\hypertarget{class_clip_location_8816c925e80c2e55bbbbdd6da799
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References row\_\-.\hypertarget{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}{
+\hypertarget{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}{
 \index{ClipLocation@{ClipLocation}!width@{width}}
 \index{width@{width}!ClipLocation@{ClipLocation}}
 \paragraph[{width}]{\setlength{\rightskip}{0pt plus 5cm}void ClipLocation::width (const unsigned int \& {\em width})}\hfill}
 \label{class_clip_location_7dc15a35acc1594dfc1e5f64ca33d3b9}
 
+
+Sets the width of the press clip. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -217,14 +225,14 @@ References row\_\-.\hypertarget{class_clip_location_7dc15a35acc1594dfc1e5f64ca33
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-11 \end{Desc}
-
-
-References width\_\-.\hypertarget{class_clip_location_e48a4531c0473ec63dbc992e866a50e7}{
+\hypertarget{class_clip_location_e48a4531c0473ec63dbc992e866a50e7}{
 \index{ClipLocation@{ClipLocation}!width@{width}}
 \index{width@{width}!ClipLocation@{ClipLocation}}
 \paragraph[{width}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& ClipLocation::width () const}\hfill}
 \label{class_clip_location_e48a4531c0473ec63dbc992e866a50e7}
 
+
+Returns the width of the press clip. 
 
 \begin{Desc}
 \item[Returns:]Width of the press clip\end{Desc}
@@ -232,6 +240,3 @@ References width\_\-.\hypertarget{class_clip_location_e48a4531c0473ec63dbc992e86
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References width\_\-.

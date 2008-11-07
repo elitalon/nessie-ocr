@@ -149,7 +149,7 @@ public:
 	/// @date 2008-10-31
 	///
 	void findSpaceLocations ();
-	
+
 
 private:
 	

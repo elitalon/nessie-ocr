@@ -73,7 +73,7 @@ Collaboration diagram for Segmenter:</div>
 <div class="dynsection">
 <p><center><img src="class_segmenter__coll__graph.png" border="0" usemap="#_segmenter__coll__map" alt="Collaboration graph"></center>
 <map name="_segmenter__coll__map">
-<area shape="rect" href="class_shape.html" title="The shape of a character in a press clip." alt="" coords="5,193,133,623"></map>
+<area shape="rect" href="class_shape.html" title="The shape of a character in a press clip." alt="" coords="5,192,133,640"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
@@ -169,6 +169,8 @@ float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time while applying the shapes finding algorithm. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+<a class="el" href="class_segmenter.html" title="Segmenter of the OCR process.">Segmenter</a> of the OCR process. 
+<p>
 This class encapsulates all the methods related to segmentation stage of the OCR process. Its task is to isolate every shape in a clip that represents a character, storing them in a data structure for further classification.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>, <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>, <a class="el" href="_shape_8hpp.html#535e59456e3e633842529cfa8ea103c4" title="Coordinates of an image pixel.">Pixel</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
@@ -185,6 +187,8 @@ This class encapsulates all the methods related to segmentation stage of the OCR
 </div>
 <div class="memdoc">
 
+<p>
+Limits of a line of shapes. 
 <p>
 This pair keeps the rows of a press clip that delimits a single line of shapes. The first member representes the row of pixels at the top of the line, while the second member represents the row of pixels at the bottom of the line.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
@@ -204,6 +208,8 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 <div class="memdoc">
 
 <p>
+An iterator to a list of LineMarker objects. 
+<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-31 </dd></dl>
 
@@ -220,6 +226,8 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 </div>
 <div class="memdoc">
 
+<p>
+An iterator to a list of <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a> objects. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-30 </dd></dl>
@@ -242,6 +250,8 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 </div>
 <div class="memdoc">
 
+<p>
+Constructor. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
@@ -281,6 +291,8 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 <div class="memdoc">
 
 <p>
+Applies a thresholding algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>A press clip. </td></tr>
@@ -294,8 +306,6 @@ The <a class="el" href="class_segmenter.html#fa6183f99aa6011399783652b341a43b" t
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 This method implements a simple thresholding algorithm that compares each pixel's gray level with a threshold value. The background reference gray level is taken into account to decide the final gray level that is applied to the pixel, so that the ink value is assumed as the very opposite gray level of background reference. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00192">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00204">thresholdingTime_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -333,6 +343,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Finds the pairs of rows that delimit every line of shapes in a press clip. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The press clip</td></tr>
@@ -342,8 +354,6 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before that last blank line is set as the bottom marker of the line. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00200">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00196">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -381,6 +391,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Find the seeds where the shapes will grow up from. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The press clip where finding the seeds</td></tr>
@@ -391,8 +403,6 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method are actually all the pixels that do not belong to the background in the clip. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00192">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00194">seeds_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -430,6 +440,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Finds a list of isolated shapes in the press clip by joining connected pixels. 
+<p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The clip MUST be thresholded by calling <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies a thresholding algorithm.">applyThreshold()</a> method before.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd><a class="el" href="class_segmenter.html#7859d050250b9fdf7c96374f80008d6e" title="A list with the coordinates of every pixel that has a gray level equal to inkValue_...">seeds_</a> contains the seeds that grew into the shapes. <p>
 <a class="el" href="class_segmenter.html#fe4dd18749f268aae2b26a1abff6a607" title="A list of &quot;visited/non visited&quot; status for the pixels in the press clip...">visited_</a> contains the positions of the seeds set to true. <p>
@@ -444,8 +456,6 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-21</dd></dl>
 This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down. 
-<p>References <a class="el" href="_segmenter_8cpp-source.html#l00247">findLineMarkers()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00147">findSeeds()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00359">findVerticallyOverlappedShape()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00170">growSeedsIntoInitialShapes()</a>, <a class="el" href="_segmenter_8cpp-source.html#l00335">joinVerticallyOverlappedShapes()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00200">lineMarkers_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>, and <a class="el" href="_segmenter_8hpp-source.html#l00206">shapesFindingTime_</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -482,13 +492,13 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Finds every position in the list of shapes where a blank space must be inserted when building the text. 
+<p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd><a class="el" href="class_segmenter.html#41b94ede2829063e0937dc150756e77e" title="A list of shapes that represents every character found within the press clip.">shapes_</a> must be sorted according with the position of characters in text.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd><a class="el" href="class_segmenter.html#b6a330577017efe9e49c174c04c4f7c3" title="A list of positions in the shapes_ where a space must be inserted when building the...">spaceLocations_</a> contains indexes to <a class="el" href="class_segmenter.html#41b94ede2829063e0937dc150756e77e" title="A list of shapes that represents every character found within the press clip.">shapes_</a>.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-31</dd></dl>
 In order to find th spaces between words it is assumed that the mean inter-character space is always less than the mean inter-word space. Once the mean inter-character space is computed, a simple searching for each line gives the location of every space between words. 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>, and <a class="el" href="_segmenter_8hpp-source.html#l00303">spaces()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -541,6 +551,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Finds a shape that is vertically overlapped to the shape passed, both being in the same line of shapes. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>lineTop</em>&nbsp;</td><td>Row that delimits the top of the line </td></tr>
@@ -553,8 +565,6 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-30</dd></dl>
 The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that are too small. 
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -583,6 +593,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Builds a list of shapes founded in a clip by growing seeds into isolated shapes. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The press clip where the shape will be found from the seeds.</td></tr>
@@ -595,8 +607,6 @@ Here is the caller graph for this function:</div>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-24</dd></dl>
 The initial shapes are a set of shapes that are inconsistent with the real characters in the press clip. That is because a further processing is necessary to join accents to vocals, split shapes that represents two characters joined, etc.<p>
 This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process ends when there are not more seeds to explore and the shapes are completely isolated. 
-<p>References <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00192">inkValue_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00194">seeds_</a>, <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>, <a class="el" href="_clip_8hpp-source.html#l00244">Clip::size()</a>, <a class="el" href="_segmenter_8hpp-source.html#l00196">visited_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -633,11 +643,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the gray level that represents the ink used in characters. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A value of 0 or 255</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-18 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00192">inkValue_</a>.</p>
 
 </div>
 </div><p>
@@ -667,6 +677,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Joins two shapes that are vertically overlapped. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>s1</em>&nbsp;</td><td>First shape to join </td></tr>
@@ -678,8 +690,6 @@ Here is the caller graph for this function:</div>
 The iterator s1 is updated by pointing to the next shape in <a class="el" href="class_segmenter.html#41b94ede2829063e0937dc150756e77e" title="A list of shapes that represents every character found within the press clip.">shapes_</a>.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-27 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -708,12 +718,12 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the shapes found in the last segmentation process. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of <a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a> objects</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00198">shapes_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -742,11 +752,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while finding the shapes. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00206">shapesFindingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -775,11 +785,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the location of spaces that must be inserted when building a text from a list of shapes. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A vector of integers</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-31 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00202">spaceLocations_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -808,11 +818,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while applying the thresholding algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_segmenter_8hpp-source.html#l00204">thresholdingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -826,7 +836,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 12:02:38 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 20:09:18 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

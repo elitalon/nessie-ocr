@@ -104,17 +104,21 @@ public:
 
 	///
 	/// Adds a character at the end of the text
+	/// 
+	/// @pre Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.
 	///
 	/// @param character	Character to add
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	void addCharacter (const char& character);
+	void addCharacter (const std::string& character);
 
 
 	///
 	/// Adds a character to text at the given position
+	/// 
+	/// @pre Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.
 	///
 	/// @param character	Character to add
 	/// @param position		Position where adding the character to
@@ -122,7 +126,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-06
 	/// 
-	void addCharacter (const char& character, const unsigned int& position);
+	void addCharacter (const std::string& character, const unsigned int& position);
 
 
 	///

@@ -44,7 +44,9 @@ const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \& \hyperl
 \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \hyperlink{class_shape_a935b8870ea61569990b304b77513923}{barycenter} () const 
 \begin{CompactList}\small\item\em Returns the coordinates of the shape's barycenter. \item\end{CompactList}\item 
 void \hyperlink{class_shape_f6114234203d9473f1fef9e6391f9243}{addPixel} (const \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel} \&pixel)
-\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Adds a pixel to the shape. \item\end{CompactList}\item 
+void \hyperlink{class_shape_bcb7d1626e403703952967533c9004ce}{split} (\hyperlink{class_shape}{Shape} \&leftShape, \hyperlink{class_shape}{Shape} \&rightShape) const 
+\begin{CompactList}\small\item\em Splits the shape in two different shapes. \item\end{CompactList}\end{CompactItemize}
 \subsubsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
@@ -91,6 +93,8 @@ unsigned int \hyperlink{class_shape_adec7080fb17de89d2f6c9d53d4b0283}{size\_\-}}
 
 
 \subsubsection{Detailed Description}
+The shape of a character in a press clip. 
+
 This class stores a set of pixels and all the information necessary to identify a shape that represents a character in a press clip. Every shape has four representative pixels of ink, located on each extreme of the shape: one pixel at the top, one pixel at the bottom, one pixel on the left and one pixel on the right.
 
 \begin{Desc}
@@ -109,6 +113,8 @@ This class stores a set of pixels and all the information necessary to identify 
 \label{class_shape_aa8d87171e65e0d8ba3c5459978992a7}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -123,6 +129,8 @@ This class stores a set of pixels and all the information necessary to identify 
 \label{class_shape_f6114234203d9473f1fef9e6391f9243}
 
 
+Adds a pixel to the shape. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -135,8 +143,6 @@ This class stores a set of pixels and all the information necessary to identify 
 \begin{Desc}
 \item[Date:]2008-10-21 \end{Desc}
 
-
-References bottomPixel\_\-, height\_\-, leftPixel\_\-, pixels\_\-, rightPixel\_\-, size\_\-, topPixel\_\-, and width\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -152,6 +158,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_shape_a935b8870ea61569990b304b77513923}
 
 
+Returns the coordinates of the shape's barycenter. 
+
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
@@ -160,14 +168,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-30 \end{Desc}
-
-
-References pixels\_\-, and size\_\-.\hypertarget{class_shape_99293804122214fa366d7f7ae794d077}{
+\hypertarget{class_shape_99293804122214fa366d7f7ae794d077}{
 \index{Shape@{Shape}!bottomPixel@{bottomPixel}}
 \index{bottomPixel@{bottomPixel}!Shape@{Shape}}
 \paragraph[{bottomPixel}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::bottomPixel () const}\hfill}
 \label{class_shape_99293804122214fa366d7f7ae794d077}
 
+
+Returns the coordinates of the bottom pixel. 
 
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
@@ -179,13 +187,11 @@ References pixels\_\-, and size\_\-.\hypertarget{class_shape_99293804122214fa366
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References bottomPixel\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=167pt]{class_shape_99293804122214fa366d7f7ae794d077_icgraph}
+\includegraphics[width=152pt]{class_shape_99293804122214fa366d7f7ae794d077_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_shape_8400155046b2190bce621f8f366ef2be}{
@@ -195,29 +201,22 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_shape_8400155046b2190bce621f8f366ef2be}
 
 
+Returns the height of the shape. 
+
 \begin{Desc}
 \item[Returns:]Height of the shape in pixels\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References height\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=152pt]{class_shape_8400155046b2190bce621f8f366ef2be_icgraph}
-\end{center}
-\end{figure}
 \hypertarget{class_shape_53d49d362234068aad0b80986fabb85d}{
 \index{Shape@{Shape}!leftPixel@{leftPixel}}
 \index{leftPixel@{leftPixel}!Shape@{Shape}}
 \paragraph[{leftPixel}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::leftPixel () const}\hfill}
 \label{class_shape_53d49d362234068aad0b80986fabb85d}
 
+
+Returns the coordinates of the leftmost pixel. 
 
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
@@ -229,13 +228,11 @@ Here is the caller graph for this function:\nopagebreak
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References leftPixel\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{class_shape_53d49d362234068aad0b80986fabb85d_icgraph}
+\includegraphics[width=141pt]{class_shape_53d49d362234068aad0b80986fabb85d_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_shape_79caae3047826779e0c8094e9882843b}{
@@ -244,6 +241,8 @@ Here is the caller graph for this function:\nopagebreak
 \paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} Shape::operator() (const unsigned int \& {\em index}) const}\hfill}
 \label{class_shape_79caae3047826779e0c8094e9882843b}
 
+
+Allows read-only access to a pixel in the shape. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -256,14 +255,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-21 \end{Desc}
-
-
-References pixels\_\-.\hypertarget{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{
+\hypertarget{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}{
 \index{Shape@{Shape}!operator()@{operator()}}
 \index{operator()@{operator()}!Shape@{Shape}}
 \paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pixel} \& Shape::operator() (const unsigned int \& {\em index})}\hfill}
 \label{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}
 
+
+Allows read-and-write access to a pixel in the shape. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -276,14 +275,14 @@ References pixels\_\-.\hypertarget{class_shape_7d12f3a76e2bfb7963c00237eba41e0a}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-21 \end{Desc}
-
-
-References pixels\_\-.\hypertarget{class_shape_4e1517d6e14471df4750bc241f517b4e}{
+\hypertarget{class_shape_4e1517d6e14471df4750bc241f517b4e}{
 \index{Shape@{Shape}!operator+@{operator+}}
 \index{operator+@{operator+}!Shape@{Shape}}
 \paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape} Shape::operator+ (const {\bf Shape} \& {\em shape}) const}\hfill}
 \label{class_shape_4e1517d6e14471df4750bc241f517b4e}
 
+
+Appends a shape to a current one. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -297,8 +296,6 @@ References pixels\_\-.\hypertarget{class_shape_4e1517d6e14471df4750bc241f517b4e}
 \begin{Desc}
 \item[Date:]2008-10-28 \end{Desc}
 
-
-References addPixel(), and size().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -314,6 +311,8 @@ Here is the call graph for this function:\nopagebreak
 \label{class_shape_183a6bc428172ced8122ffb68d0f04ef}
 
 
+Evaluates the position of a shape respect to another in a press clip. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -326,8 +325,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-30 \end{Desc}
 
-
-References bottomPixel(), leftPixel(), rightPixel(), and topPixel().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -343,6 +340,8 @@ Here is the call graph for this function:\nopagebreak
 \label{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82}
 
 
+Returns the coordinates of the rightmost pixel. 
+
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
 \begin{Desc}
@@ -353,13 +352,11 @@ Here is the call graph for this function:\nopagebreak
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References rightPixel\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=159pt]{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82_icgraph}
+\includegraphics[width=144pt]{class_shape_c265e43fa90ee2ab7c9cd3a3d1e96d82_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_shape_8504d3be338d2fa594c35fe1444a9ed8}{
@@ -369,6 +366,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_shape_8504d3be338d2fa594c35fe1444a9ed8}
 
 
+Returns the number of pixels in the shape. 
+
 \begin{Desc}
 \item[Returns:]Number of pixels in the shape\end{Desc}
 \begin{Desc}
@@ -377,8 +376,6 @@ Here is the caller graph for this function:\nopagebreak
 \item[Date:]2008-10-21 \end{Desc}
 
 
-References size\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -386,12 +383,34 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=131pt]{class_shape_8504d3be338d2fa594c35fe1444a9ed8_icgraph}
 \end{center}
 \end{figure}
+\hypertarget{class_shape_bcb7d1626e403703952967533c9004ce}{
+\index{Shape@{Shape}!split@{split}}
+\index{split@{split}!Shape@{Shape}}
+\paragraph[{split}]{\setlength{\rightskip}{0pt plus 5cm}void Shape::split ({\bf Shape} \& {\em leftShape}, \/  {\bf Shape} \& {\em rightShape}) const}\hfill}
+\label{class_shape_bcb7d1626e403703952967533c9004ce}
+
+
+Splits the shape in two different shapes. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em leftShape}]Left part of the source shape \item[{\em rightShape}]Right part of the source shape\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Postcondition:]leftShape containts the left part of source shape once it has been splitted. So does righShape with the right part.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
 \hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{
 \index{Shape@{Shape}!topPixel@{topPixel}}
 \index{topPixel@{topPixel}!Shape@{Shape}}
 \paragraph[{topPixel}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Pixel} \& Shape::topPixel () const}\hfill}
 \label{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}
 
+
+Returns the coordinates of the top pixel. 
 
 \begin{Desc}
 \item[Returns:]A pair of coordinates\end{Desc}
@@ -403,13 +422,11 @@ Here is the caller graph for this function:\nopagebreak
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References topPixel\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e_icgraph}
+\includegraphics[width=141pt]{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_shape_6773dfedb96ef750e5469e22d51ecf0f}{
@@ -419,20 +436,11 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_shape_6773dfedb96ef750e5469e22d51ecf0f}
 
 
+Returns the width of the shape. 
+
 \begin{Desc}
 \item[Returns:]Width of the shape in pixels\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References width\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=149pt]{class_shape_6773dfedb96ef750e5469e22d51ecf0f_icgraph}
-\end{center}
-\end{figure}

@@ -216,6 +216,20 @@ public:
 	void addPixel (const Pixel& pixel);
 	
 	
+	///
+	/// Splits the shape in two different shapes.
+	/// 
+	/// @param	leftShape		Left part of the source shape
+	/// @param	rightShape		Right part of the source shape
+	/// 
+	/// @post leftShape containts the left part of source shape once it has been splitted. So does righShape with the right part.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-07
+	///
+	void split (Shape& leftShape, Shape& rightShape) const;
+	
+	
 private:
 
 	unsigned int		width_;			///< Width of the shape	

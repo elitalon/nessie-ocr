@@ -41,6 +41,8 @@ std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{
 
 
 \subsubsection{Detailed Description}
+Exception raised by a Nessie OCR object. 
+
 This class derives from std::exception class, so that all the exceptions either from this library or the STL itself can be caught using a reference to an 'exception' object.
 
 \begin{Desc}
@@ -56,6 +58,8 @@ This class derives from std::exception class, so that all the exceptions either 
 \paragraph[{NessieException}]{\setlength{\rightskip}{0pt plus 5cm}NessieException::NessieException (const std::string \& {\em what})}\hfill}
 \label{class_nessie_exception_80c86c892438045635bf6a99da17e859}
 
+
+Constructor. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -73,6 +77,8 @@ This class derives from std::exception class, so that all the exceptions either 
 \label{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}
 
 
+Destructor. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -87,12 +93,11 @@ This class derives from std::exception class, so that all the exceptions either 
 \label{class_nessie_exception_a522c2ea164e88be0b26670170b33909}
 
 
+Returns a message that explains the exception raised. 
+
 \begin{Desc}
 \item[Returns:]Message that explains the situation that caused the exception.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-03 \end{Desc}
-
-
-References what\_\-.

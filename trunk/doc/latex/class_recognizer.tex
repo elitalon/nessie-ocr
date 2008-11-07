@@ -75,6 +75,8 @@ std::vector$<$ \hyperlink{class_statistics}{Statistics} $>$ \hyperlink{class_rec
 
 
 \subsubsection{Detailed Description}
+Manager of the whole OCR process. 
+
 This class encapsulates all the stages related to the optical character recognition process of every clip within a newspaper's page. For each image provided (via constructors) representing the page, you can obtain its text and a number of statistics regarding the recognition process performance.
 
 At the moment, this class manages the press clips within an image loaded with the Magick++ utilities. The newspaper pages should be an image that comes in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format. The idea behind this class is to encapsulate all the interactions with Magick++, so that the rest of the classes have an unified way to work.
@@ -97,6 +99,8 @@ In future modifications any library may be added to load the images. A developer
 \label{class_recognizer_50ffc181208bb07ae651aba6249ee7e4}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -107,8 +111,6 @@ In future modifications any library may be added to load the images. A developer
 \begin{Desc}
 \item[Date:]2008-10-10\end{Desc}
 Creates a new \hyperlink{class_recognizer}{Recognizer} object loading the image from disk. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-
-References height\_\-, loadImage(), and width\_\-.
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -124,6 +126,8 @@ Here is the call graph for this function:\nopagebreak
 \label{class_recognizer_01e0b85a6ad9cfbf6fcab4fe4b294640}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -136,8 +140,6 @@ Here is the call graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-10\end{Desc}
 Creates a new \hyperlink{class_recognizer}{Recognizer} object from an image loaded externally with methods from Magick++ API. If the image is multi-frame only the first one is taken, e.g. the first page of a PDF with multiple pages. 
-
-References height\_\-, loadImage(), and width\_\-.
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -156,6 +158,8 @@ Here is the call graph for this function:\nopagebreak
 \label{class_recognizer_acc4244738f2577a0c344c3b3af22eb0}
 
 
+Loads an Image object created with the Magick++ API into the internal data structure. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -171,8 +175,6 @@ Here is the call graph for this function:\nopagebreak
 \item[Date:]2008-10-10\end{Desc}
 The image is automatically converted into a grayscale colorspace according with the RGB values within the original source. If the image comes already in a grayscale colorspace no conversion is applied. 
 
-References height\_\-, image\_\-, and width\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -187,6 +189,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_recognizer_d117f344b1f77711e6cbab0f15dbc269}
 
 
+Recognizes the text within a single press clip located at coordinates (x,y). 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -196,14 +200,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
-If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
-
-References Segmenter::applyThreshold(), Preprocessor::backgroundReferenceGrayLevel(), Preprocessor::backgroundReferenceGrayLevelFindingTime(), Statistics::backgroundReferenceGrayLevelFindingTime(), Shape::bottomPixel(), Preprocessor::computeOptimalThreshold(), Preprocessor::findBackgroundReferenceGrayLevel(), Segmenter::findShapes(), Segmenter::findSpaceLocations(), Shape::height(), height\_\-, image\_\-, Shape::leftPixel(), Preprocessor::noiseRemovalTime(), Statistics::noiseRemovalTime(), Preprocessor::optimalThreshold(), Preprocessor::optimalThresholdComputingTime(), Statistics::optimalThresholdComputingTime(), Preprocessor::removeIsolatedNoise(), Shape::rightPixel(), Segmenter::shapes(), Segmenter::shapesFindingTime(), Statistics::shapesFindingTime(), statistics\_\-, Segmenter::thresholdingTime(), Statistics::thresholdingTime(), Shape::topPixel(), updateImage(), Shape::width(), and width\_\-.\hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
+If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures. That means you can gather them by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. \hypertarget{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}{
 \index{Recognizer@{Recognizer}!obtainText@{obtainText}}
 \index{obtainText@{obtainText}!Recognizer@{Recognizer}}
 \paragraph[{obtainText}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::obtainText (const std::vector$<$ {\bf ClipLocation} $>$ \& {\em coordinates})}\hfill}
 \label{class_recognizer_4b3b27b3746edcf831d142eddfb81f19}
 
+
+Recognizes the text within multiple press clips whose coordinates are passed. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -215,8 +219,6 @@ References Segmenter::applyThreshold(), Preprocessor::backgroundReferenceGrayLev
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References obtainText().
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -232,19 +234,28 @@ Here is the call graph for this function:\nopagebreak
 \label{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}
 
 
+Recognizes the text within the whole page at once. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-09\end{Desc}
 It is assumed that the image is a clip itself we can obtain the text processing the whole image. Since there is only one clip you can gather its text and its statistics by simply calling \hyperlink{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{text()} and \hyperlink{class_recognizer_8b38356d2741969e67cd6b4f507897ba}{statistics()} with no parameters at all. 
 
-References height\_\-, and width\_\-.
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=90pt]{class_recognizer_008a0ea69a912ff54882dd20d18adcf9_cgraph}
+\end{center}
+\end{figure}
+
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=176pt]{class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph}
+\includegraphics[width=128pt]{class_recognizer_008a0ea69a912ff54882dd20d18adcf9_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}{
@@ -253,6 +264,8 @@ Here is the caller graph for this function:\nopagebreak
 \paragraph[{statistic}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Statistics} \& Recognizer::statistic (const unsigned int \& {\em label} = {\tt 0}) const}\hfill}
 \label{class_recognizer_b941b1ad42c3bacb3c829acf7fc689de}
 
+
+Returns the statistical data regarding the recognition process of a single clip. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -269,8 +282,6 @@ Here is the caller graph for this function:\nopagebreak
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References statistics\_\-.
-
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -285,6 +296,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_recognizer_8b38356d2741969e67cd6b4f507897ba}
 
 
+Returns the statistical data regarding the recognition process of every loaded clip. 
+
 \begin{Desc}
 \item[Returns:]Statistical data about the recognition process of every clip within the image\end{Desc}
 \begin{Desc}
@@ -293,14 +306,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References statistics\_\-.\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{
+\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}{
 \index{Recognizer@{Recognizer}!text@{text}}
 \index{text@{text}!Recognizer@{Recognizer}}
 \paragraph[{text}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Text} \& Recognizer::text (const unsigned int \& {\em label} = {\tt 0}) const}\hfill}
 \label{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2}
 
+
+Returns the text of a single clip. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -315,12 +328,21 @@ References statistics\_\-.\hypertarget{class_recognizer_c5d20b511888a60a6c1a81c0
 \item[Date:]2008-10-13 \end{Desc}
 
 
-References texts\_\-.\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_recognizer_c5d20b511888a60a6c1a81c0a4206ec2_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}{
 \index{Recognizer@{Recognizer}!texts@{texts}}
 \index{texts@{texts}!Recognizer@{Recognizer}}
 \paragraph[{texts}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Text} $>$ \& Recognizer::texts () const}\hfill}
 \label{class_recognizer_2a365c34f1447cdc3311d311e02bf2ed}
 
+
+Returns the text of every loaded clip. 
 
 \begin{Desc}
 \item[Returns:]A list of texts recognized in the clips previously loaded\end{Desc}
@@ -330,14 +352,14 @@ References texts\_\-.\hypertarget{class_recognizer_2a365c34f1447cdc3311d311e02bf
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References texts\_\-.\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
+\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}{
 \index{Recognizer@{Recognizer}!updateImage@{updateImage}}
 \index{updateImage@{updateImage}!Recognizer@{Recognizer}}
 \paragraph[{updateImage}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer::updateImage (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_recognizer_0779d8bb035f7d51cb26fdc3d410e019}
 
+
+Writes the information of a clip into the underlying image. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -351,8 +373,6 @@ References texts\_\-.\hypertarget{class_recognizer_0779d8bb035f7d51cb26fdc3d410e
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
 Since the only way of passing a \hyperlink{class_clip}{Clip} object to this method is invoking \hyperlink{class_recognizer_008a0ea69a912ff54882dd20d18adcf9}{Recognizer::obtainText()}, and the dimensions are controlled inside that method, here it is assumed that all the coordinates are valid. 
-
-References Clip::column(), Clip::height(), image\_\-, Clip::row(), Clip::width(), and width\_\-.
 
 Here is the call graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -377,6 +397,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_recognizer_559f62a3e3e2d0b799bab38e975b4b67}
 
 
+Writes the information of the internal data into an external image. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -393,8 +415,6 @@ If either the source or the target are bigger or smaller than its counterpart, o
 \begin{Desc}
 \item[Date:]2008-10-10 \end{Desc}
 
-
-References height\_\-, image\_\-, and width\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]

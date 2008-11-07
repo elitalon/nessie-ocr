@@ -158,6 +158,8 @@ class&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Declares the class <a class="el" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a> as friend. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+Statistical data regarding the text recognition process. 
+<p>
 This class stores a various statistical information regarding the elapsed time during the text recognition process, accumulated internally mostly in algorithms.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
@@ -177,6 +179,8 @@ This class stores a various statistical information regarding the elapsed time d
 </div>
 <div class="memdoc">
 
+<p>
+Constructor. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
@@ -201,6 +205,8 @@ This class stores a various statistical information regarding the elapsed time d
 <div class="memdoc">
 
 <p>
+Sets the elapsed time in the reference gray level of the background finding algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -208,8 +214,6 @@ This class stores a various statistical information regarding the elapsed time d
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -229,11 +233,11 @@ This class stores a various statistical information regarding the elapsed time d
 <div class="memdoc">
 
 <p>
+Returns the elapsed time in the reference gray level of the background finding algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -263,6 +267,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Sets the elapsed time in the noise removal algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -270,8 +276,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -291,11 +295,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time in the noise removal algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -325,6 +329,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Allows the sum of times stored in two different statistics. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand.</td></tr>
@@ -333,8 +339,6 @@ Here is the caller graph for this function:</div>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A new set of statistical data as a result of summing the time parameters of both objects each other</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-22 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00151">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00149">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00147">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -355,6 +359,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Allows the subtraction of two different statistics. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>statistics</em>&nbsp;</td><td>A set of statistical data as the second operand.</td></tr>
@@ -363,8 +369,6 @@ Here is the caller graph for this function:</div>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A new set of statistical data as a result of subtracting the time parameters of both objects each other</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-22 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00151">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00149">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00147">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -385,6 +389,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Sets the elapsed time in the optimal threshold computing algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -392,8 +398,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00139">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00143">noiseRemovalTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -413,11 +417,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time in the optimal threshold computing algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00141">optimalThresholdComputingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -446,11 +450,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the total elapsed time within the preprocessing stage. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Total elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00145">preprocessingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -479,11 +483,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the total elapsed time within the segmentation stage. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Total elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00151">segmentationTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -513,6 +517,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Sets the elapsed time in the shapes finding algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -520,8 +526,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00151">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00149">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00147">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -541,11 +545,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while finding the shapes in a clip. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00149">shapesFindingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -575,6 +579,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Sets the elapsed time in the thresholding algorithm. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>time</em>&nbsp;</td><td>Elapsed time in seconds</td></tr>
@@ -582,8 +588,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00151">segmentationTime_</a>, <a class="el" href="_statistics_8hpp-source.html#l00149">shapesFindingTime_</a>, and <a class="el" href="_statistics_8hpp-source.html#l00147">thresholdingTime_</a>.</p>
 
 </div>
 </div><p>
@@ -603,11 +607,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while applying the thresholding algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_statistics_8hpp-source.html#l00147">thresholdingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -621,7 +625,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 12:02:46 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 20:09:18 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

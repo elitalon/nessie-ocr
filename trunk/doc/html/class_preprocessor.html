@@ -129,6 +129,8 @@ float&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Elapsed time when computing the background gray level. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+<a class="el" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> of the OCR process. 
+<p>
 This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to enhance the image quality by applying some techniques of image processing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
@@ -149,6 +151,8 @@ This class encapsulates all the algorithms related to preprocessing stage of the
 </div>
 <div class="memdoc">
 
+<p>
+Constructor. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
@@ -172,11 +176,11 @@ This class encapsulates all the algorithms related to preprocessing stage of the
 <div class="memdoc">
 
 <p>
+Returns the background reference gray level in the last clip used. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Reference background gray level in the last clip used</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -205,12 +209,12 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while computing the background reference gray level within the clip. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time while computing the background reference gray level</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00177">backgroundReferenceGrayLevelFindingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -240,6 +244,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Computes the optimal threshold value in a clip following the Sonka's technique. 
+<p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> method before calling this one, since it sets internal attributes.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_preprocessor.html#d52352691de7d8f0738b67e93a5898fc" title="Elapsed time when converting the image to a grayscale colorspace.">optimalThresholdComputingTime_</a> member is modified. <p>
 The <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe" title="Optimal threshold value within the clip.">optimalThreshold_</a> member is initialized to the threshold found</dd></dl>
@@ -253,8 +259,6 @@ The <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-20</dd></dl>
 The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (Thomson Learning, 2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold value that is given by the member backgroundReferenceGrayLevel_. 
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00175">optimalThresholdComputingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00244">Clip::size()</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -301,6 +305,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Computes the background reference gray level value within a clip. 
+<p>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The <a class="el" href="class_preprocessor.html#98ea95388e043eef5460beaf2e3aaaed" title="Elapsed time when computing the background gray level.">backgroundReferenceGrayLevelFindingTime_</a> member is modified.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -314,8 +320,6 @@ Here is the caller graph for this function:</div>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13</dd></dl>
 To find the reference gray level of the background it is assumed that there are more pixels belonging to the background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute a gray level weighted mean using all those values.<p>
 <dl compact><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work, everything must be undone and start again with the second reference gray level. </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00177">backgroundReferenceGrayLevelFindingTime_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -353,12 +357,12 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while applying the 'isolated noise removal' algorithm. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time when applying the 'isolated noise removal' algorithm</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_preprocessor.html#a3e047486a0a80f2103f51d7141e41c5" title="Applies the &#39;isolated noise removal&#39; algorithm.">removeIsolatedNoise()</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00173">noiseRemovalTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -388,6 +392,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Sets the optimal threshold to use in algorithms. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>threshold</em>&nbsp;</td><td>Value between 0 and 255 that stablishes the optimal threshold of a clip.</td></tr>
@@ -395,8 +401,6 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>.</p>
 
 </div>
 </div><p>
@@ -416,11 +420,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the optimal threshold found in the last clip used. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Optimal threshold computed from the last clip used.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -449,12 +453,12 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Returns the elapsed time while founding the optimal threshold within the clip. 
+<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time while founding the optimal threshold within the clip</dd></dl>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique...">computeOptimalThreshold()</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
-
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00175">optimalThresholdComputingTime_</a>.</p>
 
 <p>
 <div class="dynheader">
@@ -493,6 +497,8 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
+Applies the 'isolated noise removal' algorithm. 
+<p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>You MUST call <a class="el" href="class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique...">computeOptimalThreshold()</a> and <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4" title="Computes the background reference gray level value within a clip.">findBackgroundReferenceGrayLevel()</a> methods before calling this one, since they set internal attributes.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The clip may be modified if any noise is found.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
@@ -505,8 +511,6 @@ Here is the caller graph for this function:</div>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-11</dd></dl>
 The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours whose gray level is over a threshold value as isolationCoefficient. 
-<p>References <a class="el" href="_preprocessor_8hpp-source.html#l00171">backgroundReferenceGrayLevel_</a>, <a class="el" href="_clip_8hpp-source.html#l00238">Clip::height()</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00173">noiseRemovalTime_</a>, <a class="el" href="_preprocessor_8hpp-source.html#l00169">optimalThreshold_</a>, and <a class="el" href="_clip_8hpp-source.html#l00232">Clip::width()</a>.</p>
-
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -528,7 +532,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 12:02:25 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Nov 7 20:09:18 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

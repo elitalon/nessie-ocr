@@ -1,0 +1,206 @@
+\hypertarget{class_classifier}{
+\subsection{Classifier Class Reference}
+\label{class_classifier}\index{Classifier@{Classifier}}
+}
+\hyperlink{class_classifier}{Classifier} of the OCR process.  
+
+
+{\tt \#include $<$Classifier.hpp$>$}
+
+Collaboration diagram for Classifier:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_classifier__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_classifier_e6132b100c96a4f3d8ad3885b5acb28e}{Classifier} ()
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+std::string \hyperlink{class_classifier_6fd6a8332d3188ac605ff452ab6dc9c2}{matchShape} (const \hyperlink{class_shape}{Shape} \&shape)
+\begin{CompactList}\small\item\em Matchs a shape to a character. \item\end{CompactList}\item 
+float \hyperlink{class_classifier_82e313296065218b1a01b5e44daa4c2f}{matchingShapeTime} ()
+\begin{CompactList}\small\item\em Returns the elapsed time while matching a shape to a character. \item\end{CompactList}\end{CompactItemize}
+\subsubsection*{Private Types}
+\begin{CompactItemize}
+\item 
+typedef std::pair$<$ FeatureVector, unsigned int $>$ \hyperlink{class_classifier_3487f0cd88135d7782cf4a460e221e9e}{DatasetElement}
+\begin{CompactList}\small\item\em Element of a data set. \item\end{CompactList}\end{CompactItemize}
+\subsubsection*{Private Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_classifier_6c5a7ef6298b0f0d84873297f1e8c7e9}{buildFeatureVector} (const \hyperlink{class_shape}{Shape} \&shape)
+\begin{CompactList}\small\item\em Builds a feature vector from a shape. \item\end{CompactList}\item 
+void \hyperlink{class_classifier_8bbab7df78bc986a303fd72a6a472519}{readDataset} ()
+\begin{CompactList}\small\item\em Reads a dataset from a file in the filesystem. \item\end{CompactList}\item 
+void \hyperlink{class_classifier_dcb995d9926d36b71bb8e723422d4974}{writeDataset} () const 
+\begin{CompactList}\small\item\em Writes a dataset to a file in the filesystem. \item\end{CompactList}\end{CompactItemize}
+\subsubsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_classifier_ed02e9873fd6e85950ae1e1a6f3d45bf}{
+std::deque$<$ \hyperlink{class_classifier_3487f0cd88135d7782cf4a460e221e9e}{DatasetElement} $>$ \hyperlink{class_classifier_ed02e9873fd6e85950ae1e1a6f3d45bf}{dataset\_\-}}
+\label{class_classifier_ed02e9873fd6e85950ae1e1a6f3d45bf}
+
+\begin{CompactList}\small\item\em Data set where the classification samples are stored. \item\end{CompactList}\item 
+\hypertarget{class_classifier_3d46e3d6546304f24db6d9402375988a}{
+FeatureVector \hyperlink{class_classifier_3d46e3d6546304f24db6d9402375988a}{sample\_\-}}
+\label{class_classifier_3d46e3d6546304f24db6d9402375988a}
+
+\begin{CompactList}\small\item\em A sample that represents a shape. \item\end{CompactList}\item 
+\hypertarget{class_classifier_3404a15b2bd381782cce404b56a5fce7}{
+float \hyperlink{class_classifier_3404a15b2bd381782cce404b56a5fce7}{matchingShapeTime\_\-}}
+\label{class_classifier_3404a15b2bd381782cce404b56a5fce7}
+
+\begin{CompactList}\small\item\em Elapsed time while matching a shape into a character. \item\end{CompactList}\item 
+\hypertarget{class_classifier_758002d8431c62af065433b707ffde98}{
+std::string \hyperlink{class_classifier_758002d8431c62af065433b707ffde98}{datasetFilename}}
+\label{class_classifier_758002d8431c62af065433b707ffde98}
+
+\begin{CompactList}\small\item\em The file path where the data set is stored in the filesystem. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{class_classifier}{Classifier} of the OCR process. 
+
+This class encapsulates all the methods related to the classification stage of the OCR process. Its task is to match every shape found in the segmentation stage to a valid character.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_shape}{Shape}, FeatureVector\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-06 \end{Desc}
+
+
+\subsubsection{Member Typedef Documentation}
+\hypertarget{class_classifier_3487f0cd88135d7782cf4a460e221e9e}{
+\index{Classifier@{Classifier}!DatasetElement@{DatasetElement}}
+\index{DatasetElement@{DatasetElement}!Classifier@{Classifier}}
+\paragraph[{DatasetElement}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Classifier::DatasetElement}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_classifier_3487f0cd88135d7782cf4a460e221e9e}
+
+
+Element of a data set. 
+
+This pair keeps the feature vector and the category that defines every sample in a data set.
+
+\begin{Desc}
+\item[See also:]FeatureVector\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_classifier_e6132b100c96a4f3d8ad3885b5acb28e}{
+\index{Classifier@{Classifier}!Classifier@{Classifier}}
+\index{Classifier@{Classifier}!Classifier@{Classifier}}
+\paragraph[{Classifier}]{\setlength{\rightskip}{0pt plus 5cm}Classifier::Classifier ()}\hfill}
+\label{class_classifier_e6132b100c96a4f3d8ad3885b5acb28e}
+
+
+Constructor. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_classifier_6c5a7ef6298b0f0d84873297f1e8c7e9}{
+\index{Classifier@{Classifier}!buildFeatureVector@{buildFeatureVector}}
+\index{buildFeatureVector@{buildFeatureVector}!Classifier@{Classifier}}
+\paragraph[{buildFeatureVector}]{\setlength{\rightskip}{0pt plus 5cm}void Classifier::buildFeatureVector (const {\bf Shape} \& {\em shape})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_classifier_6c5a7ef6298b0f0d84873297f1e8c7e9}
+
+
+Builds a feature vector from a shape. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em shape}]The source shape where the information is taken to build the feature vector.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Postcondition:]\hyperlink{class_classifier_3d46e3d6546304f24db6d9402375988a}{sample\_\-} is initialized according to the values calculated.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+\hypertarget{class_classifier_82e313296065218b1a01b5e44daa4c2f}{
+\index{Classifier@{Classifier}!matchingShapeTime@{matchingShapeTime}}
+\index{matchingShapeTime@{matchingShapeTime}!Classifier@{Classifier}}
+\paragraph[{matchingShapeTime}]{\setlength{\rightskip}{0pt plus 5cm}float Classifier::matchingShapeTime ()}\hfill}
+\label{class_classifier_82e313296065218b1a01b5e44daa4c2f}
+
+
+Returns the elapsed time while matching a shape to a character. 
+
+\begin{Desc}
+\item[Returns:]Elpased time while matching a shape to a character.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+\hypertarget{class_classifier_6fd6a8332d3188ac605ff452ab6dc9c2}{
+\index{Classifier@{Classifier}!matchShape@{matchShape}}
+\index{matchShape@{matchShape}!Classifier@{Classifier}}
+\paragraph[{matchShape}]{\setlength{\rightskip}{0pt plus 5cm}std::string Classifier::matchShape (const {\bf Shape} \& {\em shape})}\hfill}
+\label{class_classifier_6fd6a8332d3188ac605ff452ab6dc9c2}
+
+
+Matchs a shape to a character. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em shape}]\hyperlink{class_shape}{Shape} that represents a character\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The character if found, otherwise an empty string indicating a failure.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{class_classifier_6fd6a8332d3188ac605ff452ab6dc9c2_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_classifier_8bbab7df78bc986a303fd72a6a472519}{
+\index{Classifier@{Classifier}!readDataset@{readDataset}}
+\index{readDataset@{readDataset}!Classifier@{Classifier}}
+\paragraph[{readDataset}]{\setlength{\rightskip}{0pt plus 5cm}void Classifier::readDataset ()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_classifier_8bbab7df78bc986a303fd72a6a472519}
+
+
+Reads a dataset from a file in the filesystem. 
+
+\begin{Desc}
+\item[Postcondition:]\hyperlink{class_classifier_ed02e9873fd6e85950ae1e1a6f3d45bf}{dataset\_\-} is set with the contents of the file.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}
+\hypertarget{class_classifier_dcb995d9926d36b71bb8e723422d4974}{
+\index{Classifier@{Classifier}!writeDataset@{writeDataset}}
+\index{writeDataset@{writeDataset}!Classifier@{Classifier}}
+\paragraph[{writeDataset}]{\setlength{\rightskip}{0pt plus 5cm}void Classifier::writeDataset () const\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_classifier_dcb995d9926d36b71bb8e723422d4974}
+
+
+Writes a dataset to a file in the filesystem. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-07 \end{Desc}

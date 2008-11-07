@@ -99,6 +99,8 @@ class \hyperlink{class_statistics_11123fa51c07995419270030024a7dfe}{Recognizer}}
 
 
 \subsubsection{Detailed Description}
+Statistical data regarding the text recognition process. 
+
 This class stores a various statistical information regarding the elapsed time during the text recognition process, accumulated internally mostly in algorithms.
 
 \begin{Desc}
@@ -115,6 +117,8 @@ This class stores a various statistical information regarding the elapsed time d
 \label{class_statistics_60ddd90a571ed4c3ce8c0f6317a36d63}
 
 
+Constructor. 
+
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -129,6 +133,8 @@ This class stores a various statistical information regarding the elapsed time d
 \label{class_statistics_5c9fede192f06bc757d18336dfcf84cf}
 
 
+Sets the elapsed time in the reference gray level of the background finding algorithm. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -138,14 +144,14 @@ This class stores a various statistical information regarding the elapsed time d
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-06 \end{Desc}
-
-
-References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, optimalThresholdComputingTime\_\-, and preprocessingTime\_\-.\hypertarget{class_statistics_d65adc1b3bd1d560408c5f9e06fde3d4}{
+\hypertarget{class_statistics_d65adc1b3bd1d560408c5f9e06fde3d4}{
 \index{Statistics@{Statistics}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Statistics@{Statistics}}
 \paragraph[{backgroundReferenceGrayLevelFindingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Statistics::backgroundReferenceGrayLevelFindingTime () const}\hfill}
 \label{class_statistics_d65adc1b3bd1d560408c5f9e06fde3d4}
 
+
+Returns the elapsed time in the reference gray level of the background finding algorithm. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -154,8 +160,6 @@ References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, op
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References backgroundReferenceGrayLevelFindingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -171,6 +175,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_dc21ff96ff4ddda9384eb03ac6de20de}
 
 
+Sets the elapsed time in the noise removal algorithm. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -180,14 +186,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-06 \end{Desc}
-
-
-References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, optimalThresholdComputingTime\_\-, and preprocessingTime\_\-.\hypertarget{class_statistics_2851ad08e1bd9604fe76c78cccc50e84}{
+\hypertarget{class_statistics_2851ad08e1bd9604fe76c78cccc50e84}{
 \index{Statistics@{Statistics}!noiseRemovalTime@{noiseRemovalTime}}
 \index{noiseRemovalTime@{noiseRemovalTime}!Statistics@{Statistics}}
 \paragraph[{noiseRemovalTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Statistics::noiseRemovalTime () const}\hfill}
 \label{class_statistics_2851ad08e1bd9604fe76c78cccc50e84}
 
+
+Returns the elapsed time in the noise removal algorithm. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -196,8 +202,6 @@ References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, op
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References noiseRemovalTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -213,6 +217,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_cb07c98a63e07fdb1476ffb282b84676}
 
 
+Allows the sum of times stored in two different statistics. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -224,14 +230,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-22 \end{Desc}
-
-
-References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, optimalThresholdComputingTime\_\-, preprocessingTime\_\-, segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-.\hypertarget{class_statistics_529bed34d909d88440214d6983779043}{
+\hypertarget{class_statistics_529bed34d909d88440214d6983779043}{
 \index{Statistics@{Statistics}!operator-@{operator-}}
 \index{operator-@{operator-}!Statistics@{Statistics}}
 \paragraph[{operator-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics} Statistics::operator- (const {\bf Statistics} \& {\em statistics}) const}\hfill}
 \label{class_statistics_529bed34d909d88440214d6983779043}
 
+
+Allows the subtraction of two different statistics. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -244,14 +250,14 @@ References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, op
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-22 \end{Desc}
-
-
-References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, optimalThresholdComputingTime\_\-, preprocessingTime\_\-, segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-.\hypertarget{class_statistics_90380f820c043813aafb85c1dc9a6393}{
+\hypertarget{class_statistics_90380f820c043813aafb85c1dc9a6393}{
 \index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Statistics@{Statistics}}
 \paragraph[{optimalThresholdComputingTime}]{\setlength{\rightskip}{0pt plus 5cm}void Statistics::optimalThresholdComputingTime (const float \& {\em time})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_statistics_90380f820c043813aafb85c1dc9a6393}
 
+
+Sets the elapsed time in the optimal threshold computing algorithm. 
 
 \begin{Desc}
 \item[Parameters:]
@@ -262,14 +268,14 @@ References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, op
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-06 \end{Desc}
-
-
-References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, optimalThresholdComputingTime\_\-, and preprocessingTime\_\-.\hypertarget{class_statistics_3a364709b9fe8dbefd03b3bb45d9a89d}{
+\hypertarget{class_statistics_3a364709b9fe8dbefd03b3bb45d9a89d}{
 \index{Statistics@{Statistics}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
 \index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Statistics@{Statistics}}
 \paragraph[{optimalThresholdComputingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Statistics::optimalThresholdComputingTime () const}\hfill}
 \label{class_statistics_3a364709b9fe8dbefd03b3bb45d9a89d}
 
+
+Returns the elapsed time in the optimal threshold computing algorithm. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -278,8 +284,6 @@ References backgroundReferenceGrayLevelFindingTime\_\-, noiseRemovalTime\_\-, op
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References optimalThresholdComputingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -295,6 +299,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_96aafebb86be480130007bd437875156}
 
 
+Returns the total elapsed time within the preprocessing stage. 
+
 \begin{Desc}
 \item[Returns:]Total elapsed time in seconds\end{Desc}
 \begin{Desc}
@@ -302,8 +308,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References preprocessingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -319,6 +323,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_4cea19c3705fc315ce2b4300b3725ab8}
 
 
+Returns the total elapsed time within the segmentation stage. 
+
 \begin{Desc}
 \item[Returns:]Total elapsed time in seconds\end{Desc}
 \begin{Desc}
@@ -326,8 +332,6 @@ Here is the caller graph for this function:\nopagebreak
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References segmentationTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -343,6 +347,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_e380b6d86bb2feeaabba147f731aac73}
 
 
+Sets the elapsed time in the shapes finding algorithm. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -352,14 +358,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-.\hypertarget{class_statistics_cdb8852bc99d12a619d130ae2e6948ee}{
+\hypertarget{class_statistics_cdb8852bc99d12a619d130ae2e6948ee}{
 \index{Statistics@{Statistics}!shapesFindingTime@{shapesFindingTime}}
 \index{shapesFindingTime@{shapesFindingTime}!Statistics@{Statistics}}
 \paragraph[{shapesFindingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Statistics::shapesFindingTime () const}\hfill}
 \label{class_statistics_cdb8852bc99d12a619d130ae2e6948ee}
 
+
+Returns the elapsed time while finding the shapes in a clip. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -368,8 +374,6 @@ References segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References shapesFindingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
@@ -385,6 +389,8 @@ Here is the caller graph for this function:\nopagebreak
 \label{class_statistics_97e33cf2670cb908646fe01b8f1d719a}
 
 
+Sets the elapsed time in the thresholding algorithm. 
+
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -394,14 +400,14 @@ Here is the caller graph for this function:\nopagebreak
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
-
-
-References segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-.\hypertarget{class_statistics_79a7c11e89528f21b663153c2636216a}{
+\hypertarget{class_statistics_79a7c11e89528f21b663153c2636216a}{
 \index{Statistics@{Statistics}!thresholdingTime@{thresholdingTime}}
 \index{thresholdingTime@{thresholdingTime}!Statistics@{Statistics}}
 \paragraph[{thresholdingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Statistics::thresholdingTime () const}\hfill}
 \label{class_statistics_79a7c11e89528f21b663153c2636216a}
 
+
+Returns the elapsed time while applying the thresholding algorithm. 
 
 \begin{Desc}
 \item[Returns:]Elapsed time in seconds\end{Desc}
@@ -410,8 +416,6 @@ References segmentationTime\_\-, shapesFindingTime\_\-, and thresholdingTime\_\-
 \begin{Desc}
 \item[Date:]2008-10-13 \end{Desc}
 
-
-References thresholdingTime\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
