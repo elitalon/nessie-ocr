@@ -94,7 +94,8 @@ EXECUTABLE=$(BIN)ocr
 DEBUG=NO
 COMPILER_DEBUGGING_OPTIONS=-g
 LINKER_DEBUGGING_OPTIONS=
-FLAGS=-Wall -Wextra -Weffc++ -Wold-style-cast -Winline -O2 -I$(INC) -I$(LIB)
+EXTRA_WARNINGS=-Wextra -Weffc++ -Winline -Wold-style-cast
+FLAGS=-Wall -O2 -I$(INC) -I$(LIB)
 
 # Formatted output commands
 NL=\n

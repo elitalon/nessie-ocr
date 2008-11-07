@@ -2,6 +2,9 @@
 \subsection{NessieException Class Reference}
 \label{class_nessie_exception}\index{NessieException@{NessieException}}
 }
+Exception raised by a Nessie OCR object.  
+
+
 {\tt \#include $<$NessieException.hpp$>$}
 
 Inheritance diagram for NessieException:\nopagebreak
@@ -18,15 +21,6 @@ Collaboration diagram for NessieException:\nopagebreak
 \includegraphics[width=129pt]{class_nessie_exception__coll__graph}
 \end{center}
 \end{figure}
-
-
-\subsubsection{Detailed Description}
-This class derives from std::exception class, so that all the exceptions either from this library or the STL itself can be caught using a reference to an 'exception' object.
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-03 \end{Desc}
 \subsubsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
@@ -46,11 +40,20 @@ std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{
 \begin{CompactList}\small\item\em Message that explains the exception raised. \item\end{CompactList}\end{CompactItemize}
 
 
+\subsubsection{Detailed Description}
+This class derives from std::exception class, so that all the exceptions either from this library or the STL itself can be caught using a reference to an 'exception' object.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-03 \end{Desc}
+
+
 \subsubsection{Constructor \& Destructor Documentation}
 \hypertarget{class_nessie_exception_80c86c892438045635bf6a99da17e859}{
 \index{NessieException@{NessieException}!NessieException@{NessieException}}
 \index{NessieException@{NessieException}!NessieException@{NessieException}}
-\paragraph[NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::NessieException (const std::string \& {\em what})}\hfill}
+\paragraph[{NessieException}]{\setlength{\rightskip}{0pt plus 5cm}NessieException::NessieException (const std::string \& {\em what})}\hfill}
 \label{class_nessie_exception_80c86c892438045635bf6a99da17e859}
 
 
@@ -66,7 +69,7 @@ std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{
 \hypertarget{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}{
 \index{NessieException@{NessieException}!$\sim$NessieException@{$\sim$NessieException}}
 \index{$\sim$NessieException@{$\sim$NessieException}!NessieException@{NessieException}}
-\paragraph[$\sim$NessieException]{\setlength{\rightskip}{0pt plus 5cm}NessieException::$\sim$NessieException ()  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}\hfill}
+\paragraph[{$\sim$NessieException}]{\setlength{\rightskip}{0pt plus 5cm}NessieException::$\sim$NessieException ()  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}\hfill}
 \label{class_nessie_exception_19f44d2725dd53e2f10505a88e5773f2}
 
 
@@ -80,7 +83,7 @@ std::string \hyperlink{class_nessie_exception_3464c36d30d9baabd0b10ac4797d4b5b}{
 \hypertarget{class_nessie_exception_a522c2ea164e88be0b26670170b33909}{
 \index{NessieException@{NessieException}!what@{what}}
 \index{what@{what}!NessieException@{NessieException}}
-\paragraph[what]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ NessieException::what () const  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}\hfill}
+\paragraph[{what}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ NessieException::what () const  throw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}\hfill}
 \label{class_nessie_exception_a522c2ea164e88be0b26670170b33909}
 
 

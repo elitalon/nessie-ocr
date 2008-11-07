@@ -2,6 +2,9 @@
 \subsection{Preprocessor Class Reference}
 \label{class_preprocessor}\index{Preprocessor@{Preprocessor}}
 }
+\hyperlink{class_preprocessor}{Preprocessor} of the OCR process.  
+
+
 {\tt \#include $<$Preprocessor.hpp$>$}
 
 Collaboration diagram for Preprocessor:\nopagebreak
@@ -11,17 +14,6 @@ Collaboration diagram for Preprocessor:\nopagebreak
 \includegraphics[width=400pt]{class_preprocessor__coll__graph}
 \end{center}
 \end{figure}
-
-
-\subsubsection{Detailed Description}
-This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to enhance the image quality by applying some techniques of image processing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level.
-
-\begin{Desc}
-\item[See also:]\hyperlink{class_clip}{Clip}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-11 \end{Desc}
 \subsubsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
@@ -75,11 +67,22 @@ float \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{background
 \begin{CompactList}\small\item\em Elapsed time when computing the background gray level. \item\end{CompactList}\end{CompactItemize}
 
 
+\subsubsection{Detailed Description}
+This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to enhance the image quality by applying some techniques of image processing theory and compute a number of parameters such as the optimal thresolding value or the background reference gray level.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-11 \end{Desc}
+
+
 \subsubsection{Constructor \& Destructor Documentation}
 \hypertarget{class_preprocessor_da966c8b83e7c3bcd8759549c3cdf688}{
 \index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
 \index{Preprocessor@{Preprocessor}!Preprocessor@{Preprocessor}}
-\paragraph[Preprocessor]{\setlength{\rightskip}{0pt plus 5cm}Preprocessor::Preprocessor ()}\hfill}
+\paragraph[{Preprocessor}]{\setlength{\rightskip}{0pt plus 5cm}Preprocessor::Preprocessor ()}\hfill}
 \label{class_preprocessor_da966c8b83e7c3bcd8759549c3cdf688}
 
 
@@ -90,52 +93,10 @@ float \hyperlink{class_preprocessor_98ea95388e043eef5460beaf2e3aaaed}{background
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}{
-\index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
-\index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
-\paragraph[optimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::optimalThreshold () const}\hfill}
-\label{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}
-
-
-\begin{Desc}
-\item[Returns:]Optimal threshold computed from the last clip used.\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References optimalThreshold\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=196pt]{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
-\index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
-\index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
-\paragraph[optimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::optimalThreshold (const unsigned char \& {\em threshold})}\hfill}
-\label{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}
-
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em threshold}]Value between 0 and 255 that stablishes the optimal threshold of a clip.\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
-
-
-References optimalThreshold\_\-.\hypertarget{class_preprocessor_b435116619b7b254d9e788476c012e8a}{
+\hypertarget{class_preprocessor_b435116619b7b254d9e788476c012e8a}{
 \index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}}
 \index{backgroundReferenceGrayLevel@{backgroundReferenceGrayLevel}!Preprocessor@{Preprocessor}}
-\paragraph[backgroundReferenceGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::backgroundReferenceGrayLevel () const}\hfill}
+\paragraph[{backgroundReferenceGrayLevel}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::backgroundReferenceGrayLevel () const}\hfill}
 \label{class_preprocessor_b435116619b7b254d9e788476c012e8a}
 
 
@@ -156,62 +117,10 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=234pt]{class_preprocessor_b435116619b7b254d9e788476c012e8a_icgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}{
-\index{Preprocessor@{Preprocessor}!noiseRemovalTime@{noiseRemovalTime}}
-\index{noiseRemovalTime@{noiseRemovalTime}!Preprocessor@{Preprocessor}}
-\paragraph[noiseRemovalTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::noiseRemovalTime () const}\hfill}
-\label{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}
-
-
-\begin{Desc}
-\item[Returns:]Elapsed time when applying the 'isolated noise removal' algorithm\end{Desc}
-\begin{Desc}
-\item[See also:]\hyperlink{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}{removeIsolatedNoise()}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References noiseRemovalTime\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=201pt]{class_preprocessor_ff8eee937760e42c0c2bea307849ada1_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}{
-\index{Preprocessor@{Preprocessor}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
-\index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Preprocessor@{Preprocessor}}
-\paragraph[optimalThresholdComputingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::optimalThresholdComputingTime () const}\hfill}
-\label{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}
-
-
-\begin{Desc}
-\item[Returns:]Elapsed time while founding the optimal threshold within the clip\end{Desc}
-\begin{Desc}
-\item[See also:]\hyperlink{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{computeOptimalThreshold()}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References optimalThresholdComputingTime\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=236pt]{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e_icgraph}
-\end{center}
-\end{figure}
 \hypertarget{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}{
 \index{Preprocessor@{Preprocessor}!backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}}
 \index{backgroundReferenceGrayLevelFindingTime@{backgroundReferenceGrayLevelFindingTime}!Preprocessor@{Preprocessor}}
-\paragraph[backgroundReferenceGrayLevelFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::backgroundReferenceGrayLevelFindingTime () const}\hfill}
+\paragraph[{backgroundReferenceGrayLevelFindingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::backgroundReferenceGrayLevelFindingTime () const}\hfill}
 \label{class_preprocessor_001ec84b94a5d92a2bce6b854b4d3e7d}
 
 
@@ -237,7 +146,7 @@ Here is the caller graph for this function:\nopagebreak
 \hypertarget{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{
 \index{Preprocessor@{Preprocessor}!computeOptimalThreshold@{computeOptimalThreshold}}
 \index{computeOptimalThreshold@{computeOptimalThreshold}!Preprocessor@{Preprocessor}}
-\paragraph[computeOptimalThreshold]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::computeOptimalThreshold (const {\bf Clip} \& {\em clip})}\hfill}
+\paragraph[{computeOptimalThreshold}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::computeOptimalThreshold (const {\bf Clip} \& {\em clip})}\hfill}
 \label{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}
 
 
@@ -283,7 +192,7 @@ Here is the caller graph for this function:\nopagebreak
 \hypertarget{class_preprocessor_a941f81382bd8e235e4dd12481342be4}{
 \index{Preprocessor@{Preprocessor}!findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}}
 \index{findBackgroundReferenceGrayLevel@{findBackgroundReferenceGrayLevel}!Preprocessor@{Preprocessor}}
-\paragraph[findBackgroundReferenceGrayLevel]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::findBackgroundReferenceGrayLevel (const {\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em referenceGrayLevelNeighbours} = {\tt 2})}\hfill}
+\paragraph[{findBackgroundReferenceGrayLevel}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::findBackgroundReferenceGrayLevel (const {\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em referenceGrayLevelNeighbours} = {\tt 2})}\hfill}
 \label{class_preprocessor_a941f81382bd8e235e4dd12481342be4}
 
 
@@ -326,10 +235,104 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=244pt]{class_preprocessor_a941f81382bd8e235e4dd12481342be4_icgraph}
 \end{center}
 \end{figure}
+\hypertarget{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}{
+\index{Preprocessor@{Preprocessor}!noiseRemovalTime@{noiseRemovalTime}}
+\index{noiseRemovalTime@{noiseRemovalTime}!Preprocessor@{Preprocessor}}
+\paragraph[{noiseRemovalTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::noiseRemovalTime () const}\hfill}
+\label{class_preprocessor_ff8eee937760e42c0c2bea307849ada1}
+
+
+\begin{Desc}
+\item[Returns:]Elapsed time when applying the 'isolated noise removal' algorithm\end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}{removeIsolatedNoise()}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References noiseRemovalTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{class_preprocessor_ff8eee937760e42c0c2bea307849ada1_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}{
+\index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
+\index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
+\paragraph[{optimalThreshold}]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::optimalThreshold (const unsigned char \& {\em threshold})}\hfill}
+\label{class_preprocessor_1fc44d7d19944f3c3addd3a576c37414}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em threshold}]Value between 0 and 255 that stablishes the optimal threshold of a clip.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-08 \end{Desc}
+
+
+References optimalThreshold\_\-.\hypertarget{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}{
+\index{Preprocessor@{Preprocessor}!optimalThreshold@{optimalThreshold}}
+\index{optimalThreshold@{optimalThreshold}!Preprocessor@{Preprocessor}}
+\paragraph[{optimalThreshold}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Preprocessor::optimalThreshold () const}\hfill}
+\label{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81}
+
+
+\begin{Desc}
+\item[Returns:]Optimal threshold computed from the last clip used.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References optimalThreshold\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_preprocessor_a44dff024a5b29752780bd4aa0d53d81_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}{
+\index{Preprocessor@{Preprocessor}!optimalThresholdComputingTime@{optimalThresholdComputingTime}}
+\index{optimalThresholdComputingTime@{optimalThresholdComputingTime}!Preprocessor@{Preprocessor}}
+\paragraph[{optimalThresholdComputingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Preprocessor::optimalThresholdComputingTime () const}\hfill}
+\label{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e}
+
+
+\begin{Desc}
+\item[Returns:]Elapsed time while founding the optimal threshold within the clip\end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{class_preprocessor_ac2f414d6f4f917419f33f6067eb8634}{computeOptimalThreshold()}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References optimalThresholdComputingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_preprocessor_72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e_icgraph}
+\end{center}
+\end{figure}
 \hypertarget{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}{
 \index{Preprocessor@{Preprocessor}!removeIsolatedNoise@{removeIsolatedNoise}}
 \index{removeIsolatedNoise@{removeIsolatedNoise}!Preprocessor@{Preprocessor}}
-\paragraph[removeIsolatedNoise]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::removeIsolatedNoise ({\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em isolationCoefficient} = {\tt 0})}\hfill}
+\paragraph[{removeIsolatedNoise}]{\setlength{\rightskip}{0pt plus 5cm}void Preprocessor::removeIsolatedNoise ({\bf Clip} \& {\em clip}, \/  const unsigned int \& {\em isolationCoefficient} = {\tt 0})}\hfill}
 \label{class_preprocessor_a3e047486a0a80f2103f51d7141e41c5}
 
 

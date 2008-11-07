@@ -2,6 +2,9 @@
 \subsection{Text Class Reference}
 \label{class_text}\index{Text@{Text}}
 }
+\hyperlink{class_text}{Text} extracted by the recognizer.  
+
+
 {\tt \#include $<$Text.hpp$>$}
 
 Collaboration diagram for Text:\nopagebreak
@@ -11,15 +14,6 @@ Collaboration diagram for Text:\nopagebreak
 \includegraphics[height=400pt]{class_text__coll__graph}
 \end{center}
 \end{figure}
-
-
-\subsubsection{Detailed Description}
-This class stores the text that has been extracted from the press clip during the recognition process. It also keeps the number of appearances of every word in text.
-
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-08 \end{Desc}
 \subsubsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
@@ -65,11 +59,20 @@ std::map$<$ std::string, unsigned int $>$ \hyperlink{class_text_5f7e6b9d9ba0dbd7
 \begin{CompactList}\small\item\em A list of appearance rates of every single word in text. \item\end{CompactList}\end{CompactItemize}
 
 
+\subsubsection{Detailed Description}
+This class stores the text that has been extracted from the press clip during the recognition process. It also keeps the number of appearances of every word in text.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-08 \end{Desc}
+
+
 \subsubsection{Constructor \& Destructor Documentation}
 \hypertarget{class_text_b3e26143fccc52699bcc5149cae852bc}{
 \index{Text@{Text}!Text@{Text}}
 \index{Text@{Text}!Text@{Text}}
-\paragraph[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text ()}\hfill}
+\paragraph[{Text}]{\setlength{\rightskip}{0pt plus 5cm}Text::Text ()}\hfill}
 \label{class_text_b3e26143fccc52699bcc5149cae852bc}
 
 
@@ -77,10 +80,19 @@ std::map$<$ std::string, unsigned int $>$ \hyperlink{class_text_5f7e6b9d9ba0dbd7
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-04 \end{Desc}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{class_text_b3e26143fccc52699bcc5149cae852bc_icgraph}
+\end{center}
+\end{figure}
 \hypertarget{class_text_c3c20ee8baeb7b88e2622724f57e50a2}{
 \index{Text@{Text}!Text@{Text}}
 \index{Text@{Text}!Text@{Text}}
-\paragraph[Text]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (const std::string {\em content})}\hfill}
+\paragraph[{Text}]{\setlength{\rightskip}{0pt plus 5cm}Text::Text (const std::string {\em content})}\hfill}
 \label{class_text_c3c20ee8baeb7b88e2622724f57e50a2}
 
 
@@ -107,126 +119,10 @@ Here is the call graph for this function:\nopagebreak
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}{
-\index{Text@{Text}!operator+@{operator+}}
-\index{operator+@{operator+}!Text@{Text}}
-\paragraph[operator+]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text} Text::operator+ (const {\bf Text} \& {\em text}) const}\hfill}
-\label{class_text_c8887fb224e0402448ede4f3b9f7452d}
-
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em text}]The text to append\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Returns:]\hyperlink{class_text}{Text} object as a result of appending the content of both texts\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-23 \end{Desc}
-
-
-References content().
-
-Here is the call graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=133pt]{class_text_c8887fb224e0402448ede4f3b9f7452d_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
-\index{Text@{Text}!content@{content}}
-\index{content@{content}!Text@{Text}}
-\paragraph[content]{\setlength{\rightskip}{0pt plus 5cm}const std::string \& Text::content () const}\hfill}
-\label{class_text_8b6ac381338c5b3f719600b5f9be222c}
-
-
-\begin{Desc}
-\item[Returns:]Content of the text\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References content\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=133pt]{class_text_8b6ac381338c5b3f719600b5f9be222c_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}{
-\index{Text@{Text}!wordRates@{wordRates}}
-\index{wordRates@{wordRates}!Text@{Text}}
-\paragraph[wordRates]{\setlength{\rightskip}{0pt plus 5cm}const std::map$<$ std::string, unsigned int $>$ \& Text::wordRates () const}\hfill}
-\label{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}
-
-
-\begin{Desc}
-\item[Returns:]An associative map with every different word and their number of appearances.\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-23 \end{Desc}
-
-
-References wordRates\_\-.\hypertarget{class_text_b66729ba84c2698ed888f641b3838a8b}{
-\index{Text@{Text}!size@{size}}
-\index{size@{size}!Text@{Text}}
-\paragraph[size]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::size () const}\hfill}
-\label{class_text_b66729ba84c2698ed888f641b3838a8b}
-
-
-\begin{Desc}
-\item[Returns:]Size of the text in number of characters\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-23 \end{Desc}
-
-
-References content\_\-.\hypertarget{class_text_edfd71af7802a2d72eed7365f081a66d}{
-\index{Text@{Text}!words@{words}}
-\index{words@{words}!Text@{Text}}
-\paragraph[words]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::words () const}\hfill}
-\label{class_text_edfd71af7802a2d72eed7365f081a66d}
-
-
-\begin{Desc}
-\item[Returns:]Number of words in the text\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-23 \end{Desc}
-
-
-References wordRates\_\-.\hypertarget{class_text_6e6da63c90af68639adc7dd1336f6bf9}{
+\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
 \index{Text@{Text}!addCharacter@{addCharacter}}
 \index{addCharacter@{addCharacter}!Text@{Text}}
-\paragraph[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character})}\hfill}
-\label{class_text_6e6da63c90af68639adc7dd1336f6bf9}
-
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em character}]Character to add\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-03 \end{Desc}
-
-
-References content\_\-.\hypertarget{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}{
-\index{Text@{Text}!addCharacter@{addCharacter}}
-\index{addCharacter@{addCharacter}!Text@{Text}}
-\paragraph[addCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character}, \/  const unsigned int \& {\em position})}\hfill}
+\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character}, \/  const unsigned int \& {\em position})}\hfill}
 \label{class_text_fdd11ad0c90ca483d4cff3d74a64da9e}
 
 
@@ -250,37 +146,28 @@ Here is the call graph for this function:\nopagebreak
 \includegraphics[width=258pt]{class_text_fdd11ad0c90ca483d4cff3d74a64da9e_cgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
-\index{Text@{Text}!removeCharacter@{removeCharacter}}
-\index{removeCharacter@{removeCharacter}!Text@{Text}}
-\paragraph[removeCharacter]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (const unsigned int \& {\em position})}\hfill}
-\label{class_text_e04500eeada2a4a3bb00554b32263c52}
+\hypertarget{class_text_6e6da63c90af68639adc7dd1336f6bf9}{
+\index{Text@{Text}!addCharacter@{addCharacter}}
+\index{addCharacter@{addCharacter}!Text@{Text}}
+\paragraph[{addCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::addCharacter (const char \& {\em character})}\hfill}
+\label{class_text_6e6da63c90af68639adc7dd1336f6bf9}
 
 
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em position}]Position where the character will be removed\end{description}
+\item[{\em character}]Character to add\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-03\end{Desc}
-If the position passed is above the text total length the last character is removed. 
+\item[Date:]2008-10-03 \end{Desc}
 
-References computeWordRates(), and content\_\-.
 
-Here is the call graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=269pt]{class_text_e04500eeada2a4a3bb00554b32263c52_cgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
+References content\_\-.\hypertarget{class_text_e954a35628c72537e2ee5ca6e9609ac1}{
 \index{Text@{Text}!computeWordRates@{computeWordRates}}
 \index{computeWordRates@{computeWordRates}!Text@{Text}}
-\paragraph[computeWordRates]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates (const std::string \& {\em delimiters} = {\tt \char`\"{}~,:¡!.;()¿?$\backslash$\char`\"{}'\mbox{[}\mbox{]}\{\}$<$$>$\char`\"{}})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{computeWordRates}]{\setlength{\rightskip}{0pt plus 5cm}void Text::computeWordRates (const std::string \& {\em delimiters} = {\tt \char`\"{}~,:¡!.;()¿?$\backslash$\char`\"{}'\mbox{[}\mbox{]}\{\}$<$$>$\char`\"{}})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_text_e954a35628c72537e2ee5ca6e9609ac1}
 
 
@@ -313,10 +200,96 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=184pt]{class_text_e954a35628c72537e2ee5ca6e9609ac1_icgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
+\hypertarget{class_text_8b6ac381338c5b3f719600b5f9be222c}{
+\index{Text@{Text}!content@{content}}
+\index{content@{content}!Text@{Text}}
+\paragraph[{content}]{\setlength{\rightskip}{0pt plus 5cm}const std::string \& Text::content () const}\hfill}
+\label{class_text_8b6ac381338c5b3f719600b5f9be222c}
+
+
+\begin{Desc}
+\item[Returns:]Content of the text\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References content\_\-.\hypertarget{class_text_c8887fb224e0402448ede4f3b9f7452d}{
+\index{Text@{Text}!operator+@{operator+}}
+\index{operator+@{operator+}!Text@{Text}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text} Text::operator+ (const {\bf Text} \& {\em text}) const}\hfill}
+\label{class_text_c8887fb224e0402448ede4f3b9f7452d}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em text}]The text to append\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_text}{Text} object as a result of appending the content of both texts\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-23 \end{Desc}
+
+
+References content\_\-, and Text().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{class_text_c8887fb224e0402448ede4f3b9f7452d_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_e04500eeada2a4a3bb00554b32263c52}{
+\index{Text@{Text}!removeCharacter@{removeCharacter}}
+\index{removeCharacter@{removeCharacter}!Text@{Text}}
+\paragraph[{removeCharacter}]{\setlength{\rightskip}{0pt plus 5cm}void Text::removeCharacter (const unsigned int \& {\em position})}\hfill}
+\label{class_text_e04500eeada2a4a3bb00554b32263c52}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em position}]Position where the character will be removed\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-03\end{Desc}
+If the position passed is above the text total length the last character is removed. 
+
+References computeWordRates(), and content\_\-.
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{class_text_e04500eeada2a4a3bb00554b32263c52_cgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_text_b66729ba84c2698ed888f641b3838a8b}{
+\index{Text@{Text}!size@{size}}
+\index{size@{size}!Text@{Text}}
+\paragraph[{size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::size () const}\hfill}
+\label{class_text_b66729ba84c2698ed888f641b3838a8b}
+
+
+\begin{Desc}
+\item[Returns:]Size of the text in number of characters\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-23 \end{Desc}
+
+
+References content\_\-.\hypertarget{class_text_5ab8f9bfa566de537a167991fe10eff5}{
 \index{Text@{Text}!updateWordRate@{updateWordRate}}
 \index{updateWordRate@{updateWordRate}!Text@{Text}}
-\paragraph[updateWordRate]{\setlength{\rightskip}{0pt plus 5cm}void Text::updateWordRate (const std::string \& {\em word})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{updateWordRate}]{\setlength{\rightskip}{0pt plus 5cm}void Text::updateWordRate (const std::string \& {\em word})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_text_5ab8f9bfa566de537a167991fe10eff5}
 
 
@@ -344,3 +317,34 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=269pt]{class_text_5ab8f9bfa566de537a167991fe10eff5_icgraph}
 \end{center}
 \end{figure}
+\hypertarget{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}{
+\index{Text@{Text}!wordRates@{wordRates}}
+\index{wordRates@{wordRates}!Text@{Text}}
+\paragraph[{wordRates}]{\setlength{\rightskip}{0pt plus 5cm}const std::map$<$ std::string, unsigned int $>$ \& Text::wordRates () const}\hfill}
+\label{class_text_f1588ae161a4c4894b2ce1a1d29ebc22}
+
+
+\begin{Desc}
+\item[Returns:]An associative map with every different word and their number of appearances.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-23 \end{Desc}
+
+
+References wordRates\_\-.\hypertarget{class_text_edfd71af7802a2d72eed7365f081a66d}{
+\index{Text@{Text}!words@{words}}
+\index{words@{words}!Text@{Text}}
+\paragraph[{words}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Text::words () const}\hfill}
+\label{class_text_edfd71af7802a2d72eed7365f081a66d}
+
+
+\begin{Desc}
+\item[Returns:]Number of words in the text\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-23 \end{Desc}
+
+
+References wordRates\_\-.

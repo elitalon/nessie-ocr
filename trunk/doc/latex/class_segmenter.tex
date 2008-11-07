@@ -2,6 +2,9 @@
 \subsection{Segmenter Class Reference}
 \label{class_segmenter}\index{Segmenter@{Segmenter}}
 }
+\hyperlink{class_segmenter}{Segmenter} of the OCR process.  
+
+
 {\tt \#include $<$Segmenter.hpp$>$}
 
 Collaboration diagram for Segmenter:\nopagebreak
@@ -11,17 +14,6 @@ Collaboration diagram for Segmenter:\nopagebreak
 \includegraphics[width=400pt]{class_segmenter__coll__graph}
 \end{center}
 \end{figure}
-
-
-\subsubsection{Detailed Description}
-This class encapsulates all the methods related to segmentation stage of the OCR process. Its task is to isolate every shape in a clip that represents a character, storing them in a data structure for further classification.
-
-\begin{Desc}
-\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}, \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
 \subsubsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
@@ -110,11 +102,22 @@ float \hyperlink{class_segmenter_e0ade77ddbdc2f6c5eaa1efe372c5a7b}{shapesFinding
 \begin{CompactList}\small\item\em Elapsed time while applying the shapes finding algorithm. \item\end{CompactList}\end{CompactItemize}
 
 
+\subsubsection{Detailed Description}
+This class encapsulates all the methods related to segmentation stage of the OCR process. Its task is to isolate every shape in a clip that represents a character, storing them in a data structure for further classification.
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_clip}{Clip}, \hyperlink{class_shape}{Shape}, \hyperlink{_shape_8hpp_535e59456e3e633842529cfa8ea103c4}{Pixel}\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
 \subsubsection{Member Typedef Documentation}
 \hypertarget{class_segmenter_ae134abed2f1d55197820f4027d10999}{
 \index{Segmenter@{Segmenter}!LineMarker@{LineMarker}}
 \index{LineMarker@{LineMarker}!Segmenter@{Segmenter}}
-\paragraph[LineMarker]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarker}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{LineMarker}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarker}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_segmenter_ae134abed2f1d55197820f4027d10999}
 
 
@@ -127,7 +130,7 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 \hypertarget{class_segmenter_b3190459e52101e495e49e936bbb6440}{
 \index{Segmenter@{Segmenter}!LineMarkerIterator@{LineMarkerIterator}}
 \index{LineMarkerIterator@{LineMarkerIterator}!Segmenter@{Segmenter}}
-\paragraph[LineMarkerIterator]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarkerIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{LineMarkerIterator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::LineMarkerIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_segmenter_b3190459e52101e495e49e936bbb6440}
 
 
@@ -138,7 +141,7 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 \hypertarget{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}{
 \index{Segmenter@{Segmenter}!ShapeIterator@{ShapeIterator}}
 \index{ShapeIterator@{ShapeIterator}!Segmenter@{Segmenter}}
-\paragraph[ShapeIterator]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{ShapeIterator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator}\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_segmenter_1190be7ec081a96ee2ae91e0bb256a0d}
 
 
@@ -152,7 +155,7 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 \hypertarget{class_segmenter_d39ec3bda31be180820aa0bdca7b125d}{
 \index{Segmenter@{Segmenter}!Segmenter@{Segmenter}}
 \index{Segmenter@{Segmenter}!Segmenter@{Segmenter}}
-\paragraph[Segmenter]{\setlength{\rightskip}{0pt plus 5cm}Segmenter::Segmenter ()}\hfill}
+\paragraph[{Segmenter}]{\setlength{\rightskip}{0pt plus 5cm}Segmenter::Segmenter ()}\hfill}
 \label{class_segmenter_d39ec3bda31be180820aa0bdca7b125d}
 
 
@@ -163,123 +166,10 @@ This pair keeps the rows of a press clip that delimits a single line of shapes. 
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9fbe}{
-\index{Segmenter@{Segmenter}!inkValue@{inkValue}}
-\index{inkValue@{inkValue}!Segmenter@{Segmenter}}
-\paragraph[inkValue]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Segmenter::inkValue () const}\hfill}
-\label{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9fbe}
-
-
-\begin{Desc}
-\item[Returns:]A value of 0 or 255\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-18 \end{Desc}
-
-
-References inkValue\_\-.\hypertarget{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}{
-\index{Segmenter@{Segmenter}!shapes@{shapes}}
-\index{shapes@{shapes}!Segmenter@{Segmenter}}
-\paragraph[shapes]{\setlength{\rightskip}{0pt plus 5cm}const std::list$<$ {\bf Shape} $>$ \& Segmenter::shapes () const}\hfill}
-\label{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}
-
-
-\begin{Desc}
-\item[Returns:]A vector of \hyperlink{class_shape}{Shape} objects\end{Desc}
-\begin{Desc}
-\item[See also:]\hyperlink{class_shape}{Shape}\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References shapes\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=166pt]{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}{
-\index{Segmenter@{Segmenter}!spaces@{spaces}}
-\index{spaces@{spaces}!Segmenter@{Segmenter}}
-\paragraph[spaces]{\setlength{\rightskip}{0pt plus 5cm}const std::deque$<$ unsigned int $>$ \& Segmenter::spaces () const}\hfill}
-\label{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}
-
-
-\begin{Desc}
-\item[Returns:]A vector of integers\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-31 \end{Desc}
-
-
-References spaceLocations\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=273pt]{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{
-\index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
-\index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
-\paragraph[thresholdingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::thresholdingTime () const}\hfill}
-\label{class_segmenter_9114d0f3934b43478fb55077b7722d3d}
-
-
-\begin{Desc}
-\item[Returns:]The elapsed time in seconds\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References thresholdingTime\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=192pt]{class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{
-\index{Segmenter@{Segmenter}!shapesFindingTime@{shapesFindingTime}}
-\index{shapesFindingTime@{shapesFindingTime}!Segmenter@{Segmenter}}
-\paragraph[shapesFindingTime]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::shapesFindingTime () const}\hfill}
-\label{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}
-
-
-\begin{Desc}
-\item[Returns:]The elapsed time in seconds\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-10-13 \end{Desc}
-
-
-References shapesFindingTime\_\-.
-
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=196pt]{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph}
-\end{center}
-\end{figure}
 \hypertarget{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}{
 \index{Segmenter@{Segmenter}!applyThreshold@{applyThreshold}}
 \index{applyThreshold@{applyThreshold}!Segmenter@{Segmenter}}
-\paragraph[applyThreshold]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::applyThreshold ({\bf Clip} \& {\em clip}, \/  const unsigned char \& {\em threshold}, \/  const unsigned char \& {\em backgroundReference})}\hfill}
+\paragraph[{applyThreshold}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::applyThreshold ({\bf Clip} \& {\em clip}, \/  const unsigned char \& {\em threshold}, \/  const unsigned char \& {\em backgroundReference})}\hfill}
 \label{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee}
 
 
@@ -318,10 +208,88 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=186pt]{class_segmenter_6854315e3320f9d9a8ece14cbb8570ee_icgraph}
 \end{center}
 \end{figure}
+\hypertarget{class_segmenter_ad8893282742e811dd7fff172ec03c85}{
+\index{Segmenter@{Segmenter}!findLineMarkers@{findLineMarkers}}
+\index{findLineMarkers@{findLineMarkers}!Segmenter@{Segmenter}}
+\paragraph[{findLineMarkers}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findLineMarkers (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_ad8893282742e811dd7fff172ec03c85}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em clip}]The press clip\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Postcondition:]\hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-} contains pairs of numbers that delimits every isolated line of shapes.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-24\end{Desc}
+Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before that last blank line is set as the bottom marker of the line. 
+
+References Clip::height(), lineMarkers\_\-, shapes\_\-, visited\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
+\index{Segmenter@{Segmenter}!findSeeds@{findSeeds}}
+\index{findSeeds@{findSeeds}!Segmenter@{Segmenter}}
+\paragraph[{findSeeds}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSeeds (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}
+
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em clip}]The press clip where finding the seeds\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Precondition:]The press clip must come thresholded in two values, one of them being equal to \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}.\end{Desc}
+\begin{Desc}
+\item[Postcondition:]\hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-} contains every pixel that has a gray level equal to \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-24\end{Desc}
+A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method are actually all the pixels that do not belong to the background in the clip. 
+
+References Clip::height(), inkValue\_\-, seeds\_\-, and Clip::width().
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph}
+\end{center}
+\end{figure}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph}
+\end{center}
+\end{figure}
 \hypertarget{class_segmenter_465c8e755bb56d247add080a04377520}{
 \index{Segmenter@{Segmenter}!findShapes@{findShapes}}
 \index{findShapes@{findShapes}!Segmenter@{Segmenter}}
-\paragraph[findShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findShapes (const {\bf Clip} \& {\em clip})}\hfill}
+\paragraph[{findShapes}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findShapes (const {\bf Clip} \& {\em clip})}\hfill}
 \label{class_segmenter_465c8e755bb56d247add080a04377520}
 
 
@@ -369,7 +337,7 @@ Here is the caller graph for this function:\nopagebreak
 \hypertarget{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f}{
 \index{Segmenter@{Segmenter}!findSpaceLocations@{findSpaceLocations}}
 \index{findSpaceLocations@{findSpaceLocations}!Segmenter@{Segmenter}}
-\paragraph[findSpaceLocations]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSpaceLocations ()}\hfill}
+\paragraph[{findSpaceLocations}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSpaceLocations ()}\hfill}
 \label{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f}
 
 
@@ -401,50 +369,41 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=197pt]{class_segmenter_7f4ab775f61d92c4d051f6ef4685cf6f_icgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}{
-\index{Segmenter@{Segmenter}!findSeeds@{findSeeds}}
-\index{findSeeds@{findSeeds}!Segmenter@{Segmenter}}
-\paragraph[findSeeds]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findSeeds (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
-\label{class_segmenter_bacab187b543a51c5322c01fc0a29ffb}
+\hypertarget{class_segmenter_0961de0db6a0b1de51882024bfc830a1}{
+\index{Segmenter@{Segmenter}!findVerticallyOverlappedShape@{findVerticallyOverlappedShape}}
+\index{findVerticallyOverlappedShape@{findVerticallyOverlappedShape}!Segmenter@{Segmenter}}
+\paragraph[{findVerticallyOverlappedShape}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator} Segmenter::findVerticallyOverlappedShape (const unsigned int \& {\em lineTop}, \/  const unsigned int \& {\em lineBottom}, \/  const {\bf ShapeIterator} \& {\em shape})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\label{class_segmenter_0961de0db6a0b1de51882024bfc830a1}
 
 
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em clip}]The press clip where finding the seeds\end{description}
+\item[{\em lineTop}]Row that delimits the top of the line \item[{\em lineBottom}]Column that delimits the bottom of the line \item[{\em shape}]\hyperlink{class_shape}{Shape} for which a vertically overlapped shape has to be found\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Precondition:]The press clip must come thresholded in two values, one of them being equal to \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}.\end{Desc}
+\item[Precondition:]\hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} cannot be empty.\end{Desc}
 \begin{Desc}
-\item[Postcondition:]\hyperlink{class_segmenter_7859d050250b9fdf7c96374f80008d6e}{seeds\_\-} contains every pixel that has a gray level equal to \hyperlink{class_segmenter_fa6183f99aa6011399783652b341a43b}{inkValue\_\-}.\end{Desc}
+\item[Returns:]If found, an iterator to a shape that is vertically overlapped to the shape passed. Otherwise, an iterator to the shape passed.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-24\end{Desc}
-A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method are actually all the pixels that do not belong to the background in the clip. 
+\item[Date:]2008-10-30\end{Desc}
+The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that are too small. 
 
-References Clip::height(), inkValue\_\-, seeds\_\-, and Clip::width().
-
-Here is the call graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=142pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_cgraph}
-\end{center}
-\end{figure}
-
+References shapes\_\-.
 
 Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=259pt]{class_segmenter_bacab187b543a51c5322c01fc0a29ffb_icgraph}
+\includegraphics[width=311pt]{class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph}
 \end{center}
 \end{figure}
 \hypertarget{class_segmenter_72c007e345fad7abbf6e9d4edb615a50}{
 \index{Segmenter@{Segmenter}!growSeedsIntoInitialShapes@{growSeedsIntoInitialShapes}}
 \index{growSeedsIntoInitialShapes@{growSeedsIntoInitialShapes}!Segmenter@{Segmenter}}
-\paragraph[growSeedsIntoInitialShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::growSeedsIntoInitialShapes (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{growSeedsIntoInitialShapes}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::growSeedsIntoInitialShapes (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_segmenter_72c007e345fad7abbf6e9d4edb615a50}
 
 
@@ -485,48 +444,25 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=304pt]{class_segmenter_72c007e345fad7abbf6e9d4edb615a50_icgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_segmenter_ad8893282742e811dd7fff172ec03c85}{
-\index{Segmenter@{Segmenter}!findLineMarkers@{findLineMarkers}}
-\index{findLineMarkers@{findLineMarkers}!Segmenter@{Segmenter}}
-\paragraph[findLineMarkers]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::findLineMarkers (const {\bf Clip} \& {\em clip})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
-\label{class_segmenter_ad8893282742e811dd7fff172ec03c85}
+\hypertarget{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9fbe}{
+\index{Segmenter@{Segmenter}!inkValue@{inkValue}}
+\index{inkValue@{inkValue}!Segmenter@{Segmenter}}
+\paragraph[{inkValue}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char \& Segmenter::inkValue () const}\hfill}
+\label{class_segmenter_e9bc56ddcbe5ea4abb40fcc85e3d9fbe}
 
 
 \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em clip}]The press clip\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Postcondition:]\hyperlink{class_segmenter_2789fd760ed7604765b3b147be454c09}{lineMarkers\_\-} contains pairs of numbers that delimits every isolated line of shapes.\end{Desc}
+\item[Returns:]A value of 0 or 255\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-24\end{Desc}
-Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before that last blank line is set as the bottom marker of the line. 
-
-References Clip::height(), lineMarkers\_\-, shapes\_\-, visited\_\-, and Clip::width().
-
-Here is the call graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=157pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_cgraph}
-\end{center}
-\end{figure}
+\item[Date:]2008-10-18 \end{Desc}
 
 
-Here is the caller graph for this function:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=274pt]{class_segmenter_ad8893282742e811dd7fff172ec03c85_icgraph}
-\end{center}
-\end{figure}
-\hypertarget{class_segmenter_a6fc98922155143cf36f542118c33f3a}{
+References inkValue\_\-.\hypertarget{class_segmenter_a6fc98922155143cf36f542118c33f3a}{
 \index{Segmenter@{Segmenter}!joinVerticallyOverlappedShapes@{joinVerticallyOverlappedShapes}}
 \index{joinVerticallyOverlappedShapes@{joinVerticallyOverlappedShapes}!Segmenter@{Segmenter}}
-\paragraph[joinVerticallyOverlappedShapes]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::joinVerticallyOverlappedShapes ({\bf ShapeIterator} \& {\em s1}, \/  {\bf ShapeIterator} \& {\em s2})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
+\paragraph[{joinVerticallyOverlappedShapes}]{\setlength{\rightskip}{0pt plus 5cm}void Segmenter::joinVerticallyOverlappedShapes ({\bf ShapeIterator} \& {\em s1}, \/  {\bf ShapeIterator} \& {\em s2})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
 \label{class_segmenter_a6fc98922155143cf36f542118c33f3a}
 
 
@@ -556,27 +492,22 @@ Here is the caller graph for this function:\nopagebreak
 \includegraphics[width=313pt]{class_segmenter_a6fc98922155143cf36f542118c33f3a_icgraph}
 \end{center}
 \end{figure}
-\hypertarget{class_segmenter_0961de0db6a0b1de51882024bfc830a1}{
-\index{Segmenter@{Segmenter}!findVerticallyOverlappedShape@{findVerticallyOverlappedShape}}
-\index{findVerticallyOverlappedShape@{findVerticallyOverlappedShape}!Segmenter@{Segmenter}}
-\paragraph[findVerticallyOverlappedShape]{\setlength{\rightskip}{0pt plus 5cm}{\bf Segmenter::ShapeIterator} Segmenter::findVerticallyOverlappedShape (const unsigned int \& {\em lineTop}, \/  const unsigned int \& {\em lineBottom}, \/  const {\bf ShapeIterator} \& {\em shape})\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}\hfill}
-\label{class_segmenter_0961de0db6a0b1de51882024bfc830a1}
+\hypertarget{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}{
+\index{Segmenter@{Segmenter}!shapes@{shapes}}
+\index{shapes@{shapes}!Segmenter@{Segmenter}}
+\paragraph[{shapes}]{\setlength{\rightskip}{0pt plus 5cm}const std::list$<$ {\bf Shape} $>$ \& Segmenter::shapes () const}\hfill}
+\label{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142}
 
 
 \begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em lineTop}]Row that delimits the top of the line \item[{\em lineBottom}]Column that delimits the bottom of the line \item[{\em shape}]\hyperlink{class_shape}{Shape} for which a vertically overlapped shape has to be found\end{description}
-\end{Desc}
+\item[Returns:]A vector of \hyperlink{class_shape}{Shape} objects\end{Desc}
 \begin{Desc}
-\item[Precondition:]\hyperlink{class_segmenter_41b94ede2829063e0937dc150756e77e}{shapes\_\-} cannot be empty.\end{Desc}
-\begin{Desc}
-\item[Returns:]If found, an iterator to a shape that is vertically overlapped to the shape passed. Otherwise, an iterator to the shape passed.\end{Desc}
+\item[See also:]\hyperlink{class_shape}{Shape}\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-10-30\end{Desc}
-The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that are too small. 
+\item[Date:]2008-10-13 \end{Desc}
+
 
 References shapes\_\-.
 
@@ -584,6 +515,78 @@ Here is the caller graph for this function:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=311pt]{class_segmenter_0961de0db6a0b1de51882024bfc830a1_icgraph}
+\includegraphics[width=166pt]{class_segmenter_7ddded12f26e94e6f5cba2752d2c4142_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}{
+\index{Segmenter@{Segmenter}!shapesFindingTime@{shapesFindingTime}}
+\index{shapesFindingTime@{shapesFindingTime}!Segmenter@{Segmenter}}
+\paragraph[{shapesFindingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::shapesFindingTime () const}\hfill}
+\label{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b}
+
+
+\begin{Desc}
+\item[Returns:]The elapsed time in seconds\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References shapesFindingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_segmenter_8d7304b35b1891b1c7154a3ac2ff2c4b_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}{
+\index{Segmenter@{Segmenter}!spaces@{spaces}}
+\index{spaces@{spaces}!Segmenter@{Segmenter}}
+\paragraph[{spaces}]{\setlength{\rightskip}{0pt plus 5cm}const std::deque$<$ unsigned int $>$ \& Segmenter::spaces () const}\hfill}
+\label{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99}
+
+
+\begin{Desc}
+\item[Returns:]A vector of integers\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-31 \end{Desc}
+
+
+References spaceLocations\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{class_segmenter_eed49de2d6548ae8016bf6c9c78cec99_icgraph}
+\end{center}
+\end{figure}
+\hypertarget{class_segmenter_9114d0f3934b43478fb55077b7722d3d}{
+\index{Segmenter@{Segmenter}!thresholdingTime@{thresholdingTime}}
+\index{thresholdingTime@{thresholdingTime}!Segmenter@{Segmenter}}
+\paragraph[{thresholdingTime}]{\setlength{\rightskip}{0pt plus 5cm}const float \& Segmenter::thresholdingTime () const}\hfill}
+\label{class_segmenter_9114d0f3934b43478fb55077b7722d3d}
+
+
+\begin{Desc}
+\item[Returns:]The elapsed time in seconds\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-10-13 \end{Desc}
+
+
+References thresholdingTime\_\-.
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_segmenter_9114d0f3934b43478fb55077b7722d3d_icgraph}
 \end{center}
 \end{figure}
