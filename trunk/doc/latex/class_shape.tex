@@ -402,7 +402,16 @@ Splits the shape in two different shapes.
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-11-07 \end{Desc}
+\item[Date:]2008-11-07\end{Desc}
+A shape is splitted by its weakest column, i.e. the column that has the less count of pixels. Columns with few pixels are assumed to be noise that might cause the union of two different characters. 
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=126pt]{class_shape_bcb7d1626e403703952967533c9004ce_cgraph}
+\end{center}
+\end{figure}
 \hypertarget{class_shape_063c4934d8c1cd4b02e4e3e4a604f62e}{
 \index{Shape@{Shape}!topPixel@{topPixel}}
 \index{topPixel@{topPixel}!Shape@{Shape}}

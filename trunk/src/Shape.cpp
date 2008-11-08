@@ -4,7 +4,7 @@
 ///
 
 #include "Shape.hpp"
-
+#include <cmath>
 
 
 Shape::Shape ()
@@ -56,4 +56,76 @@ void Shape::addPixel (const Pixel& pixel)
 	// Update the width and height of shape
 	width_ = rightPixel_.second - leftPixel_.second + 1;
 	height_ = bottomPixel_.first - topPixel_.first + 1;
+};
+
+
+
+///
+/// @details A shape is splitted by its weakest column, i.e. the column that has the less count of pixels. Columns with few pixels are assumed to be noise that
+/// might cause the union of two different characters.
+///
+void Shape::split (Shape& leftShape, Shape& rightShape) const
+{
+	// Find the column that divides the source shape in two equal parts
+	unsigned int centerColumn = round( (this->rightPixel_.second + this->leftPixel_.second) / 2 );
+	
+	
+	// Search the weakest column of pixels towards right
+	unsigned int weakestRightColumn = centerColumn;
+	unsigned int nPreviousPixelsOnTheRight = this->height_;
+	for ( unsigned int iColumn = centerColumn; iColumn <= this->rightPixel_.second; ++iColumn )
+	{
+		unsigned int nCurrentPixels = 0;
+		for ( std::vector<Pixel>::const_iterator iPixel = this->pixels_.begin(); iPixel not_eq this->pixels_.end(); ++iPixel )
+		{
+			if ( (*iPixel).second == iColumn )
+				nCurrentPixels++;
+		}
+		
+		// Not found pixels means the segmentation process failed
+		if ( nCurrentPixels > 0 and nCurrentPixels < nPreviousPixelsOnTheRight )
+		{
+			nPreviousPixelsOnTheRight	= nCurrentPixels;
+			weakestRightColumn			= iColumn;
+		}
+	}
+	
+	
+	// Search the weakest column of pixels towards left
+	unsigned int weakestLeftColumn = centerColumn;
+	unsigned int nPreviousPixelsOnTheLeft = this->height_;
+	for ( unsigned int iColumn = centerColumn; iColumn >= this->leftPixel_.second; --iColumn )
+	{
+		unsigned int nCurrentPixels = 0;
+		for ( std::vector<Pixel>::const_iterator iPixel = this->pixels_.begin(); iPixel not_eq this->pixels_.end(); ++iPixel )
+		{
+			if ( (*iPixel).second == iColumn )
+				nCurrentPixels++;
+		}
+		
+		// Not found pixels means the segmentation process failed
+		if ( nCurrentPixels > 0 and nCurrentPixels < nPreviousPixelsOnTheLeft )
+		{
+			nPreviousPixelsOnTheLeft = nCurrentPixels;
+			weakestLeftColumn = iColumn;
+		}
+	}
+	
+	// Decide the breakpoint
+	unsigned int breakpointColumn;
+	if ( nPreviousPixelsOnTheRight < nPreviousPixelsOnTheLeft )
+		breakpointColumn = weakestRightColumn;
+	else
+		breakpointColumn = weakestLeftColumn;
+	
+	// Split the shape
+	leftShape.pixels_.clear();
+	rightShape.pixels_.clear();
+	for ( std::vector<Pixel>::const_iterator iPixel = this->pixels_.begin(); iPixel not_eq this->pixels_.end(); ++iPixel )
+	{
+		if ( (*iPixel).second < breakpointColumn )
+			leftShape.addPixel((*iPixel));
+		else
+			rightShape.addPixel((*iPixel));
+	}
 };

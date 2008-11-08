@@ -21,8 +21,6 @@
 /// @todo Change the internal representation once the clip has been segmented. This is necessary because the ink cannot have
 /// zero as its representative value in further calculations.
 /// 
-/// @todo Develop a method to split a shape in two parts.
-/// 
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
 /// 
