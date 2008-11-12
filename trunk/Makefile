@@ -64,6 +64,13 @@ CLIP_LOCATION_INC=$(INC)ClipLocation.hpp
 SHAPE_SRC=$(SRC)Shape.cpp
 SHAPE_INC=$(INC)Shape.hpp
 
+# Source files of 'FeatureVector' class
+FEATURE_VECTOR_SRC=$(SRC)FeatureVector.cpp
+FEATURE_VECTOR_INC=$(INC)FeatureVector.hpp
+
+# Source files of 'DataSet' class
+DATASET_SRC=$(SRC)DataSet.cpp
+DATASET_INC=$(INC)DataSet.hpp
 
 # Object files
 MAIN_OBJ=$(SRC)main.o
@@ -77,6 +84,8 @@ PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
 SEGMENTER_OBJ=$(SRC)Segmenter.o
 CLASSIFIER_OBJ=$(SRC)Classifier.o
 RECOGNIZER_OBJ=$(SRC)Recognizer.o
+FEATURE_VECTOR_OBJ=$(SRC)FeatureVector.o
+DATASET_OBJ=$(SRC)DataSet.o
 
 # Dependencies
 MAIN=$(MAIN_SRC)
@@ -90,17 +99,23 @@ PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
 SEGMENTER=$(SEGMENTER_INC) $(SEGMENTER_SRC)
 CLASSIFIER=$(CLASSIFIER_INC) $(CLASSIFIER_SRC)
 RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
+FEATURE_VECTOR=$(FEATURE_VECTOR_INC) $(FEATURE_VECTOR_SRC)
+DATASET=$(DATASET_INC) $(DATASET_SRC)
 
 
 # Object files
-OBJECTS=$(RECOGNIZER_OBJ) $(CLASSIFIER_OBJ) $(SEGMENTER_OBJ) $(PREPROCESSOR_OBJ) $(SHAPE_OBJ) $(CLIP_LOCATION_OBJ) $(CLIP_OBJ) $(NESSIE_EXCEPTION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)
+OBJECTS=$(RECOGNIZER_OBJ) $(NESSIE_EXCEPTION_OBJ) $(CLIP_LOCATION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)\
+		$(PREPROCESSOR_OBJ) $(CLIP_OBJ)\
+		$(SEGMENTER_OBJ) $(SHAPE_OBJ)\
+		$(CLASSIFIER_OBJ) $(DATASET_OBJ) $(FEATURE_VECTOR_OBJ)
+		
+		
 
 # Compiler options
 EXECUTABLE=$(BIN)ocr
 DEBUG=NO
-COMPILER_DEBUGGING_OPTIONS=-g
+COMPILER_DEBUGGING_OPTIONS=-Wextra -Weffc++ -Wold-style-cast -Winline -g
 LINKER_DEBUGGING_OPTIONS=
-EXTRA_WARNINGS=-Wextra -Weffc++ -Wold-style-cast -Winline
 FLAGS=-Wall -O2 -I$(INC) -I$(LIB)
 
 # Formatted output commands
@@ -250,7 +265,7 @@ endif
 	@printf "$(NL)"
 
 
-$(CLASSIFIER_OBJ): $(SHAPE_OBJ) $(CLASSIFIER)
+$(CLASSIFIER_OBJ): $(DATASET_OBJ) $(SHAPE_OBJ) $(CLASSIFIER)
 	@printf "** Making rule $(CLASSIFIER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
@@ -261,6 +276,32 @@ endif
 	@printf "$(TAB)"
 	mv Classifier.o $(SRC)
 	@printf "$(NL)"
+	
+	
+$(DATASET_OBJ): $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ) $(DATASET)
+	@printf "** Making rule $(DATASET_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(DATASET_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(DATASET_SRC)
+endif
+	@printf "$(TAB)"
+	mv DataSet.o $(SRC)
+	@printf "$(NL)"
+
+
+$(FEATURE_VECTOR_OBJ): $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR)
+	@printf "** Making rule $(FEATURE_VECTOR_OBJ):$(NL)"
+	@printf "$(TAB)"
+ifeq ($(DEBUG),NO)
+	g++ $(FLAGS) -c $(FEATURE_VECTOR_SRC)
+else
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(FEATURE_VECTOR_SRC)
+endif
+	@printf "$(TAB)"
+	mv FeatureVector.o $(SRC)
+	@printf "$(NL)"
 
 
 
@@ -270,7 +311,7 @@ all: clean main
 
 # Delete everything
 clean:
-	@printf "** Removing object and executable files$(NL)"
+	@printf "** Removing object files$(NL)"
 	@rm -f $(SRC)*.o
 	@printf "** Restoring permissions$(NL)"
 	@chmod 0644 $(SRC)*.cpp $(INC)*.hpp

@@ -15,6 +15,7 @@
 #include "Segmenter.hpp"
 #include "Classifier.hpp"
 #include "NessieException.hpp"
+#include "DataSet.hpp"
 
 
 
@@ -151,48 +152,49 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	segmenter.findSpaceLocations();
 	
 	// unsigned int k = 0;
-	// std::list<Shape> shapes = segmenter.shapes();
-	// for ( std::list<Shape>::iterator s = shapes.begin(); s not_eq shapes.end(); ++s )
-	// {
-	// 	Shape shape(*s);
-	// 	
-	// 	Magick::Image img( Magick::Geometry(shape.width(), shape.height()), "white" );
-	// 	
-	// 	// Convert the external image into a grayscale colorspace
-	// 	img.type( Magick::GrayscaleType );
-	// 
-	// 	// Ensure that there is only one reference to underlying image.
-	// 	// If this is not done, then image pixels will not be modified.
-	// 	img.modifyImage();
-	// 
-	// 	// Allocate pixel view
-	// 	Magick::Pixels view(img);
-	// 	Magick::PixelPacket *originPixel = view.get(0, 0, shape.width(), shape.height());
-	// 	
-	// 	// Copy the current data into the external image
-	// 	for ( unsigned int i = shape.topPixel().first; i <= shape.bottomPixel().first; ++i )
+	// 	std::list<Shape> shapes = segmenter.shapes();
+	// 	for ( std::list<Shape>::iterator s = shapes.begin(); s not_eq shapes.end(); ++s )
 	// 	{
-	// 		for ( unsigned int j = shape.leftPixel().second; j <= shape.rightPixel().second; ++j )
-	// 			*originPixel++ = Magick::ColorGray ( static_cast<double>(image_[i * width_ + j]) / 255.0 );
-	// 	}
-	// 
-	// 	// Synchronize changes to the image
-	// 	view.sync();
-	// 	img.syncPixels();
+	// 		Shape shape(*s);
+	// 		
+	// 		Magick::Image img( Magick::Geometry(shape.width(), shape.height()), "white" );
+	// 		
+	// 		// Convert the external image into a grayscale colorspace
+	// 		img.type( Magick::GrayscaleType );
 	// 	
-	// 	std::ostringstream o;
-	// 	if (!(o << k))
-	// 	     throw NessieException ("Recognizer::obtainText() : Cannot convert unsigned int to string");
-	// 
-	// 	img.write("results/shape" + o.str() + ".png");
-	// 	k++;
-	// }
+	// 		// Ensure that there is only one reference to underlying image.
+	// 		// If this is not done, then image pixels will not be modified.
+	// 		img.modifyImage();
+	// 	
+	// 		// Allocate pixel view
+	// 		Magick::Pixels view(img);
+	// 		Magick::PixelPacket *originPixel = view.get(0, 0, shape.width(), shape.height());
+	// 		
+	// 		// Copy the current data into the external image
+	// 		for ( unsigned int i = shape.topPixel().first; i <= shape.bottomPixel().first; ++i )
+	// 		{
+	// 			for ( unsigned int j = shape.leftPixel().second; j <= shape.rightPixel().second; ++j )
+	// 				*originPixel++ = Magick::ColorGray ( static_cast<double>(image_[i * width_ + j]) / 255.0 );
+	// 		}
+	// 	
+	// 		// Synchronize changes to the image
+	// 		view.sync();
+	// 		img.syncPixels();
+	// 		
+	// 		std::ostringstream o;
+	// 		if (!(o << k))
+	// 		     throw NessieException ("Recognizer::obtainText() : Cannot convert unsigned int to string");
+	// 	
+	// 		img.write("results/shape" + o.str() + ".png");
+	// 		k++;
+	// 	}
 	
 	
 	//
 	// Classification stage
 	//
-	Classifier classifier;
+	DataSet dataset("samples.dataset", 0);
+	Classifier classifier(dataset);
 	Text text;
 	
 	std::list<Shape> shapes = segmenter.shapes();

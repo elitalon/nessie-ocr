@@ -71,56 +71,56 @@ window.onload = initDynSections;
 <a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define _CLASSIFIER_H</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span>
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#include "FeatureVector.hpp"</span>
-<a name="l00012"></a>00012 <span class="keyword">class </span><a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>;
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;deque&gt;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;utility&gt;</span>
-<a name="l00017"></a>00017 
+<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_data_set_8hpp.html" title="Declaration of DataSet class.">DataSet.hpp</a>"</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include "<a class="code" href="_feature_vector_8hpp.html" title="Declaration of FeatureVector class.">FeatureVector.hpp</a>"</span>
+<a name="l00013"></a>00013 <span class="keyword">class </span><a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>;
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;deque&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;utility&gt;</span>
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020 
-<a name="l00032"></a><a class="code" href="class_classifier.html">00032</a> <span class="keyword">class </span><a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>
-<a name="l00033"></a>00033 {
-<a name="l00034"></a>00034 <span class="keyword">public</span>:
-<a name="l00035"></a>00035     
-<a name="l00042"></a>00042     <a class="code" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e" title="Constructor.">Classifier</a> ();
-<a name="l00043"></a>00043     
-<a name="l00044"></a>00044     
-<a name="l00055"></a>00055     std::string <a class="code" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character.">matchShape</a> (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
+<a name="l00021"></a>00021 
+<a name="l00033"></a><a class="code" href="class_classifier.html">00033</a> <span class="keyword">class </span><a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00036"></a>00036     
+<a name="l00045"></a>00045     <a class="code" href="class_classifier.html#9e4bb9d0578609751dfb7cffb77b804f" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>&amp; dataset);
+<a name="l00046"></a>00046     
+<a name="l00047"></a>00047     
+<a name="l00054"></a>00054     <a class="code" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c" title="Destructor.">~Classifier</a> ();
+<a name="l00055"></a>00055     
 <a name="l00056"></a>00056     
-<a name="l00057"></a>00057     
-<a name="l00066"></a>00066     <span class="keywordtype">float</span> <a class="code" href="class_classifier.html#82e313296065218b1a01b5e44daa4c2f" title="Returns the elapsed time while matching a shape to a character.">matchingShapeTime</a> ();
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="keyword">private</span>:
-<a name="l00070"></a>00070     
-<a name="l00083"></a><a class="code" href="class_classifier.html#3487f0cd88135d7782cf4a460e221e9e">00083</a>     <span class="keyword">typedef</span> std::pair&lt;FeatureVector, unsigned int&gt; <a class="code" href="class_classifier.html#3487f0cd88135d7782cf4a460e221e9e" title="Element of a data set.">DatasetElement</a>;
+<a name="l00067"></a>00067     std::string <a class="code" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character.">matchShape</a> (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
+<a name="l00068"></a>00068     
+<a name="l00069"></a>00069     
+<a name="l00078"></a>00078     <span class="keywordtype">float</span> <a class="code" href="class_classifier.html#82e313296065218b1a01b5e44daa4c2f" title="Returns the elapsed time while matching a shape to a character.">matchingShapeTime</a> ();
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="keyword">private</span>:
+<a name="l00082"></a>00082     
+<a name="l00083"></a><a class="code" href="class_classifier.html#f51f1cad8043df12e5f0836fc3193cbf">00083</a>     <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>         <a class="code" href="class_classifier.html#f51f1cad8043df12e5f0836fc3193cbf" title="Data set where the classification samples are stored.">dataset_</a>;           
 <a name="l00084"></a>00084     
-<a name="l00085"></a>00085     
-<a name="l00086"></a><a class="code" href="class_classifier.html#ed02e9873fd6e85950ae1e1a6f3d45bf">00086</a>     std::deque&lt;DatasetElement&gt;  <a class="code" href="class_classifier.html#ed02e9873fd6e85950ae1e1a6f3d45bf" title="Data set where the classification samples are stored.">dataset_</a>;           
-<a name="l00087"></a>00087     
-<a name="l00088"></a><a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a">00088</a>     FeatureVector               <a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a" title="A sample that represents a shape.">sample_</a>;            
+<a name="l00085"></a><a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a">00085</a>     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>   <a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a" title="A sample that represents a shape.">sample_</a>;            
+<a name="l00086"></a>00086     
+<a name="l00087"></a><a class="code" href="class_classifier.html#3404a15b2bd381782cce404b56a5fce7">00087</a>     <span class="keywordtype">float</span>           <a class="code" href="class_classifier.html#3404a15b2bd381782cce404b56a5fce7" title="Elapsed time while matching a shape into a character.">matchingShapeTime_</a>; 
+<a name="l00088"></a>00088     
 <a name="l00089"></a>00089     
-<a name="l00090"></a><a class="code" href="class_classifier.html#3404a15b2bd381782cce404b56a5fce7">00090</a>     <span class="keywordtype">float</span>                       <a class="code" href="class_classifier.html#3404a15b2bd381782cce404b56a5fce7" title="Elapsed time while matching a shape into a character.">matchingShapeTime_</a>; 
-<a name="l00091"></a>00091     
-<a name="l00092"></a><a class="code" href="class_classifier.html#758002d8431c62af065433b707ffde98">00092</a>     std::string                 <a class="code" href="class_classifier.html#758002d8431c62af065433b707ffde98" title="The file path where the data set is stored in the filesystem.">datasetFilename</a>;    
-<a name="l00093"></a>00093     
-<a name="l00094"></a>00094     
-<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape.">buildFeatureVector</a> (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 
-<a name="l00116"></a>00116     <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#8bbab7df78bc986a303fd72a6a472519" title="Reads a dataset from a file in the filesystem.">readDataset</a> ();
-<a name="l00117"></a>00117     
-<a name="l00118"></a>00118     
-<a name="l00125"></a>00125     <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#dcb995d9926d36b71bb8e723422d4974" title="Writes a dataset to a file in the filesystem.">writeDataset</a> () <span class="keyword">const</span>;
-<a name="l00126"></a>00126     
-<a name="l00127"></a>00127 };
-<a name="l00128"></a>00128 
-<a name="l00129"></a>00129 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
+<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape.">buildFeatureVector</a> (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
+<a name="l00101"></a>00101     
+<a name="l00102"></a>00102 };
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 
+<a name="l00106"></a><a class="code" href="class_classifier.html#82e313296065218b1a01b5e44daa4c2f">00106</a> <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_classifier.html#82e313296065218b1a01b5e44daa4c2f" title="Returns the elapsed time while matching a shape to a character.">Classifier::matchingShapeTime</a> ()
+<a name="l00107"></a>00107 {
+<a name="l00108"></a>00108     <span class="keywordflow">return</span> <a class="code" href="class_classifier.html#3404a15b2bd381782cce404b56a5fce7" title="Elapsed time while matching a shape into a character.">matchingShapeTime_</a>;
+<a name="l00109"></a>00109 };
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Nov 8 10:50:47 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Nov 12 11:24:27 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

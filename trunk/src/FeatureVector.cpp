@@ -1,52 +1,22 @@
-/**
- * FeatureVector.cpp - Nessie, reconocedor óptico de texto en recortes de prensa escrita
- *
- * @author Eliezer Talón
- * @date 16/09/2008
- * @copyright 2008
- * @company Instituto Universitario de Ciencias y Tecnologías Cibernéticas (IUCTC)
- */
+///
+/// @file
+/// @brief Definition of FeatureVector class
+///
+
 
 #include "FeatureVector.hpp"
-#include "Shape.hpp"
 
-void FeatureVector::computeMoment0()
+
+FeatureVector::FeatureVector(const unsigned int& nFeatures)
+	:	features_(std::vector<float>(nFeatures)),
+		size_(nFeatures)
+{
+	for ( unsigned int i = 0; i < size_; ++i )
+		features_.at(i) = 0.0;
+};
+
+
+FeatureVector::~FeatureVector()
 {
 
-}
-
-void FeatureVector::computeMoment1()
-{
-
-}
-
-void FeatureVector::computeMoment2()
-{
-
-}
-
-void FeatureVector::computeMoment3()
-{
-
-}
-
-void FeatureVector::computeMoment4()
-{
-
-}
-
-void FeatureVector::computeMoment5()
-{
-
-}
-
-void FeatureVector::computeMoment6()
-{
-
-}
-
-FeatureVector::FeatureVector()
-{
-
-}
-
+};

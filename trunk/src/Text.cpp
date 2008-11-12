@@ -99,6 +99,7 @@ void Text::updateWordRate (const std::string& word)
 };
 
 
+
 void Text::computeWordRates (const std::string& delimiters)
 {
 	// Remove previous rates

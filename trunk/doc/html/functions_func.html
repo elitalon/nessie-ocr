@@ -75,6 +75,7 @@ window.onload = initDynSections;
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
@@ -102,6 +103,8 @@ window.onload = initDynSections;
 : <a class="el" href="class_text.html#d2c0cb733cef33657a44e4efc9e518ee">Text</a>
 <li>addPixel()
 : <a class="el" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">Shape</a>
+<li>addSample()
+: <a class="el" href="class_data_set.html#73b646f0b40545eaf7bbe72418a0ed51">DataSet</a>
 <li>applyThreshold()
 : <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">Segmenter</a>
 </ul>
@@ -120,7 +123,7 @@ window.onload = initDynSections;
 </ul>
 <h3><a class="anchor" name="index_c">- c -</a></h3><ul>
 <li>Classifier()
-: <a class="el" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e">Classifier</a>
+: <a class="el" href="class_classifier.html#9e4bb9d0578609751dfb7cffb77b804f">Classifier</a>
 <li>Clip()
 : <a class="el" href="class_clip.html#6264e0334483ad8e0631842a18ac5bc9">Clip</a>
 <li>ClipLocation()
@@ -135,7 +138,13 @@ window.onload = initDynSections;
 <li>content()
 : <a class="el" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c">Text</a>
 </ul>
+<h3><a class="anchor" name="index_d">- d -</a></h3><ul>
+<li>DataSet()
+: <a class="el" href="class_data_set.html#ffb28bf240421998cd5470f594a6bb22">DataSet</a>
+</ul>
 <h3><a class="anchor" name="index_f">- f -</a></h3><ul>
+<li>FeatureVector()
+: <a class="el" href="class_feature_vector.html#bca3b0cdf84cf43d5bee90ba21a7a054">FeatureVector</a>
 <li>findBackgroundReferenceGrayLevel()
 : <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4">Preprocessor</a>
 <li>findLineMarkers()
@@ -150,6 +159,8 @@ window.onload = initDynSections;
 : <a class="el" href="class_segmenter.html#0961de0db6a0b1de51882024bfc830a1">Segmenter</a>
 </ul>
 <h3><a class="anchor" name="index_g">- g -</a></h3><ul>
+<li>getSample()
+: <a class="el" href="class_data_set.html#73dcd4309ecf1dbc2bcb0ba861077ac5">DataSet</a>
 <li>growSeedsIntoInitialShapes()
 : <a class="el" href="class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50">Segmenter</a>
 </ul>
@@ -182,9 +193,12 @@ window.onload = initDynSections;
 <h3><a class="anchor" name="index_n">- n -</a></h3><ul>
 <li>NessieException()
 : <a class="el" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859">NessieException</a>
+<li>nFeatures()
+: <a class="el" href="class_data_set.html#a4249f02ed870b2e76f0e73728229be2">DataSet</a>
 <li>noiseRemovalTime()
-: <a class="el" href="class_statistics.html#dc21ff96ff4ddda9384eb03ac6de20de">Statistics</a>
+: <a class="el" href="class_statistics.html#2851ad08e1bd9604fe76c78cccc50e84">Statistics</a>
 , <a class="el" href="class_preprocessor.html#ff8eee937760e42c0c2bea307849ada1">Preprocessor</a>
+, <a class="el" href="class_statistics.html#dc21ff96ff4ddda9384eb03ac6de20de">Statistics</a>
 </ul>
 <h3><a class="anchor" name="index_o">- o -</a></h3><ul>
 <li>obtainText()
@@ -192,12 +206,18 @@ window.onload = initDynSections;
 <li>operator()()
 : <a class="el" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be">Clip</a>
 , <a class="el" href="class_shape.html#7d12f3a76e2bfb7963c00237eba41e0a">Shape</a>
+, <a class="el" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">Clip</a>
+, <a class="el" href="class_feature_vector.html#40786ed7bca879e6f4dea8a396dccedf">FeatureVector</a>
+<li>operator*()
+: <a class="el" href="class_feature_vector.html#a0d4b7f99e906409e1bf2335055e4cfd">FeatureVector</a>
 <li>operator+()
-: <a class="el" href="class_shape.html#4e1517d6e14471df4750bc241f517b4e">Shape</a>
+: <a class="el" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a">FeatureVector</a>
+, <a class="el" href="class_shape.html#4e1517d6e14471df4750bc241f517b4e">Shape</a>
 , <a class="el" href="class_statistics.html#cb07c98a63e07fdb1476ffb282b84676">Statistics</a>
 , <a class="el" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">Text</a>
 <li>operator-()
 : <a class="el" href="class_statistics.html#529bed34d909d88440214d6983779043">Statistics</a>
+, <a class="el" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab">FeatureVector</a>
 <li>operator&lt;()
 : <a class="el" href="class_shape.html#183a6bc428172ced8122ffb68d0f04ef">Shape</a>
 <li>operator=()
@@ -216,14 +236,14 @@ window.onload = initDynSections;
 : <a class="el" href="class_preprocessor.html#da966c8b83e7c3bcd8759549c3cdf688">Preprocessor</a>
 </ul>
 <h3><a class="anchor" name="index_r">- r -</a></h3><ul>
-<li>readDataset()
-: <a class="el" href="class_classifier.html#8bbab7df78bc986a303fd72a6a472519">Classifier</a>
 <li>Recognizer()
 : <a class="el" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4">Recognizer</a>
 <li>removeCharacter()
 : <a class="el" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">Text</a>
 <li>removeIsolatedNoise()
 : <a class="el" href="class_preprocessor.html#a3e047486a0a80f2103f51d7141e41c5">Preprocessor</a>
+<li>removeSample()
+: <a class="el" href="class_data_set.html#3bf06a1621c192660336318dd523603f">DataSet</a>
 <li>rightPixel()
 : <a class="el" href="class_shape.html#c265e43fa90ee2ab7c9cd3a3d1e96d82">Shape</a>
 <li>row()
@@ -246,17 +266,21 @@ window.onload = initDynSections;
 <li>size()
 : <a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">Clip</a>
 , <a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">Shape</a>
+, <a class="el" href="class_data_set.html#805d7628a3ee31a4d4278deba91c0bbf">DataSet</a>
+, <a class="el" href="class_feature_vector.html#4e3bd39520fdd8afbefa90ed203d512b">FeatureVector</a>
 , <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">Text</a>
+<li>sourceFile()
+: <a class="el" href="class_data_set.html#d7d233212f54f5c2764430b0cb1bea65">DataSet</a>
 <li>spaces()
 : <a class="el" href="class_segmenter.html#eed49de2d6548ae8016bf6c9c78cec99">Segmenter</a>
 <li>split()
 : <a class="el" href="class_shape.html#bcb7d1626e403703952967533c9004ce">Shape</a>
 <li>statistic()
 : <a class="el" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de">Recognizer</a>
-<li>statistics()
-: <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba">Recognizer</a>
 <li>Statistics()
 : <a class="el" href="class_statistics.html#60ddd90a571ed4c3ce8c0f6317a36d63">Statistics</a>
+<li>statistics()
+: <a class="el" href="class_recognizer.html#8b38356d2741969e67cd6b4f507897ba">Recognizer</a>
 </ul>
 <h3><a class="anchor" name="index_t">- t -</a></h3><ul>
 <li>Text()
@@ -289,19 +313,23 @@ window.onload = initDynSections;
 : <a class="el" href="class_text.html#f1588ae161a4c4894b2ce1a1d29ebc22">Text</a>
 <li>words()
 : <a class="el" href="class_text.html#edfd71af7802a2d72eed7365f081a66d">Text</a>
-<li>writeDataset()
-: <a class="el" href="class_classifier.html#dcb995d9926d36b71bb8e723422d4974">Classifier</a>
 <li>writeExternalImage()
 : <a class="el" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67">Recognizer</a>
 </ul>
 <h3><a class="anchor" name="index_~">- ~ -</a></h3><ul>
+<li>~Classifier()
+: <a class="el" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c">Classifier</a>
 <li>~Clip()
 : <a class="el" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa">Clip</a>
+<li>~DataSet()
+: <a class="el" href="class_data_set.html#2cdb84d32331956b413ca36933e516bd">DataSet</a>
+<li>~FeatureVector()
+: <a class="el" href="class_feature_vector.html#1b0407e6c3a5a0154a43e138972f7ee7">FeatureVector</a>
 <li>~NessieException()
 : <a class="el" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">NessieException</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Nov 8 10:50:47 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Nov 12 11:24:38 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

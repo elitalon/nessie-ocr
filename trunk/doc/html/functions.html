@@ -104,6 +104,8 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_text.html#d2c0cb733cef33657a44e4efc9e518ee">Text</a>
 <li>addPixel()
 : <a class="el" href="class_shape.html#f6114234203d9473f1fef9e6391f9243">Shape</a>
+<li>addSample()
+: <a class="el" href="class_data_set.html#73b646f0b40545eaf7bbe72418a0ed51">DataSet</a>
 <li>applyThreshold()
 : <a class="el" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee">Segmenter</a>
 </ul>
@@ -129,7 +131,7 @@ Here is a list of all documented struct and union fields with links to the struc
 </ul>
 <h3><a class="anchor" name="index_c">- c -</a></h3><ul>
 <li>Classifier()
-: <a class="el" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e">Classifier</a>
+: <a class="el" href="class_classifier.html#9e4bb9d0578609751dfb7cffb77b804f">Classifier</a>
 <li>Clip()
 : <a class="el" href="class_clip.html#6264e0334483ad8e0631842a18ac5bc9">Clip</a>
 <li>ClipLocation()
@@ -151,14 +153,16 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">Text</a>
 </ul>
 <h3><a class="anchor" name="index_d">- d -</a></h3><ul>
+<li>DataSet()
+: <a class="el" href="class_data_set.html#ffb28bf240421998cd5470f594a6bb22">DataSet</a>
 <li>dataset_
-: <a class="el" href="class_classifier.html#ed02e9873fd6e85950ae1e1a6f3d45bf">Classifier</a>
-<li>DatasetElement
-: <a class="el" href="class_classifier.html#3487f0cd88135d7782cf4a460e221e9e">Classifier</a>
-<li>datasetFilename
-: <a class="el" href="class_classifier.html#758002d8431c62af065433b707ffde98">Classifier</a>
+: <a class="el" href="class_classifier.html#f51f1cad8043df12e5f0836fc3193cbf">Classifier</a>
 </ul>
 <h3><a class="anchor" name="index_f">- f -</a></h3><ul>
+<li>features_
+: <a class="el" href="class_feature_vector.html#94d8f46966fa05f81a927b06ace11c28">FeatureVector</a>
+<li>FeatureVector()
+: <a class="el" href="class_feature_vector.html#bca3b0cdf84cf43d5bee90ba21a7a054">FeatureVector</a>
 <li>findBackgroundReferenceGrayLevel()
 : <a class="el" href="class_preprocessor.html#a941f81382bd8e235e4dd12481342be4">Preprocessor</a>
 <li>findLineMarkers()
@@ -173,6 +177,8 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_segmenter.html#0961de0db6a0b1de51882024bfc830a1">Segmenter</a>
 </ul>
 <h3><a class="anchor" name="index_g">- g -</a></h3><ul>
+<li>getSample()
+: <a class="el" href="class_data_set.html#73dcd4309ecf1dbc2bcb0ba861077ac5">DataSet</a>
 <li>growSeedsIntoInitialShapes()
 : <a class="el" href="class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50">Segmenter</a>
 </ul>
@@ -225,9 +231,13 @@ Here is a list of all documented struct and union fields with links to the struc
 <h3><a class="anchor" name="index_n">- n -</a></h3><ul>
 <li>NessieException()
 : <a class="el" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859">NessieException</a>
+<li>nFeatures()
+: <a class="el" href="class_data_set.html#a4249f02ed870b2e76f0e73728229be2">DataSet</a>
+<li>nFeatures_
+: <a class="el" href="class_data_set.html#5b263b90a7055808071f1c46e95b9b5c">DataSet</a>
 <li>noiseRemovalTime()
 : <a class="el" href="class_preprocessor.html#ff8eee937760e42c0c2bea307849ada1">Preprocessor</a>
-, <a class="el" href="class_statistics.html#dc21ff96ff4ddda9384eb03ac6de20de">Statistics</a>
+, <a class="el" href="class_statistics.html#2851ad08e1bd9604fe76c78cccc50e84">Statistics</a>
 <li>noiseRemovalTime_
 : <a class="el" href="class_statistics.html#1894a0ccc215b0860b826e9fa28f4f32">Statistics</a>
 , <a class="el" href="class_preprocessor.html#d6e3bee674df10921f29612bc5bc6978">Preprocessor</a>
@@ -238,12 +248,18 @@ Here is a list of all documented struct and union fields with links to the struc
 <li>operator()()
 : <a class="el" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be">Clip</a>
 , <a class="el" href="class_shape.html#7d12f3a76e2bfb7963c00237eba41e0a">Shape</a>
+, <a class="el" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">Clip</a>
+, <a class="el" href="class_feature_vector.html#40786ed7bca879e6f4dea8a396dccedf">FeatureVector</a>
+<li>operator*()
+: <a class="el" href="class_feature_vector.html#a0d4b7f99e906409e1bf2335055e4cfd">FeatureVector</a>
 <li>operator+()
-: <a class="el" href="class_shape.html#4e1517d6e14471df4750bc241f517b4e">Shape</a>
+: <a class="el" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a">FeatureVector</a>
+, <a class="el" href="class_shape.html#4e1517d6e14471df4750bc241f517b4e">Shape</a>
 , <a class="el" href="class_statistics.html#cb07c98a63e07fdb1476ffb282b84676">Statistics</a>
 , <a class="el" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">Text</a>
 <li>operator-()
 : <a class="el" href="class_statistics.html#529bed34d909d88440214d6983779043">Statistics</a>
+, <a class="el" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab">FeatureVector</a>
 <li>operator&lt;()
 : <a class="el" href="class_shape.html#183a6bc428172ced8122ffb68d0f04ef">Shape</a>
 <li>operator=()
@@ -253,8 +269,8 @@ Here is a list of all documented struct and union fields with links to the struc
 <li>optimalThreshold_
 : <a class="el" href="class_preprocessor.html#865b1e28dd9535b96f70727a550104fe">Preprocessor</a>
 <li>optimalThresholdComputingTime()
-: <a class="el" href="class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d">Statistics</a>
-, <a class="el" href="class_preprocessor.html#72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e">Preprocessor</a>
+: <a class="el" href="class_preprocessor.html#72aa2eb5f3a7e7ee0d3ca27ddd6bfc5e">Preprocessor</a>
+, <a class="el" href="class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d">Statistics</a>
 <li>optimalThresholdComputingTime_
 : <a class="el" href="class_statistics.html#62f53a6e46b95f69399aeacd9633cede">Statistics</a>
 , <a class="el" href="class_preprocessor.html#d52352691de7d8f0738b67e93a5898fc">Preprocessor</a>
@@ -271,29 +287,33 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_preprocessor.html#da966c8b83e7c3bcd8759549c3cdf688">Preprocessor</a>
 </ul>
 <h3><a class="anchor" name="index_r">- r -</a></h3><ul>
-<li>readDataset()
-: <a class="el" href="class_classifier.html#8bbab7df78bc986a303fd72a6a472519">Classifier</a>
 <li>Recognizer
 : <a class="el" href="class_statistics.html#11123fa51c07995419270030024a7dfe">Statistics</a>
-, <a class="el" href="class_recognizer.html#01e0b85a6ad9cfbf6fcab4fe4b294640">Recognizer</a>
+, <a class="el" href="class_recognizer.html#50ffc181208bb07ae651aba6249ee7e4">Recognizer</a>
 <li>removeCharacter()
 : <a class="el" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">Text</a>
 <li>removeIsolatedNoise()
 : <a class="el" href="class_preprocessor.html#a3e047486a0a80f2103f51d7141e41c5">Preprocessor</a>
+<li>removeSample()
+: <a class="el" href="class_data_set.html#3bf06a1621c192660336318dd523603f">DataSet</a>
 <li>rightPixel()
 : <a class="el" href="class_shape.html#c265e43fa90ee2ab7c9cd3a3d1e96d82">Shape</a>
 <li>rightPixel_
 : <a class="el" href="class_shape.html#16adfccce492a7a0e34c5ade941c32fd">Shape</a>
 <li>row()
-: <a class="el" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8">Clip</a>
-, <a class="el" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f">ClipLocation</a>
+: <a class="el" href="class_clip_location.html#8816c925e80c2e55bbbbdd6da799f53f">ClipLocation</a>
+, <a class="el" href="class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8">Clip</a>
 <li>row_
-: <a class="el" href="class_clip.html#5941d987375ec246785b4688705f44f1">Clip</a>
-, <a class="el" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39">ClipLocation</a>
+: <a class="el" href="class_clip_location.html#1b2df7d88f1e70c6092704f0a5844d39">ClipLocation</a>
+, <a class="el" href="class_clip.html#5941d987375ec246785b4688705f44f1">Clip</a>
 </ul>
 <h3><a class="anchor" name="index_s">- s -</a></h3><ul>
+<li>Sample
+: <a class="el" href="class_data_set.html#7563096ce4847d88411ed3f6ad331310">DataSet</a>
 <li>sample_
 : <a class="el" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a">Classifier</a>
+<li>samples_
+: <a class="el" href="class_data_set.html#cfb8c9d22aa3d295e37ef7d820c9c33e">DataSet</a>
 <li>seeds_
 : <a class="el" href="class_segmenter.html#7859d050250b9fdf7c96374f80008d6e">Segmenter</a>
 <li>segmentationTime()
@@ -314,15 +334,23 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_segmenter.html#8d7304b35b1891b1c7154a3ac2ff2c4b">Segmenter</a>
 , <a class="el" href="class_statistics.html#cdb8852bc99d12a619d130ae2e6948ee">Statistics</a>
 <li>shapesFindingTime_
-: <a class="el" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b">Segmenter</a>
-, <a class="el" href="class_statistics.html#182c5f187a09c799cf37338b73ae37cd">Statistics</a>
+: <a class="el" href="class_statistics.html#182c5f187a09c799cf37338b73ae37cd">Statistics</a>
+, <a class="el" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b">Segmenter</a>
 <li>size()
-: <a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">Shape</a>
+: <a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">Clip</a>
+, <a class="el" href="class_data_set.html#805d7628a3ee31a4d4278deba91c0bbf">DataSet</a>
+, <a class="el" href="class_feature_vector.html#4e3bd39520fdd8afbefa90ed203d512b">FeatureVector</a>
+, <a class="el" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8">Shape</a>
 , <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">Text</a>
-, <a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">Clip</a>
 <li>size_
-: <a class="el" href="class_clip.html#b88daf5fdd2b57dec8335ff8fd4a6d4e">Clip</a>
-, <a class="el" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283">Shape</a>
+: <a class="el" href="class_shape.html#adec7080fb17de89d2f6c9d53d4b0283">Shape</a>
+, <a class="el" href="class_clip.html#b88daf5fdd2b57dec8335ff8fd4a6d4e">Clip</a>
+, <a class="el" href="class_feature_vector.html#262592d779f18095c8213c0424edf25d">FeatureVector</a>
+, <a class="el" href="class_data_set.html#b25b58d12a1f41ec758471bb663c8fa5">DataSet</a>
+<li>sourceFile()
+: <a class="el" href="class_data_set.html#d7d233212f54f5c2764430b0cb1bea65">DataSet</a>
+<li>sourceFile_
+: <a class="el" href="class_data_set.html#f0e886e32a0ec23046e6e58813a3c69b">DataSet</a>
 <li>spaceLocations_
 : <a class="el" href="class_segmenter.html#b6a330577017efe9e49c174c04c4f7c3">Segmenter</a>
 <li>spaces()
@@ -388,19 +416,23 @@ Here is a list of all documented struct and union fields with links to the struc
 : <a class="el" href="class_text.html#5f7e6b9d9ba0dbd7c1b4070ab42f1de1">Text</a>
 <li>words()
 : <a class="el" href="class_text.html#edfd71af7802a2d72eed7365f081a66d">Text</a>
-<li>writeDataset()
-: <a class="el" href="class_classifier.html#dcb995d9926d36b71bb8e723422d4974">Classifier</a>
 <li>writeExternalImage()
 : <a class="el" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67">Recognizer</a>
 </ul>
 <h3><a class="anchor" name="index_~">- ~ -</a></h3><ul>
+<li>~Classifier()
+: <a class="el" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c">Classifier</a>
 <li>~Clip()
 : <a class="el" href="class_clip.html#88647ed65e3482b5e0533ec98667b0fa">Clip</a>
+<li>~DataSet()
+: <a class="el" href="class_data_set.html#2cdb84d32331956b413ca36933e516bd">DataSet</a>
+<li>~FeatureVector()
+: <a class="el" href="class_feature_vector.html#1b0407e6c3a5a0154a43e138972f7ee7">FeatureVector</a>
 <li>~NessieException()
 : <a class="el" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2">NessieException</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Nov 8 10:50:47 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Nov 12 11:24:38 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

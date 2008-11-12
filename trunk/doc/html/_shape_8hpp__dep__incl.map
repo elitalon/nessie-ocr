@@ -1,7 +1,5 @@
-<area shape="rect" href="$_classifier_8cpp.html" title="Definition of Classifier class." alt="" coords="37,239,144,265">
-<area shape="rect" href="$_shape_8cpp.html" title="Definition of Shape class." alt="" coords="67,84,157,111">
-<area shape="rect" href="$_feature_vector_8hpp-source.html" title="FeatureVector.hpp" alt="" coords="181,84,328,111">
-<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of Segmenter class." alt="" coords="352,84,475,111">
-<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="197,161,304,188">
-<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of the class Recognizer." alt="" coords="235,239,357,265">
-<area shape="rect" href="$_segmenter_8cpp.html" title="Definition of Segmenter class." alt="" coords="379,161,501,188">
+<area shape="rect" href="$_classifier_8cpp.html" title="Definition of Classifier class." alt="" coords="5,84,112,111">
+<area shape="rect" href="$_shape_8cpp.html" title="Definition of Shape class." alt="" coords="136,84,227,111">
+<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of Segmenter class." alt="" coords="251,84,373,111">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of the class Recognizer." alt="" coords="177,161,300,188">
+<area shape="rect" href="$_segmenter_8cpp.html" title="Definition of Segmenter class." alt="" coords="324,161,447,188">

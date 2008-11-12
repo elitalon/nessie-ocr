@@ -6,3 +6,28 @@
 
 #include "Classifier.hpp"
 #include "Shape.hpp"
+
+
+
+
+Classifier::Classifier (const DataSet& dataset)
+	:	dataset_(dataset),
+		sample_(FeatureVector()),
+		matchingShapeTime_(0.0)
+{
+	
+};
+
+
+
+Classifier::~Classifier ()
+{
+	
+};
+
+
+
+std::string Classifier::matchShape (const Shape& shape)
+{
+	return "";
+};

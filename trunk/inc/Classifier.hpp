@@ -8,6 +8,7 @@
 #define _CLASSIFIER_H
 
 
+#include "DataSet.hpp"
 #include "FeatureVector.hpp"
 class Shape;
 
@@ -36,10 +37,21 @@ public:
 	///
 	/// Constructor.
 	/// 
+	/// @param dataset A data set to use in the classification process.
+	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-07
 	///
-	Classifier ();
+	Classifier (const DataSet& dataset);
+	
+	
+	///
+	/// Destructor.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-10
+	///
+	~Classifier ();
 	
 	
 	///
@@ -68,28 +80,11 @@ public:
 
 private:
 	
-	///
-	/// @typedef DatasetElement
-	/// 
-	/// @brief Element of a data set.
-	///
-	/// @details This pair keeps the feature vector and the category that defines every sample in a data set.
-	/// 
-	/// @see FeatureVector
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-11-07
-	///
-	typedef std::pair<FeatureVector, unsigned int> DatasetElement;
+	DataSet			dataset_;			///< Data set where the classification samples are stored.
 	
+	FeatureVector	sample_;			///< A sample that represents a shape.
 	
-	std::deque<DatasetElement>	dataset_;			///< Data set where the classification samples are stored.
-	
-	FeatureVector				sample_;			///< A sample that represents a shape.
-	
-	float						matchingShapeTime_;	///< Elapsed time while matching a shape into a character.
-	
-	std::string					datasetFilename;	///< The file path where the data set is stored in the filesystem.
+	float			matchingShapeTime_;	///< Elapsed time while matching a shape into a character.
 	
 	
 	///
@@ -103,27 +98,14 @@ private:
 	/// @date 2008-11-07
 	///
 	void buildFeatureVector (const Shape& shape);
+	
+};
 
 
-	///
-	/// Reads a dataset from a file in the filesystem.
-	/// 
-	/// @post #dataset_ is set with the contents of the file.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-11-07
-	///
-	void readDataset ();
-	
-	
-	///
-	/// Writes a dataset to a file in the filesystem.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-11-07
-	///
-	void writeDataset () const;
-	
+
+inline float Classifier::matchingShapeTime ()
+{
+	return matchingShapeTime_;
 };
 
 #endif  //_CLASSIFIER_H

@@ -63,11 +63,12 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>main.cpp File Reference</h1><h3 align="center">(171)</h3>Implementation of a command line program for testing purposes.  
+<h1>main.cpp File Reference</h1><h3 align="center">(172)</h3>Implementation of a command line program for testing purposes.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;Magick++.h&gt;</code><br>
 <code>#include &quot;<a class="el" href="_recognizer_8hpp-source.html">Recognizer.hpp</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="_data_set_8hpp-source.html">DataSet.hpp</a>&quot;</code><br>
 <code>#include &lt;iostream&gt;</code><br>
 
 <p>
@@ -76,7 +77,7 @@ Include dependency graph for main.cpp:</div>
 <div class="dynsection">
 <p><center><img src="main_8cpp__incl.png" border="0" usemap="#main.cpp_map" alt=""></center>
 <map name="main.cpp_map">
-<area shape="rect" href="_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="171,84,293,111"><area shape="rect" href="_text_8hpp.html" title="Declaration of Text class." alt="" coords="269,161,349,188"><area shape="rect" href="_statistics_8hpp.html" title="Declaration of Statistics class." alt="" coords="373,161,488,188"><area shape="rect" href="_clip_location_8hpp.html" title="Declaration of ClipLocation class." alt="" coords="512,161,643,188"></map>
+<area shape="rect" href="_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="279,161,401,188"><area shape="rect" href="_data_set_8hpp.html" title="Declaration of DataSet class." alt="" coords="584,84,691,111"><area shape="rect" href="_text_8hpp.html" title="Declaration of Text class." alt="" coords="179,239,259,265"><area shape="rect" href="_statistics_8hpp.html" title="Declaration of Statistics class." alt="" coords="283,239,397,265"><area shape="rect" href="_clip_location_8hpp.html" title="Declaration of ClipLocation class." alt="" coords="421,239,552,265"><area shape="rect" href="_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="564,161,711,188"><area shape="rect" href="_nessie_exception_8hpp.html" title="Declaration of NessieException class." alt="" coords="667,239,829,265"></map>
 </div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
@@ -115,10 +116,8 @@ Implementation of a command line program for testing purposes.
 
 <p>
 <dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Check documentation for pre- and post-conditions.</dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Design a data structure to represent a classification dataset, also its representation in a file.</dd></dl>
 <dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Develop the KNN algorithm.</dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Develop the <a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>, FeatureVector and Dataset classes.</dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Change the internal representation once the clip has been segmented. This is necessary because the ink cannot have zero as its representative value in further calculations.</dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Develop the <a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> class.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>argc</em>&nbsp;</td><td>Number of command line arguments </td></tr>
@@ -134,13 +133,13 @@ Here is the call graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="main_8cpp_bf9e6b7e6f15df4b525a2e7705ba3089_cgraph.png" border="0" usemap="#main_8cpp_bf9e6b7e6f15df4b525a2e7705ba3089_cgraph_map" alt=""></center>
 <map name="main_8cpp_bf9e6b7e6f15df4b525a2e7705ba3089_cgraph_map">
-<area shape="rect" href="class_statistics.html#d65adc1b3bd1d560408c5f9e06fde3d4" title="Returns the elapsed time in the reference gray level of the background finding algorithm..." alt="" coords="107,5,499,32"><area shape="rect" href="class_statistics.html#2851ad08e1bd9604fe76c78cccc50e84" title="Returns the elapsed time in the noise removal algorithm." alt="" coords="191,56,415,83"><area shape="rect" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once." alt="" coords="213,131,392,157"><area shape="rect" href="class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d" title="Returns the elapsed time in the optimal threshold computing algorithm." alt="" coords="145,181,460,208"><area shape="rect" href="class_statistics.html#96aafebb86be480130007bd437875156" title="Returns the total elapsed time within the preprocessing stage." alt="" coords="192,232,413,259"><area shape="rect" href="class_statistics.html#4cea19c3705fc315ce2b4300b3725ab8" title="Returns the total elapsed time within the segmentation stage." alt="" coords="191,283,415,309"><area shape="rect" href="class_statistics.html#cdb8852bc99d12a619d130ae2e6948ee" title="Returns the elapsed time while finding the shapes in a clip." alt="" coords="192,333,413,360"><area shape="rect" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip." alt="" coords="221,384,384,411"><area shape="rect" href="class_statistics.html#79a7c11e89528f21b663153c2636216a" title="Returns the elapsed time while applying the thresholding algorithm." alt="" coords="197,435,408,461"><area shape="rect" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image." alt="" coords="183,485,423,512"></map>
+<area shape="rect" href="class_statistics.html#d65adc1b3bd1d560408c5f9e06fde3d4" title="Returns the elapsed time in the reference gray level of the background finding algorithm..." alt="" coords="107,5,499,32"><area shape="rect" href="class_statistics.html#2851ad08e1bd9604fe76c78cccc50e84" title="Returns the elapsed time in the noise removal algorithm." alt="" coords="191,56,415,83"><area shape="rect" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once." alt="" coords="213,107,392,133"><area shape="rect" href="class_statistics.html#3a364709b9fe8dbefd03b3bb45d9a89d" title="Returns the elapsed time in the optimal threshold computing algorithm." alt="" coords="145,157,460,184"><area shape="rect" href="class_statistics.html#96aafebb86be480130007bd437875156" title="Returns the total elapsed time within the preprocessing stage." alt="" coords="192,208,413,235"><area shape="rect" href="class_statistics.html#4cea19c3705fc315ce2b4300b3725ab8" title="Returns the total elapsed time within the segmentation stage." alt="" coords="191,259,415,285"><area shape="rect" href="class_statistics.html#cdb8852bc99d12a619d130ae2e6948ee" title="Returns the elapsed time while finding the shapes in a clip." alt="" coords="192,309,413,336"><area shape="rect" href="class_recognizer.html#b941b1ad42c3bacb3c829acf7fc689de" title="Returns the statistical data regarding the recognition process of a single clip." alt="" coords="221,360,384,387"><area shape="rect" href="class_statistics.html#79a7c11e89528f21b663153c2636216a" title="Returns the elapsed time while applying the thresholding algorithm." alt="" coords="197,411,408,437"><area shape="rect" href="class_recognizer.html#559f62a3e3e2d0b799bab38e975b4b67" title="Writes the information of the internal data into an external image." alt="" coords="183,461,423,488"></map>
 </div>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Nov 8 10:50:47 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Nov 12 11:24:32 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

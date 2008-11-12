@@ -1,8 +1,8 @@
-<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="8,84,131,111">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="448,84,520,111">
-<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of NessieException class." alt="" coords="476,161,639,188">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="595,84,731,111">
-<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of Segmenter class." alt="" coords="755,84,877,111">
-<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="761,161,868,188">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="143,161,223,188">
-<area shape="rect" href="$_statistics_8hpp.html" title="Declaration of Statistics class." alt="" coords="247,161,361,188">
+<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="109,161,232,188">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="295,161,367,188">
+<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of NessieException class." alt="" coords="335,239,497,265">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="916,84,1052,111">
+<area shape="rect" href="$_segmenter_8hpp.html" title="Declaration of Segmenter class." alt="" coords="1076,84,1199,111">
+<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="492,84,599,111">
+<area shape="rect" href="$_data_set_8hpp.html" title="Declaration of DataSet class." alt="" coords="441,161,548,188">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="17,239,97,265">

@@ -1,0 +1,220 @@
+\hypertarget{class_feature_vector}{
+\subsection{FeatureVector Class Reference}
+\label{class_feature_vector}\index{FeatureVector@{FeatureVector}}
+}
+Vector of features that defines a character in an image.  
+
+
+{\tt \#include $<$FeatureVector.hpp$>$}
+
+Collaboration diagram for FeatureVector:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_feature_vector__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_feature_vector_bca3b0cdf84cf43d5bee90ba21a7a054}{FeatureVector} (const unsigned int \&nFeatures=6)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
+\hyperlink{class_feature_vector_1b0407e6c3a5a0154a43e138972f7ee7}{$\sim$FeatureVector} ()
+\begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
+float \& \hyperlink{class_feature_vector_40786ed7bca879e6f4dea8a396dccedf}{operator()} (const unsigned int \&feature)
+\begin{CompactList}\small\item\em Allows read-and-write access to a feature in the vector. \item\end{CompactList}\item 
+float \hyperlink{class_feature_vector_e5d3e313cc1080b4e17526ea938d8a74}{operator()} (const unsigned int \&feature) const 
+\begin{CompactList}\small\item\em Allows read-only access to a pixel in the clip. \item\end{CompactList}\item 
+\hyperlink{class_feature_vector}{FeatureVector} \hyperlink{class_feature_vector_58a2309387bd18d956e16c148585352a}{operator+} (const \hyperlink{class_feature_vector}{FeatureVector} \&featureVector) const 
+\begin{CompactList}\small\item\em Makes the sum of two feature vectors. \item\end{CompactList}\item 
+\hyperlink{class_feature_vector}{FeatureVector} \hyperlink{class_feature_vector_fa1a86fbb34177281854406deea435ab}{operator-} (const \hyperlink{class_feature_vector}{FeatureVector} \&featureVector) const 
+\begin{CompactList}\small\item\em Makes the subtraction of two feature vectors. \item\end{CompactList}\item 
+float \hyperlink{class_feature_vector_a0d4b7f99e906409e1bf2335055e4cfd}{operator$\ast$} (const \hyperlink{class_feature_vector}{FeatureVector} \&featureVector) const 
+\begin{CompactList}\small\item\em Makes the multiplication of two feature vectors. \item\end{CompactList}\item 
+const unsigned int \& \hyperlink{class_feature_vector_4e3bd39520fdd8afbefa90ed203d512b}{size} () const 
+\begin{CompactList}\small\item\em Returns the number of features stored in the vector. \item\end{CompactList}\end{CompactItemize}
+\subsubsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_feature_vector_94d8f46966fa05f81a927b06ace11c28}{
+std::vector$<$ float $>$ \hyperlink{class_feature_vector_94d8f46966fa05f81a927b06ace11c28}{features\_\-}}
+\label{class_feature_vector_94d8f46966fa05f81a927b06ace11c28}
+
+\begin{CompactList}\small\item\em Features of the character. \item\end{CompactList}\item 
+\hypertarget{class_feature_vector_262592d779f18095c8213c0424edf25d}{
+unsigned int \hyperlink{class_feature_vector_262592d779f18095c8213c0424edf25d}{size\_\-}}
+\label{class_feature_vector_262592d779f18095c8213c0424edf25d}
+
+\begin{CompactList}\small\item\em Number of features. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsubsection{Detailed Description}
+Vector of features that defines a character in an image. 
+
+This class stores a number of features, computed from the moments of an image where the character's shape has been extracted. Each feature represents an image moment.
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{class_feature_vector_bca3b0cdf84cf43d5bee90ba21a7a054}{
+\index{FeatureVector@{FeatureVector}!FeatureVector@{FeatureVector}}
+\index{FeatureVector@{FeatureVector}!FeatureVector@{FeatureVector}}
+\paragraph[{FeatureVector}]{\setlength{\rightskip}{0pt plus 5cm}FeatureVector::FeatureVector (const unsigned int \& {\em nFeatures} = {\tt 6})}\hfill}
+\label{class_feature_vector_bca3b0cdf84cf43d5bee90ba21a7a054}
+
+
+Constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em nFeatures}]NUmber of features to store\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_1b0407e6c3a5a0154a43e138972f7ee7}{
+\index{FeatureVector@{FeatureVector}!$\sim$FeatureVector@{$\sim$FeatureVector}}
+\index{$\sim$FeatureVector@{$\sim$FeatureVector}!FeatureVector@{FeatureVector}}
+\paragraph[{$\sim$FeatureVector}]{\setlength{\rightskip}{0pt plus 5cm}FeatureVector::$\sim$FeatureVector ()}\hfill}
+\label{class_feature_vector_1b0407e6c3a5a0154a43e138972f7ee7}
+
+
+Destructor. 
+
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{class_feature_vector_e5d3e313cc1080b4e17526ea938d8a74}{
+\index{FeatureVector@{FeatureVector}!operator()@{operator()}}
+\index{operator()@{operator()}!FeatureVector@{FeatureVector}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}float FeatureVector::operator() (const unsigned int \& {\em feature}) const}\hfill}
+\label{class_feature_vector_e5d3e313cc1080b4e17526ea938d8a74}
+
+
+Allows read-only access to a pixel in the clip. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em feature}]Position in the vector where the feature is at.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Feature at given location.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_40786ed7bca879e6f4dea8a396dccedf}{
+\index{FeatureVector@{FeatureVector}!operator()@{operator()}}
+\index{operator()@{operator()}!FeatureVector@{FeatureVector}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}float \& FeatureVector::operator() (const unsigned int \& {\em feature})}\hfill}
+\label{class_feature_vector_40786ed7bca879e6f4dea8a396dccedf}
+
+
+Allows read-and-write access to a feature in the vector. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em feature}]Position in the vector where the feature is at.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A reference to the feature at given position.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_a0d4b7f99e906409e1bf2335055e4cfd}{
+\index{FeatureVector@{FeatureVector}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!FeatureVector@{FeatureVector}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}float FeatureVector::operator$\ast$ (const {\bf FeatureVector} \& {\em featureVector}) const}\hfill}
+\label{class_feature_vector_a0d4b7f99e906409e1bf2335055e4cfd}
+
+
+Makes the multiplication of two feature vectors. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em featureVector}]Feature vector to multiplicate\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_feature_vector}{FeatureVector} object as a result of multiplicating both vectors\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_58a2309387bd18d956e16c148585352a}{
+\index{FeatureVector@{FeatureVector}!operator+@{operator+}}
+\index{operator+@{operator+}!FeatureVector@{FeatureVector}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FeatureVector} FeatureVector::operator+ (const {\bf FeatureVector} \& {\em featureVector}) const}\hfill}
+\label{class_feature_vector_58a2309387bd18d956e16c148585352a}
+
+
+Makes the sum of two feature vectors. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em featureVector}]Feature vector to sum\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_feature_vector}{FeatureVector} object as a result of summing both vectors\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_fa1a86fbb34177281854406deea435ab}{
+\index{FeatureVector@{FeatureVector}!operator-@{operator-}}
+\index{operator-@{operator-}!FeatureVector@{FeatureVector}}
+\paragraph[{operator-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FeatureVector} FeatureVector::operator- (const {\bf FeatureVector} \& {\em featureVector}) const}\hfill}
+\label{class_feature_vector_fa1a86fbb34177281854406deea435ab}
+
+
+Makes the subtraction of two feature vectors. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em featureVector}]Feature vector to subtract\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_feature_vector}{FeatureVector} object as a result of subtracting both vectors\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+\hypertarget{class_feature_vector_4e3bd39520fdd8afbefa90ed203d512b}{
+\index{FeatureVector@{FeatureVector}!size@{size}}
+\index{size@{size}!FeatureVector@{FeatureVector}}
+\paragraph[{size}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int \& FeatureVector::size () const}\hfill}
+\label{class_feature_vector_4e3bd39520fdd8afbefa90ed203d512b}
+
+
+Returns the number of features stored in the vector. 
+
+\begin{Desc}
+\item[Returns:]Number of features stored in the vector.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10 \end{Desc}
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{class_feature_vector_4e3bd39520fdd8afbefa90ed203d512b_icgraph}
+\end{center}
+\end{figure}
