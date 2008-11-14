@@ -170,6 +170,19 @@ private:
 	unsigned char	*pixels_;	///< Set of pixels that defines the press clip
 
 	unsigned int	size_;		///< Number of pixels in the clip
+	
+	
+	///
+	/// Private constructor.
+	/// 
+	/// @details This declaration is intended to avoid creating an empty Clip object.
+	/// 
+	/// @warning Do not define this method.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-14
+	///
+	Clip ();
 };
 
 

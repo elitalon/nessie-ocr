@@ -88,6 +88,19 @@ private:
 	
 	
 	///
+	/// Private constructor.
+	/// 
+	/// @details This declaration is intended to avoid creating an empty Classifier object.
+	/// 
+	/// @warning Do not define this method.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-14
+	///
+	Classifier ();
+	
+	
+	///
 	/// Builds a feature vector from a shape.
 	/// 
 	/// @param shape	The source shape where the information is taken to build the feature vector.

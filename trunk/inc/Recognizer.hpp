@@ -185,6 +185,19 @@ private:
 	
 	
 	///
+	/// Private constructor.
+	/// 
+	/// @details This declaration is intended to avoid creating an empty Recognizer object.
+	/// 
+	/// @warning Do not define this method.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-14
+	///
+	Recognizer ();
+	
+	
+	///
 	/// Loads an Image object created with the Magick++ API into the internal data structure.
 	///
 	/// @param image An Image object from the Magick++ API previously created

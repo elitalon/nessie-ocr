@@ -57,6 +57,19 @@ public:
 private:
 
 	std::string	what_;	///< Message that explains the exception raised
+	
+	
+	///
+	/// Private constructor.
+	/// 
+	/// @details This declaration is intended to avoid creating an empty NessieException object.
+	/// 
+	/// @warning Do not define this method.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-14
+	///
+	NessieException ();
 };
 
 #endif  //_NESSIE_EXCEPTION_H

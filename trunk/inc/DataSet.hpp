@@ -157,6 +157,19 @@ private:
 	unsigned int		nFeatures_;		///< Number of features in every sample of the data set
 	
 	std::string			sourceFile_;	///< File path where the data set is stored in the filesystem
+	
+	
+	///
+	/// Private constructor.
+	/// 
+	/// @details This declaration is intended to avoid creating an empty DataSet object.
+	/// 
+	/// @warning Do not define this method.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-14
+	///
+	DataSet ();
 };
 
 
