@@ -9,6 +9,7 @@
 #include "boost/timer.hpp"
 
 #include <cmath>
+#include <algorithm>
 
 
 

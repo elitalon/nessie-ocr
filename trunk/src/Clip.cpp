@@ -4,6 +4,7 @@
 ///
 
 #include "Clip.hpp"
+#include "NessieException.hpp"
 
 
 
@@ -15,7 +16,7 @@ Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWi
 		column_(column),
 		width_(width),
 		height_(height),
-		pixels_(0),
+		pixels_(std::vector<unsigned char>(0)),
 		size_(0)
 {
 	if ( (height == 0) and (width == 0) )
@@ -28,43 +29,19 @@ Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWi
 	size_ = width * height;
 	
 	// Space allocation for the clip
-	pixels_ = new unsigned char[size_];
+	pixels_.reserve(size_);
 	
 	// Copy the data from the underlying image
 	for ( unsigned int i = row; i < (row + height); ++i )
 	{
-		std::vector<unsigned char>::const_iterator rowIterator = image.begin();
-		advance (rowIterator, (i * imageWidth) + column);
-		
-		for ( unsigned int j = 0; j < width; ++j )
-		{
-			pixels_[i * width + j] = *rowIterator;
-			advance (rowIterator, 1);
-		}
+		for ( unsigned int j = column; j < (column + width); ++j )
+			pixels_.push_back( image.at(i * width + j) );
 	}
-};
-
-
-
-Clip::Clip (const Clip& clip)
-	:	row_(clip.row_),
-		column_(clip.column_),
-		width_(clip.width_),
-		height_(clip.height_),
-		pixels_(0),
-		size_(clip.size_)
-{
-	// Space allocation for the clip
-	this->pixels_ = new unsigned char[clip.size_];
-	
-	// Copy the data from the source clip
-	for ( unsigned int i = 0; i < clip.size_; ++i )
-		this->pixels_[i] = clip.pixels_[i];
 };
 
 
 
 Clip::~Clip ()
 {
-	delete[] pixels_;
+
 }
