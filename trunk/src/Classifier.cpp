@@ -12,7 +12,7 @@
 
 Classifier::Classifier (const DataSet& dataset)
 	:	dataset_(dataset),
-		sample_(FeatureVector()),
+		sample_(FeatureVector(dataset.nFeatures())),
 		matchingShapeTime_(0.0)
 {
 	

@@ -75,7 +75,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-07
 	///
-	float matchingShapeTime ();
+	const float& matchingShapeTime ();
 
 
 private:
@@ -103,7 +103,7 @@ private:
 
 
 
-inline float Classifier::matchingShapeTime ()
+inline const float& Classifier::matchingShapeTime ()
 {
 	return matchingShapeTime_;
 };

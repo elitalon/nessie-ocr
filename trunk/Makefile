@@ -114,9 +114,9 @@ OBJECTS=$(RECOGNIZER_OBJ) $(NESSIE_EXCEPTION_OBJ) $(CLIP_LOCATION_OBJ) $(STATIST
 # Compiler options
 EXECUTABLE=$(BIN)ocr
 DEBUG=NO
-COMPILER_DEBUGGING_OPTIONS=-Wextra -Weffc++ -Wold-style-cast -Winline -g
+COMPILER_DEBUGGING_OPTIONS=-Weffc++ -Wold-style-cast -Winline -g
 LINKER_DEBUGGING_OPTIONS=
-FLAGS=-Wall -O2 -I$(INC) -I$(LIB)
+FLAGS=-Wall -Wextra -O2 -I$(INC) -I$(LIB)
 
 # Formatted output commands
 NL=\n

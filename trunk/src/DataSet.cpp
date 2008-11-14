@@ -13,12 +13,15 @@
 
 
 
-
 ///
-/// @details The source file where the data set is read from must have the following format. The <strong>first line</strong> defines the number of
-/// features in every sample of the data set. The <strong>following lines</strong> are the samples, with one sample per line. Every line has
-/// a number of fields up to the number of features defined in the first line plus one. Each field is separated by a whitespace. The last field
-/// represents the category of the sample. An example of a valid data set may be:
+/// @details This constructor is intended to read a data set from a file. The source file where the data set is read from must have the following
+/// format:
+/// 
+/// The <strong>first line</strong> defines the number of features in every sample of the data set.
+/// 
+/// The <strong>following lines</strong> are the samples, with one sample per line. Every line has a number of fields up to the number of features
+/// defined in the first line plus one. Each field is separated by a whitespace. The last field represents the category of the sample. An example
+/// of a valid data set may be:
 /// 
 /// <em>4</em>
 /// 
@@ -33,26 +36,21 @@
 /// The fields representing the features must have a <em>float</em> format: both the integer and decimal parts are required and separated by a decimal
 /// point (not a comma). The field representing the category of the sample must be an integer.
 ///
-DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
-	:	samples_(std::list<Sample>(0)),
+DataSet::DataSet (const std::string& sourceFile)
+	:	samples_(std::deque<Sample>(0)),
 		size_(0),
 		nFeatures_(0),
 		sourceFile_(sourceFile)
 {
-	// Test the number of features requested
-	if ( nFeatures == 0 )
-		throw NessieException ("DataSet::DataSet() : The number of features cannot be zero.");
-		
-		
-	// Test if the file exists and is valid
+	// Check the source file attributes
 	struct stat fileInfo;
 	int fileStatus = stat(sourceFile.data(), &fileInfo);
 	
 	if ( fileStatus not_eq 0 )
-		return;
+		throw NessieException ("DataSet::DataSet() : The given file does not exist.");
 
 	if ( not S_ISREG(fileInfo.st_mode) )
-		throw NessieException ("DataSet::DataSet() : The given file is not a regular file.");
+		throw NessieException ("DataSet::DataSet() : The given file exists but it is not a regular file.");
 		
 	
 	// Associate the file with a stream
@@ -64,25 +62,25 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 	}
 
 
-	// The first line has the number of features per sample
+	// Read the number of features per sample from the first line
 	std::string line;
 	getline(stream, line);
-	
 	std::stringstream lineStream( line );
+	
 	if ( (lineStream >> nFeatures_).fail() )
 	{
 		stream.close();
-		throw NessieException ("DataSet::DataSet() : The number of features read from file is not valid.");
+		throw NessieException ("DataSet::DataSet() : The number of features read from file has not a valid format.");
 	}
 	
-	if ( nFeatures_ not_eq nFeatures )
+	if ( nFeatures_ == 0 )
 	{
 		stream.close();
-		throw NessieException ("DataSet::DataSet() : The number of features given does not match with the features read from file.");
+		throw NessieException ("DataSet::DataSet() : The number of features read from file are zero.");
 	}
 
 
-	// The following lines have the samples of the data set
+	// Read the samples from the following lines
 	getline(stream, line);
 	while ( stream.good() )
 	{
@@ -109,11 +107,11 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 		}
 				
 		// Extract each feature
-		FeatureVector sample(nFeatures_);
+		FeatureVector features(nFeatures_);
 		for ( unsigned int i = 0; i < nFeatures_; ++i )
 		{
 			std::stringstream featureStream( tokens.at(i) );
-			if ( (featureStream >> sample(i)).fail() )
+			if ( (featureStream >> features(i)).fail() )
 			{
 				stream.close();
 				throw NessieException ("DataSet::DataSet() : At least one sample in the data set is not valid. An invalid feature has been found.");
@@ -128,7 +126,7 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 			stream.close();
 			throw NessieException ("DataSet::DataSet() : At least one sample in the data set is not valid. An invalid category has been found.");
 		}
-		samples_.push_back( Sample(sample, category) );
+		samples_.push_back( Sample(features, category) );
 		
 		// Read new line from file
 		getline(stream, line);
@@ -140,6 +138,34 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 	
 	// Update size of data set
 	size_ = samples_.size();
+};
+
+
+
+
+///
+/// @details This constructor is intended to create an empty data set where only new samples will be added and previous samples in the source file,
+/// if any, are automatically discarded. Thus, the previous content will be cleared and updated to the new samples added.
+/// 
+DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
+	:	samples_(std::deque<Sample>(0)),
+		size_(0),
+		nFeatures_(nFeatures),
+		sourceFile_(sourceFile)
+{
+	// Test the number of features requested
+	if ( nFeatures == 0 )
+		throw NessieException ("DataSet::DataSet() : The number of features cannot be zero.");
+	
+	
+	struct stat fileInfo;
+	int fileStatus = stat(sourceFile.data(), &fileInfo);
+	
+	if ( fileStatus not_eq 0 )	// The file does not exist
+		return;
+
+	if ( not S_ISREG(fileInfo.st_mode) )
+		throw NessieException ("DataSet::DataSet() : The given file exists but is not a regular file.");		
 };
 
 
@@ -158,10 +184,10 @@ DataSet::~DataSet ()
 	stream << nFeatures_ << std::endl;
 	
 	// Write the samples
-	for ( std::list<Sample>::iterator i = samples_.begin(); i not_eq samples_.end(); ++i )
+	for ( unsigned int i = 0; i < size_; ++i )
 	{
-		FeatureVector features	= (*i).first;
-		unsigned int category	= (*i).second;
+		FeatureVector features	= samples_.at(i).first;
+		unsigned int category	= samples_.at(i).second;
 		
 		for ( unsigned int j = 0; j < features.size(); ++j )
 			stream << features(j) << " ";

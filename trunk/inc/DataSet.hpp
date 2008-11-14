@@ -10,7 +10,7 @@
 
 #include <string>
 #include <utility>
-#include <list>
+#include <deque>
 
 
 #include "FeatureVector.hpp"
@@ -50,10 +50,27 @@ public:
 	///
 	/// Constructor.
 	/// 
-	/// @param sourceFile	File path in the filesystem where the data set is stored.
+	/// @param sourceFile	Path in the filesystem to the file containing the data set.
+	/// 
+	/// @pre The source file must contain at least the number of features in its first line.
+	/// 
+	/// @post The content in the file is loaded into #samples_.
+	/// @post #nFeatures_ is set to the number of features per sample.
+	/// @post #size_ is set to the number of samples read.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-11-13
+	///
+	DataSet (const std::string& sourceFile);
+	
+		
+	///
+	/// Constructor.
+	/// 
+	/// @param sourceFile	File path in the filesystem where the data set will be stored.
 	/// @param nFeatures	Number of features of the data set
 	/// 
-	/// @post The content in the file is loaded into the internal data structure.
+	/// @post An empty data set is created, with #size_ set to zero and #nFeatures_ set to the number passed.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
@@ -64,7 +81,7 @@ public:
 	///
 	/// Destructor.
 	/// 
-	/// @post The changes made to the data set are written to disk. The output file is truncated
+	/// @post The changes made to the data set are written to disk. The output file is truncated and rewritten
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
@@ -84,31 +101,18 @@ public:
 	///
 	void addSample (const Sample& sample);
 	
-	
-	///
-	/// Removes a sample from the data set.
-	/// 
-	/// @param sample Position in the data set of the sample to remove.
-	/// 
-	/// @post #samples_ is modified by removing the sample at given position.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-11-10
-	///
-	void removeSample (const unsigned int& sample);
-
 
 	///
 	/// Gets a sample from the data set.
 	/// 
-	/// @param sample Position in the data set of the sample to get
+	/// @param iSample Position in the data set of the sample to get
 	/// 
 	/// @return The sample at given position
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
 	///
-	const Sample& getSample (const unsigned int& sample) const;
+	const Sample& getSample (const unsigned int& iSample) const;
 
 
 	///
@@ -146,7 +150,7 @@ public:
 
 private:
 	
-	std::list<Sample>	samples_;		///< Samples of the data set
+	std::deque<Sample>	samples_;		///< Samples of the data set
 	
 	unsigned int		size_;			///< Number of samples in the data set
 	
@@ -160,7 +164,7 @@ private:
 
 inline void DataSet::addSample (const Sample& sample)
 {
-	if ( sample.first.size() not_eq this->nFeatures_ )
+	if ( sample.first.size() not_eq nFeatures_ )
 		throw NessieException ("DataSet::addSample() : The number of features in the sample is different from the one in data set.");
 	else
 	{
@@ -170,34 +174,9 @@ inline void DataSet::addSample (const Sample& sample)
 };
 
 
-inline void DataSet::removeSample (const unsigned int& sample)
+inline const DataSet::Sample& DataSet::getSample (const unsigned int& iSample) const
 {
-	if ( sample >= size_ )
-		throw NessieException ("DataSet::removeSample() : The given position is out of bounds or the data set is empty.");
-	else
-	{
-		std::list<Sample>::iterator j = samples_.begin();
-		for ( unsigned int i = 1; i < size_ and i < sample; ++i )
-			advance (j, 1);
-			
-		samples_.erase(j);
-		size_ = samples_.size();
-	}
-};
-
-
-inline const DataSet::Sample& DataSet::getSample (const unsigned int& sample) const
-{
-	if ( samples_.empty() )
-		throw NessieException ("DataSet::getSample() : The data set is empty");
-	else
-	{
-		std::list<Sample>::const_iterator j = samples_.begin();
-		for ( unsigned int i = 1; i < size_ and i < sample; ++i )
-			advance (j, 1);
-
-		return (*j);
-	}
+	return samples_.at(iSample);
 };
 
 

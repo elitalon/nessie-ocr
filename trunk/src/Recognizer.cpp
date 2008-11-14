@@ -193,7 +193,7 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	//
 	// Classification stage
 	//
-	DataSet dataset("samples.dataset", 0);
+	DataSet dataset("samples.dataset");
 	Classifier classifier(dataset);
 	Text text;
 	

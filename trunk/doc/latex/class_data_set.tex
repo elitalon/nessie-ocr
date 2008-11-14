@@ -22,15 +22,15 @@ typedef std::pair$<$ \hyperlink{class_feature_vector}{FeatureVector}, unsigned i
 \subsubsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
+\hyperlink{class_data_set_1d2ca0edda13ea88e9962ea3c4cf1ed4}{DataSet} (const std::string \&sourceFile)
+\begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 \hyperlink{class_data_set_ffb28bf240421998cd5470f594a6bb22}{DataSet} (const std::string \&sourceFile, const unsigned int \&nFeatures)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
 \hyperlink{class_data_set_2cdb84d32331956b413ca36933e516bd}{$\sim$DataSet} ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
 void \hyperlink{class_data_set_73b646f0b40545eaf7bbe72418a0ed51}{addSample} (const \hyperlink{class_data_set_7563096ce4847d88411ed3f6ad331310}{Sample} \&sample)
 \begin{CompactList}\small\item\em Adds a sample to the data set. \item\end{CompactList}\item 
-void \hyperlink{class_data_set_3bf06a1621c192660336318dd523603f}{removeSample} (const unsigned int \&sample)
-\begin{CompactList}\small\item\em Removes a sample from the data set. \item\end{CompactList}\item 
-const \hyperlink{class_data_set_7563096ce4847d88411ed3f6ad331310}{Sample} \& \hyperlink{class_data_set_73dcd4309ecf1dbc2bcb0ba861077ac5}{getSample} (const unsigned int \&sample) const 
+const \hyperlink{class_data_set_7563096ce4847d88411ed3f6ad331310}{Sample} \& \hyperlink{class_data_set_839eb6985338d2c83ae987e75b2d0357}{getSample} (const unsigned int \&iSample) const 
 \begin{CompactList}\small\item\em Gets a sample from the data set. \item\end{CompactList}\item 
 const unsigned int \& \hyperlink{class_data_set_805d7628a3ee31a4d4278deba91c0bbf}{size} () const 
 \begin{CompactList}\small\item\em Returns the number of samples in the data set. \item\end{CompactList}\item 
@@ -41,9 +41,9 @@ const std::string \& \hyperlink{class_data_set_d7d233212f54f5c2764430b0cb1bea65}
 \subsubsection*{Private Attributes}
 \begin{CompactItemize}
 \item 
-\hypertarget{class_data_set_cfb8c9d22aa3d295e37ef7d820c9c33e}{
-std::list$<$ \hyperlink{class_data_set_7563096ce4847d88411ed3f6ad331310}{Sample} $>$ \hyperlink{class_data_set_cfb8c9d22aa3d295e37ef7d820c9c33e}{samples\_\-}}
-\label{class_data_set_cfb8c9d22aa3d295e37ef7d820c9c33e}
+\hypertarget{class_data_set_a7fbe1c9b16c2a001635e153ec1ca326}{
+std::deque$<$ \hyperlink{class_data_set_7563096ce4847d88411ed3f6ad331310}{Sample} $>$ \hyperlink{class_data_set_a7fbe1c9b16c2a001635e153ec1ca326}{samples\_\-}}
+\label{class_data_set_a7fbe1c9b16c2a001635e153ec1ca326}
 
 \begin{CompactList}\small\item\em Samples of the data set. \item\end{CompactList}\item 
 \hypertarget{class_data_set_b25b58d12a1f41ec758471bb663c8fa5}{
@@ -95,11 +95,11 @@ This pair keeps the feature vector and the category that defines every sample in
 
 
 \subsubsection{Constructor \& Destructor Documentation}
-\hypertarget{class_data_set_ffb28bf240421998cd5470f594a6bb22}{
+\hypertarget{class_data_set_1d2ca0edda13ea88e9962ea3c4cf1ed4}{
 \index{DataSet@{DataSet}!DataSet@{DataSet}}
 \index{DataSet@{DataSet}!DataSet@{DataSet}}
-\paragraph[{DataSet}]{\setlength{\rightskip}{0pt plus 5cm}DataSet::DataSet (const std::string \& {\em sourceFile}, \/  const unsigned int \& {\em nFeatures})}\hfill}
-\label{class_data_set_ffb28bf240421998cd5470f594a6bb22}
+\paragraph[{DataSet}]{\setlength{\rightskip}{0pt plus 5cm}DataSet::DataSet (const std::string \& {\em sourceFile})}\hfill}
+\label{class_data_set_1d2ca0edda13ea88e9962ea3c4cf1ed4}
 
 
 Constructor. 
@@ -107,15 +107,25 @@ Constructor.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em sourceFile}]File path in the filesystem where the data set is stored. \item[{\em nFeatures}]Number of features of the data set\end{description}
+\item[{\em sourceFile}]Path in the filesystem to the file containing the data set.\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Postcondition:]The content in the file is loaded into the internal data structure.\end{Desc}
+\item[Precondition:]The source file must contain at least the number of features in its first line.\end{Desc}
+\begin{Desc}
+\item[Postcondition:]The content in the file is loaded into \hyperlink{class_data_set_a7fbe1c9b16c2a001635e153ec1ca326}{samples\_\-}. 
+
+\hyperlink{class_data_set_5b263b90a7055808071f1c46e95b9b5c}{nFeatures\_\-} is set to the number of features per sample. 
+
+\hyperlink{class_data_set_b25b58d12a1f41ec758471bb663c8fa5}{size\_\-} is set to the number of samples read.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
-\item[Date:]2008-11-10\end{Desc}
-The source file where the data set is read from must have the following format. The {\bf first line} defines the number of features in every sample of the data set. The {\bf following lines} are the samples, with one sample per line. Every line has a number of fields up to the number of features defined in the first line plus one. Each field is separated by a whitespace. The last field represents the category of the sample. An example of a valid data set may be:
+\item[Date:]2008-11-13\end{Desc}
+This constructor is intended to read a data set from a file. The source file where the data set is read from must have the following format:
+
+The {\bf first line} defines the number of features in every sample of the data set.
+
+The {\bf following lines} are the samples, with one sample per line. Every line has a number of fields up to the number of features defined in the first line plus one. Each field is separated by a whitespace. The last field represents the category of the sample. An example of a valid data set may be:
 
 {\em 4\/}
 
@@ -127,7 +137,27 @@ The source file where the data set is read from must have the following format. 
 
 {\em . . .\/}
 
-The fields representing the features must have a {\em float\/} format: both the integer and decimal parts are required and separated by a decimal point (not a comma). The field representing the category of the sample must be an integer. \hypertarget{class_data_set_2cdb84d32331956b413ca36933e516bd}{
+The fields representing the features must have a {\em float\/} format: both the integer and decimal parts are required and separated by a decimal point (not a comma). The field representing the category of the sample must be an integer. \hypertarget{class_data_set_ffb28bf240421998cd5470f594a6bb22}{
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\index{DataSet@{DataSet}!DataSet@{DataSet}}
+\paragraph[{DataSet}]{\setlength{\rightskip}{0pt plus 5cm}DataSet::DataSet (const std::string \& {\em sourceFile}, \/  const unsigned int \& {\em nFeatures})}\hfill}
+\label{class_data_set_ffb28bf240421998cd5470f594a6bb22}
+
+
+Constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sourceFile}]File path in the filesystem where the data set will be stored. \item[{\em nFeatures}]Number of features of the data set\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Postcondition:]An empty data set is created, with \hyperlink{class_data_set_b25b58d12a1f41ec758471bb663c8fa5}{size\_\-} set to zero and \hyperlink{class_data_set_5b263b90a7055808071f1c46e95b9b5c}{nFeatures\_\-} set to the number passed.\end{Desc}
+\begin{Desc}
+\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
+\begin{Desc}
+\item[Date:]2008-11-10\end{Desc}
+This constructor is intended to create an empty data set where only new samples will be added and previous samples in the source file, if any, are automatically discarded. Thus, the previous content will be cleared and updated to the new samples added. \hypertarget{class_data_set_2cdb84d32331956b413ca36933e516bd}{
 \index{DataSet@{DataSet}!$\sim$DataSet@{$\sim$DataSet}}
 \index{$\sim$DataSet@{$\sim$DataSet}!DataSet@{DataSet}}
 \paragraph[{$\sim$DataSet}]{\setlength{\rightskip}{0pt plus 5cm}DataSet::$\sim$DataSet ()}\hfill}
@@ -137,7 +167,7 @@ The fields representing the features must have a {\em float\/} format: both the 
 Destructor. 
 
 \begin{Desc}
-\item[Postcondition:]The changes made to the data set are written to disk. The output file is truncated\end{Desc}
+\item[Postcondition:]The changes made to the data set are written to disk. The output file is truncated and rewritten\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
@@ -169,16 +199,16 @@ Adds a sample to the data set.
 \item[{\em sample}]The sample to add\end{description}
 \end{Desc}
 \begin{Desc}
-\item[Postcondition:]\hyperlink{class_data_set_cfb8c9d22aa3d295e37ef7d820c9c33e}{samples\_\-} is modified by adding the new sample.\end{Desc}
+\item[Postcondition:]\hyperlink{class_data_set_a7fbe1c9b16c2a001635e153ec1ca326}{samples\_\-} is modified by adding the new sample.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-11-10 \end{Desc}
-\hypertarget{class_data_set_73dcd4309ecf1dbc2bcb0ba861077ac5}{
+\hypertarget{class_data_set_839eb6985338d2c83ae987e75b2d0357}{
 \index{DataSet@{DataSet}!getSample@{getSample}}
 \index{getSample@{getSample}!DataSet@{DataSet}}
-\paragraph[{getSample}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf DataSet::Sample} \& DataSet::getSample (const unsigned int \& {\em sample}) const}\hfill}
-\label{class_data_set_73dcd4309ecf1dbc2bcb0ba861077ac5}
+\paragraph[{getSample}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf DataSet::Sample} \& DataSet::getSample (const unsigned int \& {\em iSample}) const}\hfill}
+\label{class_data_set_839eb6985338d2c83ae987e75b2d0357}
 
 
 Gets a sample from the data set. 
@@ -186,7 +216,7 @@ Gets a sample from the data set.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em sample}]Position in the data set of the sample to get\end{description}
+\item[{\em iSample}]Position in the data set of the sample to get\end{description}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]The sample at given position\end{Desc}
@@ -205,26 +235,6 @@ Returns the number of features in every sample of the data set.
 
 \begin{Desc}
 \item[Returns:]The number of features in every sample of the data set.\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-11-10 \end{Desc}
-\hypertarget{class_data_set_3bf06a1621c192660336318dd523603f}{
-\index{DataSet@{DataSet}!removeSample@{removeSample}}
-\index{removeSample@{removeSample}!DataSet@{DataSet}}
-\paragraph[{removeSample}]{\setlength{\rightskip}{0pt plus 5cm}void DataSet::removeSample (const unsigned int \& {\em sample})}\hfill}
-\label{class_data_set_3bf06a1621c192660336318dd523603f}
-
-
-Removes a sample from the data set. 
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em sample}]Position in the data set of the sample to remove.\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Postcondition:]\hyperlink{class_data_set_cfb8c9d22aa3d295e37ef7d820c9c33e}{samples\_\-} is modified by removing the sample at given position.\end{Desc}
 \begin{Desc}
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
