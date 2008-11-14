@@ -19,16 +19,12 @@ Collaboration diagram for Clip:\nopagebreak
 \item 
 \hyperlink{class_clip_6264e0334483ad8e0631842a18ac5bc9}{Clip} (const std::vector$<$ unsigned char $>$ \&image, const unsigned int \&imageWidth, const unsigned int \&row, const unsigned int \&column, const unsigned int \&height, const unsigned int \&width)
 \begin{CompactList}\small\item\em Constructor. \item\end{CompactList}\item 
-\hyperlink{class_clip_affe2f754bd92ded1959f4a7f79d1717}{Clip} (const \hyperlink{class_clip}{Clip} \&clip)
-\begin{CompactList}\small\item\em Copy constructor. \item\end{CompactList}\item 
 \hyperlink{class_clip_88647ed65e3482b5e0533ec98667b0fa}{$\sim$Clip} ()
 \begin{CompactList}\small\item\em Destructor. \item\end{CompactList}\item 
 unsigned char \& \hyperlink{class_clip_0f80c2b0f0f177fe9c780c93596f77be}{operator()} (const unsigned int \&row, const unsigned int \&column)
 \begin{CompactList}\small\item\em Allows read-and-write access to a pixel in the clip. \item\end{CompactList}\item 
 unsigned char \hyperlink{class_clip_16b24276181affc5086cb4fe83269fb8}{operator()} (const unsigned int \&row, const unsigned int \&column) const 
 \begin{CompactList}\small\item\em Allows read-only access to a pixel in the clip. \item\end{CompactList}\item 
-\hyperlink{class_clip}{Clip} \& \hyperlink{class_clip_8f5c91715408d74402666ab79b952edd}{operator=} (const \hyperlink{class_clip}{Clip} \&clip)
-\begin{CompactList}\small\item\em Allows assignment of one \hyperlink{class_clip}{Clip} object to another. \item\end{CompactList}\item 
 const unsigned int \& \hyperlink{class_clip_1a1d1fd626d1325f0f2b9184de4c89b8}{row} () const 
 \begin{CompactList}\small\item\em Returns the row in the underlying image where the upper leftmost pixel of the clip is at. \item\end{CompactList}\item 
 const unsigned int \& \hyperlink{class_clip_06a34378fa0f23425d10bb04e9972a26}{column} () const 
@@ -67,9 +63,9 @@ unsigned int \hyperlink{class_clip_eac813b06cee742c237240d9b7ccc336}{height\_\-}
 \label{class_clip_eac813b06cee742c237240d9b7ccc336}
 
 \begin{CompactList}\small\item\em Height of the clip. \item\end{CompactList}\item 
-\hypertarget{class_clip_e8dc6d41fb103eaafa9bc5963ab6d826}{
-unsigned char $\ast$ \hyperlink{class_clip_e8dc6d41fb103eaafa9bc5963ab6d826}{pixels\_\-}}
-\label{class_clip_e8dc6d41fb103eaafa9bc5963ab6d826}
+\hypertarget{class_clip_54f166ae724cecf9473d2836b452e89c}{
+std::vector$<$ unsigned char $>$ \hyperlink{class_clip_54f166ae724cecf9473d2836b452e89c}{pixels\_\-}}
+\label{class_clip_54f166ae724cecf9473d2836b452e89c}
 
 \begin{CompactList}\small\item\em Set of pixels that defines the press clip. \item\end{CompactList}\item 
 \hypertarget{class_clip_b88daf5fdd2b57dec8335ff8fd4a6d4e}{
@@ -109,25 +105,7 @@ Constructor.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-13\end{Desc}
-Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (row,column) in the underlying image, with the height and width passed. \hypertarget{class_clip_affe2f754bd92ded1959f4a7f79d1717}{
-\index{Clip@{Clip}!Clip@{Clip}}
-\index{Clip@{Clip}!Clip@{Clip}}
-\paragraph[{Clip}]{\setlength{\rightskip}{0pt plus 5cm}Clip::Clip (const {\bf Clip} \& {\em clip})}\hfill}
-\label{class_clip_affe2f754bd92ded1959f4a7f79d1717}
-
-
-Copy constructor. 
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em clip}]The source press clip\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-11-01 \end{Desc}
-\hypertarget{class_clip_88647ed65e3482b5e0533ec98667b0fa}{
+Initializes a \hyperlink{class_clip}{Clip} object located at coordinates (row,column) in the underlying image, with the height and width passed. \hypertarget{class_clip_88647ed65e3482b5e0533ec98667b0fa}{
 \index{Clip@{Clip}!$\sim$Clip@{$\sim$Clip}}
 \index{$\sim$Clip@{$\sim$Clip}!Clip@{Clip}}
 \paragraph[{$\sim$Clip}]{\setlength{\rightskip}{0pt plus 5cm}Clip::$\sim$Clip ()}\hfill}
@@ -248,26 +226,6 @@ Allows read-and-write access to a pixel in the clip.
 \item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
 \begin{Desc}
 \item[Date:]2008-10-20 \end{Desc}
-\hypertarget{class_clip_8f5c91715408d74402666ab79b952edd}{
-\index{Clip@{Clip}!operator=@{operator=}}
-\index{operator=@{operator=}!Clip@{Clip}}
-\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Clip} \& Clip::operator= (const {\bf Clip} \& {\em clip})}\hfill}
-\label{class_clip_8f5c91715408d74402666ab79b952edd}
-
-
-Allows assignment of one \hyperlink{class_clip}{Clip} object to another. 
-
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em clip}]The source press clip\end{description}
-\end{Desc}
-\begin{Desc}
-\item[Returns:]A reference to the recently update \hyperlink{class_clip}{Clip} object\end{Desc}
-\begin{Desc}
-\item[Author:]Eliezer Talón (\href{mailto:elitalon@gmail.com}{\tt elitalon@gmail.com}) \end{Desc}
-\begin{Desc}
-\item[Date:]2008-11-01 \end{Desc}
 \hypertarget{class_clip_1a1d1fd626d1325f0f2b9184de4c89b8}{
 \index{Clip@{Clip}!row@{row}}
 \index{row@{row}!Clip@{Clip}}

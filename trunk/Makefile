@@ -17,9 +17,13 @@ BIN=bin/
 INC=inc/
 LIB=lib/
 
-# Magick++ API directives
+# Magick++ API path
 MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
+
+# Boost API path
+BOOST_COMPILER=-I/usr/local/include/boost
+BOOST_LINKER=-L/usr/local/lib
 
 # Source file of main program
 MAIN_SRC=$(SRC)main.cpp
@@ -111,12 +115,12 @@ OBJECTS=$(RECOGNIZER_OBJ) $(NESSIE_EXCEPTION_OBJ) $(CLIP_LOCATION_OBJ) $(STATIST
 		
 		
 
-# Compiler options
+# Compiler and linker options
 EXECUTABLE=$(BIN)ocr
 DEBUG=NO
 COMPILER_DEBUGGING_OPTIONS=-Weffc++ -Wold-style-cast -Winline -g
 LINKER_DEBUGGING_OPTIONS=
-FLAGS=-Wall -Wextra -O2 -I$(INC) -I$(LIB)
+FLAGS=-Wall -Wextra -O2 -I$(INC)
 
 # Formatted output commands
 NL=\n
@@ -128,9 +132,9 @@ main: $(MAIN_OBJ)
 	@printf "** Linking and building:$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
+	g++ $(FLAGS) $(BOOST_LINKER) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
 else
-	g++ $(FLAGS) $(LINKER_DEBUGGING_OPTIONS) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
+	g++ $(FLAGS) $(LINKER_DEBUGGING_OPTIONS) $(BOOST_LINKER) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
 endif
 	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
 
@@ -165,9 +169,9 @@ $(TEXT_OBJ): $(TEXT)
 	@printf "** Making rule $(TEXT_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(TEXT_SRC)
+	g++ $(FLAGS) $(BOOST_COMPILER) -c $(TEXT_SRC)
 else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(TEXT_SRC)
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(TEXT_SRC)
 endif	
 	@printf "$(TAB)"
 	mv Text.o $(SRC)
@@ -191,9 +195,9 @@ $(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
 	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(PREPROCESSOR_SRC)
+	g++ $(FLAGS) $(BOOST_COMPILER) -c $(PREPROCESSOR_SRC)
 else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(PREPROCESSOR_SRC)
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(PREPROCESSOR_SRC)
 endif
 	@printf "$(TAB)"
 	mv Preprocessor.o $(SRC)
@@ -243,9 +247,9 @@ $(SEGMENTER_OBJ): $(CLIP_OBJ) $(SHAPE_OBJ) $(SEGMENTER)
 	@printf "** Making rule $(SEGMENTER_OBJ):$(NL)"
 	@printf "$(TAB)"
 ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(SEGMENTER_SRC)
+	g++ $(FLAGS) $(BOOST_COMPILER) -c $(SEGMENTER_SRC)
 else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(SEGMENTER_SRC)
+	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(SEGMENTER_SRC)
 endif
 	@printf "$(TAB)"
 	mv Segmenter.o $(SRC)
