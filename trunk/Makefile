@@ -18,8 +18,16 @@ INC=inc/
 LIB=lib/
 
 # Magick++ API path
-MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
+#MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
+#MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
+MAGICK_LINKER=-I/usr/local/include/ImageMagick\
+				-g -O2 -Wall -W -D_THREAD_SAFE\
+				-L/usr/local/lib -L/usr/local/libjpeg/lib\
+				-L/usr/local/libpng/lib -L/usr/local/lib -lpng\
+				-L/usr/X11/lib -R/usr/X11/lib -L/usr/local/lib\
+				-lfreetype -lz -L/sw/lib\
+				-L/usr/local/lib -lMagick++ -lMagickWand -lMagickCore
+MAGICK_COMPILER=-I/usr/local/include/ImageMagick -g -O2 -Wall -W -D_THREAD_SAFE
 
 # Boost API path
 BOOST_COMPILER=-I/usr/local/include/boost
