@@ -155,7 +155,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
 	/// 
-	void computeWordRates (const std::string& delimiters = " ,:¡!.;()¿?\"'[]{}<>");
+	void computeWordRates (const std::string& delimiters = " ,:¡!.;()¿?\"'[]{}<>\\|");
 
 
 	///
