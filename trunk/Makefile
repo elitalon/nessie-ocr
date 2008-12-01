@@ -1,7 +1,7 @@
 ###
 # Makefile: builds the Nessie OCR
 #
-# Copyright (C) 2008 Eliezer Talon <elitalon@gmail.com>
+# Mantainer: Eliezer Talon <elitalon@gmail.com>
 #
 # Usage: make [ main | all | clean ]
 #	- main:		Compiles the source code, default option
@@ -11,309 +11,155 @@
 ###
 
 
+
+#
+# General conventions for Makefiles (extracted from GNU Make manual)
+# 
+SHELL = /bin/sh
+.SUFFIXES:
+.SUFFIXES: .cpp .o .hpp
+
+
+
+#
 # Directories
+#
 SRC=src/
-BIN=bin/
 INC=inc/
-LIB=lib/
+vpath %.hpp	$(INC)
+vpath %.cpp	$(SRC)
+vpath %.o	$(SRC)
 
+
+
+#
 # Magick++ API path
-#MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
-#MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
-MAGICK_LINKER=-I/usr/local/include/ImageMagick\
-				-g -O2 -Wall -W -D_THREAD_SAFE\
-				-L/usr/local/lib -L/usr/local/libjpeg/lib\
-				-L/usr/local/libpng/lib -L/usr/local/lib -lpng\
-				-L/usr/X11/lib -R/usr/X11/lib -L/usr/local/lib\
-				-lfreetype -lz -L/sw/lib\
-				-L/usr/local/lib -lMagick++ -lMagickWand -lMagickCore
-MAGICK_COMPILER=-I/usr/local/include/ImageMagick -g -O2 -Wall -W -D_THREAD_SAFE
+#
+MAGICK_LINKER = `Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_COMPILER = `Magick++-config --cppflags --cxxflags`
 
+#
 # Boost API path
-BOOST_COMPILER=-I/usr/local/include/boost
-BOOST_LINKER=-L/usr/local/lib
+#
+BOOST_COMPILER = -I/usr/local/include/boost
+BOOST_LINKER = -L/usr/local/lib
 
-# Source file of main program
-MAIN_SRC=$(SRC)main.cpp
 
-# Source files of 'NessieException' struct
-NESSIE_EXCEPTION_SRC=$(SRC)NessieException.cpp
-NESSIE_EXCEPTION_INC=$(INC)NessieException.hpp
 
-# Source files of 'Statistics' struct
-STATISTICS_SRC=$(SRC)Statistics.cpp
-STATISTICS_INC=$(INC)Statistics.hpp
+#
+# Targets
+#
+MAIN_OBJ = main.o
+NESSIE_EXCEPTION_OBJ = NessieException.o
+STATISTICS_OBJ = Statistics.o
+TEXT_OBJ = Text.o
+CLIP_OBJ = Clip.o
+CLIP_LOCATION_OBJ = ClipLocation.o
+SHAPE_OBJ = Shape.o
+PREPROCESSOR_OBJ = Preprocessor.o
+SEGMENTER_OBJ = Segmenter.o
+CLASSIFIER_OBJ = Classifier.o
+RECOGNIZER_OBJ = Recognizer.o
+FEATURE_VECTOR_OBJ = FeatureVector.o
+DATASET_OBJ = DataSet.o
 
-# Source files of 'Text' class
-TEXT_SRC=$(SRC)Text.cpp
-TEXT_INC=$(INC)Text.hpp
 
-# Source files of 'Clip' class
-CLIP_SRC=$(SRC)Clip.cpp
-CLIP_INC=$(INC)Clip.hpp
 
-# Source files of 'Preprocessor' class
-PREPROCESSOR_SRC=$(SRC)Preprocessor.cpp
-PREPROCESSOR_INC=$(INC)Preprocessor.hpp
-
-# Source files of 'Segmenter' class
-SEGMENTER_SRC=$(SRC)Segmenter.cpp
-SEGMENTER_INC=$(INC)Segmenter.hpp
-
-# Source files of 'Classifier' class
-CLASSIFIER_SRC=$(SRC)Classifier.cpp
-CLASSIFIER_INC=$(INC)Classifier.hpp
-
-# Source files of 'Recognizer' class
-RECOGNIZER_SRC=$(SRC)Recognizer.cpp
-RECOGNIZER_INC=$(INC)Recognizer.hpp
-
-# Source files of 'ClipLocation' class
-CLIP_LOCATION_SRC=$(SRC)ClipLocation.cpp
-CLIP_LOCATION_INC=$(INC)ClipLocation.hpp
-
-# Source files of 'Shape' class
-SHAPE_SRC=$(SRC)Shape.cpp
-SHAPE_INC=$(INC)Shape.hpp
-
-# Source files of 'FeatureVector' class
-FEATURE_VECTOR_SRC=$(SRC)FeatureVector.cpp
-FEATURE_VECTOR_INC=$(INC)FeatureVector.hpp
-
-# Source files of 'DataSet' class
-DATASET_SRC=$(SRC)DataSet.cpp
-DATASET_INC=$(INC)DataSet.hpp
-
-# Object files
-MAIN_OBJ=$(SRC)main.o
-NESSIE_EXCEPTION_OBJ=$(SRC)NessieException.o
-STATISTICS_OBJ=$(SRC)Statistics.o
-TEXT_OBJ=$(SRC)Text.o
-CLIP_OBJ=$(SRC)Clip.o
-CLIP_LOCATION_OBJ=$(SRC)ClipLocation.o
-SHAPE_OBJ=$(SRC)Shape.o
-PREPROCESSOR_OBJ=$(SRC)Preprocessor.o
-SEGMENTER_OBJ=$(SRC)Segmenter.o
-CLASSIFIER_OBJ=$(SRC)Classifier.o
-RECOGNIZER_OBJ=$(SRC)Recognizer.o
-FEATURE_VECTOR_OBJ=$(SRC)FeatureVector.o
-DATASET_OBJ=$(SRC)DataSet.o
-
+#
 # Dependencies
-MAIN=$(MAIN_SRC)
-NESSIE_EXCEPTION=$(NESSIE_EXCEPTION_INC) $(NESSIE_EXCEPTION_SRC)
-STATISTICS=$(STATISTICS_INC) $(STATISTICS_SRC)
-TEXT=$(TEXT_INC) $(TEXT_SRC)
-CLIP=$(CLIP_INC) $(CLIP_SRC)
-CLIP_LOCATION=$(CLIP_LOCATION_INC) $(CLIP_LOCATION_SRC)
-SHAPE=$(SHAPE_INC) $(SHAPE_SRC)
-PREPROCESSOR=$(PREPROCESSOR_INC) $(PREPROCESSOR_SRC)
-SEGMENTER=$(SEGMENTER_INC) $(SEGMENTER_SRC)
-CLASSIFIER=$(CLASSIFIER_INC) $(CLASSIFIER_SRC)
-RECOGNIZER=$(RECOGNIZER_INC) $(RECOGNIZER_SRC)
-FEATURE_VECTOR=$(FEATURE_VECTOR_INC) $(FEATURE_VECTOR_SRC)
-DATASET=$(DATASET_INC) $(DATASET_SRC)
+#
+MAIN = main.cpp $(RECOGNIZER_OBJ)
+NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
+STATISTICS = Statistics.cpp Statistics.hpp
+TEXT = Text.cpp Text.hpp
+CLIP = Clip.cpp Clip.hpp $(NESSIE_EXCEPTION_OBJ)
+CLIP_LOCATION = ClipLocation.cpp ClipLocation.hpp
+SHAPE = Shape.cpp Shape.hpp
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp $(CLIP_OBJ)
+SEGMENTER = Segmenter.cpp Segmenter.hpp $(CLIP_OBJ) $(SHAPE_OBJ)
+CLASSIFIER = Classifier.cpp Classifier.hpp $(DATASET_OBJ) $(SHAPE_OBJ)
+RECOGNIZER = Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(CLIP_LOCATION_OBJ)
+FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp $(NESSIE_EXCEPTION_OBJ)
+DATASET = DataSet.cpp DataSet.hpp $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ)
 
 
-# Object files
-OBJECTS=$(RECOGNIZER_OBJ) $(NESSIE_EXCEPTION_OBJ) $(CLIP_LOCATION_OBJ) $(STATISTICS_OBJ) $(TEXT_OBJ)\
-		$(PREPROCESSOR_OBJ) $(CLIP_OBJ)\
-		$(SEGMENTER_OBJ) $(SHAPE_OBJ)\
-		$(CLASSIFIER_OBJ) $(DATASET_OBJ) $(FEATURE_VECTOR_OBJ)
-		
-		
 
+#
 # Compiler and linker options
-EXECUTABLE=$(BIN)ocr
-DEBUG=NO
-COMPILER_DEBUGGING_OPTIONS=-Weffc++ -Wold-style-cast -Winline -g
-LINKER_DEBUGGING_OPTIONS=
-FLAGS=-Wall -Wextra -O2 -I$(INC)
-
-# Formatted output commands
-NL=\n
-TAB=\t
+# 
+EXECUTABLE = bin/ocr
+FLAGS = -Wall -Wextra -O2 -Iinc/ -g #-Weffc++ -Wold-style-cast -Winline
 
 
-# Main rule
+
 main: $(MAIN_OBJ)
-	@printf "** Linking and building:$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(BOOST_LINKER) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
-else
-	g++ $(FLAGS) $(LINKER_DEBUGGING_OPTIONS) $(BOOST_LINKER) $(MAGICK_LINKER) $(OBJECTS) $(MAIN_OBJ) -o $(EXECUTABLE)
-endif
-	@printf "$(NL)** Compilation completed!$(NL)$(NL)"
+	$(CXX) $(FLAGS) $(BOOST_LINKER) $(MAGICK_LINKER) $(SRC)*.o -o $(EXECUTABLE)
+	@printf "\n"
 
+$(MAIN_OBJ): $(MAIN)
+	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $<
+	@mv main.o $(SRC)
+	@printf "\n"
 
-$(MAIN_OBJ): $(RECOGNIZER_OBJ) $(MAIN)
-	@printf "** Making rule $(MAIN_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(MAIN_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(MAGICK_COMPILER) -c $(MAIN_SRC)
-endif
-	@printf "$(TAB)"
-	mv main.o $(SRC)
-	@printf "$(NL)"
-
-
-$(RECOGNIZER_OBJ): $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(CLIP_OBJ) $(CLIP_LOCATION_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(RECOGNIZER)
-	@printf "** Making rule $(RECOGNIZER_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(MAGICK_COMPILER) -c $(RECOGNIZER_SRC)
-endif
-	@printf "$(TAB)"
-	mv Recognizer.o $(SRC)
-	@printf "$(NL)"
-
+$(RECOGNIZER_OBJ): $(RECOGNIZER)
+	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $<
+	@mv $(RECOGNIZER_OBJ) $(SRC)
+	@printf "\n"
 
 $(TEXT_OBJ): $(TEXT)
-	@printf "** Making rule $(TEXT_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(BOOST_COMPILER) -c $(TEXT_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(TEXT_SRC)
-endif	
-	@printf "$(TAB)"
-	mv Text.o $(SRC)
-	@printf "$(NL)"
-
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
+	@mv $(TEXT_OBJ) $(SRC)
+	@printf "\n"
 
 $(STATISTICS_OBJ): $(STATISTICS) 
-	@printf "** Making rule $(STATISTICS_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(STATISTICS_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(STATISTICS_SRC)
-endif
-	@printf "$(TAB)"
-	mv Statistics.o $(SRC)
-	@printf "$(NL)"
+	$(CXX) $(FLAGS) -c $<
+	@mv $(STATISTICS_OBJ) $(SRC)
+	@printf "\n"
 
+$(PREPROCESSOR_OBJ): $(PREPROCESSOR)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
+	@mv $(PREPROCESSOR_OBJ) $(SRC)
+	@printf "\n"
 
-$(PREPROCESSOR_OBJ): $(CLIP_OBJ) $(PREPROCESSOR)
-	@printf "** Making rule $(PREPROCESSOR_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(BOOST_COMPILER) -c $(PREPROCESSOR_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(PREPROCESSOR_SRC)
-endif
-	@printf "$(TAB)"
-	mv Preprocessor.o $(SRC)
-	@printf "$(NL)"
-
-
-$(CLIP_OBJ): $(NESSIE_EXCEPTION_OBJ) $(CLIP)
-	@printf "** Making rule $(CLIP_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(CLIP_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLIP_SRC)
-endif
-	@printf "$(TAB)"
-	mv Clip.o $(SRC)
-	@printf "$(NL)"
-
+$(CLIP_OBJ): $(CLIP)
+	$(CXX) $(FLAGS) -c $<
+	@mv $(CLIP_OBJ) $(SRC)
+	@printf "\n"
 
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
-	@printf "** Making rule $(NESSIE_EXCEPTION_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(NESSIE_EXCEPTION_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(NESSIE_EXCEPTION_SRC)
-endif
-	@printf "$(TAB)"
-	mv NessieException.o $(SRC)
-	@printf "$(NL)"
-
+	$(CXX) $(FLAGS) -c $<
+	@mv $(NESSIE_EXCEPTION_OBJ) $(SRC)
+	@printf "\n"
 
 $(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
-	@printf "** Making rule $(CLIP_LOCATION_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(CLIP_LOCATION_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLIP_LOCATION_SRC)
-endif
-	@printf "$(TAB)"
-	mv ClipLocation.o $(SRC)
-	@printf "$(NL)"
+	$(CXX) $(FLAGS) -c $<
+	@mv $(CLIP_LOCATION_OBJ) $(SRC)
+	@printf "\n"
 
-
-$(SEGMENTER_OBJ): $(CLIP_OBJ) $(SHAPE_OBJ) $(SEGMENTER)
-	@printf "** Making rule $(SEGMENTER_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) $(BOOST_COMPILER) -c $(SEGMENTER_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) $(BOOST_COMPILER) -c $(SEGMENTER_SRC)
-endif
-	@printf "$(TAB)"
-	mv Segmenter.o $(SRC)
-	@printf "$(NL)"
-
+$(SEGMENTER_OBJ): $(SEGMENTER)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
+	@mv $(SEGMENTER_OBJ) $(SRC)
+	@printf "\n"
 
 $(SHAPE_OBJ): $(SHAPE)
-	@printf "** Making rule $(SHAPE_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(SHAPE_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(SHAPE_SRC)
-endif
-	@printf "$(TAB)"
-	mv Shape.o $(SRC)
-	@printf "$(NL)"
+	$(CXX) $(FLAGS) -c $<
+	@mv $(SHAPE_OBJ) $(SRC)
+	@printf "\n"
 
-
-$(CLASSIFIER_OBJ): $(DATASET_OBJ) $(SHAPE_OBJ) $(CLASSIFIER)
-	@printf "** Making rule $(CLASSIFIER_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(CLASSIFIER_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(CLASSIFIER_SRC)
-endif
-	@printf "$(TAB)"
-	mv Classifier.o $(SRC)
-	@printf "$(NL)"
+$(CLASSIFIER_OBJ): $(CLASSIFIER)
+	$(CXX) $(FLAGS) -c $<
+	@mv $(CLASSIFIER_OBJ) $(SRC)
+	@printf "\n"
 	
-	
-$(DATASET_OBJ): $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ) $(DATASET)
-	@printf "** Making rule $(DATASET_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(DATASET_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(DATASET_SRC)
-endif
-	@printf "$(TAB)"
-	mv DataSet.o $(SRC)
-	@printf "$(NL)"
+$(DATASET_OBJ): $(DATASET)
+	$(CXX) $(FLAGS) -c $<
+	@mv $(DATASET_OBJ) $(SRC)
+	@printf "\n"
 
-
-$(FEATURE_VECTOR_OBJ): $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR)
-	@printf "** Making rule $(FEATURE_VECTOR_OBJ):$(NL)"
-	@printf "$(TAB)"
-ifeq ($(DEBUG),NO)
-	g++ $(FLAGS) -c $(FEATURE_VECTOR_SRC)
-else
-	g++ $(FLAGS) $(COMPILER_DEBUGGING_OPTIONS) -c $(FEATURE_VECTOR_SRC)
-endif
-	@printf "$(TAB)"
-	mv FeatureVector.o $(SRC)
-	@printf "$(NL)"
+$(FEATURE_VECTOR_OBJ): $(FEATURE_VECTOR)
+	$(CXX) $(FLAGS) -c $<
+	@mv $(FEATURE_VECTOR_OBJ) $(SRC)
+	@printf "\n"
 
 
 
@@ -323,8 +169,6 @@ all: clean main
 
 # Delete everything
 clean:
-	@printf "** Removing object files$(NL)"
-	@rm -f $(SRC)*.o
-	@printf "** Restoring permissions$(NL)"
-	@chmod 0644 $(SRC)*.cpp $(INC)*.hpp
-	@printf "$(NL)"
+	rm -f $(SRC)*.o $(EXECUTABLE)
+	chmod 0644 $(SRC)*.cpp $(INC)*.hpp
+	@printf "\n"
