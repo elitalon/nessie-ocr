@@ -3,23 +3,38 @@
 /// @brief Implementation of a command line program for testing purposes
 ///
 
-#include <Magick++.h>	
+#include <Magick++.h>
 #include "Recognizer.hpp"
-#include "DataSet.hpp"
 #include <iostream>
+#include <sstream>
 
 
 
-/// 
+
+///
 /// @todo Check documentation for pre- and post-conditions.
-/// 
+///
 /// @todo Develop the KNN algorithm.
-/// 
+///
 /// @todo Develop the Classifier class.
+///
+/// @todo Remove Recognizer::writeExternalImage
+///
+/// @todo Change condition for joining line markers to ( (*currentLineMarkerIterator).first - ((*previousLineMarkerIterator).second + 1) >= meanShapeHeight )
 /// 
+/// @todo Explore other conditions for joining line markers like computing the mean distance between lines
+/// 
+/// @todo Modify the Shape internal data structures to store the relative coordinates instead of the absolute coordinates.
+///
+/// @todo Modify Segmenter::applyThreshold to use 0 and 1
+/// 
+/// @todo Convert Statistics into a virtual class and design new Statistics classes for every recognition stage, with more specifics parameters
+/// 
+/// @todo Add constraints to the Dataset class to avoid writing invalid data
+///
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
-/// 
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-16
 ///
@@ -28,34 +43,17 @@ int main (int argc, char const *argv[])
 	try
 	{
 		// Load an image object with the filename passed
-		Magick::Image image( argv[1] );		
-		
+		Magick::Image image( argv[1] );
+
 		// Create a Recognizer object from the image loaded
 		Recognizer recon( image );
-		
+
+		std::stringstream ss(argv[2]);
+		unsigned int category;
+		ss >> category;
+
 		// Execute the OCR process
-		recon.obtainText();
-		
-		std::cout << "Background finding time      : " << recon.statistic().backgroundReferenceGrayLevelFindingTime() << std::endl;
-		std::cout << "Threshold computing time     : " << recon.statistic().optimalThresholdComputingTime() << std::endl;
-		std::cout << "Noise removal time           : " << recon.statistic().noiseRemovalTime() << std::endl;
-		std::cout << "Preprocessing time           : " << recon.statistic().preprocessingTime() << std::endl;
-		std::cout << std::endl;
-						
-		std::cout << "Thresholding time            : " << recon.statistic().thresholdingTime() << std::endl;
-		std::cout << "Shapes finding time          : " << recon.statistic().shapesFindingTime() << std::endl;
-		std::cout << "Segmentation time            : " << recon.statistic().segmentationTime() << std::endl;
-		std::cout << std::endl;
-		
-		std::cout << "Total OCR time               : " << recon.statistic().preprocessingTime() + recon.statistic().segmentationTime() << std::endl;
-		
-		// Write results to the internal image
-		recon.writeExternalImage( image );
-				
-		// Create a new PNG image with the results of OCR process
-		std::string filename(argv[1]);
-		filename.replace(filename.find_last_of('.'), filename.size(), "Results.png");
-		image.write( filename );
+		recon.obtainText(category);
 	}
 	catch (std::exception &e)
 	{

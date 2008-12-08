@@ -107,7 +107,7 @@ public:
 	/// @param	threshold			A threshold value to differentiate between background and foreground pixels.
 	/// @param	backgroundReference	Background reference gray level.
 	/// 
-	/// @post Every pixel in the clip has either a gray level of 0 or 255.
+	/// @post Every pixel in the clip has either a gray level of 0 or 1.
 	/// @post The #inkValue_ member is initialized to the gray level that represents the ink's gray level of the press clip.
 	/// 
 	/// @see Clip
