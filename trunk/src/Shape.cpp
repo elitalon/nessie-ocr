@@ -61,6 +61,22 @@ void Shape::addPixel (const Pixel& pixel)
 
 
 ///
+/// @details
+///
+void Shape::normalizeCoordinates ()
+{
+	unsigned int x0 = this->topLeftCorner().first;
+	unsigned int y0 = this->topLeftCorner().second;
+	
+	for ( std::vector<Pixel>::iterator iPixel = this->pixels_.begin(); iPixel not_eq this->pixels_.end(); ++iPixel )
+	{
+		(*iPixel).first = (*iPixel).first - x0;
+		(*iPixel).first = (*iPixel).second - y0;
+	}
+};
+
+
+///
 /// @details A shape is splitted by its weakest column, i.e. the column that has the less count of pixels. Columns with few pixels are assumed to be noise that
 /// might cause the union of two different characters.
 ///

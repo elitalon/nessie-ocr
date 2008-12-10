@@ -230,6 +230,25 @@ public:
 	void split (Shape& leftShape, Shape& rightShape) const;
 	
 	
+	///
+	/// Returns the coordinates of the shape's top left corner
+	/// 
+	/// @return A Pixel object with the coordinates of the shape's top left corner
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-10
+	/// 
+	Pixel topLeftCorner () const;
+	
+	
+	///
+	/// Normalize the coordinates of the Shape to start in (0,0)
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-10
+	///
+	void normalizeCoordinates ();
+	
 private:
 
 	unsigned int		width_;			///< Width of the shape	
@@ -370,4 +389,9 @@ inline bool Shape::operator< (const Shape& shape)
 	}
 };
 
+
+inline Pixel Shape::topLeftCorner () const
+{
+	return Pixel(topPixel_.first, leftPixel_.second);
+};
 #endif  //_SHAPE_H

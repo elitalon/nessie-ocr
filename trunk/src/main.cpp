@@ -9,7 +9,6 @@
 
 
 
-
 ///
 /// @todo Check documentation for pre- and post-conditions.
 ///
@@ -22,8 +21,6 @@
 /// @todo Change condition for joining line markers to ( (*currentLineMarkerIterator).first - ((*previousLineMarkerIterator).second + 1) >= meanShapeHeight )
 ///
 /// @todo Explore other conditions for joining line markers like computing the mean distance between lines
-///
-/// @todo Modify the Shape internal data structures to store the relative coordinates instead of the absolute coordinates.
 ///
 /// @todo Modify Segmenter::applyThreshold to use 0 and 1
 ///
