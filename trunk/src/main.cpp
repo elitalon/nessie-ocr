@@ -52,6 +52,7 @@ int main (int argc, char const *argv[])
 
 		// Execute the OCR process
 		recon.obtainText();
+
 	}
 	catch (std::exception &e)
 	{

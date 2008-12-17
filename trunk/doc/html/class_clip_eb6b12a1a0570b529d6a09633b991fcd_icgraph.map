@@ -1,3 +1,3 @@
-<area shape="rect" href="$class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique..." alt="" coords="136,5,429,32">
-<area shape="rect" href="$class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50" title="Builds a list of shapes founded in a clip by growing seeds into isolated shapes." alt="" coords="139,56,427,83">
-<area shape="rect" href="$class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="477,56,656,83">
+<area shape="rect" href="$class_preprocessor.html#ac2f414d6f4f917419f33f6067eb8634" title="Computes the optimal threshold value in a clip following the Sonka&#39;s technique..." alt="" coords="131,5,389,32">
+<area shape="rect" href="$class_segmenter.html#72c007e345fad7abbf6e9d4edb615a50" title="Builds a list of shapes founded in a clip by growing seeds into isolated shapes." alt="" coords="133,56,387,83">
+<area shape="rect" href="$class_segmenter.html#465c8e755bb56d247add080a04377520" title="Finds a list of isolated shapes in the press clip by joining connected pixels." alt="" coords="437,56,595,83">
