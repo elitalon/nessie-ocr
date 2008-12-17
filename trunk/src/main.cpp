@@ -38,6 +38,12 @@ int main (int argc, char const *argv[])
 {
 	try
 	{
+		if ( argc <= 1 )
+		{
+			std::cout << "Missing arguments!" << std::endl;
+			return 1;
+		}
+			
 		// Load an image object with the filename passed
 		Magick::Image image( argv[1] );
 

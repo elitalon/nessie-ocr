@@ -75,7 +75,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-07
 	///
-	const float& matchingShapeTime ();
+	const double& matchingShapeTime ();
 
 
 private:
@@ -84,7 +84,7 @@ private:
 	
 	FeatureVector	sample_;			///< A sample that represents a shape.
 	
-	float			matchingShapeTime_;	///< Elapsed time while matching a shape into a character.
+	double			matchingShapeTime_;	///< Elapsed time while matching a shape into a character.
 	
 	
 	///
@@ -116,7 +116,7 @@ private:
 
 
 
-inline const float& Classifier::matchingShapeTime ()
+inline const double& Classifier::matchingShapeTime ()
 {
 	return matchingShapeTime_;
 };

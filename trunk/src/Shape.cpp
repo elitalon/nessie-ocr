@@ -67,11 +67,11 @@ void Shape::normalizeCoordinates ()
 {
 	unsigned int x0 = this->topLeftCorner().first;
 	unsigned int y0 = this->topLeftCorner().second;
-	
+		
 	for ( std::vector<Pixel>::iterator iPixel = this->pixels_.begin(); iPixel not_eq this->pixels_.end(); ++iPixel )
 	{
 		(*iPixel).first = (*iPixel).first - x0;
-		(*iPixel).first = (*iPixel).second - y0;
+		(*iPixel).second = (*iPixel).second - y0;
 	}
 };
 

@@ -69,6 +69,17 @@ public:
 
 
 	///
+	/// Sets the background reference gray level in the last clip used.
+	///
+	/// @param grayLevel Value between 0 and 255 that stablishes the reference background gray level in the clip
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-15
+	///
+	void backgroundReferenceGrayLevel (const unsigned char& grayLevel);
+
+
+	///
 	/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
 	///
 	/// @return Elapsed time when applying the 'isolated noise removal' algorithm
@@ -78,7 +89,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const float& noiseRemovalTime () const;
+	const double& noiseRemovalTime () const;
 
 
 	///
@@ -91,7 +102,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const float& optimalThresholdComputingTime () const;
+	const double& optimalThresholdComputingTime () const;
 
 
 	///
@@ -104,7 +115,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const float& backgroundReferenceGrayLevelFindingTime () const;
+	const double& backgroundReferenceGrayLevelFindingTime () const;
 
 
 	///
@@ -170,11 +181,11 @@ private:
 
 	unsigned char	backgroundReferenceGrayLevel_;				///< Background reference gray level
 	
-	float			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
+	double			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
 	
-	float			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
+	double			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
 	
-	float			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
+	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
 
 };
 
@@ -199,19 +210,25 @@ inline const unsigned char& Preprocessor::backgroundReferenceGrayLevel () const
 };
 
 
-inline const float& Preprocessor::noiseRemovalTime () const
+inline void Preprocessor::backgroundReferenceGrayLevel (const unsigned char& grayLevel)
+{
+	backgroundReferenceGrayLevel_ = grayLevel;
+};
+
+
+inline const double& Preprocessor::noiseRemovalTime () const
 {
 	return noiseRemovalTime_;
 };
 
 
-inline const float& Preprocessor::optimalThresholdComputingTime () const
+inline const double& Preprocessor::optimalThresholdComputingTime () const
 {
 	return optimalThresholdComputingTime_;
 };
 
 
-inline const float& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
+inline const double& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
 {
 	return backgroundReferenceGrayLevelFindingTime_;
 };

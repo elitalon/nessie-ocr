@@ -23,7 +23,7 @@ Segmenter::Segmenter ()
 		thresholdingTime_(0.0),
 		shapesFindingTime_(0.0)
 {
-	
+
 };
 
 
@@ -38,8 +38,8 @@ void Segmenter::applyThreshold (Clip& clip, const unsigned char& threshold, cons
 	// Start timing
 	boost::timer timer;
 	timer.restart();
-	
-	
+
+
 	// Threshold every pixel
 	for (unsigned int i=0; i < clip.height(); ++i)
 	{
@@ -58,17 +58,17 @@ void Segmenter::applyThreshold (Clip& clip, const unsigned char& threshold, cons
 					else
 						clip(i, j) = 255;
 				}
-			}	
+			}
 		}
 	}
-	
-	
+
+
 	// Stablish the value of the ink pixels
 	if ( backgroundReference >= threshold )
 		inkValue_ = 0;
 	else
 		inkValue_ = 255;
-	
+
 	// Gather elapsed time
 	thresholdingTime_ = timer.elapsed();
 };
@@ -79,32 +79,35 @@ void Segmenter::applyThreshold (Clip& clip, const unsigned char& threshold, cons
 /// @details This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes
 /// may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list
 /// of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down.
-/// 
+///
 void Segmenter::findShapes (const Clip& clip)
 {
 	// Start timing
 	boost::timer timer;
 	timer.restart();
 
-	
+
 	// Find the seeds where the flooding process will start from
 	findSeeds(clip);
+	std::cout << "Seeds                        : " << seeds_.size() << std::endl;
 
-	
-	// Obtain the initial shapes	
+
+	// Obtain the initial shapes
 	growSeedsIntoInitialShapes(clip);
+	std::cout << "Initial shapes               : " << shapes_.size() << std::endl;
 
-	
+
 	// Find the markers that delimit the lines
 	findLineMarkers(clip);
-	
+	std::cout << "Lines of text                : " << lineMarkers_.size() << std::endl;
+
 
 	// Join accents to their vocals in a line of characters
 	for ( LineMarkerIterator i = lineMarkers_.begin(); i not_eq lineMarkers_.end(); ++i )
 	{
 		unsigned int lineTop	= (*i).first;
 		unsigned int lineBottom	= (*i).second;
-		
+
 		// Iterator to the list of shapes
 		ShapeIterator iShape = shapes_.begin();
 
@@ -120,7 +123,7 @@ void Segmenter::findShapes (const Clip& clip)
 			else
 			{
 				ShapeIterator jShape = findVerticallyOverlappedShape(lineTop, lineBottom, iShape);
-				
+
 				if ( jShape not_eq iShape )
 					joinVerticallyOverlappedShapes( iShape, jShape );
 				else
@@ -128,12 +131,12 @@ void Segmenter::findShapes (const Clip& clip)
 			}
 		}
 	}
-	
+
 
 	// Sort the shapes by lines and columns
 	shapes_.sort();
-	
-	
+
+
 	// Gather elapsed time
 	shapesFindingTime_ = timer.elapsed();
 };
@@ -162,7 +165,7 @@ void Segmenter::findSeeds (const Clip& clip)
 ///
 /// @details The initial shapes are a set of shapes that are inconsistent with the real characters in the press clip. That is because
 /// a further processing is necessary to join accents to vocals, split shapes that represents two characters joined, etc.
-/// 
+///
 /// This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents
 /// a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process
 /// ends when there are not more seeds to explore and the shapes are completely isolated.
@@ -171,22 +174,22 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 {
 	// Initialize the visited_ deque
 	visited_ = std::deque<bool>(clip.size(), false);
-	
+
 	// Explore the neighbourhood of each seed. For each pixel explored, the vector above tells if it has already been explored
 	for ( std::deque<Pixel>::iterator seedsIterator = seeds_.begin(); seedsIterator not_eq seeds_.end(); ++seedsIterator )
 	{
 		int row	= (*seedsIterator).first;
 		int column	= (*seedsIterator).second;
-	
+
 		if ( not visited_.at(row * clip.width() + column) )	// This seed has not already been visited
 		{
 			visited_.at(row * clip.width() + column) = true;
-		
+
 			// This seed begins a new shape
 			shapes_.push_back(Shape());
 			shapes_.back().addPixel( Pixel(row, column) );
-		
-		
+
+
 			// Explore the seed's neighbourhood
 			for ( int i = row-1; (i <= row+1) and (i < static_cast<int>(clip.height())); ++i )
 			{
@@ -204,14 +207,14 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 					}
 				}
 			}
-		
-		
+
+
 			// Explore the neighbours of the neighbours of the seed.
 			unsigned int lastPixelPosition = 1;
 			while ( shapes_.back().size() > lastPixelPosition )
 			{
 				Pixel pixel( shapes_.back()(lastPixelPosition) );
-			
+
 				// Explore the neighbour's neighbourhood
 				for ( int i = pixel.first-1; (i <= static_cast<int>(pixel.first+1)) and (i < static_cast<int>(clip.height())); ++i )
 				{
@@ -229,12 +232,12 @@ void Segmenter::growSeedsIntoInitialShapes (const Clip& clip)
 						}
 					}
 				}
-				
+
 				// Update the pixel's counter
 				lastPixelPosition++;
 			}
 		}
-	}	
+	}
 };
 
 
@@ -248,29 +251,29 @@ void Segmenter::findLineMarkers (const Clip& clip)
 {
 	unsigned int topRow = 0;
 	bool rowHasInk = false, previousRowHasInk;
-	
+
 	// Traverse the clip searching non-visited pixels
 	for ( unsigned int i = 0; i < clip.height(); ++i )
 	{
 		previousRowHasInk	= rowHasInk;
 		rowHasInk			= false;
-		
+
 		unsigned int nVisitedPixels = 0;
 		for ( unsigned int j = 0; j < clip.width(); ++j )
 		{
 			if ( visited_.at(i * clip.width() + j) )
 				nVisitedPixels++;
 		}
-		
+
 		// A line with less than three pixels of ink is assumed as a blank line
 		if ( nVisitedPixels > 2 )
 			rowHasInk = true;
-		
+
 		// Check if a new line border has been found
 		if ( rowHasInk )
 		{
-			if ( not previousRowHasInk )
-				topRow = i;
+			if (not previousRowHasInk)
+		    	topRow = i;
 		}
 		else
 		{
@@ -280,27 +283,32 @@ void Segmenter::findLineMarkers (const Clip& clip)
 				topRow = i;
 		}
 	}
-	
-	
+
+	// Check the last line ends with the image border
+    if ( rowHasInk and previousRowHasInk )
+		lineMarkers_.push_back( LineMarker(topRow, clip.height()-1) );
+
+
 	// Compute the mean shape height
-	float meanShapeHeight = 0.0;
-	
+	double meanShapeHeight = 0.0;
+
 	for ( ShapeIterator iShape = shapes_.begin(); iShape not_eq shapes_.end(); ++iShape )
 		meanShapeHeight += (*iShape).height();
-	
-	meanShapeHeight = meanShapeHeight / static_cast<float>(shapes_.size());
-	
-	
+
+	meanShapeHeight = meanShapeHeight / static_cast<double>(shapes_.size());
+
+
 	// Point iterators to the first two elements
 	LineMarkerIterator previousLineMarkerIterator	= lineMarkers_.begin();
 	LineMarkerIterator currentLineMarkerIterator	= lineMarkers_.begin();
 	advance( currentLineMarkerIterator, 1 );
-	
+
 	// Search for lines that are too close to each other, probably because there are characters with accents in a single line
 	while ( currentLineMarkerIterator not_eq lineMarkers_.end() )
 	{
 		// An accent is as much as three times smaller than the mean shape height
-		if ( ((*previousLineMarkerIterator).second - (*previousLineMarkerIterator).first + 1) >= round(meanShapeHeight / 4.0) )
+		if ( (*currentLineMarkerIterator).first - ((*previousLineMarkerIterator).second + 1) >= meanShapeHeight )
+		//if ( ((*previousLineMarkerIterator).second - (*previousLineMarkerIterator).first + 1) >= round(meanShapeHeight / 4.0) )
 		{
 			// This is not an accent
 			advance( currentLineMarkerIterator, 1 );
@@ -310,12 +318,12 @@ void Segmenter::findLineMarkers (const Clip& clip)
 		{
 			// A new line marker representing the union of the two line markers that are being handled is inserted
 			// and the two old line markers are removed from the list
-			
+
 			lineMarkers_.insert( previousLineMarkerIterator, LineMarker((*previousLineMarkerIterator).first, (*currentLineMarkerIterator).second) );
-			
+
 			LineMarkerIterator newLineMarkerIterator = previousLineMarkerIterator;
 			advance ( newLineMarkerIterator, -1 );
-			
+
 			// Delete the first line marker
 			lineMarkers_.erase( previousLineMarkerIterator );
 
@@ -323,7 +331,7 @@ void Segmenter::findLineMarkers (const Clip& clip)
 			previousLineMarkerIterator = currentLineMarkerIterator;
 			advance( currentLineMarkerIterator, 1 );
 			lineMarkers_.erase( previousLineMarkerIterator );
-			
+
 			// Point to the new element inserted
 			previousLineMarkerIterator = newLineMarkerIterator;
 		}
@@ -336,14 +344,14 @@ void Segmenter::joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeIterator
 {
 	// Join shapes into a new one and insert it before the current shape
 	shapes_.push_back(*s1 + *s2);
-	
+
 	// Delete the second shape
 	shapes_.erase(s2);
-	
+
 	// Update iterators
 	s2 = s1;
 	advance(s2, 1);
-	
+
 	// Delete the first shape
 	shapes_.erase(s1);
 	s1 = s2;
@@ -363,23 +371,23 @@ Segmenter::ShapeIterator Segmenter::findVerticallyOverlappedShape (const unsigne
 		// Avoid processing a shape against itself
 		if ( shape == i )
 			continue;
-		
+
 		bool candidateShapeIsAboveShapeOfInterest = ((*i).topPixel().first < lineTop) and ((*i).bottomPixel().first <= lineTop);
 		bool candidateShapeIsBelowShapeOfInterest = ((*i).topPixel().first >= lineBottom) and ((*i).bottomPixel().first > lineBottom);
 
 		// Avoid processing a shape that is outside the line borders
 		if ( candidateShapeIsAboveShapeOfInterest or candidateShapeIsBelowShapeOfInterest )
 			continue;
-		
+
 		unsigned int overlappedPixels	= 0;
-		
+
 		// Count the overlapped pixels that the shape has with the shape of interest
 		for ( unsigned int j = 0; j < (*i).size(); ++j )
 		{
 			if ( ((*i)(j).second > (*shape).leftPixel().second) and ((*i)(j).second < (*shape).rightPixel().second) )
 				overlappedPixels++;
 		}
-		
+
 		// Check if the shape is overlapped with the shape of interest
 		if ( overlappedPixels >= 1)
 			return i;
@@ -400,27 +408,27 @@ void Segmenter::findSpaceLocations ()
 	advance (iShape, 1);
 
 	ShapeIterator jShape = shapes_.begin();
-	
-	float meanIntercharacterSpace = 0.0;
+
+	double meanIntercharacterSpace = 0.0;
 	while ( iShape not_eq shapes_.end() )
 	{
 		if ( (*iShape).leftPixel().second >= (*jShape).rightPixel().second )
 			meanIntercharacterSpace += (*iShape).leftPixel().second - (*jShape).rightPixel().second;
-		
+
 		advance (iShape, 1);
 		advance (jShape, 1);
 	}
 	meanIntercharacterSpace = round(meanIntercharacterSpace / shapes_.size());
 	std::cout << "Mean intercharacter space    : " << meanIntercharacterSpace << std::endl;
-	
-	
+
+
 	// Count the number of spaces within a text
 	iShape = shapes_.begin();
 	advance (iShape, 1);
 
 	jShape = shapes_.begin();
-	
-	float spaces = 0;
+
+	double spaces = 0;
 	while ( iShape not_eq shapes_.end() )
 	{
 		if ( (*iShape).leftPixel().second < (*jShape).rightPixel().second )	// end-of-line
@@ -435,7 +443,7 @@ void Segmenter::findSpaceLocations ()
 		advance (iShape, 1);
 		advance (jShape, 1);
 	}
-	std::cout << "Number of spaces             : " << spaces << std::endl << std::endl;
+	std::cout << "Spaces found                 : " << spaces << std::endl;
 };
 
 
@@ -445,9 +453,9 @@ void Segmenter::findSpaceLocations ()
 // void Segmenter::applyAdaptiveThreshold (Clip& clip, const std::vector<unsigned char>& thresholds, const unsigned char& backgroundReference, const unsigned int& subclipSide)
 // {
 // 	// Explore subimages
-// 	for ( unsigned int row = 0; row < ceil(static_cast<float>(clip.height()) / static_cast<float>(subclipSide)) ; ++row )
+// 	for ( unsigned int row = 0; row < ceil(static_cast<double>(clip.height()) / static_castdoublet>(subclipSide)) ; ++row )
 // 	{
-// 		for ( unsigned int column = 0; column < ceil(static_cast<float>(clip.width()) / static_cast<float>(subclipSide)) ; ++column )
+// 		for ( unsigned int column = 0; column < ceil(static_cast<double>(clip.width()) / static_castdoublet>(subclipSide)) ; ++column )
 // 		{
 // 			for ( unsigned int i = row * subclipSide; (i < ((row * subclipSide) + subclipSide)) and (i < clip.height()); ++i )
 // 			{
@@ -455,7 +463,7 @@ void Segmenter::findSpaceLocations ()
 // 				{
 // 					unsigned char grayLevel = clip.getPixelGrayLevel(i, j);
 // 					unsigned char threshold = thresholds[row*column];
-// 
+//
 // 					if ( (backgroundReference > threshold) and (grayLevel >= threshold) )	// The background is near white
 // 						clip.setPixelGrayLevel(i, j, 255);
 // 					else
@@ -469,7 +477,7 @@ void Segmenter::findSpaceLocations ()
 // 							else
 // 								clip.setPixelGrayLevel(i,j, 255);
 // 						}
-// 					}	
+// 					}
 // 				}
 // 			}
 // 		}

@@ -97,10 +97,10 @@ window.onload = initDynSections;
 <a name="l00078"></a>00078     <span class="keyword">const</span> std::deque&lt;unsigned int&gt;&amp; <a class="code" href="class_segmenter.html#eed49de2d6548ae8016bf6c9c78cec99" title="Returns the location of spaces that must be inserted when building a text from a...">spaces</a> () <span class="keyword">const</span>;
 <a name="l00079"></a>00079     
 <a name="l00080"></a>00080     
-<a name="l00089"></a>00089     <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; <a class="code" href="class_segmenter.html#9114d0f3934b43478fb55077b7722d3d" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> () <span class="keyword">const</span>;
+<a name="l00089"></a>00089     <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_segmenter.html#52f771c61d667df4f552ee73dc9f22e7" title="Returns the elapsed time while applying the thresholding algorithm.">thresholdingTime</a> () <span class="keyword">const</span>;
 <a name="l00090"></a>00090     
 <a name="l00091"></a>00091     
-<a name="l00100"></a>00100     <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; <a class="code" href="class_segmenter.html#8d7304b35b1891b1c7154a3ac2ff2c4b" title="Returns the elapsed time while finding the shapes.">shapesFindingTime</a> () <span class="keyword">const</span>;
+<a name="l00100"></a>00100     <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_segmenter.html#53761a65661587c45e34988b90401888" title="Returns the elapsed time while finding the shapes.">shapesFindingTime</a> () <span class="keyword">const</span>;
 <a name="l00101"></a>00101     
 <a name="l00102"></a>00102     
 <a name="l00118"></a>00118     <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#6854315e3320f9d9a8ece14cbb8570ee" title="Applies a thresholding algorithm.">applyThreshold</a> (<a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; threshold, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; backgroundReference);
@@ -135,9 +135,9 @@ window.onload = initDynSections;
 <a name="l00201"></a>00201     
 <a name="l00202"></a><a class="code" href="class_segmenter.html#b6a330577017efe9e49c174c04c4f7c3">00202</a>     std::deque&lt;unsigned int&gt;    <a class="code" href="class_segmenter.html#b6a330577017efe9e49c174c04c4f7c3" title="A list of positions in the shapes_ where a space must be inserted when building the...">spaceLocations_</a>;        
 <a name="l00203"></a>00203 
-<a name="l00204"></a><a class="code" href="class_segmenter.html#1b02328044551876a7b878fc1549bc70">00204</a>     <span class="keywordtype">float</span>                       <a class="code" href="class_segmenter.html#1b02328044551876a7b878fc1549bc70" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;      
+<a name="l00204"></a><a class="code" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb">00204</a>     <span class="keywordtype">double</span>                      <a class="code" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;      
 <a name="l00205"></a>00205     
-<a name="l00206"></a><a class="code" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b">00206</a>     <span class="keywordtype">float</span>                       <a class="code" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b" title="Elapsed time while applying the shapes finding algorithm.">shapesFindingTime_</a>;     
+<a name="l00206"></a><a class="code" href="class_segmenter.html#ebe750333b882a982362ac18114ce915">00206</a>     <span class="keywordtype">double</span>                      <a class="code" href="class_segmenter.html#ebe750333b882a982362ac18114ce915" title="Elapsed time while applying the shapes finding algorithm.">shapesFindingTime_</a>;     
 <a name="l00207"></a>00207     
 <a name="l00208"></a>00208         
 <a name="l00221"></a>00221     <span class="keywordtype">void</span> <a class="code" href="class_segmenter.html#bacab187b543a51c5322c01fc0a29ffb" title="Find the seeds where the shapes will grow up from.">findSeeds</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip where the recognizer has to extract the text from.">Clip</a>&amp; clip);
@@ -177,20 +177,20 @@ window.onload = initDynSections;
 <a name="l00306"></a>00306 };
 <a name="l00307"></a>00307 
 <a name="l00308"></a>00308 
-<a name="l00309"></a><a class="code" href="class_segmenter.html#9114d0f3934b43478fb55077b7722d3d">00309</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; <a class="code" href="class_segmenter.html#9114d0f3934b43478fb55077b7722d3d" title="Returns the elapsed time while applying the thresholding algorithm.">Segmenter::thresholdingTime</a> ()<span class="keyword"> const</span>
+<a name="l00309"></a><a class="code" href="class_segmenter.html#52f771c61d667df4f552ee73dc9f22e7">00309</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_segmenter.html#52f771c61d667df4f552ee73dc9f22e7" title="Returns the elapsed time while applying the thresholding algorithm.">Segmenter::thresholdingTime</a> ()<span class="keyword"> const</span>
 <a name="l00310"></a>00310 <span class="keyword"></span>{
-<a name="l00311"></a>00311     <span class="keywordflow">return</span> <a class="code" href="class_segmenter.html#1b02328044551876a7b878fc1549bc70" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;
+<a name="l00311"></a>00311     <span class="keywordflow">return</span> <a class="code" href="class_segmenter.html#13c768c0dfa734bb6ca0c548511bc7bb" title="Elapsed time while applying the thresholding algorithm.">thresholdingTime_</a>;
 <a name="l00312"></a>00312 };
 <a name="l00313"></a>00313 
 <a name="l00314"></a>00314 
-<a name="l00315"></a><a class="code" href="class_segmenter.html#8d7304b35b1891b1c7154a3ac2ff2c4b">00315</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">float</span>&amp; <a class="code" href="class_segmenter.html#8d7304b35b1891b1c7154a3ac2ff2c4b" title="Returns the elapsed time while finding the shapes.">Segmenter::shapesFindingTime</a> ()<span class="keyword"> const</span>
+<a name="l00315"></a><a class="code" href="class_segmenter.html#53761a65661587c45e34988b90401888">00315</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_segmenter.html#53761a65661587c45e34988b90401888" title="Returns the elapsed time while finding the shapes.">Segmenter::shapesFindingTime</a> ()<span class="keyword"> const</span>
 <a name="l00316"></a>00316 <span class="keyword"></span>{
-<a name="l00317"></a>00317     <span class="keywordflow">return</span> <a class="code" href="class_segmenter.html#e0ade77ddbdc2f6c5eaa1efe372c5a7b" title="Elapsed time while applying the shapes finding algorithm.">shapesFindingTime_</a>;
+<a name="l00317"></a>00317     <span class="keywordflow">return</span> <a class="code" href="class_segmenter.html#ebe750333b882a982362ac18114ce915" title="Elapsed time while applying the shapes finding algorithm.">shapesFindingTime_</a>;
 <a name="l00318"></a>00318 };
 <a name="l00319"></a>00319 
 <a name="l00320"></a>00320 <span class="preprocessor">#endif  //_SEGMENTER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Dec 10 15:15:39 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Dec 17 16:20:12 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

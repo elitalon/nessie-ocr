@@ -68,6 +68,11 @@ window.onload = initDynSections;
 <p>
 <code>#include &quot;<a class="el" href="_classifier_8hpp-source.html">Classifier.hpp</a>&quot;</code><br>
 <code>#include &quot;<a class="el" href="_shape_8hpp-source.html">Shape.hpp</a>&quot;</code><br>
+<code>#include &lt;cmath&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
+<code>#include &lt;utility&gt;</code><br>
+<code>#include &lt;boost/timer.hpp&gt;</code><br>
+<code>#include &lt;iostream&gt;</code><br>
 
 <p>
 <div class="dynheader">
@@ -75,16 +80,151 @@ Include dependency graph for Classifier.cpp:</div>
 <div class="dynsection">
 <p><center><img src="_classifier_8cpp__incl.png" border="0" usemap="#Classifier.cpp_map" alt=""></center>
 <map name="Classifier.cpp_map">
-<area shape="rect" href="_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="173,80,283,107"><area shape="rect" href="_shape_8hpp.html" title="Declaration of Shape class." alt="" coords="5,155,96,181"><area shape="rect" href="_data_set_8hpp.html" title="Declaration of DataSet class." alt="" coords="221,155,325,181"><area shape="rect" href="_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="344,229,485,256"></map>
+<area shape="rect" href="_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="172,80,281,107"><area shape="rect" href="_shape_8hpp.html" title="Declaration of Shape class." alt="" coords="411,155,501,181"><area shape="rect" href="_data_set_8hpp.html" title="Declaration of DataSet class." alt="" coords="131,155,235,181"><area shape="rect" href="_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="93,229,235,256"></map>
 </div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_classifier_8cpp.html#1c0bdf334aee637e59f149928fd796f4">lambda</a> (const unsigned int &amp;p, const unsigned int &amp;q)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the lambda factor to use in several equations related to image moments.  <a href="#1c0bdf334aee637e59f149928fd796f4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_classifier_8cpp.html#a0347f59d9d4a61cfdc11716ec0672a6">computeCentralMoment</a> (const <a class="el" href="class_shape.html">Shape</a> &amp;shape, const unsigned int &amp;p, const unsigned int &amp;q, const unsigned int &amp;x, const unsigned int &amp;y)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the central moment of a shape.  <a href="#a0347f59d9d4a61cfdc11716ec0672a6"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Definition of <a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> class. 
 <p>
+<hr><h2>Function Documentation</h2>
+<a class="anchor" name="a0347f59d9d4a61cfdc11716ec0672a6"></a><!-- doxytag: member="Classifier.cpp::computeCentralMoment" ref="a0347f59d9d4a61cfdc11716ec0672a6" args="(const Shape &amp;shape, const unsigned int &amp;p, const unsigned int &amp;q, const unsigned int &amp;x, const unsigned int &amp;y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double computeCentralMoment           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_shape.html">Shape</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Dec 10 15:15:40 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<div class="memdoc">
+
+<p>
+Computes the central moment of a shape. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>shape</em>&nbsp;</td><td><a class="el" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a> where get the pixels </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>p</em>&nbsp;</td><td>Order of the moment to use in rows </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>q</em>&nbsp;</td><td>Order of the moment to use in columns </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>Barycenter's X coordinate </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Barycenter's Y coordinate</td></tr>
+  </table>
+</dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-16 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_cgraph.png" border="0" usemap="#_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_cgraph_map" alt=""></center>
+<map name="_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_cgraph_map">
+<area shape="rect" href="class_shape.html#8504d3be338d2fa594c35fe1444a9ed8" title="Returns the number of pixels in the shape." alt="" coords="237,5,336,32"></map>
+</div>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_icgraph.png" border="0" usemap="#_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_icgraph_map" alt=""></center>
+<map name="_classifier_8cpp_a0347f59d9d4a61cfdc11716ec0672a6_icgraph_map">
+<area shape="rect" href="class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape." alt="" coords="239,5,455,32"><area shape="rect" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character." alt="" coords="504,5,680,32"></map>
+</div>
+
+</div>
+</div><p>
+<a class="anchor" name="1c0bdf334aee637e59f149928fd796f4"></a><!-- doxytag: member="Classifier.cpp::lambda" ref="1c0bdf334aee637e59f149928fd796f4" args="(const unsigned int &amp;p, const unsigned int &amp;q)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double lambda           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>q</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Computes the lambda factor to use in several equations related to image moments. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>p</em>&nbsp;</td><td>Order of the moment to use in rows </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>q</em>&nbsp;</td><td>Order of the moment to use in columns</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>(p+q/2) + 1</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-16 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="_classifier_8cpp_1c0bdf334aee637e59f149928fd796f4_icgraph.png" border="0" usemap="#_classifier_8cpp_1c0bdf334aee637e59f149928fd796f4_icgraph_map" alt=""></center>
+<map name="_classifier_8cpp_1c0bdf334aee637e59f149928fd796f4_icgraph_map">
+<area shape="rect" href="class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape." alt="" coords="127,5,343,32"><area shape="rect" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character." alt="" coords="392,5,568,32"></map>
+</div>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Dec 17 16:20:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

@@ -135,6 +135,17 @@ public:
 	/// @date 2008-11-10
 	///
 	const unsigned int& nFeatures () const;
+	
+	
+	///
+	/// Returns the number of categories in the data set.
+	/// 
+	/// @return The number of categories in the data set.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-11
+	///
+	const unsigned int& nCategories () const;
 
 
 	///
@@ -156,6 +167,8 @@ private:
 	
 	unsigned int		nFeatures_;		///< Number of features in every sample of the data set
 	
+	unsigned int		nCategories_;	///< Number of different categories in the data set
+	
 	std::string			sourceFile_;	///< File path where the data set is stored in the filesystem
 	
 	
@@ -170,6 +183,15 @@ private:
 	/// @date 2008-11-14
 	///
 	DataSet ();
+	
+	
+	///
+	/// Count the number of categories in the data set
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-11
+	///
+	void countCategories();
 };
 
 
@@ -183,6 +205,7 @@ inline void DataSet::addSample (const Sample& sample)
 	{
 		samples_.push_back(sample);
 		size_ = samples_.size();
+		countCategories();
 	}		
 };
 
@@ -202,6 +225,11 @@ inline const unsigned int& DataSet::size () const
 inline const unsigned int& DataSet::nFeatures () const
 {
 	return nFeatures_;
+};
+
+inline const unsigned int& DataSet::nCategories () const
+{
+	return nCategories_;
 };
 
 

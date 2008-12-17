@@ -46,7 +46,7 @@ const unsigned char& Preprocessor::computeOptimalThreshold (const Clip& clip)
 	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
 	while (currentThreshold not_eq optimalThreshold_)
 	{
-		float backgroundMeanValue = 0, objectsMeanValue = 0;
+		double backgroundMeanValue = 0, objectsMeanValue = 0;
 		unsigned int nSamples = 0;
 		
 		// Count the pixels that belong to objects and the pixels that belong to background
@@ -58,15 +58,15 @@ const unsigned char& Preprocessor::computeOptimalThreshold (const Clip& clip)
 				
 				if ( grayLevel >= optimalThreshold_ )
 				{
-					backgroundMeanValue += static_cast<float>(grayLevel);
+					backgroundMeanValue += static_cast<double>(grayLevel);
 					nSamples++;
 				}
 				else
-					objectsMeanValue += static_cast<float>(grayLevel);
+					objectsMeanValue += static_cast<double>(grayLevel);
 			}
 		}
-		backgroundMeanValue = round(backgroundMeanValue / static_cast<float>(nSamples));
-		objectsMeanValue = round(objectsMeanValue / static_cast<float>(clip.size() - nSamples));
+		backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
+		objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip.size() - nSamples));
 
 
 		// Update the optimal threshold keeping the last one
@@ -254,36 +254,36 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 	///
 // 	/// 1. Compute the gray-level histogram and normalized it.
 // 	///
-// 	std::vector<float> histogram(256,0.0);
+// 	std::vector<double> histogram(256,0.0);
 // 	std::vector<unsigned char>::iterator pixelsIterator;
 // 	
 // 	for ( pixelsIterator = pixels.begin(); pixelsIterator not_eq pixels.end(); ++pixelsIterator )
 // 		histogram[static_cast<int>(*pixelsIterator)] += 1.0;
 // 	
-// 	float nPixels = static_cast<float>( clip.nPixels() );
-// 	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<float>(), nPixels) );
+// 	double nPixels = static_castdoublet>( clip.nPixels() );
+// 	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), nPixels) );
 // 	
 // 	
 // 	///
 // 	/// 2. Compute the total mean level of the image \f$\mu_T\f$.
 // 	///
-// 	float meanGrayLevel = 0.0;
+// 	double meanGrayLevel = 0.0;
 // 	for ( unsigned int k = 1; k <= 256; ++k )
-// 		meanGrayLevel += histogram[k-1] * static_cast<float>(k);
+// 		meanGrayLevel += histogram[k-1] * static_cast<double>(k);
 // 		
 // 	
 // 	///
 // 	/// 3. For each gray level \f$k\f$ compute \f$\omega(k)\f$ y \f$\mu(k)\f$, which are the zeroth- and the first-order cumulative moments of the histogram
 // 	/// up to the \f$k\f$th level.
 // 	///
-// 	std::vector<float> omega(256,0.0);
-// 	std::vector<float> mu(256,0.0);
+// 	std::vector<double> omega(256,0.0);
+// 	std::vector<double> mu(256,0.0);
 // 	for ( unsigned int k = 0; k < 256; ++k )
 // 	{
 // 		for ( unsigned int i = 0; i <= k; ++i )
 // 		{
 // 			omega[k]	+= histogram[i];
-// 			mu[k]		+= histogram[i] * static_cast<float>(i+1) ;
+// 			mu[k]		+= histogram[i] * static_cast<double>(i+1) ;
 // 		}
 // 	}
 // 	
@@ -291,11 +291,11 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 	///
 // 	/// 4. Compute the variance of the class separability \f$\sigma_B^2(k)\f$.
 // 	///
-// 	std::vector<float> sigma(256,0.0);
+// 	std::vector<double> sigma(256,0.0);
 // 	for ( unsigned int k = 0; k < 256; ++k )
 // 	{
-// 		float numerator	= (meanGrayLevel * omega[k]) - mu[k];
-// 		float denominator	= omega[k] - (1.0 - omega[k]);
+// 		double numerator	= (meanGrayLevel * omega[k]) - mu[k];
+// 		double denominator	= omega[k] - (1.0 - omega[k]);
 // 		
 // 		sigma[k] = pow(numerator, 2) / denominator;
 // 	}
@@ -305,7 +305,7 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 	/// 5. Find the \f$k\f$th level that makes a \f$\sigma_B^2(k)\f$ value the maximum.
 // 	///
 // 	optimalThreshold_ = 0;
-// 	float maximumSigma = sigma[0];
+// 	double maximumSigma = sigma[0];
 // 	for ( unsigned int k = 1; k < 256; ++k )
 // 	{
 // 		if ( sigma[k] > maximumSigma )
@@ -337,9 +337,9 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 	thresholds.clear();
 // 	
 // 	// Explore subimages
-// 	for ( unsigned int row = 0; row < ceil(static_cast<float>(clip.height()) / static_cast<float>(subclipSide)) ; ++row )
+// 	for ( unsigned int row = 0; row < ceil(static_cast<double>(clip.height()) / static_castdoublet>(subclipSide)) ; ++row )
 // 	{
-// 		for ( unsigned int column = 0; column < ceil(static_cast<float>(clip.width()) / static_cast<float>(subclipSide)) ; ++column )
+// 		for ( unsigned int column = 0; column < ceil(static_cast<double>(clip.width()) / static_castdoublet>(subclipSide)) ; ++column )
 // 		{
 // 			// Start with an initial threshold
 // 			unsigned char optimalThreshold = backgroundReferenceGrayLevel_;
@@ -348,7 +348,7 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 			// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
 // 			while (currentThreshold not_eq optimalThreshold)
 // 			{
-// 				float backgroundMeanValue = 0, objectsMeanValue = 0;
+// 				double backgroundMeanValue = 0, objectsMeanValue = 0;
 // 				unsigned int nSamples = 0;
 // 
 // 				for ( unsigned int i = row * subclipSide; (i < ((row * subclipSide) + subclipSide)) and (i < clip.height()); ++i )
@@ -359,16 +359,16 @@ void Preprocessor::removeIsolatedNoise (Clip& clip, const unsigned int& isolatio
 // 
 // 						if ( grayLevel >= optimalThreshold )
 // 						{
-// 							backgroundMeanValue += static_cast<float>(grayLevel);
+// 							backgroundMeanValue += static_cast<double>(grayLevel);
 // 							nSamples++;
 // 						}
 // 						else
-// 							objectsMeanValue += static_cast<float>(grayLevel);
+// 							objectsMeanValue += static_cast<double>(grayLevel);
 // 					}
 // 				}
 // 
-// 				backgroundMeanValue = round(backgroundMeanValue / static_cast<float>(nSamples));
-// 				objectsMeanValue = round(objectsMeanValue / static_cast<float>(clip.nPixels() - nSamples));
+// 				backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
+// 				objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip.nPixels() - nSamples));
 // 
 // 
 // 				// Update the optimal threshold keeping the last one

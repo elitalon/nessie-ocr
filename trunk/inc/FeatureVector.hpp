@@ -35,7 +35,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
 	///
-	FeatureVector (const unsigned int& nFeatures=6);
+	FeatureVector (const unsigned int& nFeatures=7);
 	
 	
 	///
@@ -57,7 +57,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
 	///
-	float& operator() (const unsigned int& feature);
+	double& operator() (const unsigned int& feature);
 
 
 	///
@@ -70,7 +70,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
 	///
-	float operator() (const unsigned int& feature) const;
+	double operator() (const unsigned int& feature) const;
 	
 	
 	///
@@ -109,7 +109,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-11-10
 	///
-	float operator* (const FeatureVector& featureVector) const;
+	double operator* (const FeatureVector& featureVector) const;
 		
 	
 	///
@@ -125,7 +125,7 @@ public:
 	
 private:
 	
-	std::vector<float>	features_;	///< Features of the character
+	std::vector<double>	features_;	///< Features of the character
 	
 	unsigned int		size_;		///< Number of features
 	
@@ -133,13 +133,13 @@ private:
 
 
 
-inline float& FeatureVector::operator() (const unsigned int &feature)
+inline double& FeatureVector::operator() (const unsigned int &feature)
 {
 	return features_.at(feature);
 };
 
 
-inline float FeatureVector::operator() (const unsigned int &feature) const
+inline double FeatureVector::operator() (const unsigned int &feature) const
 {
 	return features_.at(feature);
 };
@@ -167,8 +167,8 @@ inline FeatureVector FeatureVector::operator- (const FeatureVector& featureVecto
 	if ( this->size_ not_eq featureVector.size_ )
 		throw NessieException ("FeatureVector::operator-() : Size of vectors to subtract must be equal");
 
-
 	FeatureVector temp;
+	temp.features_.reserve(this->size_);
 
 	for ( unsigned int i = 0; i < this->size_; ++i )
 		temp.features_.at(i) = this->features_.at(i) - featureVector.features_.at(i);
@@ -177,13 +177,13 @@ inline FeatureVector FeatureVector::operator- (const FeatureVector& featureVecto
 };
 
 
-inline float FeatureVector::operator* (const FeatureVector& featureVector) const
+inline double FeatureVector::operator* (const FeatureVector& featureVector) const
 {
 	// Check if vectors have the same size
 	if ( this->size_ not_eq featureVector.size_ )
 		throw NessieException ("FeatureVector::operator*() : Size of vectors to multiply must be equal");
 
-	float result = 0.0;
+	double result = 0.0;
 	
 	for ( unsigned int i = 0; i < this->size_; ++i )
 		result += this->features_.at(i) * featureVector.features_.at(i);

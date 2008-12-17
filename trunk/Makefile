@@ -147,7 +147,7 @@ $(SHAPE_OBJ): $(SHAPE)
 	@printf "\n"
 
 $(CLASSIFIER_OBJ): $(CLASSIFIER)
-	$(CXX) $(FLAGS) -c $<
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
 	@mv $(CLASSIFIER_OBJ) $(SRC)
 	@printf "\n"
 	

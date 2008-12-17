@@ -8,7 +8,7 @@
 
 
 FeatureVector::FeatureVector(const unsigned int& nFeatures)
-	:	features_(std::vector<float>(nFeatures)),
+	:	features_(std::vector<double>(nFeatures)),
 		size_(nFeatures)
 {
 	for ( unsigned int i = 0; i < size_; ++i )

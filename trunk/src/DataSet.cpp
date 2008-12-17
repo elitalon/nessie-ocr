@@ -8,6 +8,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include <sys/stat.h>
 
@@ -33,13 +34,14 @@
 /// 
 /// <em>. . .</em>
 /// 
-/// The fields representing the features must have a <em>float</em> format: both the integer and decimal parts are required and separated by a decimal
+/// The fields representing the features must have a <em>floating point</em> format: both the integer and decimal parts are required and separated by a decimal
 /// point (not a comma). The field representing the category of the sample must be an integer.
 ///
 DataSet::DataSet (const std::string& sourceFile)
 	:	samples_(std::deque<Sample>(0)),
 		size_(0),
 		nFeatures_(0),
+		nCategories_(0),
 		sourceFile_(sourceFile)
 {
 	// Check the source file attributes
@@ -77,6 +79,12 @@ DataSet::DataSet (const std::string& sourceFile)
 	{
 		stream.close();
 		throw NessieException ("DataSet::DataSet() : The number of features read from file are zero.");
+	}
+	
+	if ( nFeatures_ > 7 )
+	{
+		stream.close();
+		throw NessieException ("DataSet::DataSet() : The number of features cannot be greater than seven.");
 	}
 
 
@@ -138,6 +146,9 @@ DataSet::DataSet (const std::string& sourceFile)
 	
 	// Update size of data set
 	size_ = samples_.size();
+	
+	// Count the categories
+	countCategories();
 };
 
 
@@ -151,12 +162,15 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 	:	samples_(std::deque<Sample>(0)),
 		size_(0),
 		nFeatures_(nFeatures),
+		nCategories_(0),
 		sourceFile_(sourceFile)
 {
 	// Test the number of features requested
 	if ( nFeatures == 0 )
 		throw NessieException ("DataSet::DataSet() : The number of features cannot be zero.");
 	
+	if ( nFeatures == 0 )
+		throw NessieException ("DataSet::DataSet() : The number of features cannot be greater than seven.");
 	
 	struct stat fileInfo;
 	int fileStatus = stat(sourceFile.data(), &fileInfo);
@@ -194,4 +208,19 @@ DataSet::~DataSet ()
 		
 		stream << category << std::endl;
 	}
+};
+
+
+
+void DataSet::countCategories()
+{
+	std::deque<unsigned int> categories(0);
+	
+	for ( unsigned int i = 0; i < samples_.size(); ++i )
+	{
+		if ( not std::binary_search(categories.begin(), categories.end(), samples_.at(i).second) )
+			categories.push_back( samples_.at(i).second );
+	}
+	
+	nCategories_ = categories.size();
 };

@@ -86,7 +86,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const float& thresholdingTime () const;
+	const double& thresholdingTime () const;
 	
 	
 	///
@@ -97,7 +97,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const float& shapesFindingTime () const;
+	const double& shapesFindingTime () const;
 	
 	
 	///
@@ -201,9 +201,9 @@ private:
 	
 	std::deque<unsigned int>	spaceLocations_;		///< A list of positions in the #shapes_ where a space must be inserted when building the text.
 
-	float						thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
+	double						thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
 	
-	float						shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
+	double						shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
 	
 		
 	///
@@ -306,13 +306,13 @@ inline const std::deque<unsigned int>& Segmenter::spaces() const
 };
 
 
-inline const float& Segmenter::thresholdingTime () const
+inline const double& Segmenter::thresholdingTime () const
 {
 	return thresholdingTime_;
 };
 
 
-inline const float& Segmenter::shapesFindingTime () const
+inline const double& Segmenter::shapesFindingTime () const
 {
 	return shapesFindingTime_;
 };

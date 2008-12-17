@@ -135,8 +135,10 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	// Preprocessing stage
 	//
 	Preprocessor preprocessor;
-	std::cout << "Background reference level   : " << static_cast<unsigned int>(preprocessor.findBackgroundReferenceGrayLevel(clip)) << std::endl;
-	std::cout << "Optimal threshold            : " << static_cast<unsigned int>(preprocessor.computeOptimalThreshold(clip)) << std::endl << std::endl;
+	preprocessor.optimalThreshold(130);
+	preprocessor.backgroundReferenceGrayLevel(254);
+	std::cout << "Background reference level   : " << static_cast<unsigned int>(preprocessor.backgroundReferenceGrayLevel()) << std::endl;
+	std::cout << "Optimal threshold            : " << static_cast<unsigned int>(preprocessor.optimalThreshold()) << std::endl << std::endl;
 	preprocessor.removeIsolatedNoise(clip);
 	
 	
@@ -145,50 +147,47 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	//
 	Segmenter segmenter;
 	segmenter.applyThreshold(clip, preprocessor.optimalThreshold(), preprocessor.backgroundReferenceGrayLevel());
-	updateImage(clip);
-	
 	segmenter.findShapes(clip);
 	std::cout << "Shapes found                 : " << segmenter.shapes().size() << std::endl;
 	segmenter.findSpaceLocations();
 	
-	// unsigned int k = 0;
-	// 	std::list<Shape> shapes = segmenter.shapes();
-	// 	for ( std::list<Shape>::iterator s = shapes.begin(); s not_eq shapes.end(); ++s )
-	// 	{
-	// 		Shape shape(*s);
-	// 		
-	// 		Magick::Image img( Magick::Geometry(shape.width(), shape.height()), "white" );
-	// 		
-	// 		// Convert the external image into a grayscale colorspace
-	// 		img.type( Magick::GrayscaleType );
-	// 	
-	// 		// Ensure that there is only one reference to underlying image.
-	// 		// If this is not done, then image pixels will not be modified.
-	// 		img.modifyImage();
-	// 	
-	// 		// Allocate pixel view
-	// 		Magick::Pixels view(img);
-	// 		Magick::PixelPacket *originPixel = view.get(0, 0, shape.width(), shape.height());
-	// 		
-	// 		// Copy the current data into the external image
-	// 		for ( unsigned int i = shape.topPixel().first; i <= shape.bottomPixel().first; ++i )
-	// 		{
-	// 			for ( unsigned int j = shape.leftPixel().second; j <= shape.rightPixel().second; ++j )
-	// 				*originPixel++ = Magick::ColorGray ( static_cast<double>(image_[i * width_ + j]) / 255.0 );
-	// 		}
-	// 	
-	// 		// Synchronize changes to the image
-	// 		view.sync();
-	// 		img.syncPixels();
-	// 		
-	// 		std::ostringstream o;
-	// 		if (!(o << k))
-	// 		     throw NessieException ("Recognizer::obtainText() : Cannot convert unsigned int to string");
-	// 	
-	// 		img.write("results/shape" + o.str() + ".png");
-	// 		k++;
-	// 	}
 	
+	unsigned int k = 0;
+	std::list<Shape> shapes = segmenter.shapes();
+	for ( std::list<Shape>::iterator s = shapes.begin(); s not_eq shapes.end(); ++s )
+	{
+		Shape shape(*s);
+		Magick::Image img( Magick::Geometry(shape.width(), shape.height()), "white" );
+		
+		// Convert the external image into a grayscale colorspace
+		img.type( Magick::GrayscaleType );
+	
+		// Ensure that there is only one reference to underlying image.
+		// If this is not done, then image pixels will not be modified.
+		img.modifyImage();
+	
+		// Allocate pixel view
+		Magick::Pixels view(img);
+		Magick::PixelPacket *originPixel = view.get(0, 0, shape.width(), shape.height());
+		
+		// Copy the current data into the external image
+		for ( unsigned int i = shape.topPixel().first; i <= shape.bottomPixel().first; ++i )
+		{
+			for ( unsigned int j = shape.leftPixel().second; j <= shape.rightPixel().second; ++j )
+				*originPixel++ = Magick::ColorGray ( static_cast<double>(image_[i * width_ + j]) / 255.0 );
+		}
+	
+		// Synchronize changes to the image
+		view.sync();
+		img.syncPixels();
+		
+		std::ostringstream o;
+		if (!(o << k))
+		     throw NessieException ("Recognizer::obtainText() : Cannot convert unsigned int to string");
+	
+		img.write("results/shape" + o.str() + ".png");
+		k++;
+	}
 	
 	//
 	// Classification stage
@@ -197,17 +196,26 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 	Classifier classifier(dataset);
 	Text text;
 	
-	std::list<Shape> shapes = segmenter.shapes();
+	k = 0;
 	for ( std::list<Shape>::iterator iShape = shapes.begin(); iShape not_eq shapes.end(); ++iShape )
 	{
-		std::string character = classifier.matchShape( (*iShape) );
+		Shape s = (*iShape);
 		
+		std::cout << std::endl;
+		std::cout << "Shape #" << k << " area                : " << s.size() << std::endl;
+		std::cout << "Barycenter                   : " << s.barycenter().first << "," << s.barycenter().second << std::endl;
+		std::cout << "Top left corner              : " << s.topLeftCorner().first << "," << s.topLeftCorner().second << std::endl;
+
+		s.normalizeCoordinates();
+		std::string character = classifier.matchShape( s );
+					
 		// If classification failed try to split the shape and match its parts.
 		if ( character == "" )
 		{
 			Shape s1, s2;
 			
-			(*iShape).split (s1, s2);
+			s.split (s1, s2);
+			++k;
 			std::string character1 = classifier.matchShape(s1);
 			std::string character2 = classifier.matchShape(s2);
 			
@@ -217,9 +225,12 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 		}
 		else
 			text.addCharacter(character);
+		
+		++k;
 	}
 	
-	
+	// Add the text to the list of text
+	texts_.push_back(text);
 	
 	// Gather execution times from each stage and set the statistical data
 	Statistics stats;
