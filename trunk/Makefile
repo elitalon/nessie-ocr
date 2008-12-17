@@ -14,8 +14,8 @@
 
 #
 # General conventions for Makefiles (extracted from GNU Make manual)
-# 
-SHELL = /bin/sh
+#
+SHELL=/bin/sh
 .SUFFIXES:
 .SUFFIXES: .cpp .o .hpp
 
@@ -35,60 +35,60 @@ vpath %.o	$(SRC)
 #
 # Magick++ API path
 #
-MAGICK_LINKER = `Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_COMPILER = `Magick++-config --cppflags --cxxflags`
+MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
 
 #
 # Boost API path
 #
-BOOST_COMPILER = -I/usr/local/include/boost
-BOOST_LINKER = -L/usr/local/lib
+BOOST_COMPILER=-I/usr/local/include/boost
+BOOST_LINKER=-L/usr/local/lib
 
 
 
 #
 # Targets
 #
-MAIN_OBJ = main.o
-NESSIE_EXCEPTION_OBJ = NessieException.o
-STATISTICS_OBJ = Statistics.o
-TEXT_OBJ = Text.o
-CLIP_OBJ = Clip.o
-CLIP_LOCATION_OBJ = ClipLocation.o
-SHAPE_OBJ = Shape.o
-PREPROCESSOR_OBJ = Preprocessor.o
-SEGMENTER_OBJ = Segmenter.o
-CLASSIFIER_OBJ = Classifier.o
-RECOGNIZER_OBJ = Recognizer.o
-FEATURE_VECTOR_OBJ = FeatureVector.o
-DATASET_OBJ = DataSet.o
+MAIN_OBJ=main.o
+NESSIE_EXCEPTION_OBJ=NessieException.o
+STATISTICS_OBJ=Statistics.o
+TEXT_OBJ=Text.o
+CLIP_OBJ=Clip.o
+CLIP_LOCATION_OBJ=ClipLocation.o
+SHAPE_OBJ=Shape.o
+PREPROCESSOR_OBJ=Preprocessor.o
+SEGMENTER_OBJ=Segmenter.o
+CLASSIFIER_OBJ=Classifier.o
+RECOGNIZER_OBJ=Recognizer.o
+FEATURE_VECTOR_OBJ=FeatureVector.o
+DATASET_OBJ=DataSet.o
 
 
 
 #
 # Dependencies
 #
-MAIN = main.cpp $(RECOGNIZER_OBJ)
-NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-STATISTICS = Statistics.cpp Statistics.hpp
-TEXT = Text.cpp Text.hpp
-CLIP = Clip.cpp Clip.hpp $(NESSIE_EXCEPTION_OBJ)
-CLIP_LOCATION = ClipLocation.cpp ClipLocation.hpp
-SHAPE = Shape.cpp Shape.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp $(CLIP_OBJ)
-SEGMENTER = Segmenter.cpp Segmenter.hpp $(CLIP_OBJ) $(SHAPE_OBJ)
-CLASSIFIER = Classifier.cpp Classifier.hpp $(DATASET_OBJ) $(SHAPE_OBJ)
-RECOGNIZER = Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(CLIP_LOCATION_OBJ)
-FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp $(NESSIE_EXCEPTION_OBJ)
-DATASET = DataSet.cpp DataSet.hpp $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ)
+MAIN=main.cpp $(RECOGNIZER_OBJ)
+NESSIE_EXCEPTION=NessieException.cpp NessieException.hpp
+STATISTICS=Statistics.cpp Statistics.hpp
+TEXT=Text.cpp Text.hpp
+CLIP=Clip.cpp Clip.hpp $(NESSIE_EXCEPTION_OBJ)
+CLIP_LOCATION=ClipLocation.cpp ClipLocation.hpp
+SHAPE=Shape.cpp Shape.hpp
+PREPROCESSOR=Preprocessor.cpp Preprocessor.hpp $(CLIP_OBJ)
+SEGMENTER=Segmenter.cpp Segmenter.hpp $(CLIP_OBJ) $(SHAPE_OBJ)
+CLASSIFIER=Classifier.cpp Classifier.hpp $(DATASET_OBJ) $(SHAPE_OBJ)
+RECOGNIZER=Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(CLIP_LOCATION_OBJ)
+FEATURE_VECTOR=FeatureVector.cpp FeatureVector.hpp $(NESSIE_EXCEPTION_OBJ)
+DATASET=DataSet.cpp DataSet.hpp $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ)
 
 
 
 #
 # Compiler and linker options
-# 
-EXECUTABLE = bin/ocr
-FLAGS = -Wall -Wextra -O2 -Iinc/ -g #-Weffc++ -Wold-style-cast -Winline
+#
+EXECUTABLE=bin/ocr
+FLAGS=-Wall -Wextra -O2 -Iinc/ -g #-Weffc++ #-Wold-style-cast #-Winline
 
 
 
@@ -97,68 +97,55 @@ main: $(MAIN_OBJ)
 	@printf "\n"
 
 $(MAIN_OBJ): $(MAIN)
-	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $<
-	@mv main.o $(SRC)
+	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $< -o $(SRC)main.o
 	@printf "\n"
 
 $(RECOGNIZER_OBJ): $(RECOGNIZER)
-	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $<
-	@mv $(RECOGNIZER_OBJ) $(SRC)
+	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $< -o $(SRC)$(RECOGNIZER_OBJ)
 	@printf "\n"
 
 $(TEXT_OBJ): $(TEXT)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
-	@mv $(TEXT_OBJ) $(SRC)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(TEXT_OBJ)
 	@printf "\n"
 
-$(STATISTICS_OBJ): $(STATISTICS) 
-	$(CXX) $(FLAGS) -c $<
-	@mv $(STATISTICS_OBJ) $(SRC)
+$(STATISTICS_OBJ): $(STATISTICS)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(STATISTICS_OBJ)
 	@printf "\n"
 
 $(PREPROCESSOR_OBJ): $(PREPROCESSOR)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
-	@mv $(PREPROCESSOR_OBJ) $(SRC)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(PREPROCESSOR_OBJ)
 	@printf "\n"
 
 $(CLIP_OBJ): $(CLIP)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(CLIP_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(CLIP_OBJ)
 	@printf "\n"
 
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(NESSIE_EXCEPTION_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(NESSIE_EXCEPTION_OBJ)
 	@printf "\n"
 
 $(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(CLIP_LOCATION_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(CLIP_LOCATION_OBJ)
 	@printf "\n"
 
 $(SEGMENTER_OBJ): $(SEGMENTER)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
-	@mv $(SEGMENTER_OBJ) $(SRC)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(SEGMENTER_OBJ)
 	@printf "\n"
 
 $(SHAPE_OBJ): $(SHAPE)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(SHAPE_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(SHAPE_OBJ)
 	@printf "\n"
 
 $(CLASSIFIER_OBJ): $(CLASSIFIER)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $<
-	@mv $(CLASSIFIER_OBJ) $(SRC)
+	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(CLASSIFIER_OBJ)
 	@printf "\n"
-	
+
 $(DATASET_OBJ): $(DATASET)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(DATASET_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(DATASET_OBJ)
 	@printf "\n"
 
 $(FEATURE_VECTOR_OBJ): $(FEATURE_VECTOR)
-	$(CXX) $(FLAGS) -c $<
-	@mv $(FEATURE_VECTOR_OBJ) $(SRC)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(FEATURE_VECTOR_OBJ)
 	@printf "\n"
 
 

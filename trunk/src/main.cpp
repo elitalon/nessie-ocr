@@ -12,21 +12,7 @@
 ///
 /// @todo Check documentation for pre- and post-conditions.
 ///
-/// @todo Develop the KNN algorithm.
-///
-/// @todo Develop the Classifier class.
-///
-/// @todo Remove Recognizer::writeExternalImage
-///
-/// @todo Change condition for joining line markers to ( (*currentLineMarkerIterator).first - ((*previousLineMarkerIterator).second + 1) >= meanShapeHeight )
-///
-/// @todo Explore other conditions for joining line markers like computing the mean distance between lines
-///
-/// @todo Modify Segmenter::applyThreshold to use 0 and 1
-///
-/// @todo Convert Statistics into a virtual class and design new Statistics classes for every recognition stage, with more specifics parameters
-///
-/// @todo Add constraints to the Dataset class to avoid writing invalid data
+/// @todo Modify internal data structures to use 0 and 1 for pixel intensity values.
 ///
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
@@ -43,7 +29,7 @@ int main (int argc, char const *argv[])
 			std::cout << "Missing arguments!" << std::endl;
 			return 1;
 		}
-			
+
 		// Load an image object with the filename passed
 		Magick::Image image( argv[1] );
 
