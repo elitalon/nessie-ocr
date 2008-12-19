@@ -78,23 +78,6 @@ void Recognizer::obtainText ()
 
 
 
-void Recognizer::obtainText (const std::vector<ClipLocation>& coordinates)
-{
-	std::vector<ClipLocation>::const_iterator coordinatesIterator;
-	 
-	for ( coordinatesIterator = coordinates.begin(); coordinatesIterator not_eq coordinates.end(); ++coordinatesIterator )
-	{
-		unsigned int row	= (*coordinatesIterator).row();
-		unsigned int column	= (*coordinatesIterator).column();
-		unsigned int height	= (*coordinatesIterator).height();
-		unsigned int width	= (*coordinatesIterator).width();
-		
-		obtainText(row, column, height, width);
-	}
-};
-
-
-
 ///
 /// @details If the clip falls outside the image an exception is thrown unless it can be truncated safety. By default the text
 /// extracted and the statistical data regarding the recognition process are saved in the first position of internal data structures.

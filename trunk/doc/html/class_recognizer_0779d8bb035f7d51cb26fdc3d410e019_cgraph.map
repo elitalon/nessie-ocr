@@ -1,4 +1,4 @@
-<area shape="rect" href="$class_clip.html#06a34378fa0f23425d10bb04e9972a26" title="Returns the column in the underlying image where the upper leftmost pixel of the..." alt="" coords="224,5,317,32">
-<area shape="rect" href="$class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="228,56,313,82">
-<area shape="rect" href="$class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8" title="Returns the row in the underlying image where the upper leftmost pixel of the clip..." alt="" coords="235,106,307,133">
-<area shape="rect" href="$class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="231,157,311,184">
+<area shape="rect" href="$class_clip.html#06a34378fa0f23425d10bb04e9972a26" title="Returns the column in the underlying image where the upper leftmost pixel of the..." alt="" coords="248,5,355,32">
+<area shape="rect" href="$class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="252,56,351,83">
+<area shape="rect" href="$class_clip.html#1a1d1fd626d1325f0f2b9184de4c89b8" title="Returns the row in the underlying image where the upper leftmost pixel of the clip..." alt="" coords="261,107,341,133">
+<area shape="rect" href="$class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="255,157,348,184">

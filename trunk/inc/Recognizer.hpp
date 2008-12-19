@@ -14,7 +14,6 @@
 class Clip;
 #include "Text.hpp"
 #include "Statistics.hpp"
-#include "ClipLocation.hpp"
 
 
 
@@ -73,17 +72,6 @@ public:
 	/// @date 2008-10-09
 	///
 	void obtainText ();
-	
-	
-	///
-	/// Recognizes the text within multiple press clips whose coordinates are passed.
-	///
-	/// @param coordinates A list of coordinates to locate a number of clips within the page
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	void obtainText (const std::vector<ClipLocation>& coordinates);
 	
 	
 	///

@@ -54,7 +54,6 @@ NESSIE_EXCEPTION_OBJ=NessieException.o
 STATISTICS_OBJ=Statistics.o
 TEXT_OBJ=Text.o
 CLIP_OBJ=Clip.o
-CLIP_LOCATION_OBJ=ClipLocation.o
 SHAPE_OBJ=Shape.o
 PREPROCESSOR_OBJ=Preprocessor.o
 SEGMENTER_OBJ=Segmenter.o
@@ -73,12 +72,11 @@ NESSIE_EXCEPTION=NessieException.cpp NessieException.hpp
 STATISTICS=Statistics.cpp Statistics.hpp
 TEXT=Text.cpp Text.hpp
 CLIP=Clip.cpp Clip.hpp $(NESSIE_EXCEPTION_OBJ)
-CLIP_LOCATION=ClipLocation.cpp ClipLocation.hpp
 SHAPE=Shape.cpp Shape.hpp
 PREPROCESSOR=Preprocessor.cpp Preprocessor.hpp $(CLIP_OBJ)
 SEGMENTER=Segmenter.cpp Segmenter.hpp $(CLIP_OBJ) $(SHAPE_OBJ)
 CLASSIFIER=Classifier.cpp Classifier.hpp $(DATASET_OBJ) $(SHAPE_OBJ)
-RECOGNIZER=Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ) $(CLIP_LOCATION_OBJ)
+RECOGNIZER=Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ)
 FEATURE_VECTOR=FeatureVector.cpp FeatureVector.hpp $(NESSIE_EXCEPTION_OBJ)
 DATASET=DataSet.cpp DataSet.hpp $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ)
 
@@ -122,10 +120,6 @@ $(CLIP_OBJ): $(CLIP)
 
 $(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
 	$(CXX) $(FLAGS) -c $< -o $(SRC)$(NESSIE_EXCEPTION_OBJ)
-	@printf "\n"
-
-$(CLIP_LOCATION_OBJ): $(CLIP_LOCATION)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(CLIP_LOCATION_OBJ)
 	@printf "\n"
 
 $(SEGMENTER_OBJ): $(SEGMENTER)
