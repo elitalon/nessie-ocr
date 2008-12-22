@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Recognizer.hpp (175) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Recognizer.hpp (197) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
-<h1>Recognizer.hpp (175)</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Recognizer.hpp (197)</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
@@ -95,7 +95,7 @@ window.onload = initDynSections;
 <a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#008a0ea69a912ff54882dd20d18adcf9" title="Recognizes the text within the whole page at once.">obtainText</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; width);
 <a name="l00089"></a>00089 
 <a name="l00090"></a>00090 
-<a name="l00101"></a>00101     <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted by the recognizer.">Text</a>&amp; <a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted during the recognition process.">Text</a>&amp; <a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label=0) <span class="keyword">const</span>;
 <a name="l00102"></a>00102     
 <a name="l00103"></a>00103     
 <a name="l00114"></a>00114     <span class="keyword">const</span> std::vector&lt;Text&gt;&amp; <a class="code" href="class_recognizer.html#2a365c34f1447cdc3311d311e02bf2ed" title="Returns the text of every loaded clip.">texts</a> () <span class="keyword">const</span>;
@@ -135,7 +135,7 @@ window.onload = initDynSections;
 <a name="l00216"></a>00216 
 <a name="l00217"></a>00217 
 <a name="l00218"></a>00218 
-<a name="l00219"></a><a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2">00219</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted by the recognizer.">Text</a>&amp; <a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">Recognizer::text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label)<span class="keyword"> const</span>
+<a name="l00219"></a><a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2">00219</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted during the recognition process.">Text</a>&amp; <a class="code" href="class_recognizer.html#c5d20b511888a60a6c1a81c0a4206ec2" title="Returns the text of a single clip.">Recognizer::text</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; label)<span class="keyword"> const</span>
 <a name="l00220"></a>00220 <span class="keyword"></span>{
 <a name="l00221"></a>00221     <span class="keywordflow">if</span> ( label &lt;= <a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e" title="Text obtained after the recognition process.">texts_</a>.size() )
 <a name="l00222"></a>00222         <span class="keywordflow">return</span> <a class="code" href="class_recognizer.html#853b3b92f3e02587e949acba44ec0e2e" title="Text obtained after the recognition process.">texts_</a>[label];
@@ -167,7 +167,7 @@ window.onload = initDynSections;
 <a name="l00248"></a>00248 
 <a name="l00249"></a>00249 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Dec 19 17:01:13 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Dec 22 18:06:45 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

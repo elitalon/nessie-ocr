@@ -103,7 +103,7 @@ $(RECOGNIZER_OBJ): $(RECOGNIZER)
 	@printf "\n"
 
 $(TEXT_OBJ): $(TEXT)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(TEXT_OBJ)
+	$(CXX) $(FLAGS) -c $< -o $(SRC)$(TEXT_OBJ)
 	@printf "\n"
 
 $(STATISTICS_OBJ): $(STATISTICS)

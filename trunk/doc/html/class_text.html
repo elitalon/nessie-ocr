@@ -63,7 +63,7 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Text Class Reference</h1><!-- doxytag: class="Text" --><a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> extracted by the recognizer.  
+<h1>Text Class Reference</h1><!-- doxytag: class="Text" --><a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> extracted during the recognition process.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_text_8hpp-source.html">Text.hpp</a>&gt;</code>
@@ -73,7 +73,7 @@ Collaboration diagram for Text:</div>
 <div class="dynsection">
 <p><center><img src="class_text__coll__graph.png" border="0" usemap="#_text__coll__map" alt="Collaboration graph"></center>
 <map name="_text__coll__map">
-<area shape="rect" title="STL class." alt="" coords="36,5,127,85"></map>
+<area shape="rect" title="STL class." alt="" coords="61,136,163,216"><area shape="rect" title="STL class." alt="" coords="5,5,219,85"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
@@ -81,56 +81,53 @@ Collaboration diagram for Text:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">Text</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#b3e26143fccc52699bcc5149cae852bc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#c3c20ee8baeb7b88e2622724f57e50a2">Text</a> (const std::string content)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::wstring &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#d502cb502098b6db857f9bf32991e239">content</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#c3c20ee8baeb7b88e2622724f57e50a2"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_text.html">Text</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">operator+</a> (const <a class="el" href="class_text.html">Text</a> &amp;text) const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Appends a text to the current one.  <a href="#c8887fb224e0402448ede4f3b9f7452d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::string &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c">content</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text's content.  <a href="#8b6ac381338c5b3f719600b5f9be222c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::map&lt; std::string, <br class="typebreak">
-unsigned int &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#f1588ae161a4c4894b2ce1a1d29ebc22">wordRates</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of appearances of every single word in text.  <a href="#f1588ae161a4c4894b2ce1a1d29ebc22"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text content.  <a href="#d502cb502098b6db857f9bf32991e239"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the size of the text.  <a href="#b66729ba84c2698ed888f641b3838a8b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#edfd71af7802a2d72eed7365f081a66d">words</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the size of the text in number of characters.  <a href="#b66729ba84c2698ed888f641b3838a8b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#297b11f78310d8a339e70320e7c75c5c">nWords</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number words in the text.  <a href="#edfd71af7802a2d72eed7365f081a66d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#d2c0cb733cef33657a44e4efc9e518ee">addCharacter</a> (const std::string &amp;character)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the size of the text in number of words.  <a href="#297b11f78310d8a339e70320e7c75c5c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#f5bfc426d5ab6a637edffe9920de6be8">addCharacter</a> (const std::wstring &amp;character)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character at the end of the text.  <a href="#d2c0cb733cef33657a44e4efc9e518ee"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#585f0fde5ef0796ccde09a059d90cc3b">addCharacter</a> (const std::string &amp;character, const unsigned int &amp;position)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character at the end of the text.  <a href="#f5bfc426d5ab6a637edffe9920de6be8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#a0a66c5cac7a5c443285805aaf0adadf">addCharacter</a> (const unsigned char &amp;character)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character to text at the given position.  <a href="#585f0fde5ef0796ccde09a059d90cc3b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character at the end of the text.  <a href="#a0a66c5cac7a5c443285805aaf0adadf"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#3465bf13f54f22ce6e79e77ddc1cf746">addCharacter</a> (const unsigned int &amp;characterAsciiCode)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character at the end of the text.  <a href="#3465bf13f54f22ce6e79e77ddc1cf746"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#dbb1c3c89d75909f3c78b50671ce9190">addCharacter</a> (const std::wstring &amp;character, const unsigned int &amp;position)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character to the text at given position.  <a href="#dbb1c3c89d75909f3c78b50671ce9190"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#abcb5f5b04c127c98945bb625bfd814a">addCharacter</a> (const unsigned char &amp;character, const unsigned int &amp;position)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character to the text at given position.  <a href="#abcb5f5b04c127c98945bb625bfd814a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#3e66320d02289686b4733a8c050c29d0">addCharacter</a> (const unsigned int &amp;characterAsciiCode, const unsigned int &amp;position)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character to the text at given position.  <a href="#3e66320d02289686b4733a8c050c29d0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">removeCharacter</a> (const unsigned int &amp;position)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes a character from text.  <a href="#e04500eeada2a4a3bb00554b32263c52"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes a single character from the text.  <a href="#e04500eeada2a4a3bb00554b32263c52"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_text.html">Text</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">operator+</a> (const <a class="el" href="class_text.html">Text</a> &amp;text) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows to sum a pair of <a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> objects by appending its contents.  <a href="#c8887fb224e0402448ede4f3b9f7452d"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#efd7305b29212ad1db1a51bb1081b770">computeWordRates</a> (const std::string &amp;delimiters=&quot; ,:¡!.;()¿?\&quot;'[]{}&lt;&gt;\\|&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#02b6a678d2a54434e4247156521e7836">Text</a> (const std::wstring &amp;text)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Builds the map of number of appearances of every word in the text.  <a href="#efd7305b29212ad1db1a51bb1081b770"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5">updateWordRate</a> (const std::string &amp;word)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Increases by one the number of appearances of a word.  <a href="#5ab8f9bfa566de537a167991fe10eff5"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#02b6a678d2a54434e4247156521e7836"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8c5acddb86730d41099c87da7e386f6c"></a><!-- doxytag: member="Text::content_" ref="8c5acddb86730d41099c87da7e386f6c" args="" -->
-std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#8c5acddb86730d41099c87da7e386f6c">content_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="79a9a4eb594c09bc0284bed76968ed20"></a><!-- doxytag: member="Text::content_" ref="79a9a4eb594c09bc0284bed76968ed20" args="" -->
+std::wstring&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#79a9a4eb594c09bc0284bed76968ed20">content_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The text's content. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5f7e6b9d9ba0dbd7c1b4070ab42f1de1"></a><!-- doxytag: member="Text::wordRates_" ref="5f7e6b9d9ba0dbd7c1b4070ab42f1de1" args="" -->
-std::map&lt; std::string, <br class="typebreak">
-unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#5f7e6b9d9ba0dbd7c1b4070ab42f1de1">wordRates_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">A list of appearance rates of every single word in text. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The text content. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-<a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> extracted by the recognizer. 
+<a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> extracted during the recognition process. 
 <p>
-This class stores the text that has been extracted from the press clip during the recognition process. It also keeps the number of appearances of every word in text.<p>
+This class stores the text that has been extracted from a press clip during the recognition process.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-08 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -161,22 +158,22 @@ Here is the caller graph for this function:</div>
 <div class="dynsection">
 <p><center><img src="class_text_b3e26143fccc52699bcc5149cae852bc_icgraph.png" border="0" usemap="#class_text_b3e26143fccc52699bcc5149cae852bc_icgraph_map" alt=""></center>
 <map name="class_text_b3e26143fccc52699bcc5149cae852bc_icgraph_map">
-<area shape="rect" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d" title="Appends a text to the current one." alt="" coords="143,5,268,32"></map>
+<area shape="rect" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d" title="Allows to sum a pair of Text objects by appending its contents." alt="" coords="143,5,268,32"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="c3c20ee8baeb7b88e2622724f57e50a2"></a><!-- doxytag: member="Text::Text" ref="c3c20ee8baeb7b88e2622724f57e50a2" args="(const std::string content)" -->
+<a class="anchor" name="02b6a678d2a54434e4247156521e7836"></a><!-- doxytag: member="Text::Text" ref="02b6a678d2a54434e4247156521e7836" args="(const std::wstring &amp;text)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Text::Text           </td>
           <td>(</td>
-          <td class="paramtype">const std::string&nbsp;</td>
-          <td class="paramname"> <em>content</em>          </td>
+          <td class="paramtype">const std::wstring &amp;&nbsp;</td>
+          <td class="paramname"> <em>text</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -187,32 +184,72 @@ Constructor.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>content</em>&nbsp;</td><td>The initial content of the text.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>A STL wstring object with the initial content.</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-04 </dd></dl>
-
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="class_text_c3c20ee8baeb7b88e2622724f57e50a2_cgraph.png" border="0" usemap="#class_text_c3c20ee8baeb7b88e2622724f57e50a2_cgraph_map" alt=""></center>
-<map name="class_text_c3c20ee8baeb7b88e2622724f57e50a2_cgraph_map">
-<area shape="rect" href="class_text.html#efd7305b29212ad1db1a51bb1081b770" title="Builds the map of number of appearances of every word in the text." alt="" coords="141,5,331,32"><area shape="rect" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5" title="Increases by one the number of appearances of a word." alt="" coords="379,5,549,32"></map>
-</div>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="585f0fde5ef0796ccde09a059d90cc3b"></a><!-- doxytag: member="Text::addCharacter" ref="585f0fde5ef0796ccde09a059d90cc3b" args="(const std::string &amp;character, const unsigned int &amp;position)" -->
+<a class="anchor" name="3e66320d02289686b4733a8c050c29d0"></a><!-- doxytag: member="Text::addCharacter" ref="3e66320d02289686b4733a8c050c29d0" args="(const unsigned int &amp;characterAsciiCode, const unsigned int &amp;position)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Text::addCharacter           </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>characterAsciiCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>position</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adds a character to the text at given position. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>characterAsciiCode</em>&nbsp;</td><td>An integer with the ASCII code of character to add. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>An integer indicating the position where the character will be inserted.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is inserted at given position.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_text_3e66320d02289686b4733a8c050c29d0_cgraph.png" border="0" usemap="#class_text_3e66320d02289686b4733a8c050c29d0_cgraph_map" alt=""></center>
+<map name="class_text_3e66320d02289686b4733a8c050c29d0_cgraph_map">
+<area shape="rect" href="class_text.html#f5bfc426d5ab6a637edffe9920de6be8" title="Adds a character at the end of the text." alt="" coords="207,5,356,32"></map>
+</div>
+
+</div>
+</div><p>
+<a class="anchor" name="abcb5f5b04c127c98945bb625bfd814a"></a><!-- doxytag: member="Text::addCharacter" ref="abcb5f5b04c127c98945bb625bfd814a" args="(const unsigned char &amp;character, const unsigned int &amp;position)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::addCharacter           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&nbsp;</td>
           <td class="paramname"> <em>character</em>, </td>
         </tr>
         <tr>
@@ -231,37 +268,117 @@ Here is the call graph for this function:</div>
 <div class="memdoc">
 
 <p>
-Adds a character to text at the given position. 
+Adds a character to the text at given position. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>Character to add </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>Position where adding the character to</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A single character to add. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>An integer indicating the position where the character will be inserted.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is inserted at given position.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-06</dd></dl>
-If the position passed is above the text total length the character is appended to the end of the text. If the position passed is less than 0, the character is inserted at the beginning of the text. 
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
+
 <p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="class_text_585f0fde5ef0796ccde09a059d90cc3b_cgraph.png" border="0" usemap="#class_text_585f0fde5ef0796ccde09a059d90cc3b_cgraph_map" alt=""></center>
-<map name="class_text_585f0fde5ef0796ccde09a059d90cc3b_cgraph_map">
-<area shape="rect" href="class_text.html#efd7305b29212ad1db1a51bb1081b770" title="Builds the map of number of appearances of every word in the text." alt="" coords="205,5,395,32"><area shape="rect" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5" title="Increases by one the number of appearances of a word." alt="" coords="443,5,613,32"></map>
+<p><center><img src="class_text_abcb5f5b04c127c98945bb625bfd814a_cgraph.png" border="0" usemap="#class_text_abcb5f5b04c127c98945bb625bfd814a_cgraph_map" alt=""></center>
+<map name="class_text_abcb5f5b04c127c98945bb625bfd814a_cgraph_map">
+<area shape="rect" href="class_text.html#d502cb502098b6db857f9bf32991e239" title="Returns the text content." alt="" coords="207,5,316,32"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="d2c0cb733cef33657a44e4efc9e518ee"></a><!-- doxytag: member="Text::addCharacter" ref="d2c0cb733cef33657a44e4efc9e518ee" args="(const std::string &amp;character)" -->
+<a class="anchor" name="dbb1c3c89d75909f3c78b50671ce9190"></a><!-- doxytag: member="Text::addCharacter" ref="dbb1c3c89d75909f3c78b50671ce9190" args="(const std::wstring &amp;character, const unsigned int &amp;position)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Text::addCharacter           </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramtype">const std::wstring &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>position</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adds a character to the text at given position. 
+<p>
+<dl class="warning" compact><dt><b>Warning:</b></dt><dd>Though typed as string, only the first character of the string passed as parameter is taken.</dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A STL wstring object with the character to add at its first position. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>An integer indicating the position where the character will be inserted.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The first character in the string passed is inserted at given position.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3465bf13f54f22ce6e79e77ddc1cf746"></a><!-- doxytag: member="Text::addCharacter" ref="3465bf13f54f22ce6e79e77ddc1cf746" args="(const unsigned int &amp;characterAsciiCode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::addCharacter           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>characterAsciiCode</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adds a character at the end of the text. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>characterAsciiCode</em>&nbsp;</td><td>An integer with the ASCII code of character to add at the first position.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is appended at the end of the text.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_text_3465bf13f54f22ce6e79e77ddc1cf746_cgraph.png" border="0" usemap="#class_text_3465bf13f54f22ce6e79e77ddc1cf746_cgraph_map" alt=""></center>
+<map name="class_text_3465bf13f54f22ce6e79e77ddc1cf746_cgraph_map">
+<area shape="rect" href="class_text.html#f5bfc426d5ab6a637edffe9920de6be8" title="Adds a character at the end of the text." alt="" coords="207,5,356,32"></map>
+</div>
+
+</div>
+</div><p>
+<a class="anchor" name="a0a66c5cac7a5c443285805aaf0adadf"></a><!-- doxytag: member="Text::addCharacter" ref="a0a66c5cac7a5c443285805aaf0adadf" args="(const unsigned char &amp;character)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::addCharacter           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&nbsp;</td>
           <td class="paramname"> <em>character</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -273,12 +390,52 @@ Here is the call graph for this function:</div>
 <p>
 Adds a character at the end of the text. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>Character to add</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A single character to add at the first position.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is appended at the end of the text.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_text_a0a66c5cac7a5c443285805aaf0adadf_cgraph.png" border="0" usemap="#class_text_a0a66c5cac7a5c443285805aaf0adadf_cgraph_map" alt=""></center>
+<map name="class_text_a0a66c5cac7a5c443285805aaf0adadf_cgraph_map">
+<area shape="rect" href="class_text.html#f5bfc426d5ab6a637edffe9920de6be8" title="Adds a character at the end of the text." alt="" coords="207,5,356,32"></map>
+</div>
+
+</div>
+</div><p>
+<a class="anchor" name="f5bfc426d5ab6a637edffe9920de6be8"></a><!-- doxytag: member="Text::addCharacter" ref="f5bfc426d5ab6a637edffe9920de6be8" args="(const std::wstring &amp;character)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::addCharacter           </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Adds a character at the end of the text. 
+<p>
+<dl class="warning" compact><dt><b>Warning:</b></dt><dd>Though typed as string, only the first character of the string passed as parameter is taken.</dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A STL wstring object with the character to add at the first position.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The first character in the string passed is appended at the end of the text.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
 
@@ -286,66 +443,19 @@ Adds a character at the end of the text.
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="class_text_d2c0cb733cef33657a44e4efc9e518ee_icgraph.png" border="0" usemap="#class_text_d2c0cb733cef33657a44e4efc9e518ee_icgraph_map" alt=""></center>
-<map name="class_text_d2c0cb733cef33657a44e4efc9e518ee_icgraph_map">
-<area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="205,5,379,32"></map>
+<p><center><img src="class_text_f5bfc426d5ab6a637edffe9920de6be8_icgraph.png" border="0" usemap="#class_text_f5bfc426d5ab6a637edffe9920de6be8_icgraph_map" alt=""></center>
+<map name="class_text_f5bfc426d5ab6a637edffe9920de6be8_icgraph_map">
+<area shape="rect" href="class_text.html#a0a66c5cac7a5c443285805aaf0adadf" title="Adds a character at the end of the text." alt="" coords="217,5,367,32"><area shape="rect" href="class_recognizer.html#d117f344b1f77711e6cbab0f15dbc269" title="Recognizes the text within a single press clip located at coordinates (x,y)." alt="" coords="205,56,379,83"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="efd7305b29212ad1db1a51bb1081b770"></a><!-- doxytag: member="Text::computeWordRates" ref="efd7305b29212ad1db1a51bb1081b770" args="(const std::string &amp;delimiters=&quot; ,:¡!.;()¿?\&quot;'[]{}&lt;&gt;\\|&quot;)" -->
+<a class="anchor" name="d502cb502098b6db857f9bf32991e239"></a><!-- doxytag: member="Text::content" ref="d502cb502098b6db857f9bf32991e239" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Text::computeWordRates           </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>delimiters</em> = <code>&quot;&nbsp;,:¡!.;()¿?\&quot;'[]{}&lt;&gt;\\|&quot;</code>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Builds the map of number of appearances of every word in the text. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>delimiters</em>&nbsp;</td><td>Characters that delimit a word</td></tr>
-  </table>
-</dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
-
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="class_text_efd7305b29212ad1db1a51bb1081b770_cgraph.png" border="0" usemap="#class_text_efd7305b29212ad1db1a51bb1081b770_cgraph_map" alt=""></center>
-<map name="class_text_efd7305b29212ad1db1a51bb1081b770_cgraph_map">
-<area shape="rect" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5" title="Increases by one the number of appearances of a word." alt="" coords="243,5,413,32"></map>
-</div>
-
-<p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="class_text_efd7305b29212ad1db1a51bb1081b770_icgraph.png" border="0" usemap="#class_text_efd7305b29212ad1db1a51bb1081b770_icgraph_map" alt=""></center>
-<map name="class_text_efd7305b29212ad1db1a51bb1081b770_icgraph_map">
-<area shape="rect" href="class_text.html#585f0fde5ef0796ccde09a059d90cc3b" title="Adds a character to text at the given position." alt="" coords="256,5,405,32"><area shape="rect" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from text." alt="" coords="243,56,419,83"><area shape="rect" href="class_text.html#c3c20ee8baeb7b88e2622724f57e50a2" title="Constructor." alt="" coords="288,107,373,133"></map>
-</div>
-
-</div>
-</div><p>
-<a class="anchor" name="8b6ac381338c5b3f719600b5f9be222c"></a><!-- doxytag: member="Text::content" ref="8b6ac381338c5b3f719600b5f9be222c" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::string &amp; Text::content           </td>
+          <td class="memname">const std::wstring &amp; Text::content           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -356,11 +466,44 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 
 <p>
-Returns the text's content. 
+Returns the text content. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Content of the text</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A STL wstring object with the content of the text.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-13 </dd></dl>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_text_d502cb502098b6db857f9bf32991e239_icgraph.png" border="0" usemap="#class_text_d502cb502098b6db857f9bf32991e239_icgraph_map" alt=""></center>
+<map name="class_text_d502cb502098b6db857f9bf32991e239_icgraph_map">
+<area shape="rect" href="class_text.html#abcb5f5b04c127c98945bb625bfd814a" title="Adds a character to the text at given position." alt="" coords="167,5,316,32"></map>
+</div>
+
+</div>
+</div><p>
+<a class="anchor" name="297b11f78310d8a339e70320e7c75c5c"></a><!-- doxytag: member="Text::nWords" ref="297b11f78310d8a339e70320e7c75c5c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Text::nWords           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the size of the text in number of words. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the number of words in the text.</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
 
 </div>
 </div><p>
@@ -381,16 +524,16 @@ Returns the text's content.
 <div class="memdoc">
 
 <p>
-Appends a text to the current one. 
+Allows to sum a pair of <a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> objects by appending its contents. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>The text to append</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>The text to be appended to the current <a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> object.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_text.html" title="Text extracted by the recognizer.">Text</a> object as a result of appending the content of both texts</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_text.html" title="Text extracted during the recognition process.">Text</a> object as a result of appending both contents.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-22 </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -420,24 +563,15 @@ Here is the call graph for this function:</div>
 <div class="memdoc">
 
 <p>
-Removes a character from text. 
+Removes a single character from the text. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>Position where the character will be removed</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>An integer indicating the position where the character must be removed.</td></tr>
   </table>
 </dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03</dd></dl>
-If the position passed is above the text total length the last character is removed. 
-<p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="class_text_e04500eeada2a4a3bb00554b32263c52_cgraph.png" border="0" usemap="#class_text_e04500eeada2a4a3bb00554b32263c52_cgraph_map" alt=""></center>
-<map name="class_text_e04500eeada2a4a3bb00554b32263c52_cgraph_map">
-<area shape="rect" href="class_text.html#efd7305b29212ad1db1a51bb1081b770" title="Builds the map of number of appearances of every word in the text." alt="" coords="229,5,419,32"><area shape="rect" href="class_text.html#5ab8f9bfa566de537a167991fe10eff5" title="Increases by one the number of appearances of a word." alt="" coords="467,5,637,32"></map>
-</div>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-03 </dd></dl>
 
 </div>
 </div><p>
@@ -457,104 +591,16 @@ Here is the call graph for this function:</div>
 <div class="memdoc">
 
 <p>
-Returns the size of the text. 
+Returns the size of the text in number of characters. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Size of the text in number of characters</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="5ab8f9bfa566de537a167991fe10eff5"></a><!-- doxytag: member="Text::updateWordRate" ref="5ab8f9bfa566de537a167991fe10eff5" args="(const std::string &amp;word)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Text::updateWordRate           </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>word</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [private]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Increases by one the number of appearances of a word. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>word</em>&nbsp;</td><td>Word whose appearance rate must be update</td></tr>
-  </table>
-</dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Each time this method is called, the previous word rates are cleared.</dd></dl>
-<dl class="warning" compact><dt><b>Warning:</b></dt><dd>This method must be called whenever the content changes.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
-
-<p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<p><center><img src="class_text_5ab8f9bfa566de537a167991fe10eff5_icgraph.png" border="0" usemap="#class_text_5ab8f9bfa566de537a167991fe10eff5_icgraph_map" alt=""></center>
-<map name="class_text_5ab8f9bfa566de537a167991fe10eff5_icgraph_map">
-<area shape="rect" href="class_text.html#efd7305b29212ad1db1a51bb1081b770" title="Builds the map of number of appearances of every word in the text." alt="" coords="224,56,413,83"><area shape="rect" href="class_text.html#585f0fde5ef0796ccde09a059d90cc3b" title="Adds a character to text at the given position." alt="" coords="475,5,624,32"><area shape="rect" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a character from text." alt="" coords="461,56,637,83"><area shape="rect" href="class_text.html#c3c20ee8baeb7b88e2622724f57e50a2" title="Constructor." alt="" coords="507,107,592,133"></map>
-</div>
-
-</div>
-</div><p>
-<a class="anchor" name="f1588ae161a4c4894b2ce1a1d29ebc22"></a><!-- doxytag: member="Text::wordRates" ref="f1588ae161a4c4894b2ce1a1d29ebc22" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt; std::string, unsigned int &gt; &amp; Text::wordRates           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the number of appearances of every single word in text. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An associative map with every different word and their number of appearances.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="edfd71af7802a2d72eed7365f081a66d"></a><!-- doxytag: member="Text::words" ref="edfd71af7802a2d72eed7365f081a66d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Text::words           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Returns the number words in the text. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of words in the text</dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the number of characters in the text.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2008-10-23 </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Dec 19 17:01:27 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Dec 22 18:06:58 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

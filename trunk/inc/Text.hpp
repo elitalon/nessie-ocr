@@ -1,22 +1,16 @@
-///
 /// @file
 /// @brief Declaration of Text class
-///
 
 #if !defined(_TEXT_H)
 #define _TEXT_H
 
-
-
 #include <string>
-#include <map>
 
 
 ///
-/// Text extracted by the recognizer.
+/// Text extracted during the recognition process.
 /// 
-/// @details This class stores the text that has been extracted from the press clip during the recognition process.
-/// It also keeps the number of appearances of every word in text.
+/// @details This class stores the text that has been extracted from a press clip during the recognition process.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-08
@@ -35,55 +29,20 @@ public:
 
 
 	///
-	/// Constructor.
-	/// 
-	/// @param content The initial content of the text.
+	/// Returns the text content.
 	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
-	///
-	Text (const std::string content);
-
-
-	///
-	/// Appends a text to the current one
-	/// 
-	/// @param text The text to append
-	/// 
-	/// @return Text object as a result of appending the content of both texts
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
-	///
-	Text operator+ (const Text& text) const;
-
-
-	///
-	/// Returns the text's content
-	///
-	/// @return Content of the text
+	/// @return A STL wstring object with the content of the text.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const std::string& content () const;
+	const std::wstring& content () const;
 
 
 	///
-	/// Returns the number of appearances of every single word in text.
-	/// 
-	/// @return An associative map with every different word and their number of appearances.
+	/// Returns the size of the text in number of characters.
 	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
-	///
-	const std::map<std::string, unsigned int>& wordRates () const;
-
-
-	///
-	/// Returns the size of the text
-	///
-	/// @return Size of the text in number of characters
+	/// @return An integer representing the number of characters in the text.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
@@ -92,87 +51,139 @@ public:
 
 
 	///
-	/// Returns the number words in the text
+	/// Returns the size of the text in number of words.
 	///
-	/// @return Number of words in the text
+	/// @return An integer representing the number of words in the text.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-23
 	///
-	unsigned int words () const;
+	unsigned int nWords () const;
 
 
 	///
-	/// Adds a character at the end of the text
+	/// Adds a character at the end of the text.
 	/// 
-	/// @pre Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.
+	/// @warning Though typed as string, only the first character of the string passed as parameter is taken.
 	///
-	/// @param character	Character to add
+	/// @param character A STL wstring object with the character to add at the first position.
+	/// 
+	/// @post The first character in the string passed is appended at the end of the text.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	void addCharacter (const std::string& character);
-
-
+	void addCharacter (const std::wstring& character);
+	
+	
 	///
-	/// Adds a character to text at the given position
-	/// 
-	/// @pre Though typed as string, the character passed as parameter must contain exactly one character. Otherwise the first charactes is taken.
+	/// Adds a character at the end of the text.
 	///
-	/// @param character	Character to add
-	/// @param position		Position where adding the character to
+	/// @param character A single character to add at the first position.
 	/// 
+	/// @post The character is appended at the end of the text.
+	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-06
+	/// @date 2008-12-22
+	///
+	void addCharacter (const unsigned char& character);
+
+
+	///
+	/// Adds a character at the end of the text.
+	///
+	/// @param characterAsciiCode An integer with the ASCII code of character to add at the first position.
 	/// 
-	void addCharacter (const std::string& character, const unsigned int& position);
+	/// @post The character is appended at the end of the text.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-22
+	///	
+	void addCharacter (const unsigned int& characterAsciiCode);
 
 
 	///
-	/// Removes a character from text
+	/// Adds a character to the text at given position.
+	/// 
+	/// @warning Though typed as string, only the first character of the string passed as parameter is taken.
 	///
-	/// @param position		Position where the character will be removed
+	/// @param character	A STL wstring object with the character to add at its first position.
+	/// @param position		An integer indicating the position where the character will be inserted.
+	/// 
+	/// @post The first character in the string passed is inserted at given position.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-03
+	/// 
+	void addCharacter (const std::wstring& character, const unsigned int& position);
+	
+	
+	///
+	/// Adds a character to the text at given position.
+	///
+	/// @param character	A single character to add.
+	/// @param position		An integer indicating the position where the character will be inserted.
+	/// 
+	/// @post The character is inserted at given position.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-22
+	/// 
+	void addCharacter (const unsigned char& character, const unsigned int& position);
+	
+	
+	///
+	/// Adds a character to the text at given position.
+	///
+	/// @param characterAsciiCode	An integer with the ASCII code of character to add.
+	/// @param position				An integer indicating the position where the character will be inserted.
+	/// 
+	/// @post The character is inserted at given position.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-22
+	/// 
+	void addCharacter (const unsigned int& characterAsciiCode, const unsigned int& position);
+
+
+	///
+	/// Removes a single character from the text.
+	///
+	/// @param position		An integer indicating the position where the character must be removed.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
 	void removeCharacter (const unsigned int& position);
 
-
+	
+	///
+	/// Allows to sum a pair of Text objects by appending its contents.
+	/// 
+	/// @param text The text to be appended to the current Text object.
+	/// 
+	/// @return A Text object as a result of appending both contents.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-22
+	///
+	Text operator+ (const Text& text) const;
+	
 private:
 
-	std::string								content_;	///< The text's content
-
-	std::map<std::string, unsigned int>		wordRates_;	///< A list of appearance rates of every single word in text
+	std::wstring content_;	///< The text content
 
 
 	///
-	/// Builds the map of number of appearances of every word in the text
-	///
-	/// @param	delimiters	Characters that delimit a word
+	/// Constructor.
 	/// 
+	/// @param text A STL wstring object with the initial content.
+	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
+	/// @date 2008-12-22
 	/// 
-	void computeWordRates (const std::string& delimiters = " ,:¡!.;()¿?\"'[]{}<>\\|");
-
-
-	///
-	/// Increases by one the number of appearances of a word
-	///
-	/// @param word	Word whose appearance rate must be update
-	/// 
-	/// @post Each time this method is called, the previous word rates are cleared.
-	/// 
-	/// @warning This method must be called whenever the content changes.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
-	///
-	void updateWordRate (const std::string& word);
+	Text (const std::wstring& text);
 };
-
 
 
 
@@ -182,15 +193,9 @@ inline Text Text::operator+ (const Text& text) const
 };
 
 
-inline const std::string& Text::content () const
+inline const std::wstring& Text::content () const
 {
 	return content_;
-};
-
-
-inline const std::map<std::string, unsigned int>& Text::wordRates () const
-{
-	return wordRates_;
 };
 
 
@@ -198,6 +203,5 @@ inline unsigned int Text::size () const
 {
 	return content_.size();
 };
-
 
 #endif  //_TEXT_H
