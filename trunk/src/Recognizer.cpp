@@ -203,11 +203,11 @@ void Recognizer::obtainText (const unsigned int& x, const unsigned int& y, unsig
 			std::string character2 = classifier.matchShape(s2);
 			
 			// Add characters to the text
-			text.addCharacter (character1);
-			text.addCharacter (character2);
+			//text.addCharacter (character1);
+			//text.addCharacter (character2);
 		}
 		else
-			text.addCharacter(character);
+			//text.addCharacter(character);
 		
 		++k;
 	}

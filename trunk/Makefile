@@ -15,132 +15,126 @@
 #
 # General conventions for Makefiles (extracted from GNU Make manual)
 #
-SHELL=/bin/sh
+SHELL = /bin/sh
+CHMOD = chmod
 .SUFFIXES:
 .SUFFIXES: .cpp .o .hpp
-
 
 
 #
 # Directories
 #
-SRC=src/
-INC=inc/
-vpath %.hpp	$(INC)
-vpath %.cpp	$(SRC)
-vpath %.o	$(SRC)
+srcdir = src/
+incdir = inc/
+vpath %.hpp	$(incdir)
+vpath %.cpp	$(srcdir)
+vpath %.o	./
 
 
 
 #
 # Magick++ API path
 #
-MAGICK_LINKER=`Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_COMPILER=`Magick++-config --cppflags --cxxflags`
+MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 
 #
 # Boost API path
 #
-BOOST_COMPILER=-I/usr/local/include/boost
-BOOST_LINKER=-L/usr/local/lib
-
-
-
-#
-# Targets
-#
-MAIN_OBJ=main.o
-NESSIE_EXCEPTION_OBJ=NessieException.o
-STATISTICS_OBJ=Statistics.o
-TEXT_OBJ=Text.o
-CLIP_OBJ=Clip.o
-SHAPE_OBJ=Shape.o
-PREPROCESSOR_OBJ=Preprocessor.o
-SEGMENTER_OBJ=Segmenter.o
-CLASSIFIER_OBJ=Classifier.o
-RECOGNIZER_OBJ=Recognizer.o
-FEATURE_VECTOR_OBJ=FeatureVector.o
-DATASET_OBJ=DataSet.o
+BOOST_CXXFLAGS=-I/usr/local/include/boost
+BOOST_LDFLAGS=-L/usr/local/lib
 
 
 
 #
 # Dependencies
 #
-MAIN=main.cpp $(RECOGNIZER_OBJ)
+MAIN=main.cpp Recognizer.o
 NESSIE_EXCEPTION=NessieException.cpp NessieException.hpp
 STATISTICS=Statistics.cpp Statistics.hpp
 TEXT=Text.cpp Text.hpp
-CLIP=Clip.cpp Clip.hpp $(NESSIE_EXCEPTION_OBJ)
+CLIP=Clip.cpp Clip.hpp NessieException.o
 SHAPE=Shape.cpp Shape.hpp
-PREPROCESSOR=Preprocessor.cpp Preprocessor.hpp $(CLIP_OBJ)
-SEGMENTER=Segmenter.cpp Segmenter.hpp $(CLIP_OBJ) $(SHAPE_OBJ)
-CLASSIFIER=Classifier.cpp Classifier.hpp $(DATASET_OBJ) $(SHAPE_OBJ)
-RECOGNIZER=Recognizer.cpp Recognizer.hpp $(TEXT_OBJ) $(STATISTICS_OBJ) $(PREPROCESSOR_OBJ) $(SEGMENTER_OBJ) $(CLASSIFIER_OBJ)
-FEATURE_VECTOR=FeatureVector.cpp FeatureVector.hpp $(NESSIE_EXCEPTION_OBJ)
-DATASET=DataSet.cpp DataSet.hpp $(NESSIE_EXCEPTION_OBJ) $(FEATURE_VECTOR_OBJ)
+PREPROCESSOR=Preprocessor.cpp Preprocessor.hpp Clip.o
+SEGMENTER=Segmenter.cpp Segmenter.hpp Clip.o Shape.o
+CLASSIFIER=Classifier.cpp Classifier.hpp DataSet.o Shape.o
+RECOGNIZER=Recognizer.cpp Recognizer.hpp Text.o Statistics.o Preprocessor.o Segmenter.o Classifier.o
+FEATURE_VECTOR=FeatureVector.cpp FeatureVector.hpp NessieException.o
+DATASET=DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 
 
 
 #
 # Compiler and linker options
 #
-EXECUTABLE=bin/ocr
-FLAGS=-Wall -Wextra -O2 -Iinc/ -g #-Weffc++ #-Wold-style-cast #-Winline
+OBJECTS = main.o\
+		  Recognizer.o\
+		  Text.o\
+		  Statistics.o\
+		  Preprocessor.o\
+		  Clip.o\
+		  NessieException.o\
+		  Segmenter.o\
+		  Shape.o\
+		  Classifier.o\
+		  DataSet.o\
+		  FeatureVector.o
+PROGRAM = bin/ocr
+CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Wold-style-cast #-Winline
 
 
 
-main: $(MAIN_OBJ)
-	$(CXX) $(FLAGS) $(BOOST_LINKER) $(MAGICK_LINKER) $(SRC)*.o -o $(EXECUTABLE)
-	@printf "\n"
+main: main.o
+	$(CXX) $(CXXFLAGS) $(BOOST_LDFLAGS) $(MAGICK_LDFLAGS) $(OBJECTS) -o $(PROGRAM)
+	@echo
 
-$(MAIN_OBJ): $(MAIN)
-	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $< -o $(SRC)main.o
-	@printf "\n"
+main.o: $(MAIN)
+	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	@echo
 
-$(RECOGNIZER_OBJ): $(RECOGNIZER)
-	$(CXX) $(FLAGS) $(MAGICK_COMPILER) -c $< -o $(SRC)$(RECOGNIZER_OBJ)
-	@printf "\n"
+Recognizer.o: $(RECOGNIZER)
+	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	@echo
 
-$(TEXT_OBJ): $(TEXT)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(TEXT_OBJ)
-	@printf "\n"
+Text.o: $(TEXT)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(STATISTICS_OBJ): $(STATISTICS)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(STATISTICS_OBJ)
-	@printf "\n"
+Statistics.o: $(STATISTICS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(PREPROCESSOR_OBJ): $(PREPROCESSOR)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(PREPROCESSOR_OBJ)
-	@printf "\n"
+Preprocessor.o: $(PREPROCESSOR)
+	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
+	@echo
 
-$(CLIP_OBJ): $(CLIP)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(CLIP_OBJ)
-	@printf "\n"
+Clip.o: $(CLIP)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(NESSIE_EXCEPTION_OBJ): $(NESSIE_EXCEPTION)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(NESSIE_EXCEPTION_OBJ)
-	@printf "\n"
+NessieException.o: $(NESSIE_EXCEPTION)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(SEGMENTER_OBJ): $(SEGMENTER)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(SEGMENTER_OBJ)
-	@printf "\n"
+Segmenter.o: $(SEGMENTER)
+	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
+	@echo
 
-$(SHAPE_OBJ): $(SHAPE)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(SHAPE_OBJ)
-	@printf "\n"
+Shape.o: $(SHAPE)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(CLASSIFIER_OBJ): $(CLASSIFIER)
-	$(CXX) $(FLAGS) $(BOOST_COMPILER) -c $< -o $(SRC)$(CLASSIFIER_OBJ)
-	@printf "\n"
+Classifier.o: $(CLASSIFIER)
+	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
+	@echo
 
-$(DATASET_OBJ): $(DATASET)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(DATASET_OBJ)
-	@printf "\n"
+DataSet.o: $(DATASET)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
-$(FEATURE_VECTOR_OBJ): $(FEATURE_VECTOR)
-	$(CXX) $(FLAGS) -c $< -o $(SRC)$(FEATURE_VECTOR_OBJ)
-	@printf "\n"
+FeatureVector.o: $(FEATURE_VECTOR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
 
 
 
@@ -150,6 +144,6 @@ all: clean main
 
 # Delete everything
 clean:
-	rm -f $(SRC)*.o $(EXECUTABLE)
-	chmod 0644 $(SRC)*.cpp $(INC)*.hpp
-	@printf "\n"
+	rm -f $(OBJECTS) $(PROGRAM)
+	$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
+	@echo
