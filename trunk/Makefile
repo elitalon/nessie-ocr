@@ -41,44 +41,33 @@ MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 #
 # Boost API path
 #
-BOOST_CXXFLAGS=-I/usr/local/include/boost
-BOOST_LDFLAGS=-L/usr/local/lib
+BOOST_CXXFLAGS = -I/usr/local/include/boost
+BOOST_LDFLAGS = -L/usr/local/lib
 
 
 
 #
 # Dependencies
 #
-MAIN=main.cpp Recognizer.o
-NESSIE_EXCEPTION=NessieException.cpp NessieException.hpp
-STATISTICS=Statistics.cpp Statistics.hpp
-TEXT=Text.cpp Text.hpp
-CLIP=Clip.cpp Clip.hpp NessieException.o
-SHAPE=Shape.cpp Shape.hpp
-PREPROCESSOR=Preprocessor.cpp Preprocessor.hpp Clip.o
-SEGMENTER=Segmenter.cpp Segmenter.hpp Clip.o Shape.o
-CLASSIFIER=Classifier.cpp Classifier.hpp DataSet.o Shape.o
-RECOGNIZER=Recognizer.cpp Recognizer.hpp Text.o Statistics.o Preprocessor.o Segmenter.o Classifier.o
-FEATURE_VECTOR=FeatureVector.cpp FeatureVector.hpp NessieException.o
-DATASET=DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
+MAIN = main.cpp Recognizer.o Clip.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o
+TEXT = Text.cpp Text.hpp
+STATISTICS = Statistics.cpp Statistics.hpp
+
+NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
+CLIP = Clip.cpp NessieException.o
+SHAPE = Shape.cpp Shape.hpp
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Shape.o Clip.o
+CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
+FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
+DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 
 
 
 #
 # Compiler and linker options
 #
-OBJECTS = main.o\
-		  Recognizer.o\
-		  Text.o\
-		  Statistics.o\
-		  Preprocessor.o\
-		  Clip.o\
-		  NessieException.o\
-		  Segmenter.o\
-		  Shape.o\
-		  Classifier.o\
-		  DataSet.o\
-		  FeatureVector.o
+OBJECTS = *.o
 PROGRAM = bin/ocr
 CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Wold-style-cast #-Winline
 
@@ -96,6 +85,10 @@ Recognizer.o: $(RECOGNIZER)
 	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
+Clip.o: $(CLIP)
+	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	@echo
+
 Text.o: $(TEXT)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
@@ -105,19 +98,12 @@ Statistics.o: $(STATISTICS)
 	@echo
 
 Preprocessor.o: $(PREPROCESSOR)
-	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
-Clip.o: $(CLIP)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-	@echo
 
 NessieException.o: $(NESSIE_EXCEPTION)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-	@echo
-
-Segmenter.o: $(SEGMENTER)
-	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
 	@echo
 
 Shape.o: $(SHAPE)

@@ -5,43 +5,75 @@
 
 #include "Clip.hpp"
 #include "NessieException.hpp"
+#include <cmath>
 
 
 
-///
-/// @details Initializes a Clip object located at coordinates (row,column) in the underlying image, with the height and width passed.
-/// 
-Clip::Clip (const std::vector<unsigned char>& image, const unsigned int& imageWidth, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width)
-	:	row_(row),
+Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width)
+	:	pixels_(std::deque<unsigned char>(0)),
+		row_(row),
 		column_(column),
 		width_(width),
 		height_(height),
-		pixels_(std::vector<unsigned char>(0)),
 		size_(0)
 {
 	if ( (height == 0) and (width == 0) )
-		throw NessieException ("Clip::Clip() : Constructor has 0 size");
-	
-	if ( width > imageWidth )
-		throw NessieException ("Clip::Clip() : Clip's width cannot be wider than underlying image's width");
+		throw NessieException ("Clip::Clip() : Constructor has 0 size.");
+
+	if ( width > image.columns() )
+		throw NessieException ("Clip::Clip() : The press clip's width cannot be wider than the underlying image's.");
+
+	if ( height > image.rows() )
+		throw NessieException ("Clip::Clip() : The press clip's height cannot be higher than the underlying image's.");
+
+	if ( row >= image.rows() or column >= image.columns() )
+		throw NessieException ("Clip::Clip() : The press clip's top leftmost pixel falls outside the image.");
+
+	if( (row + height) > image.rows() or (column + width) > image.columns() )
+		throw NessieException ("Clip::Clip() : The clip does not fall completely within the underlying image.");
 		
-	// Number of pixels within the clip
-	size_ = width * height;
-	
-	// Space allocation for the clip
-	pixels_.reserve(size_);
-	
-	// Copy the data from the underlying image
-	for ( unsigned int i = row; i < (row + height); ++i )
+	size_ = width_ * height_;
+
+	// Allocate pixel view
+	Magick::Pixels view(const_cast<Magick::Image&>(image));
+	Magick::PixelPacket *pixels = view.get(row, column, width_, height_);
+
+	// Copy the image into the internal data structure
+	for ( unsigned int i = 0; i < height_; ++i )
 	{
-		for ( unsigned int j = column; j < (column + width); ++j )
-			pixels_.push_back( image.at(i * width + j) );
+		for ( unsigned int j = 0; j < width_; ++j )
+		{
+			Magick::ColorGray grayLevel(*pixels++);
+
+			pixels_.at(i * width_ + j) = static_cast<unsigned char>( round(grayLevel.shade() * 255.0) );
+		}
 	}
 };
 
 
-
-Clip::~Clip ()
+void Clip::writeToOutputImage (const std::string& outputFile) const
 {
+	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), "white");
+	outputImage.type( Magick::GrayscaleType );
 
-}
+	// Allocate pixel view
+	Magick::Pixels view(outputImage);
+	Magick::PixelPacket *originPixel = view.get(0, 0, width_, height_);
+	Magick::PixelPacket *pixel;
+
+	// Copy the current data into the external image
+	for ( unsigned int i = 0; i < view.rows(); ++i )
+	{
+		for ( unsigned int j = 0; j < view.columns(); ++j )
+		{
+			pixel = originPixel + (i * view.columns()) + j;
+
+			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j) / 255.0) );
+		}
+	}
+
+	// Synchronize changes
+	view.sync();
+	outputImage.syncPixels();
+	outputImage.write(outputFile);
+};
