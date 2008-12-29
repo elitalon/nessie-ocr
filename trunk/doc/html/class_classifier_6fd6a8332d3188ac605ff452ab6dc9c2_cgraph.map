@@ -1,8 +1,3 @@
-<area shape="rect" href="$class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape." alt="" coords="231,81,447,108">
-<area shape="rect" href="$class_data_set.html#839eb6985338d2c83ae987e75b2d0357" title="Gets a sample from the data set." alt="" coords="261,132,416,159">
-<area shape="rect" href="$class_data_set.html#a4249f02ed870b2e76f0e73728229be2" title="Returns the number of features in every sample of the data set." alt="" coords="264,183,413,209">
-<area shape="rect" href="$class_data_set.html#805d7628a3ee31a4d4278deba91c0bbf" title="Returns the number of samples in the data set." alt="" coords="284,233,393,260">
-<area shape="rect" href="$_classifier_8cpp.html#a0347f59d9d4a61cfdc11716ec0672a6" title="Computes the central moment of a shape." alt="" coords="496,5,680,32">
-<area shape="rect" href="$class_shape.html#8504d3be338d2fa594c35fe1444a9ed8" title="Returns the number of pixels in the shape." alt="" coords="728,31,827,57">
-<area shape="rect" href="$_classifier_8cpp.html#1c0bdf334aee637e59f149928fd796f4" title="Computes the lambda factor to use in several equations related to image moments." alt="" coords="552,107,624,133">
-<area shape="rect" href="$class_feature_vector.html#4e3bd39520fdd8afbefa90ed203d512b" title="Returns the number of features stored in the vector." alt="" coords="513,157,663,184">
+<area shape="rect" href="$class_data_set.html#839eb6985338d2c83ae987e75b2d0357" title="Gets a sample from the data set." alt="" coords="225,5,375,32">
+<area shape="rect" href="$class_data_set.html#a4249f02ed870b2e76f0e73728229be2" title="Returns the number of features in every sample of the data set." alt="" coords="228,56,372,83">
+<area shape="rect" href="$class_data_set.html#805d7628a3ee31a4d4278deba91c0bbf" title="Returns the number of samples in the data set." alt="" coords="248,107,352,133">

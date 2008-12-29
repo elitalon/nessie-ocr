@@ -51,14 +51,14 @@ window.onload = initDynSections;
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
-      <li><a href="annotated.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
   </div>
   <div class="tabs">
     <ul>
       <li><a href="files.html"><span>File&nbsp;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
+      <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
 <h1>Classifier.hpp (193)</h1><a href="_classifier_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
@@ -86,7 +86,7 @@ window.onload = initDynSections;
 <a name="l00034"></a>00034 {
 <a name="l00035"></a>00035 <span class="keyword">public</span>:
 <a name="l00036"></a>00036     
-<a name="l00045"></a>00045     <a class="code" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e" title="Private constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>&amp; dataset);
+<a name="l00045"></a>00045     <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>&amp; dataset);
 <a name="l00046"></a>00046     
 <a name="l00047"></a>00047     
 <a name="l00054"></a>00054     <a class="code" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c" title="Destructor.">~Classifier</a> ();
@@ -100,17 +100,17 @@ window.onload = initDynSections;
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081 <span class="keyword">private</span>:
 <a name="l00082"></a>00082     
-<a name="l00083"></a><a class="code" href="class_classifier.html#f51f1cad8043df12e5f0836fc3193cbf">00083</a>     <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>         <a class="code" href="class_classifier.html#f51f1cad8043df12e5f0836fc3193cbf" title="Data set where the classification samples are stored.">dataset_</a>;           
+<a name="l00083"></a>00083     <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>         dataset_;           
 <a name="l00084"></a>00084     
-<a name="l00085"></a><a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a">00085</a>     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>   <a class="code" href="class_classifier.html#3d46e3d6546304f24db6d9402375988a" title="A sample that represents a shape.">sample_</a>;            
+<a name="l00085"></a>00085     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>   sample_;            
 <a name="l00086"></a>00086     
-<a name="l00087"></a><a class="code" href="class_classifier.html#270f1e980d3527980b20c0c121d23f41">00087</a>     <span class="keywordtype">double</span>          <a class="code" href="class_classifier.html#270f1e980d3527980b20c0c121d23f41" title="Elapsed time while matching a shape into a character.">matchingShapeTime_</a>; 
+<a name="l00087"></a>00087     <span class="keywordtype">double</span>          matchingShapeTime_; 
 <a name="l00088"></a>00088     
 <a name="l00089"></a>00089     
-<a name="l00100"></a>00100     <a class="code" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e" title="Private constructor.">Classifier</a> ();
+<a name="l00100"></a>00100     <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> ();
 <a name="l00101"></a>00101     
 <a name="l00102"></a>00102     
-<a name="l00113"></a>00113     <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#6c5a7ef6298b0f0d84873297f1e8c7e9" title="Builds a feature vector from a shape.">buildFeatureVector</a> (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
+<a name="l00113"></a>00113     <span class="keywordtype">void</span> buildFeatureVector (<span class="keyword">const</span> <a class="code" href="class_shape.html" title="The shape of a character in a press clip.">Shape</a>&amp; shape);
 <a name="l00114"></a>00114     
 <a name="l00115"></a>00115 };
 <a name="l00116"></a>00116 
@@ -118,12 +118,12 @@ window.onload = initDynSections;
 <a name="l00118"></a>00118 
 <a name="l00119"></a><a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792">00119</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792" title="Returns the elapsed time while matching a shape to a character.">Classifier::matchingShapeTime</a> ()
 <a name="l00120"></a>00120 {
-<a name="l00121"></a>00121     <span class="keywordflow">return</span> <a class="code" href="class_classifier.html#270f1e980d3527980b20c0c121d23f41" title="Elapsed time while matching a shape into a character.">matchingShapeTime_</a>;
+<a name="l00121"></a>00121     <span class="keywordflow">return</span> matchingShapeTime_;
 <a name="l00122"></a>00122 };
 <a name="l00123"></a>00123 
 <a name="l00124"></a>00124 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Dec 22 18:06:45 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Dec 29 19:21:14 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>
