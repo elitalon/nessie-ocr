@@ -39,11 +39,10 @@ int main (int argc, char const *argv[])
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 		// Create a Recognizer object from the image loaded
-		//Recognizer recon(pressClip);
+		Recognizer recon;
 
 		// Execute the OCR process
-		//recon.obtainText();
-
+		recon.extractText(pressClip);
 	}
 	catch (std::exception &e)
 	{

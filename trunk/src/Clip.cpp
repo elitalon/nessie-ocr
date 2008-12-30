@@ -1,7 +1,5 @@
-///
 /// @file
 /// @brief Definition of Clip class
-///
 
 #include "Clip.hpp"
 #include "NessieException.hpp"
@@ -31,14 +29,15 @@ Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned 
 
 	if( (row + height) > image.rows() or (column + width) > image.columns() )
 		throw NessieException ("Clip::Clip() : The clip does not fall completely within the underlying image.");
-		
+
 	size_ = width_ * height_;
+	pixels_.resize(size_);
 
-	// Allocate pixel view
-	Magick::Pixels view(const_cast<Magick::Image&>(image));
-	Magick::PixelPacket *pixels = view.get(row, column, width_, height_);
+	// Allocate a frame over the image to access its pixels.
+	Magick::Pixels frame(const_cast<Magick::Image&>(image));
+	Magick::PixelPacket *pixels = frame.get(row, column, width_, height_);
 
-	// Copy the image into the internal data structure
+	// Copy the image pixels into the deque
 	for ( unsigned int i = 0; i < height_; ++i )
 	{
 		for ( unsigned int j = 0; j < width_; ++j )

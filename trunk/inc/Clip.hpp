@@ -107,39 +107,39 @@ public:
 	const unsigned int& size () const;
 
 
-    ///
-    /// Creates a new image file using Magick++ that reflects the current state of the press clip.
-    ///
-    /// @param outputFile	A string with the name of the image created in the file system.
-    ///
-    /// @post A new image file is created in the filesystem. The image type is assigned according
+	///
+	/// Creates a new image file using Magick++ that reflects the current state of the press clip.
+	///
+	/// @param outputFile	A string with the name of the image created in the file system.
+	///
+	/// @post A new image file is created in the filesystem. The image type is assigned according
 	/// to the file extension that comes with the filename (e.g. "foo.png" selects PNG as the image
 	/// type). Otherwise the image type is Magick++'s implementation-dependent.
-    ///
-    /// @author Eliezer Talón (elitalon@gmail.com)
-    /// @date 2008-12-29
-    ///
-    void writeToOutputImage (const std::string& outputFile) const;
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-29
+	///
+	void writeToOutputImage (const std::string& outputFile) const;
 
 private:
 
 	std::deque<unsigned char>	pixels_;	///< Set of pixels that defines the press clip.
-	
+
 	unsigned int				row_;		///< Row in the underlying image where the upper leftmost pixel of the press clip is at.
 
 	unsigned int				column_;	///< Column in the underlying image where the upper leftmost pixel of the press clip is at.
 
 	unsigned int				width_;		///< Width of the clip in pixels.
 
- 	unsigned int				height_;	///< Height of the clip in pixels.
+	unsigned int				height_;	///< Height of the clip in pixels.
 
 	unsigned int				size_;		///< Size of the clip in pixels.
 
 
-    // Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
+	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	Clip ();
-    Clip (const Clip&);
-    Clip& operator=(const Clip&);
+	Clip (const Clip&);
+	Clip& operator=(const Clip&);
 };
 
 

@@ -27,77 +27,77 @@ class Recognizer
 {
 public:
 
-    ///
-    /// Constructor.
-    ///
-    /// @author Eliezer Talón (elitalon@gmail.com)
-    /// @date 2008-12-29
-    ///
-    explicit Recognizer ();
+	///
+	/// Constructor.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-29
+	///
+	explicit Recognizer ();
 
 
-    ///
-    /// Extracts the text within a single press clip.
-    ///
-    /// @param pressClip    A Clip object representing the press clip previously loaded.
-    ///
-    /// @see Clip
-    ///
-    /// @author Eliezer Talón (elitalon@gmail.com)
-    /// @date 2008-12-29
-    ///
-    void extractText (const Clip& pressClip);
+	///
+	/// Extracts the text within a single press clip.
+	///
+	/// @param pressClip	A Clip object representing the press clip previously loaded.
+	///
+	/// @see Clip
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-29
+	///
+	void extractText (const Clip& pressClip);
 
 
-    ///
-    /// Returns the text found in a press clip after the recognition process.
-    ///
-    /// @return A Text object with the data about the text recognized.
-    ///
-    /// @see Text
-    ///
-    /// @author Eliezer Talón (elitalon@gmail.com)
-    /// @date 2008-12-29
-    ///
-    const Text& text () const;
+	///
+	/// Returns the text found in a press clip after the recognition process.
+	///
+	/// @return A Text object with the data about the text recognized.
+	///
+	/// @see Text
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-29
+	///
+	const Text& text () const;
 
 
-    ///
-    /// Returns the statistical data regarding the recognition process of a single clip.
-    ///
-    /// @return An Statistics object with data about the recognition process.
-    ///
-    /// @see Statistics
-    ///
-    /// @author Eliezer Talón (elitalon@gmail.com)
-    /// @date 2008-12-29
-    ///
-    const Statistics& statistics () const;
+	///
+	/// Returns the statistical data regarding the recognition process of a single clip.
+	///
+	/// @return An Statistics object with data about the recognition process.
+	///
+	/// @see Statistics
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-12-29
+	///
+	const Statistics& statistics () const;
 
 
 private:
 
-    Text            text_;			///< Text obtained after the recognition process.
+	Text		text_;			///< Text obtained after the recognition process.
 
-    Statistics      statistics_;	///< Statistics gathered during the recognition process.
+	Statistics	statistics_;	///< Statistics gathered during the recognition process.
 
 
-    // Explicitly disallow compiler-generated functions. DO NOT IMPLEMENT THEM!!
-    Recognizer(const Recognizer&);
-    Recognizer& operator=(const Recognizer&);
+	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
+	Recognizer(const Recognizer&);
+	Recognizer& operator=(const Recognizer&);
 };
 
 
 
 inline const Text& Recognizer::text () const
 {
-    return text_;
+	return text_;
 };
 
 
 inline const Statistics& Recognizer::statistics () const
 {
-    return statistics_;
+	return statistics_;
 };
 
 

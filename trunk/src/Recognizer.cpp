@@ -6,9 +6,6 @@
 
 
 
-///
-/// @details Creates an empty Recognizer object with neither text nor statistics set.
-///
 Recognizer::Recognizer ()
 	:	text_(Text()),
 		statistics_(Statistics())
@@ -23,11 +20,11 @@ void Recognizer::extractText (const Clip& pressClip)
 	//
 	// Preprocessing stage
 	//
+	pressClip.writeToOutputImage("foo.jpg");
 
-
-    //
-    // Feature extraction stage
-    //
+	//
+	// Feature extraction stage
+	//
 
 
 	//
