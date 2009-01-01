@@ -1,13 +1,11 @@
-///
 /// @file
 /// @brief Implementation of a command line program for testing purposes
-///
 
 #include <Magick++.h>
 #include "Clip.hpp"
 #include "Recognizer.hpp"
 #include <iostream>
-
+#include <boost/timer.hpp>
 
 
 ///
@@ -33,16 +31,17 @@ int main (int argc, char const *argv[])
 			return 1;
 		}
 
-		// Load an image object with the filename passed
+		boost::timer timer;
+		timer.restart();
+		
 		Magick::Image image( argv[1] );
 
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
-		// Create a Recognizer object from the image loaded
 		Recognizer recon;
-
-		// Execute the OCR process
 		recon.extractText(pressClip);
+
+		std::cout << "Total time since program started: " << timer.elapsed() << std::endl;
 	}
 	catch (std::exception &e)
 	{

@@ -33,20 +33,6 @@ vpath %.o	./
 
 
 #
-# Magick++ API path
-#
-MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
-
-#
-# Boost API path
-#
-BOOST_CXXFLAGS = -I/usr/local/include/boost
-BOOST_LDFLAGS = -L/usr/local/lib
-
-
-
-#
 # Dependencies
 #
 MAIN = main.cpp Recognizer.o Clip.o
@@ -70,15 +56,18 @@ DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 OBJECTS = *.o
 PROGRAM = bin/ocr
 CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Wold-style-cast #-Winline
+MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
+BOOST_CXXFLAGS = -I`find /usr/*/include -maxdepth 1 -name boost`
 
 
 
 main: main.o
-	$(CXX) $(CXXFLAGS) $(BOOST_LDFLAGS) $(MAGICK_LDFLAGS) $(OBJECTS) -o $(PROGRAM)
+	$(CXX) $(CXXFLAGS) $(MAGICK_LDFLAGS) $(OBJECTS) -o $(PROGRAM)
 	@echo
 
 main.o: $(MAIN)
-	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
 Recognizer.o: $(RECOGNIZER)
