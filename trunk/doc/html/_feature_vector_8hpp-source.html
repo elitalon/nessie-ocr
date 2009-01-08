@@ -130,14 +130,14 @@ window.onload = initDynSections;
 <a name="l00148"></a><a class="code" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a">00148</a> <span class="keyword">inline</span> <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> <a class="code" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a" title="Makes the sum of two feature vectors.">FeatureVector::operator+ </a>(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>&amp; featureVector)<span class="keyword"> const</span>
 <a name="l00149"></a>00149 <span class="keyword"></span>{
 <a name="l00150"></a>00150     <span class="comment">// Check if vectors have the same size</span>
-<a name="l00151"></a>00151     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#2a4401d03f76ba6252e2d5d3a34fb79b" title="Number of features.">size_</a> )
+<a name="l00151"></a>00151     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#262592d779f18095c8213c0424edf25d" title="Number of features.">size_</a> )
 <a name="l00152"></a>00152         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"FeatureVector::operator+() : Size of vectors to sum must be equal"</span>);
 <a name="l00153"></a>00153 
 <a name="l00154"></a>00154 
 <a name="l00155"></a>00155     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> temp;
 <a name="l00156"></a>00156     
 <a name="l00157"></a>00157     <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;size_; ++i )
-<a name="l00158"></a>00158         temp.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.at(i) = this-&gt;features_.at(i) + featureVector.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.at(i);
+<a name="l00158"></a>00158         temp.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.at(i) = this-&gt;features_.at(i) + featureVector.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.at(i);
 <a name="l00159"></a>00159     
 <a name="l00160"></a>00160     <span class="keywordflow">return</span> temp;
 <a name="l00161"></a>00161 };
@@ -146,14 +146,14 @@ window.onload = initDynSections;
 <a name="l00164"></a><a class="code" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab">00164</a> <span class="keyword">inline</span> <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> <a class="code" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab" title="Makes the subtraction of two feature vectors.">FeatureVector::operator- </a>(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>&amp; featureVector)<span class="keyword"> const</span>
 <a name="l00165"></a>00165 <span class="keyword"></span>{
 <a name="l00166"></a>00166     <span class="comment">// Check if vectors have the same size</span>
-<a name="l00167"></a>00167     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#2a4401d03f76ba6252e2d5d3a34fb79b" title="Number of features.">size_</a> )
+<a name="l00167"></a>00167     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#262592d779f18095c8213c0424edf25d" title="Number of features.">size_</a> )
 <a name="l00168"></a>00168         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"FeatureVector::operator-() : Size of vectors to subtract must be equal"</span>);
 <a name="l00169"></a>00169 
 <a name="l00170"></a>00170     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> temp;
-<a name="l00171"></a>00171     temp.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.reserve(this-&gt;size_);
+<a name="l00171"></a>00171     temp.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.reserve(this-&gt;size_);
 <a name="l00172"></a>00172 
 <a name="l00173"></a>00173     <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;size_; ++i )
-<a name="l00174"></a>00174         temp.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.at(i) = this-&gt;features_.at(i) - featureVector.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.at(i);
+<a name="l00174"></a>00174         temp.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.at(i) = this-&gt;features_.at(i) - featureVector.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.at(i);
 <a name="l00175"></a>00175         
 <a name="l00176"></a>00176     <span class="keywordflow">return</span> temp;
 <a name="l00177"></a>00177 };
@@ -162,13 +162,13 @@ window.onload = initDynSections;
 <a name="l00180"></a><a class="code" href="class_feature_vector.html#a372a9185d83db2283947d50a2913db0">00180</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_feature_vector.html#a372a9185d83db2283947d50a2913db0" title="Makes the multiplication of two feature vectors.">FeatureVector::operator* </a>(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>&amp; featureVector)<span class="keyword"> const</span>
 <a name="l00181"></a>00181 <span class="keyword"></span>{
 <a name="l00182"></a>00182     <span class="comment">// Check if vectors have the same size</span>
-<a name="l00183"></a>00183     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#2a4401d03f76ba6252e2d5d3a34fb79b" title="Number of features.">size_</a> )
+<a name="l00183"></a>00183     <span class="keywordflow">if</span> ( this-&gt;size_ not_eq featureVector.<a class="code" href="class_feature_vector.html#262592d779f18095c8213c0424edf25d" title="Number of features.">size_</a> )
 <a name="l00184"></a>00184         <span class="keywordflow">throw</span> <a class="code" href="class_nessie_exception.html" title="Exception raised by a Nessie OCR object.">NessieException</a> (<span class="stringliteral">"FeatureVector::operator*() : Size of vectors to multiply must be equal"</span>);
 <a name="l00185"></a>00185 
 <a name="l00186"></a>00186     <span class="keywordtype">double</span> result = 0.0;
 <a name="l00187"></a>00187     
 <a name="l00188"></a>00188     <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;size_; ++i )
-<a name="l00189"></a>00189         result += this-&gt;features_.at(i) * featureVector.<a class="code" href="class_feature_vector.html#adf725deb382b4b04ed2291be28bbbec" title="Features of the character.">features_</a>.at(i);
+<a name="l00189"></a>00189         result += this-&gt;features_.at(i) * featureVector.<a class="code" href="class_feature_vector.html#374bd959fe8021418fe51007f7473f47" title="Features of the character.">features_</a>.at(i);
 <a name="l00190"></a>00190         
 <a name="l00191"></a>00191     <span class="keywordflow">return</span> result;
 <a name="l00192"></a>00192 };
@@ -181,7 +181,7 @@ window.onload = initDynSections;
 <a name="l00199"></a>00199 
 <a name="l00200"></a>00200 <span class="preprocessor">#endif  //_FEATUREVECTOR_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Dec 30 11:42:56 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 8 10:38:23 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

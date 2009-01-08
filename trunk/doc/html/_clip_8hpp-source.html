@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.hpp (200) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Clip.hpp (203) Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Clip.hpp (200)</h1><a href="_clip_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Clip.hpp (203)</h1><a href="_clip_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_CLIP_H)</span>
@@ -119,39 +119,38 @@ window.onload = initDynSections;
 <a name="l00144"></a>00144 
 <a name="l00145"></a>00145 
 <a name="l00146"></a>00146 
-<a name="l00147"></a>00147 
-<a name="l00148"></a><a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be">00148</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; <a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be" title="Allows read-and-write access to a pixel in the clip.">Clip::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;row, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;column)
-<a name="l00149"></a>00149 {
-<a name="l00150"></a>00150     <span class="keywordflow">return</span> pixels_.at(row * width_ + column);
-<a name="l00151"></a>00151 };
+<a name="l00147"></a><a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be">00147</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; <a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be" title="Allows read-and-write access to a pixel in the clip.">Clip::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;row, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;column)
+<a name="l00148"></a>00148 {
+<a name="l00149"></a>00149     <span class="keywordflow">return</span> pixels_.at(row * width_ + column);
+<a name="l00150"></a>00150 };
+<a name="l00151"></a>00151 
 <a name="l00152"></a>00152 
-<a name="l00153"></a>00153 
-<a name="l00154"></a><a class="code" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">00154</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be" title="Allows read-and-write access to a pixel in the clip.">Clip::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;row, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;column)<span class="keyword"> const</span>
-<a name="l00155"></a>00155 <span class="keyword"></span>{
-<a name="l00156"></a>00156     <span class="keywordflow">return</span> pixels_.at(row * width_ + column);
-<a name="l00157"></a>00157 };
+<a name="l00153"></a><a class="code" href="class_clip.html#16b24276181affc5086cb4fe83269fb8">00153</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="class_clip.html#0f80c2b0f0f177fe9c780c93596f77be" title="Allows read-and-write access to a pixel in the clip.">Clip::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;row, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;column)<span class="keyword"> const</span>
+<a name="l00154"></a>00154 <span class="keyword"></span>{
+<a name="l00155"></a>00155     <span class="keywordflow">return</span> pixels_.at(row * width_ + column);
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
 <a name="l00158"></a>00158 
-<a name="l00159"></a>00159 
-<a name="l00160"></a><a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0">00160</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">Clip::width</a> ()<span class="keyword"> const</span>
-<a name="l00161"></a>00161 <span class="keyword"></span>{
-<a name="l00162"></a>00162     <span class="keywordflow">return</span> width_;
-<a name="l00163"></a>00163 };
+<a name="l00159"></a><a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0">00159</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip.">Clip::width</a> ()<span class="keyword"> const</span>
+<a name="l00160"></a>00160 <span class="keyword"></span>{
+<a name="l00161"></a>00161     <span class="keywordflow">return</span> width_;
+<a name="l00162"></a>00162 };
+<a name="l00163"></a>00163 
 <a name="l00164"></a>00164 
-<a name="l00165"></a>00165 
-<a name="l00166"></a><a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97">00166</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">Clip::height</a> ()<span class="keyword"> const</span>
-<a name="l00167"></a>00167 <span class="keyword"></span>{
-<a name="l00168"></a>00168     <span class="keywordflow">return</span> height_;
-<a name="l00169"></a>00169 };
+<a name="l00165"></a><a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97">00165</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip.">Clip::height</a> ()<span class="keyword"> const</span>
+<a name="l00166"></a>00166 <span class="keyword"></span>{
+<a name="l00167"></a>00167     <span class="keywordflow">return</span> height_;
+<a name="l00168"></a>00168 };
+<a name="l00169"></a>00169 
 <a name="l00170"></a>00170 
-<a name="l00171"></a>00171 
-<a name="l00172"></a><a class="code" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">00172</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip.">Clip::size</a> ()<span class="keyword"> const</span>
-<a name="l00173"></a>00173 <span class="keyword"></span>{
-<a name="l00174"></a>00174     <span class="keywordflow">return</span> size_;
-<a name="l00175"></a>00175 };
-<a name="l00176"></a>00176 
-<a name="l00177"></a>00177 <span class="preprocessor">#endif  //_CLIP_H</span>
+<a name="l00171"></a><a class="code" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">00171</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip.">Clip::size</a> ()<span class="keyword"> const</span>
+<a name="l00172"></a>00172 <span class="keyword"></span>{
+<a name="l00173"></a>00173     <span class="keywordflow">return</span> size_;
+<a name="l00174"></a>00174 };
+<a name="l00175"></a>00175 
+<a name="l00176"></a>00176 <span class="preprocessor">#endif  //_CLIP_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Dec 30 11:42:55 2008 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 8 10:38:23 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7.1 </small></address>
 </body>

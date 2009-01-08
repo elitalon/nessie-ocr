@@ -144,7 +144,6 @@ private:
 
 
 
-
 inline unsigned char& Clip::operator() (const unsigned int &row, const unsigned int &column)
 {
 	return pixels_.at(row * width_ + column);

@@ -2,76 +2,45 @@
 /// @brief Definition of Text class
 
 #include "Text.hpp"
+#include "NessieException.hpp"
 
 
 Text::Text ()
-	:	content_(std::wstring(L""))
+	:	content_(std::string(""))
 {};
 
 
-Text::Text (const std::wstring& content)
+Text::Text (const std::string& content)
 	:	content_(content)
 {};
 
 
-unsigned int Text::nWords () const
+void Text::addCharacter (const std::string& character)
 {
-	unsigned int nWords = 0;
+	addCharacter(character, content_.size());
+}
+
+
+///
+/// @todo Design a better mechanism to throw an exception whenever the string passed contains more than one character.
+/// The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1.
+///
+void Text::addCharacter (const std::string& character, const unsigned int& position)
+{
+	if ( character.size() > 2 )
+		throw NessieException("Text::addCharacter() : The string passed cannot contain more than one character.");
 	
-	return nWords;
-};
-
-
-void Text::addCharacter (const std::wstring& character)
-{
-	addCharacter(character, content_.length());
-}
-
-
-void Text::addCharacter (const unsigned char& character)
-{
-	addCharacter(character, content_.length());
-}
-
-
-void Text::addCharacter (const unsigned int& characterAsciiCode)
-{
-	addCharacter(characterAsciiCode, content_.length());
-}
-
-
-void Text::addCharacter (const std::wstring& character, const unsigned int& position)
-{
-	if(position > content_.length())
-		content_.append(1, character.at(0));
+	if(position > content_.size())
+		throw NessieException("Text::addCharacter() : The given position is greater than the size of the text.");
 	else
-		content_.insert(position, 1, character.at(0));
-};
-
-
-void Text::addCharacter (const unsigned char& character, const unsigned int& position)
-{
-	std::wstring content(1, character);
-	
-	if(position > content_.length())
-		content_.append(1, content.at(0));
-	else
-		content_.insert(position, 1, content.at(0));
-};
-
-
-void Text::addCharacter (const unsigned int& characterAsciiCode, const unsigned int& position)
-{
-	unsigned char character = characterAsciiCode;
-	
-	addCharacter(character, position);
+		content_.insert(position, character);
 };
 
 
 void Text::removeCharacter (const unsigned int& position)
 {
-	if (position > content_.length())
-		content_.erase(content_.end());
+	if (position > content_.size())
+		throw NessieException("Text::addCharacter() : The given position is greater than the size of the text.");
 	else
 		content_.erase(position, 1);	
 };

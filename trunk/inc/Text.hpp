@@ -13,7 +13,7 @@
 /// @details This class stores the text that has been extracted from a press clip during the recognition process.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
+/// @date 2008-12-30
 ///
 class Text
 {
@@ -23,7 +23,7 @@ public:
 	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
+	/// @date 2008-12-30
 	/// 
 	Text ();
 
@@ -31,12 +31,12 @@ public:
 	///
 	/// Returns the text content.
 	///
-	/// @return A STL wstring object with the content of the text.
+	/// @return A STL string object with the content of the text.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// @date 2008-12-30
 	///
-	const std::wstring& content () const;
+	const std::string& content () const;
 
 
 	///
@@ -45,114 +45,52 @@ public:
 	/// @return An integer representing the number of characters in the text.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
+	/// @date 2008-12-30
 	///
-	unsigned int size () const;
-
-
-	///
-	/// Returns the size of the text in number of words.
-	///
-	/// @return An integer representing the number of words in the text.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-23
-	///
-	unsigned int nWords () const;
-
-
-	///
-	/// Adds a character at the end of the text.
-	/// 
-	/// @warning Though typed as string, only the first character of the string passed as parameter is taken.
-	///
-	/// @param character A STL wstring object with the character to add at the first position.
-	/// 
-	/// @post The first character in the string passed is appended at the end of the text.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
-	/// 
-	void addCharacter (const std::wstring& character);
+	unsigned int size () const;	
 	
 	
 	///
 	/// Adds a character at the end of the text.
 	///
-	/// @param character A single character to add at the first position.
+	/// @param character	A STL string object with a single character to add.
 	/// 
 	/// @post The character is appended at the end of the text.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
+	/// @date 2008-12-30
 	///
-	void addCharacter (const unsigned char& character);
-
-
-	///
-	/// Adds a character at the end of the text.
-	///
-	/// @param characterAsciiCode An integer with the ASCII code of character to add at the first position.
-	/// 
-	/// @post The character is appended at the end of the text.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
-	///	
-	void addCharacter (const unsigned int& characterAsciiCode);
-
-
-	///
-	/// Adds a character to the text at given position.
-	/// 
-	/// @warning Though typed as string, only the first character of the string passed as parameter is taken.
-	///
-	/// @param character	A STL wstring object with the character to add at its first position.
-	/// @param position		An integer indicating the position where the character will be inserted.
-	/// 
-	/// @post The first character in the string passed is inserted at given position.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
-	/// 
-	void addCharacter (const std::wstring& character, const unsigned int& position);
+	void addCharacter (const std::string& character);
 	
 	
 	///
 	/// Adds a character to the text at given position.
 	///
-	/// @param character	A single character to add.
+	/// @param character	A STL string object with a single character to add.
 	/// @param position		An integer indicating the position where the character will be inserted.
 	/// 
 	/// @post The character is inserted at given position.
+	/// 
+	/// @exception If <em>position</em> is greater than the value returned by Text::size().
+	/// @exception If <em>character</em> contains more than one character.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
+	/// @date 2008-12-30
 	/// 
-	void addCharacter (const unsigned char& character, const unsigned int& position);
+	void addCharacter (const std::string& character, const unsigned int& position);
 	
-	
-	///
-	/// Adds a character to the text at given position.
-	///
-	/// @param characterAsciiCode	An integer with the ASCII code of character to add.
-	/// @param position				An integer indicating the position where the character will be inserted.
-	/// 
-	/// @post The character is inserted at given position.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
-	/// 
-	void addCharacter (const unsigned int& characterAsciiCode, const unsigned int& position);
-
 
 	///
 	/// Removes a single character from the text.
 	///
 	/// @param position		An integer indicating the position where the character must be removed.
 	/// 
+	/// @post The character at given position is removed.
+	/// 
+	/// @exception If <em>position</em> is greater than the value returned by Text::size().
+	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
+	/// @date 2008-12-30
 	/// 
 	void removeCharacter (const unsigned int& position);
 
@@ -165,24 +103,24 @@ public:
 	/// @return A Text object as a result of appending both contents.
 	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
+	/// @date 2008-12-30
 	///
 	Text operator+ (const Text& text) const;
 	
 private:
 
-	std::wstring content_;	///< The text content
+	std::string content_;	///< The text content
 
 
 	///
 	/// Constructor.
 	/// 
-	/// @param text A STL wstring object with the initial content.
+	/// @param text A STL string object with the initial content.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-22
+	/// @date 2008-12-30
 	/// 
-	Text (const std::wstring& text);
+	Text (const std::string& text);
 };
 
 
@@ -193,7 +131,7 @@ inline Text Text::operator+ (const Text& text) const
 };
 
 
-inline const std::wstring& Text::content () const
+inline const std::string& Text::content () const
 {
 	return content_;
 };

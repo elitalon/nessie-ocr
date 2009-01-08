@@ -9,12 +9,6 @@
 
 
 ///
-/// @todo Check documentation for pre- and post-conditions.
-///
-/// @todo Modify internal data structures to use 0 and 1 for pixel intensity values.
-///
-/// @todo Locate algorithms and see if it is possible to apply the "Template Method" pattern.
-///
 /// @param argc Number of command line arguments
 /// @param argv Command line arguments
 ///
@@ -35,11 +29,13 @@ int main (int argc, char const *argv[])
 		timer.restart();
 		
 		Magick::Image image( argv[1] );
-
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 		Recognizer recon;
 		recon.extractText(pressClip);
+		
+		Text result = recon.text();
+		std::cout << result.content() << std::endl;
 
 		std::cout << "Total time since program started: " << timer.elapsed() << std::endl;
 	}

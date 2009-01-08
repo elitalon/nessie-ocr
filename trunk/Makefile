@@ -36,12 +36,12 @@ vpath %.o	./
 # Dependencies
 #
 MAIN = main.cpp Recognizer.o Clip.o
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o
-TEXT = Text.cpp Text.hpp
-STATISTICS = Statistics.cpp Statistics.hpp
-
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o
 CLIP = Clip.cpp NessieException.o
+TEXT = Text.cpp Text.hpp NessieException.o
+
+STATISTICS = Statistics.cpp Statistics.hpp
 SHAPE = Shape.cpp Shape.hpp
 PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Shape.o Clip.o
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
@@ -55,10 +55,10 @@ DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 #
 OBJECTS = *.o
 PROGRAM = bin/ocr
-CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Wold-style-cast #-Winline
+CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Winline #-Wold-style-cast
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
-BOOST_CXXFLAGS = -I`find /usr/*/include -maxdepth 1 -name boost`
+BOOST_CXXFLAGS = -I/usr/local/include/boost
 
 
 
