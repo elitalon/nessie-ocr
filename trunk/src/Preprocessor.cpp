@@ -12,10 +12,8 @@
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
-	:	clip(pressClip),
-        optimalThreshold_(0),
-		backgroundReferenceGrayLevel_(255),
-		noiseRemovalTime_(0.0),
+	:	clip_(pressClip),
+        noiseRemovalTime_(0.0),
 		optimalThresholdComputingTime_(0.0),
 		backgroundReferenceGrayLevelFindingTime_(0.0)
 {
@@ -29,7 +27,7 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 /// is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial
 /// threshold value that is given by the member ::backgroundReferenceGrayLevel_.
 ///
-const unsigned char& Preprocessor::computeOptimalThreshold ()
+const unsigned char Preprocessor::computeOptimalThreshold (const Clip& clip)
 {
 	// Start timing
 	boost::timer timer;
@@ -37,7 +35,7 @@ const unsigned char& Preprocessor::computeOptimalThreshold ()
 
 
 	// Start with an initial threshold
-	optimalThreshold_ = backgroundReferenceGrayLevel_;
+	unsigned char optimalThreshold_ = 255; //backgroundReferenceGrayLevel_;
 	unsigned char currentThreshold = ~optimalThreshold_;	// Enforces current threshold to be different so the firts loop is always made
 
 
@@ -98,11 +96,11 @@ const unsigned char& Preprocessor::findBackgroundReferenceGrayLevel (const unsig
 
 	// Compute clip's histogram
 	std::vector<unsigned int> histogram(256, 0);
-	for ( unsigned int i = 0; i < clip.height(); ++i )
+	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
-		for ( unsigned int j = 0; j < clip.width(); ++j )
+		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
-			histogram[static_cast<unsigned int>(clip(i, j))] += 1;
+			histogram[static_cast<unsigned int>(clip_(i, j))] += 1;
 		}
 	}
 
@@ -173,11 +171,11 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 
 
 	// Loop over the clip to remove every noisy isolated pixel
-	for (unsigned int i=0; i < clip.height(); ++i)
+	for (unsigned int i=0; i < clip_.height(); ++i)
 	{
-		for (unsigned int j=0; j < clip.width(); ++j)
+		for (unsigned int j=0; j < clip_.width(); ++j)
 		{
-			unsigned char pixelGrayLevel = clip(i, j);
+			unsigned char pixelGrayLevel = clip_(i, j);
 
 			// Comparison values to avoid pixels that clearly belong to the background
 			bool backgroundPixelOnWhite = (backgroundReferenceGrayLevel_ > optimalThreshold_) and (pixelGrayLevel >= backgroundReferenceGrayLevel_);
@@ -193,8 +191,8 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 					for(int q = j-1; q < static_cast<int>(j+2); q++)
 					{
 						// Comparison values to avoid step outside the image and the central pixel
-						bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip.height()));
-						bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip.width()));
+						bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip_.height()));
+						bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip_.width()));
 						bool isCentralPixel = (p == static_cast<int>(i)) and (q == static_cast<int>(j));
 
 						if ( not heightOverflow and not widthOverflow and not isCentralPixel )
@@ -203,7 +201,7 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 							nPixels++;
 
 							// Get neighbour pixel gray level
-							unsigned char neighbourPixelGrayLevel = clip(p, q);
+							unsigned char neighbourPixelGrayLevel = clip_(p, q);
 
 							// When background gray level is close to white but not the pixel, update the noisy neighbours counter
 							if ( (backgroundReferenceGrayLevel_ >= optimalThreshold_) and (neighbourPixelGrayLevel >= optimalThreshold_) )
@@ -220,7 +218,7 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 
 				// Clear the noisy pixel if it is isolated
 				if (nBackgroundPixels >= (nPixels - isolationCoefficient))
-					clip(i, j) = backgroundReferenceGrayLevel_;
+					clip_(i, j) = backgroundReferenceGrayLevel_;
 			}
 		}
 	}
@@ -235,7 +233,7 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 /// reference gray level is taken into account to decide the final gray level that is applied to the pixel, so that the ink value is assumed as the
 /// very opposite gray level of background reference.
 ///
-void Preprocessor::applyThreshold (const unsigned char& threshold, const unsigned char& backgroundReference)
+void Preprocessor::applyGlobalThresholding ()
 {
 	// Start timing
 	boost::timer timer;
@@ -243,22 +241,22 @@ void Preprocessor::applyThreshold (const unsigned char& threshold, const unsigne
 
 
 	// Threshold every pixel
-	for (unsigned int i=0; i < clip.height(); ++i)
+	for (unsigned int i=0; i < clip_.height(); ++i)
 	{
-		for (unsigned int j=0; j < clip.width(); ++j)
+		for (unsigned int j=0; j < clip_.width(); ++j)
 		{
-			if ( (backgroundReference >= threshold) and (clip(i, j) >= threshold) )	// The background is near white
-				clip(i, j) = 255;
+			if ( (backgroundReference >= threshold) and (clip_(i, j) >= threshold) )	// The background is near white
+				clip_(i, j) = 255;
 			else
 			{
-				if ( (backgroundReference >= threshold) and (clip(i, j) < threshold) )
-					clip(i, j) = 0;
+				if ( (backgroundReference >= threshold) and (clip_(i, j) < threshold) )
+					clip_(i, j) = 0;
 				else
 				{
-					if ( (backgroundReference < threshold) and (clip(i, j) < threshold) )	// The background is near black
-						clip(i, j) = 0;
+					if ( (backgroundReference < threshold) and (clip_(i, j) < threshold) )	// The background is near black
+						clip_(i, j) = 0;
 					else
-						clip(i, j) = 255;
+						clip_(i, j) = 255;
 				}
 			}
 		}

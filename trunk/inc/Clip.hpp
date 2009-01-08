@@ -138,8 +138,6 @@ private:
 
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	Clip ();
-	Clip (const Clip&);
-	Clip& operator=(const Clip&);
 };
 
 

@@ -1,7 +1,5 @@
-///
 /// @file
 /// @brief Declaration of Preprocessor class
-///
 
 #if !defined(_PREPROCESSOR_H)
 #define _PREPROCESSOR_H
@@ -18,68 +16,175 @@
 /// Preprocessor of the OCR process.
 ///
 /// This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task
-/// is to enhance the image quality by applying some techniques of image processing theory and compute
-/// a number of parameters such as the optimal thresolding value or the background reference gray level.
-///
-/// @see Clip
+/// is to extract the regions of interest from a press clip and enhance and clean the result by smoothing
+/// and noise removal. Besides, it computes a number of parameters such as the representative gray levels of
+/// the background and the ink.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-11
+/// @date 2009-01-08
 ///
 class Preprocessor
 {
 public:
+
 	///
 	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-08
+	/// @date 2009-01-08
 	///
 	Preprocessor (const Clip& pressClip);
 
 
+    ///
+	/// Applies a global thresholding algorithm over the press clip.
 	///
-	/// Returns the optimal threshold found in the last clip used.
+	/// @param	clip    A press clip.
 	///
-	/// @return Optimal threshold computed from the last clip used.
+	/// @post Every pixel in the press clip belonging to the background has a gray level value of 0, while
+	/// every pixel belonging to the foreground (the ink) has a gray level of 1.
+	///
+	/// @see Clip
+	///
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+	void applyGlobalThresholding ();
+
+
+	///
+	/// Applies the 'isolated noise removal' algorithm.
+	///
+	/// @pre The press clip must have been previously thresholded, probably having called Preprocessor::threshold.
+	///
+	/// @param [in,out]	clip					A press clip.
+	/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated.
+	///
+	/// @post The pixels identified as 'salt and pepper' noise are removed.
+	///
+	/// @see Clip
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+	void removeIsolatedNoise (const unsigned int& isolationCoefficient = 0);
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void applyAveragingFilters();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void applyTemplateFilters();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void correctSkewness(); // Future work
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void applySegmentation();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void normalizeCharacters();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void correctSlanting();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+    void applyThinning();
+
+
+	///
+	/// Finds every position in the list of shapes where a blank space must be inserted when building the text.
+	///
+	/// @pre #shapes_ must be sorted according with the position of characters in text.
+	///
+	/// @post #spaceLocations_ contains indexes to #shapes_.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-31
+	///
+	void findSpaceLocations ();
+
+
+	///
+	/// Returns the shapes found in the last segmentation process
+	///
+	/// @return A vector of Shape objects
+	///
+	/// @see Shape
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-13
 	///
-	const unsigned char& optimalThreshold () const;
-
-
-	///
-	/// Sets the optimal threshold to use in algorithms.
-	///
-	/// @param threshold Value between 0 and 255 that stablishes the optimal threshold of a clip.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-08
-	///
-	void optimalThreshold (const unsigned char& threshold);
-
-
-	///
-	/// Returns the background reference gray level in the last clip used.
-	///
-	/// @return Reference background gray level in the last clip used
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const unsigned char& backgroundReferenceGrayLevel () const;
-
-
-	///
-	/// Sets the background reference gray level in the last clip used.
-	///
-	/// @param grayLevel Value between 0 and 255 that stablishes the reference background gray level in the clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-15
-	///
-	void backgroundReferenceGrayLevel (const unsigned char& grayLevel);
+	const std::list<Shape>& shapes () const;
 
 
 	///
@@ -120,124 +225,6 @@ public:
 	///
 	const double& backgroundReferenceGrayLevelFindingTime () const;
 
-
-	///
-	/// Computes the optimal threshold value in a clip following the Sonka's technique.
-	///
-	/// @pre	You MUST call findBackgroundReferenceGrayLevel() method before calling this one, since it sets internal attributes.
-	///
-	/// @post	The #optimalThresholdComputingTime_ member is modified.
-	/// @post	The #optimalThreshold_ member is initialized to the threshold found
-	///
-	/// @param clip			The clip where applying the algorithm over
-	///
-	/// @see Clip
-	///
-	/// @return The optimal threshold of the clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-20
-	///
-	const unsigned char& computeOptimalThreshold ();
-
-
-	///
-	/// Computes the background reference gray level value within a clip.
-	///
-	/// @post	The #backgroundReferenceGrayLevelFindingTime_ member is modified.
-	///
-	/// @param	clip							The clip where applying the algorithm over
-	/// @param	referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
-	///
-	/// @see Clip
-	///
-	/// @return The reference gray level of the background
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const unsigned char& findBackgroundReferenceGrayLevel (const unsigned int& referenceGrayLevelNeighbours = 2);
-
-
-	///
-	/// Applies the 'isolated noise removal' algorithm.
-	///
-	/// @pre	You MUST call computeOptimalThreshold() and findBackgroundReferenceGrayLevel() methods before calling this one,
-	/// since they set internal attributes.
-	///
-	/// @post	The clip may be modified if any noise is found.
-	///
-	/// @param[in,out]	clip					The clip where applying the algorithm over
-	/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated
-	///
-	/// @see Clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-11
-	///
-	void removeIsolatedNoise (const unsigned int& isolationCoefficient = 0);
-
-
-	///
-	/// Applies a thresholding algorithm.
-	///
-	/// @param	clip				A press clip.
-	/// @param	threshold			A threshold value to differentiate between background and foreground pixels.
-	/// @param	backgroundReference	Background reference gray level.
-	///
-	/// @post Every pixel in the clip has either a gray level of 0 or 1.
-	/// @post The #inkValue_ member is initialized to the gray level that represents the ink's gray level of the press clip.
-	///
-	/// @see Clip
-	///
-	/// @author	Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	void applyThreshold (const unsigned char& threshold, const unsigned char& backgroundReference);
-
-
-    ///
-	/// Finds a list of isolated shapes in the press clip by joining connected pixels
-	///
-	/// @pre The clip MUST be thresholded by calling applyThreshold() method before.
-	///
-	/// @post #seeds_ contains the seeds that grew into the shapes.
-	/// @post #visited_ contains the positions of the seeds set to true.
-	/// @post #shapes_ contains the shapes that represents character within the clip.
-	/// @post #shapes_ is sorted according with the position of characters in text
-	///
-	/// @param clip	The press clip
-	///
-	/// @see Clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-21
-	///
-	void findShapes (const Clip& clip);
-
-	///
-	/// Returns the shapes found in the last segmentation process
-	///
-	/// @return A vector of Shape objects
-	///
-	/// @see Shape
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const std::list<Shape>& shapes () const;
-
-	///
-	/// Finds every position in the list of shapes where a blank space must be inserted when building the text.
-	///
-	/// @pre #shapes_ must be sorted according with the position of characters in text.
-	///
-	/// @post #spaceLocations_ contains indexes to #shapes_.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-31
-	///
-	void findSpaceLocations ();
 private:
 
 	///
@@ -275,31 +262,66 @@ private:
 	///
 	typedef std::list<Shape>::iterator ShapeIterator;
 
-    std::deque<Pixel> 			seeds_;					///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 
-	std::deque<bool>			visited_;				///< A list of "visited/non visited" status for the pixels in the press clip
+    Clip                    clip_;
 
-	std::list<Shape>			shapes_;				///< A list of shapes that represents every character found within the press clip
+    std::deque<Pixel> 		seeds_;										///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 
-	std::list<LineMarker>		lineMarkers_;			///< A list of integer pairs that defines the limits of every line of characters in a press clip
-    
-	Clip            clip;
+	std::deque<bool>		visited_;									///< A list of "visited/non visited" status for the pixels in the press clip
 
-	unsigned char	optimalThreshold_;							///< Optimal threshold value within the clip
+	std::list<Shape>		shapes_;									///< A list of shapes that represents every character found within the press clip
 
-	unsigned char	backgroundReferenceGrayLevel_;				///< Background reference gray level
+	std::list<LineMarker>	lineMarkers_;								///< A list of integer pairs that defines the limits of every line of characters in a press clip
 
-	double			noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
+	double			        noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
 
-	double			optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
+	double			        optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
 
-	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
+	double			        backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
 
-	double						thresholdingTime_;		///< Elapsed time while applying the thresholding algorithm
+	double					thresholdingTime_;							///< Elapsed time while applying the thresholding algorithm
 
-	double						shapesFindingTime_;		///< Elapsed time while applying the shapes finding algorithm
+	double					shapesFindingTime_;							///< Elapsed time while applying the shapes finding algorithm
 
-	unsigned char				inkValue_;				///< Gray level value of the pixels that have ink
+	unsigned char			inkValue_;									///< Gray level value of the pixels that have ink
+
+
+    ///
+	/// Computes the background reference gray level value within a clip.
+	///
+	/// @post	The #backgroundReferenceGrayLevelFindingTime_ member is modified.
+	///
+	/// @param	clip							The clip where applying the algorithm over
+	/// @param	referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
+	///
+	/// @see Clip
+	///
+	/// @return The reference gray level of the background
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-13
+	///
+	const unsigned char& findBackgroundReferenceGrayLevel (const unsigned int& referenceGrayLevelNeighbours = 2);
+
+
+    ///
+	/// Computes the optimal threshold value in a clip following the Sonka's technique.
+	///
+	/// @pre	You MUST call findBackgroundReferenceGrayLevel() method before calling this one, since it sets internal attributes.
+	///
+	/// @post	The #optimalThresholdComputingTime_ member is modified.
+	/// @post	The #optimalThreshold_ member is initialized to the threshold found
+	///
+	/// @param clip			The clip where applying the algorithm over
+	///
+	/// @see Clip
+	///
+	/// @return The optimal threshold of the clip
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-20
+	///
+	const unsigned char computeOptimalThreshold (const Clip& clip);
 
 
 	///
@@ -315,6 +337,26 @@ private:
 	/// @date 2008-10-24
 	///
 	void findSeeds (const Clip& clip);
+	
+	
+	///
+	/// Finds a list of isolated shapes in the press clip by joining connected pixels
+	///
+	/// @pre The clip MUST be thresholded by calling applyThreshold() method before.
+	///
+	/// @post #seeds_ contains the seeds that grew into the shapes.
+	/// @post #visited_ contains the positions of the seeds set to true.
+	/// @post #shapes_ contains the shapes that represents character within the clip.
+	/// @post #shapes_ is sorted according with the position of characters in text
+	///
+	/// @param clip	The press clip
+	///
+	/// @see Clip
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2008-10-21
+	///
+	void findShapes ();
 
 
 	///
@@ -379,6 +421,10 @@ private:
 	///
 	ShapeIterator findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape);
 
+
+    // Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
+	Preprocessor(const Preprocessor&);
+	Preprocessor& operator=(const Preprocessor&);
 };
 
 
@@ -388,29 +434,6 @@ private:
 inline const std::list<Shape>& Preprocessor::shapes() const
 {
 	return shapes_;
-};
-
-inline const unsigned char& Preprocessor::optimalThreshold () const
-{
-	return optimalThreshold_;
-};
-
-
-inline void Preprocessor::optimalThreshold (const unsigned char& threshold)
-{
-	optimalThreshold_ = threshold;
-};
-
-
-inline const unsigned char& Preprocessor::backgroundReferenceGrayLevel () const
-{
-	return backgroundReferenceGrayLevel_;
-};
-
-
-inline void Preprocessor::backgroundReferenceGrayLevel (const unsigned char& grayLevel)
-{
-	backgroundReferenceGrayLevel_ = grayLevel;
 };
 
 
