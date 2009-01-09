@@ -37,13 +37,13 @@ vpath %.o	./
 #
 MAIN = main.cpp Recognizer.o Clip.o
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 CLIP = Clip.cpp NessieException.o
 TEXT = Text.cpp Text.hpp NessieException.o
 
 STATISTICS = Statistics.cpp Statistics.hpp
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Shape.o
 SHAPE = Shape.cpp Shape.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Shape.o Clip.o
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o

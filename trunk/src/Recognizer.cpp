@@ -3,6 +3,7 @@
 
 #include "Recognizer.hpp"
 #include "Clip.hpp"
+#include "Preprocessor.hpp"
 
 
 
@@ -29,7 +30,9 @@ void Recognizer::extractText (const Clip& pressClip)
 	//	5. Character normalization
 	//	6. Thinning (skeleton construction)
 	//
-	
+	Preprocessor preprocessor(pressClip);
+	preprocessor.applyGlobalThresholding();
+
 
 	//
 	// Feature extraction stage

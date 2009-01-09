@@ -83,8 +83,8 @@ private:
 
 
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
-	Recognizer(const Recognizer&);
-	Recognizer& operator=(const Recognizer&);
+	Recognizer (const Recognizer&);
+	Recognizer& operator= (const Recognizer&);
 };
 
 

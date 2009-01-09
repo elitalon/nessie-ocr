@@ -29,6 +29,10 @@ public:
 
 	///
 	/// Constructor.
+	/// 
+	/// @param pressClip A press clip over which apply all the preprocessing methods.
+	/// 
+	/// @see Clip
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
@@ -36,15 +40,11 @@ public:
 	Preprocessor (const Clip& pressClip);
 
 
-    ///
+	///
 	/// Applies a global thresholding algorithm over the press clip.
 	///
-	/// @param	clip    A press clip.
-	///
 	/// @post Every pixel in the press clip belonging to the background has a gray level value of 0, while
-	/// every pixel belonging to the foreground (the ink) has a gray level of 1.
-	///
-	/// @see Clip
+	/// every pixel of ink has a gray level of 1.
 	///
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
@@ -57,7 +57,6 @@ public:
 	///
 	/// @pre The press clip must have been previously thresholded, probably having called Preprocessor::threshold.
 	///
-	/// @param [in,out]	clip					A press clip.
 	/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated.
 	///
 	/// @post The pixels identified as 'salt and pepper' noise are removed.
@@ -80,7 +79,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void applyAveragingFilters();
+	void applyAveragingFilters ();
 
 
 	///
@@ -93,7 +92,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void applyTemplateFilters();
+	void applyTemplateFilters ();
 
 
 	///
@@ -106,7 +105,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void correctSkewness(); // Future work
+	void correctSkewness (); // Future work
 
 
 	///
@@ -119,7 +118,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void applySegmentation();
+	void applySegmentation ();
 
 
 	///
@@ -132,7 +131,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void normalizeCharacters();
+	void normalizeCharacters ();
 
 
 	///
@@ -145,7 +144,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void correctSlanting();
+	void correctSlanting ();
 
 
 	///
@@ -158,7 +157,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-    void applyThinning();
+	void applyThinning ();
 
 
 	///
@@ -186,44 +185,6 @@ public:
 	///
 	const std::list<Shape>& shapes () const;
 
-
-	///
-	/// Returns the elapsed time while applying the 'isolated noise removal' algorithm
-	///
-	/// @return Elapsed time when applying the 'isolated noise removal' algorithm
-	///
-	/// @see removeIsolatedNoise()
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& noiseRemovalTime () const;
-
-
-	///
-	/// Returns the elapsed time while founding the optimal threshold within the clip
-	///
-	/// @return Elapsed time while founding the optimal threshold within the clip
-	///
-	/// @see computeOptimalThreshold()
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& optimalThresholdComputingTime () const;
-
-
-	///
-	/// Returns the elapsed time while computing the background reference gray level within the clip
-	///
-	/// @return Elapsed time while computing the background reference gray level
-	///
-	/// @see findBackgroundReferenceGrayLevel()
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& backgroundReferenceGrayLevelFindingTime () const;
 
 private:
 
@@ -263,9 +224,9 @@ private:
 	typedef std::list<Shape>::iterator ShapeIterator;
 
 
-    Clip                    clip_;
+	Clip					clip_;										///< The press clip over which the preprocessing algorithms are applied.
 
-    std::deque<Pixel> 		seeds_;										///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
+	std::deque<Pixel> 		seeds_;										///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 
 	std::deque<bool>		visited_;									///< A list of "visited/non visited" status for the pixels in the press clip
 
@@ -273,20 +234,28 @@ private:
 
 	std::list<LineMarker>	lineMarkers_;								///< A list of integer pairs that defines the limits of every line of characters in a press clip
 
-	double			        noiseRemovalTime_;							///< Elapsed time when applying the 'isolated noise removal' algorithm
-
-	double			        optimalThresholdComputingTime_;				///< Elapsed time when converting the image to a grayscale colorspace
-
-	double			        backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time when computing the background gray level
-
-	double					thresholdingTime_;							///< Elapsed time while applying the thresholding algorithm
-
-	double					shapesFindingTime_;							///< Elapsed time while applying the shapes finding algorithm
-
 	unsigned char			inkValue_;									///< Gray level value of the pixels that have ink
 
 
-    ///
+	///
+	/// Computes the optimal threshold value in a press clip following the Sonka's method.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-09
+	///
+	unsigned char computeSonkaOptimalThreshold () const;
+	
+	
+	///
+	/// Computes the optimal threshold value in a press clip following the Otsu's method.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-09
+	///
+	unsigned char computeOtsuOptimalThreshold () const;
+
+
+	///
 	/// Computes the background reference gray level value within a clip.
 	///
 	/// @post	The #backgroundReferenceGrayLevelFindingTime_ member is modified.
@@ -302,26 +271,6 @@ private:
 	/// @date 2008-10-13
 	///
 	const unsigned char& findBackgroundReferenceGrayLevel (const unsigned int& referenceGrayLevelNeighbours = 2);
-
-
-    ///
-	/// Computes the optimal threshold value in a clip following the Sonka's technique.
-	///
-	/// @pre	You MUST call findBackgroundReferenceGrayLevel() method before calling this one, since it sets internal attributes.
-	///
-	/// @post	The #optimalThresholdComputingTime_ member is modified.
-	/// @post	The #optimalThreshold_ member is initialized to the threshold found
-	///
-	/// @param clip			The clip where applying the algorithm over
-	///
-	/// @see Clip
-	///
-	/// @return The optimal threshold of the clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-20
-	///
-	const unsigned char computeOptimalThreshold (const Clip& clip);
 
 
 	///
@@ -422,12 +371,11 @@ private:
 	ShapeIterator findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape);
 
 
-    // Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
-	Preprocessor(const Preprocessor&);
-	Preprocessor& operator=(const Preprocessor&);
+	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
+	Preprocessor ();
+	Preprocessor (const Preprocessor&);
+	Preprocessor& operator= (const Preprocessor&);
 };
-
-
 
 
 
@@ -435,24 +383,5 @@ inline const std::list<Shape>& Preprocessor::shapes() const
 {
 	return shapes_;
 };
-
-
-inline const double& Preprocessor::noiseRemovalTime () const
-{
-	return noiseRemovalTime_;
-};
-
-
-inline const double& Preprocessor::optimalThresholdComputingTime () const
-{
-	return optimalThresholdComputingTime_;
-};
-
-
-inline const double& Preprocessor::backgroundReferenceGrayLevelFindingTime () const
-{
-	return backgroundReferenceGrayLevelFindingTime_;
-};
-
 
 #endif  //_PREPROCESSOR_H
