@@ -1,7 +1,5 @@
-///
 /// @file
 /// @brief Declaration of Statistics class
-///
 
 #if !defined(_STATISTICS_H)
 #define _STATISTICS_H
@@ -11,317 +9,262 @@
 ///
 /// Statistical data regarding the text recognition process.
 ///
-/// This class stores a various statistical information regarding the elapsed time during the text recognition process,
-/// accumulated internally mostly in algorithms.
-///
-/// @todo Convert this class into a virtual class and design new children classes for every recognition stage, with more specifics parameters
+/// This abstract base class provides a common interface for every stage of the recognition process, allowing the redefinition of the class
+/// so that derived classes can be customized according to the stage the belong. The statitical data is gathered mostly in internal algorithms,
+/// and provides the elapsed time among other parameters.
+/// 
+/// @see PreprocessorStatistics, FeatureExtractionStatistics, ClassificationStatistics
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-10-08
+/// @date 2009-01-12
 ///
 class Statistics
 {
 public:
+	
 	///
 	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-04
+	/// @date 2009-01-12
 	///
-	Statistics ();
-
-
+	explicit Statistics ();
+	
+	
 	///
-	/// Allows the sum of times stored in two different statistics.
-	///
-	/// @param statistics A set of statistical data as the second operand.
-	///
-	/// @return A new set of statistical data as a result of summing the time parameters of both objects each other
+	/// Destructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-22
+	/// @date 2009-01-12
 	///
-	Statistics operator+ (const Statistics& statistics) const;
+	virtual ~Statistics ();
+	
+	
+	///
+	/// Prints the statistical data gathered during the text recognition process.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	virtual const void print () const = 0;
+	
+	
+	///
+	/// Sets the total elapsed time during execution.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	virtual const void totalTime (const double& elapsedTime) = 0;
+	
+protected:
+
+	double totalTime_;	///< Total elapsed time during stage execution.
+};
 
 
+
+///
+/// Statistical data regarding the preprocessing stage of the text recognition process.
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2009-01-12
+///
+class PreprocessorStatistics : public Statistics
+{
+public:
+	
 	///
-	/// Allows the subtraction of two different statistics.
-	///
-	/// @param statistics A set of statistical data as the second operand.
-	///
-	/// @return A new set of statistical data as a result of subtracting the time parameters of both objects each other
+	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-22
+	/// @date 2009-01-12
 	///
-	Statistics operator- (const Statistics& statistics) const;
-
-
+	explicit PreprocessorStatistics ();
+	
+	
 	///
-	/// Returns the elapsed time in the reference gray level of the background finding algorithm
-	///
-	/// @return Elapsed time in seconds
+	/// Destructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// @date 2009-01-12
 	///
-	const double& backgroundReferenceGrayLevelFindingTime () const;
-
-
+	virtual ~PreprocessorStatistics ();
+	
+	
 	///
-	/// Returns the elapsed time in the optimal threshold computing algorithm
-	///
-	/// @return Elapsed time in seconds
-	///
+	/// Prints the statistical data gathered.
+	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// @date 2009-01-12
 	///
-	const double& optimalThresholdComputingTime () const;
-
-
+	const void print () const;
+	
+	
 	///
-	/// Returns the elapsed time in the noise removal algorithm
+	/// Sets the total elapsed time during stage execution.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
 	///
-	/// @return Elapsed time in seconds
+	const void totalTime (const double& elapsedTime);
+	
+	
 	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// Sets the press clip size in number of pixels.
+	/// 
+	/// @param nPixels A number representing the number of pixels.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
 	///
-	const double& noiseRemovalTime () const;
-
-
+	const void clipSize (const unsigned int& nPixels);
+	
+	
 	///
-	/// Returns the total elapsed time within the preprocessing stage
+	/// Sets the elapsed time while executing the global thresholding algorithm.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
 	///
-	/// @return Total elapsed time in seconds
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& preprocessingTime () const;
-
-
-	///
-	/// Returns the elapsed time while applying the thresholding algorithm.
-	///
-	/// @return Elapsed time in seconds
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& thresholdingTime () const;
-
-
-	///
-	/// Returns the elapsed time while finding the shapes in a clip
-	///
-	/// @return Elapsed time in seconds
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& shapesFindingTime () const;
-
-
-	///
-	/// Returns the total elapsed time within the segmentation stage
-	///
-	/// @return Total elapsed time in seconds
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const double& segmentationTime () const;
-
-
+	const void globalThresholdingTime (const double& elapsedTime);
+	
 private:
+	
+	unsigned int	clipSize_;					///< Press clip size in number of pixels.
+	
+	double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
+};
 
-	friend class	Recognizer;									///< Declares the class Recognizer as friend
+inline const void PreprocessorStatistics::totalTime (const double& elapsedTime)
+{
+	totalTime_ = elapsedTime;
+};
 
-	double			backgroundReferenceGrayLevelFindingTime_;	///< Elapsed time in the reference gray level of the background finding algorithm
+inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
+{
+	clipSize_ = nPixels;
+};
 
-	double			optimalThresholdComputingTime_;				///< Elapsed time in the optimal threshold computing algorithm
-
-	double			noiseRemovalTime_;							///< Elapsed time in the noise removal algorithm
-
-	double			preprocessingTime_;							///< Total elapsed time within the preprocessing stage
-
-	double			thresholdingTime_;							///< Elapsed time while applying the thresholding algorithm
-
-	double			shapesFindingTime_;							///< Elapsed time while finding the shapes in a clip
-
-	double			segmentationTime_;							///< Total elapsed time within the segmentation stage
+inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
+{
+	globalThresholdingTime_ = elapsedTime;
+};
 
 
+
+///
+/// Statistical data regarding the feature extraction stage of the text recognition process.
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2009-01-12
+///
+class FeatureExtractionStatistics : public Statistics
+{
+public:
+	
 	///
-	/// Sets the elapsed time in the reference gray level of the background finding algorithm.
-	///
-	/// @param	time	Elapsed time in seconds
+	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-06
+	/// @date 2009-01-12
 	///
-	void backgroundReferenceGrayLevelFindingTime (const double& time);
-
-
+	explicit FeatureExtractionStatistics ();
+	
+	
 	///
-	/// Sets the elapsed time in the optimal threshold computing algorithm
-	///
-	/// @param	time	Elapsed time in seconds
+	/// Destructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-06
+	/// @date 2009-01-12
 	///
-	void optimalThresholdComputingTime (const double& time);
+	virtual ~FeatureExtractionStatistics ();
+	
+	
+	///
+	/// Prints the statistical data gathered.
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	const void print () const;
+	
+	
+	///
+	/// Sets the total elapsed time during stage execution.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	const void totalTime (const double& elapsedTime);
+};
+
+inline const void FeatureExtractionStatistics::totalTime (const double& elapsedTime)
+{
+	totalTime_ = elapsedTime;
+};
 
 
+
+///
+/// Statistical data regarding the classification stage of the text recognition process.
+/// 
+/// @author Eliezer Talón (elitalon@gmail.com)
+/// @date 2009-01-12
+///
+class ClassificationStatistics : public Statistics
+{
+public:
+	
 	///
-	/// Sets the elapsed time in the noise removal algorithm
-	///
-	/// @param	time	Elapsed time in seconds
+	/// Constructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-06
+	/// @date 2009-01-12
 	///
-	void noiseRemovalTime (const double& time);
-
-
+	explicit ClassificationStatistics ();
+	
+	
 	///
-	/// Sets the elapsed time in the thresholding algorithm
-	///
-	/// @param	time	Elapsed time in seconds
+	/// Destructor.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// @date 2009-01-12
 	///
-	void thresholdingTime (const double& time);
-
-
+	virtual ~ClassificationStatistics ();
+	
+	
 	///
-	/// Sets the elapsed time in the shapes finding algorithm
-	///
-	/// @param	time	Elapsed time in seconds
-	///
+	/// Prints the statistical data gathered.
+	/// 
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
+	/// @date 2009-01-12
 	///
-	void shapesFindingTime (const double& time);
+	const void print () const;
+	
+	
+	///
+	/// Sets the total elapsed time during stage execution.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	const void totalTime (const double& elapsedTime);
 };
 
-
-
-
-inline Statistics Statistics::operator+ (const Statistics& statistics) const
+inline const void ClassificationStatistics::totalTime (const double& elapsedTime)
 {
-	Statistics temp;
-
-	temp.backgroundReferenceGrayLevelFindingTime_	= this->backgroundReferenceGrayLevelFindingTime_	+ statistics.backgroundReferenceGrayLevelFindingTime_;
-	temp.optimalThresholdComputingTime_				= this->optimalThresholdComputingTime_				+ statistics.optimalThresholdComputingTime_;
-	temp.noiseRemovalTime_							= this->noiseRemovalTime_	+ statistics.noiseRemovalTime_;
-	temp.preprocessingTime_							= this->preprocessingTime_	+ statistics.preprocessingTime_;
-	temp.thresholdingTime_							= this->thresholdingTime_	+ statistics.thresholdingTime_;
-	temp.shapesFindingTime_							= this->shapesFindingTime_	+ statistics.shapesFindingTime_;
-	temp.segmentationTime_							= this->segmentationTime_	+ statistics.segmentationTime_;
-
-	return (temp);
+	totalTime_ = elapsedTime;
 };
-
-
-inline Statistics Statistics::operator- (const Statistics& statistics) const
-{
-	Statistics temp;
-
-	temp.backgroundReferenceGrayLevelFindingTime_	= this->backgroundReferenceGrayLevelFindingTime_	- statistics.backgroundReferenceGrayLevelFindingTime_;
-	temp.optimalThresholdComputingTime_				= this->optimalThresholdComputingTime_				- statistics.optimalThresholdComputingTime_;
-	temp.noiseRemovalTime_							= this->noiseRemovalTime_	- statistics.noiseRemovalTime_;
-	temp.preprocessingTime_							= this->preprocessingTime_	- statistics.preprocessingTime_;
-	temp.thresholdingTime_							= this->thresholdingTime_	- statistics.thresholdingTime_;
-	temp.shapesFindingTime_							= this->shapesFindingTime_	- statistics.shapesFindingTime_;
-	temp.segmentationTime_							= this->segmentationTime_	- statistics.segmentationTime_;
-
-	return (temp);
-};
-
-
-inline const double& Statistics::backgroundReferenceGrayLevelFindingTime () const
-{
-	return backgroundReferenceGrayLevelFindingTime_;
-};
-
-
-inline const double& Statistics::optimalThresholdComputingTime () const
-{
-	return optimalThresholdComputingTime_;
-};
-
-
-inline const double& Statistics::noiseRemovalTime () const
-{
-	return noiseRemovalTime_;
-};
-
-
-inline const double& Statistics::preprocessingTime () const
-{
-	return preprocessingTime_;
-};
-
-
-inline const double& Statistics::thresholdingTime () const
-{
-	return thresholdingTime_;
-};
-
-
-inline const double& Statistics::shapesFindingTime () const
-{
-	return shapesFindingTime_;
-};
-
-
-inline const double& Statistics::segmentationTime () const
-{
-	return segmentationTime_;
-};
-
-inline void Statistics::backgroundReferenceGrayLevelFindingTime (const double& time)
-{
-	backgroundReferenceGrayLevelFindingTime_ = time;
-
-	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
-};
-
-
-inline void Statistics::optimalThresholdComputingTime (const double& time)
-{
-	optimalThresholdComputingTime_ = time;
-
-	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
-};
-
-
-inline void Statistics::noiseRemovalTime (const double& time)
-{
-	noiseRemovalTime_ = time;
-
-	preprocessingTime_ = backgroundReferenceGrayLevelFindingTime_ + optimalThresholdComputingTime_ + noiseRemovalTime_;
-};
-
-
-inline void Statistics::thresholdingTime (const double& time)
-{
-	thresholdingTime_ = time;
-
-	segmentationTime_ = thresholdingTime_ + shapesFindingTime_;
-};
-
-
-inline void Statistics::shapesFindingTime (const double& time)
-{
-	shapesFindingTime_ = time;
-
-	segmentationTime_ = thresholdingTime_ + shapesFindingTime_;
-};
-
 
 #endif  //_STATISTICS_H

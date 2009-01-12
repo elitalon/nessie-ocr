@@ -37,12 +37,12 @@ vpath %.o	./
 #
 MAIN = main.cpp Recognizer.o Clip.o
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 CLIP = Clip.cpp NessieException.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 TEXT = Text.cpp Text.hpp NessieException.o
-
 STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Shape.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Shape.o Statistics.o
+
 SHAPE = Shape.cpp Shape.hpp
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
@@ -89,7 +89,6 @@ Statistics.o: $(STATISTICS)
 Preprocessor.o: $(PREPROCESSOR)
 	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
-
 
 NessieException.o: $(NESSIE_EXCEPTION)
 	$(CXX) $(CXXFLAGS) -c $< -o $@

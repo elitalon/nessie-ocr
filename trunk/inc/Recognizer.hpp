@@ -34,6 +34,15 @@ public:
 	/// @date 2008-12-29
 	///
 	explicit Recognizer ();
+	
+	
+	///
+	/// Destructor.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	~Recognizer ();
 
 
 	///
@@ -63,24 +72,22 @@ public:
 
 
 	///
-	/// Returns the statistical data regarding the recognition process of a single clip.
-	///
-	/// @return An Statistics object with data about the recognition process.
-	///
-	/// @see Statistics
+	/// Prints detailed statistics about the text recognition process gathered during execution.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-29
+	/// @date 2009-01-12
 	///
-	const Statistics& statistics () const;
-
+	const void printStatistics () const;
 
 private:
 
-	Text		text_;			///< Text obtained after the recognition process.
+	Text		text_;							///< Text obtained after the recognition process.
 
-	Statistics	statistics_;	///< Statistics gathered during the recognition process.
-
+	Statistics*	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
+	
+	Statistics*	featureExtractionStatistics_;	///< Statistics gathered during the feature extraction stage.
+	
+	Statistics*	classificationStatistics_;		///< Statistics gathered during the classification stage.
 
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	Recognizer (const Recognizer&);
@@ -92,12 +99,6 @@ private:
 inline const Text& Recognizer::text () const
 {
 	return text_;
-};
-
-
-inline const Statistics& Recognizer::statistics () const
-{
-	return statistics_;
 };
 
 

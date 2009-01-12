@@ -37,7 +37,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	Preprocessor (const Clip& pressClip);
+	explicit Preprocessor (const Clip& pressClip);
 
 
 	///

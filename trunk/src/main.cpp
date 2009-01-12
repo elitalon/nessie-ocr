@@ -30,7 +30,6 @@ int main (int argc, char const *argv[])
 		
 		Magick::Image image( argv[1] );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
-		std::cout << "Pixels: " << pressClip.size() << std::endl;
 		
 		Recognizer recon;
 		recon.extractText(pressClip);
@@ -38,6 +37,7 @@ int main (int argc, char const *argv[])
 		Text result = recon.text();
 		std::cout << result.content() << std::endl;
 
+		std::cout << std::endl;
 		std::cout << "Total time since program started: " << timer.elapsed() << std::endl;
 	}
 	catch (std::exception &e)

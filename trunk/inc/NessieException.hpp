@@ -1,7 +1,5 @@
-///
 /// @file
 /// @brief Declaration of NessieException class
-///
 
 #if !defined(_NESSIE_EXCEPTION_H)
 #define _NESSIE_EXCEPTION_H
@@ -32,7 +30,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-10-03
 	/// 
-	NessieException (const std::string& what);
+	explicit NessieException (const std::string& what);
 
 
 	///
@@ -59,16 +57,7 @@ private:
 	std::string	what_;	///< Message that explains the exception raised
 	
 	
-	///
-	/// Private constructor.
-	/// 
-	/// @details This declaration is intended to avoid creating an empty NessieException object.
-	/// 
-	/// @warning Do not define this method.
-	/// 
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-11-14
-	///
+	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	NessieException ();
 };
 

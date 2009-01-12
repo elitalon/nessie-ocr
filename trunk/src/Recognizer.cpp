@@ -9,9 +9,17 @@
 
 Recognizer::Recognizer ()
 	:	text_(),
-		statistics_()
+		preprocessingStatistics_(0),
+		featureExtractionStatistics_(0),
+		classificationStatistics_(0)
 {};
 
+Recognizer::~Recognizer ()
+{
+	delete preprocessingStatistics_;
+	delete featureExtractionStatistics_;
+	delete classificationStatistics_;
+};
 
 ///
 /// @details This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
