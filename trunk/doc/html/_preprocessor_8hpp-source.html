@@ -69,119 +69,129 @@ window.onload = initDynSections;
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 <span class="preprocessor">#include "<a class="code" href="_clip_8hpp.html" title="Declaration of Clip class.">Clip.hpp</a>"</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="_shape_8hpp.html" title="Declaration of Shape class.">Shape.hpp</a>"</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;deque&gt;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;list&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;utility&gt;</span>
-<a name="l00013"></a>00013 
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="_statistics_8hpp.html" title="Declaration of Statistics class.">Statistics.hpp</a>"</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="_shape_8hpp.html" title="Declaration of Shape class.">Shape.hpp</a>"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;deque&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;utility&gt;</span>
 <a name="l00014"></a>00014 
-<a name="l00026"></a><a class="code" href="class_preprocessor.html">00026</a> <span class="keyword">class </span><a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>
-<a name="l00027"></a>00027 {
-<a name="l00028"></a>00028 <span class="keyword">public</span>:
-<a name="l00029"></a>00029 
-<a name="l00040"></a>00040     <span class="keyword">explicit</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; pressClip);
-<a name="l00041"></a>00041 
+<a name="l00015"></a>00015 
+<a name="l00027"></a><a class="code" href="class_preprocessor.html">00027</a> <span class="keyword">class </span><a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029 <span class="keyword">public</span>:
+<a name="l00030"></a>00030 
+<a name="l00041"></a>00041     <span class="keyword">explicit</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; pressClip);
 <a name="l00042"></a>00042 
-<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip.">applyGlobalThresholding</a> ();
-<a name="l00053"></a>00053 
+<a name="l00043"></a>00043 
+<a name="l00053"></a>00053     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip.">applyGlobalThresholding</a> ();
 <a name="l00054"></a>00054 
-<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#8b7366ceca05da9c858b4c2a908cd0fb" title="Applies the &amp;#39;isolated noise removal&amp;#39; algorithm.">removeIsolatedNoise</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; isolationCoefficient = 0);
-<a name="l00070"></a>00070 
+<a name="l00055"></a>00055 
+<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#8b7366ceca05da9c858b4c2a908cd0fb" title="Applies the &amp;#39;isolated noise removal&amp;#39; algorithm.">removeIsolatedNoise</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; isolationCoefficient = 0);
 <a name="l00071"></a>00071 
-<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1">applyAveragingFilters</a> ();
-<a name="l00083"></a>00083 
+<a name="l00072"></a>00072 
+<a name="l00083"></a>00083     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1">applyAveragingFilters</a> ();
 <a name="l00084"></a>00084 
-<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf">applyTemplateFilters</a> ();
-<a name="l00096"></a>00096 
+<a name="l00085"></a>00085 
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf">applyTemplateFilters</a> ();
 <a name="l00097"></a>00097 
-<a name="l00108"></a>00108     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c0dff4eaa053e963ec49caeac15448ed">correctSkewness</a> (); <span class="comment">// Future work</span>
-<a name="l00109"></a>00109 
+<a name="l00098"></a>00098 
+<a name="l00109"></a>00109     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c0dff4eaa053e963ec49caeac15448ed">correctSkewness</a> (); <span class="comment">// Future work</span>
 <a name="l00110"></a>00110 
-<a name="l00121"></a>00121     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#474869653df334ac379918e89350c11f">applySegmentation</a> ();
-<a name="l00122"></a>00122 
+<a name="l00111"></a>00111 
+<a name="l00122"></a>00122     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#474869653df334ac379918e89350c11f">applySegmentation</a> ();
 <a name="l00123"></a>00123 
-<a name="l00134"></a>00134     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a439bb6f31ae809ca2ece27097117909">normalizeCharacters</a> ();
-<a name="l00135"></a>00135 
+<a name="l00124"></a>00124 
+<a name="l00135"></a>00135     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a439bb6f31ae809ca2ece27097117909">normalizeCharacters</a> ();
 <a name="l00136"></a>00136 
-<a name="l00147"></a>00147     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ();
-<a name="l00148"></a>00148 
+<a name="l00137"></a>00137 
+<a name="l00148"></a>00148     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ();
 <a name="l00149"></a>00149 
-<a name="l00160"></a>00160     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#09e5dcc9a70034284201d5160d17aacf">applyThinning</a> ();
-<a name="l00161"></a>00161 
+<a name="l00150"></a>00150 
+<a name="l00161"></a>00161     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#09e5dcc9a70034284201d5160d17aacf">applyThinning</a> ();
 <a name="l00162"></a>00162 
-<a name="l00173"></a>00173     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#544805d1578d7703037faf040097c241" title="Finds every position in the list of shapes where a blank space must be inserted when...">findSpaceLocations</a> ();
-<a name="l00174"></a>00174 
+<a name="l00163"></a>00163 
+<a name="l00174"></a>00174     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#544805d1578d7703037faf040097c241" title="Finds every position in the list of shapes where a blank space must be inserted when...">findSpaceLocations</a> ();
 <a name="l00175"></a>00175 
-<a name="l00186"></a>00186     <span class="keyword">const</span> std::list&lt;Shape&gt;&amp; <a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00" title="Returns the shapes found in the last segmentation process.">shapes</a> () <span class="keyword">const</span>;
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188 
-<a name="l00189"></a>00189 <span class="keyword">private</span>:
-<a name="l00190"></a>00190 
-<a name="l00202"></a>00202     <span class="keyword">typedef</span> std::pair&lt;unsigned int, unsigned int&gt; LineMarker;
+<a name="l00176"></a>00176 
+<a name="l00187"></a>00187     <span class="keyword">const</span> std::list&lt;Shape&gt;&amp; <a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00" title="Returns the shapes found in the last segmentation process.">shapes</a> () <span class="keyword">const</span>;
+<a name="l00188"></a>00188     
+<a name="l00189"></a>00189     
+<a name="l00200"></a>00200     <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">statistics</a> () <span class="keyword">const</span>;
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 <span class="keyword">private</span>:
 <a name="l00203"></a>00203 
-<a name="l00204"></a>00204 
-<a name="l00213"></a>00213     <span class="keyword">typedef</span> std::list&lt;LineMarker&gt;::iterator LineMarkerIterator;
-<a name="l00214"></a>00214 
-<a name="l00215"></a>00215 
-<a name="l00224"></a>00224     <span class="keyword">typedef</span> std::list&lt;Shape&gt;::iterator ShapeIterator;
-<a name="l00225"></a>00225 
-<a name="l00226"></a>00226 
-<a name="l00227"></a>00227     <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>                    clip_;                                      
+<a name="l00215"></a>00215     <span class="keyword">typedef</span> std::pair&lt;unsigned int, unsigned int&gt; LineMarker;
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217 
+<a name="l00226"></a>00226     <span class="keyword">typedef</span> std::list&lt;LineMarker&gt;::iterator LineMarkerIterator;
+<a name="l00227"></a>00227 
 <a name="l00228"></a>00228 
-<a name="l00229"></a>00229     std::deque&lt;Pixel&gt;       seeds_;                                     
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231     std::deque&lt;bool&gt;        visited_;                                   
-<a name="l00232"></a>00232 
-<a name="l00233"></a>00233     std::list&lt;Shape&gt;        shapes_;                                    
-<a name="l00234"></a>00234 
-<a name="l00235"></a>00235     std::list&lt;LineMarker&gt;   lineMarkers_;                               
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>           inkValue_;                                  
+<a name="l00237"></a>00237     <span class="keyword">typedef</span> std::list&lt;Shape&gt;::iterator ShapeIterator;
 <a name="l00238"></a>00238 
 <a name="l00239"></a>00239 
-<a name="l00246"></a>00246     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeSonkaOptimalThreshold () <span class="keyword">const</span>;
-<a name="l00247"></a>00247     
-<a name="l00248"></a>00248     
-<a name="l00255"></a>00255     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeOtsuOptimalThreshold () <span class="keyword">const</span>;
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257 
-<a name="l00273"></a>00273     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; findBackgroundReferenceGrayLevel (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; referenceGrayLevelNeighbours = 2);
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 
-<a name="l00288"></a>00288     <span class="keywordtype">void</span> findSeeds (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
-<a name="l00289"></a>00289     
-<a name="l00290"></a>00290     
-<a name="l00308"></a>00308     <span class="keywordtype">void</span> findShapes ();
-<a name="l00309"></a>00309 
-<a name="l00310"></a>00310 
-<a name="l00324"></a>00324     <span class="keywordtype">void</span> growSeedsIntoInitialShapes (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
+<a name="l00240"></a>00240     <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>                    clip_;          
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242     std::deque&lt;Pixel&gt;       seeds_;         
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244     std::deque&lt;bool&gt;        visited_;       
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246     std::list&lt;Shape&gt;        shapes_;        
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248     std::list&lt;LineMarker&gt;   lineMarkers_;   
+<a name="l00249"></a>00249 
+<a name="l00250"></a>00250     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>           inkValue_;      
+<a name="l00251"></a>00251     
+<a name="l00252"></a>00252     <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a> statistics_;     
+<a name="l00253"></a>00253     
+<a name="l00254"></a>00254     
+<a name="l00261"></a>00261     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeSonkaOptimalThreshold () <span class="keyword">const</span>;
+<a name="l00262"></a>00262     
+<a name="l00263"></a>00263     
+<a name="l00270"></a>00270     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeOtsuOptimalThreshold () <span class="keyword">const</span>;
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272 
+<a name="l00288"></a>00288     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; findBackgroundReferenceGrayLevel (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; referenceGrayLevelNeighbours = 2);
+<a name="l00289"></a>00289 
+<a name="l00290"></a>00290 
+<a name="l00303"></a>00303     <span class="keywordtype">void</span> findSeeds (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
+<a name="l00304"></a>00304     
+<a name="l00305"></a>00305     
+<a name="l00323"></a>00323     <span class="keywordtype">void</span> findShapes ();
+<a name="l00324"></a>00324 
 <a name="l00325"></a>00325 
-<a name="l00326"></a>00326 
-<a name="l00337"></a>00337     <span class="keywordtype">void</span> findLineMarkers (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
-<a name="l00338"></a>00338 
-<a name="l00339"></a>00339 
-<a name="l00354"></a>00354     <span class="keywordtype">void</span> joinVerticallyOverlappedShapes (ShapeIterator&amp; s1, ShapeIterator&amp; s2);
-<a name="l00355"></a>00355 
-<a name="l00356"></a>00356 
-<a name="l00371"></a>00371     ShapeIterator findVerticallyOverlappedShape (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; lineTop, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; lineBottom, <span class="keyword">const</span> ShapeIterator&amp; shape);
-<a name="l00372"></a>00372 
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374     <span class="comment">// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!</span>
-<a name="l00375"></a>00375     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> ();
-<a name="l00376"></a>00376     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
-<a name="l00377"></a>00377     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
-<a name="l00378"></a>00378 };
-<a name="l00379"></a>00379 
-<a name="l00380"></a>00380 
-<a name="l00381"></a>00381 
-<a name="l00382"></a><a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00">00382</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::list&lt;Shape&gt;&amp; <a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00" title="Returns the shapes found in the last segmentation process.">Preprocessor::shapes</a>()<span class="keyword"> const</span>
-<a name="l00383"></a>00383 <span class="keyword"></span>{
-<a name="l00384"></a>00384     <span class="keywordflow">return</span> shapes_;
-<a name="l00385"></a>00385 };
-<a name="l00386"></a>00386 
-<a name="l00387"></a>00387 <span class="preprocessor">#endif  //_PREPROCESSOR_H</span>
+<a name="l00339"></a>00339     <span class="keywordtype">void</span> growSeedsIntoInitialShapes (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341 
+<a name="l00352"></a>00352     <span class="keywordtype">void</span> findLineMarkers (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; clip);
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354 
+<a name="l00369"></a>00369     <span class="keywordtype">void</span> joinVerticallyOverlappedShapes (ShapeIterator&amp; s1, ShapeIterator&amp; s2);
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371 
+<a name="l00386"></a>00386     ShapeIterator findVerticallyOverlappedShape (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; lineTop, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; lineBottom, <span class="keyword">const</span> ShapeIterator&amp; shape);
+<a name="l00387"></a>00387 
+<a name="l00388"></a>00388 
+<a name="l00389"></a>00389     <span class="comment">// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!</span>
+<a name="l00390"></a>00390     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> ();
+<a name="l00391"></a>00391     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
+<a name="l00392"></a>00392     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
+<a name="l00393"></a>00393 };
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395 
+<a name="l00396"></a>00396 
+<a name="l00397"></a><a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00">00397</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::list&lt;Shape&gt;&amp; <a class="code" href="class_preprocessor.html#87509b907b6e6fa938f1565a667aef00" title="Returns the shapes found in the last segmentation process.">Preprocessor::shapes</a>()<span class="keyword"> const</span>
+<a name="l00398"></a>00398 <span class="keyword"></span>{
+<a name="l00399"></a>00399     <span class="keywordflow">return</span> shapes_;
+<a name="l00400"></a>00400 };
+<a name="l00401"></a>00401 
+<a name="l00402"></a><a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19">00402</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">Preprocessor::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00403"></a>00403 <span class="keyword"></span>{
+<a name="l00404"></a>00404     <span class="keywordflow">return</span> statistics_;
+<a name="l00405"></a>00405 };
+<a name="l00406"></a>00406 
+<a name="l00407"></a>00407 <span class="preprocessor">#endif  //_PREPROCESSOR_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 16:28:11 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 19:52:56 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

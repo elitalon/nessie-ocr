@@ -6,6 +6,7 @@
 
 
 #include "Clip.hpp"
+#include "Statistics.hpp"
 #include "Shape.hpp"
 #include <deque>
 #include <list>
@@ -184,7 +185,19 @@ public:
 	/// @date 2008-10-13
 	///
 	const std::list<Shape>& shapes () const;
-
+	
+	
+	///
+	/// Returns the statistics about the preprocessing stage regarding algorithms execution.
+	/// 
+	/// @return A PreprocessorStatistics object with all the data gathered until the moment of execution.
+	/// 
+	/// @see PreprocessorStatistics
+	/// 
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-12
+	///
+	const PreprocessorStatistics& statistics () const;
 
 private:
 
@@ -224,19 +237,21 @@ private:
 	typedef std::list<Shape>::iterator ShapeIterator;
 
 
-	Clip					clip_;										///< The press clip over which the preprocessing algorithms are applied.
+	Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
 
-	std::deque<Pixel> 		seeds_;										///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
+	std::deque<Pixel> 		seeds_;			///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 
-	std::deque<bool>		visited_;									///< A list of "visited/non visited" status for the pixels in the press clip
+	std::deque<bool>		visited_;		///< A list of "visited/non visited" status for the pixels in the press clip
 
-	std::list<Shape>		shapes_;									///< A list of shapes that represents every character found within the press clip
+	std::list<Shape>		shapes_;		///< A list of shapes that represents every character found within the press clip
 
-	std::list<LineMarker>	lineMarkers_;								///< A list of integer pairs that defines the limits of every line of characters in a press clip
+	std::list<LineMarker>	lineMarkers_;	///< A list of integer pairs that defines the limits of every line of characters in a press clip
 
-	unsigned char			inkValue_;									///< Gray level value of the pixels that have ink
-
-
+	unsigned char			inkValue_;		///< Gray level value of the pixels that have ink
+	
+	PreprocessorStatistics statistics_;		///< Statistics about the execution of algorithms.
+	
+	
 	///
 	/// Computes the optimal threshold value in a press clip following the Sonka's method.
 	///
@@ -382,6 +397,11 @@ private:
 inline const std::list<Shape>& Preprocessor::shapes() const
 {
 	return shapes_;
+};
+
+inline const PreprocessorStatistics& Preprocessor::statistics () const
+{
+	return statistics_;
 };
 
 #endif  //_PREPROCESSOR_H

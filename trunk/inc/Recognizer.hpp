@@ -101,5 +101,16 @@ inline const Text& Recognizer::text () const
 	return text_;
 };
 
+inline const void Recognizer::printStatistics () const
+{
+	if ( preprocessingStatistics_ not_eq 0 )
+		preprocessingStatistics_->print();
+	
+	if ( featureExtractionStatistics_ not_eq 0 )
+		featureExtractionStatistics_->print();
+		
+	if ( classificationStatistics_ not_eq 0 )
+		classificationStatistics_->print();
+};
 
 #endif  //_RECOGNIZER_H

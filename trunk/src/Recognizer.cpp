@@ -40,6 +40,7 @@ void Recognizer::extractText (const Clip& pressClip)
 	//
 	Preprocessor preprocessor(pressClip);
 	preprocessor.applyGlobalThresholding();
+	preprocessingStatistics_ = new PreprocessorStatistics(preprocessor.statistics());
 
 
 	//

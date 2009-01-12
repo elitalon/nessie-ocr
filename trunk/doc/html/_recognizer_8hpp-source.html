@@ -114,10 +114,21 @@ window.onload = initDynSections;
 <a name="l00101"></a>00101     <span class="keywordflow">return</span> text_;
 <a name="l00102"></a>00102 };
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
+<a name="l00104"></a><a class="code" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433">00104</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433" title="Prints detailed statistics about the text recognition process gathered during execution...">Recognizer::printStatistics</a> ()<span class="keyword"> const</span>
+<a name="l00105"></a>00105 <span class="keyword"></span>{
+<a name="l00106"></a>00106     <span class="keywordflow">if</span> ( preprocessingStatistics_ not_eq 0 )
+<a name="l00107"></a>00107         preprocessingStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00108"></a>00108     
+<a name="l00109"></a>00109     <span class="keywordflow">if</span> ( featureExtractionStatistics_ not_eq 0 )
+<a name="l00110"></a>00110         featureExtractionStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00111"></a>00111         
+<a name="l00112"></a>00112     <span class="keywordflow">if</span> ( classificationStatistics_ not_eq 0 )
+<a name="l00113"></a>00113         classificationStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00114"></a>00114 };
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 16:28:11 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 19:52:56 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

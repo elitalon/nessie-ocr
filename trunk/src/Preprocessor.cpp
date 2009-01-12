@@ -3,7 +3,6 @@
 
 #include "Preprocessor.hpp"
 #include <boost/timer.hpp>
-
 #include <cmath>
 #include <algorithm>
 #include <iostream>
@@ -11,8 +10,11 @@
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
-	:	clip_(pressClip)
-{};
+	:	clip_(pressClip),
+		statistics_(PreprocessorStatistics())
+{
+	statistics_.clipSize(pressClip.size());
+};
 
 
 ///

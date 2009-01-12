@@ -9,24 +9,16 @@ Statistics::Statistics ()
 	:	totalTime_(0.0)
 {};
 
+Statistics::~Statistics () {};
+
+
 PreprocessorStatistics::PreprocessorStatistics ()
 	:	clipSize_(0),
 		globalThresholdingTime_(0.0)
 {};
 
-FeatureExtractionStatistics::FeatureExtractionStatistics ()
+PreprocessorStatistics::~PreprocessorStatistics ()
 {};
-
-ClassificationStatistics::ClassificationStatistics ()
-{};
-
-Statistics::~Statistics () {};
-
-PreprocessorStatistics::~PreprocessorStatistics () {};
-
-FeatureExtractionStatistics::~FeatureExtractionStatistics () {};
-
-ClassificationStatistics::~ClassificationStatistics () {};
 
 const void PreprocessorStatistics::print () const
 {
@@ -37,12 +29,26 @@ const void PreprocessorStatistics::print () const
 	std::cout << "  - Total elapsed time       : " << totalTime_ << std::endl;
 };
 
+
+FeatureExtractionStatistics::FeatureExtractionStatistics ()
+{};
+
+FeatureExtractionStatistics::~FeatureExtractionStatistics ()
+{};
+
 const void FeatureExtractionStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Feature extraction stage statistics" << std::endl;
 	std::cout << "  - Total elapsed time  : " << totalTime_ << std::endl;
 };
+
+
+ClassificationStatistics::ClassificationStatistics ()
+{};
+
+ClassificationStatistics::~ClassificationStatistics ()
+{};
 
 const void ClassificationStatistics::print () const
 {

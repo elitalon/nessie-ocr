@@ -36,6 +36,7 @@ int main (int argc, char const *argv[])
 		
 		Text result = recon.text();
 		std::cout << result.content() << std::endl;
+		recon.printStatistics();
 
 		std::cout << std::endl;
 		std::cout << "Total time since program started: " << timer.elapsed() << std::endl;

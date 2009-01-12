@@ -41,7 +41,7 @@ CLIP = Clip.cpp NessieException.o
 RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Shape.o Statistics.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Shape.o
 
 SHAPE = Shape.cpp Shape.hpp
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
@@ -55,7 +55,7 @@ DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 #
 OBJECTS = *.o
 PROGRAM = bin/ocr
-CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ #-Winline #-Wold-style-cast
+CXXFLAGS = -Wall -Wextra -O2 -I$(incdir) -g #-Weffc++ -Winline -Wold-style-cast
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
