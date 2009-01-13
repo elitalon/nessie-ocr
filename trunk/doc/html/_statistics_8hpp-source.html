@@ -80,13 +80,13 @@ window.onload = initDynSections;
 <a name="l00041"></a>00041     
 <a name="l00042"></a>00042     
 <a name="l00049"></a>00049     <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a> () <span class="keyword">const</span> = 0;
-<a name="l00050"></a>00050     
-<a name="l00051"></a>00051     
-<a name="l00060"></a>00060     <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#d25cf4c38635d36bf057fe1c2e23a8b9" title="Sets the total elapsed time during execution.">totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime) = 0;
-<a name="l00061"></a>00061     
-<a name="l00062"></a>00062 <span class="keyword">protected</span>:
-<a name="l00063"></a>00063 
-<a name="l00064"></a><a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737">00064</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a>;  
+<a name="l00050"></a>00050         
+<a name="l00051"></a>00051 <span class="keyword">protected</span>:
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737">00053</a>     <span class="keywordtype">double</span> <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a>;  
+<a name="l00054"></a>00054     
+<a name="l00055"></a>00055     
+<a name="l00064"></a>00064     <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_statistics.html#880a99ea540c1a836d454f2ce12d4df0" title="Updates the total elapsed time attribute.">updateTotalTime</a> () = 0;
 <a name="l00065"></a>00065 };
 <a name="l00066"></a>00066 
 <a name="l00067"></a>00067 
@@ -104,34 +104,34 @@ window.onload = initDynSections;
 <a name="l00103"></a>00103     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#16ad1ef42ac80d58163557b722c653d9" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
 <a name="l00104"></a>00104     
 <a name="l00105"></a>00105     
-<a name="l00114"></a>00114     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#bade55acd2eacade6a7b8c872cc00e71" title="Sets the total elapsed time during stage execution.">totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00114"></a>00114     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623" title="Sets the press clip size in number of pixels.">clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels);
 <a name="l00115"></a>00115     
 <a name="l00116"></a>00116     
-<a name="l00125"></a>00125     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623" title="Sets the press clip size in number of pixels.">clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels);
+<a name="l00125"></a>00125     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f" title="Sets the elapsed time while executing the global thresholding algorithm.">globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00126"></a>00126     
-<a name="l00127"></a>00127     
-<a name="l00136"></a>00136     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f" title="Sets the elapsed time while executing the global thresholding algorithm.">globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
-<a name="l00137"></a>00137     
-<a name="l00138"></a>00138 <span class="keyword">private</span>:
-<a name="l00139"></a>00139     
-<a name="l00140"></a>00140     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    clipSize_;                  
-<a name="l00141"></a>00141     
-<a name="l00142"></a>00142     <span class="keywordtype">double</span>          globalThresholdingTime_;    
-<a name="l00143"></a>00143 };
-<a name="l00144"></a>00144 
-<a name="l00145"></a><a class="code" href="class_preprocessor_statistics.html#bade55acd2eacade6a7b8c872cc00e71">00145</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#bade55acd2eacade6a7b8c872cc00e71" title="Sets the total elapsed time during stage execution.">PreprocessorStatistics::totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00146"></a>00146 {
-<a name="l00147"></a>00147     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = elapsedTime;
-<a name="l00148"></a>00148 };
-<a name="l00149"></a>00149 
-<a name="l00150"></a><a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623">00150</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623" title="Sets the press clip size in number of pixels.">PreprocessorStatistics::clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels)
-<a name="l00151"></a>00151 {
-<a name="l00152"></a>00152     clipSize_ = nPixels;
-<a name="l00153"></a>00153 };
-<a name="l00154"></a>00154 
-<a name="l00155"></a><a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f">00155</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f" title="Sets the elapsed time while executing the global thresholding algorithm.">PreprocessorStatistics::globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00156"></a>00156 {
-<a name="l00157"></a>00157     globalThresholdingTime_ = elapsedTime;
+<a name="l00127"></a>00127 <span class="keyword">private</span>:
+<a name="l00128"></a>00128     
+<a name="l00129"></a>00129     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    clipSize_;                  
+<a name="l00130"></a>00130     
+<a name="l00131"></a>00131     <span class="keywordtype">double</span>          globalThresholdingTime_;    
+<a name="l00132"></a>00132     
+<a name="l00141"></a>00141     <span class="keyword">const</span> <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00142"></a>00142 };
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> PreprocessorStatistics::updateTotalTime ()
+<a name="l00145"></a>00145 {
+<a name="l00146"></a>00146     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = globalThresholdingTime_;
+<a name="l00147"></a>00147 };
+<a name="l00148"></a>00148 
+<a name="l00149"></a><a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623">00149</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#c555ce61877232dceafe91e033f1e623" title="Sets the press clip size in number of pixels.">PreprocessorStatistics::clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels)
+<a name="l00150"></a>00150 {
+<a name="l00151"></a>00151     clipSize_ = nPixels;
+<a name="l00152"></a>00152 };
+<a name="l00153"></a>00153 
+<a name="l00154"></a><a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f">00154</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b933964312006ff3e54dbe2c2367144f" title="Sets the elapsed time while executing the global thresholding algorithm.">PreprocessorStatistics::globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00155"></a>00155 {
+<a name="l00156"></a>00156     globalThresholdingTime_ = elapsedTime;
+<a name="l00157"></a>00157     updateTotalTime();
 <a name="l00158"></a>00158 };
 <a name="l00159"></a>00159 
 <a name="l00160"></a>00160 
@@ -147,42 +147,44 @@ window.onload = initDynSections;
 <a name="l00188"></a>00188     
 <a name="l00189"></a>00189     
 <a name="l00196"></a>00196     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#f03e5a61400f8c0065cb38d47ea2aa38" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00197"></a>00197     
-<a name="l00198"></a>00198     
-<a name="l00207"></a>00207     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#d55cab055bf8e08bdf6a8d16a50d66a0" title="Sets the total elapsed time during stage execution.">totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
-<a name="l00208"></a>00208 };
-<a name="l00209"></a>00209 
-<a name="l00210"></a><a class="code" href="class_feature_extraction_statistics.html#d55cab055bf8e08bdf6a8d16a50d66a0">00210</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#d55cab055bf8e08bdf6a8d16a50d66a0" title="Sets the total elapsed time during stage execution.">FeatureExtractionStatistics::totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00211"></a>00211 {
-<a name="l00212"></a>00212     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = elapsedTime;
-<a name="l00213"></a>00213 };
-<a name="l00214"></a>00214 
+<a name="l00197"></a>00197 
+<a name="l00198"></a>00198 <span class="keyword">private</span>:
+<a name="l00199"></a>00199     
+<a name="l00208"></a>00208     <span class="keyword">const</span> <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00209"></a>00209 };
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211 <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> FeatureExtractionStatistics::updateTotalTime ()
+<a name="l00212"></a>00212 {
+<a name="l00213"></a>00213     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00214"></a>00214 };
 <a name="l00215"></a>00215 
 <a name="l00216"></a>00216 
-<a name="l00223"></a><a class="code" href="class_classification_statistics.html">00223</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
-<a name="l00224"></a>00224 {
-<a name="l00225"></a>00225 <span class="keyword">public</span>:
-<a name="l00226"></a>00226     
-<a name="l00233"></a>00233     <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();
-<a name="l00234"></a>00234     
+<a name="l00217"></a>00217 
+<a name="l00224"></a><a class="code" href="class_classification_statistics.html">00224</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
+<a name="l00225"></a>00225 {
+<a name="l00226"></a>00226 <span class="keyword">public</span>:
+<a name="l00227"></a>00227     
+<a name="l00234"></a>00234     <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();
 <a name="l00235"></a>00235     
-<a name="l00242"></a>00242     <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
-<a name="l00243"></a>00243     
+<a name="l00236"></a>00236     
+<a name="l00243"></a>00243     <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
 <a name="l00244"></a>00244     
-<a name="l00251"></a>00251     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#e94b5ff6659f16e9abaff3e003d099db" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00252"></a>00252     
+<a name="l00245"></a>00245     
+<a name="l00252"></a>00252     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#e94b5ff6659f16e9abaff3e003d099db" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
 <a name="l00253"></a>00253     
-<a name="l00262"></a>00262     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#27a37310349e4c794d5400bd8f688069" title="Sets the total elapsed time during stage execution.">totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
-<a name="l00263"></a>00263 };
-<a name="l00264"></a>00264 
-<a name="l00265"></a><a class="code" href="class_classification_statistics.html#27a37310349e4c794d5400bd8f688069">00265</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#27a37310349e4c794d5400bd8f688069" title="Sets the total elapsed time during stage execution.">ClassificationStatistics::totalTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00266"></a>00266 {
-<a name="l00267"></a>00267     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = elapsedTime;
-<a name="l00268"></a>00268 };
-<a name="l00269"></a>00269 
-<a name="l00270"></a>00270 <span class="preprocessor">#endif  //_STATISTICS_H</span>
+<a name="l00254"></a>00254 <span class="keyword">private</span>:
+<a name="l00255"></a>00255     
+<a name="l00264"></a>00264     <span class="keyword">const</span> <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00265"></a>00265 };
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267 <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
+<a name="l00268"></a>00268 {
+<a name="l00269"></a>00269     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00270"></a>00270 };
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272 <span class="preprocessor">#endif  //_STATISTICS_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 19:52:56 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jan 13 12:19:15 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

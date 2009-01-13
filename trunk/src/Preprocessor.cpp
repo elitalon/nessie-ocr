@@ -5,7 +5,6 @@
 #include <boost/timer.hpp>
 #include <cmath>
 #include <algorithm>
-#include <iostream>
 
 
 
@@ -23,7 +22,12 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 ///
 void Preprocessor::applyGlobalThresholding ()
 {
+	boost::timer timer;
+	timer.restart();
+	
 	unsigned char threshold = computeOtsuOptimalThreshold();
+	
+	statistics_.globalThresholdingTime(timer.elapsed());
 };
 
 
@@ -638,7 +642,6 @@ void Preprocessor::findSpaceLocations ()
 		advance (jShape, 1);
 	}
 	meanIntercharacterSpace = round(meanIntercharacterSpace / shapes_.size());
-	std::cout << "Mean intercharacter space    : " << meanIntercharacterSpace << std::endl;
 
 
 	// Count the number of spaces within a text
@@ -662,5 +665,4 @@ void Preprocessor::findSpaceLocations ()
 		advance (iShape, 1);
 		advance (jShape, 1);
 	}
-	std::cout << "Spaces found                 : " << spaces << std::endl;
 };

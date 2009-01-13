@@ -47,21 +47,21 @@ public:
 	/// @date 2009-01-12
 	///
 	virtual const void print () const = 0;
-	
-	
-	///
-	/// Sets the total elapsed time during execution.
-	/// 
-	/// @param elapsedTime A number representing the elapsed time in seconds.
-	/// 
-	/// @author	Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
-	///
-	virtual const void totalTime (const double& elapsedTime) = 0;
-	
+		
 protected:
 
 	double totalTime_;	///< Total elapsed time during stage execution.
+	
+	
+	///
+	/// Updates the total elapsed time attribute.
+	/// 
+	/// @post #totalTime_ is set by summing all the timers attributes within the class.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-13
+	///
+	virtual const void updateTotalTime () = 0;
 };
 
 
@@ -104,17 +104,6 @@ public:
 	
 	
 	///
-	/// Sets the total elapsed time during stage execution.
-	/// 
-	/// @param elapsedTime A number representing the elapsed time in seconds.
-	/// 
-	/// @author	Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
-	///
-	const void totalTime (const double& elapsedTime);
-	
-	
-	///
 	/// Sets the press clip size in number of pixels.
 	/// 
 	/// @param nPixels A number representing the number of pixels.
@@ -140,11 +129,21 @@ private:
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
 	
 	double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
+	
+	///
+	/// Updates the total elapsed time attribute.
+	/// 
+	/// @post #totalTime_ is set by summing all the timers attributes within the class.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-13
+	///
+	const void updateTotalTime ();
 };
 
-inline const void PreprocessorStatistics::totalTime (const double& elapsedTime)
+inline const void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = elapsedTime;
+	totalTime_ = globalThresholdingTime_;
 };
 
 inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
@@ -155,6 +154,7 @@ inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
 inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
 	globalThresholdingTime_ = elapsedTime;
+	updateTotalTime();
 };
 
 
@@ -194,22 +194,23 @@ public:
 	/// @date 2009-01-12
 	///
 	const void print () const;
-	
+
+private:
 	
 	///
-	/// Sets the total elapsed time during stage execution.
+	/// Updates the total elapsed time attribute.
 	/// 
-	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// @post #totalTime_ is set by summing all the timers attributes within the class.
 	/// 
 	/// @author	Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
+	/// @date 2009-01-13
 	///
-	const void totalTime (const double& elapsedTime);
+	const void updateTotalTime ();
 };
 
-inline const void FeatureExtractionStatistics::totalTime (const double& elapsedTime)
+inline const void FeatureExtractionStatistics::updateTotalTime ()
 {
-	totalTime_ = elapsedTime;
+	totalTime_ = 0.0;
 };
 
 
@@ -250,21 +251,22 @@ public:
 	///
 	const void print () const;
 	
+private:
 	
 	///
-	/// Sets the total elapsed time during stage execution.
+	/// Updates the total elapsed time attribute.
 	/// 
-	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// @post #totalTime_ is set by summing all the timers attributes within the class.
 	/// 
 	/// @author	Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
+	/// @date 2009-01-13
 	///
-	const void totalTime (const double& elapsedTime);
+	const void updateTotalTime ();
 };
 
-inline const void ClassificationStatistics::totalTime (const double& elapsedTime)
+inline const void ClassificationStatistics::updateTotalTime ()
 {
-	totalTime_ = elapsedTime;
+	totalTime_ = 0.0;
 };
 
 #endif  //_STATISTICS_H

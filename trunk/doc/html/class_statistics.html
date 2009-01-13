@@ -95,9 +95,10 @@ Collaboration diagram for Statistics:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe">print</a> () const =0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Prints the statistical data gathered during the text recognition process.  <a href="#40b62e47b054dfb024b5ab5198894efe"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#d25cf4c38635d36bf057fe1c2e23a8b9">totalTime</a> (const double &amp;elapsedTime)=0</td></tr>
+<tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#880a99ea540c1a836d454f2ce12d4df0">updateTotalTime</a> ()=0</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the total elapsed time during execution.  <a href="#d25cf4c38635d36bf057fe1c2e23a8b9"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates the total elapsed time attribute.  <a href="#880a99ea540c1a836d454f2ce12d4df0"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7256bc5d1785a0ef7c0cd21afbc53737"></a><!-- doxytag: member="Statistics::totalTime_" ref="7256bc5d1785a0ef7c0cd21afbc53737" args="" -->
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737">totalTime_</a></td></tr>
@@ -193,39 +194,32 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div><p>
-<a class="anchor" name="d25cf4c38635d36bf057fe1c2e23a8b9"></a><!-- doxytag: member="Statistics::totalTime" ref="d25cf4c38635d36bf057fe1c2e23a8b9" args="(const double &amp;elapsedTime)=0" -->
+<a class="anchor" name="880a99ea540c1a836d454f2ce12d4df0"></a><!-- doxytag: member="Statistics::updateTotalTime" ref="880a99ea540c1a836d454f2ce12d4df0" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const void Statistics::totalTime           </td>
+          <td class="memname">virtual const void Statistics::updateTotalTime           </td>
           <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [pure virtual]</code></td>
+          <td><code> [protected, pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Sets the total elapsed time during execution. 
+Updates the total elapsed time attribute. 
 <p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>A number representing the elapsed time in seconds.</td></tr>
-  </table>
-</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd><a class="el" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> is set by summing all the timers attributes within the class.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-12 </dd></dl>
-
-<p>Implemented in <a class="el" href="class_preprocessor_statistics.html#bade55acd2eacade6a7b8c872cc00e71">PreprocessorStatistics</a>, <a class="el" href="class_feature_extraction_statistics.html#d55cab055bf8e08bdf6a8d16a50d66a0">FeatureExtractionStatistics</a>, and <a class="el" href="class_classification_statistics.html#27a37310349e4c794d5400bd8f688069">ClassificationStatistics</a>.</p>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-13 </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 12 19:53:04 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jan 13 12:19:24 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
