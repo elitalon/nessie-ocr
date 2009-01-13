@@ -1,1 +1,3 @@
-<area shape="rect" href="$class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip." alt="" coords="144,5,400,29">
+<area shape="rect" href="$class_preprocessor.html#348025116f6eb14ee33701daf16388f5" title="Applies a global thresholding algorithm over the press clip." alt="" coords="144,5,400,29">
+<area shape="rect" href="$class_preprocessor.html#3625dd85be44d158517d08bfe08383ba" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth..." alt="" coords="156,53,388,77">
+<area shape="rect" href="$class_preprocessor.html#8b7366ceca05da9c858b4c2a908cd0fb" title="Applies the &#39;isolated noise removal&#39; algorithm." alt="" coords="156,101,388,125">

@@ -135,6 +135,17 @@ public:
 	///
 	const void globalThresholdingTime (const double& elapsedTime);
 	
+	
+	///
+	/// Sets the elapsed time while executing the template filtering algorithm.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-13
+	///
+	const void templateFilteringTime (const double& elapsedTime);
+	
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
@@ -142,6 +153,8 @@ private:
 	unsigned char	optimalThreshold_;			///< Optimal threshold to binarize the press clip.
 	
 	double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
+	
+	double			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template-filter algorithm.
 	
 	///
 	/// Updates the total elapsed time attribute.
@@ -156,7 +169,7 @@ private:
 
 inline const void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_;
+	totalTime_ = globalThresholdingTime_ + templateFilteringTime_;
 };
 
 inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
@@ -172,6 +185,12 @@ inline const void PreprocessorStatistics::optimalThreshold (const unsigned char&
 inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
 	globalThresholdingTime_ = elapsedTime;
+	updateTotalTime();
+};
+
+inline const void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
+{
+	templateFilteringTime_ = elapsedTime;
 	updateTotalTime();
 };
 

@@ -15,7 +15,8 @@ Statistics::~Statistics () {};
 PreprocessorStatistics::PreprocessorStatistics ()
 	:	clipSize_(0),
 		optimalThreshold_(127),
-		globalThresholdingTime_(0.0)
+		globalThresholdingTime_(0.0),
+		templateFilteringTime_(0.0)
 {};
 
 PreprocessorStatistics::~PreprocessorStatistics ()
@@ -28,6 +29,7 @@ const void PreprocessorStatistics::print () const
 	std::cout << "  - Number of pixels         : " << clipSize_ << std::endl;
 	std::cout << "  - Optimal threshold        : " << static_cast<unsigned int>(optimalThreshold_) << std::endl;
 	std::cout << "  - Global thresholding time : " << globalThresholdingTime_ << std::endl;
+	std::cout << "  - Template filtering time  : " << templateFilteringTime_ << std::endl;
 	std::cout << "  - Total elapsed time       : " << totalTime_ << std::endl;
 };
 

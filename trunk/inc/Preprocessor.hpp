@@ -50,9 +50,35 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	void applyGlobalThresholding ();
+	const void applyGlobalThresholding ();
 
 
+	///
+	///	Applies four 3x3 matching templates over the press clip to remove noise and smooth character borders.
+	///
+	///	@pre The press clip must come in binary mode, 0 for background pixels and 1 for ink pixels.
+	///
+	///	@post The noise in the image is removed and the borders of character are smoothed.
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+	const void applyTemplateFilters ();
+
+
+	///
+	///
+	///
+	///	@pre
+	///
+	///	@post
+	///
+	/// @author Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-08
+	///
+	const void applyAveragingFilters ();
+	
+	
 	///
 	/// Applies the 'isolated noise removal' algorithm.
 	///
@@ -68,32 +94,6 @@ public:
 	/// @date 2009-01-08
 	///
 	void removeIsolatedNoise (const unsigned int& isolationCoefficient = 0);
-
-
-	///
-	///
-	///
-	///	@pre
-	///
-	///	@post
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-08
-	///
-	void applyAveragingFilters ();
-
-
-	///
-	///
-	///
-	///	@pre
-	///
-	///	@post
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-08
-	///
-	void applyTemplateFilters ();
 
 
 	///
@@ -238,6 +238,8 @@ private:
 
 
 	Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
+	
+	PreprocessorStatistics statistics_;		///< Statistics about the execution of algorithms.
 
 	std::deque<Pixel> 		seeds_;			///< A list with the coordinates of every pixel that has a gray level equal to #inkValue_
 
@@ -249,8 +251,6 @@ private:
 
 	unsigned char			inkValue_;		///< Gray level value of the pixels that have ink
 	
-	PreprocessorStatistics statistics_;		///< Statistics about the execution of algorithms.
-	
 	
 	///
 	/// Computes the optimal threshold value in a press clip following the Sonka's method.
@@ -258,7 +258,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-09
 	///
-	unsigned char computeSonkaOptimalThreshold () const;
+	const unsigned char computeSonkaOptimalThreshold () const;
 	
 	
 	///
@@ -267,25 +267,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-09
 	///
-	unsigned char computeOtsuOptimalThreshold () const;
-
-
-	///
-	/// Computes the background reference gray level value within a clip.
-	///
-	/// @post	The #backgroundReferenceGrayLevelFindingTime_ member is modified.
-	///
-	/// @param	clip							The clip where applying the algorithm over
-	/// @param	referenceGrayLevelNeighbours	Number of neighbours of the more frequent gray level to explore on each direction
-	///
-	/// @see Clip
-	///
-	/// @return The reference gray level of the background
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-13
-	///
-	const unsigned char& findBackgroundReferenceGrayLevel (const unsigned int& referenceGrayLevelNeighbours = 2);
+	const unsigned char computeOtsuOptimalThreshold () const;
 
 
 	///

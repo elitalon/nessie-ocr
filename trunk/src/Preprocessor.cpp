@@ -5,12 +5,13 @@
 #include <boost/timer.hpp>
 #include <cmath>
 #include <algorithm>
+#include <iostream>
 
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
 	:	clip_(pressClip),
-		statistics_(PreprocessorStatistics())
+	statistics_(PreprocessorStatistics())
 {
 	statistics_.clipSize(pressClip.size());
 };
@@ -24,14 +25,14 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 /// @todo Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
 /// ones. Some function should be developed to automatically make the right decision.
 ///
-void Preprocessor::applyGlobalThresholding ()
+const void Preprocessor::applyGlobalThresholding ()
 {
 	boost::timer timer;
 	timer.restart();
-	
+
 	unsigned char threshold = computeOtsuOptimalThreshold();
 	statistics_.optimalThreshold(threshold);
-	
+
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
 		for ( unsigned int j = 0; j < clip_.width(); ++j )
@@ -42,7 +43,7 @@ void Preprocessor::applyGlobalThresholding ()
 				clip_(i,j) = 1;
 		}
 	}
-	
+
 	statistics_.globalThresholdingTime(timer.elapsed());
 };
 
@@ -53,29 +54,29 @@ void Preprocessor::applyGlobalThresholding ()
 /// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
 /// zeroth- and the first-order cumulative moments of the gray-level histogram.
 ///
-unsigned char Preprocessor::computeOtsuOptimalThreshold () const
+const unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 {
 	// Compute the normalized clip histogram 
 	std::deque<double> histogram(256, 0.0);
-	
+
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
 		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
 			unsigned int grayLevel = static_cast<unsigned int>(clip_(i,j));
-			
+
 			histogram.at(grayLevel) += 1.0;
 		}
 	}
 	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), clip_.size()) );
-	
-	
+
+
 	// Compute the total mean gray level of the clip
 	double totalMeanGrayLevel = 0.0;
 	for ( unsigned int i = 1; i <= histogram.size(); ++i )
 		totalMeanGrayLevel += histogram.at(i-1) * static_cast<double>(i);
-		
-	
+
+
 	// Compute the zeroth- and first-order cumulative moments, i.e. the probabilities of class occurrence and the
 	// class mean levels up to level i-th.
 	std::deque<double> zerothOrderMoment(256, 0.0);
@@ -88,22 +89,22 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 			firstOrderMoment.at(i)	+= static_cast<double>(j+1) * histogram.at(j);
 		}
 	}
-	
-	
+
+
 	// Compute the between-class variance, according to the criterion measurements used in the discriminant analysis
 	std::deque<double> betweenClassVariance(256, 0.0);
 	for ( unsigned int i = 0; i < histogram.size(); ++i )
 	{
 		double numerator = pow(totalMeanGrayLevel * zerothOrderMoment.at(i) - firstOrderMoment.at(i), 2);
 		double denominator = zerothOrderMoment.at(i) * (1 - zerothOrderMoment.at(i));
-		
+
 		if ( std::isnan(numerator / denominator) )
 			betweenClassVariance.at(i) = 0.0;
 		else
 			betweenClassVariance.at(i) = numerator / denominator;
 	}
-	
-	
+
+
 	// Find the gray level that maximizes the between-class variance
 	std::deque<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
 	std::deque<double>::iterator i = betweenClassVariance.begin();
@@ -114,7 +115,7 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 		++i;
 		++optimalThreshold;
 	}
-	
+
 	return optimalThreshold;
 };
 
@@ -124,7 +125,7 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 /// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
 /// computed from the four corners of the press clip. 
 ///
-unsigned char Preprocessor::computeSonkaOptimalThreshold () const
+const unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 {
 	// Start with an initial threshold
 	unsigned char optimalThreshold = (clip_(0,0) + clip_(0, clip_.width()-1) + clip_(0, clip_.height()-1) + clip_(clip_.height()-1,clip_.width()-1)) / 4;
@@ -159,89 +160,134 @@ unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 		currentThreshold = optimalThreshold;
 		optimalThreshold = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
 	}
-	
+
 	return optimalThreshold;
 };
 
 
+const void Preprocessor::applyTemplateFilters ()
+{
+	boost::timer timer;
+	timer.restart();
 
-// /
-// / @details To find the reference gray level of the background it is assumed that there are more pixels belonging to the
-// / background than belonging to the foreground. Then, we search the more frequent gray level and its neighbours. Finally, we compute
-// / a gray level weighted mean using all those values.
-// /
-// / @bug There are cases where the reference gray level found does not match with the real background gray level, because the assumption made about
-// / the background's number of pixels is false. An alternative may be to find two reference gray levels; if the classification process does not work,
-// / everything must be undone and start again with the second reference gray level.
-// /
-//const unsigned char& Preprocessor::findBackgroundReferenceGrayLevel (const unsigned int& referenceGrayLevelNeighbours)
-// {
-// 	// Start timing
-// 	boost::timer timer;
-// 	timer.restart();
-// 
-// 
-// 	// Compute clip's histogram
-// 	std::vector<unsigned int> histogram(256, 0);
-// 	for ( unsigned int i = 0; i < clip_.height(); ++i )
-// 	{
-// 		for ( unsigned int j = 0; j < clip_.width(); ++j )
-// 		{
-// 			histogram[static_cast<unsigned int>(clip_(i, j))] += 1;
-// 		}
-// 	}
-// 
-// 
-// 	// Search the more frequent level of gray
-// 	std::vector<unsigned int>::iterator histogramIterator;
-// 	unsigned int moreFrequentGrayLevel = 0;
-// 	unsigned int maximumAppearances	= histogram[0];
-// 
-// 	for ( unsigned int l = 1; l < 256; ++l )
-// 	{
-// 		if ( histogram[l] > maximumAppearances )
-// 		{
-// 			moreFrequentGrayLevel	= l;
-// 			maximumAppearances		= histogram[l];
-// 		}
-// 	}
-// 	unsigned int referenceGrayLevel = moreFrequentGrayLevel * histogram[moreFrequentGrayLevel];
-// 
-// 
-// 	// Search the neighbours of the more frequent level of gray
-// 	std::vector<unsigned int>::reverse_iterator histogramReverseIterator( std::find (histogram.rbegin(), histogram.rend(), histogram[moreFrequentGrayLevel])++ );
-// 	histogramIterator = histogramReverseIterator.base()++;
-// 	unsigned int nFrequencies = histogram[moreFrequentGrayLevel];
-// 
-// 	for ( unsigned int i = 1; i <= referenceGrayLevelNeighbours; ++i )
-// 	{
-// 		// Search forwards
-// 		if ( histogramIterator not_eq histogram.end() )
-// 		{
-// 			referenceGrayLevel	+= (moreFrequentGrayLevel + i) * histogram[moreFrequentGrayLevel + i];
-// 			nFrequencies		+= histogram[moreFrequentGrayLevel + i];
-// 
-// 			++histogramIterator;
-// 		}
-// 
-// 		// Search backwards
-// 		if ( histogramReverseIterator not_eq histogram.rend() )
-// 		{
-// 			referenceGrayLevel	+= (moreFrequentGrayLevel - i) * histogram[moreFrequentGrayLevel - i];
-// 			nFrequencies		+= histogram[moreFrequentGrayLevel - i];
-// 
-// 			++histogramReverseIterator;
-// 		}
-// 	}
-// 
-// 	// Set the background reference gray level found
-// 	backgroundReferenceGrayLevel_ = static_cast<unsigned char>( round(referenceGrayLevel / nFrequencies) );
-// 
-// 	// Gather elapsed time
-// 	backgroundReferenceGrayLevelFindingTime_ = timer.elapsed();
-// 
-// 	return backgroundReferenceGrayLevel_;
-// };
+	// Apply first filter mask, checking neighbour pixels above the target pixel
+	for ( int i = clip_.height()-1; i >= 0; --i )
+	{
+		for ( int j = clip_.width()-1; j >= 0; --j )
+		{
+			int upperRow = i-1;
+
+			if ( upperRow >= 0 )
+			{
+				unsigned int equalPixels = 1;
+
+				if ( j > 0 )
+				{
+					if ( clip_(upperRow,j) == clip_(upperRow,j-1) and clip_(upperRow,j-1) == clip_(i,j-1) )
+						equalPixels += 2;
+				}
+
+				if ( j < static_cast<int>(clip_.width())-1 )
+				{
+					if ( clip_(upperRow,j) == clip_(upperRow,j+1) and clip_(upperRow,j+1) == clip_(i,j+1) )
+						equalPixels += 2;
+				}
+
+				if ( equalPixels == 5 )
+					clip_(i,j) =  clip_(upperRow,j);
+			}
+		}
+	}
+	
+	// Apply second filter mask, checking neighbour pixels below the target pixel
+	for ( int i = clip_.height()-1; i >= 0; --i )
+	{
+		for ( int j = clip_.width()-1; j >= 0; --j )
+		{
+			int lowerRow = i+1;
+
+			if ( lowerRow < static_cast<int>(clip_.height()) )
+			{
+				unsigned int equalPixels = 1;
+
+				if ( j > 0 )
+				{
+					if ( clip_(lowerRow,j) == clip_(lowerRow,j-1) and clip_(lowerRow,j-1) == clip_(i,j-1) )
+						equalPixels += 2;
+				}
+
+				if ( j < static_cast<int>(clip_.width())-1 )
+				{
+					if ( clip_(lowerRow,j) == clip_(lowerRow,j+1) and clip_(lowerRow,j+1) == clip_(i,j+1) )
+						equalPixels += 2;
+				}
+
+				if ( equalPixels == 5 )
+					clip_(i,j) =  clip_(lowerRow,j);
+			}
+		}
+	}
+
+	// Apply third filter mask, checking neighbour pixels on the left of target pixel
+	for ( int i = clip_.height()-1; i >= 0; --i )
+	{
+		for ( int j = clip_.width()-1; j >= 0; --j )
+		{
+			int leftColumn = j-1;
+
+			if ( leftColumn >= 0 )
+			{
+				unsigned int equalPixels = 1;
+
+				if ( i > 0 )
+				{
+					if ( clip_(i,leftColumn) == clip_(i-1,leftColumn) and clip_(i-1,leftColumn) == clip_(i-1,j) )
+						equalPixels += 2;
+				}
+
+				if ( i < static_cast<int>(clip_.height())-1 )
+				{
+					if ( clip_(i,leftColumn) == clip_(i+1,leftColumn) and clip_(i+1,leftColumn) == clip_(i+1,j) )
+						equalPixels += 2;
+				}
+
+				if ( equalPixels == 5 )
+					clip_(i,j) =  clip_(i,leftColumn);
+			}
+		}
+	}
+	
+	// Apply fourth filter mask, checking neighbour pixels on the right of target pixel
+	for ( int i = clip_.height()-1; i >= 0; --i )
+	{
+		for ( int j = clip_.width()-1; j >= 0; --j )
+		{
+			int rightColumn = j+1;
+
+			if ( rightColumn < static_cast<int>(clip_.width()) )
+			{
+				unsigned int equalPixels = 1;
+
+				if ( i > 0 )
+				{
+					if ( clip_(i,rightColumn) == clip_(i-1,rightColumn) and clip_(i-1,rightColumn) == clip_(i-1,j) )
+						equalPixels += 2;
+				}
+
+				if ( i < static_cast<int>(clip_.height())-1 )
+				{
+					if ( clip_(i,rightColumn) == clip_(i+1,rightColumn) and clip_(i+1,rightColumn) == clip_(i+1,j) )
+						equalPixels += 2;
+				}
+
+				if ( equalPixels == 5 )
+					clip_(i,j) =  clip_(i,rightColumn);
+			}
+		}
+	}
+	
+	statistics_.templateFilteringTime(timer.elapsed());
+};
 
 
 ///
@@ -250,67 +296,44 @@ unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 /// whose gray level is over a threshold value as isolationCoefficient
 ///
 void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient)
-{
-	// // Start timing
-	// boost::timer timer;
-	// timer.restart();
-	// 
-	// 
-	// // Loop over the clip to remove every noisy isolated pixel
-	// for (unsigned int i=0; i < clip_.height(); ++i)
-	// {
-	// 	for (unsigned int j=0; j < clip_.width(); ++j)
-	// 	{
-	// 		unsigned char pixelGrayLevel = clip_(i, j);
-	//
-	// 		// Comparison values to avoid pixels that clearly belong to the background
-	// 		bool backgroundPixelOnWhite = (backgroundReferenceGrayLevel_ > optimalThreshold_) and (pixelGrayLevel >= backgroundReferenceGrayLevel_);
-	// 		bool backgroundPixelOnBlack = (backgroundReferenceGrayLevel_ < optimalThreshold_) and (pixelGrayLevel <= backgroundReferenceGrayLevel_);
-	// 
-	// 		if ( not backgroundPixelOnBlack and not backgroundPixelOnWhite )
-	// 		{
-	// 			unsigned int nBackgroundPixels = 0, nPixels = 0;
-	// 
-	// 			// Explore the pixel neighbourhood
-	// 			for(int p = i-1; p < static_cast<int>(i+2); p++)
-	// 			{
-	// 				for(int q = j-1; q < static_cast<int>(j+2); q++)
-	// 				{
-	// 					// Comparison values to avoid step outside the image and the central pixel
-	// 					bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip_.height()));
-	// 					bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip_.width()));
-	// 					bool isCentralPixel = (p == static_cast<int>(i)) and (q == static_cast<int>(j));
-	// 
-	// 					if ( not heightOverflow and not widthOverflow and not isCentralPixel )
-	// 					{
-	// 						// Update pixels counter
-	// 						nPixels++;
-	// 
-	// 						// Get neighbour pixel gray level
-	// 						unsigned char neighbourPixelGrayLevel = clip_(p, q);
-	// 
-	// 						// When background gray level is close to white but not the pixel, update the noisy neighbours counter
-	// 						if ( (backgroundReferenceGrayLevel_ >= optimalThreshold_) and (neighbourPixelGrayLevel >= optimalThreshold_) )
-	// 							nBackgroundPixels++;
-	// 						else
-	// 						{
-	// 							// When background gray level is close to black but not the pixel, update the noisy neighbours counter
-	// 							if ( (backgroundReferenceGrayLevel_ < optimalThreshold_) and (neighbourPixelGrayLevel <= optimalThreshold_) )
-	// 								nBackgroundPixels++;
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 
-	// 			// Clear the noisy pixel if it is isolated
-	// 			if (nBackgroundPixels >= (nPixels - isolationCoefficient))
-	// 				clip_(i, j) = backgroundReferenceGrayLevel_;
-	// 		}
-	// 	}
-	// }
-	// 
-	// // Gather elapsed time
-	// noiseRemovalTime_ = timer.elapsed();
+{	
+	// Loop over the clip to remove every noisy isolated pixel
+	for (unsigned int i=0; i < clip_.height(); ++i)
+	{
+		for (unsigned int j=0; j < clip_.width(); ++j)
+		{
+			unsigned int nBackgroundPixels = 0, nPixels = 0;
+
+			// Explore the pixel neighbourhood
+			for(int p = i-1; p < static_cast<int>(i+2); p++)
+			{
+				for(int q = j-1; q < static_cast<int>(j+2); q++)
+				{
+					// Comparison values to avoid step outside the image and the central pixel
+					bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip_.height()));
+					bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip_.width()));
+					bool isCentralPixel = (p == static_cast<int>(i)) and (q == static_cast<int>(j));
+
+					if ( not heightOverflow and not widthOverflow and not isCentralPixel )
+					{
+						// Update pixels counter
+						nPixels++;
+
+						// Get neighbour pixel gray level
+						unsigned char neighbourPixelGrayLevel = clip_(p, q);
+
+						// When background gray level is close to white but not the pixel, update the noisy neighbours counter
+						if ( neighbourPixelGrayLevel == 0 )
+							nBackgroundPixels++;
+					}
+				}
+			}
+
+			// Clear the noisy pixel if it is isolated
+			if (nBackgroundPixels >= (nPixels - isolationCoefficient))
+				clip_(i, j) = 0;
+		}
+	}
 };
 
 
@@ -513,7 +536,7 @@ void Preprocessor::findLineMarkers (const Clip& clip)
 		if ( rowHasInk )
 		{
 			if (not previousRowHasInk)
-		    	topRow = i;
+				topRow = i;
 		}
 		else
 		{
@@ -525,7 +548,7 @@ void Preprocessor::findLineMarkers (const Clip& clip)
 	}
 
 	// Check the last line ends with the image border
-    if ( rowHasInk and previousRowHasInk )
+	if ( rowHasInk and previousRowHasInk )
 		lineMarkers_.push_back( LineMarker(topRow, clip.height()-1) );
 
 

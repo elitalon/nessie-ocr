@@ -4,7 +4,6 @@
 #include "Clip.hpp"
 #include "NessieException.hpp"
 #include <cmath>
-#include <iostream>
 
 
 
