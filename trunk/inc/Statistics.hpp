@@ -115,6 +115,17 @@ public:
 	
 	
 	///
+	/// Sets the optimal threshold used to binrize the press clip.
+	/// 
+	/// @param threshold A number representing the threshold gray level.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-13
+	///
+	const void optimalThreshold (const unsigned char& threshold);
+	
+	
+	///
 	/// Sets the elapsed time while executing the global thresholding algorithm.
 	/// 
 	/// @param elapsedTime A number representing the elapsed time in seconds.
@@ -127,6 +138,8 @@ public:
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
+	
+	unsigned char	optimalThreshold_;			///< Optimal threshold to binarize the press clip.
 	
 	double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
 	
@@ -149,6 +162,11 @@ inline const void PreprocessorStatistics::updateTotalTime ()
 inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
 {
 	clipSize_ = nPixels;
+};
+
+inline const void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
+{
+	optimalThreshold_ = threshold;
 };
 
 inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)

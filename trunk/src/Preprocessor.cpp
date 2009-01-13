@@ -18,7 +18,11 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 
 ///
 /// @details The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
-/// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal.
+/// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm
+/// also assumes that gray levels in the press clip below the threshold belong to the background, while gray levels above belong to the ink.
+/// 
+/// @todo Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
+/// ones. Some function should be developed to automatically make the right decision.
 ///
 void Preprocessor::applyGlobalThresholding ()
 {
@@ -26,6 +30,18 @@ void Preprocessor::applyGlobalThresholding ()
 	timer.restart();
 	
 	unsigned char threshold = computeOtsuOptimalThreshold();
+	statistics_.optimalThreshold(threshold);
+	
+	for ( unsigned int i = 0; i < clip_.height(); ++i )
+	{
+		for ( unsigned int j = 0; j < clip_.width(); ++j )
+		{
+			if ( clip_(i,j) < threshold)
+				clip_(i,j) = 0;
+			else
+				clip_(i,j) = 1;
+		}
+	}
 	
 	statistics_.globalThresholdingTime(timer.elapsed());
 };

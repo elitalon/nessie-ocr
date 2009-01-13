@@ -4,6 +4,7 @@
 #include "Clip.hpp"
 #include "NessieException.hpp"
 #include <cmath>
+#include <iostream>
 
 
 
@@ -52,7 +53,7 @@ Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned 
 
 void Clip::writeToOutputImage (const std::string& outputFile) const
 {
-	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), "white");
+	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), Magick::ColorGray(1.0));
 	outputImage.type( Magick::GrayscaleType );
 
 	// Allocate pixel view
@@ -67,12 +68,12 @@ void Clip::writeToOutputImage (const std::string& outputFile) const
 		{
 			pixel = originPixel + (i * view.columns()) + j;
 
-			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j) / 255.0) );
+			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j)) );
 		}
 	}
 
 	// Synchronize changes
 	view.sync();
-	outputImage.syncPixels();
+	//outputImage.syncPixels();
 	outputImage.write(outputFile);
 };
