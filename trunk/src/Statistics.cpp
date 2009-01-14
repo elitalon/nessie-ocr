@@ -9,7 +9,9 @@ Statistics::Statistics ()
 	:	totalTime_(0.0)
 {};
 
+
 Statistics::~Statistics () {};
+
 
 
 PreprocessorStatistics::PreprocessorStatistics ()
@@ -19,8 +21,10 @@ PreprocessorStatistics::PreprocessorStatistics ()
 		templateFilteringTime_(0.0)
 {};
 
+
 PreprocessorStatistics::~PreprocessorStatistics ()
 {};
+
 
 const void PreprocessorStatistics::print () const
 {
@@ -34,11 +38,14 @@ const void PreprocessorStatistics::print () const
 };
 
 
+
 FeatureExtractionStatistics::FeatureExtractionStatistics ()
 {};
 
+
 FeatureExtractionStatistics::~FeatureExtractionStatistics ()
 {};
+
 
 const void FeatureExtractionStatistics::print () const
 {
@@ -48,11 +55,14 @@ const void FeatureExtractionStatistics::print () const
 };
 
 
+
 ClassificationStatistics::ClassificationStatistics ()
 {};
 
+
 ClassificationStatistics::~ClassificationStatistics ()
 {};
+
 
 const void ClassificationStatistics::print () const
 {

@@ -337,7 +337,6 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 };
 
 
-
 ///
 /// @details This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes
 /// may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list
@@ -405,7 +404,6 @@ void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient
 // };
 
 
-
 ///
 /// @details A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method
 /// are actually all the pixels that do not belong to the background in the clip.
@@ -422,7 +420,6 @@ void Preprocessor::findSeeds (const Clip& clip)
 		}
 	}
 };
-
 
 
 ///
@@ -502,7 +499,6 @@ void Preprocessor::growSeedsIntoInitialShapes (const Clip& clip)
 		}
 	}
 };
-
 
 
 ///
@@ -602,7 +598,6 @@ void Preprocessor::findLineMarkers (const Clip& clip)
 };
 
 
-
 void Preprocessor::joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeIterator& s2)
 {
 	// Join shapes into a new one and insert it before the current shape
@@ -619,7 +614,6 @@ void Preprocessor::joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeItera
 	shapes_.erase(s1);
 	s1 = s2;
 };
-
 
 
 ///

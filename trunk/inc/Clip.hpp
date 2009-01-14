@@ -45,7 +45,6 @@ public:
 	///
 	explicit Clip (const Magick::Image& image, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width);
 
-
 	///
 	/// Allows read-and-write access to a pixel in the clip.
 	///
@@ -58,7 +57,6 @@ public:
 	/// @date 2008-12-29
 	///
 	unsigned char& operator() (const unsigned int& row, const unsigned int& column);
-
 
 	///
 	/// Allows read-only access to a pixel in the clip.
@@ -73,7 +71,6 @@ public:
 	///
 	unsigned char operator() (const unsigned int& row, const unsigned int& column) const;
 
-
 	///
 	/// Returns the width of the clip.
 	///
@@ -83,7 +80,6 @@ public:
 	/// @date 2008-12-29
 	///
 	const unsigned int& width () const;
-
 
 	///
 	/// Returns the height of the clip.
@@ -95,7 +91,6 @@ public:
 	///
 	const unsigned int& height () const;
 
-
 	///
 	/// Returns the number of pixels in the clip.
 	///
@@ -105,7 +100,6 @@ public:
 	/// @date 2008-12-29
 	///
 	const unsigned int& size () const;
-
 
 	///
 	/// Creates a new image file using Magick++ that reflects the current state of the press clip.
@@ -135,11 +129,9 @@ private:
 
 	unsigned int				size_;		///< Size of the clip in pixels.
 
-
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	Clip ();
 };
-
 
 
 inline unsigned char& Clip::operator() (const unsigned int &row, const unsigned int &column)

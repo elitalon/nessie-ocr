@@ -40,7 +40,6 @@ public:
 	///
 	explicit Preprocessor (const Clip& pressClip);
 
-
 	///
 	/// Applies a global thresholding algorithm over the press clip.
 	///
@@ -51,7 +50,6 @@ public:
 	/// @date 2009-01-08
 	///
 	const void applyGlobalThresholding ();
-
 
 	///
 	///	Applies four 3x3 matching templates over the press clip to remove noise and smooth character borders.
@@ -65,7 +63,6 @@ public:
 	///
 	const void applyTemplateFilters ();
 
-
 	///
 	///
 	///
@@ -77,7 +74,6 @@ public:
 	/// @date 2009-01-08
 	///
 	const void applyAveragingFilters ();
-	
 	
 	///
 	/// Applies the 'isolated noise removal' algorithm.
@@ -95,7 +91,6 @@ public:
 	///
 	void removeIsolatedNoise (const unsigned int& isolationCoefficient = 0);
 
-
 	///
 	///
 	///
@@ -107,7 +102,6 @@ public:
 	/// @date 2009-01-08
 	///
 	void correctSkewness (); // Future work
-
 
 	///
 	///
@@ -121,7 +115,6 @@ public:
 	///
 	void applySegmentation ();
 
-
 	///
 	///
 	///
@@ -133,7 +126,6 @@ public:
 	/// @date 2009-01-08
 	///
 	void normalizeCharacters ();
-
 
 	///
 	///
@@ -147,7 +139,6 @@ public:
 	///
 	void correctSlanting ();
 
-
 	///
 	///
 	///
@@ -159,7 +150,6 @@ public:
 	/// @date 2009-01-08
 	///
 	void applyThinning ();
-
 
 	///
 	/// Finds every position in the list of shapes where a blank space must be inserted when building the text.
@@ -173,7 +163,6 @@ public:
 	///
 	void findSpaceLocations ();
 
-
 	///
 	/// Returns the shapes found in the last segmentation process
 	///
@@ -185,7 +174,6 @@ public:
 	/// @date 2008-10-13
 	///
 	const std::list<Shape>& shapes () const;
-	
 	
 	///
 	/// Returns the statistics about the preprocessing stage regarding algorithms execution.
@@ -201,41 +189,9 @@ public:
 
 private:
 
-	///
-	/// @typedef LineMarker
-	///
-	/// @brief Limits of a line of shapes.
-	///
-	/// @details This pair keeps the rows of a press clip that delimits a single line of shapes. The first member representes the row of pixels
-	/// at the top of the line, while the second member represents the row of pixels at the bottom of the line.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-24
-	///
 	typedef std::pair<unsigned int, unsigned int> LineMarker;
-
-
-	///
-	/// @typedef LineMarkerIterator
-	///
-	/// @brief An iterator to a list of LineMarker objects.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-31
-	///
 	typedef std::list<LineMarker>::iterator LineMarkerIterator;
-
-
-	///
-	/// @typedef ShapeIterator
-	///
-	/// @brief An iterator to a list of Shape objects.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-30
-	///
 	typedef std::list<Shape>::iterator ShapeIterator;
-
 
 	Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
 	
@@ -250,8 +206,7 @@ private:
 	std::list<LineMarker>	lineMarkers_;	///< A list of integer pairs that defines the limits of every line of characters in a press clip
 
 	unsigned char			inkValue_;		///< Gray level value of the pixels that have ink
-	
-	
+		
 	///
 	/// Computes the optimal threshold value in a press clip following the Sonka's method.
 	///
@@ -260,7 +215,6 @@ private:
 	///
 	const unsigned char computeSonkaOptimalThreshold () const;
 	
-	
 	///
 	/// Computes the optimal threshold value in a press clip following the Otsu's method.
 	///
@@ -268,7 +222,6 @@ private:
 	/// @date 2009-01-09
 	///
 	const unsigned char computeOtsuOptimalThreshold () const;
-
 
 	///
 	/// Find the seeds where the shapes will grow up from.
@@ -283,7 +236,6 @@ private:
 	/// @date 2008-10-24
 	///
 	void findSeeds (const Clip& clip);
-	
 	
 	///
 	/// Finds a list of isolated shapes in the press clip by joining connected pixels
@@ -304,7 +256,6 @@ private:
 	///
 	void findShapes ();
 
-
 	///
 	/// Builds a list of shapes founded in a clip by growing seeds into isolated shapes.
 	///
@@ -320,7 +271,6 @@ private:
 	///
 	void growSeedsIntoInitialShapes (const Clip& clip);
 
-
 	///
 	/// Finds the pairs of rows that delimit every line of shapes in a press clip.
 	///
@@ -332,7 +282,6 @@ private:
 	/// @date 2008-10-24
 	///
 	void findLineMarkers (const Clip& clip);
-
 
 	///
 	/// Joins two shapes that are vertically overlapped.
@@ -350,7 +299,6 @@ private:
 	///
 	void joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeIterator& s2);
 
-
 	///
 	/// Finds a shape that is vertically overlapped to the shape passed, both being in the same line of shapes.
 	///
@@ -367,7 +315,6 @@ private:
 	///
 	ShapeIterator findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape);
 
-
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	Preprocessor ();
 	Preprocessor (const Preprocessor&);
@@ -375,11 +322,11 @@ private:
 };
 
 
-
 inline const std::list<Shape>& Preprocessor::shapes() const
 {
 	return shapes_;
 };
+
 
 inline const PreprocessorStatistics& Preprocessor::statistics () const
 {

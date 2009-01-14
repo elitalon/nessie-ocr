@@ -32,7 +32,6 @@ public:
 	/// 
 	explicit NessieException (const std::string& what);
 
-
 	///
 	/// Destructor.
 	///
@@ -40,7 +39,6 @@ public:
 	/// @date 2008-10-03
 	///
 	virtual ~NessieException () throw ();
-
 
 	///
 	/// Returns a message that explains the exception raised.
@@ -55,7 +53,6 @@ public:
 private:
 
 	std::string	what_;	///< Message that explains the exception raised
-	
 	
 	// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!
 	NessieException ();

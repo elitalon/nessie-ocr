@@ -27,7 +27,6 @@ public:
 	/// 
 	Text ();
 
-
 	///
 	/// Returns the text content.
 	///
@@ -38,7 +37,6 @@ public:
 	///
 	const std::string& content () const;
 
-
 	///
 	/// Returns the size of the text in number of characters.
 	///
@@ -48,7 +46,6 @@ public:
 	/// @date 2008-12-30
 	///
 	unsigned int size () const;	
-	
 	
 	///
 	/// Adds a character at the end of the text.
@@ -61,7 +58,6 @@ public:
 	/// @date 2008-12-30
 	///
 	void addCharacter (const std::string& character);
-	
 	
 	///
 	/// Adds a character to the text at given position.
@@ -78,7 +74,6 @@ public:
 	/// @date 2008-12-30
 	/// 
 	void addCharacter (const std::string& character, const unsigned int& position);
-	
 
 	///
 	/// Removes a single character from the text.
@@ -93,7 +88,6 @@ public:
 	/// @date 2008-12-30
 	/// 
 	void removeCharacter (const unsigned int& position);
-
 	
 	///
 	/// Allows to sum a pair of Text objects by appending its contents.
@@ -110,7 +104,6 @@ public:
 private:
 
 	std::string content_;	///< The text content
-
 
 	///
 	/// Constructor.

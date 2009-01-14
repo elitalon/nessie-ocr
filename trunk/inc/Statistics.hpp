@@ -5,7 +5,6 @@
 #define _STATISTICS_H
 
 
-
 ///
 /// Statistical data regarding the text recognition process.
 ///
@@ -30,7 +29,6 @@ public:
 	///
 	explicit Statistics ();
 	
-	
 	///
 	/// Destructor.
 	///
@@ -38,7 +36,6 @@ public:
 	/// @date 2009-01-12
 	///
 	virtual ~Statistics ();
-	
 	
 	///
 	/// Prints the statistical data gathered during the text recognition process.
@@ -51,7 +48,6 @@ public:
 protected:
 
 	double totalTime_;	///< Total elapsed time during stage execution.
-	
 	
 	///
 	/// Updates the total elapsed time attribute.
@@ -84,7 +80,6 @@ public:
 	///
 	explicit PreprocessorStatistics ();
 	
-	
 	///
 	/// Destructor.
 	///
@@ -93,7 +88,6 @@ public:
 	///
 	virtual ~PreprocessorStatistics ();
 	
-	
 	///
 	/// Prints the statistical data gathered.
 	/// 
@@ -101,7 +95,6 @@ public:
 	/// @date 2009-01-12
 	///
 	const void print () const;
-	
 	
 	///
 	/// Sets the press clip size in number of pixels.
@@ -113,7 +106,6 @@ public:
 	///
 	const void clipSize (const unsigned int& nPixels);
 	
-	
 	///
 	/// Sets the optimal threshold used to binrize the press clip.
 	/// 
@@ -124,7 +116,6 @@ public:
 	///
 	const void optimalThreshold (const unsigned char& threshold);
 	
-	
 	///
 	/// Sets the elapsed time while executing the global thresholding algorithm.
 	/// 
@@ -134,7 +125,6 @@ public:
 	/// @date 2009-01-12
 	///
 	const void globalThresholdingTime (const double& elapsedTime);
-	
 	
 	///
 	/// Sets the elapsed time while executing the template filtering algorithm.
@@ -167,26 +157,31 @@ private:
 	const void updateTotalTime ();
 };
 
+
 inline const void PreprocessorStatistics::updateTotalTime ()
 {
 	totalTime_ = globalThresholdingTime_ + templateFilteringTime_;
 };
+
 
 inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
 {
 	clipSize_ = nPixels;
 };
 
+
 inline const void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
 {
 	optimalThreshold_ = threshold;
 };
+
 
 inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
 	globalThresholdingTime_ = elapsedTime;
 	updateTotalTime();
 };
+
 
 inline const void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
@@ -212,8 +207,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	explicit FeatureExtractionStatistics ();
-	
+	explicit FeatureExtractionStatistics ();	
 	
 	///
 	/// Destructor.
@@ -222,7 +216,6 @@ public:
 	/// @date 2009-01-12
 	///
 	virtual ~FeatureExtractionStatistics ();
-	
 	
 	///
 	/// Prints the statistical data gathered.
@@ -244,6 +237,7 @@ private:
 	///
 	const void updateTotalTime ();
 };
+
 
 inline const void FeatureExtractionStatistics::updateTotalTime ()
 {
@@ -268,8 +262,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	explicit ClassificationStatistics ();
-	
+	explicit ClassificationStatistics ();	
 	
 	///
 	/// Destructor.
@@ -278,7 +271,6 @@ public:
 	/// @date 2009-01-12
 	///
 	virtual ~ClassificationStatistics ();
-	
 	
 	///
 	/// Prints the statistical data gathered.
@@ -300,6 +292,7 @@ private:
 	///
 	const void updateTotalTime ();
 };
+
 
 inline const void ClassificationStatistics::updateTotalTime ()
 {

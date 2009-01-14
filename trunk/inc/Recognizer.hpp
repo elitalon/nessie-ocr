@@ -10,7 +10,6 @@ class Clip;
 #include "Statistics.hpp"
 
 
-
 ///
 /// Manager of the whole OCR process.
 ///
@@ -35,7 +34,6 @@ public:
 	///
 	explicit Recognizer ();
 	
-	
 	///
 	/// Destructor.
 	///
@@ -43,7 +41,6 @@ public:
 	/// @date 2009-01-12
 	///
 	~Recognizer ();
-
 
 	///
 	/// Extracts the text within a single press clip.
@@ -57,7 +54,6 @@ public:
 	///
 	void extractText (const Clip& pressClip);
 
-
 	///
 	/// Returns the text found in a press clip after the recognition process.
 	///
@@ -69,7 +65,6 @@ public:
 	/// @date 2008-12-29
 	///
 	const Text& text () const;
-
 
 	///
 	/// Prints detailed statistics about the text recognition process gathered during execution.
@@ -95,11 +90,11 @@ private:
 };
 
 
-
 inline const Text& Recognizer::text () const
 {
 	return text_;
 };
+
 
 inline const void Recognizer::printStatistics () const
 {

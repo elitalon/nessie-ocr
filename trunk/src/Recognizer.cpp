@@ -6,7 +6,6 @@
 #include "Preprocessor.hpp"
 
 
-
 Recognizer::Recognizer ()
 	:	text_(),
 		preprocessingStatistics_(0),
@@ -14,12 +13,14 @@ Recognizer::Recognizer ()
 		classificationStatistics_(0)
 {};
 
+
 Recognizer::~Recognizer ()
 {
 	delete preprocessingStatistics_;
 	delete featureExtractionStatistics_;
 	delete classificationStatistics_;
 };
+
 
 ///
 /// @details This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
@@ -47,12 +48,12 @@ void Recognizer::extractText (const Clip& pressClip)
 	//
 	// Feature extraction stage
 	//
-
+	featureExtractionStatistics_ = new FeatureExtractionStatistics();
 
 	//
 	// Classification stage
 	//
-
+	classificationStatistics_ = new ClassificationStatistics();
 
 	//
 	// Postprocessing stage
