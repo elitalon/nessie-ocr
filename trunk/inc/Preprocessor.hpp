@@ -49,7 +49,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	const void applyGlobalThresholding ();
+	void applyGlobalThresholding ();
 
 	///
 	///	Applies four 3x3 matching templates over the press clip to remove noise and smooth character borders.
@@ -61,7 +61,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	const void applyTemplateFilters ();
+	void applyTemplateFilters ();
 
 	///
 	///
@@ -73,7 +73,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	const void applyAveragingFilters ();
+	void applyAveragingFilters ();
 	
 	///
 	/// Applies the 'isolated noise removal' algorithm.
@@ -213,7 +213,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-09
 	///
-	const unsigned char computeSonkaOptimalThreshold () const;
+	unsigned char computeSonkaOptimalThreshold () const;
 	
 	///
 	/// Computes the optimal threshold value in a press clip following the Otsu's method.
@@ -221,7 +221,7 @@ private:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-09
 	///
-	const unsigned char computeOtsuOptimalThreshold () const;
+	unsigned char computeOtsuOptimalThreshold () const;
 
 	///
 	/// Find the seeds where the shapes will grow up from.

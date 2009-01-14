@@ -72,7 +72,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void printStatistics () const;
+	void printStatistics () const;
 
 private:
 
@@ -96,7 +96,7 @@ inline const Text& Recognizer::text () const
 };
 
 
-inline const void Recognizer::printStatistics () const
+inline void Recognizer::printStatistics () const
 {
 	if ( preprocessingStatistics_ not_eq 0 )
 		preprocessingStatistics_->print();

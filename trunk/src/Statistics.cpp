@@ -26,7 +26,7 @@ PreprocessorStatistics::~PreprocessorStatistics ()
 {};
 
 
-const void PreprocessorStatistics::print () const
+void PreprocessorStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Preprocessing stage statistics" << std::endl;
@@ -47,7 +47,7 @@ FeatureExtractionStatistics::~FeatureExtractionStatistics ()
 {};
 
 
-const void FeatureExtractionStatistics::print () const
+void FeatureExtractionStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Feature extraction stage statistics" << std::endl;
@@ -64,9 +64,10 @@ ClassificationStatistics::~ClassificationStatistics ()
 {};
 
 
-const void ClassificationStatistics::print () const
+void ClassificationStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Classification stage statistics" << std::endl;
 	std::cout << "  - Total elapsed time  : " << totalTime_ << std::endl;
 };
+

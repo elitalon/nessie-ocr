@@ -25,7 +25,7 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 /// @todo Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
 /// ones. Some function should be developed to automatically make the right decision.
 ///
-const void Preprocessor::applyGlobalThresholding ()
+void Preprocessor::applyGlobalThresholding ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -54,7 +54,7 @@ const void Preprocessor::applyGlobalThresholding ()
 /// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
 /// zeroth- and the first-order cumulative moments of the gray-level histogram.
 ///
-const unsigned char Preprocessor::computeOtsuOptimalThreshold () const
+unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 {
 	// Compute the normalized clip histogram 
 	std::deque<double> histogram(256, 0.0);
@@ -125,7 +125,7 @@ const unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 /// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
 /// computed from the four corners of the press clip. 
 ///
-const unsigned char Preprocessor::computeSonkaOptimalThreshold () const
+unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 {
 	// Start with an initial threshold
 	unsigned char optimalThreshold = (clip_(0,0) + clip_(0, clip_.width()-1) + clip_(0, clip_.height()-1) + clip_(clip_.height()-1,clip_.width()-1)) / 4;
@@ -165,7 +165,7 @@ const unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 };
 
 
-const void Preprocessor::applyTemplateFilters ()
+void Preprocessor::applyTemplateFilters ()
 {
 	boost::timer timer;
 	timer.restart();

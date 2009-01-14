@@ -43,7 +43,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	virtual const void print () const = 0;
+	virtual void print () const = 0;
 		
 protected:
 
@@ -57,7 +57,7 @@ protected:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	virtual const void updateTotalTime () = 0;
+	virtual void updateTotalTime () = 0;
 };
 
 
@@ -94,7 +94,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void print () const;
+	void print () const;
 	
 	///
 	/// Sets the press clip size in number of pixels.
@@ -104,7 +104,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void clipSize (const unsigned int& nPixels);
+	void clipSize (const unsigned int& nPixels);
 	
 	///
 	/// Sets the optimal threshold used to binrize the press clip.
@@ -114,7 +114,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	const void optimalThreshold (const unsigned char& threshold);
+	void optimalThreshold (const unsigned char& threshold);
 	
 	///
 	/// Sets the elapsed time while executing the global thresholding algorithm.
@@ -124,7 +124,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void globalThresholdingTime (const double& elapsedTime);
+	void globalThresholdingTime (const double& elapsedTime);
 	
 	///
 	/// Sets the elapsed time while executing the template filtering algorithm.
@@ -134,7 +134,7 @@ public:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	const void templateFilteringTime (const double& elapsedTime);
+	void templateFilteringTime (const double& elapsedTime);
 	
 private:
 	
@@ -154,36 +154,36 @@ private:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	const void updateTotalTime ();
+	void updateTotalTime ();
 };
 
 
-inline const void PreprocessorStatistics::updateTotalTime ()
+inline void PreprocessorStatistics::updateTotalTime ()
 {
 	totalTime_ = globalThresholdingTime_ + templateFilteringTime_;
 };
 
 
-inline const void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
+inline void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
 {
 	clipSize_ = nPixels;
 };
 
 
-inline const void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
+inline void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
 {
 	optimalThreshold_ = threshold;
 };
 
 
-inline const void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
+inline void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
 	globalThresholdingTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
-inline const void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
+inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
 	templateFilteringTime_ = elapsedTime;
 	updateTotalTime();
@@ -223,7 +223,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void print () const;
+	void print () const;
 
 private:
 	
@@ -235,11 +235,11 @@ private:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	const void updateTotalTime ();
+	void updateTotalTime ();
 };
 
 
-inline const void FeatureExtractionStatistics::updateTotalTime ()
+inline void FeatureExtractionStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 };
@@ -278,7 +278,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-12
 	///
-	const void print () const;
+	void print () const;
 	
 private:
 	
@@ -290,11 +290,11 @@ private:
 	/// @author	Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-13
 	///
-	const void updateTotalTime ();
+	void updateTotalTime ();
 };
 
 
-inline const void ClassificationStatistics::updateTotalTime ()
+inline void ClassificationStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 };
