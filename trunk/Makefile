@@ -55,7 +55,7 @@ DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 #
 OBJECTS = *.o
 PROGRAM = bin/ocr
-CXXFLAGS = -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -Wold-style-cast
+CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -Wold-style-cast
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost

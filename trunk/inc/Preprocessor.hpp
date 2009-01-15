@@ -56,7 +56,7 @@ public:
 	///
 	///	@pre The press clip must come in binary mode, 0 for background pixels and 1 for ink pixels.
 	///
-	///	@post The noise in the image is removed and the borders of character are smoothed.
+	///	@post The noise in the image is removed and the borders of characters are smoothed.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
@@ -64,33 +64,17 @@ public:
 	void applyTemplateFilters ();
 
 	///
+	/// Applies an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.
 	///
+	///	@pre The press clip must come in grayscale mode.
 	///
-	///	@pre
-	///
-	///	@post
+	///	@post The noise in the image is removed and the borders of characters are blurred.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
 	void applyAveragingFilters ();
 	
-	///
-	/// Applies the 'isolated noise removal' algorithm.
-	///
-	/// @pre The press clip must have been previously thresholded, probably having called Preprocessor::threshold.
-	///
-	/// @param			isolationCoefficient	The maximum noisy neighbours for a pixel to consider it as isolated.
-	///
-	/// @post The pixels identified as 'salt and pepper' noise are removed.
-	///
-	/// @see Clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-08
-	///
-	void removeIsolatedNoise (const unsigned int& isolationCoefficient = 0);
-
 	///
 	///
 	///

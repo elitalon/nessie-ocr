@@ -136,6 +136,16 @@ public:
 	///
 	void templateFilteringTime (const double& elapsedTime);
 	
+	///
+	/// Sets the elapsed time while executing the averaging filtering algorithm.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-13
+	///
+	void averagingFilteringTime (const double& elapsedTime);
+
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
@@ -144,7 +154,9 @@ private:
 	
 	double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
 	
-	double			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template-filter algorithm.
+	double			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template filtering algorithm.
+	
+	double			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
 	
 	///
 	/// Updates the total elapsed time attribute.
@@ -160,7 +172,7 @@ private:
 
 inline void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_ + templateFilteringTime_;
+	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_;
 };
 
 
@@ -186,6 +198,13 @@ inline void PreprocessorStatistics::globalThresholdingTime (const double& elapse
 inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
 	templateFilteringTime_ = elapsedTime;
+	updateTotalTime();
+};
+
+
+inline void PreprocessorStatistics::averagingFilteringTime (const double& elapsedTime)
+{
+	averagingFilteringTime_ = elapsedTime;
 	updateTotalTime();
 };
 

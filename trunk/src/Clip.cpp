@@ -73,6 +73,6 @@ void Clip::writeToOutputImage (const std::string& outputFile) const
 
 	// Synchronize changes
 	view.sync();
-	//outputImage.syncPixels();
+	outputImage.syncPixels();
 	outputImage.write(outputFile);
 };

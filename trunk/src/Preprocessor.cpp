@@ -5,7 +5,6 @@
 #include <boost/timer.hpp>
 #include <cmath>
 #include <algorithm>
-#include <iostream>
 
 
 
@@ -290,50 +289,61 @@ void Preprocessor::applyTemplateFilters ()
 };
 
 
-///
-/// @details The 'isolated noise removal' algorithm tries to eliminate isolated noisy pixels from an clip. The isolationCoefficient parameter
-/// defines how much isolated should be a noisy pixel to be removed. That means a noisy pixel will be removed whenever it has as much neighbours
-/// whose gray level is over a threshold value as isolationCoefficient
-///
-void Preprocessor::removeIsolatedNoise (const unsigned int& isolationCoefficient)
-{	
-	// Loop over the clip to remove every noisy isolated pixel
-	for (unsigned int i=0; i < clip_.height(); ++i)
+void Preprocessor::applyAveragingFilters ()
+{
+	boost::timer timer;
+	timer.restart();
+
+	int maskSize = 3;
+	std::deque<double> mask(maskSize * maskSize);
+
+	mask.at(0 * maskSize + 0) = 1.0;
+	mask.at(0 * maskSize + 1) = 2.0;
+	mask.at(0 * maskSize + 2) = 1.0;
+	mask.at(1 * maskSize + 0) = 2.0;
+	mask.at(1 * maskSize + 1) = 4.0;
+	mask.at(1 * maskSize + 2) = 2.0;
+	mask.at(2 * maskSize + 0) = 1.0;
+	mask.at(2 * maskSize + 1) = 2.0;
+	mask.at(2 * maskSize + 2) = 1.0;
+
+	int clipHeight	= clip_.height();
+	int clipWidth	= clip_.width();
+
+	for ( int i = 0; i < clipHeight; ++i )
 	{
-		for (unsigned int j=0; j < clip_.width(); ++j)
+		for ( int j = 0; j < clipWidth; ++j )
 		{
-			unsigned int nBackgroundPixels = 0, nPixels = 0;
+			double grayLevel = 0.0;
 
-			// Explore the pixel neighbourhood
-			for(int p = i-1; p < static_cast<int>(i+2); p++)
+			for ( int filterI = 0; filterI < maskSize; ++filterI )
 			{
-				for(int q = j-1; q < static_cast<int>(j+2); q++)
+				for ( int filterJ = 0; filterJ < maskSize; ++filterJ )
 				{
-					// Comparison values to avoid step outside the image and the central pixel
-					bool heightOverflow	= (p < 0) or (p >= static_cast<int>(clip_.height()));
-					bool widthOverflow	= (q < 0) or (q >= static_cast<int>(clip_.width()));
-					bool isCentralPixel = (p == static_cast<int>(i)) and (q == static_cast<int>(j));
-
-					if ( not heightOverflow and not widthOverflow and not isCentralPixel )
+					int imageI = (i + filterI - 1);
+					int imageJ = (j + filterJ - 1);
+					
+					// Check borders
+					if (imageI >= 0 and imageI < clipHeight and imageJ >= 0 and imageJ < clipWidth)
 					{
-						// Update pixels counter
-						nPixels++;
-
-						// Get neighbour pixel gray level
-						unsigned char neighbourPixelGrayLevel = clip_(p, q);
-
-						// When background gray level is close to white but not the pixel, update the noisy neighbours counter
-						if ( neighbourPixelGrayLevel == 0 )
-							nBackgroundPixels++;
+						grayLevel += mask.at(filterI * maskSize + filterJ) * static_cast<double>(clip_(imageI,imageJ));
 					}
 				}
 			}
 
-			// Clear the noisy pixel if it is isolated
-			if (nBackgroundPixels >= (nPixels - isolationCoefficient))
-				clip_(i, j) = 0;
+			grayLevel = grayLevel * 1/16;
+
+			if ( grayLevel > 255.0 )
+				grayLevel = 255.0;
+			
+			if ( grayLevel < 0.0 )
+				grayLevel = 0.0;
+
+			clip_(i,j) = static_cast<unsigned char>(round(grayLevel));
 		}
 	}
+
+	statistics_.averagingFilteringTime(timer.elapsed());
 };
 
 
