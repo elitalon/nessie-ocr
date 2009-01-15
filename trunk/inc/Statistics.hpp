@@ -146,6 +146,16 @@ public:
 	///
 	void averagingFilteringTime (const double& elapsedTime);
 
+	///
+	/// Sets the elapsed time while executing the skewness correction algorithm.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	/// 
+	/// @author	Eliezer Talón (elitalon@gmail.com)
+	/// @date 2009-01-15
+	///
+	void skewnessCorrectionTime (const double& elapsedTime);
+
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
@@ -157,6 +167,8 @@ private:
 	double			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template filtering algorithm.
 	
 	double			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
+	
+	double			skewnessCorrectionTime_;	///< Elapsed time while correcting the skewness of the text lines in a press clip.
 	
 	///
 	/// Updates the total elapsed time attribute.
@@ -205,6 +217,12 @@ inline void PreprocessorStatistics::templateFilteringTime (const double& elapsed
 inline void PreprocessorStatistics::averagingFilteringTime (const double& elapsedTime)
 {
 	averagingFilteringTime_ = elapsedTime;
+	updateTotalTime();
+};
+
+inline void PreprocessorStatistics::skewnessCorrectionTime (const double& elapsedTime)
+{
+	skewnessCorrectionTime_ = elapsedTime;
 	updateTotalTime();
 };
 

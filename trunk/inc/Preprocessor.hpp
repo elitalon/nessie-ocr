@@ -76,16 +76,16 @@ public:
 	void applyAveragingFilters ();
 	
 	///
+	///	Corrects the appearance of a slope of the text lines with respect to the x-axis.
 	///
+	///	@post The skewness is substantially corrected  by rotating ink pixels to a new position.
 	///
-	///	@pre
-	///
-	///	@post
+	/// @todo Implement this method as future work.
 	///
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2009-01-08
 	///
-	void correctSkewness (); // Future work
+	void correctSkewness ();
 
 	///
 	///

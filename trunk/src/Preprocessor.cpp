@@ -347,6 +347,12 @@ void Preprocessor::applyAveragingFilters ()
 };
 
 
+void Preprocessor::correctSkewness ()
+{
+
+};
+
+
 ///
 /// @details This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes
 /// may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list

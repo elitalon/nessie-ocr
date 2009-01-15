@@ -43,6 +43,7 @@ void Recognizer::extractText (const Clip& pressClip)
 	preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
 	preprocessor.applyTemplateFilters();
+	preprocessor.correctSkewness();
 	preprocessingStatistics_ = new PreprocessorStatistics(preprocessor.statistics());
 
 
