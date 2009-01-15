@@ -30,7 +30,7 @@ int main (int argc, char const *argv[])
 		
 		Magick::Image image( argv[1] );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
-		
+
 		Recognizer recon;
 		recon.extractText(pressClip);
 		

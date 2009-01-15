@@ -50,7 +50,7 @@ Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned 
 };
 
 
-void Clip::writeToOutputImage (const std::string& outputFile) const
+void Clip::writeToOutputImage (const std::string& outputFile, const double& scalingFactor ) const
 {
 	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), Magick::ColorGray(1.0));
 	outputImage.type( Magick::GrayscaleType );
@@ -67,7 +67,7 @@ void Clip::writeToOutputImage (const std::string& outputFile) const
 		{
 			pixel = originPixel + (i * view.columns()) + j;
 
-			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j)) );
+			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j)) / scalingFactor );
 		}
 	}
 

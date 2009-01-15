@@ -16,7 +16,7 @@
 /// representes the whole page. The newspaper pages are images that may come in several formats, such JPEG, PDF, PNG, etc.
 /// The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from
 /// the image format, so that other classes have an unified way to work with images. In future modifications any other library
-/// can be added to load images. In such case, the constructor and the writeToExternalImage method must be overloaded.
+/// can be added to load images. In such case, the constructor and the writeToOutputImage method must be overloaded.
 ///
 /// @see <a href="http://www.imagemagick.org/Magick++/">Magick++ API</a>
 ///
@@ -104,7 +104,8 @@ public:
 	///
 	/// Creates a new image file using Magick++ that reflects the current state of the press clip.
 	///
-	/// @param outputFile	A string with the name of the image created in the file system.
+	/// @param outputFile		A string with the name of the image created in the file system.
+	/// @param scalingFactor	The top limit of the source image scale (i.e. 1 for [0..1], 255 for [0..255], etc.).
 	///
 	/// @post A new image file is created in the filesystem. The image type is assigned according
 	/// to the file extension that comes with the filename (e.g. "foo.png" selects PNG as the image
@@ -113,7 +114,7 @@ public:
 	/// @author Eliezer Talón (elitalon@gmail.com)
 	/// @date 2008-12-29
 	///
-	void writeToOutputImage (const std::string& outputFile) const;
+	void writeToOutputImage (const std::string& outputFile, const double& scalingFactor = 1.0) const;
 
 private:
 

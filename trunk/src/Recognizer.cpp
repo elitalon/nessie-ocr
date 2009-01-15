@@ -39,8 +39,6 @@ void Recognizer::extractText (const Clip& pressClip)
 	//	5. Character normalization
 	//	6. Thinning (skeleton construction)
 	//
-	
-	pressClip.writeToOutputImage("sourceImageInsideRecognizer.bmp");
 	Preprocessor preprocessor(pressClip);
 	preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
