@@ -74,7 +74,7 @@ Inheritance diagram for Statistics:</div>
 <div class="dynsection">
 <p><center><img src="class_statistics__inherit__graph.png" border="0" usemap="#_statistics__inherit__map" alt="Inheritance graph"></center>
 <map name="_statistics__inherit__map">
-<area shape="rect" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process..." alt="" coords="5,212,195,324"><area shape="rect" href="class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process..." alt="" coords="219,212,435,324"><area shape="rect" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process..." alt="" coords="459,165,648,371"></map>
+<area shape="rect" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process..." alt="" coords="5,225,195,337"><area shape="rect" href="class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process..." alt="" coords="219,225,435,337"><area shape="rect" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process..." alt="" coords="459,165,648,397"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Statistics:</div>
@@ -92,13 +92,13 @@ Collaboration diagram for Statistics:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b">~Statistics</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#b68ede75479e44d5c35b78ec1284065b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe">print</a> () const =0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa">print</a> () const =0</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Prints the statistical data gathered during the text recognition process.  <a href="#40b62e47b054dfb024b5ab5198894efe"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Prints the statistical data gathered during the text recognition process.  <a href="#b5b3a9a0914c4dbcbcb629840b07b8aa"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#880a99ea540c1a836d454f2ce12d4df0">updateTotalTime</a> ()=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#35b1215322e040d1d88fac405b1b91f1">updateTotalTime</a> ()=0</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates the total elapsed time attribute.  <a href="#880a99ea540c1a836d454f2ce12d4df0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Updates the total elapsed time attribute.  <a href="#35b1215322e040d1d88fac405b1b91f1"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7256bc5d1785a0ef7c0cd21afbc53737"></a><!-- doxytag: member="Statistics::totalTime_" ref="7256bc5d1785a0ef7c0cd21afbc53737" args="" -->
 double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737">totalTime_</a></td></tr>
@@ -160,12 +160,12 @@ Destructor.
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="40b62e47b054dfb024b5ab5198894efe"></a><!-- doxytag: member="Statistics::print" ref="40b62e47b054dfb024b5ab5198894efe" args="() const =0" -->
+<a class="anchor" name="b5b3a9a0914c4dbcbcb629840b07b8aa"></a><!-- doxytag: member="Statistics::print" ref="b5b3a9a0914c4dbcbcb629840b07b8aa" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const void Statistics::print           </td>
+          <td class="memname">virtual void Statistics::print           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -181,25 +181,25 @@ Prints the statistical data gathered during the text recognition process.
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-12 </dd></dl>
 
-<p>Implemented in <a class="el" href="class_preprocessor_statistics.html#16ad1ef42ac80d58163557b722c653d9">PreprocessorStatistics</a>, <a class="el" href="class_feature_extraction_statistics.html#f03e5a61400f8c0065cb38d47ea2aa38">FeatureExtractionStatistics</a>, and <a class="el" href="class_classification_statistics.html#e94b5ff6659f16e9abaff3e003d099db">ClassificationStatistics</a>.</p>
+<p>Implemented in <a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">PreprocessorStatistics</a>, <a class="el" href="class_feature_extraction_statistics.html#75c678a93a2b047c2ba01566ec553e35">FeatureExtractionStatistics</a>, and <a class="el" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f">ClassificationStatistics</a>.</p>
 
 <p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
-<p><center><img src="class_statistics_40b62e47b054dfb024b5ab5198894efe_icgraph.png" border="0" usemap="#class_statistics_40b62e47b054dfb024b5ab5198894efe_icgraph_map" alt=""></center>
-<map name="class_statistics_40b62e47b054dfb024b5ab5198894efe_icgraph_map">
-<area shape="rect" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433" title="Prints detailed statistics about the text recognition process gathered during execution..." alt="" coords="168,5,347,29"></map>
+<p><center><img src="class_statistics_b5b3a9a0914c4dbcbcb629840b07b8aa_icgraph.png" border="0" usemap="#class_statistics_b5b3a9a0914c4dbcbcb629840b07b8aa_icgraph_map" alt=""></center>
+<map name="class_statistics_b5b3a9a0914c4dbcbcb629840b07b8aa_icgraph_map">
+<area shape="rect" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90" title="Prints detailed statistics about the text recognition process gathered during execution..." alt="" coords="168,5,347,29"></map>
 </div>
 
 </div>
 </div><p>
-<a class="anchor" name="880a99ea540c1a836d454f2ce12d4df0"></a><!-- doxytag: member="Statistics::updateTotalTime" ref="880a99ea540c1a836d454f2ce12d4df0" args="()=0" -->
+<a class="anchor" name="35b1215322e040d1d88fac405b1b91f1"></a><!-- doxytag: member="Statistics::updateTotalTime" ref="35b1215322e040d1d88fac405b1b91f1" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const void Statistics::updateTotalTime           </td>
+          <td class="memname">virtual void Statistics::updateTotalTime           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -219,7 +219,7 @@ Updates the total elapsed time attribute.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 14 12:22:50 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 15 17:07:31 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

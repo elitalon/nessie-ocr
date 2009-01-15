@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Recognizer.hpp (212) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Recognizer.hpp (218) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Recognizer.hpp (212)</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Recognizer.hpp (218)</h1><a href="_recognizer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_RECOGNIZER_H)</span>
@@ -85,7 +85,7 @@ window.onload = initDynSections;
 <a name="l00056"></a>00056 
 <a name="l00067"></a>00067     <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted during the recognition process.">Text</a>&amp; <a class="code" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347" title="Returns the text found in a press clip after the recognition process.">text</a> () <span class="keyword">const</span>;
 <a name="l00068"></a>00068 
-<a name="l00075"></a>00075     <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433" title="Prints detailed statistics about the text recognition process gathered during execution...">printStatistics</a> () <span class="keyword">const</span>;
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90" title="Prints detailed statistics about the text recognition process gathered during execution...">printStatistics</a> () <span class="keyword">const</span>;
 <a name="l00076"></a>00076 
 <a name="l00077"></a>00077 <span class="keyword">private</span>:
 <a name="l00078"></a>00078 
@@ -109,21 +109,21 @@ window.onload = initDynSections;
 <a name="l00096"></a>00096 };
 <a name="l00097"></a>00097 
 <a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433">00099</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#34fa9ac382c75e58fec9437a498b5433" title="Prints detailed statistics about the text recognition process gathered during execution...">Recognizer::printStatistics</a> ()<span class="keyword"> const</span>
+<a name="l00099"></a><a class="code" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90">00099</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90" title="Prints detailed statistics about the text recognition process gathered during execution...">Recognizer::printStatistics</a> ()<span class="keyword"> const</span>
 <a name="l00100"></a>00100 <span class="keyword"></span>{
 <a name="l00101"></a>00101     <span class="keywordflow">if</span> ( preprocessingStatistics_ not_eq 0 )
-<a name="l00102"></a>00102         preprocessingStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00102"></a>00102         preprocessingStatistics_-&gt;<a class="code" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa" title="Prints the statistical data gathered during the text recognition process.">print</a>();
 <a name="l00103"></a>00103     
 <a name="l00104"></a>00104     <span class="keywordflow">if</span> ( featureExtractionStatistics_ not_eq 0 )
-<a name="l00105"></a>00105         featureExtractionStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00105"></a>00105         featureExtractionStatistics_-&gt;<a class="code" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa" title="Prints the statistical data gathered during the text recognition process.">print</a>();
 <a name="l00106"></a>00106         
 <a name="l00107"></a>00107     <span class="keywordflow">if</span> ( classificationStatistics_ not_eq 0 )
-<a name="l00108"></a>00108         classificationStatistics_-&gt;<a class="code" href="class_statistics.html#40b62e47b054dfb024b5ab5198894efe" title="Prints the statistical data gathered during the text recognition process.">print</a>();
+<a name="l00108"></a>00108         classificationStatistics_-&gt;<a class="code" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa" title="Prints the statistical data gathered during the text recognition process.">print</a>();
 <a name="l00109"></a>00109 };
 <a name="l00110"></a>00110 
 <a name="l00111"></a>00111 <span class="preprocessor">#endif  //_RECOGNIZER_H</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 14 12:22:50 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 15 17:07:21 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

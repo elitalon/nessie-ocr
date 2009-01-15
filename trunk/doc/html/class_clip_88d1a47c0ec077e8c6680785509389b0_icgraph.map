@@ -1,3 +1,3 @@
-<area shape="rect" href="$class_preprocessor.html#348025116f6eb14ee33701daf16388f5" title="Applies a global thresholding algorithm over the press clip." alt="" coords="141,5,397,29">
-<area shape="rect" href="$class_preprocessor.html#3625dd85be44d158517d08bfe08383ba" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth..." alt="" coords="153,53,385,77">
-<area shape="rect" href="$class_preprocessor.html#8b7366ceca05da9c858b4c2a908cd0fb" title="Applies the &#39;isolated noise removal&#39; algorithm." alt="" coords="153,101,385,125">
+<area shape="rect" href="$class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1" title="Applies an averaging filter mask (linear filtering) over the press clip to remove..." alt="" coords="151,5,388,29">
+<area shape="rect" href="$class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip." alt="" coords="141,53,397,77">
+<area shape="rect" href="$class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth..." alt="" coords="153,101,385,125">
