@@ -1,7 +1,5 @@
-///
 /// @file
 /// @brief Definition of DataSet class
-///
 
 
 #include "DataSet.hpp"
@@ -152,8 +150,6 @@ DataSet::DataSet (const std::string& sourceFile)
 };
 
 
-
-
 ///
 /// @details This constructor is intended to create an empty data set where only new samples will be added and previous samples in the source file,
 /// if any, are automatically discarded. Thus, the previous content will be cleared and updated to the new samples added.
@@ -183,7 +179,6 @@ DataSet::DataSet (const std::string& sourceFile, const unsigned int& nFeatures)
 };
 
 
-
 DataSet::~DataSet ()
 {
 	// Associate the file with a stream
@@ -211,7 +206,6 @@ DataSet::~DataSet ()
 };
 
 
-
 void DataSet::countCategories()
 {
 	std::deque<unsigned int> categories(0);
@@ -224,3 +218,4 @@ void DataSet::countCategories()
 	
 	nCategories_ = categories.size();
 };
+

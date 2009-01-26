@@ -122,10 +122,9 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to extract the regions of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of patterns is available through the <a class="el" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d" title="Returns the patterns found, if any, in the last segmentation process.">Preprocessor::patterns()</a> method.<p>
 For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed:<p>
 <ol type=1>
-<li>Smoothing and noise removal (in grayscale mode)</li><li>Global gray level thresholding</li><li>Smoothing and noise removal (in binary mode)</li><li>Skew detection and correction</li><li>Patterns extraction and isolation</li><li>Slant detection and correction</li><li>Character normalization</li><li>Thinning (skeleton construction)</li></ol>
+<li>Global gray level thresholding</li><li>Smoothing and noise removal</li><li>Skew detection and correction</li><li>Patterns extraction and isolation</li><li>Slant detection and correction</li><li>Character normalization</li><li>Thinning (skeleton construction)</li></ol>
 <p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip in which a newspaper&#39;s is divided.">Clip</a>, <a class="el" href="class_pattern.html" title="A pattern in a press clip to be recognized as a character.">Pattern</a>, <a class="el" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a></dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Store a copy of the original press clip.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-08 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -329,7 +328,7 @@ Here is the caller graph for this function:</div>
 Corrects the appearance of a slope of the text lines with respect to the x-axis. 
 <p>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The skewness is substantially corrected by rotating ink pixels to a new position.</dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Implement this method as future work. </dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement this method as future work. </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -489,7 +488,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 26 17:39:21 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 26 19:16:05 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

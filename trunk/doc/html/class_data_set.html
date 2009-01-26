@@ -136,9 +136,7 @@ This class stores a set of feature vectors that represents different characters.
 Sample of a data set. 
 <p>
 This pair keeps the feature vector and the category that defines every sample in a data set.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a></dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> </dd></dl>
 
 </div>
 </div><p>
@@ -171,8 +169,6 @@ Constructor.
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The content in the file is loaded into samples_. <p>
 nFeatures_ is set to the number of features per sample. <p>
 size_ is set to the number of samples read.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-13</dd></dl>
 This constructor is intended to read a data set from a file. The source file where the data set is read from must have the following format:<p>
 The <b>first line</b> defines the number of features in every sample of the data set.<p>
 The <b>following lines</b> are the samples, with one sample per line. Every line has a number of fields up to the number of features defined in the first line plus one. Each field is separated by a whitespace. The last field represents the category of the sample. An example of a valid data set may be:<p>
@@ -233,8 +229,6 @@ Constructor.
   </table>
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty data set is created, with size_ set to zero and nFeatures_ set to the number passed.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10</dd></dl>
 This constructor is intended to create an empty data set where only new samples will be added and previous samples in the source file, if any, are automatically discarded. Thus, the previous content will be cleared and updated to the new samples added. 
 <p>
 <div class="dynheader">
@@ -265,9 +259,7 @@ Here is the call graph for this function:</div>
 <p>
 Destructor. 
 <p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The changes made to the data set are written to disk. The output file is truncated and rewritten</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The changes made to the data set are written to disk. The output file is truncated and rewritten </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -305,9 +297,7 @@ Adds a sample to the data set.
     <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>The sample to add</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>samples_ is modified by adding the new sample.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>samples_ is modified by adding the new sample. </dd></dl>
 
 </div>
 </div><p>
@@ -335,9 +325,7 @@ Gets a sample from the data set.
     <tr><td valign="top"></td><td valign="top"><em>iSample</em>&nbsp;</td><td>Position in the data set of the sample to get</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The sample at given position</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The sample at given position </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -368,9 +356,7 @@ Here is the caller graph for this function:</div>
 <p>
 Returns the number of categories in the data set. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of categories in the data set.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-12-11 </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of categories in the data set. </dd></dl>
 
 </div>
 </div><p>
@@ -392,9 +378,7 @@ Returns the number of categories in the data set.
 <p>
 Returns the number of features in every sample of the data set. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of features in every sample of the data set.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of features in every sample of the data set. </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -425,9 +409,7 @@ Here is the caller graph for this function:</div>
 <p>
 Returns the number of samples in the data set. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of samples in the data set</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The number of samples in the data set </dd></dl>
 
 <p>
 <div class="dynheader">
@@ -458,14 +440,12 @@ Here is the caller graph for this function:</div>
 <p>
 Returns the file path where the data set is stored in the filesystem. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A string with the file path where the data set is stored in the filesystem.</dd></dl>
-<dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A string with the file path where the data set is stored in the filesystem. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 26 17:39:20 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jan 26 19:16:05 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -30,7 +30,7 @@ public:
 	
 	/// Destructor.
 	~Recognizer ();
-
+	
 	/// Extracts the text within a single press clip.
 	///
 	/// @param pressClip	A Clip object representing the press clip previously loaded.
@@ -44,7 +44,7 @@ public:
 	///
 	/// @see Text
 	const Text& text () const;
-
+	
 	/// Prints detailed statistics about the text recognition process gathered during execution.
 	void printStatistics () const;
 

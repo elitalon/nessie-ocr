@@ -1,8 +1,5 @@
-///
 /// @file
 /// @brief Definition of FeatureVector class
-///
-
 
 #include "FeatureVector.hpp"
 
@@ -20,3 +17,4 @@ FeatureVector::~FeatureVector()
 {
 
 };
+

@@ -33,14 +33,12 @@ public:
 	/// Constructor.
 	Region();
 	
-	
 	/// Allows read-and-write access to a pixel in the region.
 	///
 	/// @param index	The position of a pair of coordinates within the region.
 	/// 
 	/// @return A reference to a PixelCoordinates object that holds the coordinates of a pixel at given index.
 	PixelCoordinates& operator() (const unsigned int& index);
-	
 	
 	/// Allows read-only access to a pixel in the region.
 	///
@@ -49,14 +47,12 @@ public:
 	/// @return A PixelCoordinates object that holds the coordinates of a pixel at given index.
 	PixelCoordinates operator() (const unsigned int& index) const;
 	
-	
 	/// Appends a region to a current one.
 	/// 
 	/// @param region	Region to be appended.
 	/// 
 	/// @return A Region object as a result of appending the pixels of both regions.
 	Region operator+ (const Region& region) const;
-	
 	
 	/// Evaluates if a region's position is less than another, according to their position in text when reading from up to down and left to right.
 	/// 
@@ -65,24 +61,20 @@ public:
 	/// @return True if the current region is placed before than <em>region</em> in a press clip, false otherwise.
 	bool operator< (const Region& region) const;
 	
-	
 	/// Returns the height of the region.
 	/// 
 	/// @return Height of the region in pixels.
 	unsigned int height () const;
-	
 	
 	/// Returns the width of the region.
 	/// 
 	/// @return Width of the region in pixels.
 	unsigned int width () const;
 	
-	
 	/// Returns the number of pixels in the region.
 	/// 
 	/// @return Number of pixels in the region.
 	const unsigned int& size () const;
-	
 	
 	/// Adds a pair of pixel coordinates to the region.
 	/// 
@@ -91,12 +83,10 @@ public:
 	/// @see PixelCoordinates
 	void addCoordinates(const PixelCoordinates& coordinates);
 	
-	
 	/// Returns the coordinates of the top leftmost pixel.
 	/// 
 	/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
 	PixelCoordinates topLeftmostPixelCoordinates () const;
-	
 	
 	/// Normalize the coordinates of every pixel so that the top leftmost pixel is located at (0,0).
 	void normalizeCoordinates ();
@@ -131,11 +121,9 @@ inline Region Region::operator+ (const Region& region) const
 {
 	Region temp;
 	
-	// Copy the pixels of this region
 	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i not_eq coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
 	
-	// Copy the pixels of the second region
 	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i not_eq region.coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
 	

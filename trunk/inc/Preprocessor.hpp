@@ -14,13 +14,6 @@
 #include <utility>
 
 
-/// @typedef	LineDelimiter.
-/// @brief		Internal representation of a pair of x-axis coordinates that delimits a row of regions as if they were characters in a text.
-/// @author		Eliezer Talón (elitalon@gmail.com)
-/// @date		2009-01-19
-typedef std::pair<unsigned int, unsigned int> LineDelimiter;
-
-
 
 /// Preprocessor of the OCR process.
 ///
@@ -32,9 +25,8 @@ typedef std::pair<unsigned int, unsigned int> LineDelimiter;
 ///	For an optimal preprocessing, it is strongly recommended that the following algorithms
 /// will be executed:
 ///	
-///	-# Smoothing and noise removal (in grayscale mode)
 ///	-# Global gray level thresholding
-///	-# Smoothing and noise removal (in binary mode)
+///	-# Smoothing and noise removal
 ///	-# Skew detection and correction
 ///	-# Patterns extraction and isolation
 ///	-# Slant detection and correction
@@ -42,8 +34,6 @@ typedef std::pair<unsigned int, unsigned int> LineDelimiter;
 ///	-# Thinning (skeleton construction)
 ///
 /// @see Clip, Pattern, Statistics
-///
-///	@todo Store a copy of the original press clip.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
@@ -59,13 +49,11 @@ public:
 	/// @see Clip
 	explicit Preprocessor (const Clip& pressClip);
 
-
 	/// Applies a global thresholding algorithm over the press clip.
 	///
 	/// @post Every pixel in the press clip belonging to the background has a gray level value of 0, while
 	/// every pixel of ink has a gray level of 1.
 	void applyGlobalThresholding ();
-
 
 	///	Applies four 3x3 matching templates over the press clip to remove noise and smooth character borders.
 	///
@@ -74,7 +62,6 @@ public:
 	///	@post The noise in the image is removed and the borders of characters are smoothed.
 	void applyTemplateFilters ();
 
-
 	/// Applies an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.
 	///
 	///	@pre The press clip must be in grayscale mode.
@@ -82,7 +69,6 @@ public:
 	///	@post The noise in the image is removed and the borders of characters are blurred.
 	void applyAveragingFilters ();
 	
-
 	///	Corrects the appearance of a slope of the text lines with respect to the x-axis.
 	///
 	///	@post The skewness is substantially corrected by rotating ink pixels to a new position.
@@ -90,12 +76,10 @@ public:
 	/// @todo Implement this method as future work.
 	void correctSkewness ();
 
-
 	/// Applies a segmentation process over the press clip to isolate every region of ink pixels.
 	///
 	///	@pre The press clip must have been converted to binary mode, i.e. 0 for background pixels and 1 for ink pixels.
 	void extractRegions ();
-
 
 	///
 	///
@@ -104,7 +88,6 @@ public:
 	///	@post
 	void correctSlanting ();
 
-
 	///
 	///
 	///	@pre
@@ -112,7 +95,6 @@ public:
 	///	@post
 	void normalizeCharacters ();
 	
-
 	///
 	///
 	///	@pre
@@ -120,10 +102,8 @@ public:
 	///	@post
 	void applyThinning ();
 
-
 	/// Finds every position in the list of patterns where a blank space must be inserted when building the text.
 	void findSpaceLocations ();
-
 
 	/// Returns the patterns found, if any, in the last segmentation process
 	///
@@ -131,7 +111,6 @@ public:
 	///
 	/// @see Pattern
 	const std::vector<Pattern>& patterns () const;
-	
 
 	/// Returns the statistics about the preprocessing stage regarding algorithms execution.
 	/// 
@@ -150,18 +129,21 @@ private:
 	
 	std::vector<Pattern>	patterns_;		///< An array of patterns that represents every character shape found in the press clip.
 
+	/// @typedef	LineDelimiter.
+	/// @brief		Internal representation of a pair of x-axis coordinates that delimits a row of regions as if they were characters in a text.
+	/// @author		Eliezer Talón (elitalon@gmail.com)
+	/// @date		2009-01-19
+	typedef std::pair<unsigned int, unsigned int> LineDelimiter;
 
 	/// @brief Computes the optimal threshold value in a press clip following the Sonka's algorithm.
 	/// 
 	/// @return A unsigned char with the optimal threshold value in a scale of [0,255].
 	unsigned char computeSonkaOptimalThreshold () const;
-	
 
 	/// @brief Computes the optimal threshold value in a press clip following the Otsu's algorithm.
 	///
 	///	@return	A unsigned char with the optimal threshold value in a scale of [0,255].
 	unsigned char computeOtsuOptimalThreshold () const;
-
 
 	/// Finds every pair of rows that delimits a line of regions as if they were characters in a text.
 	///
@@ -169,7 +151,6 @@ private:
 	/// @param[out] delimiters	A list of LineDelimiter objects to store the result.
 	void findLineDelimiters (const std::vector<bool>& visited, std::list<LineDelimiter>& delimiters) const;
 
-	
 	/// @brief Merge every pair of regions that are vertically overlapped, assuming they are accents isolated from their characters.
 	/// 
 	/// @param delimiters A list of text line delimiters.

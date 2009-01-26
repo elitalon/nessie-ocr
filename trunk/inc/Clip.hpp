@@ -21,6 +21,7 @@
 ///
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
+///
 class Clip
 {
 public:
@@ -38,7 +39,6 @@ public:
 	/// @exception If press clip's parameters fall outside the underlying image, an exception is thrown.
 	explicit Clip (const Magick::Image& image, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width);
 
-
 	/// Allows read-and-write access to a pixel in the clip.
 	///
 	/// @param row		Row in the clip where the pixel is at.
@@ -46,7 +46,6 @@ public:
 	///
 	/// @return A reference to the gray level of the pixel at given location.
 	unsigned char& operator() (const unsigned int& row, const unsigned int& column);
-
 
 	/// Allows read-only access to a pixel in the clip.
 	///
@@ -56,24 +55,20 @@ public:
 	/// @return The gray level of the pixel at given location.
 	unsigned char operator() (const unsigned int& row, const unsigned int& column) const;
 
-
 	/// Returns the width of the clip.
 	///
 	/// @return Width of the clip in pixels.
 	const unsigned int& width () const;
-
 
 	/// Returns the height of the clip.
 	///
 	/// @return Height of the clip in pixels.
 	const unsigned int& height () const;
 
-
 	/// Returns the number of pixels in the clip.
 	///
 	/// @return Number of pixels in the clip.
 	const unsigned int& size () const;
-
 
 	/// Creates a new image file using Magick++ that reflects the current state of the press clip.
 	///

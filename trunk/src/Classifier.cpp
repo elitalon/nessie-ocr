@@ -1,12 +1,9 @@
-///
 /// @file
 /// @brief Definition of Classifier class
-///
 
 
 #include "Classifier.hpp"
 #include "Shape.hpp"
-
 #include <cmath>
 #include <algorithm>
 #include <utility>
@@ -15,22 +12,15 @@
 
 
 
-
 Classifier::Classifier (const DataSet& dataset)
 	:	dataset_(dataset),
 		sample_(FeatureVector(dataset.nFeatures())),
 		matchingShapeTime_(0.0)
-{
-	
-};
-
+{};
 
 
 Classifier::~Classifier ()
-{
-	
-};
-
+{};
 
 
 std::string Classifier::matchShape (const Shape& shape)
@@ -95,7 +85,6 @@ std::string Classifier::matchShape (const Shape& shape)
 };
 
 
-
 ///
 /// Computes the lambda factor to use in several equations related to image moments
 /// 
@@ -111,7 +100,6 @@ static double lambda (const unsigned int& p, const unsigned int& q)
 {
 	return 1.0 + ( (static_cast<double>(p+q)) / 2.0);
 };
-
 
 
 ///
@@ -256,3 +244,4 @@ void Classifier::buildFeatureVector (const Shape& shape)
 		}
 	}
 };
+

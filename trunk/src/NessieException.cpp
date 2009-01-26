@@ -17,3 +17,4 @@ const char* NessieException::what () const throw()
 {
 	return what_.data();
 };
+

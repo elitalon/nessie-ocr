@@ -11,9 +11,6 @@
 /// @param argc		Number of command line arguments.
 /// @param argv[]	Command line arguments.
 ///
-///	@todo Replace simple loops with std::accumulate algorithm.
-///	@todo Format the layout of source code.
-///	@todo Substitute the name convention for iterators. When using an object <em>iterator</em> write a long name.
 ///	@todo Add rules to the Makefile to generate a dynamic library instead of linking with object files.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
