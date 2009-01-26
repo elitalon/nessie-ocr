@@ -20,7 +20,11 @@ PreprocessorStatistics::PreprocessorStatistics ()
 		globalThresholdingTime_(0.0),
 		templateFilteringTime_(0.0),
 		averagingFilteringTime_(0.0),
-		skewnessCorrectionTime_(0.0)
+		skewnessCorrectionTime_(0.0),
+		regionsExtractionTime_(0.0),
+		nRegionsBeforeMerging_(0),
+		nRegionsAfterMerging_(0),
+		nLineDelimiters_(0)
 {};
 
 
@@ -38,6 +42,10 @@ void PreprocessorStatistics::print () const
 	std::cout << "  - Template filtering time  : " << templateFilteringTime_ << std::endl;
 	std::cout << "  - Averaging filtering time : " << averagingFilteringTime_ << std::endl;
 	std::cout << "  - Skewness correction time : " << skewnessCorrectionTime_ << std::endl;
+	std::cout << "  - Regions extraction time  : " << regionsExtractionTime_ << std::endl;
+	std::cout << "  - Regions before merging   : " << nRegionsBeforeMerging_ << std::endl;
+	std::cout << "  - Regions after merging    : " << nRegionsAfterMerging_ << std::endl;
+	std::cout << "  - Line delimiters          : " << nLineDelimiters_ << std::endl;
 	std::cout << "  - Total elapsed time       : " << totalTime_ << std::endl;
 };
 

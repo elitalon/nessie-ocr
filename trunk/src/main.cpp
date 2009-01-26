@@ -8,18 +8,21 @@
 #include <boost/timer.hpp>
 
 
+/// @param argc		Number of command line arguments.
+/// @param argv[]	Command line arguments.
 ///
-/// @param argc Number of command line arguments
-/// @param argv Command line arguments
+///	@todo Replace simple loops with std::accumulate algorithm.
+///	@todo Format the layout of source code.
+///	@todo Substitute the name convention for iterators. When using an object <em>iterator</em> write a long name.
+///	@todo Add rules to the Makefile to generate a dynamic library instead of linking with object files.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-16
-///
 int main (int argc, char const *argv[])
 {
 	try
 	{
-		if ( argc <= 1 )
+		if ( argc < 1 )
 		{
 			std::cout << "Missing arguments!" << std::endl;
 			return 1;
@@ -27,7 +30,7 @@ int main (int argc, char const *argv[])
 
 		boost::timer timer;
 		timer.restart();
-		
+	
 		Magick::Image image( argv[1] );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
@@ -48,3 +51,4 @@ int main (int argc, char const *argv[])
 	}
 	return 0;
 }
+

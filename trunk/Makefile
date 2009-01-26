@@ -41,10 +41,11 @@ CLIP = Clip.cpp NessieException.o
 RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Shape.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o Pattern.o
 
-SHAPE = Shape.cpp Shape.hpp
-CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Shape.o
+REGION = Region.cpp Region.hpp
+PATTERN = Pattern.cpp Pattern.hpp
+CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 
@@ -70,11 +71,15 @@ main.o: $(MAIN)
 	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
-Recognizer.o: $(RECOGNIZER)
-	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+NessieException.o: $(NESSIE_EXCEPTION)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Clip.o: $(CLIP)
+	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	@echo
+
+Recognizer.o: $(RECOGNIZER)
 	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
@@ -90,11 +95,11 @@ Preprocessor.o: $(PREPROCESSOR)
 	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
 	@echo
 
-NessieException.o: $(NESSIE_EXCEPTION)
+Region.o: $(REGION)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
-Shape.o: $(SHAPE)
+Pattern.o: $(PATTERN)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 

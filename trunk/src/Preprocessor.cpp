@@ -3,27 +3,28 @@
 
 #include "Preprocessor.hpp"
 #include <boost/timer.hpp>
-#include <cmath>
+#include <set>
 #include <algorithm>
-
+#include <functional>
+#include <cmath>
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
 	:	clip_(pressClip),
-	statistics_(PreprocessorStatistics())
+		statistics_(PreprocessorStatistics()),
+		regions_(std::list<Region>(0)),
+		patterns_(std::vector<Pattern>(0))
 {
 	statistics_.clipSize(pressClip.size());
 };
 
 
-///
 /// @details The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
 /// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm
-/// also assumes that gray levels in the press clip below the threshold belong to the background, while gray levels above belong to the ink.
+/// also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.
 /// 
 /// @todo Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
 /// ones. Some function should be developed to automatically make the right decision.
-///
 void Preprocessor::applyGlobalThresholding ()
 {
 	boost::timer timer;
@@ -37,9 +38,9 @@ void Preprocessor::applyGlobalThresholding ()
 		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
 			if ( clip_(i,j) < threshold)
-				clip_(i,j) = 0;
+				clip_(i,j) = 1;	// ink
 			else
-				clip_(i,j) = 1;
+				clip_(i,j) = 0;	// background
 		}
 	}
 
@@ -47,16 +48,14 @@ void Preprocessor::applyGlobalThresholding ()
 };
 
 
-///
 /// @details The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the
 /// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
 /// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
 /// zeroth- and the first-order cumulative moments of the gray-level histogram.
-///
 unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 {
 	// Compute the normalized clip histogram 
-	std::deque<double> histogram(256, 0.0);
+	std::vector<double> histogram(256, 0.0);
 
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
@@ -78,8 +77,8 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 
 	// Compute the zeroth- and first-order cumulative moments, i.e. the probabilities of class occurrence and the
 	// class mean levels up to level i-th.
-	std::deque<double> zerothOrderMoment(256, 0.0);
-	std::deque<double> firstOrderMoment(256, 0.0);
+	std::vector<double> zerothOrderMoment(256, 0.0);
+	std::vector<double> firstOrderMoment(256, 0.0);
 	for ( unsigned int i = 0; i < histogram.size(); ++i )
 	{
 		for ( unsigned int j = 0; j < i; ++j )
@@ -91,7 +90,7 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 
 
 	// Compute the between-class variance, according to the criterion measurements used in the discriminant analysis
-	std::deque<double> betweenClassVariance(256, 0.0);
+	std::vector<double> betweenClassVariance(256, 0.0);
 	for ( unsigned int i = 0; i < histogram.size(); ++i )
 	{
 		double numerator = pow(totalMeanGrayLevel * zerothOrderMoment.at(i) - firstOrderMoment.at(i), 2);
@@ -105,8 +104,8 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 
 
 	// Find the gray level that maximizes the between-class variance
-	std::deque<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
-	std::deque<double>::iterator i = betweenClassVariance.begin();
+	std::vector<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
+	std::vector<double>::iterator i = betweenClassVariance.begin();
 	unsigned char optimalThreshold = 0;
 
 	while ( i not_eq maximumVariance )
@@ -119,11 +118,9 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 };
 
 
-///
 /// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
 /// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
 /// computed from the four corners of the press clip. 
-///
 unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 {
 	// Start with an initial threshold
@@ -295,7 +292,7 @@ void Preprocessor::applyAveragingFilters ()
 	timer.restart();
 
 	int maskSize = 3;
-	std::deque<double> mask(maskSize * maskSize);
+	std::vector<double> mask(maskSize * maskSize);
 
 	mask.at(0 * maskSize + 0) = 1.0;
 	mask.at(0 * maskSize + 1) = 2.0;
@@ -306,7 +303,7 @@ void Preprocessor::applyAveragingFilters ()
 	mask.at(2 * maskSize + 0) = 1.0;
 	mask.at(2 * maskSize + 1) = 2.0;
 	mask.at(2 * maskSize + 2) = 1.0;
-
+	
 	int clipHeight	= clip_.height();
 	int clipWidth	= clip_.width();
 
@@ -349,369 +346,289 @@ void Preprocessor::applyAveragingFilters ()
 
 void Preprocessor::correctSkewness ()
 {
+	boost::timer timer;
+	timer.restart();
 
+	statistics_.skewnessCorrectionTime(timer.elapsed());
 };
 
 
-///
-/// @details This method isolates every shape in a press clip by connecting pixels of ink that are located together in a 3x3 neighbourhood. The shapes
-/// may contain a subset of shapes, since further processing is applied to join accents and other punctuation signs to their characters. The final list
-/// of shapes is sorted by lines and columns, so that traversing the list is equivalent to read the text from left to right and from up to down.
-///
-// void Preprocessor::findShapes (const Clip& clip)
-// {
-// 	// Start timing
-// 	boost::timer timer;
-// 	timer.restart();
-// 
-// 
-// 	// Find the seeds where the flooding process will start from
-// 	findSeeds(clip);
-// 	std::cout << "Seeds                        : " << seeds_.size() << std::endl;
-// 
-// 
-// 	// Obtain the initial shapes
-// 	growSeedsIntoInitialShapes(clip);
-// 	std::cout << "Initial shapes               : " << shapes_.size() << std::endl;
-// 
-// 
-// 	// Find the markers that delimit the lines
-// 	findLineMarkers(clip);
-// 	std::cout << "Lines of text                : " << lineMarkers_.size() << std::endl;
-// 
-// 
-// 	// Join accents to their vocals in a line of characters
-// 	for ( LineMarkerIterator i = lineMarkers_.begin(); i not_eq lineMarkers_.end(); ++i )
-// 	{
-// 		unsigned int lineTop	= (*i).first;
-// 		unsigned int lineBottom	= (*i).second;
-// 
-// 		// Iterator to the list of shapes
-// 		ShapeIterator iShape = shapes_.begin();
-// 
-// 		// Traverse the list of shapes,. For each shape it is searched another shape that is vertically overlapped
-// 		while ( iShape not_eq shapes_.end() )
-// 		{
-// 			bool shapeIsAboveTheLine = ((*iShape).topPixel().first < lineTop) and ((*iShape).bottomPixel().first < lineTop);
-// 			bool shapeIsBelowTheLine = ((*iShape).topPixel().first > lineBottom) and ((*iShape).bottomPixel().first > lineBottom);
-// 
-// 			// Avoid processing a shape that is outside the line borders
-// 			if ( shapeIsAboveTheLine or shapeIsBelowTheLine )
-// 				advance (iShape, 1);
-// 			else
-// 			{
-// 				ShapeIterator jShape = findVerticallyOverlappedShape(lineTop, lineBottom, iShape);
-// 
-// 				if ( jShape not_eq iShape )
-// 					joinVerticallyOverlappedShapes( iShape, jShape );
-// 				else
-// 					advance(iShape, 1);
-// 			}
-// 		}
-// 	}
-// 
-// 
-// 	// Sort the shapes by lines and columns
-// 	shapes_.sort();
-// 
-// 
-// 	// Gather elapsed time
-// 	shapesFindingTime_ = timer.elapsed();
-// };
-
-
-///
-/// @details A seed is a pixel that has a gray level equal to the gray level of characters in the clip. Thus, the seeds founded by this method
-/// are actually all the pixels that do not belong to the background in the clip.
-///
-void Preprocessor::findSeeds (const Clip& clip)
+/// @details This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink,
+///	it connects its neighbouring ink pixels and builds a set of regions. This set is then post-processed to join accents and other punctuation signs to their
+/// final region. A final list is generated by sorting the set of regions by lines and columns, so that traversing the list forward is equivalent to reading
+/// the text from left to right and from up to down.
+void Preprocessor::extractRegions ()
 {
-	// Traverse the clip searching the seeds
-	for ( unsigned int i = 0; i < clip.height(); ++i )
+	boost::timer timer;
+	timer.restart();
+
+ 	// Traverse the press clip searching the ink pixels where the flooding process will start from
+	std::vector<PixelCoordinates> seeds(0);
+	seeds.reserve(clip_.size());
+	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
-		for ( unsigned int j = 0; j < clip.width(); ++j )
+		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
-			if ( clip(i, j) == inkValue_ )
-				seeds_.push_back( Pixel(i,j) );
+			if ( clip_(i, j) == 1 )
+				seeds.push_back( PixelCoordinates(i,j) );
 		}
 	}
-};
 
-
-///
-/// @details The initial shapes are a set of shapes that are inconsistent with the real characters in the press clip. That is because
-/// a further processing is necessary to join accents to vocals, split shapes that represents two characters joined, etc.
-///
-/// This method follows a strategy similar to the 'flood fill' algorithm. The main target is to isolate every shape in a clip that represents
-/// a character. Every shape is built starting from an ink pixel (a seed) and exploring its neighbourhood looking for connected pixels. The process
-/// ends when there are not more seeds to explore and the shapes are completely isolated.
-///
-void Preprocessor::growSeedsIntoInitialShapes (const Clip& clip)
-{
-	// Initialize the visited_ deque
-	visited_ = std::deque<bool>(clip.size(), false);
-
-	// Explore the neighbourhood of each seed. For each pixel explored, the vector above tells if it has already been explored
-	for ( std::deque<Pixel>::iterator seedsIterator = seeds_.begin(); seedsIterator not_eq seeds_.end(); ++seedsIterator )
+	// Build the initial list of regions by applying the flooding algorithm
+	std::vector<bool> visited(clip_.size(), false);
+	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s not_eq seeds.end(); ++s )
 	{
-		int row	= (*seedsIterator).first;
-		int column	= (*seedsIterator).second;
+		int row		= (*s).first;
+		int column	= (*s).second;
 
-		if ( not visited_.at(row * clip.width() + column) )	// This seed has not already been visited
+		if ( not visited.at(row * clip_.width() + column) )
 		{
-			visited_.at(row * clip.width() + column) = true;
+			visited.at(row * clip_.width() + column) = true;
 
-			// This seed begins a new shape
-			shapes_.push_back(Shape());
-			shapes_.back().addPixel( Pixel(row, column) );
-
-
-			// Explore the seed's neighbourhood
-			for ( int i = row-1; (i <= row+1) and (i < static_cast<int>(clip.height())); ++i )
+			// This seed begins a new region
+			Region region;
+			region.addCoordinates( PixelCoordinates(row, column) );
+			
+			// Explore the immediate neighbourhood
+			for (int i = row-1; (i <= row+1) and (i < static_cast<int>(clip_.height())); ++i)
 			{
-				for ( int j = column-1; (j <= column+1) and (j < static_cast<int>(clip.width())); ++j )
+				for (int j = column-1; (j <= column+1) and (j < static_cast<int>(clip_.width())); ++j)
 				{
-					// Test clip borders are not passed
 					if ( i >= 0 and j >= 0 )
 					{
-						// Add this neighbour if has ink and has already not been visited
-						if ( clip(i,j) == inkValue_ and not visited_.at(i * clip.width() + j) )
+						if ( clip_(i,j) == 1 and not visited.at(i * clip_.width() + j) )
 						{
-							visited_.at(i * clip.width() + j) = true;
-							shapes_.back().addPixel( Pixel(i, j) );
+							visited.at(i * clip_.width() + j) = true;
+							region.addCoordinates( PixelCoordinates(i,j) );
 						}
 					}
 				}
 			}
 
-
-			// Explore the neighbours of the neighbours of the seed.
-			unsigned int lastPixelPosition = 1;
-			while ( shapes_.back().size() > lastPixelPosition )
+			// Explore the neighbours of the neighbours
+			unsigned int k = 1;
+			while ( region.size() > k )
 			{
-				Pixel pixel( shapes_.back()(lastPixelPosition) );
-
-				// Explore the neighbour's neighbourhood
-				for ( int i = pixel.first-1; (i <= static_cast<int>(pixel.first+1)) and (i < static_cast<int>(clip.height())); ++i )
+				PixelCoordinates coordinates( region(k) );
+				
+				for ( int i = coordinates.first-1; (i <= static_cast<int>(coordinates.first+1)) and (i < static_cast<int>(clip_.height())); ++i )
 				{
-					for ( int j = pixel.second-1; (j <= static_cast<int>(pixel.second+1)) and (j < static_cast<int>(clip.width())); ++j )
+					for ( int j = coordinates.second-1; (j <= static_cast<int>(coordinates.second+1)) and (j < static_cast<int>(clip_.width())); ++j )
 					{
-						// Test clip borders are not passed
 						if ( i >= 0 and j >= 0 )
 						{
-							// Add this neighbour if has ink and has already not been visited
-							if ( clip(i,j) == inkValue_ and not visited_.at(i * clip.width() + j) )
+							if ( clip_(i,j) == 1 and not visited.at(i * clip_.width() + j) )
 							{
-								visited_.at(i * clip.width() + j) = true;
-								shapes_.back().addPixel( Pixel(i, j) );
+								visited.at(i * clip_.width() + j) = true;
+								region.addCoordinates( PixelCoordinates(i, j) );
 							}
 						}
 					}
 				}
-
-				// Update the pixel's counter
-				lastPixelPosition++;
+				++k;
 			}
+			
+			regions_.push_back(region);
 		}
 	}
+	statistics_.nRegionsBeforeMerging(regions_.size());
+	
+	// Find the rows that delimits the regions as if they were characters in a text
+	std::list<LineDelimiter> delimiters(0);
+	findLineDelimiters(visited, delimiters);
+	statistics_.nLineDelimiters(delimiters.size());
+
+	// Merge every pair of regions that are supposed to be accents isolated from their vocals in a text line.
+	mergeVerticallyOverlappedRegions (delimiters);
+	statistics_.nRegionsAfterMerging(regions_.size());
+ 	
+	// Sort the regions by lines and columns
+ 	regions_.sort();
+	
+	statistics_.regionsExtractionTime(timer.elapsed());
 };
 
 
-///
-/// @details Each row is isolated by searching horizontal blank lines between characters. Every time a row with no pixels of ink is found following
-/// a row with some pixels of ink a top marker is set. Then, the following rows are explored until a new blank line is found. The line before
-/// that last blank line is set as the bottom marker of the line.
-///
-void Preprocessor::findLineMarkers (const Clip& clip)
+void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::list<LineDelimiter>& delimiters) const
 {
-	unsigned int topRow = 0;
+	// Traverse each row searching non-visited pixels
+	unsigned int topRowOfTextLine = 0;
 	bool rowHasInk = false, previousRowHasInk;
-
-	// Traverse the clip searching non-visited pixels
-	for ( unsigned int i = 0; i < clip.height(); ++i )
+	
+	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
 		previousRowHasInk	= rowHasInk;
 		rowHasInk			= false;
 
-		unsigned int nVisitedPixels = 0;
-		for ( unsigned int j = 0; j < clip.width(); ++j )
+		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
-			if ( visited_.at(i * clip.width() + j) )
-				nVisitedPixels++;
+			if ( visited.at(i * clip_.width() + j) )
+			{
+				rowHasInk = true;
+				break;
+			}
 		}
 
-		// A line with less than three pixels of ink is assumed as a blank line
-		if ( nVisitedPixels > 2 )
-			rowHasInk = true;
-
-		// Check if a new line border has been found
-		if ( rowHasInk )
-		{
-			if (not previousRowHasInk)
-				topRow = i;
-		}
-		else
+		if (not rowHasInk )
 		{
 			if ( previousRowHasInk )
-				lineMarkers_.push_back( LineMarker(topRow, i-1) );
+				delimiters.push_back( LineDelimiter(topRowOfTextLine, i-1) );
 			else
-				topRow = i;
+				topRowOfTextLine = i;
+		}
+		else	// row has ink
+		{
+			if ( not previousRowHasInk )
+				topRowOfTextLine = i;
 		}
 	}
-
-	// Check the last line ends with the image border
-	if ( rowHasInk and previousRowHasInk )
-		lineMarkers_.push_back( LineMarker(topRow, clip.height()-1) );
-
-
-	// Compute the mean shape height
-	double meanShapeHeight = 0.0;
-
-	for ( ShapeIterator iShape = shapes_.begin(); iShape not_eq shapes_.end(); ++iShape )
-		meanShapeHeight += (*iShape).height();
-
-	meanShapeHeight = meanShapeHeight / static_cast<double>(shapes_.size());
+	
+	// Make sure the last text line joins with the clip border
+	if ( rowHasInk )
+		delimiters.push_back( LineDelimiter(topRowOfTextLine, clip_.height()-1) );
 
 
-	// Point iterators to the first two elements
-	LineMarkerIterator previousLineMarkerIterator	= lineMarkers_.begin();
-	LineMarkerIterator currentLineMarkerIterator	= lineMarkers_.begin();
-	advance( currentLineMarkerIterator, 1 );
+	// Search for lines that are too close to each other, probably because there are accents belonging to characters on a single line
+	std::list<LineDelimiter>::iterator previousLineDelimiterIterator = delimiters.begin();
+	std::list<LineDelimiter>::iterator currentLineDelimiterIterator	= delimiters.begin();
+	advance( currentLineDelimiterIterator, 1 );
 
-	// Search for lines that are too close to each other, probably because there are characters with accents in a single line
-	while ( currentLineMarkerIterator not_eq lineMarkers_.end() )
+	while ( currentLineDelimiterIterator not_eq delimiters.end() )
 	{
-		// An accent is as much as three times smaller than the mean shape height
-		if ( (*currentLineMarkerIterator).first - ((*previousLineMarkerIterator).second + 1) >= meanShapeHeight )
-		//if ( ((*previousLineMarkerIterator).second - (*previousLineMarkerIterator).first + 1) >= round(meanShapeHeight / 4.0) )
+		if ( ((*currentLineDelimiterIterator).first - (*previousLineDelimiterIterator).second + 1) > 2 )
 		{
-			// This is not an accent
-			advance( currentLineMarkerIterator, 1 );
-			advance( previousLineMarkerIterator, 1 );
+			advance( currentLineDelimiterIterator, 1 );
+			advance( previousLineDelimiterIterator, 1 );
 		}
 		else
 		{
-			// A new line marker representing the union of the two line markers that are being handled is inserted
-			// and the two old line markers are removed from the list
+			// A new line delimiter is inserted by joining the two line delimiters explored.
+			delimiters.insert( previousLineDelimiterIterator, LineDelimiter((*previousLineDelimiterIterator).first, (*currentLineDelimiterIterator).second) );
 
-			lineMarkers_.insert( previousLineMarkerIterator, LineMarker((*previousLineMarkerIterator).first, (*currentLineMarkerIterator).second) );
-
-			LineMarkerIterator newLineMarkerIterator = previousLineMarkerIterator;
-			advance ( newLineMarkerIterator, -1 );
-
-			// Delete the first line marker
-			lineMarkers_.erase( previousLineMarkerIterator );
-
-			// Delete the second line marker
-			previousLineMarkerIterator = currentLineMarkerIterator;
-			advance( currentLineMarkerIterator, 1 );
-			lineMarkers_.erase( previousLineMarkerIterator );
-
-			// Point to the new element inserted
-			previousLineMarkerIterator = newLineMarkerIterator;
+			std::list<LineDelimiter>::iterator newLineDelimiterIterator = previousLineDelimiterIterator;
+			advance ( newLineDelimiterIterator, -1 );
+			
+			// The two old line delimiters are removed from the list
+			delimiters.erase( previousLineDelimiterIterator );
+			previousLineDelimiterIterator = currentLineDelimiterIterator;
+			
+			advance( currentLineDelimiterIterator, 1 );
+			delimiters.erase( previousLineDelimiterIterator );
+			
+			previousLineDelimiterIterator = newLineDelimiterIterator;
 		}
 	}
 };
 
 
-void Preprocessor::joinVerticallyOverlappedShapes (ShapeIterator& s1, ShapeIterator& s2)
+void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimiter>& delimiters)
 {
-	// Join shapes into a new one and insert it before the current shape
-	shapes_.push_back(*s1 + *s2);
+ 	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator not_eq delimiters.end(); ++delimitersIterator  )
+ 	{
+ 		unsigned int lineTopBorder		= (*delimitersIterator).first;
+ 		unsigned int lineBottomBorder	= (*delimitersIterator).second;
+ 
+ 		// Traverse the list of regions searching a pair of regions vertically overlapped.
+		std::list<Region>::iterator i = regions_.begin();
+ 
+ 		while ( i not_eq regions_.end() )
+ 		{
+ 			bool regionIsAboveLine = (*i)(0).first < lineTopBorder;
+ 			bool regionIsBelowLine = (*i)(0).first > lineBottomBorder;
+ 
+ 			if ( regionIsAboveLine or regionIsBelowLine )
+ 				advance (i, 1);
+ 			else
+ 			{
+				// Find a region vertically overlapped with the current one.
+				std::list<Region>::iterator j; // parametro de entrada == i
+				
+				for ( j = regions_.begin(); j not_eq regions_.end(); ++j )
+				{
+					if ( i == j )
+						continue;
 
-	// Delete the second shape
-	shapes_.erase(s2);
+					bool candidateRegionIsAboveLine = (*j)(0).first < lineTopBorder;
+					bool candidateRegionIsBelowLine = (*j)(0).first > lineBottomBorder;
 
-	// Update iterators
-	s2 = s1;
-	advance(s2, 1);
+					if ( candidateRegionIsAboveLine or candidateRegionIsBelowLine )
+						continue;
 
-	// Delete the first shape
-	shapes_.erase(s1);
-	s1 = s2;
+					// Count the overlapped pixels of both regions by computing the intersection of column coordinates.
+					std::set<unsigned int> regionI;
+					std::set<unsigned int> regionJ;
+
+					for ( unsigned int k = 0; k < (*i).size(); ++k )
+						regionI.insert((*i)(k).second);
+					
+					for ( unsigned int k = 0; k < (*j).size(); ++k )
+						regionJ.insert((*j)(k).second);
+
+					std::vector<int> intersection( std::max(regionI.size(), regionJ.size()), -1 );
+					std::vector<int>::iterator k = std::set_intersection(regionI.begin(), regionI.end(), regionJ.begin(), regionJ.end(), intersection.begin());
+
+					if ( std::count_if(intersection.begin(), intersection.end(), std::bind2nd(std::not_equal_to<int>(), -1) )> round((*i).width() / 2) )
+						break;
+				}
+			
+ 				if ( j not_eq regions_.end() and i not_eq j )	// Merge this regions
+				{
+					regions_.push_back(*i + *j);
+					regions_.erase(j);
+
+					j = i ;
+					advance(j, 1);
+					regions_.erase(i);
+					i = j;
+				}
+ 				else
+ 					advance(i, 1);
+ 			}
+ 		}
+ 	}
 };
 
 
-///
-/// @details The list of shapes is traversed in order to find a shape that is vertically overlapped with the shape passed. A shape is considered
-/// as overlapped when at least one pixel is overlapped with the shape of interest. This minimum criteria is necessary because of characters that
-/// are too small.
-///
-Preprocessor::ShapeIterator Preprocessor::findVerticallyOverlappedShape (const unsigned int& lineTop, const unsigned int& lineBottom, const ShapeIterator& shape)
-{
-	for ( ShapeIterator i = shapes_.begin(); i not_eq shapes_.end(); ++i )
-	{
-		// Avoid processing a shape against itself
-		if ( shape == i )
-			continue;
-
-		bool candidateShapeIsAboveShapeOfInterest = ((*i).topPixel().first < lineTop) and ((*i).bottomPixel().first <= lineTop);
-		bool candidateShapeIsBelowShapeOfInterest = ((*i).topPixel().first >= lineBottom) and ((*i).bottomPixel().first > lineBottom);
-
-		// Avoid processing a shape that is outside the line borders
-		if ( candidateShapeIsAboveShapeOfInterest or candidateShapeIsBelowShapeOfInterest )
-			continue;
-
-		unsigned int overlappedPixels	= 0;
-
-		// Count the overlapped pixels that the shape has with the shape of interest
-		for ( unsigned int j = 0; j < (*i).size(); ++j )
-		{
-			if ( ((*i)(j).second > (*shape).leftPixel().second) and ((*i)(j).second < (*shape).rightPixel().second) )
-				overlappedPixels++;
-		}
-
-		// Check if the shape is overlapped with the shape of interest
-		if ( overlappedPixels >= 1)
-			return i;
-	}
-	return shape;
-};
-
-
-///
-/// @details In order to find th spaces between words it is assumed that the mean inter-character space is always less than the mean inter-word space.
-/// Once the mean inter-character space is computed, a simple searching for each line gives the location of every space between words.
-///
 void Preprocessor::findSpaceLocations ()
 {
-	// Compute the mean inter-character space
-	ShapeIterator iShape = shapes_.begin();
-	advance (iShape, 1);
+/*	// Compute the mean inter-character space
+	PatternIterator iPattern = patterns_.begin();
+	advance (iPattern, 1);
 
-	ShapeIterator jShape = shapes_.begin();
+	PatternIterator jPattern = patterns_.begin();
 
 	double meanIntercharacterSpace = 0.0;
-	while ( iShape not_eq shapes_.end() )
+	while ( iPattern not_eq patterns_.end() )
 	{
-		if ( (*iShape).leftPixel().second >= (*jShape).rightPixel().second )
-			meanIntercharacterSpace += (*iShape).leftPixel().second - (*jShape).rightPixel().second;
+		if ( (*iPattern).leftPixel().second >= (*jPattern).rightPixel().second )
+			meanIntercharacterSpace += (*iPattern).leftPixel().second - (*jPattern).rightPixel().second;
 
-		advance (iShape, 1);
-		advance (jShape, 1);
+		advance (iPattern, 1);
+		advance (jPattern, 1);
 	}
-	meanIntercharacterSpace = round(meanIntercharacterSpace / shapes_.size());
+	meanIntercharacterSpace = round(meanIntercharacterSpace / patterns_.size());
 
 
 	// Count the number of spaces within a text
-	iShape = shapes_.begin();
-	advance (iShape, 1);
+	iPattern = patterns_.begin();
+	advance (iPattern, 1);
 
-	jShape = shapes_.begin();
+	jPattern = patterns_.begin();
 
 	double spaces = 0;
-	while ( iShape not_eq shapes_.end() )
+	while ( iPattern not_eq patterns_.end() )
 	{
-		if ( (*iShape).leftPixel().second < (*jShape).rightPixel().second )	// end-of-line
+		if ( (*iPattern).leftPixel().second < (*jPattern).rightPixel().second )	// end-of-line
 			spaces++;
 		else
 		{
-			unsigned int distanceBetweenCharacters = (*iShape).leftPixel().second - (*jShape).rightPixel().second;
+			unsigned int distanceBetweenCharacters = (*iPattern).leftPixel().second - (*jPattern).rightPixel().second;
 
 			if ( distanceBetweenCharacters > meanIntercharacterSpace )
 				spaces++;
 		}
-		advance (iShape, 1);
-		advance (jShape, 1);
+		advance (iPattern, 1);
+		advance (jPattern, 1);
 	}
-};
+*/};
+

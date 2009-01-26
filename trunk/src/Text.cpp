@@ -44,3 +44,4 @@ void Text::removeCharacter (const unsigned int& position)
 	else
 		content_.erase(position, 1);	
 };
+

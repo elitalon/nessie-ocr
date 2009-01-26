@@ -10,7 +10,6 @@ class Clip;
 #include "Statistics.hpp"
 
 
-///
 /// Manager of the whole OCR process.
 ///
 /// This class encapsulates all the stages related to the optical character recognition process of
@@ -26,52 +25,27 @@ class Recognizer
 {
 public:
 
-	///
 	/// Constructor.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-29
-	///
 	explicit Recognizer ();
 	
-	///
 	/// Destructor.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
-	///
 	~Recognizer ();
 
-	///
 	/// Extracts the text within a single press clip.
 	///
 	/// @param pressClip	A Clip object representing the press clip previously loaded.
 	///
 	/// @see Clip
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-29
-	///
 	void extractText (const Clip& pressClip);
 
-	///
 	/// Returns the text found in a press clip after the recognition process.
 	///
 	/// @return A Text object with the data about the text recognized.
 	///
 	/// @see Text
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-12-29
-	///
 	const Text& text () const;
 
-	///
 	/// Prints detailed statistics about the text recognition process gathered during execution.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2009-01-12
-	///
 	void printStatistics () const;
 
 private:
@@ -109,3 +83,4 @@ inline void Recognizer::printStatistics () const
 };
 
 #endif  //_RECOGNIZER_H
+

@@ -8,7 +8,7 @@
 
 
 Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width)
-	:	pixels_(std::deque<unsigned char>(0)),
+	:	pixels_(std::vector<unsigned char>(0)),
 		row_(row),
 		column_(column),
 		width_(width),
@@ -76,3 +76,4 @@ void Clip::writeToOutputImage (const std::string& outputFile, const double& scal
 	outputImage.syncPixels();
 	outputImage.write(outputFile);
 };
+

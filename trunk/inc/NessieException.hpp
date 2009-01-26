@@ -9,7 +9,6 @@
 #include <exception>
 
 
-///
 /// Exception raised by a Nessie OCR object.
 /// 
 /// This class derives from std::exception class, so that all the exceptions either from this library or the STL itself
@@ -22,32 +21,17 @@ class NessieException : public std::exception
 {
 public:
 
-	///
 	/// Constructor.
 	///
 	/// @param what	A message that explains the exception raised.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
-	/// 
 	explicit NessieException (const std::string& what);
 
-	///
 	/// Destructor.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
-	///
 	virtual ~NessieException () throw ();
 
-	///
 	/// Returns a message that explains the exception raised.
 	/// 
 	/// @return Message that explains the situation that caused the exception.
-	///
-	/// @author Eliezer Talón (elitalon@gmail.com)
-	/// @date 2008-10-03
-	///
 	virtual const char* what () const throw();
 
 private:
@@ -59,3 +43,4 @@ private:
 };
 
 #endif  //_NESSIE_EXCEPTION_H
+
