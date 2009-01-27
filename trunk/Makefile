@@ -11,64 +11,59 @@
 ###
 
 
-
-#
-# General conventions for Makefiles (extracted from GNU Make manual)
-#
 SHELL = /bin/sh
 CHMOD = chmod
 .SUFFIXES:
 .SUFFIXES: .cpp .o .hpp
 
-
-#
-# Directories
-#
 srcdir = src/
 incdir = inc/
-vpath %.hpp	$(incdir)
-vpath %.cpp	$(srcdir)
-vpath %.o	./
+libdir = lib/
+vpath %.hpp		$(incdir)
+vpath %.cpp		$(srcdir)
+vpath %.o		./
+vpath %.so		$(libdir)
+vpath %.dylib	$(libdir)
 
 
 
 #
 # Dependencies
 #
-MAIN = main.cpp Recognizer.o Clip.o
-NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-CLIP = Clip.cpp NessieException.o
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Clip.o Text.o Statistics.o Preprocessor.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o Pattern.o
-
 REGION = Region.cpp Region.hpp
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o Pattern.o
 PATTERN = Pattern.cpp Pattern.hpp
-CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o
+NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
+MAIN = main.cpp Recognizer.o Clip.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
+CLIP = Clip.cpp Clip.hpp NessieException.o
+CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o FeatureVector.o
 
 
 
-#
-# Compiler and linker options
-#
 OBJECTS = *.o
 PROGRAM = bin/ocr
-CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -Wold-style-cast
+LIBRARY = libNessieOcr.so
+LIBRARY_VERSION = 1.0.0
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
+CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -Wold-style-cast -fPIC
+LDFLAGS = $(MAGICK_LDFLAGS) 
 
 
 
 main: main.o
-	$(CXX) $(CXXFLAGS) $(MAGICK_LDFLAGS) $(OBJECTS) -o $(PROGRAM)
+	$(CXX) $(OBJECTS) -shared -Wl,-soname,$(LIBRARY) -o $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
 	@echo
 
 main.o: $(MAIN)
-	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 NessieException.o: $(NESSIE_EXCEPTION)
@@ -76,11 +71,11 @@ NessieException.o: $(NESSIE_EXCEPTION)
 	@echo
 
 Clip.o: $(CLIP)
-	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Recognizer.o: $(RECOGNIZER)
-	$(CXX) $(CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Text.o: $(TEXT)
@@ -92,7 +87,7 @@ Statistics.o: $(STATISTICS)
 	@echo
 
 Preprocessor.o: $(PREPROCESSOR)
-	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Region.o: $(REGION)
@@ -104,7 +99,7 @@ Pattern.o: $(PATTERN)
 	@echo
 
 Classifier.o: $(CLASSIFIER)
-	$(CXX) $(CXXFLAGS) $(BOOST_CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 DataSet.o: $(DATASET)
@@ -115,14 +110,23 @@ FeatureVector.o: $(FEATURE_VECTOR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
+install:
+	cp $(libdir)$(LIBRARY).$(LIBRARY_VERSION) /usr/local/lib
+	ldconfig -n /usr/local/lib
 
+uninstall:
+	rm -f /usr/local/lib/$(LIBRARY).$(LIBRARY_VERSION)
+	rm -f /usr/local/lib/$(LIBRARY)
+	ldconfig -n /usr/local/lib
 
-# Make everything
-all: clean main
+doc: $(incdir)*.hpp $(srcdir)*.cpp
+	@rm -rf doc/html/*
+	doxygen
 
-
-# Delete everything
 clean:
-	rm -f $(OBJECTS) $(PROGRAM)
+	rm -f $(OBJECTS) $(PROGRAM) $(LIBRARY)
 	$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 	@echo
+
+all: clean main doc
+

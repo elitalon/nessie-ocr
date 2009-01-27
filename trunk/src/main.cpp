@@ -4,17 +4,16 @@
 #include <Magick++.h>
 #include "Clip.hpp"
 #include "Recognizer.hpp"
-#include <iostream>
 #include <boost/timer.hpp>
+#include <iostream>
 
 
 /// @param argc		Number of command line arguments.
 /// @param argv[]	Command line arguments.
 ///
-///	@todo Add rules to the Makefile to generate a dynamic library instead of linking with object files.
-///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-16
+///
 int main (int argc, char const *argv[])
 {
 	try
