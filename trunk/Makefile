@@ -45,10 +45,12 @@ CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o FeatureVector.o
 
 
 
+LIBRARY = `sh platformLinkerOptions.sh -t`
+LIBRARY_BUILDING_OPTIONS = `sh platformLinkerOptions.sh -o`
+LIBRARY_VERSION = 1.0.0
+
 OBJECTS = *.o
 PROGRAM = bin/ocr
-LIBRARY = libNessieOcr.so
-LIBRARY_VERSION = 1.0.0
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
@@ -58,7 +60,9 @@ LDFLAGS = $(MAGICK_LDFLAGS)
 
 
 main: main.o
-	$(CXX) $(OBJECTS) -shared -Wl,-soname,$(LIBRARY) -o $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
+	@echo $(LIBRARY_BUILDING_OPTIONS)
+	@echo $(LIBRARY)
+	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
 	@echo
 
@@ -119,12 +123,12 @@ uninstall:
 	rm -f /usr/local/lib/$(LIBRARY)
 	ldconfig -n /usr/local/lib
 
-doc: $(incdir)*.hpp $(srcdir)*.cpp
+doc: $(incdir)*.hpp $(srcdir)*.cpp 
 	@rm -rf doc/html/*
 	doxygen
 
 clean:
-	rm -f $(OBJECTS) $(PROGRAM) $(LIBRARY)
+	rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
 	$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 	@echo
 

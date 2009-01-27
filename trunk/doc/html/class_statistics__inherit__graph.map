@@ -1,3 +1,3 @@
-<area shape="rect" href="$class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process..." alt="" coords="5,314,173,434">
-<area shape="rect" href="$class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process..." alt="" coords="197,314,387,434">
-<area shape="rect" href="$class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process..." alt="" coords="411,175,587,572">
+<area shape="rect" href="$class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process..." alt="" coords="5,292,195,404">
+<area shape="rect" href="$class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process..." alt="" coords="219,292,435,404">
+<area shape="rect" href="$class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process..." alt="" coords="459,165,651,531">
