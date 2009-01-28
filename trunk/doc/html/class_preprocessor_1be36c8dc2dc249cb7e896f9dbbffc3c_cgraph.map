@@ -1,4 +1,0 @@
-<area shape="rect" href="$class_region.html#3a5ab9b7f6d60b845475309be2298f04" title="Returns the number of pixels in the region." alt="" coords="331,6,419,30">
-<area shape="rect" href="$class_preprocessor_statistics.html#fabc1331128c858a4ed355f60b7a4782" title="Sets the slant angle estimation used to correct the slanting of every region found..." alt="" coords="243,54,507,78">
-<area shape="rect" href="$class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9" title="Sets the elapsed time while executing the slanting correction algorithm." alt="" coords="237,102,512,126">
-<area shape="rect" href="$class_region.html#6f88e4969c3d0af80b31d84478a39c5a" title="Returns the coordinates of the top leftmost pixel." alt="" coords="263,150,487,174">

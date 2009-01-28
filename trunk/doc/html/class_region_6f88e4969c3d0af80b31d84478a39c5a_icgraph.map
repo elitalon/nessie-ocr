@@ -1,3 +1,0 @@
-<area shape="rect" href="$class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c" title="Corrects the slanting of every region extracted from press clip." alt="" coords="281,6,463,30">
-<area shape="rect" href="$class_region.html#6e612a6f629dff916adaf293bd4a9494" title="Normalize the coordinates of every pixel so that the top leftmost pixel is located..." alt="" coords="279,54,465,78">
-<area shape="rect" href="$class_region.html#10878c058c3568e5583588342fe80e5a" title="Evaluates if a region&#39;s position is less than another, according to their position..." alt="" coords="312,102,432,126">

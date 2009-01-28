@@ -1,9 +1,0 @@
-<area shape="rect" href="$class_region.html#5f5345fe4660595a77c9f578e4aad9b3" title="Adds a pair of pixel coordinates to the region." alt="" coords="301,6,456,30">
-<area shape="rect" href="$class_clip.html#939908a8dde602d25335792cc0fd5d97" title="Returns the height of the clip." alt="" coords="337,54,420,78">
-<area shape="rect" href="$class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Sets the number of line delimiters found while executing the regions extraction algorithm..." alt="" coords="261,102,496,126">
-<area shape="rect" href="$class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Sets the number of regions found after merging the accents while executing the regions..." alt="" coords="243,150,515,174">
-<area shape="rect" href="$class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Sets the number of regions found before merging the accents while executing the regions..." alt="" coords="237,198,520,222">
-<area shape="rect" href="$class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Sets the elapsed time while executing the regions extraction algorithm." alt="" coords="244,246,513,270">
-<area shape="rect" href="$class_region.html#3a5ab9b7f6d60b845475309be2298f04" title="Returns the number of pixels in the region." alt="" coords="335,294,423,318">
-<area shape="rect" href="$class_clip.html#eb6b12a1a0570b529d6a09633b991fcd" title="Returns the number of pixels in the clip." alt="" coords="343,342,415,366">
-<area shape="rect" href="$class_clip.html#88d1a47c0ec077e8c6680785509389b0" title="Returns the width of the clip." alt="" coords="340,390,417,414">
