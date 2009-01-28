@@ -84,11 +84,6 @@ public:
 	/// @param elapsedTime A number representing the elapsed time in seconds.
 	void averagingFilteringTime (const double& elapsedTime);
 
-	/// Sets the elapsed time while executing the skewness correction algorithm.
-	/// 
-	/// @param elapsedTime A number representing the elapsed time in seconds.
-	void skewnessCorrectionTime (const double& elapsedTime);
-
 	/// Sets the elapsed time while executing the regions extraction algorithm.
 	/// 
 	/// @param elapsedTime A number representing the elapsed time in seconds.
@@ -109,6 +104,16 @@ public:
 	/// @param nDelimiters Number of line delimiters found.
 	void nLineDelimiters (const unsigned int& nDelimiters);
 
+	/// Sets the slant angle estimation used to correct the slanting of every region found after executing the regions extraction algorithm.
+	/// 
+	/// @param angle Angle estimation in degrees.
+	void slantAngleEstimation (const double& angle);
+
+	/// Sets the elapsed time while executing the slanting correction algorithm.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	void slantingCorrectionTime (const double& elapsedTime);
+
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
@@ -121,8 +126,6 @@ private:
 	
 	double			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
 	
-	double			skewnessCorrectionTime_;	///< Elapsed time while correcting the skewness of the text lines in a press clip.
-	
 	double			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
 	
 	unsigned int	nRegionsBeforeMerging_;		///< Number of regions of pixels found before merging accents while applying a segmentation process over the clip.
@@ -131,6 +134,10 @@ private:
 	
 	unsigned int	nLineDelimiters_;			///< Number of line delimiters found while applying a segmentation process over the clip.
 	
+	double			slantAngleEstimation_;		///< Angle estimation in degrees to correct the slanting in characters.
+	
+	double			slantingCorrectionTime_;	///< Elapsed time while correcting the slanting of every region found after the region extraction algorithm.
+
 	/// Updates the total elapsed time attribute.
 	/// 
 	/// @post #totalTime_ is set by summing all the timers attributes within the class.
@@ -140,7 +147,7 @@ private:
 
 inline void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + skewnessCorrectionTime_ + regionsExtractionTime_;
+	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + regionsExtractionTime_ + slantingCorrectionTime_;
 };
 
 
@@ -177,13 +184,6 @@ inline void PreprocessorStatistics::averagingFilteringTime (const double& elapse
 };
 
 
-inline void PreprocessorStatistics::skewnessCorrectionTime (const double& elapsedTime)
-{
-	skewnessCorrectionTime_ = elapsedTime;
-	updateTotalTime();
-};
-
-
 inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsedTime)
 {
 	regionsExtractionTime_ = elapsedTime;
@@ -206,6 +206,19 @@ inline void PreprocessorStatistics::nRegionsAfterMerging (const unsigned int& nR
 inline void PreprocessorStatistics::nLineDelimiters (const unsigned int& nDelimiters)
 {
 	nLineDelimiters_ = nDelimiters;
+};
+
+
+inline void PreprocessorStatistics::slantAngleEstimation (const double& angle)
+{
+	slantAngleEstimation_ = angle;
+};
+
+
+inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
+{
+	slantingCorrectionTime_ = elapsedTime;
+	updateTotalTime();
 };
 
 

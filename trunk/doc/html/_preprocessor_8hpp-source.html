@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.hpp (228) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Preprocessor.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Preprocessor.hpp (228)</h1><a href="_preprocessor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Preprocessor.hpp</h1><a href="_preprocessor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_PREPROCESSOR_H)</span>
@@ -78,77 +78,75 @@ window.onload = initDynSections;
 <a name="l00015"></a>00015 
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 
-<a name="l00041"></a><a class="code" href="class_preprocessor.html">00041</a> <span class="keyword">class </span><a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>
-<a name="l00042"></a>00042 {
-<a name="l00043"></a>00043 <span class="keyword">public</span>:
-<a name="l00044"></a>00044 
-<a name="l00050"></a>00050     <span class="keyword">explicit</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; pressClip);
-<a name="l00051"></a>00051 
-<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip.">applyGlobalThresholding</a> ();
-<a name="l00057"></a>00057 
-<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth...">applyTemplateFilters</a> ();
-<a name="l00064"></a>00064 
-<a name="l00070"></a>00070     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1" title="Applies an averaging filter mask (linear filtering) over the press clip to remove...">applyAveragingFilters</a> ();
-<a name="l00071"></a>00071     
-<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c0dff4eaa053e963ec49caeac15448ed" title="Corrects the appearance of a slope of the text lines with respect to the x-axis.">correctSkewness</a> ();
-<a name="l00078"></a>00078 
-<a name="l00082"></a>00082     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Applies a segmentation process over the press clip to isolate every region of ink...">extractRegions</a> ();
-<a name="l00083"></a>00083 
-<a name="l00089"></a>00089     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ();
-<a name="l00090"></a>00090 
-<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a439bb6f31ae809ca2ece27097117909">normalizeCharacters</a> ();
-<a name="l00097"></a>00097     
-<a name="l00103"></a>00103     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#09e5dcc9a70034284201d5160d17aacf">applyThinning</a> ();
+<a name="l00040"></a><a class="code" href="class_preprocessor.html">00040</a> <span class="keyword">class </span><a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>
+<a name="l00041"></a>00041 {
+<a name="l00042"></a>00042 <span class="keyword">public</span>:
+<a name="l00043"></a>00043 
+<a name="l00049"></a>00049     <span class="keyword">explicit</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>&amp; pressClip);
+<a name="l00050"></a>00050 
+<a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip.">applyGlobalThresholding</a> ();
+<a name="l00056"></a>00056 
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth...">applyTemplateFilters</a> ();
+<a name="l00063"></a>00063 
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1" title="Applies an averaging filter mask (linear filtering) over the press clip to remove...">applyAveragingFilters</a> ();
+<a name="l00070"></a>00070     
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Applies a segmentation process over the press clip to isolate every region of ink...">extractRegions</a> ();
+<a name="l00075"></a>00075 
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c" title="Corrects the slanting of every region extracted from press clip.">correctSlanting</a> ();
+<a name="l00080"></a>00080 
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#a439bb6f31ae809ca2ece27097117909">normalizeCharacters</a> ();
+<a name="l00087"></a>00087     
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#09e5dcc9a70034284201d5160d17aacf">applyThinning</a> ();
+<a name="l00094"></a>00094 
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#544805d1578d7703037faf040097c241" title="Finds every position in the list of patterns where a blank space must be inserted...">findSpaceLocations</a> ();
+<a name="l00097"></a>00097 
+<a name="l00103"></a>00103     <span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; <a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d" title="Returns the patterns found, if any, in the last segmentation process.">patterns</a> () <span class="keyword">const</span>;
 <a name="l00104"></a>00104 
-<a name="l00106"></a>00106     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor.html#544805d1578d7703037faf040097c241" title="Finds every position in the list of patterns where a blank space must be inserted...">findSpaceLocations</a> ();
-<a name="l00107"></a>00107 
-<a name="l00113"></a>00113     <span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; <a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d" title="Returns the patterns found, if any, in the last segmentation process.">patterns</a> () <span class="keyword">const</span>;
-<a name="l00114"></a>00114 
-<a name="l00120"></a>00120     <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">statistics</a> () <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">statistics</a> () <span class="keyword">const</span>;
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="keyword">private</span>:
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114     <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>                    clip_;          
+<a name="l00115"></a>00115     
+<a name="l00116"></a>00116     <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>  statistics_;    
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118     std::list&lt;Region&gt;       regions_;       
+<a name="l00119"></a>00119     
+<a name="l00120"></a>00120     std::vector&lt;Pattern&gt;    patterns_;      
 <a name="l00121"></a>00121 
-<a name="l00122"></a>00122 <span class="keyword">private</span>:
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <a class="code" href="class_clip.html" title="Press clip in which a newspaper&amp;#39;s is divided.">Clip</a>                    clip_;          
-<a name="l00125"></a>00125     
-<a name="l00126"></a>00126     <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>  statistics_;    
+<a name="l00126"></a>00126     <span class="keyword">typedef</span> std::pair&lt;unsigned int, unsigned int&gt; LineDelimiter;
 <a name="l00127"></a>00127 
-<a name="l00128"></a>00128     std::list&lt;Region&gt;       regions_;       
-<a name="l00129"></a>00129     
-<a name="l00130"></a>00130     std::vector&lt;Pattern&gt;    patterns_;      
-<a name="l00131"></a>00131 
-<a name="l00136"></a>00136     <span class="keyword">typedef</span> std::pair&lt;unsigned int, unsigned int&gt; LineDelimiter;
+<a name="l00131"></a>00131     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeSonkaOptimalThreshold () <span class="keyword">const</span>;
+<a name="l00132"></a>00132 
+<a name="l00136"></a>00136     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeOtsuOptimalThreshold () <span class="keyword">const</span>;
 <a name="l00137"></a>00137 
-<a name="l00141"></a>00141     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeSonkaOptimalThreshold () <span class="keyword">const</span>;
-<a name="l00142"></a>00142 
-<a name="l00146"></a>00146     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> computeOtsuOptimalThreshold () <span class="keyword">const</span>;
-<a name="l00147"></a>00147 
-<a name="l00152"></a>00152     <span class="keywordtype">void</span> findLineDelimiters (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; visited, std::list&lt;LineDelimiter&gt;&amp; delimiters) <span class="keyword">const</span>;
-<a name="l00153"></a>00153 
-<a name="l00157"></a>00157     <span class="keywordtype">void</span> mergeVerticallyOverlappedRegions (<span class="keyword">const</span> std::list&lt;LineDelimiter&gt;&amp; delimiters);
-<a name="l00158"></a>00158     
-<a name="l00159"></a>00159     
-<a name="l00160"></a>00160     <span class="comment">// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!</span>
-<a name="l00161"></a>00161     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> ();
-<a name="l00162"></a>00162     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
-<a name="l00163"></a>00163     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
-<a name="l00164"></a>00164 };
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166 
-<a name="l00167"></a><a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19">00167</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">Preprocessor::statistics</a> ()<span class="keyword"> const</span>
-<a name="l00168"></a>00168 <span class="keyword"></span>{
-<a name="l00169"></a>00169     <span class="keywordflow">return</span> statistics_;
-<a name="l00170"></a>00170 };
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172 
-<a name="l00173"></a><a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d">00173</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; <a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d" title="Returns the patterns found, if any, in the last segmentation process.">Preprocessor::patterns</a>()<span class="keyword"> const</span>
-<a name="l00174"></a>00174 <span class="keyword"></span>{
-<a name="l00175"></a>00175     <span class="keywordflow">return</span> patterns_;
-<a name="l00176"></a>00176 };
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178 <span class="preprocessor">#endif  //_PREPROCESSOR_H</span>
-<a name="l00179"></a>00179 <span class="preprocessor"></span>
+<a name="l00142"></a>00142     <span class="keywordtype">void</span> findLineDelimiters (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; visited, std::list&lt;LineDelimiter&gt;&amp; delimiters) <span class="keyword">const</span>;
+<a name="l00143"></a>00143 
+<a name="l00147"></a>00147     <span class="keywordtype">void</span> mergeVerticallyOverlappedRegions (<span class="keyword">const</span> std::list&lt;LineDelimiter&gt;&amp; delimiters);
+<a name="l00148"></a>00148     
+<a name="l00149"></a>00149     
+<a name="l00150"></a>00150     <span class="comment">// Explicitly disallowed compiler-generated functions. DO NOT IMPLEMENT THEM!!</span>
+<a name="l00151"></a>00151     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> ();
+<a name="l00152"></a>00152     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a> (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
+<a name="l00153"></a>00153     <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_preprocessor.html" title="Preprocessor of the OCR process.">Preprocessor</a>&amp;);
+<a name="l00154"></a>00154 };
+<a name="l00155"></a>00155 
+<a name="l00156"></a>00156 
+<a name="l00157"></a><a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19">00157</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_preprocessor_statistics.html" title="Statistical data regarding the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>&amp; <a class="code" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19" title="Returns the statistics about the preprocessing stage regarding algorithms execution...">Preprocessor::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00158"></a>00158 <span class="keyword"></span>{
+<a name="l00159"></a>00159     <span class="keywordflow">return</span> statistics_;
+<a name="l00160"></a>00160 };
+<a name="l00161"></a>00161 
+<a name="l00162"></a>00162 
+<a name="l00163"></a><a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d">00163</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; <a class="code" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d" title="Returns the patterns found, if any, in the last segmentation process.">Preprocessor::patterns</a>()<span class="keyword"> const</span>
+<a name="l00164"></a>00164 <span class="keyword"></span>{
+<a name="l00165"></a>00165     <span class="keywordflow">return</span> patterns_;
+<a name="l00166"></a>00166 };
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 <span class="preprocessor">#endif  //_PREPROCESSOR_H</span>
+<a name="l00169"></a>00169 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jan 27 15:17:14 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 28 18:04:44 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -27,7 +27,6 @@
 ///	
 ///	-# Global gray level thresholding
 ///	-# Smoothing and noise removal
-///	-# Skew detection and correction
 ///	-# Patterns extraction and isolation
 ///	-# Slant detection and correction
 ///	-# Character normalization
@@ -69,23 +68,14 @@ public:
 	///	@post The noise in the image is removed and the borders of characters are blurred.
 	void applyAveragingFilters ();
 	
-	///	Corrects the appearance of a slope of the text lines with respect to the x-axis.
-	///
-	///	@post The skewness is substantially corrected by rotating ink pixels to a new position.
-	///
-	/// @todo Implement this method as future work.
-	void correctSkewness ();
-
 	/// Applies a segmentation process over the press clip to isolate every region of ink pixels.
 	///
 	///	@pre The press clip must have been converted to binary mode, i.e. 0 for background pixels and 1 for ink pixels.
 	void extractRegions ();
 
+	///	Corrects the slanting of every region extracted from press clip.
 	///
-	///
-	///	@pre
-	///
-	///	@post
+	///	@pre The internal list of regions must have been initialized by calling Preprocessor::extractRegions.
 	void correctSlanting ();
 
 	///

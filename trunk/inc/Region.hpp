@@ -23,6 +23,8 @@ typedef std::pair<unsigned int, unsigned int> PixelCoordinates;
 /// for feature extraction and classification. Every region has four representative pixels of ink, located on each extreme: one pixel at the top,
 ///	one pixel at the bottom, one pixel on the left and one pixel on the right.
 /// 
+///	@see PixelCoordinates
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-19
 ///
@@ -64,44 +66,50 @@ public:
 	/// Returns the height of the region.
 	/// 
 	/// @return Height of the region in pixels.
-	unsigned int height () const;
+	const unsigned int& height () const;
 	
 	/// Returns the width of the region.
 	/// 
 	/// @return Width of the region in pixels.
-	unsigned int width () const;
+	const unsigned int& width () const;
 	
 	/// Returns the number of pixels in the region.
 	/// 
 	/// @return Number of pixels in the region.
 	const unsigned int& size () const;
 	
-	/// Adds a pair of pixel coordinates to the region.
-	/// 
-	/// @param coordinates		Coordinates of the pixel.
-	/// 
-	/// @see PixelCoordinates
-	void addCoordinates(const PixelCoordinates& coordinates);
-	
 	/// Returns the coordinates of the top leftmost pixel.
 	/// 
 	/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
-	PixelCoordinates topLeftmostPixelCoordinates () const;
+	const PixelCoordinates& topLeftmostPixelCoordinates () const;
+	
+	/// Adds a pair of pixel coordinates to the region.
+	/// 
+	/// @param coordinates		Coordinates of the pixel.
+	void addCoordinates(const PixelCoordinates& coordinates);
 	
 	/// Normalize the coordinates of every pixel so that the top leftmost pixel is located at (0,0).
 	void normalizeCoordinates ();
 	
 private:
 
-	std::vector<PixelCoordinates>	coordinates_;	///< Set of pixel coordinates that defines the whole region
+	std::vector<PixelCoordinates>	coordinates_;					///< Set of pixel coordinates that defines the whole region.
 	
-	unsigned int					size_;			///< Number of pixels in the region
-};
+	unsigned int					height_;						///< Region height in pixels.
 
+	unsigned int					width_;							///< Region width in pixels.
 
-inline const unsigned int& Region::size () const
-{
-	return size_;
+	unsigned int					size_;							///< Number of pixels in the region.
+
+	PixelCoordinates				topLeftmostPixelCoordinates_;	///< Coordinates of the top leftmost pixel in the region.
+
+	unsigned int					topBorderRow_;					///< X-axis coordinate of the top pixel in the region.
+
+	unsigned int					bottomBorderRow_;				///< X-axis coordinate of the bottom pixel in the region.
+
+	unsigned int					leftBorderColumn_;				///< Y-axis coordinate of the leftmost pixel in the region.
+
+	unsigned int					rightBorderColumn_;				///< Y-axis coordinate of the rightmost pixel in the region.
 };
 
 
@@ -128,6 +136,29 @@ inline Region Region::operator+ (const Region& region) const
 		temp.addCoordinates( (*i) );
 	
 	return temp;
+};
+
+
+inline const unsigned int& Region::height () const
+{
+	return height_;
+};
+
+
+inline const unsigned int& Region::width () const
+{
+	return width_;
+};
+
+
+inline const unsigned int& Region::size () const
+{
+	return size_;
+};
+
+inline const PixelCoordinates& Region::topLeftmostPixelCoordinates () const
+{
+	return topLeftmostPixelCoordinates_;
 };
 
 #endif  //_REGION_H

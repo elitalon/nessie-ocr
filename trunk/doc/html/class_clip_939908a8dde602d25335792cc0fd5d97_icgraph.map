@@ -1,4 +1,4 @@
-<area shape="rect" href="$class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1" title="Applies an averaging filter mask (linear filtering) over the press clip to remove..." alt="" coords="153,5,391,29">
-<area shape="rect" href="$class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip." alt="" coords="144,53,400,77">
-<area shape="rect" href="$class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth..." alt="" coords="156,101,388,125">
-<area shape="rect" href="$class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Applies a segmentation process over the press clip to isolate every region of ink..." alt="" coords="175,149,369,173">
+<area shape="rect" href="$class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1" title="Applies an averaging filter mask (linear filtering) over the press clip to remove..." alt="" coords="149,6,368,30">
+<area shape="rect" href="$class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3" title="Applies a global thresholding algorithm over the press clip." alt="" coords="140,54,377,78">
+<area shape="rect" href="$class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf" title="Applies four 3x3 matching templates over the press clip to remove noise and smooth..." alt="" coords="152,102,365,126">
+<area shape="rect" href="$class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Applies a segmentation process over the press clip to isolate every region of ink..." alt="" coords="168,150,349,174">

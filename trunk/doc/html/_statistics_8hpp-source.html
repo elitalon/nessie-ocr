@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.hpp (227) Source File</title>
+<title>Nessie, reconocedor óptico de texto en recortes de prensa escrita: Statistics.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Statistics.hpp (227)</h1><a href="_statistics_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Statistics.hpp</h1><a href="_statistics_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_STATISTICS_H)</span>
@@ -107,84 +107,81 @@ window.onload = initDynSections;
 <a name="l00081"></a>00081     
 <a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7" title="Sets the elapsed time while executing the averaging filtering algorithm.">averagingFilteringTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00086"></a>00086 
-<a name="l00090"></a>00090     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#5bda899866bc61d961d358ff3f844623" title="Sets the elapsed time while executing the skewness correction algorithm.">skewnessCorrectionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00090"></a>00090     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Sets the elapsed time while executing the regions extraction algorithm.">regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00091"></a>00091 
-<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Sets the elapsed time while executing the regions extraction algorithm.">regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Sets the number of regions found before merging the accents while executing the regions...">nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
 <a name="l00096"></a>00096 
-<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Sets the number of regions found before merging the accents while executing the regions...">nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
-<a name="l00101"></a>00101 
-<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Sets the number of regions found after merging the accents while executing the regions...">nRegionsAfterMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
-<a name="l00106"></a>00106     
-<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Sets the number of line delimiters found while executing the regions extraction algorithm...">nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters);
+<a name="l00100"></a>00100     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Sets the number of regions found after merging the accents while executing the regions...">nRegionsAfterMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
+<a name="l00101"></a>00101     
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Sets the number of line delimiters found while executing the regions extraction algorithm...">nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters);
+<a name="l00106"></a>00106 
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#fabc1331128c858a4ed355f60b7a4782" title="Sets the slant angle estimation used to correct the slanting of every region found...">slantAngleEstimation</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; angle);
 <a name="l00111"></a>00111 
-<a name="l00112"></a>00112 <span class="keyword">private</span>:
-<a name="l00113"></a>00113     
-<a name="l00114"></a>00114     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    clipSize_;                  
-<a name="l00115"></a>00115     
-<a name="l00116"></a>00116     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>   optimalThreshold_;          
-<a name="l00117"></a>00117     
-<a name="l00118"></a>00118     <span class="keywordtype">double</span>          globalThresholdingTime_;    
-<a name="l00119"></a>00119     
-<a name="l00120"></a>00120     <span class="keywordtype">double</span>          templateFilteringTime_;     
-<a name="l00121"></a>00121     
-<a name="l00122"></a>00122     <span class="keywordtype">double</span>          averagingFilteringTime_;    
-<a name="l00123"></a>00123     
-<a name="l00124"></a>00124     <span class="keywordtype">double</span>          skewnessCorrectionTime_;    
-<a name="l00125"></a>00125     
-<a name="l00126"></a>00126     <span class="keywordtype">double</span>          regionsExtractionTime_;     
-<a name="l00127"></a>00127     
-<a name="l00128"></a>00128     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nRegionsBeforeMerging_;     
-<a name="l00129"></a>00129     
-<a name="l00130"></a>00130     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nRegionsAfterMerging_;      
-<a name="l00131"></a>00131     
-<a name="l00132"></a>00132     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nLineDelimiters_;           
-<a name="l00133"></a>00133     
-<a name="l00137"></a>00137     <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00138"></a>00138 };
-<a name="l00139"></a>00139 
+<a name="l00115"></a>00115     <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9" title="Sets the elapsed time while executing the slanting correction algorithm.">slantingCorrectionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="keyword">private</span>:
+<a name="l00118"></a>00118     
+<a name="l00119"></a>00119     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    clipSize_;                  
+<a name="l00120"></a>00120     
+<a name="l00121"></a>00121     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>   optimalThreshold_;          
+<a name="l00122"></a>00122     
+<a name="l00123"></a>00123     <span class="keywordtype">double</span>          globalThresholdingTime_;    
+<a name="l00124"></a>00124     
+<a name="l00125"></a>00125     <span class="keywordtype">double</span>          templateFilteringTime_;     
+<a name="l00126"></a>00126     
+<a name="l00127"></a>00127     <span class="keywordtype">double</span>          averagingFilteringTime_;    
+<a name="l00128"></a>00128     
+<a name="l00129"></a>00129     <span class="keywordtype">double</span>          regionsExtractionTime_;     
+<a name="l00130"></a>00130     
+<a name="l00131"></a>00131     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nRegionsBeforeMerging_;     
+<a name="l00132"></a>00132     
+<a name="l00133"></a>00133     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nRegionsAfterMerging_;      
+<a name="l00134"></a>00134     
+<a name="l00135"></a>00135     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    nLineDelimiters_;           
+<a name="l00136"></a>00136     
+<a name="l00137"></a>00137     <span class="keywordtype">double</span>          slantAngleEstimation_;      
+<a name="l00138"></a>00138     
+<a name="l00139"></a>00139     <span class="keywordtype">double</span>          slantingCorrectionTime_;    
 <a name="l00140"></a>00140 
-<a name="l00141"></a>00141 <span class="keyword">inline</span> <span class="keywordtype">void</span> PreprocessorStatistics::updateTotalTime ()
-<a name="l00142"></a>00142 {
-<a name="l00143"></a>00143     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + skewnessCorrectionTime_ + regionsExtractionTime_;
-<a name="l00144"></a>00144 };
-<a name="l00145"></a>00145 
+<a name="l00144"></a>00144     <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00145"></a>00145 };
 <a name="l00146"></a>00146 
-<a name="l00147"></a><a class="code" href="class_preprocessor_statistics.html#74534176174734904dda2cf79054bfb6">00147</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#74534176174734904dda2cf79054bfb6" title="Sets the press clip size in number of pixels.">PreprocessorStatistics::clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels)
-<a name="l00148"></a>00148 {
-<a name="l00149"></a>00149     clipSize_ = nPixels;
-<a name="l00150"></a>00150 };
-<a name="l00151"></a>00151 
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 <span class="keyword">inline</span> <span class="keywordtype">void</span> PreprocessorStatistics::updateTotalTime ()
+<a name="l00149"></a>00149 {
+<a name="l00150"></a>00150     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + regionsExtractionTime_ + slantingCorrectionTime_;
+<a name="l00151"></a>00151 };
 <a name="l00152"></a>00152 
-<a name="l00153"></a><a class="code" href="class_preprocessor_statistics.html#cbd29d227ffdd48c507a4ff3b50da82f">00153</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cbd29d227ffdd48c507a4ff3b50da82f" title="Sets the optimal threshold used to binrize the press clip.">PreprocessorStatistics::optimalThreshold</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; threshold)
-<a name="l00154"></a>00154 {
-<a name="l00155"></a>00155     optimalThreshold_ = threshold;
-<a name="l00156"></a>00156 };
-<a name="l00157"></a>00157 
+<a name="l00153"></a>00153 
+<a name="l00154"></a><a class="code" href="class_preprocessor_statistics.html#74534176174734904dda2cf79054bfb6">00154</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#74534176174734904dda2cf79054bfb6" title="Sets the press clip size in number of pixels.">PreprocessorStatistics::clipSize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nPixels)
+<a name="l00155"></a>00155 {
+<a name="l00156"></a>00156     clipSize_ = nPixels;
+<a name="l00157"></a>00157 };
 <a name="l00158"></a>00158 
-<a name="l00159"></a><a class="code" href="class_preprocessor_statistics.html#4ea4f1d85f8107087c6a748a2fa25556">00159</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#4ea4f1d85f8107087c6a748a2fa25556" title="Sets the elapsed time while executing the global thresholding algorithm.">PreprocessorStatistics::globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00160"></a>00160 {
-<a name="l00161"></a>00161     globalThresholdingTime_ = elapsedTime;
-<a name="l00162"></a>00162     updateTotalTime();
+<a name="l00159"></a>00159 
+<a name="l00160"></a><a class="code" href="class_preprocessor_statistics.html#cbd29d227ffdd48c507a4ff3b50da82f">00160</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cbd29d227ffdd48c507a4ff3b50da82f" title="Sets the optimal threshold used to binrize the press clip.">PreprocessorStatistics::optimalThreshold</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>&amp; threshold)
+<a name="l00161"></a>00161 {
+<a name="l00162"></a>00162     optimalThreshold_ = threshold;
 <a name="l00163"></a>00163 };
 <a name="l00164"></a>00164 
 <a name="l00165"></a>00165 
-<a name="l00166"></a><a class="code" href="class_preprocessor_statistics.html#19cb995b637ec62be16b237e97cc65e5">00166</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#19cb995b637ec62be16b237e97cc65e5" title="Sets the elapsed time while executing the template filtering algorithm.">PreprocessorStatistics::templateFilteringTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00166"></a><a class="code" href="class_preprocessor_statistics.html#4ea4f1d85f8107087c6a748a2fa25556">00166</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#4ea4f1d85f8107087c6a748a2fa25556" title="Sets the elapsed time while executing the global thresholding algorithm.">PreprocessorStatistics::globalThresholdingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
 <a name="l00167"></a>00167 {
-<a name="l00168"></a>00168     templateFilteringTime_ = elapsedTime;
+<a name="l00168"></a>00168     globalThresholdingTime_ = elapsedTime;
 <a name="l00169"></a>00169     updateTotalTime();
 <a name="l00170"></a>00170 };
 <a name="l00171"></a>00171 
 <a name="l00172"></a>00172 
-<a name="l00173"></a><a class="code" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7">00173</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7" title="Sets the elapsed time while executing the averaging filtering algorithm.">PreprocessorStatistics::averagingFilteringTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00173"></a><a class="code" href="class_preprocessor_statistics.html#19cb995b637ec62be16b237e97cc65e5">00173</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#19cb995b637ec62be16b237e97cc65e5" title="Sets the elapsed time while executing the template filtering algorithm.">PreprocessorStatistics::templateFilteringTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
 <a name="l00174"></a>00174 {
-<a name="l00175"></a>00175     averagingFilteringTime_ = elapsedTime;
+<a name="l00175"></a>00175     templateFilteringTime_ = elapsedTime;
 <a name="l00176"></a>00176     updateTotalTime();
 <a name="l00177"></a>00177 };
 <a name="l00178"></a>00178 
 <a name="l00179"></a>00179 
-<a name="l00180"></a><a class="code" href="class_preprocessor_statistics.html#5bda899866bc61d961d358ff3f844623">00180</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#5bda899866bc61d961d358ff3f844623" title="Sets the elapsed time while executing the skewness correction algorithm.">PreprocessorStatistics::skewnessCorrectionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00180"></a><a class="code" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7">00180</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7" title="Sets the elapsed time while executing the averaging filtering algorithm.">PreprocessorStatistics::averagingFilteringTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
 <a name="l00181"></a>00181 {
-<a name="l00182"></a>00182     skewnessCorrectionTime_ = elapsedTime;
+<a name="l00182"></a>00182     averagingFilteringTime_ = elapsedTime;
 <a name="l00183"></a>00183     updateTotalTime();
 <a name="l00184"></a>00184 };
 <a name="l00185"></a>00185 
@@ -214,55 +211,68 @@ window.onload = initDynSections;
 <a name="l00209"></a>00209 };
 <a name="l00210"></a>00210 
 <a name="l00211"></a>00211 
-<a name="l00212"></a>00212 
-<a name="l00218"></a><a class="code" href="class_feature_extraction_statistics.html">00218</a> <span class="keyword">class </span><a class="code" href="class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process...">FeatureExtractionStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
+<a name="l00212"></a><a class="code" href="class_preprocessor_statistics.html#fabc1331128c858a4ed355f60b7a4782">00212</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#fabc1331128c858a4ed355f60b7a4782" title="Sets the slant angle estimation used to correct the slanting of every region found...">PreprocessorStatistics::slantAngleEstimation</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; angle)
+<a name="l00213"></a>00213 {
+<a name="l00214"></a>00214     slantAngleEstimation_ = angle;
+<a name="l00215"></a>00215 };
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217 
+<a name="l00218"></a><a class="code" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9">00218</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9" title="Sets the elapsed time while executing the slanting correction algorithm.">PreprocessorStatistics::slantingCorrectionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
 <a name="l00219"></a>00219 {
-<a name="l00220"></a>00220 <span class="keyword">public</span>:
-<a name="l00221"></a>00221     
-<a name="l00223"></a>00223     <span class="keyword">explicit</span> <a class="code" href="class_feature_extraction_statistics.html#4e2504b661f6865dc4bd27b4dc501216" title="Constructor.">FeatureExtractionStatistics</a> ();    
-<a name="l00224"></a>00224     
-<a name="l00226"></a>00226     <span class="keyword">virtual</span> <a class="code" href="class_feature_extraction_statistics.html#9140b9ddd0c54aafc6a3ce29ce8a38ba" title="Destructor.">~FeatureExtractionStatistics</a> ();
-<a name="l00227"></a>00227     
-<a name="l00229"></a>00229     <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#75c678a93a2b047c2ba01566ec553e35" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00230"></a>00230 
-<a name="l00231"></a>00231 <span class="keyword">private</span>:
-<a name="l00232"></a>00232     
-<a name="l00236"></a>00236     <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00237"></a>00237 };
-<a name="l00238"></a>00238 
-<a name="l00239"></a>00239 
-<a name="l00240"></a>00240 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractionStatistics::updateTotalTime ()
-<a name="l00241"></a>00241 {
-<a name="l00242"></a>00242     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
-<a name="l00243"></a>00243 };
-<a name="l00244"></a>00244 
-<a name="l00245"></a>00245 
-<a name="l00246"></a>00246 
-<a name="l00252"></a><a class="code" href="class_classification_statistics.html">00252</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
-<a name="l00253"></a>00253 {
-<a name="l00254"></a>00254 <span class="keyword">public</span>:
-<a name="l00255"></a>00255     
-<a name="l00257"></a>00257     <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
-<a name="l00258"></a>00258     
-<a name="l00260"></a>00260     <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
-<a name="l00261"></a>00261     
-<a name="l00263"></a>00263     <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00264"></a>00264     
-<a name="l00265"></a>00265 <span class="keyword">private</span>:
-<a name="l00266"></a>00266     
-<a name="l00270"></a>00270     <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00271"></a>00271 };
-<a name="l00272"></a>00272 
-<a name="l00273"></a>00273 
-<a name="l00274"></a>00274 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
-<a name="l00275"></a>00275 {
-<a name="l00276"></a>00276     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
-<a name="l00277"></a>00277 };
-<a name="l00278"></a>00278 
-<a name="l00279"></a>00279 <span class="preprocessor">#endif  //_STATISTICS_H</span>
-<a name="l00280"></a>00280 <span class="preprocessor"></span>
+<a name="l00220"></a>00220     slantingCorrectionTime_ = elapsedTime;
+<a name="l00221"></a>00221     updateTotalTime();
+<a name="l00222"></a>00222 };
+<a name="l00223"></a>00223 
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225 
+<a name="l00231"></a><a class="code" href="class_feature_extraction_statistics.html">00231</a> <span class="keyword">class </span><a class="code" href="class_feature_extraction_statistics.html" title="Statistical data regarding the feature extraction stage of the text recognition process...">FeatureExtractionStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
+<a name="l00232"></a>00232 {
+<a name="l00233"></a>00233 <span class="keyword">public</span>:
+<a name="l00234"></a>00234     
+<a name="l00236"></a>00236     <span class="keyword">explicit</span> <a class="code" href="class_feature_extraction_statistics.html#4e2504b661f6865dc4bd27b4dc501216" title="Constructor.">FeatureExtractionStatistics</a> ();    
+<a name="l00237"></a>00237     
+<a name="l00239"></a>00239     <span class="keyword">virtual</span> <a class="code" href="class_feature_extraction_statistics.html#9140b9ddd0c54aafc6a3ce29ce8a38ba" title="Destructor.">~FeatureExtractionStatistics</a> ();
+<a name="l00240"></a>00240     
+<a name="l00242"></a>00242     <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#75c678a93a2b047c2ba01566ec553e35" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244 <span class="keyword">private</span>:
+<a name="l00245"></a>00245     
+<a name="l00249"></a>00249     <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00250"></a>00250 };
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractionStatistics::updateTotalTime ()
+<a name="l00254"></a>00254 {
+<a name="l00255"></a>00255     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00256"></a>00256 };
+<a name="l00257"></a>00257 
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 
+<a name="l00265"></a><a class="code" href="class_classification_statistics.html">00265</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data regarding the classification stage of the text recognition process...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data regarding the text recognition process.">Statistics</a>
+<a name="l00266"></a>00266 {
+<a name="l00267"></a>00267 <span class="keyword">public</span>:
+<a name="l00268"></a>00268     
+<a name="l00270"></a>00270     <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
+<a name="l00271"></a>00271     
+<a name="l00273"></a>00273     <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
+<a name="l00274"></a>00274     
+<a name="l00276"></a>00276     <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00277"></a>00277     
+<a name="l00278"></a>00278 <span class="keyword">private</span>:
+<a name="l00279"></a>00279     
+<a name="l00283"></a>00283     <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00284"></a>00284 };
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 
+<a name="l00287"></a>00287 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
+<a name="l00288"></a>00288 {
+<a name="l00289"></a>00289     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00290"></a>00290 };
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 <span class="preprocessor">#endif  //_STATISTICS_H</span>
+<a name="l00293"></a>00293 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jan 27 15:17:14 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 28 18:04:44 2009 for Nessie, reconocedor óptico de texto en recortes de prensa escrita by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

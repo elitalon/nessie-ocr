@@ -32,18 +32,17 @@ void Recognizer::extractText (const Clip& pressClip)
 	// Preprocessing stage
 	//	1. Global gray level thresholding (otsu's and sonka's method, background gray level detection)
 	//	2. Smoothing and noise removal (filtering)
-	//	3. Skew detection and correction (future work)
-	//	4. Shape extraction and isolation
-	//	5. Slant detection and correction
-	//	6. Character normalization
-	//	7. Thinning (skeleton construction)
+	//	3. Shape extraction and isolation
+	//	4. Slant detection and correction
+	//	5. Character normalization
+	//	6. Thinning (skeleton construction)
 	//
 	Preprocessor preprocessor(pressClip);
 	//preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
 	preprocessor.applyTemplateFilters();
-	preprocessor.correctSkewness();
 	preprocessor.extractRegions();
+	preprocessor.correctSlanting();
 	preprocessingStatistics_ = new PreprocessorStatistics(preprocessor.statistics());
 
 
