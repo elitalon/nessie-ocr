@@ -6,7 +6,7 @@
 
 
 Statistics::Statistics ()
-	:	totalTime_(0.0)
+:	totalTime_(0.0)
 {};
 
 
@@ -14,26 +14,26 @@ Statistics::~Statistics () {};
 
 
 
+
 PreprocessorStatistics::PreprocessorStatistics ()
-	:	clipSize_(0),
-		optimalThreshold_(0),
-		globalThresholdingTime_(0.0),
-		templateFilteringTime_(0.0),
-		averagingFilteringTime_(0.0),
-		regionsExtractionTime_(0.0),
-		nRegionsBeforeMerging_(0),
-		nRegionsAfterMerging_(0),
-		nLineDelimiters_(0),
-		slantAngleEstimation_(0.0),
-		slantingCorrectionTime_(0.0),
-		spacesBetweenWords_(0),
-		meanInterRegionSpace_(0.0),
-		spacesLocationFindingTime_(0.0)
+:	clipSize_(0),
+	optimalThreshold_(0),
+	globalThresholdingTime_(0.0),
+	templateFilteringTime_(0.0),
+	averagingFilteringTime_(0.0),
+	regionsExtractionTime_(0.0),
+	nRegionsBeforeMerging_(0),
+	nRegionsAfterMerging_(0),
+	nLineDelimiters_(0),
+	slantAngleEstimation_(0.0),
+	slantingCorrectionTime_(0.0),
+	spacesBetweenWords_(0),
+	meanInterRegionSpace_(0.0),
+	spacesLocationFindingTime_(0.0)
 {};
 
 
-PreprocessorStatistics::~PreprocessorStatistics ()
-{};
+PreprocessorStatistics::~PreprocessorStatistics () {};
 
 
 void PreprocessorStatistics::print () const
@@ -59,12 +59,11 @@ void PreprocessorStatistics::print () const
 
 
 
-FeatureExtractionStatistics::FeatureExtractionStatistics ()
-{};
+
+FeatureExtractionStatistics::FeatureExtractionStatistics () {};
 
 
-FeatureExtractionStatistics::~FeatureExtractionStatistics ()
-{};
+FeatureExtractionStatistics::~FeatureExtractionStatistics () {};
 
 
 void FeatureExtractionStatistics::print () const
@@ -76,12 +75,11 @@ void FeatureExtractionStatistics::print () const
 
 
 
-ClassificationStatistics::ClassificationStatistics ()
-{};
+
+ClassificationStatistics::ClassificationStatistics () {};
 
 
-ClassificationStatistics::~ClassificationStatistics ()
-{};
+ClassificationStatistics::~ClassificationStatistics () {};
 
 
 void ClassificationStatistics::print () const

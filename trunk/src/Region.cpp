@@ -6,15 +6,15 @@
 
 
 Region::Region ()
-	:	coordinates_(std::vector<PixelCoordinates>(0)),
-		height_(0),
-		width_(0),
-		size_(0),
-		topLeftmostPixelCoordinates_(PixelCoordinates(0,0)),
-		topBorderRow_(0),
-		bottomBorderRow_(0),
-		leftBorderColumn_(0),
-		rightBorderColumn_(0)
+:	coordinates_(std::vector<PixelCoordinates>(0)),
+	height_(0),
+	width_(0),
+	size_(0),
+	topLeftmostPixelCoordinates_(PixelCoordinates(0,0)),
+	topBorderRow_(0),
+	bottomBorderRow_(0),
+	leftBorderColumn_(0),
+	rightBorderColumn_(0)
 {};
 
 
@@ -47,13 +47,48 @@ void Region::addCoordinates (const PixelCoordinates& coordinates)
 
 void Region::normalizeCoordinates ()
 {
-	unsigned int x0 = topLeftmostPixelCoordinates().first;
-	unsigned int y0 = topLeftmostPixelCoordinates().second;
-		
+	unsigned int x0 = topLeftmostPixelCoordinates_.first;
+	unsigned int y0 = topLeftmostPixelCoordinates_.second;
+
 	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i not_eq coordinates_.end(); ++i )
 	{
 		(*i).first	= (*i).first	- x0;
 		(*i).second	= (*i).second	- y0;
 	}
+
+	if ( size_ > 1 )
+	{
+		std::vector<unsigned int> rowCoordinates(0);
+		rowCoordinates.reserve(size_);
+
+		std::vector<unsigned int> columnCoordinates(0);
+		columnCoordinates.reserve(size_);
+
+		for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i not_eq coordinates_.end(); ++i )
+		{
+			rowCoordinates.push_back((*i).first);
+			columnCoordinates.push_back((*i).second);
+		}
+
+		std::sort(rowCoordinates.begin(), rowCoordinates.end());
+		std::sort(columnCoordinates.begin(), columnCoordinates.end());
+
+		topBorderRow_		= rowCoordinates.front();
+		bottomBorderRow_	= rowCoordinates.back();
+		leftBorderColumn_	= columnCoordinates.front();
+		rightBorderColumn_	= columnCoordinates.back();
+	}
+	else
+	{
+		topBorderRow_		= coordinates_.front().first;
+		bottomBorderRow_	= coordinates_.front().first;
+		leftBorderColumn_	= coordinates_.front().second;
+		rightBorderColumn_	= coordinates_.front().second;
+	}
+
+	height_ = bottomBorderRow_ - topBorderRow_ + 1;
+	width_	= rightBorderColumn_ - leftBorderColumn_ + 1;
+
+	topLeftmostPixelCoordinates_ = PixelCoordinates(topBorderRow_, leftBorderColumn_);
 };
 

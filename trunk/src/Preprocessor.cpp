@@ -10,7 +10,7 @@
 #include <functional>
 #include <cmath>
 
-Preprocessor::Preprocessor (const Clip& pressClip)
+	Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
 	statistics_(PreprocessorStatistics()),
 	regions_(std::list<Region>(0))
@@ -19,11 +19,11 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 };
 
 
-/// @details The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
+/// @details	The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
 /// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm
 /// also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.
 /// 
-/// @todo Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
+/// @todo		Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
 /// ones. Some function should be developed to automatically make the right decision.
 void Preprocessor::applyGlobalThresholding ()
 {
@@ -68,12 +68,10 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 	}
 	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), clip_.size()) );
 
-
 	// Compute the total mean gray level of the clip
 	double totalMeanGrayLevel = 0.0;
 	for ( unsigned int i = 1; i <= histogram.size(); ++i )
 		totalMeanGrayLevel += histogram.at(i-1) * static_cast<double>(i);
-
 
 	// Compute the zeroth- and first-order cumulative moments, i.e. the probabilities of class occurrence and the
 	// class mean levels up to level i-th.
@@ -88,7 +86,6 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 		}
 	}
 
-
 	// Compute the between-class variance, according to the criterion measurements used in the discriminant analysis
 	std::vector<double> betweenClassVariance(256, 0.0);
 	for ( unsigned int i = 0; i < histogram.size(); ++i )
@@ -101,7 +98,6 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 		else
 			betweenClassVariance.at(i) = numerator / denominator;
 	}
-
 
 	// Find the gray level that maximizes the between-class variance
 	std::vector<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
@@ -320,11 +316,8 @@ void Preprocessor::applyAveragingFilters ()
 					int imageI = (i + filterI - 1);
 					int imageJ = (j + filterJ - 1);
 
-					// Check borders
 					if (imageI >= 0 and imageI < clipHeight and imageJ >= 0 and imageJ < clipWidth)
-					{
 						grayLevel += mask.at(filterI * maskSize + filterJ) * static_cast<double>(clip_(imageI,imageJ));
-					}
 				}
 			}
 
@@ -467,7 +460,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 			else
 				topRowOfTextLine = i;
 		}
-		else	// row has ink
+		else
 		{
 			if ( not previousRowHasInk )
 				topRowOfTextLine = i;
@@ -477,7 +470,6 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 	// Make sure the last text line joins with the clip border
 	if ( rowHasInk )
 		delimiters.push_back( LineDelimiter(topRowOfTextLine, clip_.height()-1) );
-
 
 	// Search for lines that are too close to each other, probably because there are accents belonging to characters on a single line
 	std::list<LineDelimiter>::iterator previousLineDelimiterIterator = delimiters.begin();

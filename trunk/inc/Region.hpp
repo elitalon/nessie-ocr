@@ -17,119 +17,122 @@ typedef std::pair<unsigned int, unsigned int> PixelCoordinates;
 
 
 
-///	A set of ink pixel in a press clip that defines a region to be further defined as a pattern for recognition.
+///	@brief		Set of ink pixels that defines an isolated region in the press clip.
 /// 
-/// This class stores a set of ink pixels to identify a region that will be used in a further preprocessing stage to build a pattern
-/// for feature extraction and classification. Every region has four representative pixels of ink, located on each extreme: one pixel at the top,
-///	one pixel at the bottom, one pixel on the left and one pixel on the right.
+/// @details	After preprocessing a press clip, a list of regions is available to build a set of patterns suitable for feature extraction and classification.
+///	Such a region, as stored in this class, contains only the absolute coordinates of ink pixels that belongs to it. In addition, it has a virtual pixel
+///	of ink, located on the top leftmost corner of the region, and the coordinates of its borders. Notice that every pair of coordinates that a method of this
+/// class returns means absolute values according to its global position in the underlying press clip.
 /// 
-///	@see PixelCoordinates
+///	@see		PixelCoordinates
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-19
 ///
 class Region
 {
-public:
-	
-	/// Constructor.
-	Region();
-	
-	/// Allows read-and-write access to a pixel in the region.
-	///
-	/// @param index	The position of a pair of coordinates within the region.
-	/// 
-	/// @return A reference to a PixelCoordinates object that holds the coordinates of a pixel at given index.
-	PixelCoordinates& operator() (const unsigned int& index);
-	
-	/// Allows read-only access to a pixel in the region.
-	///
-	/// @param index	The position of a pair of coordinates within the region.
-	/// 
-	/// @return A PixelCoordinates object that holds the coordinates of a pixel at given index.
-	PixelCoordinates operator() (const unsigned int& index) const;
-	
-	/// Appends a region to a current one.
-	/// 
-	/// @param region	Region to be appended.
-	/// 
-	/// @return A Region object as a result of appending the pixels of both regions.
-	Region operator+ (const Region& region) const;
-	
-	/// Evaluates if a region's position is less than another, according to their position in text when reading from up to down and left to right.
-	/// 
-	/// @param region	Region of reference.
-	/// 
-	/// @return True if the current region is placed before than <em>region</em> in a press clip, false otherwise.
-	bool operator< (const Region& region) const;
-	
-	/// Returns the height of the region.
-	/// 
-	/// @return Height of the region in pixels.
-	const unsigned int& height () const;
-	
-	/// Returns the width of the region.
-	/// 
-	/// @return Width of the region in pixels.
-	const unsigned int& width () const;
-	
-	/// Returns the number of pixels in the region.
-	/// 
-	/// @return Number of pixels in the region.
-	const unsigned int& size () const;
-	
-	/// Returns the coordinates of the top leftmost pixel.
-	/// 
-	/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
-	const PixelCoordinates& topLeftmostPixelCoordinates () const;
+	public:
 
-	///	Returns the X-axis coordinate of the top pixel in the region.
-	///
-	/// @return An integer representing the X-axis coordinate of the top pixel.
-	const unsigned int& topBorderRow () const;
-	
-	///	Returns the X-axis coordinate of the bottom pixel in the region.
-	///
-	/// @return An integer representing the X-axis coordinate of the bottom pixel.
-	const unsigned int& bottomBorderRow () const;
+		/// @brief	Constructor.
+		Region();
 
-	///	Returns the Y-axis coordinate of the leftmost pixel in the region.
-	///
-	/// @return An integer representing the Y-axis coordinate of the leftmost pixel.
-	const unsigned int& leftBorderColumn () const;
-	
-	///	Returns the Y-axis coordinate of the rightmost pixel in the region.
-	///
-	/// @return An integer representing the Y-axis coordinate of the rightmost pixel.
-	const unsigned int& rightBorderColumn () const;
-	
-	/// Adds a pair of pixel coordinates to the region.
-	/// 
-	/// @param coordinates		Coordinates of the pixel.
-	void addCoordinates(const PixelCoordinates& coordinates);
-	
-	/// Normalize the coordinates of every pixel so that the top leftmost pixel is located at (0,0).
-	void normalizeCoordinates ();
-	
-private:
+		/// @brief	Allows read-and-write access to the coordinates of a pixel in the region.
+		///
+		/// @param	index	The position of a pair of coordinates.
+		/// 
+		/// @return	A pair of coordinates.
+		PixelCoordinates& operator() (const unsigned int& index);
 
-	std::vector<PixelCoordinates>	coordinates_;					///< Set of pixel coordinates that defines the whole region.
-	
-	unsigned int					height_;						///< Region height in pixels.
+		/// @brief	Allows read-only access to the coordinates of a pixel in the region.
+		///
+		/// @param	index	The position of a pair of coordinates.
+		/// 
+		/// @return A pair of coordinates.
+		PixelCoordinates operator() (const unsigned int& index) const;
 
-	unsigned int					width_;							///< Region width in pixels.
+		/// @brief	Adds a region to the current one.
+		/// 
+		/// @param	region	Region whose coordinates are going to be added.
+		/// 
+		/// @return A Region object as a result of joining the pixel coordinates of both regions.
+		Region operator+ (const Region& region) const;
 
-	unsigned int					size_;							///< Number of pixels in the region.
+		/// @brief	Evaluates if a region position is less than another, according to their position in text when reading from up to down and left to right.
+		/// 
+		/// @param	region	Region of reference.
+		/// 
+		/// @return True if the current region is placed before than <em>region</em> in a press clip, false otherwise.
+		bool operator< (const Region& region) const;
 
-	PixelCoordinates				topLeftmostPixelCoordinates_;	///< Coordinates of the top leftmost pixel in the region.
+		/// @brief	@brief	Returns the height of the region.
+		/// 
+		/// @return Height of the region in pixels.
+		const unsigned int& height () const;
 
-	unsigned int					topBorderRow_;					///< X-axis coordinate of the top pixel in the region.
+		/// @brief	@brief	Returns the width of the region.
+		/// 
+		/// @return Width of the region in pixels.
+		const unsigned int& width () const;
 
-	unsigned int					bottomBorderRow_;				///< X-axis coordinate of the bottom pixel in the region.
+		/// @brief	@brief	Returns the number of pixels in the region.
+		/// 
+		/// @return Number of pixels.
+		const unsigned int& size () const;
 
-	unsigned int					leftBorderColumn_;				///< Y-axis coordinate of the leftmost pixel in the region.
+		/// @brief	@brief	Returns the coordinates of the top leftmost pixel.
+		/// 
+		/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
+		const PixelCoordinates& topLeftmostPixelCoordinates () const;
 
-	unsigned int					rightBorderColumn_;				///< Y-axis coordinate of the rightmost pixel in the region.
+		///	@brief	Returns the X-axis coordinate of the top pixel in the region.
+		///
+		/// @return X-axis coordinate of the top pixel.
+		const unsigned int& topBorderRow () const;
+
+		///	@brief	Returns the X-axis coordinate of the bottom pixel in the region.
+		///
+		/// @return X-axis coordinate of the bottom pixel.
+		const unsigned int& bottomBorderRow () const;
+
+		///	@brief	Returns the Y-axis coordinate of the leftmost pixel in the region.
+		///
+		/// @return Y-axis coordinate of the leftmost pixel.
+		const unsigned int& leftBorderColumn () const;
+
+		///	@brief	Returns the Y-axis coordinate of the rightmost pixel in the region.
+		///
+		/// @return Y-axis coordinate of the rightmost pixel.
+		const unsigned int& rightBorderColumn () const;
+
+		/// @brief	Adds a pair of pixel coordinates to the region.
+		/// 
+		/// @param	coordinates		Coordinates of the pixel.
+		void addCoordinates(const PixelCoordinates& coordinates);
+
+		/// @brief	Normalize the coordinates of every pixel.
+		///
+		///	@post	The coordinates are translated so that the top leftmost pixel is located at (0,0).
+		void normalizeCoordinates ();
+
+	private:
+
+		std::vector<PixelCoordinates>	coordinates_;					///< Set of pixel coordinates that defines the whole region.
+
+		unsigned int					height_;						///< Region height in pixels.
+
+		unsigned int					width_;							///< Region width in pixels.
+
+		unsigned int					size_;							///< Number of pixels in the region.
+
+		PixelCoordinates				topLeftmostPixelCoordinates_;	///< Coordinates of the top leftmost pixel in the region.
+
+		unsigned int					topBorderRow_;					///< X-axis coordinate of the top pixel in the region.
+
+		unsigned int					bottomBorderRow_;				///< X-axis coordinate of the bottom pixel in the region.
+
+		unsigned int					leftBorderColumn_;				///< Y-axis coordinate of the leftmost pixel in the region.
+
+		unsigned int					rightBorderColumn_;				///< Y-axis coordinate of the rightmost pixel in the region.
 };
 
 
@@ -148,13 +151,13 @@ inline PixelCoordinates Region::operator() (const unsigned int& index) const
 inline Region Region::operator+ (const Region& region) const
 {
 	Region temp;
-	
+
 	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i not_eq coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
-	
+
 	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i not_eq region.coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
-	
+
 	return temp;
 };
 

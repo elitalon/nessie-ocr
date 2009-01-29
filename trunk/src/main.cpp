@@ -26,13 +26,13 @@ int main (int argc, char const *argv[])
 
 		boost::timer timer;
 		timer.restart();
-	
+
 		Magick::Image image( argv[1] );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 		Recognizer recon;
 		recon.extractText(pressClip);
-		
+
 		Text result = recon.text();
 		std::cout << result.content() << std::endl;
 		recon.printStatistics();

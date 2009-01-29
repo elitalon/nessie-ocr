@@ -5,12 +5,11 @@
 
 
 NessieException::NessieException (const std::string& what)
-	:	what_(what)
+:	what_(what)
 {};
-	
-		
-NessieException::~NessieException () throw()
-{};
+
+
+NessieException::~NessieException () throw() {};
 
 
 const char* NessieException::what () const throw()

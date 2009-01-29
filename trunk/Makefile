@@ -124,11 +124,11 @@ uninstall:
 
 doc: $(incdir)*.hpp $(srcdir)*.cpp 
 	@rm -rf doc/html/*
-	doxygen
+	@doxygen
 
 clean:
-	rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
-	$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
+	@rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
+	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 	@echo
 
 all: clean main doc

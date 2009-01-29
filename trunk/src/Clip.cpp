@@ -6,14 +6,13 @@
 #include <cmath>
 
 
-
-Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned int& column, const unsigned int& height, const unsigned int& width)
-	:	pixels_(std::vector<unsigned char>(0)),
-		row_(row),
-		column_(column),
-		width_(width),
-		height_(height),
-		size_(0)
+Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width)
+:	pixels_(std::vector<unsigned char>(0)),
+	x_(x),
+	y_(y),
+	width_(width),
+	height_(height),
+	size_(0)
 {
 	if ( (height == 0) and (width == 0) )
 		throw NessieException ("Clip::Clip() : Constructor has 0 size.");
@@ -24,20 +23,18 @@ Clip::Clip (const Magick::Image& image, const unsigned int& row, const unsigned 
 	if ( height > image.rows() )
 		throw NessieException ("Clip::Clip() : The press clip's height cannot be higher than the underlying image's.");
 
-	if ( row >= image.rows() or column >= image.columns() )
+	if ( x >= image.rows() or y >= image.columns() )
 		throw NessieException ("Clip::Clip() : The press clip's top leftmost pixel falls outside the image.");
 
-	if( (row + height) > image.rows() or (column + width) > image.columns() )
+	if( (x + height) > image.rows() or (y + width) > image.columns() )
 		throw NessieException ("Clip::Clip() : The clip does not fall completely within the underlying image.");
 
 	size_ = width_ * height_;
-	pixels_.resize(size_);
+	pixels_.reserve(size_);
 
-	// Allocate a frame over the image to access its pixels.
 	Magick::Pixels frame(const_cast<Magick::Image&>(image));
-	Magick::PixelPacket *pixels = frame.get(row, column, width_, height_);
+	Magick::PixelPacket *pixels = frame.get(x, y, width_, height_);
 
-	// Copy the image pixels into the deque
 	for ( unsigned int i = 0; i < height_; ++i )
 	{
 		for ( unsigned int j = 0; j < width_; ++j )
@@ -55,12 +52,10 @@ void Clip::writeToOutputImage (const std::string& outputFile, const double& scal
 	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), Magick::ColorGray(1.0));
 	outputImage.type( Magick::GrayscaleType );
 
-	// Allocate pixel view
 	Magick::Pixels view(outputImage);
 	Magick::PixelPacket *originPixel = view.get(0, 0, width_, height_);
 	Magick::PixelPacket *pixel;
 
-	// Copy the current data into the external image
 	for ( unsigned int i = 0; i < view.rows(); ++i )
 	{
 		for ( unsigned int j = 0; j < view.columns(); ++j )
@@ -71,7 +66,6 @@ void Clip::writeToOutputImage (const std::string& outputFile, const double& scal
 		}
 	}
 
-	// Synchronize changes
 	view.sync();
 	outputImage.syncPixels();
 	outputImage.write(outputFile);

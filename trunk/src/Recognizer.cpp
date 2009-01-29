@@ -7,10 +7,10 @@
 
 
 Recognizer::Recognizer ()
-	:	text_(),
-		preprocessingStatistics_(0),
-		featureExtractionStatistics_(0),
-		classificationStatistics_(0)
+:	text_(),
+	preprocessingStatistics_(0),
+	featureExtractionStatistics_(0),
+	classificationStatistics_(0)
 {};
 
 
@@ -22,10 +22,12 @@ Recognizer::~Recognizer ()
 };
 
 
-/// @details This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
+/// @details	This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
 ///
-/// As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
+/// @details	As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
 /// the images, so that they can be directly and efficiently processed by the feature extraction stage.
+///
+/// @todo		Implement the skeleton construction and the character normalization in feature extraction stage.
 void Recognizer::extractText (const Clip& pressClip)
 {
 	// Preprocessing stage
