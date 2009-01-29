@@ -34,14 +34,14 @@ Inheritance diagram for PreprocessorStatistics:</div>
 <div class="dynsection">
 <p><center><img src="class_preprocessor_statistics__inherit__graph.png" border="0" usemap="#_preprocessor_statistics__inherit__map" alt="Inheritance graph"></center>
 <map name="_preprocessor_statistics__inherit__map">
-<area shape="rect" href="class_statistics.html" title="Statistical data regarding the text recognition process." alt="" coords="27,5,157,125"></map>
+<area shape="rect" href="class_statistics.html" title="Statistical data regarding the text recognition process." alt="" coords="36,5,167,125"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for PreprocessorStatistics:</div>
 <div class="dynsection">
 <p><center><img src="class_preprocessor_statistics__coll__graph.png" border="0" usemap="#_preprocessor_statistics__coll__map" alt="Collaboration graph"></center>
 <map name="_preprocessor_statistics__coll__map">
-<area shape="rect" href="class_statistics.html" title="Statistical data regarding the text recognition process." alt="" coords="177,147,308,267"></map>
+<area shape="rect" href="class_statistics.html" title="Statistical data regarding the text recognition process." alt="" coords="197,147,328,267"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -93,6 +93,15 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9">slantingCorrectionTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the elapsed time while executing the slanting correction algorithm.  <a href="#ae04f9e334a8f0a7cba5dad02833e7f9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#57a0d31cd58c7de63cd1a9f031550e41">spacesBetweenWords</a> (const unsigned int &amp;nSpaces)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the number of spaces between words found in text after post-processing the list of regions.  <a href="#57a0d31cd58c7de63cd1a9f031550e41"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#a301647075385f5176e37983d63d8f01">meanInterRegionSpace</a> (const double &amp;nPixels)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the mean interregion space found in text after post-processing the list of regions.  <a href="#a301647075385f5176e37983d63d8f01"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#c947ffcb98e0b0f3a581c3b32ce47a8c">spacesLocationFindingTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the elapsed time while finding the spaces location in text.  <a href="#c947ffcb98e0b0f3a581c3b32ce47a8c"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Statistical data regarding the preprocessing stage of the text recognition process. 
@@ -176,6 +185,33 @@ Sets the elapsed time while executing the global thresholding algorithm.
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>A number representing the elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a301647075385f5176e37983d63d8f01"></a><!-- doxytag: member="PreprocessorStatistics::meanInterRegionSpace" ref="a301647075385f5176e37983d63d8f01" args="(const double &amp;nPixels)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::meanInterRegionSpace           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>nPixels</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sets the mean interregion space found in text after post-processing the list of regions. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nPixels</em>&nbsp;</td><td>A number representing the mean value found. </td></tr>
   </table>
 </dl>
 
@@ -370,6 +406,60 @@ Sets the elapsed time while executing the slanting correction algorithm.
 
 </div>
 </div><p>
+<a class="anchor" name="57a0d31cd58c7de63cd1a9f031550e41"></a><!-- doxytag: member="PreprocessorStatistics::spacesBetweenWords" ref="57a0d31cd58c7de63cd1a9f031550e41" args="(const unsigned int &amp;nSpaces)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::spacesBetweenWords           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>nSpaces</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sets the number of spaces between words found in text after post-processing the list of regions. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nSpaces</em>&nbsp;</td><td>A number representing the spaces found. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c947ffcb98e0b0f3a581c3b32ce47a8c"></a><!-- doxytag: member="PreprocessorStatistics::spacesLocationFindingTime" ref="c947ffcb98e0b0f3a581c3b32ce47a8c" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::spacesLocationFindingTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Sets the elapsed time while finding the spaces location in text. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>A number representing the elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
 <a class="anchor" name="19cb995b637ec62be16b237e97cc65e5"></a><!-- doxytag: member="PreprocessorStatistics::templateFilteringTime" ref="19cb995b637ec62be16b237e97cc65e5" args="(const double &amp;elapsedTime)" -->
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +488,7 @@ Sets the elapsed time while executing the template filtering algorithm.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 28 18:43:38 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 29 14:23:23 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

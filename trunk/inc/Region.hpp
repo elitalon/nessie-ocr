@@ -82,6 +82,26 @@ public:
 	/// 
 	/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
 	const PixelCoordinates& topLeftmostPixelCoordinates () const;
+
+	///	Returns the X-axis coordinate of the top pixel in the region.
+	///
+	/// @return An integer representing the X-axis coordinate of the top pixel.
+	const unsigned int& topBorderRow () const;
+	
+	///	Returns the X-axis coordinate of the bottom pixel in the region.
+	///
+	/// @return An integer representing the X-axis coordinate of the bottom pixel.
+	const unsigned int& bottomBorderRow () const;
+
+	///	Returns the Y-axis coordinate of the leftmost pixel in the region.
+	///
+	/// @return An integer representing the Y-axis coordinate of the leftmost pixel.
+	const unsigned int& leftBorderColumn () const;
+	
+	///	Returns the Y-axis coordinate of the rightmost pixel in the region.
+	///
+	/// @return An integer representing the Y-axis coordinate of the rightmost pixel.
+	const unsigned int& rightBorderColumn () const;
 	
 	/// Adds a pair of pixel coordinates to the region.
 	/// 
@@ -139,6 +159,20 @@ inline Region Region::operator+ (const Region& region) const
 };
 
 
+inline bool Region::operator< (const Region& region) const
+{
+	if ( this->bottomBorderRow() < region.topBorderRow() )
+		return true;
+	else
+	{
+		if ( region.bottomBorderRow() < this->topBorderRow() )
+			return false;
+		else
+			return ( this->topLeftmostPixelCoordinates().second < region.topLeftmostPixelCoordinates().second );
+	}
+};
+
+
 inline const unsigned int& Region::height () const
 {
 	return height_;
@@ -156,9 +190,34 @@ inline const unsigned int& Region::size () const
 	return size_;
 };
 
+
 inline const PixelCoordinates& Region::topLeftmostPixelCoordinates () const
 {
 	return topLeftmostPixelCoordinates_;
+};
+
+
+inline const unsigned int& Region::topBorderRow () const
+{
+	return topBorderRow_;
+};
+
+
+inline const unsigned int& Region::bottomBorderRow () const
+{
+	return bottomBorderRow_;
+};
+
+
+inline const unsigned int& Region::leftBorderColumn () const
+{
+	return leftBorderColumn_;
+};
+
+
+inline const unsigned int& Region::rightBorderColumn () const
+{
+	return rightBorderColumn_;
 };
 
 #endif  //_REGION_H

@@ -57,30 +57,3 @@ void Region::normalizeCoordinates ()
 	}
 };
 
-
-bool Region::operator< (const Region& region) const
-{
-	// Compute the top pixel row of "this" region.
-	std::vector<unsigned int> thisRowCoordinates(0);
-	thisRowCoordinates.reserve(this->size_);
-
-	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i not_eq this->coordinates_.end(); ++i )
-		thisRowCoordinates.push_back((*i).first);
-
-	std::sort(thisRowCoordinates.begin(), thisRowCoordinates.end());
-
-	// Compute the bottom pixel coordinates of input region.
-	std::vector<unsigned int> inputRowCoordinates(0);
-	inputRowCoordinates.reserve(region.size_);
-
-	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i not_eq region.coordinates_.end(); ++i )
-		inputRowCoordinates.push_back((*i).first);
-
-	std::sort(inputRowCoordinates.begin(), inputRowCoordinates.end());
-
-	if ( thisRowCoordinates.back() < inputRowCoordinates.front() )
-		return true;
-	else
-		return (this->topLeftmostPixelCoordinates().second < region.topLeftmostPixelCoordinates().second);
-};
-

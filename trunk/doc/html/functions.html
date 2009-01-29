@@ -33,12 +33,14 @@
   <div class="tabs">
     <ul>
       <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
@@ -73,6 +75,10 @@ Here is a list of all documented class members with links to the class documenta
 <li>averagingFilteringTime()
 : <a class="el" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7">PreprocessorStatistics</a>
 </ul>
+<h3><a class="anchor" name="index_b">- b -</a></h3><ul>
+<li>bottomBorderRow()
+: <a class="el" href="class_region.html#5aed45a8517e8e70d5c9ae749b08eb0b">Region</a>
+</ul>
 <h3><a class="anchor" name="index_c">- c -</a></h3><ul>
 <li>ClassificationStatistics()
 : <a class="el" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5">ClassificationStatistics</a>
@@ -102,8 +108,8 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_feature_extraction_statistics.html#4e2504b661f6865dc4bd27b4dc501216">FeatureExtractionStatistics</a>
 <li>FeatureVector()
 : <a class="el" href="class_feature_vector.html#fa6d13cc73a793dc188b7389c763d2fc">FeatureVector</a>
-<li>findSpaceLocations()
-: <a class="el" href="class_preprocessor.html#544805d1578d7703037faf040097c241">Preprocessor</a>
+<li>findSpacesBetweenWords()
+: <a class="el" href="class_preprocessor.html#de90e5448d726d11fcf126166ffa2e40">Preprocessor</a>
 </ul>
 <h3><a class="anchor" name="index_g">- g -</a></h3><ul>
 <li>getSample()
@@ -117,11 +123,17 @@ Here is a list of all documented class members with links to the class documenta
 , <a class="el" href="class_region.html#c2fa3f432d7af689b6796d85749393d5">Region</a>
 , <a class="el" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb">Pattern</a>
 </ul>
+<h3><a class="anchor" name="index_l">- l -</a></h3><ul>
+<li>leftBorderColumn()
+: <a class="el" href="class_region.html#5172ac8ca95c70526f2fc9773fed337e">Region</a>
+</ul>
 <h3><a class="anchor" name="index_m">- m -</a></h3><ul>
 <li>matchingShapeTime()
 : <a class="el" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792">Classifier</a>
 <li>matchShape()
 : <a class="el" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2">Classifier</a>
+<li>meanInterRegionSpace()
+: <a class="el" href="class_preprocessor_statistics.html#a301647075385f5176e37983d63d8f01">PreprocessorStatistics</a>
 </ul>
 <h3><a class="anchor" name="index_n">- n -</a></h3><ul>
 <li>nCategories()
@@ -166,17 +178,15 @@ Here is a list of all documented class members with links to the class documenta
 <h3><a class="anchor" name="index_p">- p -</a></h3><ul>
 <li>Pattern()
 : <a class="el" href="class_pattern.html#95f42b0f1717d9e6c2d831e87d27f83c">Pattern</a>
-<li>patterns()
-: <a class="el" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d">Preprocessor</a>
 <li>Preprocessor()
 : <a class="el" href="class_preprocessor.html#d5bdc15c2c4ad5e638a82926fcaa45c1">Preprocessor</a>
 <li>PreprocessorStatistics()
 : <a class="el" href="class_preprocessor_statistics.html#d5546ee1767c5da79fceb17bccea85aa">PreprocessorStatistics</a>
 <li>print()
 : <a class="el" href="class_feature_extraction_statistics.html#75c678a93a2b047c2ba01566ec553e35">FeatureExtractionStatistics</a>
+, <a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">PreprocessorStatistics</a>
 , <a class="el" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa">Statistics</a>
 , <a class="el" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f">ClassificationStatistics</a>
-, <a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">PreprocessorStatistics</a>
 <li>printStatistics()
 : <a class="el" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90">Recognizer</a>
 </ul>
@@ -185,10 +195,14 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_recognizer.html#4bf77b760d8dbc50c4ef50cad433db40">Recognizer</a>
 <li>Region()
 : <a class="el" href="class_region.html#a8796c9b4ac95da7f7ca4f374673800c">Region</a>
+<li>regions()
+: <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7">Preprocessor</a>
 <li>regionsExtractionTime()
 : <a class="el" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe">PreprocessorStatistics</a>
 <li>removeCharacter()
 : <a class="el" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">Text</a>
+<li>rightBorderColumn()
+: <a class="el" href="class_region.html#d0920c13d811d653ada191d13f9e6cbc">Region</a>
 </ul>
 <h3><a class="anchor" name="index_s">- s -</a></h3><ul>
 <li>Sample
@@ -206,6 +220,10 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9">PreprocessorStatistics</a>
 <li>sourceFile()
 : <a class="el" href="class_data_set.html#d7d233212f54f5c2764430b0cb1bea65">DataSet</a>
+<li>spacesBetweenWords()
+: <a class="el" href="class_preprocessor_statistics.html#57a0d31cd58c7de63cd1a9f031550e41">PreprocessorStatistics</a>
+<li>spacesLocationFindingTime()
+: <a class="el" href="class_preprocessor_statistics.html#c947ffcb98e0b0f3a581c3b32ce47a8c">PreprocessorStatistics</a>
 <li>statistics()
 : <a class="el" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19">Preprocessor</a>
 <li>Statistics()
@@ -218,6 +236,8 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">Text</a>
 <li>text()
 : <a class="el" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">Recognizer</a>
+<li>topBorderRow()
+: <a class="el" href="class_region.html#486fc08319b36d4761722c6fadfcbf7e">Region</a>
 <li>topLeftmostPixelCoordinates()
 : <a class="el" href="class_region.html#6f88e4969c3d0af80b31d84478a39c5a">Region</a>
 <li>totalTime_
@@ -258,7 +278,7 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b">Statistics</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 28 18:43:37 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 29 14:23:23 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

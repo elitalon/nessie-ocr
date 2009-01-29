@@ -114,6 +114,21 @@ public:
 	/// @param elapsedTime A number representing the elapsed time in seconds.
 	void slantingCorrectionTime (const double& elapsedTime);
 
+	/// Sets the number of spaces between words found in text after post-processing the list of regions.
+	///
+	///	@param nSpaces A number representing the spaces found.
+	void spacesBetweenWords (const unsigned int& nSpaces);
+	
+	/// Sets the mean interregion space found in text after post-processing the list of regions.
+	///
+	///	@param nPixels A number representing the mean value found.
+	void meanInterRegionSpace (const double& nPixels);
+
+	/// Sets the elapsed time while finding the spaces location in text.
+	/// 
+	/// @param elapsedTime A number representing the elapsed time in seconds.
+	void spacesLocationFindingTime (const double& elapsedTime);
+
 private:
 	
 	unsigned int	clipSize_;					///< Press clip size in number of pixels.
@@ -138,6 +153,12 @@ private:
 	
 	double			slantingCorrectionTime_;	///< Elapsed time while correcting the slanting of every region found after the region extraction algorithm.
 
+	unsigned int	spacesBetweenWords_;		///< Number of spaces between words found in text after post-processing the list of regions.
+
+	double			meanInterRegionSpace_;		///< Mean interregion space found in text after post-processing the list of regions.
+
+	double			spacesLocationFindingTime_;	///< Elapsed time while finding the spaces location in text.
+
 	/// Updates the total elapsed time attribute.
 	/// 
 	/// @post #totalTime_ is set by summing all the timers attributes within the class.
@@ -147,7 +168,8 @@ private:
 
 inline void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + regionsExtractionTime_ + slantingCorrectionTime_;
+	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + regionsExtractionTime_ + slantingCorrectionTime_\
+				 + spacesLocationFindingTime_;
 };
 
 
@@ -218,6 +240,25 @@ inline void PreprocessorStatistics::slantAngleEstimation (const double& angle)
 inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
 {
 	slantingCorrectionTime_ = elapsedTime;
+	updateTotalTime();
+};
+
+
+inline void PreprocessorStatistics::spacesBetweenWords (const unsigned int& nSpaces)
+{
+	spacesBetweenWords_ = nSpaces;
+};
+
+
+inline void PreprocessorStatistics::meanInterRegionSpace (const double& nPixels)
+{
+	meanInterRegionSpace_ = nPixels;
+};
+
+
+inline void PreprocessorStatistics::spacesLocationFindingTime (const double& elapsedTime)
+{
+	spacesLocationFindingTime_ = elapsedTime;
 	updateTotalTime();
 };
 

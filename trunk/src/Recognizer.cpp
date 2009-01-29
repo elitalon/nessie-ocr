@@ -28,38 +28,21 @@ Recognizer::~Recognizer ()
 /// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::extractText (const Clip& pressClip)
 {
-	//
 	// Preprocessing stage
-	//	1. Global gray level thresholding (otsu's and sonka's method, background gray level detection)
-	//	2. Smoothing and noise removal (filtering)
-	//	3. Shape extraction and isolation
-	//	4. Slant detection and correction
-	//	5. Character normalization
-	//	6. Thinning (skeleton construction)
-	//
 	Preprocessor preprocessor(pressClip);
 	//preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
 	preprocessor.applyTemplateFilters();
 	preprocessor.extractRegions();
 	preprocessor.correctSlanting();
+	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();
 	preprocessingStatistics_ = new PreprocessorStatistics(preprocessor.statistics());
 
 
-	//
 	// Feature extraction stage
-	//
 	featureExtractionStatistics_ = new FeatureExtractionStatistics();
 
-	//
 	// Classification stage
-	//
 	classificationStatistics_ = new ClassificationStatistics();
-
-	//
-	// Postprocessing stage
-	//
-
-	
 };
 

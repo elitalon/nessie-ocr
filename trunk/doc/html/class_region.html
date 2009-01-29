@@ -67,6 +67,18 @@ Collaboration diagram for Region:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#6f88e4969c3d0af80b31d84478a39c5a">topLeftmostPixelCoordinates</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the coordinates of the top leftmost pixel.  <a href="#6f88e4969c3d0af80b31d84478a39c5a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#486fc08319b36d4761722c6fadfcbf7e">topBorderRow</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the X-axis coordinate of the top pixel in the region.  <a href="#486fc08319b36d4761722c6fadfcbf7e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#5aed45a8517e8e70d5c9ae749b08eb0b">bottomBorderRow</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the X-axis coordinate of the bottom pixel in the region.  <a href="#5aed45a8517e8e70d5c9ae749b08eb0b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#5172ac8ca95c70526f2fc9773fed337e">leftBorderColumn</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the Y-axis coordinate of the leftmost pixel in the region.  <a href="#5172ac8ca95c70526f2fc9773fed337e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#d0920c13d811d653ada191d13f9e6cbc">rightBorderColumn</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the Y-axis coordinate of the rightmost pixel in the region.  <a href="#d0920c13d811d653ada191d13f9e6cbc"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#5f5345fe4660595a77c9f578e4aad9b3">addCoordinates</a> (const <a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;coordinates)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a pair of pixel coordinates to the region.  <a href="#5f5345fe4660595a77c9f578e4aad9b3"></a><br></td></tr>
@@ -110,6 +122,28 @@ Adds a pair of pixel coordinates to the region.
 
 </div>
 </div><p>
+<a class="anchor" name="5aed45a8517e8e70d5c9ae749b08eb0b"></a><!-- doxytag: member="Region::bottomBorderRow" ref="5aed45a8517e8e70d5c9ae749b08eb0b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Region::bottomBorderRow           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the X-axis coordinate of the bottom pixel in the region. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the X-axis coordinate of the bottom pixel. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="c2fa3f432d7af689b6796d85749393d5"></a><!-- doxytag: member="Region::height" ref="c2fa3f432d7af689b6796d85749393d5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -129,6 +163,28 @@ Adds a pair of pixel coordinates to the region.
 Returns the height of the region. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Height of the region in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="5172ac8ca95c70526f2fc9773fed337e"></a><!-- doxytag: member="Region::leftBorderColumn" ref="5172ac8ca95c70526f2fc9773fed337e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Region::leftBorderColumn           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the Y-axis coordinate of the leftmost pixel in the region. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the Y-axis coordinate of the leftmost pixel. </dd></dl>
 
 </div>
 </div><p>
@@ -226,7 +282,7 @@ Appends a region to a current one.
           <td class="paramtype">const <a class="el" href="class_region.html">Region</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>region</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -241,6 +297,28 @@ Evaluates if a region's position is less than another, according to their positi
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the current region is placed before than <em>region</em> in a press clip, false otherwise. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d0920c13d811d653ada191d13f9e6cbc"></a><!-- doxytag: member="Region::rightBorderColumn" ref="d0920c13d811d653ada191d13f9e6cbc" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Region::rightBorderColumn           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the Y-axis coordinate of the rightmost pixel in the region. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the Y-axis coordinate of the rightmost pixel. </dd></dl>
 
 </div>
 </div><p>
@@ -263,6 +341,28 @@ Evaluates if a region's position is less than another, according to their positi
 Returns the number of pixels in the region. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels in the region. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="486fc08319b36d4761722c6fadfcbf7e"></a><!-- doxytag: member="Region::topBorderRow" ref="486fc08319b36d4761722c6fadfcbf7e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Region::topBorderRow           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the X-axis coordinate of the top pixel in the region. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An integer representing the X-axis coordinate of the top pixel. </dd></dl>
 
 </div>
 </div><p>
@@ -311,7 +411,7 @@ Returns the width of the region.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jan 28 18:43:38 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 29 14:23:24 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

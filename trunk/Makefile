@@ -61,6 +61,7 @@ LDFLAGS = $(MAGICK_LDFLAGS)
 
 main: main.o
 	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
+	@echo
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
 	@echo
 

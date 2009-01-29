@@ -3,18 +3,17 @@
 
 #include "Preprocessor.hpp"
 #include <boost/timer.hpp>
+#include <vector>
 #include <set>
 #include <algorithm>
 #include <numeric>
 #include <functional>
 #include <cmath>
 
-
 Preprocessor::Preprocessor (const Clip& pressClip)
-	:	clip_(pressClip),
-		statistics_(PreprocessorStatistics()),
-		regions_(std::list<Region>(0)),
-		patterns_(std::vector<Pattern>(0))
+:	clip_(pressClip),
+	statistics_(PreprocessorStatistics()),
+	regions_(std::list<Region>(0))
 {
 	statistics_.clipSize(pressClip.size());
 };
@@ -195,7 +194,7 @@ void Preprocessor::applyTemplateFilters ()
 			}
 		}
 	}
-	
+
 	// Apply second filter mask, checking neighbour pixels below the target pixel
 	for ( int i = clip_.height()-1; i >= 0; --i )
 	{
@@ -253,7 +252,7 @@ void Preprocessor::applyTemplateFilters ()
 			}
 		}
 	}
-	
+
 	// Apply fourth filter mask, checking neighbour pixels on the right of target pixel
 	for ( int i = clip_.height()-1; i >= 0; --i )
 	{
@@ -282,7 +281,7 @@ void Preprocessor::applyTemplateFilters ()
 			}
 		}
 	}
-	
+
 	statistics_.templateFilteringTime(timer.elapsed());
 };
 
@@ -304,7 +303,7 @@ void Preprocessor::applyAveragingFilters ()
 	mask.at(2 * maskSize + 0) = 1.0;
 	mask.at(2 * maskSize + 1) = 2.0;
 	mask.at(2 * maskSize + 2) = 1.0;
-	
+
 	int clipHeight	= clip_.height();
 	int clipWidth	= clip_.width();
 
@@ -320,7 +319,7 @@ void Preprocessor::applyAveragingFilters ()
 				{
 					int imageI = (i + filterI - 1);
 					int imageJ = (j + filterJ - 1);
-					
+
 					// Check borders
 					if (imageI >= 0 and imageI < clipHeight and imageJ >= 0 and imageJ < clipWidth)
 					{
@@ -333,7 +332,7 @@ void Preprocessor::applyAveragingFilters ()
 
 			if ( grayLevel > 255.0 )
 				grayLevel = 255.0;
-			
+
 			if ( grayLevel < 0.0 )
 				grayLevel = 0.0;
 
@@ -354,7 +353,7 @@ void Preprocessor::extractRegions ()
 	boost::timer timer;
 	timer.restart();
 
- 	// Traverse the press clip searching the ink pixels where the flooding process will start from
+	// Traverse the press clip searching the ink pixels where the flooding process will start from
 	std::vector<PixelCoordinates> seeds(0);
 	seeds.reserve(clip_.size());
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
@@ -380,7 +379,7 @@ void Preprocessor::extractRegions ()
 			// This seed begins a new region
 			Region region;
 			region.addCoordinates( PixelCoordinates(row, column) );
-			
+
 			// Explore the immediate neighbourhood
 			for ( int i = row-1; (i <= row+1) and (i < static_cast<int>(clip_.height())); ++i )
 			{
@@ -402,7 +401,7 @@ void Preprocessor::extractRegions ()
 			while ( region.size() > k )
 			{
 				PixelCoordinates coordinates( region(k) );
-				
+
 				for ( int i = coordinates.first-1; (i <= static_cast<int>(coordinates.first+1)) and (i < static_cast<int>(clip_.height())); ++i )
 				{
 					for ( int j = coordinates.second-1; (j <= static_cast<int>(coordinates.second+1)) and (j < static_cast<int>(clip_.width())); ++j )
@@ -419,12 +418,12 @@ void Preprocessor::extractRegions ()
 				}
 				++k;
 			}
-			
+
 			regions_.push_back(region);
 		}
 	}
 	statistics_.nRegionsBeforeMerging(regions_.size());
-	
+
 	// Find the rows that delimits the regions as if they were characters in a text
 	std::list<LineDelimiter> delimiters(0);
 	findLineDelimiters(visited, delimiters);
@@ -433,10 +432,10 @@ void Preprocessor::extractRegions ()
 	// Merge every pair of regions that are supposed to be accents isolated from their vocals in a text line.
 	mergeVerticallyOverlappedRegions (delimiters);
 	statistics_.nRegionsAfterMerging(regions_.size());
- 	
+
 	// Sort the regions by lines and columns
- 	regions_.sort();
-	
+	regions_.sort();
+
 	statistics_.regionsExtractionTime(timer.elapsed());
 };
 
@@ -446,7 +445,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 	// Traverse each row searching non-visited pixels
 	unsigned int topRowOfTextLine = 0;
 	bool rowHasInk = false, previousRowHasInk;
-	
+
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
 		previousRowHasInk	= rowHasInk;
@@ -474,7 +473,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 				topRowOfTextLine = i;
 		}
 	}
-	
+
 	// Make sure the last text line joins with the clip border
 	if ( rowHasInk )
 		delimiters.push_back( LineDelimiter(topRowOfTextLine, clip_.height()-1) );
@@ -499,14 +498,14 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 
 			std::list<LineDelimiter>::iterator newLineDelimiterIterator = previousLineDelimiterIterator;
 			advance ( newLineDelimiterIterator, -1 );
-			
+
 			// The two old line delimiters are removed from the list
 			delimiters.erase( previousLineDelimiterIterator );
 			previousLineDelimiterIterator = currentLineDelimiterIterator;
-			
+
 			advance( currentLineDelimiterIterator, 1 );
 			delimiters.erase( previousLineDelimiterIterator );
-			
+
 			previousLineDelimiterIterator = newLineDelimiterIterator;
 		}
 	}
@@ -515,26 +514,26 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 
 void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimiter>& delimiters)
 {
- 	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator not_eq delimiters.end(); ++delimitersIterator  )
- 	{
- 		unsigned int lineTopBorder		= (*delimitersIterator).first;
- 		unsigned int lineBottomBorder	= (*delimitersIterator).second;
- 
- 		// Traverse the list of regions searching a pair of regions vertically overlapped.
+	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator not_eq delimiters.end(); ++delimitersIterator  )
+	{
+		unsigned int lineTopBorder		= (*delimitersIterator).first;
+		unsigned int lineBottomBorder	= (*delimitersIterator).second;
+
+		// Traverse the list of regions searching a pair of regions vertically overlapped.
 		std::list<Region>::iterator i = regions_.begin();
- 
- 		while ( i not_eq regions_.end() )
- 		{
- 			bool regionIsAboveLine = (*i)(0).first < lineTopBorder;
- 			bool regionIsBelowLine = (*i)(0).first > lineBottomBorder;
- 
- 			if ( regionIsAboveLine or regionIsBelowLine )
- 				advance (i, 1);
- 			else
- 			{
+
+		while ( i not_eq regions_.end() )
+		{
+			bool regionIsAboveLine = (*i)(0).first < lineTopBorder;
+			bool regionIsBelowLine = (*i)(0).first > lineBottomBorder;
+
+			if ( regionIsAboveLine or regionIsBelowLine )
+				advance (i, 1);
+			else
+			{
 				// Find a region vertically overlapped with the current one.
 				std::list<Region>::iterator j; // parametro de entrada == i
-				
+
 				for ( j = regions_.begin(); j not_eq regions_.end(); ++j )
 				{
 					if ( i == j )
@@ -552,7 +551,7 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 
 					for ( unsigned int k = 0; k < (*i).size(); ++k )
 						regionI.insert((*i)(k).second);
-					
+
 					for ( unsigned int k = 0; k < (*j).size(); ++k )
 						regionJ.insert((*j)(k).second);
 
@@ -562,8 +561,8 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 					if ( std::count_if(intersection.begin(), intersection.end(), std::bind2nd(std::not_equal_to<int>(), -1) )> round((*i).width() / 2) )
 						break;
 				}
-			
- 				if ( j not_eq regions_.end() and i not_eq j )	// Merge this regions
+
+				if ( j not_eq regions_.end() and i not_eq j )	// Merge this regions
 				{
 					regions_.push_back(*i + *j);
 					regions_.erase(j);
@@ -573,11 +572,11 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 					regions_.erase(i);
 					i = j;
 				}
- 				else
- 					advance(i, 1);
- 			}
- 		}
- 	}
+				else
+					advance(i, 1);
+			}
+		}
+	}
 };
 
 
@@ -595,7 +594,7 @@ void Preprocessor::correctSlanting ()
 		// Detect the optimal angle for slanting correction
 		Region rotatingRegion((*i));
 		std::vector<unsigned int> maximumPixelsPerColumn(rotationLimit);
-		
+
 		for ( unsigned int j = 0; j < rotationLimit; ++j )
 		{
 			for ( unsigned int k = 0; k < rotatingRegion.size(); ++k )
@@ -605,22 +604,22 @@ void Preprocessor::correctSlanting ()
 
 				rotatingRegion(k).first	= static_cast<unsigned int>(round(x - y * tan(j)));
 			}
-			
+
 			std::vector<unsigned int> pixelsPerColumn((*i).width(), 0);
 			for ( unsigned int k = 0; k < rotatingRegion.size(); ++k )
 				pixelsPerColumn.at(rotatingRegion(k).second - rotatingRegion.topLeftmostPixelCoordinates().second) += 1;
-			
+
 			std::sort(pixelsPerColumn.begin(), pixelsPerColumn.end());
 			maximumPixelsPerColumn.at(j) = pixelsPerColumn.back();
 		}
-		
+
 		std::vector<unsigned int>::iterator maxOfMaximumPixelsPerColumn = std::max_element(maximumPixelsPerColumn.begin(), maximumPixelsPerColumn.end());
 		unsigned int slantAngle = 0;
 		for ( std::vector<unsigned int>::iterator j = maximumPixelsPerColumn.begin(); j not_eq maxOfMaximumPixelsPerColumn; ++j )
 			slantAngle += 1;
-		
+
 		angleEstimations.push_back(slantAngle);
-		
+
 		// Correct slanting
 		if ( slantAngle not_eq 0 )
 		{
@@ -634,7 +633,7 @@ void Preprocessor::correctSlanting ()
 		}
 	}
 	statistics_.slantingCorrectionTime(timer.elapsed());;
-	
+
 	unsigned int meanSlantAngle = 0.0;
 	std::accumulate(angleEstimations.begin(), angleEstimations.end(), meanSlantAngle);
 	meanSlantAngle = meanSlantAngle / static_cast<double>(regions_.size());
@@ -642,46 +641,55 @@ void Preprocessor::correctSlanting ()
 };
 
 
-void Preprocessor::findSpaceLocations ()
+std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 {
-/*	// Compute the mean inter-character space
-	PatternIterator iPattern = patterns_.begin();
-	advance (iPattern, 1);
+	boost::timer timer;
+	timer.restart();
 
-	PatternIterator jPattern = patterns_.begin();
+	// Compute the mean inter-character space
+	std::list<Region>::const_iterator i = regions_.begin();
+	advance (i, 1);
+	std::list<Region>::const_iterator j = regions_.begin();
 
-	double meanIntercharacterSpace = 0.0;
-	while ( iPattern not_eq patterns_.end() )
+	double meanInterRegionSpace = 0.0;
+	while ( i not_eq regions_.end() )
 	{
-		if ( (*iPattern).leftPixel().second >= (*jPattern).rightPixel().second )
-			meanIntercharacterSpace += (*iPattern).leftPixel().second - (*jPattern).rightPixel().second;
+		if ( (*i).leftBorderColumn() >=  (*j).rightBorderColumn() )
+			meanInterRegionSpace += (*i).leftBorderColumn() - (*j).rightBorderColumn() + 1;
 
-		advance (iPattern, 1);
-		advance (jPattern, 1);
+		advance (i, 1);
+		advance (j, 1);
 	}
-	meanIntercharacterSpace = round(meanIntercharacterSpace / patterns_.size());
+	meanInterRegionSpace = meanInterRegionSpace / regions_.size();
+	statistics_.meanInterRegionSpace( meanInterRegionSpace );
 
+	// Traverse the list of regions detecting a space between two regions greater than the mean space.
+	i = regions_.begin();
+	advance (i,1);
+	j = regions_.begin();
 
-	// Count the number of spaces within a text
-	iPattern = patterns_.begin();
-	advance (iPattern, 1);
+	std::vector<unsigned int> spaces(0);
+	unsigned int spaceLocation = 1;
 
-	jPattern = patterns_.begin();
-
-	double spaces = 0;
-	while ( iPattern not_eq patterns_.end() )
+	while ( i not_eq regions_.end() )
 	{
-		if ( (*iPattern).leftPixel().second < (*jPattern).rightPixel().second )	// end-of-line
-			spaces++;
+		if ( (*i).leftBorderColumn() < (*j).rightBorderColumn() )
+			spaces.push_back(spaceLocation);
 		else
 		{
-			unsigned int distanceBetweenCharacters = (*iPattern).leftPixel().second - (*jPattern).rightPixel().second;
+			unsigned int distanceBetweenRegions = (*i).leftBorderColumn() - (*j).rightBorderColumn() + 1;
 
-			if ( distanceBetweenCharacters > meanIntercharacterSpace )
-				spaces++;
+			if ( distanceBetweenRegions > meanInterRegionSpace )
+				spaces.push_back(spaceLocation);
 		}
-		advance (iPattern, 1);
-		advance (jPattern, 1);
+
+		advance (i, 1);
+		advance (j, 1);
+		++spaceLocation;
 	}
-*/};
+
+	statistics_.spacesBetweenWords(spaces.size());
+	statistics_.spacesLocationFindingTime(timer.elapsed());
+	return spaces;
+};
 

@@ -8,9 +8,8 @@
 #include "Clip.hpp"
 #include "Statistics.hpp"
 #include "Region.hpp"
-#include "Pattern.hpp"
-#include <list>
 #include <vector>
+#include <list>
 #include <utility>
 
 
@@ -19,8 +18,8 @@
 ///
 /// This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task
 /// is to extract the regions of interest from a press clip, enhance them and clean the result by smoothing
-/// and noise removal. In the very end of the process, a list of patterns is available through the
-///	Preprocessor::patterns() method.
+/// and noise removal. In the very end of the process, a list of regions is available through the
+///	Preprocessor::regions() method.
 ///
 ///	For an optimal preprocessing, it is strongly recommended that the following algorithms
 /// will be executed:
@@ -32,7 +31,7 @@
 ///	-# Character normalization
 ///	-# Thinning (skeleton construction)
 ///
-/// @see Clip, Pattern, Statistics
+/// @see Clip, PreprocessorStatistics, Region
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
@@ -47,6 +46,16 @@ public:
 	/// 
 	/// @see Clip
 	explicit Preprocessor (const Clip& pressClip);
+
+	/// Returns the regions found, if any, in the last segmentation process
+	///
+	/// @return A list of Region objects
+	const std::list<Region>& regions () const;
+
+	/// Returns the statistics about the preprocessing stage regarding algorithms execution.
+	/// 
+	/// @return A PreprocessorStatistics object with all the data gathered until the moment of execution.
+	const PreprocessorStatistics& statistics () const;
 
 	/// Applies a global thresholding algorithm over the press clip.
 	///
@@ -78,6 +87,11 @@ public:
 	///	@pre The internal list of regions must have been initialized by calling Preprocessor::extractRegions.
 	void correctSlanting ();
 
+	/// Scans the list of regions detecting the spaces between words.
+	///
+	/// @return An array of numbers, each one represents the position where a blank space must be inserted when building the text.
+	std::vector<unsigned int> findSpacesBetweenWords ();
+
 	///
 	///
 	///	@pre
@@ -92,38 +106,19 @@ public:
 	///	@post
 	void applyThinning ();
 
-	/// Finds every position in the list of patterns where a blank space must be inserted when building the text.
-	void findSpaceLocations ();
-
-	/// Returns the patterns found, if any, in the last segmentation process
-	///
-	/// @return An array of Pattern objects
-	///
-	/// @see Pattern
-	const std::vector<Pattern>& patterns () const;
-
-	/// Returns the statistics about the preprocessing stage regarding algorithms execution.
-	/// 
-	/// @return A PreprocessorStatistics object with all the data gathered until the moment of execution.
-	/// 
-	/// @see PreprocessorStatistics
-	const PreprocessorStatistics& statistics () const;
-
 private:
-
-	Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
-	
-	PreprocessorStatistics	statistics_;	///< Statistics about the execution of algorithms.
-
-	std::list<Region>		regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
-	
-	std::vector<Pattern>	patterns_;		///< An array of patterns that represents every character shape found in the press clip.
 
 	/// @typedef	LineDelimiter.
 	/// @brief		Internal representation of a pair of x-axis coordinates that delimits a row of regions as if they were characters in a text.
 	/// @author		Eliezer Talón (elitalon@gmail.com)
 	/// @date		2009-01-19
 	typedef std::pair<unsigned int, unsigned int> LineDelimiter;
+
+	Clip						clip_;			///< The press clip over which the preprocessing algorithms are applied.
+	
+	PreprocessorStatistics		statistics_;	///< Statistics about the execution of algorithms.
+
+	std::list<Region>			regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
 
 	/// @brief Computes the optimal threshold value in a press clip following the Sonka's algorithm.
 	/// 
@@ -160,9 +155,9 @@ inline const PreprocessorStatistics& Preprocessor::statistics () const
 };
 
 
-inline const std::vector<Pattern>& Preprocessor::patterns() const
+inline const std::list<Region>& Preprocessor::regions() const
 {
-	return patterns_;
+	return regions_;
 };
 
 #endif  //_PREPROCESSOR_H
