@@ -41,7 +41,7 @@ Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned in
 		{
 			Magick::ColorGray grayLevel(*pixels++);
 
-			pixels_.at(i * width_ + j) = static_cast<unsigned char>( round(grayLevel.shade() * 255.0) );
+			pixels_.push_back( static_cast<unsigned char>(round(grayLevel.shade() * 255.0)) );
 		}
 	}
 };

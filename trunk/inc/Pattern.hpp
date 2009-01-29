@@ -10,54 +10,54 @@
 
 
 ///	A pattern in a press clip to be recognized as a character.
-/// 
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-16
 ///
 class Pattern
 {
 public:
-	
+
 	/// Constructor.
 	Pattern();
-	
+
 	/// Allows read-and-write access to a pixel in the pattern.
 	///
 	/// @param index	The position in the pattern
-	/// 
+	///
 	/// @return A reference to the coordinates of a pixel at the given index.
 	unsigned int& operator() (const unsigned int& index);
-	
+
 	/// Allows read-only access to a pixel in the pattern.
 	///
 	/// @param index	The position in the pattern
-	/// 
+	///
 	/// @return A reference to the coordinates of the pixel at the given index.
 	unsigned int operator() (const unsigned int& index) const;
 
 	/// Returns the height of the pattern.
-	/// 
+	///
 	/// @return Height of the pattern in pixels
 	const unsigned int& height () const;
 
 	/// Returns the width of the pattern.
-	/// 
+	///
 	/// @return Width of the pattern in pixels
-	const unsigned int& width () const;	
-	
+	const unsigned int& width () const;
+
 	/// Returns the number of pixels in the pattern
-	/// 
+	///
 	/// @return Number of pixels in the pattern
 	const unsigned int& size () const;
-	
+
 private:
 
 	std::vector<unsigned int>	pixels_;		///< Set of pixel coordinates that defines the whole pattern
-	
-	unsigned int				width_;			///< Width of the pattern	
 
-	unsigned int				height_;		///< Height of the pattern
-	
+    unsigned int				height_;		///< Height of the pattern
+
+	unsigned int				width_;			///< Width of the pattern
+
 	unsigned int				size_;			///< Number of pixels in the pattern
 };
 
