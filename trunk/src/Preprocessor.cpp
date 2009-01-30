@@ -10,7 +10,7 @@
 #include <functional>
 #include <cmath>
 
-	Preprocessor::Preprocessor (const Clip& pressClip)
+Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
 	statistics_(PreprocessorStatistics()),
 	regions_(std::list<Region>(0))
@@ -303,9 +303,9 @@ void Preprocessor::applyAveragingFilters ()
 	int clipHeight	= clip_.height();
 	int clipWidth	= clip_.width();
 
-	for ( int i = 0; i < clipHeight; ++i )
+	for ( int i = 1; i < clipHeight-1; ++i )
 	{
-		for ( int j = 0; j < clipWidth; ++j )
+		for ( int j = 1; j < clipWidth-1; ++j )
 		{
 			double grayLevel = 0.0;
 
@@ -321,7 +321,10 @@ void Preprocessor::applyAveragingFilters ()
 				}
 			}
 
-			grayLevel = grayLevel * 1/16;
+			if ( i == 0 or i == (clipHeight-1) or j == 0 or j == (clipWidth-1) )
+				grayLevel = grayLevel * (1.0/12.0);
+			else
+				grayLevel = grayLevel * (1.0/16.0);
 
 			if ( grayLevel > 255.0 )
 				grayLevel = 255.0;

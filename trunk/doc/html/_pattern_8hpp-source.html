@@ -80,27 +80,27 @@ window.onload = initDynSections;
 <a name="l00017"></a><a class="code" href="class_pattern.html">00017</a> <span class="keyword">class </span><a class="code" href="class_pattern.html" title="A pattern in a press clip to be recognized as a character.">Pattern</a>
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     
+<a name="l00020"></a>00020 
 <a name="l00022"></a>00022     <a class="code" href="class_pattern.html#95f42b0f1717d9e6c2d831e87d27f83c" title="Constructor.">Pattern</a>();
-<a name="l00023"></a>00023     
+<a name="l00023"></a>00023 
 <a name="l00029"></a>00029     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index);
-<a name="l00030"></a>00030     
+<a name="l00030"></a>00030 
 <a name="l00036"></a>00036     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index) <span class="keyword">const</span>;
 <a name="l00037"></a>00037 
 <a name="l00041"></a>00041     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb" title="Returns the height of the pattern.">height</a> () <span class="keyword">const</span>;
 <a name="l00042"></a>00042 
-<a name="l00046"></a>00046     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">width</a> () <span class="keyword">const</span>; 
-<a name="l00047"></a>00047     
+<a name="l00046"></a>00046     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">width</a> () <span class="keyword">const</span>;
+<a name="l00047"></a>00047 
 <a name="l00051"></a>00051     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc" title="Returns the number of pixels in the pattern.">size</a> () <span class="keyword">const</span>;
-<a name="l00052"></a>00052     
+<a name="l00052"></a>00052 
 <a name="l00053"></a>00053 <span class="keyword">private</span>:
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055     std::vector&lt;unsigned int&gt;   pixels_;        
-<a name="l00056"></a>00056     
-<a name="l00057"></a>00057     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                width_;         
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                height_;        
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                height_;        
-<a name="l00060"></a>00060     
+<a name="l00059"></a>00059     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                width_;         
+<a name="l00060"></a>00060 
 <a name="l00061"></a>00061     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                size_;          
 <a name="l00062"></a>00062 };
 <a name="l00063"></a>00063 
@@ -138,7 +138,7 @@ window.onload = initDynSections;
 <a name="l00095"></a>00095 <span class="preprocessor">#endif  //_PATTERN_H</span>
 <a name="l00096"></a>00096 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Jan 29 18:27:59 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jan 30 13:22:25 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

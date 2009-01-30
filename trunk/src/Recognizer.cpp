@@ -4,6 +4,7 @@
 #include "Recognizer.hpp"
 #include "Clip.hpp"
 #include "Preprocessor.hpp"
+#include <vector>
 
 
 Recognizer::Recognizer ()
@@ -32,7 +33,7 @@ void Recognizer::extractText (const Clip& pressClip)
 {
 	// Preprocessing stage
 	Preprocessor preprocessor(pressClip);
-	//preprocessor.applyAveragingFilters();
+	preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
 	preprocessor.applyTemplateFilters();
 	preprocessor.extractRegions();
