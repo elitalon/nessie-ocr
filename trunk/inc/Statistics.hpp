@@ -95,6 +95,13 @@ class PreprocessorStatistics : public Statistics
 		/// @param	elapsedTime Elapsed time in seconds.
 		void averagingFilteringTime (const double& elapsedTime);
 
+		///	@brief	Stores the elapsed time while executing the thinning algorithm.
+		///
+		///	@post	The internal member is set to <em>elapsedTime</em>.
+		///
+		/// @param	elapsedTime Elapsed time in seconds.
+		void thinningTime (const double& elapsedTime);
+
 		/// @brief	Stores the elapsed time while executing the regions extraction algorithm.
 		/// 
 		///	@post	The internal member is set to <em>elapsedTime</em>.
@@ -170,6 +177,8 @@ class PreprocessorStatistics : public Statistics
 
 		double			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
 
+		double			thinningTime_;				///< Elapsed time while executing the thinning algorithm.
+
 		double			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
 
 		unsigned int	nRegionsBeforeMerging_;		///< Number of regions of pixels found before merging accents while applying a segmentation process over the clip.
@@ -197,8 +206,8 @@ class PreprocessorStatistics : public Statistics
 
 inline void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + regionsExtractionTime_ + slantingCorrectionTime_\
-				 + spacesLocationFindingTime_;
+	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + thinningTime_ + regionsExtractionTime_ + \
+				 slantingCorrectionTime_ + spacesLocationFindingTime_;
 };
 
 
@@ -224,6 +233,13 @@ inline void PreprocessorStatistics::globalThresholdingTime (const double& elapse
 inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
 	templateFilteringTime_ = elapsedTime;
+	updateTotalTime();
+};
+
+
+inline void PreprocessorStatistics::thinningTime (const double& elapsedTime)
+{
+	thinningTime_ = elapsedTime;
 	updateTotalTime();
 };
 

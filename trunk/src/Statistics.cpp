@@ -21,6 +21,7 @@ PreprocessorStatistics::PreprocessorStatistics ()
 	globalThresholdingTime_(0.0),
 	templateFilteringTime_(0.0),
 	averagingFilteringTime_(0.0),
+	thinningTime_(0.0),
 	regionsExtractionTime_(0.0),
 	nRegionsBeforeMerging_(0),
 	nRegionsAfterMerging_(0),
@@ -41,10 +42,11 @@ void PreprocessorStatistics::print () const
 	std::cout << std::endl;
 	std::cout << "Preprocessing stage statistics" << std::endl;
 	std::cout << "  - Number of pixels             : " << clipSize_ << std::endl;
+	std::cout << "  - Averaging filtering time     : " << averagingFilteringTime_ << std::endl;
 	std::cout << "  - Optimal threshold            : " << static_cast<unsigned int>(optimalThreshold_) << std::endl;
 	std::cout << "  - Global thresholding time     : " << globalThresholdingTime_ << std::endl;
 	std::cout << "  - Template filtering time      : " << templateFilteringTime_ << std::endl;
-	std::cout << "  - Averaging filtering time     : " << averagingFilteringTime_ << std::endl;
+	std::cout << "  - Thinning time                : " << thinningTime_ << std::endl;
 	std::cout << "  - Regions extraction time      : " << regionsExtractionTime_ << std::endl;
 	std::cout << "  - Regions before merging       : " << nRegionsBeforeMerging_ << std::endl;
 	std::cout << "  - Regions after merging        : " << nRegionsAfterMerging_ << std::endl;

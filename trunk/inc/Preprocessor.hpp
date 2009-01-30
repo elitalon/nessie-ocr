@@ -52,6 +52,13 @@ class Preprocessor
 		/// @return A PreprocessorStatistics object with all the data gathered.
 		const PreprocessorStatistics& statistics () const;
 
+		/// @brief	Applies an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.
+		///
+		///	@pre	The press clip must be in grayscale mode.
+		///
+		///	@post	The noise in the image is removed and the borders of characters are blurred.
+		void applyAveragingFilters ();
+	
 		/// @brief	Applies a global thresholding algorithm over the press clip.
 		///
 		/// @post	Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1.
@@ -64,16 +71,16 @@ class Preprocessor
 		///	@post	The noise in the image is removed and the borders of characters are smoothed.
 		void applyTemplateFilters ();
 
-		/// @brief	Applies an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.
+		/// @brief	Applies a thinning algorithm to convert every region of pixels into its fundamental skeleton.
 		///
-		///	@pre	The press clip must be in grayscale mode.
+		///	@pre	The press clip must have been converted to binary mode and cleaned from noise.
 		///
-		///	@post	The noise in the image is removed and the borders of characters are blurred.
-		void applyAveragingFilters ();
+		///	@post	The regions of ink are peeled off.
+		void applyThinning ();
 
 		/// @brief	Applies a segmentation process over the press clip to isolate every region of ink pixels.
 		///
-		///	@pre	The press clip must have been converted to binary mode, i.e. 0 for background pixels and 1 for ink pixels.
+		///	@pre	The press clip must have been thresholded.
 		///
 		///@post	The internal members are set, so that a list of regions becomes available through Preprocessor::regions() method.
 		void extractRegions ();

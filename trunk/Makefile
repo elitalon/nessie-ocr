@@ -122,14 +122,13 @@ uninstall:
 	rm -f /usr/local/lib/$(LIBRARY)
 	ldconfig -n /usr/local/lib
 
-doc: $(incdir)*.hpp $(srcdir)*.cpp 
+doc: $(incdir)*.hpp $(srcdir)*.cpp Doxyfile
 	@rm -rf doc/html/*
 	@doxygen
 
 clean:
 	@rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
 	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
-	@echo
 
 all: clean main doc
 

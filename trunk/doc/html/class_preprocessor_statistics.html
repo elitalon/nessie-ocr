@@ -53,7 +53,6 @@ window.onload = initDynSections;
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li><a href="dirs.html"><span>Directories</span></a></li>
     </ul>
   </div>
   <div class="tabs">
@@ -82,7 +81,7 @@ Collaboration diagram for PreprocessorStatistics:</div>
 <div class="dynsection">
 <p><center><img src="class_preprocessor_statistics__coll__graph.png" border="0" usemap="#_preprocessor_statistics__coll__map" alt="Collaboration graph"></center>
 <map name="_preprocessor_statistics__coll__map">
-<area shape="rect" href="class_statistics.html" title="Statistical data gathered during the text recognition process." alt="" coords="197,147,328,267"></map>
+<area shape="rect" href="class_statistics.html" title="Statistical data gathered during the text recognition process." alt="" coords="199,154,329,274"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -116,6 +115,9 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#d15c51527b8db7834e5feec7d98189d7">averagingFilteringTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Stores the elapsed time while executing the averaging filtering algorithm.  <a href="#d15c51527b8db7834e5feec7d98189d7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#6f26bb237b608b51a284c5a34af283b0">thinningTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Stores the elapsed time while executing the thinning algorithm.  <a href="#6f26bb237b608b51a284c5a34af283b0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe">regionsExtractionTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Stores the elapsed time while executing the regions extraction algorithm.  <a href="#b86800469353c52374550e78ec73d0fe"></a><br></td></tr>
@@ -542,8 +544,36 @@ Stores the elapsed time while executing the template filtering algorithm.
 
 </div>
 </div><p>
+<a class="anchor" name="6f26bb237b608b51a284c5a34af283b0"></a><!-- doxytag: member="PreprocessorStatistics::thinningTime" ref="6f26bb237b608b51a284c5a34af283b0" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::thinningTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jan 30 13:22:27 2009 for NessieOcr by&nbsp;
+<div class="memdoc">
+
+<p>
+Stores the elapsed time while executing the thinning algorithm. 
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The internal member is set to <em>elapsedTime</em>.</dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jan 30 19:51:06 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
