@@ -1,4 +1,0 @@
-<area shape="rect" href="$class_statistics.html" title="Statistical data gathered during the text recognition process." alt="" coords="5,54,75,78">
-<area shape="rect" href="$class_classification_statistics.html" title="Statistical data gathered during the classification stage of the text recognition..." alt="" coords="135,6,276,30">
-<area shape="rect" href="$class_feature_extraction_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition..." alt="" coords="123,54,288,78">
-<area shape="rect" href="$class_preprocessor_statistics.html" title="Statistical data gathered during the preprocessing stage of the text recognition..." alt="" coords="135,102,276,126">
