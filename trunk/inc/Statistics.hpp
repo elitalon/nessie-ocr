@@ -54,8 +54,14 @@ class PreprocessorStatistics : public Statistics
 		///	@brief	Constructor.
 		explicit PreprocessorStatistics ();
 
+		///	@brief	Copy constructor.
+		PreprocessorStatistics (const PreprocessorStatistics& statistics);
+
 		///	@brief	Destructor.
 		virtual ~PreprocessorStatistics ();
+
+		/// @brief Assignment operator.
+		PreprocessorStatistics& operator= (const PreprocessorStatistics& statistics);
 
 		///	@brief	Prints the statistical data gathered.
 		void print () const;
@@ -167,35 +173,35 @@ class PreprocessorStatistics : public Statistics
 
 	private:
 
-		unsigned int	clipSize_;					///< Press clip size in number of pixels.
+		unsigned int*	clipSize_;					///< Press clip size in number of pixels.
 
-		unsigned char	optimalThreshold_;			///< Optimal threshold to binarize the press clip.
+		unsigned char*	optimalThreshold_;			///< Optimal threshold to binarize the press clip.
 
-		double			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
+		double*			globalThresholdingTime_;	///< Elapsed time during execution of global thresholding algorithm.
 
-		double			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template filtering algorithm.
+		double*			templateFilteringTime_;		///< Elapsed time while smoothing and noise removal by applying the template filtering algorithm.
 
-		double			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
+		double*			averagingFilteringTime_;	///< Elapsed time while smoothing and noise removal by applying the averaging filtering algorithm.
 
-		double			thinningTime_;				///< Elapsed time while executing the thinning algorithm.
+		double*			thinningTime_;				///< Elapsed time while executing the thinning algorithm.
 
-		double			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
+		double*			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
 
-		unsigned int	nRegionsBeforeMerging_;		///< Number of regions of pixels found before merging accents while applying a segmentation process over the clip.
+		unsigned int*	nRegionsBeforeMerging_;		///< Number of regions of pixels found before merging accents while applying a segmentation process over the clip.
 
-		unsigned int	nRegionsAfterMerging_;		///< Number of regions of pixels found after merging accents while applying a segmentation process over the clip.
+		unsigned int*	nRegionsAfterMerging_;		///< Number of regions of pixels found after merging accents while applying a segmentation process over the clip.
 
-		unsigned int	nLineDelimiters_;			///< Number of line delimiters found while applying a segmentation process over the clip.
+		unsigned int*	nLineDelimiters_;			///< Number of line delimiters found while applying a segmentation process over the clip.
 
-		double			slantAngleEstimation_;		///< Angle estimation in degrees to correct the slanting in characters.
+		double*			slantAngleEstimation_;		///< Angle estimation in degrees to correct the slanting in characters.
 
-		double			slantingCorrectionTime_;	///< Elapsed time while correcting the slanting of every region found after the region extraction algorithm.
+		double*			slantingCorrectionTime_;	///< Elapsed time while correcting the slanting of every region found after the region extraction algorithm.
 
-		unsigned int	spacesBetweenWords_;		///< Number of spaces between words found in text after post-processing the list of regions.
+		unsigned int*	spacesBetweenWords_;		///< Number of spaces between words found in text after post-processing the list of regions.
 
-		double			meanInterRegionSpace_;		///< Mean interregion space found in text after post-processing the list of regions.
+		double*			meanInterRegionSpace_;		///< Mean interregion space found in text after post-processing the list of regions.
 
-		double			spacesLocationFindingTime_;	///< Elapsed time while finding the spaces location in text.
+		double*			spacesLocationFindingTime_;	///< Elapsed time while finding the spaces location in text.
 
 		/// @brief	Updates the total elapsed time.
 		/// 
@@ -206,104 +212,169 @@ class PreprocessorStatistics : public Statistics
 
 inline void PreprocessorStatistics::updateTotalTime ()
 {
-	totalTime_ = globalThresholdingTime_ + templateFilteringTime_ + averagingFilteringTime_ + thinningTime_ + regionsExtractionTime_ + \
-				 slantingCorrectionTime_ + spacesLocationFindingTime_;
+	totalTime_ = 0.0;
+
+	if ( globalThresholdingTime_ != 0 )
+		totalTime_ += *globalThresholdingTime_;
+
+	if ( templateFilteringTime_ != 0 )
+		totalTime_ += *templateFilteringTime_;
+
+	if ( averagingFilteringTime_ != 0 )
+		totalTime_ += *averagingFilteringTime_;
+
+	if ( thinningTime_ != 0 )
+		totalTime_ += *thinningTime_;
+
+	if ( regionsExtractionTime_ != 0 )
+		totalTime_ += *regionsExtractionTime_;
+
+	if ( slantingCorrectionTime_ != 0 )
+		totalTime_ += *slantingCorrectionTime_;
+
+	if ( spacesLocationFindingTime_ != 0 )
+		totalTime_ += *spacesLocationFindingTime_;
 };
 
 
 inline void PreprocessorStatistics::clipSize (const unsigned int& nPixels)
 {
-	clipSize_ = nPixels;
+	if ( clipSize_ == 0 )
+		clipSize_ = new unsigned int;
+
+	*clipSize_ = nPixels;
 };
 
 
 inline void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
 {
-	optimalThreshold_ = threshold;
+	if ( optimalThreshold_ == 0 )
+		optimalThreshold_ = new unsigned char;
+
+	*optimalThreshold_ = threshold;
 };
 
 
 inline void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
-	globalThresholdingTime_ = elapsedTime;
+	if ( globalThresholdingTime_ == 0 )
+		globalThresholdingTime_ = new double;
+
+	*globalThresholdingTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
-	templateFilteringTime_ = elapsedTime;
+	if ( templateFilteringTime_ == 0 )
+		templateFilteringTime_ = new double;
+
+	*templateFilteringTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::thinningTime (const double& elapsedTime)
 {
-	thinningTime_ = elapsedTime;
+	if ( thinningTime_ == 0 )
+		thinningTime_ = new double;
+
+	*thinningTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::averagingFilteringTime (const double& elapsedTime)
 {
-	averagingFilteringTime_ = elapsedTime;
+	if ( averagingFilteringTime_ == 0 )
+		averagingFilteringTime_ = new double;
+
+	*averagingFilteringTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsedTime)
 {
-	regionsExtractionTime_ = elapsedTime;
+	if ( regionsExtractionTime_ == 0 )
+		regionsExtractionTime_ = new double;
+
+	*regionsExtractionTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::nRegionsBeforeMerging (const unsigned int& nRegions)
 {
-	nRegionsBeforeMerging_ = nRegions;
+	if ( nRegionsBeforeMerging_ == 0 )
+		nRegionsBeforeMerging_ = new unsigned int;
+
+	*nRegionsBeforeMerging_ = nRegions;
 };
 
 
 inline void PreprocessorStatistics::nRegionsAfterMerging (const unsigned int& nRegions)
 {
-	nRegionsAfterMerging_ = nRegions;
+	if ( nRegionsAfterMerging_ == 0 )
+		nRegionsAfterMerging_ = new unsigned int;
+
+	*nRegionsAfterMerging_ = nRegions;
 };
 
 
 inline void PreprocessorStatistics::nLineDelimiters (const unsigned int& nDelimiters)
 {
-	nLineDelimiters_ = nDelimiters;
+	if ( nLineDelimiters_ == 0 )
+		nLineDelimiters_ = new unsigned int;
+
+	*nLineDelimiters_ = nDelimiters;
 };
 
 
 inline void PreprocessorStatistics::slantAngleEstimation (const double& angle)
 {
-	slantAngleEstimation_ = angle;
+	if ( slantAngleEstimation_ == 0 )
+		slantAngleEstimation_ = new double;
+
+	*slantAngleEstimation_ = angle;
 };
 
 
 inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
 {
-	slantingCorrectionTime_ = elapsedTime;
+	if ( slantingCorrectionTime_ == 0 )
+		slantingCorrectionTime_ = new double;
+
+	*slantingCorrectionTime_ = elapsedTime;
 	updateTotalTime();
 };
 
 
 inline void PreprocessorStatistics::spacesBetweenWords (const unsigned int& nSpaces)
 {
-	spacesBetweenWords_ = nSpaces;
+	if ( spacesBetweenWords_ == 0 )
+		spacesBetweenWords_ = new unsigned int;
+
+	*spacesBetweenWords_ = nSpaces;
 };
 
 
 inline void PreprocessorStatistics::meanInterRegionSpace (const double& nPixels)
 {
-	meanInterRegionSpace_ = nPixels;
+	if ( meanInterRegionSpace_ == 0 )
+		meanInterRegionSpace_ = new double;
+
+	*meanInterRegionSpace_ = nPixels;
 };
 
 
 inline void PreprocessorStatistics::spacesLocationFindingTime (const double& elapsedTime)
 {
-	spacesLocationFindingTime_ = elapsedTime;
+	if ( spacesLocationFindingTime_ == 0 )
+		spacesLocationFindingTime_ = new double;
+
+	*spacesLocationFindingTime_ = elapsedTime;
 	updateTotalTime();
 };
 

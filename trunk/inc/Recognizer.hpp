@@ -70,13 +70,13 @@ inline const Text& Recognizer::text () const
 
 inline void Recognizer::printStatistics () const
 {
-	if ( preprocessingStatistics_ not_eq 0 )
+	if ( preprocessingStatistics_ != 0 )
 		preprocessingStatistics_->print();
 
-	if ( featureExtractionStatistics_ not_eq 0 )
+	if ( featureExtractionStatistics_ != 0 )
 		featureExtractionStatistics_->print();
 
-	if ( classificationStatistics_ not_eq 0 )
+	if ( classificationStatistics_ != 0 )
 		classificationStatistics_->print();
 };
 

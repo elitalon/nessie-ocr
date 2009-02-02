@@ -105,7 +105,7 @@ unsigned char Preprocessor::computeOtsuOptimalThreshold () const
 	std::vector<double>::iterator i = betweenClassVariance.begin();
 	unsigned char optimalThreshold = 0;
 
-	while ( i not_eq maximumVariance )
+	while ( i != maximumVariance )
 	{
 		++i;
 		++optimalThreshold;
@@ -125,7 +125,7 @@ unsigned char Preprocessor::computeSonkaOptimalThreshold () const
 	unsigned char currentThreshold = ~optimalThreshold;
 
 	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
-	while (currentThreshold not_eq optimalThreshold)
+	while (currentThreshold != optimalThreshold)
 	{
 		double backgroundMeanValue = 0.0, objectsMeanValue = 0.0;
 		unsigned int nSamples = 0;
@@ -176,13 +176,13 @@ void Preprocessor::applyTemplateFilters ()
 
 				if ( j > 0 )
 				{
-					if ( clip_(upperRow,j) == clip_(upperRow,j-1) and clip_(upperRow,j-1) == clip_(i,j-1) )
+					if ( clip_(upperRow,j) == clip_(upperRow,j-1) && clip_(upperRow,j-1) == clip_(i,j-1) )
 						equalPixels += 2;
 				}
 
 				if ( j < static_cast<int>(clip_.width())-1 )
 				{
-					if ( clip_(upperRow,j) == clip_(upperRow,j+1) and clip_(upperRow,j+1) == clip_(i,j+1) )
+					if ( clip_(upperRow,j) == clip_(upperRow,j+1) && clip_(upperRow,j+1) == clip_(i,j+1) )
 						equalPixels += 2;
 				}
 
@@ -205,13 +205,13 @@ void Preprocessor::applyTemplateFilters ()
 
 				if ( j > 0 )
 				{
-					if ( clip_(lowerRow,j) == clip_(lowerRow,j-1) and clip_(lowerRow,j-1) == clip_(i,j-1) )
+					if ( clip_(lowerRow,j) == clip_(lowerRow,j-1) && clip_(lowerRow,j-1) == clip_(i,j-1) )
 						equalPixels += 2;
 				}
 
 				if ( j < static_cast<int>(clip_.width())-1 )
 				{
-					if ( clip_(lowerRow,j) == clip_(lowerRow,j+1) and clip_(lowerRow,j+1) == clip_(i,j+1) )
+					if ( clip_(lowerRow,j) == clip_(lowerRow,j+1) && clip_(lowerRow,j+1) == clip_(i,j+1) )
 						equalPixels += 2;
 				}
 
@@ -234,13 +234,13 @@ void Preprocessor::applyTemplateFilters ()
 
 				if ( i > 0 )
 				{
-					if ( clip_(i,leftColumn) == clip_(i-1,leftColumn) and clip_(i-1,leftColumn) == clip_(i-1,j) )
+					if ( clip_(i,leftColumn) == clip_(i-1,leftColumn) && clip_(i-1,leftColumn) == clip_(i-1,j) )
 						equalPixels += 2;
 				}
 
 				if ( i < static_cast<int>(clip_.height())-1 )
 				{
-					if ( clip_(i,leftColumn) == clip_(i+1,leftColumn) and clip_(i+1,leftColumn) == clip_(i+1,j) )
+					if ( clip_(i,leftColumn) == clip_(i+1,leftColumn) && clip_(i+1,leftColumn) == clip_(i+1,j) )
 						equalPixels += 2;
 				}
 
@@ -263,13 +263,13 @@ void Preprocessor::applyTemplateFilters ()
 
 				if ( i > 0 )
 				{
-					if ( clip_(i,rightColumn) == clip_(i-1,rightColumn) and clip_(i-1,rightColumn) == clip_(i-1,j) )
+					if ( clip_(i,rightColumn) == clip_(i-1,rightColumn) && clip_(i-1,rightColumn) == clip_(i-1,j) )
 						equalPixels += 2;
 				}
 
 				if ( i < static_cast<int>(clip_.height())-1 )
 				{
-					if ( clip_(i,rightColumn) == clip_(i+1,rightColumn) and clip_(i+1,rightColumn) == clip_(i+1,j) )
+					if ( clip_(i,rightColumn) == clip_(i+1,rightColumn) && clip_(i+1,rightColumn) == clip_(i+1,j) )
 						equalPixels += 2;
 				}
 
@@ -317,12 +317,12 @@ void Preprocessor::applyAveragingFilters ()
 					int imageI = (i + filterI - 1);
 					int imageJ = (j + filterJ - 1);
 
-					if (imageI >= 0 and imageI < clipHeight and imageJ >= 0 and imageJ < clipWidth)
+					if (imageI >= 0 && imageI < clipHeight && imageJ >= 0 && imageJ < clipWidth)
 						grayLevel += mask.at(filterI * maskSize + filterJ) * static_cast<double>(clip_(imageI,imageJ));
 				}
 			}
 
-			if ( i == 0 or i == (clipHeight-1) or j == 0 or j == (clipWidth-1) )
+			if ( i == 0 || i == (clipHeight-1) || j == 0 || j == (clipWidth-1) )
 				grayLevel = grayLevel * (1.0/12.0);
 			else
 				grayLevel = grayLevel * (1.0/16.0);
@@ -367,9 +367,9 @@ void Preprocessor::applyThinning ()
 				{
 					for ( int n = j-1; n < j+2; ++n )
 					{
-						if ( not (m == i and n == j) )
+						if ( not (m == i && n == j) )
 						{
-							if ( m >= 0 and m < static_cast<int>(clip_.height()) and n >= 0 and n< static_cast<int>(clip_.width()) )
+							if ( m >= 0 && m < static_cast<int>(clip_.height()) && n >= 0 && n< static_cast<int>(clip_.width()) )
 								p1Neighbours.at(z) = clip_(m,n);
 
 							++z;
@@ -383,22 +383,22 @@ void Preprocessor::applyThinning ()
 
 				// Compute additional pixels
 				unsigned int p10 = 0, p11 = 0, p12 = 0, p14 = 0, p15 = 0, p16 = 0;
-				if( i-2 >= 0 and j-1 >= 0 )
+				if( i-2 >= 0 && j-1 >= 0 )
 					p10 = clip_(i-2,j-1);
 
 				if( i-2 >= 0 )
 					p11 = clip_(i-2,j);
 
-				if( i-2 >= 0 and j+1 < static_cast<int>(clip_.width()) )
+				if( i-2 >= 0 && j+1 < static_cast<int>(clip_.width()) )
 					p12 = clip_(i-2,j+1);
 
-				if( i-1 >= 0 and j+2 < static_cast<int>(clip_.width()) )
+				if( i-1 >= 0 && j+2 < static_cast<int>(clip_.width()) )
 					p14 = clip_(i-1,j+2);
 
 				if( j+2 < static_cast<int>(clip_.width()) )
 					p15 = clip_(i,j+2);
 
-				if( i+1 < static_cast<int>(clip_.height()) and j+2 < static_cast<int>(clip_.width()) )
+				if( i+1 < static_cast<int>(clip_.height()) && j+2 < static_cast<int>(clip_.width()) )
 					p16 = clip_(i+1,j+2);
 
 				std::vector<unsigned int> p2Neighbours(8);
@@ -426,15 +426,15 @@ void Preprocessor::applyThinning ()
 				std::vector<unsigned int>::iterator k = p1Neighbours.begin();
 				std::vector<unsigned int>::iterator l = p1Neighbours.begin();
 				advance (l,1);
-				while ( l not_eq p1Neighbours.end() )
+				while ( l != p1Neighbours.end() )
 				{
-					if ( (*k) == 0 and (*l) == 1 )
+					if ( (*k) == 0 && (*l) == 1 )
 						++a_p1;
 
 					advance (k,1);
 					advance (l,1);
 				}
-				if ( p1Neighbours.at(7) == 0 and p1Neighbours.at(0) == 1 )
+				if ( p1Neighbours.at(7) == 0 && p1Neighbours.at(0) == 1 )
 					++a_p1;
 
 				// Discriminant function B(p1)
@@ -447,15 +447,15 @@ void Preprocessor::applyThinning ()
 				k = p2Neighbours.begin();
 				l = p2Neighbours.begin();
 				advance (l,1);
-				while ( l not_eq p2Neighbours.end() )
+				while ( l != p2Neighbours.end() )
 				{
-					if ( (*k) == 0 and (*l) == 1 )
+					if ( (*k) == 0 && (*l) == 1 )
 						++a_p2;
 
 					advance (k,1);
 					advance (l,1);
 				}
-				if ( p2Neighbours.at(7) == 0 and p2Neighbours.at(0) == 1 )
+				if ( p2Neighbours.at(7) == 0 && p2Neighbours.at(0) == 1 )
 					++a_p2;
 
 				// Discriminant function A(p4)
@@ -463,24 +463,24 @@ void Preprocessor::applyThinning ()
 				k = p4Neighbours.begin();
 				l = p4Neighbours.begin();
 				advance (l,1);
-				while ( l not_eq p4Neighbours.end() )
+				while ( l != p4Neighbours.end() )
 				{
-					if ( (*k) == 0 and (*l) == 1 )
+					if ( (*k) == 0 && (*l) == 1 )
 						++a_p4;
 
 					advance (k,1);
 					advance (l,1);
 				}
-				if ( p4Neighbours.at(7) == 0 and p4Neighbours.at(0) == 1 )
+				if ( p4Neighbours.at(7) == 0 && p4Neighbours.at(0) == 1 )
 					++a_p4;
 
 				// Decide whether to peel of the pixel or not
-				bool firstCondition		= (2 <= b_p1) and (b_p1 <= 6);
+				bool firstCondition		= (2 <= b_p1) && (b_p1 <= 6);
 				bool secondCondition	= (a_p1 == 1);
-				bool thirdCondition		= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(6)) == 0) or (a_p2 not_eq 1);
-				bool fourthCondition	= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(4)) == 0) or (a_p4 not_eq 1);
+				bool thirdCondition		= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(6)) == 0) || (a_p2 != 1);
+				bool fourthCondition	= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(4)) == 0) || (a_p4 != 1);
 
-				if ( firstCondition and secondCondition and thirdCondition and fourthCondition )
+				if ( firstCondition && secondCondition && thirdCondition && fourthCondition )
 				{
 					clip_(i,j) = 0;
 					clipHasChanged = true;
@@ -515,7 +515,7 @@ void Preprocessor::extractRegions ()
 
 	// Build the initial list of regions by applying the flooding algorithm
 	std::vector<bool> visited(clip_.size(), false);
-	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s not_eq seeds.end(); ++s )
+	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s != seeds.end(); ++s )
 	{
 		int row		= (*s).first;
 		int column	= (*s).second;
@@ -529,13 +529,13 @@ void Preprocessor::extractRegions ()
 			region.addCoordinates( PixelCoordinates(row, column) );
 
 			// Explore the immediate neighbourhood
-			for ( int i = row-1; (i <= row+1) and (i < static_cast<int>(clip_.height())); ++i )
+			for ( int i = row-1; (i <= row+1) && (i < static_cast<int>(clip_.height())); ++i )
 			{
-				for ( int j = column-1; (j <= column+1) and (j < static_cast<int>(clip_.width())); ++j )
+				for ( int j = column-1; (j <= column+1) && (j < static_cast<int>(clip_.width())); ++j )
 				{
-					if ( i >= 0 and j >= 0 )
+					if ( i >= 0 && j >= 0 )
 					{
-						if ( clip_(i,j) == 1 and not visited.at(i * clip_.width() + j) )
+						if ( clip_(i,j) == 1 && not visited.at(i * clip_.width() + j) )
 						{
 							visited.at(i * clip_.width() + j) = true;
 							region.addCoordinates( PixelCoordinates(i,j) );
@@ -550,13 +550,13 @@ void Preprocessor::extractRegions ()
 			{
 				PixelCoordinates coordinates( region(k) );
 
-				for ( int i = coordinates.first-1; (i <= static_cast<int>(coordinates.first+1)) and (i < static_cast<int>(clip_.height())); ++i )
+				for ( int i = coordinates.first-1; (i <= static_cast<int>(coordinates.first+1)) && (i < static_cast<int>(clip_.height())); ++i )
 				{
-					for ( int j = coordinates.second-1; (j <= static_cast<int>(coordinates.second+1)) and (j < static_cast<int>(clip_.width())); ++j )
+					for ( int j = coordinates.second-1; (j <= static_cast<int>(coordinates.second+1)) && (j < static_cast<int>(clip_.width())); ++j )
 					{
-						if ( i >= 0 and j >= 0 )
+						if ( i >= 0 && j >= 0 )
 						{
-							if ( clip_(i,j) == 1 and not visited.at(i * clip_.width() + j) )
+							if ( clip_(i,j) == 1 && not visited.at(i * clip_.width() + j) )
 							{
 								visited.at(i * clip_.width() + j) = true;
 								region.addCoordinates( PixelCoordinates(i, j) );
@@ -572,16 +572,13 @@ void Preprocessor::extractRegions ()
 	}
 	statistics_.nRegionsBeforeMerging(regions_.size());
 
-	// Find the rows that delimits the regions as if they were characters in a text
 	std::list<LineDelimiter> delimiters(0);
 	findLineDelimiters(visited, delimiters);
 	statistics_.nLineDelimiters(delimiters.size());
 
-	// Merge every pair of regions that are supposed to be accents isolated from their vocals in a text line.
 	mergeVerticallyOverlappedRegions (delimiters);
 	statistics_.nRegionsAfterMerging(regions_.size());
 
-	// Sort the regions by lines and columns
 	regions_.sort();
 
 	statistics_.regionsExtractionTime(timer.elapsed());
@@ -631,7 +628,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 	std::list<LineDelimiter>::iterator currentLineDelimiterIterator	= delimiters.begin();
 	advance( currentLineDelimiterIterator, 1 );
 
-	while ( currentLineDelimiterIterator not_eq delimiters.end() )
+	while ( currentLineDelimiterIterator != delimiters.end() )
 	{
 		if ( ((*currentLineDelimiterIterator).first - (*previousLineDelimiterIterator).second + 1) > 2 )
 		{
@@ -661,7 +658,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 
 void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimiter>& delimiters)
 {
-	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator not_eq delimiters.end(); ++delimitersIterator  )
+	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator != delimiters.end(); ++delimitersIterator  )
 	{
 		unsigned int lineTopBorder		= (*delimitersIterator).first;
 		unsigned int lineBottomBorder	= (*delimitersIterator).second;
@@ -669,19 +666,19 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 		// Traverse the list of regions searching a pair of regions vertically overlapped.
 		std::list<Region>::iterator i = regions_.begin();
 
-		while ( i not_eq regions_.end() )
+		while ( i != regions_.end() )
 		{
 			bool regionIsAboveLine = (*i)(0).first < lineTopBorder;
 			bool regionIsBelowLine = (*i)(0).first > lineBottomBorder;
 
-			if ( regionIsAboveLine or regionIsBelowLine )
+			if ( regionIsAboveLine || regionIsBelowLine )
 				advance (i, 1);
 			else
 			{
 				// Find a region vertically overlapped with the current one.
-				std::list<Region>::iterator j; // parametro de entrada == i
+				std::list<Region>::iterator j;
 
-				for ( j = regions_.begin(); j not_eq regions_.end(); ++j )
+				for ( j = regions_.begin(); j != regions_.end(); ++j )
 				{
 					if ( i == j )
 						continue;
@@ -689,7 +686,7 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 					bool candidateRegionIsAboveLine = (*j)(0).first < lineTopBorder;
 					bool candidateRegionIsBelowLine = (*j)(0).first > lineBottomBorder;
 
-					if ( candidateRegionIsAboveLine or candidateRegionIsBelowLine )
+					if ( candidateRegionIsAboveLine || candidateRegionIsBelowLine )
 						continue;
 
 					// Count the overlapped pixels of both regions by computing the intersection of column coordinates.
@@ -709,7 +706,7 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 						break;
 				}
 
-				if ( j not_eq regions_.end() and i not_eq j )	// Merge this regions
+				if ( j != regions_.end() && i != j )	// Merge this regions
 				{
 					regions_.push_back(*i + *j);
 					regions_.erase(j);
@@ -734,7 +731,7 @@ void Preprocessor::correctSlanting ()
 
 	std::vector<unsigned int> angleEstimations(0);
 
-	for ( std::list<Region>::iterator i = regions_.begin(); i not_eq regions_.end(); ++i )
+	for ( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
 	{
 		const unsigned int rotationLimit = 46;
 
@@ -762,13 +759,13 @@ void Preprocessor::correctSlanting ()
 
 		std::vector<unsigned int>::iterator maxOfMaximumPixelsPerColumn = std::max_element(maximumPixelsPerColumn.begin(), maximumPixelsPerColumn.end());
 		unsigned int slantAngle = 0;
-		for ( std::vector<unsigned int>::iterator j = maximumPixelsPerColumn.begin(); j not_eq maxOfMaximumPixelsPerColumn; ++j )
+		for ( std::vector<unsigned int>::iterator j = maximumPixelsPerColumn.begin(); j != maxOfMaximumPixelsPerColumn; ++j )
 			slantAngle += 1;
 
 		angleEstimations.push_back(slantAngle);
 
 		// Correct slanting
-		if ( slantAngle not_eq 0 )
+		if ( slantAngle != 0 )
 		{
 			for ( unsigned int j = 0; j < (*i).size(); ++j )
 			{
@@ -799,7 +796,7 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 	std::list<Region>::const_iterator j = regions_.begin();
 
 	double meanInterRegionSpace = 0.0;
-	while ( i not_eq regions_.end() )
+	while ( i != regions_.end() )
 	{
 		if ( (*i).leftBorderColumn() >=  (*j).rightBorderColumn() )
 			meanInterRegionSpace += (*i).leftBorderColumn() - (*j).rightBorderColumn() + 1;
@@ -818,7 +815,7 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 	std::vector<unsigned int> spaces(0);
 	unsigned int spaceLocation = 1;
 
-	while ( i not_eq regions_.end() )
+	while ( i != regions_.end() )
 	{
 		if ( (*i).leftBorderColumn() < (*j).rightBorderColumn() )
 			spaces.push_back(spaceLocation);

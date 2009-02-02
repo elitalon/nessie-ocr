@@ -50,7 +50,7 @@ void Region::normalizeCoordinates ()
 	unsigned int x0 = topLeftmostPixelCoordinates_.first;
 	unsigned int y0 = topLeftmostPixelCoordinates_.second;
 
-	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i not_eq coordinates_.end(); ++i )
+	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 	{
 		(*i).first	= (*i).first	- x0;
 		(*i).second	= (*i).second	- y0;
@@ -64,7 +64,7 @@ void Region::normalizeCoordinates ()
 		std::vector<unsigned int> columnCoordinates(0);
 		columnCoordinates.reserve(size_);
 
-		for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i not_eq coordinates_.end(); ++i )
+		for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 		{
 			rowCoordinates.push_back((*i).first);
 			columnCoordinates.push_back((*i).second);

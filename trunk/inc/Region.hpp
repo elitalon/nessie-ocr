@@ -152,10 +152,10 @@ inline Region Region::operator+ (const Region& region) const
 {
 	Region temp;
 
-	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i not_eq coordinates_.end(); ++i )
+	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i != coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
 
-	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i not_eq region.coordinates_.end(); ++i )
+	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i != region.coordinates_.end(); ++i )
 		temp.addCoordinates( (*i) );
 
 	return temp;

@@ -14,7 +14,7 @@ Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned in
 	height_(height),
 	size_(0)
 {
-	if ( (height == 0) and (width == 0) )
+	if ( (height == 0) && (width == 0) )
 		throw NessieException ("Clip::Clip() : Constructor has 0 size.");
 
 	if ( width > image.columns() )
@@ -23,10 +23,10 @@ Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned in
 	if ( height > image.rows() )
 		throw NessieException ("Clip::Clip() : The press clip's height cannot be higher than the underlying image's.");
 
-	if ( x >= image.rows() or y >= image.columns() )
+	if ( x >= image.rows() || y >= image.columns() )
 		throw NessieException ("Clip::Clip() : The press clip's top leftmost pixel falls outside the image.");
 
-	if( (x + height) > image.rows() or (y + width) > image.columns() )
+	if( (x + height) > image.rows() || (y + width) > image.columns() )
 		throw NessieException ("Clip::Clip() : The clip does not fall completely within the underlying image.");
 
 	size_ = width_ * height_;

@@ -148,10 +148,10 @@ window.onload = initDynSections;
 <a name="l00152"></a>00152 <span class="keyword"></span>{
 <a name="l00153"></a>00153     <a class="code" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a> temp;
 <a name="l00154"></a>00154 
-<a name="l00155"></a>00155     <span class="keywordflow">for</span> ( std::vector&lt;PixelCoordinates&gt;::const_iterator i = this-&gt;coordinates_.begin(); i not_eq coordinates_.end(); ++i )
+<a name="l00155"></a>00155     <span class="keywordflow">for</span> ( std::vector&lt;PixelCoordinates&gt;::const_iterator i = this-&gt;coordinates_.begin(); i != coordinates_.end(); ++i )
 <a name="l00156"></a>00156         temp.<a class="code" href="class_region.html#5f5345fe4660595a77c9f578e4aad9b3" title="Adds a pair of pixel coordinates to the region.">addCoordinates</a>( (*i) );
 <a name="l00157"></a>00157 
-<a name="l00158"></a>00158     <span class="keywordflow">for</span> ( std::vector&lt;PixelCoordinates&gt;::const_iterator i = region.<a class="code" href="class_region.html#086c598a8a225a8f877446417523b8ee" title="Set of pixel coordinates that defines the whole region.">coordinates_</a>.begin(); i not_eq region.<a class="code" href="class_region.html#086c598a8a225a8f877446417523b8ee" title="Set of pixel coordinates that defines the whole region.">coordinates_</a>.end(); ++i )
+<a name="l00158"></a>00158     <span class="keywordflow">for</span> ( std::vector&lt;PixelCoordinates&gt;::const_iterator i = region.<a class="code" href="class_region.html#086c598a8a225a8f877446417523b8ee" title="Set of pixel coordinates that defines the whole region.">coordinates_</a>.begin(); i != region.<a class="code" href="class_region.html#086c598a8a225a8f877446417523b8ee" title="Set of pixel coordinates that defines the whole region.">coordinates_</a>.end(); ++i )
 <a name="l00159"></a>00159         temp.<a class="code" href="class_region.html#5f5345fe4660595a77c9f578e4aad9b3" title="Adds a pair of pixel coordinates to the region.">addCoordinates</a>( (*i) );
 <a name="l00160"></a>00160 
 <a name="l00161"></a>00161     <span class="keywordflow">return</span> temp;
@@ -222,7 +222,7 @@ window.onload = initDynSections;
 <a name="l00226"></a>00226 <span class="preprocessor">#endif  //_REGION_H</span>
 <a name="l00227"></a>00227 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jan 30 19:51:04 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 11:34:41 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
