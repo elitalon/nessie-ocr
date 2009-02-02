@@ -52,7 +52,7 @@ class Recognizer
 
 		Statistics*	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
 
-		Statistics*	featureExtractionStatistics_;	///< Statistics gathered during the feature extraction stage.
+		Statistics*	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
 
 		Statistics*	classificationStatistics_;		///< Statistics gathered during the classification stage.
 
@@ -73,8 +73,8 @@ inline void Recognizer::printStatistics () const
 	if ( preprocessingStatistics_ != 0 )
 		preprocessingStatistics_->print();
 
-	if ( featureExtractionStatistics_ != 0 )
-		featureExtractionStatistics_->print();
+	if ( featureExtractorStatistics_ != 0 )
+		featureExtractorStatistics_->print();
 
 	if ( classificationStatistics_ != 0 )
 		classificationStatistics_->print();

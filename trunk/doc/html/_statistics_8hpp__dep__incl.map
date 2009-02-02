@@ -1,3 +1,4 @@
 <area shape="rect" href="$_statistics_8cpp.html" title="Definition of Statistics class." alt="" coords="5,81,96,105">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="120,81,237,105">
-<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="261,81,368,105">
+<area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="120,81,253,105">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="277,81,395,105">
+<area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="419,81,525,105">

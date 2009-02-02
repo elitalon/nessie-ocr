@@ -289,13 +289,28 @@ void PreprocessorStatistics::print () const
 
 
 
-FeatureExtractionStatistics::FeatureExtractionStatistics () {};
+FeatureExtractorStatistics::FeatureExtractorStatistics ()
+:	Statistics()
+{};
 
 
-FeatureExtractionStatistics::~FeatureExtractionStatistics () {};
+FeatureExtractorStatistics::FeatureExtractorStatistics (const FeatureExtractorStatistics& statistics)
+:	Statistics(statistics)	// Invoke base class copy constructor
+{};
 
 
-void FeatureExtractionStatistics::print () const
+FeatureExtractorStatistics& FeatureExtractorStatistics::operator= (const FeatureExtractorStatistics& statistics)
+{
+	Statistics::operator=(statistics);	// Assign base class parts
+
+	return *this;
+};
+
+
+FeatureExtractorStatistics::~FeatureExtractorStatistics () {};
+
+
+void FeatureExtractorStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Feature extraction stage statistics" << std::endl;
@@ -305,7 +320,9 @@ void FeatureExtractionStatistics::print () const
 
 
 
-ClassificationStatistics::ClassificationStatistics () {};
+ClassificationStatistics::ClassificationStatistics ()
+:	Statistics()
+{};
 
 
 ClassificationStatistics::~ClassificationStatistics () {};

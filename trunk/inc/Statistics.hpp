@@ -11,7 +11,7 @@
 /// so that derived classes can be customized according to the stage they belong. The statitical data is gathered mostly in internal algorithms,
 /// and provides time results among other parameters.
 /// 
-/// @see	PreprocessorStatistics, FeatureExtractionStatistics, ClassificationStatistics
+/// @see	PreprocessorStatistics, FeatureExtractorStatistics, ClassificationStatistics
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
@@ -386,15 +386,21 @@ inline void PreprocessorStatistics::spacesLocationFindingTime (const double& ela
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
 ///
-class FeatureExtractionStatistics : public Statistics
+class FeatureExtractorStatistics : public Statistics
 {
 	public:
-
+	
 		/// @brief	Constructor.
-		explicit FeatureExtractionStatistics ();	
+		explicit FeatureExtractorStatistics ();	
 
 		/// @brief	Destructor.
-		virtual ~FeatureExtractionStatistics ();
+		virtual ~FeatureExtractorStatistics ();
+
+		///	@brief	Copy constructor.
+		FeatureExtractorStatistics (const FeatureExtractorStatistics& statistics);
+
+		/// @brief Assignment operator.
+		FeatureExtractorStatistics& operator= (const FeatureExtractorStatistics& statistics);
 
 		/// @brief	Prints the statistical data gathered.
 		void print () const;
@@ -408,7 +414,7 @@ class FeatureExtractionStatistics : public Statistics
 };
 
 
-inline void FeatureExtractionStatistics::updateTotalTime ()
+inline void FeatureExtractorStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 };

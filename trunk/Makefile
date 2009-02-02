@@ -33,12 +33,13 @@ vpath %.dylib	$(libdir)
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
 REGION = Region.cpp Region.hpp
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o Pattern.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o
 PATTERN = Pattern.cpp Pattern.hpp
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
 MAIN = main.cpp Recognizer.o Clip.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
+FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o Statistics.o Pattern.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 CLIP = Clip.cpp Clip.hpp NessieException.o
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o FeatureVector.o
@@ -78,7 +79,7 @@ Clip.o: $(CLIP)
 	@echo
 
 Recognizer.o: $(RECOGNIZER)
-	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Text.o: $(TEXT)
@@ -97,8 +98,12 @@ Region.o: $(REGION)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
+FeatureExtractor.o: $(FEATURE_EXTRACTOR)
+	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	@echo
+
 Pattern.o: $(PATTERN)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Classifier.o: $(CLASSIFIER)

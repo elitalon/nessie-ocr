@@ -339,55 +339,59 @@ window.onload = initDynSections;
 <a name="l00381"></a>00381 
 <a name="l00382"></a>00382 
 <a name="l00383"></a>00383 
-<a name="l00389"></a><a class="code" href="class_feature_extraction_statistics.html">00389</a> <span class="keyword">class </span><a class="code" href="class_feature_extraction_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition...">FeatureExtractionStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
+<a name="l00389"></a><a class="code" href="class_feature_extractor_statistics.html">00389</a> <span class="keyword">class </span><a class="code" href="class_feature_extractor_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition...">FeatureExtractorStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
 <a name="l00390"></a>00390 {
 <a name="l00391"></a>00391     <span class="keyword">public</span>:
-<a name="l00392"></a>00392 
-<a name="l00394"></a>00394         <span class="keyword">explicit</span> <a class="code" href="class_feature_extraction_statistics.html#4e2504b661f6865dc4bd27b4dc501216" title="Constructor.">FeatureExtractionStatistics</a> ();    
+<a name="l00392"></a>00392     
+<a name="l00394"></a>00394         <span class="keyword">explicit</span> <a class="code" href="class_feature_extractor_statistics.html#7d84885ee81ff35294ad6cb4698f62b6" title="Constructor.">FeatureExtractorStatistics</a> (); 
 <a name="l00395"></a>00395 
-<a name="l00397"></a>00397         <span class="keyword">virtual</span> <a class="code" href="class_feature_extraction_statistics.html#9140b9ddd0c54aafc6a3ce29ce8a38ba" title="Destructor.">~FeatureExtractionStatistics</a> ();
+<a name="l00397"></a>00397         <span class="keyword">virtual</span> <a class="code" href="class_feature_extractor_statistics.html#8b805a01741e3e1ac801772b1947b510" title="Destructor.">~FeatureExtractorStatistics</a> ();
 <a name="l00398"></a>00398 
-<a name="l00400"></a>00400         <span class="keywordtype">void</span> <a class="code" href="class_feature_extraction_statistics.html#75c678a93a2b047c2ba01566ec553e35" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00400"></a>00400         <a class="code" href="class_feature_extractor_statistics.html#7d84885ee81ff35294ad6cb4698f62b6" title="Constructor.">FeatureExtractorStatistics</a> (<span class="keyword">const</span> <a class="code" href="class_feature_extractor_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition...">FeatureExtractorStatistics</a>&amp; statistics);
 <a name="l00401"></a>00401 
-<a name="l00402"></a>00402     <span class="keyword">private</span>:
-<a name="l00403"></a>00403 
-<a name="l00407"></a>00407         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00408"></a>00408 };
+<a name="l00403"></a>00403         <a class="code" href="class_feature_extractor_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition...">FeatureExtractorStatistics</a>&amp; <a class="code" href="class_feature_extractor_statistics.html#95a915ad796c0b2c7595cf6b848ab667" title="Assignment operator.">operator= </a>(<span class="keyword">const</span> <a class="code" href="class_feature_extractor_statistics.html" title="Statistical data gathered during the feature extraction stage of the text recognition...">FeatureExtractorStatistics</a>&amp; statistics);
+<a name="l00404"></a>00404 
+<a name="l00406"></a>00406         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00407"></a>00407 
+<a name="l00408"></a>00408     <span class="keyword">private</span>:
 <a name="l00409"></a>00409 
-<a name="l00410"></a>00410 
-<a name="l00411"></a>00411 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractionStatistics::updateTotalTime ()
-<a name="l00412"></a>00412 {
-<a name="l00413"></a>00413     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00413"></a>00413         <span class="keywordtype">void</span> updateTotalTime ();
 <a name="l00414"></a>00414 };
 <a name="l00415"></a>00415 
 <a name="l00416"></a>00416 
-<a name="l00417"></a>00417 
-<a name="l00418"></a>00418 
-<a name="l00424"></a><a class="code" href="class_classification_statistics.html">00424</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
-<a name="l00425"></a>00425 {
-<a name="l00426"></a>00426     <span class="keyword">public</span>:
-<a name="l00427"></a>00427 
-<a name="l00429"></a>00429         <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
-<a name="l00430"></a>00430 
-<a name="l00432"></a>00432         <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
+<a name="l00417"></a>00417 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
+<a name="l00418"></a>00418 {
+<a name="l00419"></a>00419     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00420"></a>00420 };
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422 
+<a name="l00423"></a>00423 
+<a name="l00424"></a>00424 
+<a name="l00430"></a><a class="code" href="class_classification_statistics.html">00430</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
+<a name="l00431"></a>00431 {
+<a name="l00432"></a>00432     <span class="keyword">public</span>:
 <a name="l00433"></a>00433 
-<a name="l00435"></a>00435         <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00435"></a>00435         <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
 <a name="l00436"></a>00436 
-<a name="l00437"></a>00437     <span class="keyword">private</span>:
-<a name="l00438"></a>00438 
-<a name="l00442"></a>00442         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00443"></a>00443 };
+<a name="l00438"></a>00438         <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
+<a name="l00439"></a>00439 
+<a name="l00441"></a>00441         <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00442"></a>00442 
+<a name="l00443"></a>00443     <span class="keyword">private</span>:
 <a name="l00444"></a>00444 
-<a name="l00445"></a>00445 
-<a name="l00446"></a>00446 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
-<a name="l00447"></a>00447 {
-<a name="l00448"></a>00448     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00448"></a>00448         <span class="keywordtype">void</span> updateTotalTime ();
 <a name="l00449"></a>00449 };
 <a name="l00450"></a>00450 
-<a name="l00451"></a>00451 <span class="preprocessor">#endif  //_STATISTICS_H</span>
-<a name="l00452"></a>00452 <span class="preprocessor"></span>
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
+<a name="l00453"></a>00453 {
+<a name="l00454"></a>00454     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00455"></a>00455 };
+<a name="l00456"></a>00456 
+<a name="l00457"></a>00457 <span class="preprocessor">#endif  //_STATISTICS_H</span>
+<a name="l00458"></a>00458 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 11:34:41 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 14:19:59 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
