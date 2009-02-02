@@ -290,31 +290,50 @@ void PreprocessorStatistics::print () const
 
 
 FeatureExtractorStatistics::FeatureExtractorStatistics ()
-:	Statistics()
+:	Statistics(),	// Invoke base class copy constructor
+	patternsBuildingTime_(0)
 {};
 
 
 FeatureExtractorStatistics::FeatureExtractorStatistics (const FeatureExtractorStatistics& statistics)
-:	Statistics(statistics)	// Invoke base class copy constructor
-{};
+:	Statistics(statistics),	// Invoke base class copy constructor
+	patternsBuildingTime_(0)
+{
+	if ( statistics.patternsBuildingTime_ != 0 )
+		patternsBuildingTime_ = new double(*statistics.patternsBuildingTime_);
+};
 
 
 FeatureExtractorStatistics& FeatureExtractorStatistics::operator= (const FeatureExtractorStatistics& statistics)
 {
 	Statistics::operator=(statistics);	// Assign base class parts
 
+	if ( statistics.patternsBuildingTime_ != 0 )
+	{
+		double* tmp = new double(*statistics.patternsBuildingTime_);
+		delete patternsBuildingTime_;
+		patternsBuildingTime_ = tmp;
+	}
+
 	return *this;
 };
 
 
-FeatureExtractorStatistics::~FeatureExtractorStatistics () {};
+FeatureExtractorStatistics::~FeatureExtractorStatistics ()
+{
+	delete patternsBuildingTime_;
+};
 
 
 void FeatureExtractorStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Feature extraction stage statistics" << std::endl;
-	std::cout << "  - Total elapsed time  : " << totalTime_ << std::endl;
+
+	if ( patternsBuildingTime_ != 0 )
+		std::cout << "  - Patterns building time       : " << *patternsBuildingTime_ << std::endl;
+
+	std::cout << "  - Total elapsed time           : " << totalTime_ << std::endl;
 };
 
 

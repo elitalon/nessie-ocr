@@ -5,7 +5,8 @@
 
 
 NessieException::NessieException (const std::string& what)
-:	what_(what)
+:	std::exception(),
+	what_(what)
 {};
 
 

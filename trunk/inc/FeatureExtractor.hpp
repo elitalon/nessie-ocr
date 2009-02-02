@@ -14,9 +14,10 @@
 
 /// @brief		FeatureExtractor of the OCR process.
 ///
-/// @details	This class encapsulates all the algorithms related to feature extraction stage of the OCR process. Its task is ...
-///	In the very end of the process, a vector of
-///	patterns is available through the FeatureExtractor::patterns() method.
+/// @details	This class encapsulates all the algorithms related to feature extraction stage of the OCR process. Its task is to capture the
+///	distinctive characteristics of the digitized characters for recognition, i.e. the measurement of those attributes of patterns that are most
+///	pertinent to a given classification task. In the very end of the process, a vector of patterns is available through the
+///	FeatureExtractor::patterns() method.
 ///
 /// @see		Region, FeatureExtractorStatistics, Pattern
 ///

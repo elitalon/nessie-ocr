@@ -67,73 +67,77 @@ window.onload = initDynSections;
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_PATTERN_H)</span>
 <a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _PATTERN_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 
+<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a>;
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00009"></a>00009 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 
-<a name="l00017"></a><a class="code" href="class_pattern.html">00017</a> <span class="keyword">class </span><a class="code" href="class_pattern.html" title="A pattern in a press clip to be recognized as a character.">Pattern</a>
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020 
-<a name="l00022"></a>00022     <a class="code" href="class_pattern.html#95f42b0f1717d9e6c2d831e87d27f83c" title="Constructor.">Pattern</a>();
+<a name="l00020"></a><a class="code" href="class_pattern.html">00020</a> <span class="keyword">class </span><a class="code" href="class_pattern.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022     <span class="keyword">public</span>:
 <a name="l00023"></a>00023 
-<a name="l00029"></a>00029     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index);
-<a name="l00030"></a>00030 
-<a name="l00036"></a>00036     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index) <span class="keyword">const</span>;
-<a name="l00037"></a>00037 
-<a name="l00041"></a>00041     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb" title="Returns the height of the pattern.">height</a> () <span class="keyword">const</span>;
-<a name="l00042"></a>00042 
-<a name="l00046"></a>00046     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">width</a> () <span class="keyword">const</span>;
-<a name="l00047"></a>00047 
-<a name="l00051"></a>00051     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc" title="Returns the number of pixels in the pattern.">size</a> () <span class="keyword">const</span>;
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="keyword">private</span>:
+<a name="l00027"></a>00027         <span class="keyword">explicit</span> <a class="code" href="class_pattern.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>(<span class="keyword">const</span> <a class="code" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a>&amp; region);
+<a name="l00028"></a>00028 
+<a name="l00035"></a>00035         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);
+<a name="l00036"></a>00036 
+<a name="l00043"></a>00043         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3" title="Allows read-and-write access to a pixel in the pattern.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y) <span class="keyword">const</span>;
+<a name="l00044"></a>00044 
+<a name="l00048"></a>00048         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb" title="Returns the height of the pattern.">height</a> () <span class="keyword">const</span>;
+<a name="l00049"></a>00049 
+<a name="l00053"></a>00053         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">width</a> () <span class="keyword">const</span>;
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055     std::vector&lt;unsigned int&gt;   pixels_;        
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                height_;        
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                width_;         
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                size_;          
-<a name="l00062"></a>00062 };
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 
-<a name="l00066"></a><a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1">00066</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">Pattern::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)
-<a name="l00067"></a>00067 {
-<a name="l00068"></a>00068     <span class="keywordflow">return</span> pixels_.at(index);
-<a name="l00069"></a>00069 };
-<a name="l00070"></a>00070 
+<a name="l00058"></a>00058         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc" title="Returns the number of pixels in the pattern.">size</a> () <span class="keyword">const</span>;
+<a name="l00059"></a>00059 
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="class_pattern.html#bed1e425eed5e5b7de58245c53cc7f78" title="Creates a new image in the filesystem using Magick++ with the pattern drawn.">writeToOutputImage</a> (<span class="keyword">const</span> std::string&amp; outputFile) <span class="keyword">const</span>;
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="keyword">private</span>:
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         std::vector&lt;unsigned int&gt;   pixels_;        
 <a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="class_pattern.html#6c0df82802dbec13ceb69f49620095e2">00072</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pattern.html#28dc15a8196b9f94c476d5b3661044d1" title="Allows read-and-write access to a pixel in the pattern.">Pattern::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)<span class="keyword"> const</span>
-<a name="l00073"></a>00073 <span class="keyword"></span>{
-<a name="l00074"></a>00074     <span class="keywordflow">return</span> pixels_.at(index);
-<a name="l00075"></a>00075 };
-<a name="l00076"></a>00076 
+<a name="l00072"></a>00072         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                height_;        
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                width_;         
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                size_;          
 <a name="l00077"></a>00077 
-<a name="l00078"></a><a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4">00078</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">Pattern::width</a> ()<span class="keyword"> const</span>
-<a name="l00079"></a>00079 <span class="keyword"></span>{
-<a name="l00080"></a>00080     <span class="keywordflow">return</span> width_;
-<a name="l00081"></a>00081 };
+<a name="l00078"></a>00078         <span class="comment">// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT!!</span>
+<a name="l00079"></a>00079         <a class="code" href="class_pattern.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> ();
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
 <a name="l00082"></a>00082 
-<a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb">00084</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb" title="Returns the height of the pattern.">Pattern::height</a> ()<span class="keyword"> const</span>
-<a name="l00085"></a>00085 <span class="keyword"></span>{
-<a name="l00086"></a>00086     <span class="keywordflow">return</span> height_;
-<a name="l00087"></a>00087 };
+<a name="l00083"></a><a class="code" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3">00083</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3" title="Allows read-and-write access to a pixel in the pattern.">Pattern::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y)
+<a name="l00084"></a>00084 {
+<a name="l00085"></a>00085     <span class="keywordflow">return</span> pixels_.at(x * width_ + y);
+<a name="l00086"></a>00086 };
+<a name="l00087"></a>00087 
 <a name="l00088"></a>00088 
-<a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc">00090</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc" title="Returns the number of pixels in the pattern.">Pattern::size</a> ()<span class="keyword"> const</span>
-<a name="l00091"></a>00091 <span class="keyword"></span>{
-<a name="l00092"></a>00092     <span class="keywordflow">return</span> size_;
-<a name="l00093"></a>00093 };
+<a name="l00089"></a><a class="code" href="class_pattern.html#99321ee617cd444e871ce087887e92f3">00089</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3" title="Allows read-and-write access to a pixel in the pattern.">Pattern::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y)<span class="keyword"> const</span>
+<a name="l00090"></a>00090 <span class="keyword"></span>{
+<a name="l00091"></a>00091     <span class="keywordflow">return</span> pixels_.at(x * width_ + y);
+<a name="l00092"></a>00092 };
+<a name="l00093"></a>00093 
 <a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="preprocessor">#endif  //_PATTERN_H</span>
-<a name="l00096"></a>00096 <span class="preprocessor"></span>
+<a name="l00095"></a><a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4">00095</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4" title="Returns the width of the pattern.">Pattern::width</a> ()<span class="keyword"> const</span>
+<a name="l00096"></a>00096 <span class="keyword"></span>{
+<a name="l00097"></a>00097     <span class="keywordflow">return</span> width_;
+<a name="l00098"></a>00098 };
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 
+<a name="l00101"></a><a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb">00101</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb" title="Returns the height of the pattern.">Pattern::height</a> ()<span class="keyword"> const</span>
+<a name="l00102"></a>00102 <span class="keyword"></span>{
+<a name="l00103"></a>00103     <span class="keywordflow">return</span> height_;
+<a name="l00104"></a>00104 };
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 
+<a name="l00107"></a><a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc">00107</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc" title="Returns the number of pixels in the pattern.">Pattern::size</a> ()<span class="keyword"> const</span>
+<a name="l00108"></a>00108 <span class="keyword"></span>{
+<a name="l00109"></a>00109     <span class="keywordflow">return</span> size_;
+<a name="l00110"></a>00110 };
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112 <span class="preprocessor">#endif  //_PATTERN_H</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 14:19:59 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:46 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
