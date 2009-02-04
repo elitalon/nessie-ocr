@@ -24,13 +24,22 @@ static void printPatterns (const std::vector<Pattern>& patterns)
 };
 
 
+static unsigned int factorial (const unsigned int& n)
+{
+	unsigned int result = 1;
+
+	for( unsigned int i = 1; i <= n; ++i )
+		result *= i;
+
+	return result;
+};
+
+
 /// @brief	Auxiliary function for computing the scaled Tchebichef polynomials.
 static double beta (const unsigned int& n, const unsigned int& N)
 {
-	using namespace boost::math;
-
-	double tmp	= factorial<unsigned int>(n+N) / (factorial<unsigned int>(2*n + 1) * factorial<unsigned int>((n+N) - (2*n+1)));
-	double ro	= factorial<unsigned int>(2*n) * tmp;	// Equation (8)
+	double tmp	= factorial(n+N) / static_cast<double>(factorial(2*n + 1) * factorial((n+N) - (2*n+1)));
+	double ro	= factorial(2*n) * tmp;	// Equation (8)
 
 	return sqrt(ro);	// Equation (11)
 };
@@ -53,15 +62,13 @@ static double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
 ///	@brief	Computes the discrete scaled Tchebichef polynomials of order n.
 static double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
 {
-	using namespace boost::math;
-
 	double t = 0.0;
 	for ( unsigned int k = 0; k <= n; ++k )
 	{
 		double a = modifiedPochhammerSymbol(x,k);
 
 		double B = modifiedPochhammerSymbol(n-N, n-k);
-		double tmp = factorial<unsigned int>(n+k) / static_cast<double>(factorial<unsigned int>(n-k) * pow(factorial<unsigned int>(k),2));
+		double tmp = factorial(n+k) / static_cast<double>(factorial(n-k) * pow(factorial(k),2));
 		B = tmp * B;	// Equation (6)
 
 		t += B * a;	// Equation (5)
@@ -115,25 +122,30 @@ void FeatureExtractor::computeMoments ()
 	boost::timer timer;
 	timer.restart();
 
+	featureVectors_.reserve(patterns_.size());
 	for ( std::vector<Pattern>::iterator k = patterns_.begin(); k != patterns_.end(); ++k )
 	{
-		double area = tchebichefMoment(*k, 0, 0);
+		FeatureVector fv(9);
+
+		fv(0) = tchebichefMoment(*k, 0, 0);
 
 		// Centroid coordinates
-		unsigned int x0 = round(tchebichefMoment(*k, 1, 0) / area);	// x-axis
-		unsigned int y0 = round(tchebichefMoment(*k, 0, 1) / area);	// y-axis
+		fv(1) = round(tchebichefMoment(*k, 1, 0) / fv(0));	// x-axis
+		fv(2) = round(tchebichefMoment(*k, 0, 1) / fv(0));	// y-axis
 
 		// Variance
-		tchebichefMoment(*k, 2, 0);
-		tchebichefMoment(*k, 0, 2);
+		fv(3) = tchebichefMoment(*k, 2, 0);
+		fv(4) = tchebichefMoment(*k, 0, 2);
 
 		// Skewness
-		tchebichefMoment(*k, 0, 3);
-		tchebichefMoment(*k, 3, 0);
+		fv(5) = tchebichefMoment(*k, 0, 3);
+		fv(6) = tchebichefMoment(*k, 3, 0);
 
 		// Kurtosis
-		tchebichefMoment(*k, 0, 4);
-		tchebichefMoment(*k, 4, 0);
+		fv(7) = tchebichefMoment(*k, 0, 4);
+		fv(8) = tchebichefMoment(*k, 4, 0);
+
+		featureVectors_.push_back(fv);
 	}
 
 	statistics_.momentsComputingTime(timer.elapsed());
