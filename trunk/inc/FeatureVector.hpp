@@ -9,85 +9,82 @@
 #include "NessieException.hpp"
 
 
-
-/// Vector of features that defines a character in an image.
+///	@brief		Array of characteristic features that identifies a pattern.
 /// 
-/// This class stores a number of features, computed from the moments of an image where the character's shape has been extracted. Each feature represents
-/// an image moment.
+/// @details	This class stores a set of features computed from a pattern where a character's shape has been mapped.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-11-10
+/// @date 2009-02-04
 ///
 class FeatureVector
 {
-public:
-	
-	/// Constructor.
-	/// 
-	/// @param nFeatures NUmber of features to store
-	FeatureVector (const unsigned int& nFeatures=7);
-	
-	/// Destructor.
-	~FeatureVector ();
-	
-	/// Allows read-and-write access to a feature in the vector.
-	///
-	/// @param feature		Position in the vector where the feature is at.
-	/// 
-	/// @return A reference to the feature at given position.
-	double& operator() (const unsigned int& feature);
+	public:
 
-	/// Allows read-only access to a pixel in the clip.
-	///
-	/// @param feature		Position in the vector where the feature is at.
-	/// 
-	/// @return Feature at given location.
-	double operator() (const unsigned int& feature) const;
-	
-	/// Makes the sum of two feature vectors.
-	/// 
-	/// @param featureVector	Feature vector to sum
-	/// 
-	/// @return FeatureVector object as a result of summing both vectors
-	FeatureVector operator+ (const FeatureVector& featureVector) const;
-	
-	/// Makes the subtraction of two feature vectors.
-	/// 
-	/// @param featureVector	Feature vector to subtract
-	/// 
-	/// @return FeatureVector object as a result of subtracting both vectors
-	FeatureVector operator- (const FeatureVector& featureVector) const;
-	
-	/// Makes the multiplication of two feature vectors.
-	/// 
-	/// @param featureVector	Feature vector to multiplicate
-	/// 
-	/// @return FeatureVector object as a result of multiplicating both vectors
-	double operator* (const FeatureVector& featureVector) const;
-	
-	/// Returns the number of features stored in the vector.
-	/// 
-	/// @return Number of features stored in the vector.
-	const unsigned int& size () const;
-	
-	
-private:
-	
-	std::vector<double>	features_;	///< Features of the character
-	
-	unsigned int		size_;		///< Number of features
+		///	@brief	Constructor.
+		/// 
+		/// @param	nFeatures Number of features to hold.
+		FeatureVector (const unsigned int& nFeatures);
+
+		/// @brief	Allows read-and-write access to a certain feature.
+		///
+		/// @param	index	Position inside the vector where the feature is.
+		/// 
+		/// @return A reference to the feature at given position.
+		double& operator() (const unsigned int& index);
+
+		///	@brief	Allows read-only access to a certain feature.
+		///
+		/// @param	index	Position inside the vector where the feature is.
+		/// 
+		/// @return Feature at given position.
+		double operator() (const unsigned int& index) const;
+
+		/// @brief	Computes the sum of two feature vectors.
+		/// 
+		/// @param	featureVector	Feature vector to sum.
+		/// 
+		/// @return A FeatureVector object as a result of summing both feature vectors.
+		FeatureVector operator+ (const FeatureVector& featureVector) const;
+
+		///	@brief	Computes the subtraction of two feature vectors.
+		/// 
+		/// @param	featureVector	Feature vector to subtract.
+		/// 
+		/// @return A FeatureVector object as a result of subtracting both feature vectors.
+		FeatureVector operator- (const FeatureVector& featureVector) const;
+
+		/// @brief	Computes the dot product of two feature vectors.
+		/// 
+		/// @param	featureVector	Feature vector to multiplicate.
+		/// 
+		/// @return The result of multiplicating both feature vectors.
+		double operator* (const FeatureVector& featureVector) const;
+
+		/// @brief	Returns the number of features held.
+		/// 
+		/// @return Number of features held.
+		const unsigned int& size () const;
+
+	private:
+
+		std::vector<double>	features_;	///< Characteristic features of the pattern.
+
+		unsigned int		size_;		///< Number of features.
+
+		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
+		FeatureVector ();
 };
 
 
-inline double& FeatureVector::operator() (const unsigned int &feature)
+inline double& FeatureVector::operator() (const unsigned int &index)
 {
-	return features_.at(feature);
+	return features_.at(index);
 };
 
 
-inline double FeatureVector::operator() (const unsigned int &feature) const
+inline double FeatureVector::operator() (const unsigned int &index) const
 {
-	return features_.at(feature);
+	return features_.at(index);
 };
 
 
@@ -97,11 +94,11 @@ inline FeatureVector FeatureVector::operator+ (const FeatureVector& featureVecto
 	if ( this->size_ not_eq featureVector.size_ )
 		throw NessieException ("FeatureVector::operator+() : Size of vectors to sum must be equal");
 
-	FeatureVector temp;
-	
+	FeatureVector temp(this->size_);
+
 	for ( unsigned int i = 0; i < this->size_; ++i )
 		temp.features_.at(i) = this->features_.at(i) + featureVector.features_.at(i);
-	
+
 	return temp;
 };
 
@@ -111,12 +108,11 @@ inline FeatureVector FeatureVector::operator- (const FeatureVector& featureVecto
 	if ( this->size_ not_eq featureVector.size_ )
 		throw NessieException ("FeatureVector::operator-() : Size of vectors to subtract must be equal");
 
-	FeatureVector temp;
-	temp.features_.reserve(this->size_);
+	FeatureVector temp(this->size_);
 
 	for ( unsigned int i = 0; i < this->size_; ++i )
 		temp.features_.at(i) = this->features_.at(i) - featureVector.features_.at(i);
-		
+
 	return temp;
 };
 
@@ -127,10 +123,10 @@ inline double FeatureVector::operator* (const FeatureVector& featureVector) cons
 		throw NessieException ("FeatureVector::operator*() : Size of vectors to multiply must be equal");
 
 	double result = 0.0;
-	
+
 	for ( unsigned int i = 0; i < this->size_; ++i )
 		result += this->features_.at(i) * featureVector.features_.at(i);
-		
+
 	return result;
 };
 

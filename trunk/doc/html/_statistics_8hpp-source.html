@@ -353,61 +353,79 @@ window.onload = initDynSections;
 <a name="l00404"></a>00404 
 <a name="l00410"></a>00410         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7" title="Stores the elapsed time while building an array of patterns from a list of regions...">patternsBuildingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00411"></a>00411 
-<a name="l00413"></a>00413         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415     <span class="keyword">private</span>:
-<a name="l00416"></a>00416 
-<a name="l00417"></a>00417         <span class="keywordtype">double</span>* patternsBuildingTime_;  
+<a name="l00417"></a>00417         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Stores the elapsed time while computing the image moments of patterns.">momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00418"></a>00418 
-<a name="l00422"></a>00422         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00423"></a>00423 };
-<a name="l00424"></a>00424 
+<a name="l00420"></a>00420         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422     <span class="keyword">private</span>:
+<a name="l00423"></a>00423 
+<a name="l00424"></a>00424         <span class="keywordtype">double</span>* patternsBuildingTime_;  
 <a name="l00425"></a>00425 
-<a name="l00426"></a>00426 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
-<a name="l00427"></a>00427 {
-<a name="l00428"></a>00428     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
-<a name="l00429"></a>00429 
-<a name="l00430"></a>00430     <span class="keywordflow">if</span> ( patternsBuildingTime_ != 0 )
-<a name="l00431"></a>00431         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *patternsBuildingTime_;
+<a name="l00426"></a>00426         <span class="keywordtype">double</span>* momentsComputingTime_;  
+<a name="l00427"></a>00427 
+<a name="l00431"></a>00431         <span class="keywordtype">void</span> updateTotalTime ();
 <a name="l00432"></a>00432 };
 <a name="l00433"></a>00433 
 <a name="l00434"></a>00434 
-<a name="l00435"></a><a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7">00435</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7" title="Stores the elapsed time while building an array of patterns from a list of regions...">FeatureExtractorStatistics::patternsBuildingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00435"></a>00435 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
 <a name="l00436"></a>00436 {
-<a name="l00437"></a>00437     <span class="keywordflow">if</span> ( patternsBuildingTime_ == 0 )
-<a name="l00438"></a>00438         patternsBuildingTime_ = <span class="keyword">new</span> double;
-<a name="l00439"></a>00439 
-<a name="l00440"></a>00440     *patternsBuildingTime_ = elapsedTime;
-<a name="l00441"></a>00441     updateTotalTime();
-<a name="l00442"></a>00442 };
-<a name="l00443"></a>00443 
-<a name="l00444"></a>00444 
+<a name="l00437"></a>00437     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00438"></a>00438 
+<a name="l00439"></a>00439     <span class="keywordflow">if</span> ( patternsBuildingTime_ != 0 )
+<a name="l00440"></a>00440         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *patternsBuildingTime_;
+<a name="l00441"></a>00441 
+<a name="l00442"></a>00442     <span class="keywordflow">if</span> ( momentsComputingTime_ != 0 )
+<a name="l00443"></a>00443         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *momentsComputingTime_;
+<a name="l00444"></a>00444 };
 <a name="l00445"></a>00445 
-<a name="l00451"></a><a class="code" href="class_classification_statistics.html">00451</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
-<a name="l00452"></a>00452 {
-<a name="l00453"></a>00453     <span class="keyword">public</span>:
-<a name="l00454"></a>00454 
-<a name="l00456"></a>00456         <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
-<a name="l00457"></a>00457 
-<a name="l00459"></a>00459         <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
-<a name="l00460"></a>00460 
-<a name="l00462"></a>00462         <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00463"></a>00463 
-<a name="l00464"></a>00464     <span class="keyword">private</span>:
+<a name="l00446"></a>00446 
+<a name="l00447"></a><a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7">00447</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7" title="Stores the elapsed time while building an array of patterns from a list of regions...">FeatureExtractorStatistics::patternsBuildingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00448"></a>00448 {
+<a name="l00449"></a>00449     <span class="keywordflow">if</span> ( patternsBuildingTime_ == 0 )
+<a name="l00450"></a>00450         patternsBuildingTime_ = <span class="keyword">new</span> double;
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452     *patternsBuildingTime_ = elapsedTime;
+<a name="l00453"></a>00453     updateTotalTime();
+<a name="l00454"></a>00454 };
+<a name="l00455"></a>00455 
+<a name="l00456"></a>00456 
+<a name="l00457"></a><a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e">00457</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Stores the elapsed time while computing the image moments of patterns.">FeatureExtractorStatistics::momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00458"></a>00458 {
+<a name="l00459"></a>00459     <span class="keywordflow">if</span> ( momentsComputingTime_ == 0 )
+<a name="l00460"></a>00460         momentsComputingTime_ = <span class="keyword">new</span> double;
+<a name="l00461"></a>00461 
+<a name="l00462"></a>00462     *momentsComputingTime_ = elapsedTime;
+<a name="l00463"></a>00463     updateTotalTime();
+<a name="l00464"></a>00464 };
 <a name="l00465"></a>00465 
-<a name="l00469"></a>00469         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00470"></a>00470 };
-<a name="l00471"></a>00471 
-<a name="l00472"></a>00472 
-<a name="l00473"></a>00473 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
-<a name="l00474"></a>00474 {
-<a name="l00475"></a>00475     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
-<a name="l00476"></a>00476 };
+<a name="l00466"></a>00466 
+<a name="l00467"></a>00467 
+<a name="l00468"></a>00468 
+<a name="l00474"></a><a class="code" href="class_classification_statistics.html">00474</a> <span class="keyword">class </span><a class="code" href="class_classification_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassificationStatistics</a> : <span class="keyword">public</span> <a class="code" href="class_statistics.html" title="Statistical data gathered during the text recognition process.">Statistics</a>
+<a name="l00475"></a>00475 {
+<a name="l00476"></a>00476     <span class="keyword">public</span>:
 <a name="l00477"></a>00477 
-<a name="l00478"></a>00478 <span class="preprocessor">#endif  //_STATISTICS_H</span>
-<a name="l00479"></a>00479 <span class="preprocessor"></span>
+<a name="l00479"></a>00479         <span class="keyword">explicit</span> <a class="code" href="class_classification_statistics.html#0889a29c4ceb96d48b088244186942e5" title="Constructor.">ClassificationStatistics</a> ();   
+<a name="l00480"></a>00480 
+<a name="l00482"></a>00482         <span class="keyword">virtual</span> <a class="code" href="class_classification_statistics.html#53830523946280d2ada759e95442b10c" title="Destructor.">~ClassificationStatistics</a> ();
+<a name="l00483"></a>00483 
+<a name="l00485"></a>00485         <span class="keywordtype">void</span> <a class="code" href="class_classification_statistics.html#8f41e8a202db23e5c0e39a13f56a861f" title="Prints the statistical data gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00486"></a>00486 
+<a name="l00487"></a>00487     <span class="keyword">private</span>:
+<a name="l00488"></a>00488 
+<a name="l00492"></a>00492         <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00493"></a>00493 };
+<a name="l00494"></a>00494 
+<a name="l00495"></a>00495 
+<a name="l00496"></a>00496 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassificationStatistics::updateTotalTime ()
+<a name="l00497"></a>00497 {
+<a name="l00498"></a>00498     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00499"></a>00499 };
+<a name="l00500"></a>00500 
+<a name="l00501"></a>00501 <span class="preprocessor">#endif  //_STATISTICS_H</span>
+<a name="l00502"></a>00502 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:39 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

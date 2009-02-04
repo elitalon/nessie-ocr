@@ -52,12 +52,10 @@ public:
 	/// 
 	/// @post An empty data set is created, with #size_ set to zero and #nFeatures_ set to the number passed.
 	DataSet (const std::string& sourceFile, const unsigned int& nFeatures);
-	
+
 	/// Destructor.
-	/// 
-	/// @post The changes made to the data set are written to disk. The output file is truncated and rewritten
-	~DataSet ();
-	
+	~Dataset ();
+
 	/// Adds a sample to the data set.
 	/// 
 	/// @param sample The sample to add

@@ -84,41 +84,37 @@ window.onload = initDynSections;
 <a name="l00031"></a>00031     
 <a name="l00035"></a>00035     <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>&amp; dataset);
 <a name="l00036"></a>00036     
-<a name="l00037"></a>00037     
-<a name="l00039"></a>00039     <a class="code" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c" title="Destructor.">~Classifier</a> ();
-<a name="l00040"></a>00040     
-<a name="l00041"></a>00041     
-<a name="l00047"></a>00047     std::string <a class="code" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character.">matchShape</a> (<span class="keyword">const</span> Shape&amp; shape);
-<a name="l00048"></a>00048     
-<a name="l00049"></a>00049     
-<a name="l00053"></a>00053     <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792" title="Returns the elapsed time while matching a shape to a character.">matchingShapeTime</a> ();
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keyword">private</span>:
-<a name="l00057"></a>00057     
-<a name="l00058"></a>00058     <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>         dataset_;           
+<a name="l00042"></a>00042     std::string <a class="code" href="class_classifier.html#6fd6a8332d3188ac605ff452ab6dc9c2" title="Matchs a shape to a character.">matchShape</a> (<span class="keyword">const</span> Shape&amp; shape);
+<a name="l00043"></a>00043     
+<a name="l00044"></a>00044     
+<a name="l00048"></a>00048     <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792" title="Returns the elapsed time while matching a shape to a character.">matchingShapeTime</a> ();
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">private</span>:
+<a name="l00052"></a>00052     
+<a name="l00053"></a>00053     <a class="code" href="class_data_set.html" title="Data set of character samples encoded as feature vectors.">DataSet</a>         dataset_;           
+<a name="l00054"></a>00054     
+<a name="l00055"></a>00055     <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>   sample_;            
+<a name="l00056"></a>00056     
+<a name="l00057"></a>00057     <span class="keywordtype">double</span>          matchingShapeTime_; 
+<a name="l00058"></a>00058     
 <a name="l00059"></a>00059     
-<a name="l00060"></a>00060     <a class="code" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a>   sample_;            
+<a name="l00060"></a>00060     <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> ();
 <a name="l00061"></a>00061     
-<a name="l00062"></a>00062     <span class="keywordtype">double</span>          matchingShapeTime_; 
-<a name="l00063"></a>00063     
-<a name="l00064"></a>00064     
-<a name="l00065"></a>00065     <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> ();
-<a name="l00066"></a>00066     
-<a name="l00071"></a>00071     <span class="keywordtype">void</span> buildFeatureVector (<span class="keyword">const</span> Shape&amp; shape);
-<a name="l00072"></a>00072 };
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> buildFeatureVector (<span class="keyword">const</span> Shape&amp; shape);
+<a name="l00067"></a>00067 };
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00071"></a><a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792">00071</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792" title="Returns the elapsed time while matching a shape to a character.">Classifier::matchingShapeTime</a> ()
+<a name="l00072"></a>00072 {
+<a name="l00073"></a>00073     <span class="keywordflow">return</span> matchingShapeTime_;
+<a name="l00074"></a>00074 };
 <a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792">00076</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="class_classifier.html#e6e17bf27b21ee56505de1210b469792" title="Returns the elapsed time while matching a shape to a character.">Classifier::matchingShapeTime</a> ()
-<a name="l00077"></a>00077 {
-<a name="l00078"></a>00078     <span class="keywordflow">return</span> matchingShapeTime_;
-<a name="l00079"></a>00079 };
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
-<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00076"></a>00076 <span class="preprocessor">#endif  //_CLASSIFIER_H</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:39 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

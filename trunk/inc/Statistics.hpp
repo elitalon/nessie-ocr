@@ -409,12 +409,21 @@ class FeatureExtractorStatistics : public Statistics
 		/// @param	elapsedTime Elapsed time in seconds.
 		void patternsBuildingTime (const double& elapsedTime);
 
+		///	@brief	Stores the elapsed time while computing the image moments of patterns.
+		///
+		///	@post	The internal member is set to <em>elapsedTime</em>.
+		///
+		///	@param	elapsedTime	Elapsed time in seconds.
+		void momentsComputingTime (const double& elapsedTime);
+
 		/// @brief	Prints the statistical data gathered.
 		void print () const;
 
 	private:
 
 		double*	patternsBuildingTime_;	///< Elapsed time while building an array of patterns.
+
+		double*	momentsComputingTime_;	///< Elapsed time while computing the image moments of patterns.
 
 		/// @brief	Updates the total elapsed time.
 		/// 
@@ -429,6 +438,9 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 
 	if ( patternsBuildingTime_ != 0 )
 		totalTime_ += *patternsBuildingTime_;
+
+	if ( momentsComputingTime_ != 0 )
+		totalTime_ += *momentsComputingTime_;
 };
 
 
@@ -440,6 +452,17 @@ inline void FeatureExtractorStatistics::patternsBuildingTime (const double& elap
 	*patternsBuildingTime_ = elapsedTime;
 	updateTotalTime();
 };
+
+
+inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)
+{
+	if ( momentsComputingTime_ == 0 )
+		momentsComputingTime_ = new double;
+
+	*momentsComputingTime_ = elapsedTime;
+	updateTotalTime();
+};
+
 
 
 

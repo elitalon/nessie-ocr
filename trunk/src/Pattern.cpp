@@ -3,6 +3,7 @@
 
 #include "Pattern.hpp"
 #include "Region.hpp"
+#include <cmath>
 #include <Magick++.h>
 
 
@@ -20,7 +21,30 @@ Pattern::Pattern (const Region& region)
 };
 
 
-void Pattern::writeToOutputImage (const std::string& outputFile) const
+std::pair<unsigned int, unsigned int> Pattern::centroid () const
+{
+	unsigned int area = 0;
+	unsigned int m10 = 0;
+	unsigned int m01 = 0;
+
+	for ( unsigned int i = 0; i < height_; ++i )
+	{
+		for (unsigned int j = 0; j < width_; ++j )
+		{
+			area += pixels_.at(i * width_ + j);
+			m10 += i * pixels_.at(i * width_ + j);
+			m01 += j * pixels_.at(i * width_ + j);
+		}
+	}
+
+	m10 = round( m10 / area );
+	m01 = round( m01 / area );
+
+	return std::pair<unsigned int, unsigned int>(m10,m01);
+};
+
+
+void Pattern::writeToOutputImage (const std::string& outputFile, const bool& invert) const
 {
 	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), Magick::ColorGray(1.0));
 	outputImage.type( Magick::GrayscaleType );
@@ -35,7 +59,10 @@ void Pattern::writeToOutputImage (const std::string& outputFile) const
 		{
 			pixel = originPixel + (i * view.columns()) + j;
 
-			*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j)) );
+			if ( not invert )
+				*pixel = Magick::ColorGray ( static_cast<double>(pixels_.at(i * width_ + j)) );
+			else
+				*pixel = Magick::ColorGray ( static_cast<double>(not (pixels_.at(i * width_ + j) ^ 0)) );
 		}
 	}
 

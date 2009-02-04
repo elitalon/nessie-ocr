@@ -5,16 +5,7 @@
 
 
 FeatureVector::FeatureVector(const unsigned int& nFeatures)
-	:	features_(std::vector<double>(nFeatures)),
-		size_(nFeatures)
-{
-	for ( unsigned int i = 0; i < size_; ++i )
-		features_.at(i) = 0.0;
-};
-
-
-FeatureVector::~FeatureVector()
-{
-
-};
+:	features_(std::vector<double>(nFeatures, 0.0)),
+	size_(nFeatures)
+{};
 

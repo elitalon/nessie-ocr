@@ -64,7 +64,7 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>FeatureVector Class Reference</h1><!-- doxytag: class="FeatureVector" -->Vector of features that defines a character in an image.  
+<h1>FeatureVector Class Reference</h1><!-- doxytag: class="FeatureVector" -->Array of characteristic features that identifies a pattern.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_feature_vector_8hpp-source.html">FeatureVector.hpp</a>&gt;</code>
@@ -79,40 +79,36 @@ Collaboration diagram for FeatureVector:</div>
 <a href="class_feature_vector-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#fa6d13cc73a793dc188b7389c763d2fc">FeatureVector</a> (const unsigned int &amp;nFeatures=7)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#e59f95a0109092652bde91db391c5827">FeatureVector</a> (const unsigned int &amp;nFeatures)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#fa6d13cc73a793dc188b7389c763d2fc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1b0407e6c3a5a0154a43e138972f7ee7"></a><!-- doxytag: member="FeatureVector::~FeatureVector" ref="1b0407e6c3a5a0154a43e138972f7ee7" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#1b0407e6c3a5a0154a43e138972f7ee7">~FeatureVector</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e59f95a0109092652bde91db391c5827"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#ef9ff3555402937ea2d692b0c46d7994">operator()</a> (const unsigned int &amp;index)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#09620075837fe8ff38f4d1d49b6f2b3b">operator()</a> (const unsigned int &amp;feature)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to a certain feature.  <a href="#ef9ff3555402937ea2d692b0c46d7994"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#a30a7447fc43c820f9a21cd598aeb63d">operator()</a> (const unsigned int &amp;index) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to a feature in the vector.  <a href="#09620075837fe8ff38f4d1d49b6f2b3b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#cc3fa8617f5eee518cd55256a755399a">operator()</a> (const unsigned int &amp;feature) const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a pixel in the clip.  <a href="#cc3fa8617f5eee518cd55256a755399a"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a certain feature.  <a href="#a30a7447fc43c820f9a21cd598aeb63d"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_feature_vector.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a">operator+</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makes the sum of two feature vectors.  <a href="#58a2309387bd18d956e16c148585352a"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the sum of two feature vectors.  <a href="#58a2309387bd18d956e16c148585352a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_feature_vector.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab">operator-</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makes the subtraction of two feature vectors.  <a href="#fa1a86fbb34177281854406deea435ab"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the subtraction of two feature vectors.  <a href="#fa1a86fbb34177281854406deea435ab"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#a372a9185d83db2283947d50a2913db0">operator*</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makes the multiplication of two feature vectors.  <a href="#a372a9185d83db2283947d50a2913db0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the dot product of two feature vectors.  <a href="#a372a9185d83db2283947d50a2913db0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#4e3bd39520fdd8afbefa90ed203d512b">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of features stored in the vector.  <a href="#4e3bd39520fdd8afbefa90ed203d512b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of features held.  <a href="#4e3bd39520fdd8afbefa90ed203d512b"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Vector of features that defines a character in an image. 
+Array of characteristic features that identifies a pattern. 
 <p>
-This class stores a number of features, computed from the moments of an image where the character's shape has been extracted. Each feature represents an image moment.<p>
+This class stores a set of features computed from a pattern where a character's shape has been mapped.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2008-11-10 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-04 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="fa6d13cc73a793dc188b7389c763d2fc"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="fa6d13cc73a793dc188b7389c763d2fc" args="(const unsigned int &amp;nFeatures=7)" -->
+<a class="anchor" name="e59f95a0109092652bde91db391c5827"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="e59f95a0109092652bde91db391c5827" args="(const unsigned int &amp;nFeatures)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -120,7 +116,7 @@ This class stores a number of features, computed from the moments of an image wh
           <td class="memname">FeatureVector::FeatureVector           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>nFeatures</em> = <code>7</code>          </td>
+          <td class="paramname"> <em>nFeatures</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -133,14 +129,14 @@ Constructor.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>nFeatures</em>&nbsp;</td><td>NUmber of features to store </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>nFeatures</em>&nbsp;</td><td>Number of features to hold. </td></tr>
   </table>
 </dl>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="cc3fa8617f5eee518cd55256a755399a"></a><!-- doxytag: member="FeatureVector::operator()" ref="cc3fa8617f5eee518cd55256a755399a" args="(const unsigned int &amp;feature) const " -->
+<a class="anchor" name="a30a7447fc43c820f9a21cd598aeb63d"></a><!-- doxytag: member="FeatureVector::operator()" ref="a30a7447fc43c820f9a21cd598aeb63d" args="(const unsigned int &amp;index) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -148,7 +144,7 @@ Constructor.
           <td class="memname">double FeatureVector::operator()           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>feature</em>          </td>
+          <td class="paramname"> <em>index</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -157,18 +153,18 @@ Constructor.
 <div class="memdoc">
 
 <p>
-Allows read-only access to a pixel in the clip. 
+Allows read-only access to a certain feature. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>feature</em>&nbsp;</td><td>Position in the vector where the feature is at.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>Position inside the vector where the feature is.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Feature at given location. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Feature at given position. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="09620075837fe8ff38f4d1d49b6f2b3b"></a><!-- doxytag: member="FeatureVector::operator()" ref="09620075837fe8ff38f4d1d49b6f2b3b" args="(const unsigned int &amp;feature)" -->
+<a class="anchor" name="ef9ff3555402937ea2d692b0c46d7994"></a><!-- doxytag: member="FeatureVector::operator()" ref="ef9ff3555402937ea2d692b0c46d7994" args="(const unsigned int &amp;index)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -176,7 +172,7 @@ Allows read-only access to a pixel in the clip.
           <td class="memname">double &amp; FeatureVector::operator()           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>feature</em>          </td>
+          <td class="paramname"> <em>index</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -185,11 +181,11 @@ Allows read-only access to a pixel in the clip.
 <div class="memdoc">
 
 <p>
-Allows read-and-write access to a feature in the vector. 
+Allows read-and-write access to a certain feature. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>feature</em>&nbsp;</td><td>Position in the vector where the feature is at.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>Position inside the vector where the feature is.</td></tr>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the feature at given position. </dd></dl>
@@ -213,14 +209,14 @@ Allows read-and-write access to a feature in the vector.
 <div class="memdoc">
 
 <p>
-Makes the multiplication of two feature vectors. 
+Computes the dot product of two feature vectors. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to multiplicate</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to multiplicate.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> object as a result of multiplicating both vectors </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The result of multiplicating both feature vectors. </dd></dl>
 
 </div>
 </div><p>
@@ -241,14 +237,14 @@ Makes the multiplication of two feature vectors.
 <div class="memdoc">
 
 <p>
-Makes the sum of two feature vectors. 
+Computes the sum of two feature vectors. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to sum</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to sum.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> object as a result of summing both vectors </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of summing both feature vectors. </dd></dl>
 
 </div>
 </div><p>
@@ -269,14 +265,14 @@ Makes the sum of two feature vectors.
 <div class="memdoc">
 
 <p>
-Makes the subtraction of two feature vectors. 
+Computes the subtraction of two feature vectors. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to subtract</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to subtract.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> object as a result of subtracting both vectors </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of subtracting both feature vectors. </dd></dl>
 
 </div>
 </div><p>
@@ -296,14 +292,14 @@ Makes the subtraction of two feature vectors.
 <div class="memdoc">
 
 <p>
-Returns the number of features stored in the vector. 
+Returns the number of features held. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features stored in the vector. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features held. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:48 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:40 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

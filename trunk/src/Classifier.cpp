@@ -18,10 +18,6 @@ Classifier::Classifier (const DataSet& dataset)
 {};
 
 
-Classifier::~Classifier ()
-{};
-
-
 std::string Classifier::matchShape (const Shape& shape)
 {
 	// Start timing

@@ -41,6 +41,7 @@ void Recognizer::extractText (const Clip& pressClip)
 
 	// Feature extraction stage
 	FeatureExtractor featureExtractor(preprocessor.regions());
+	featureExtractor.computeMoments();
 
 	// Classification stage
 	

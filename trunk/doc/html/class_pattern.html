@@ -97,9 +97,13 @@ Collaboration diagram for Pattern:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc">size</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels in the pattern.  <a href="#9b1e427a988877e74de08d8b6c957ddc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#bed1e425eed5e5b7de58245c53cc7f78">writeToOutputImage</a> (const std::string &amp;outputFile) const </td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::pair&lt; unsigned int, <br class="typebreak">
+unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#6b68a8e768946a755c4be160bc9de91d">centroid</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new image in the filesystem using Magick++ with the pattern drawn.  <a href="#bed1e425eed5e5b7de58245c53cc7f78"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the centroid of a pattern using geometric moments.  <a href="#6b68a8e768946a755c4be160bc9de91d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#f39af1cd08cd55a2a5aff289a4cf815d">writeToOutputImage</a> (const std::string &amp;outputFile, const bool &amp;invert=false) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new image in the filesystem using Magick++ with the pattern drawn.  <a href="#f39af1cd08cd55a2a5aff289a4cf815d"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Set of pixels that defines a pattern to be recognized as a character in classification stage. 
@@ -136,6 +140,28 @@ Constructor.
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="6b68a8e768946a755c4be160bc9de91d"></a><!-- doxytag: member="Pattern::centroid" ref="6b68a8e768946a755c4be160bc9de91d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; unsigned int, unsigned int &gt; Pattern::centroid           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Computes the centroid of a pattern using geometric moments. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The coordinates of the centroid as a pair of integers. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="47965f659aec8df4af1970f1b3b1dabb"></a><!-- doxytag: member="Pattern::height" ref="47965f659aec8df4af1970f1b3b1dabb" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +304,7 @@ Returns the width of the pattern.
 
 </div>
 </div><p>
-<a class="anchor" name="bed1e425eed5e5b7de58245c53cc7f78"></a><!-- doxytag: member="Pattern::writeToOutputImage" ref="bed1e425eed5e5b7de58245c53cc7f78" args="(const std::string &amp;outputFile) const " -->
+<a class="anchor" name="f39af1cd08cd55a2a5aff289a4cf815d"></a><!-- doxytag: member="Pattern::writeToOutputImage" ref="f39af1cd08cd55a2a5aff289a4cf815d" args="(const std::string &amp;outputFile, const bool &amp;invert=false) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -286,9 +312,18 @@ Returns the width of the pattern.
           <td class="memname">void Pattern::writeToOutputImage           </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>outputFile</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
+          <td class="paramname"> <em>outputFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>invert</em> = <code>false</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -299,7 +334,8 @@ Creates a new image in the filesystem using Magick++ with the pattern drawn.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>invert</em>&nbsp;</td><td>A boolean value that decides whether to invert the pixel values or not.</td></tr>
   </table>
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent. </dd></dl>
@@ -307,7 +343,7 @@ Creates a new image in the filesystem using Magick++ with the pattern drawn.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:48 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:40 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

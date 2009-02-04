@@ -39,7 +39,7 @@ PATTERN = Pattern.cpp Pattern.hpp Region.o
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
 MAIN = main.cpp Recognizer.o Clip.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
-FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o Statistics.o Pattern.o
+FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o Statistics.o Pattern.o FeatureVector.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
 CLIP = Clip.cpp Clip.hpp NessieException.o
 CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o FeatureVector.o
@@ -99,7 +99,7 @@ Region.o: $(REGION)
 	@echo
 
 FeatureExtractor.o: $(FEATURE_EXTRACTOR)
-	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Pattern.o: $(PATTERN)

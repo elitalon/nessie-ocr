@@ -92,9 +92,10 @@ Collaboration diagram for DataSet:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_set.html#ffb28bf240421998cd5470f594a6bb22">DataSet</a> (const std::string &amp;sourceFile, const unsigned int &amp;nFeatures)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ffb28bf240421998cd5470f594a6bb22"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_set.html#2cdb84d32331956b413ca36933e516bd">~DataSet</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="eb7eca66fe505fcba85a007a20a7a8e0"></a><!-- doxytag: member="DataSet::~Dataset" ref="eb7eca66fe505fcba85a007a20a7a8e0" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_set.html#eb7eca66fe505fcba85a007a20a7a8e0">~Dataset</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#2cdb84d32331956b413ca36933e516bd"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_set.html#73b646f0b40545eaf7bbe72418a0ed51">addSample</a> (const <a class="el" href="class_data_set.html#7563096ce4847d88411ed3f6ad331310">Sample</a> &amp;sample)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a sample to the data set.  <a href="#73b646f0b40545eaf7bbe72418a0ed51"></a><br></td></tr>
@@ -136,7 +137,7 @@ This class stores a set of feature vectors that represents different characters.
 Sample of a data set. 
 <p>
 This pair keeps the feature vector and the category that defines every sample in a data set.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Vector of features that defines a character in an image.">FeatureVector</a> </dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> </dd></dl>
 
 </div>
 </div><p>
@@ -216,28 +217,6 @@ Constructor.
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty data set is created, with size_ set to zero and nFeatures_ set to the number passed.</dd></dl>
 This constructor is intended to create an empty data set where only new samples will be added and previous samples in the source file, if any, are automatically discarded. Thus, the previous content will be cleared and updated to the new samples added. 
-</div>
-</div><p>
-<a class="anchor" name="2cdb84d32331956b413ca36933e516bd"></a><!-- doxytag: member="DataSet::~DataSet" ref="2cdb84d32331956b413ca36933e516bd" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">DataSet::~DataSet           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Destructor. 
-<p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The changes made to the data set are written to disk. The output file is truncated and rewritten </dd></dl>
-
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
@@ -386,7 +365,7 @@ Returns the file path where the data set is stored in the filesystem.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:47 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:40 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -195,7 +195,7 @@ Applies a global thresholding algorithm over the press clip.
 <p>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1.</dd></dl>
 The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.<p>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light ones. Some function should be developed to automatically make the right decision. </dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light ones. Some function should be developed to automatically make the right decision. </dd></dl>
 
 </div>
 </div><p>
@@ -358,7 +358,7 @@ Returns the statistics about the preprocessing stage.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Feb 2 16:08:48 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 17:50:40 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

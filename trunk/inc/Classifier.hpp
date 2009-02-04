@@ -34,11 +34,6 @@ public:
 	/// @param dataset A data set to use in the classification process.
 	Classifier (const DataSet& dataset);
 	
-	
-	/// Destructor.
-	~Classifier ();
-	
-	
 	/// Matchs a shape to a character.
 	/// 
 	/// @param shape Shape that represents a character

@@ -11,6 +11,8 @@
 /// @param argc		Number of command line arguments.
 /// @param argv[]	Command line arguments.
 ///
+///	@todo	Encapsulate all classes in a namespace, e.g. NessieOcr
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-16
 ///

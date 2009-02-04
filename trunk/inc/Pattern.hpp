@@ -7,6 +7,7 @@
 class Region;
 #include <vector>
 #include <string>
+#include <utility>
 
 
 ///	@brief		Set of pixels that defines a pattern to be recognized as a character in classification stage.
@@ -57,13 +58,19 @@ class Pattern
 		/// @return	Number of pixels in the pattern.
 		const unsigned int& size () const;
 
+		/// @brief	Computes the centroid of a pattern using geometric moments.
+		/// 
+		/// @return	The coordinates of the centroid as a pair of integers.
+		std::pair<unsigned int, unsigned int> centroid () const;
+
 		/// @brief	Creates a new image in the filesystem using Magick++ with the pattern drawn.
 		///
 		/// @param	outputFile		A string with the image name in the filesystem.
+		/// @param	invert			A boolean value that decides whether to invert the pixel values or not.
 		///
 		/// @post	A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the
 		///			filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent.
-		void writeToOutputImage (const std::string& outputFile) const;
+		void writeToOutputImage (const std::string& outputFile, const bool& invert=false) const;
 
 	private:
 
