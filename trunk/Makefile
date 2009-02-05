@@ -55,7 +55,7 @@ PROGRAM = bin/ocr
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
-CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -Wold-style-cast -fPIC
+CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -fPIC
 LDFLAGS = $(MAGICK_LDFLAGS) 
 
 

@@ -3,7 +3,6 @@
 
 #include "FeatureExtractor.hpp"
 #include <boost/timer.hpp>
-#include <boost/math/special_functions/factorials.hpp>
 #include <cmath>
 #include <string>
 #include <sstream>
