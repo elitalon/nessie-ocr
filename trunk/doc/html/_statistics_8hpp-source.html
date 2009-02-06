@@ -114,13 +114,13 @@ window.onload = initDynSections;
 <a name="l00103"></a>00103 
 <a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#6f26bb237b608b51a284c5a34af283b0" title="Stores the elapsed time while executing the thinning algorithm.">thinningTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00110"></a>00110 
-<a name="l00116"></a>00116         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Stores the elapsed time while executing the regions extraction algorithm.">regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Stores the number of regions found before merging the accents while executing the...">nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
 <a name="l00117"></a>00117 
-<a name="l00123"></a>00123         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Stores the number of regions found before merging the accents while executing the...">nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
+<a name="l00123"></a>00123         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Stores the number of line delimiters found while executing the regions extraction...">nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters);
 <a name="l00124"></a>00124 
 <a name="l00130"></a>00130         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Stores the number of regions found after merging the accents while executing the...">nRegionsAfterMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions);
 <a name="l00131"></a>00131 
-<a name="l00137"></a>00137         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Stores the number of line delimiters found while executing the regions extraction...">nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters);
+<a name="l00137"></a>00137         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Stores the elapsed time while executing the regions extraction algorithm.">regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00138"></a>00138 
 <a name="l00144"></a>00144         <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#fabc1331128c858a4ed355f60b7a4782" title="Stores the slant angle estimation used to correct the slanting of every region found...">slantAngleEstimation</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; angle);
 <a name="l00145"></a>00145 
@@ -146,13 +146,13 @@ window.onload = initDynSections;
 <a name="l00185"></a>00185 
 <a name="l00186"></a>00186         <span class="keywordtype">double</span>*         thinningTime_;              
 <a name="l00187"></a>00187 
-<a name="l00188"></a>00188         <span class="keywordtype">double</span>*         regionsExtractionTime_;     
+<a name="l00188"></a>00188         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*   nRegionsBeforeMerging_;     
 <a name="l00189"></a>00189 
-<a name="l00190"></a>00190         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*   nRegionsBeforeMerging_;     
+<a name="l00190"></a>00190         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*   nLineDelimiters_;           
 <a name="l00191"></a>00191 
 <a name="l00192"></a>00192         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*   nRegionsAfterMerging_;      
 <a name="l00193"></a>00193 
-<a name="l00194"></a>00194         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>*   nLineDelimiters_;           
+<a name="l00194"></a>00194         <span class="keywordtype">double</span>*         regionsExtractionTime_;     
 <a name="l00195"></a>00195 
 <a name="l00196"></a>00196         <span class="keywordtype">double</span>*         slantAngleEstimation_;      
 <a name="l00197"></a>00197 
@@ -253,40 +253,40 @@ window.onload = initDynSections;
 <a name="l00295"></a>00295 };
 <a name="l00296"></a>00296 
 <a name="l00297"></a>00297 
-<a name="l00298"></a><a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe">00298</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Stores the elapsed time while executing the regions extraction algorithm.">PreprocessorStatistics::regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00298"></a><a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7">00298</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Stores the number of regions found before merging the accents while executing the...">PreprocessorStatistics::nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions)
 <a name="l00299"></a>00299 {
-<a name="l00300"></a>00300     <span class="keywordflow">if</span> ( regionsExtractionTime_ == 0 )
-<a name="l00301"></a>00301         regionsExtractionTime_ = <span class="keyword">new</span> double;
+<a name="l00300"></a>00300     <span class="keywordflow">if</span> ( nRegionsBeforeMerging_ == 0 )
+<a name="l00301"></a>00301         nRegionsBeforeMerging_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
 <a name="l00302"></a>00302 
-<a name="l00303"></a>00303     *regionsExtractionTime_ = elapsedTime;
-<a name="l00304"></a>00304     updateTotalTime();
-<a name="l00305"></a>00305 };
+<a name="l00303"></a>00303     *nRegionsBeforeMerging_ = nRegions;
+<a name="l00304"></a>00304 };
+<a name="l00305"></a>00305 
 <a name="l00306"></a>00306 
-<a name="l00307"></a>00307 
-<a name="l00308"></a><a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7">00308</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#f60ad6e64ad8e20186526fa0468d0bd7" title="Stores the number of regions found before merging the accents while executing the...">PreprocessorStatistics::nRegionsBeforeMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions)
-<a name="l00309"></a>00309 {
-<a name="l00310"></a>00310     <span class="keywordflow">if</span> ( nRegionsBeforeMerging_ == 0 )
-<a name="l00311"></a>00311         nRegionsBeforeMerging_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
-<a name="l00312"></a>00312 
-<a name="l00313"></a>00313     *nRegionsBeforeMerging_ = nRegions;
-<a name="l00314"></a>00314 };
+<a name="l00307"></a><a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a">00307</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Stores the number of line delimiters found while executing the regions extraction...">PreprocessorStatistics::nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters)
+<a name="l00308"></a>00308 {
+<a name="l00309"></a>00309     <span class="keywordflow">if</span> ( nLineDelimiters_ == 0 )
+<a name="l00310"></a>00310         nLineDelimiters_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312     *nLineDelimiters_ = nDelimiters;
+<a name="l00313"></a>00313 };
+<a name="l00314"></a>00314 
 <a name="l00315"></a>00315 
-<a name="l00316"></a>00316 
-<a name="l00317"></a><a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03">00317</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Stores the number of regions found after merging the accents while executing the...">PreprocessorStatistics::nRegionsAfterMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions)
-<a name="l00318"></a>00318 {
-<a name="l00319"></a>00319     <span class="keywordflow">if</span> ( nRegionsAfterMerging_ == 0 )
-<a name="l00320"></a>00320         nRegionsAfterMerging_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
-<a name="l00321"></a>00321 
-<a name="l00322"></a>00322     *nRegionsAfterMerging_ = nRegions;
-<a name="l00323"></a>00323 };
+<a name="l00316"></a><a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03">00316</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#cd997d96cac39c43698fc7beebcd7d03" title="Stores the number of regions found after merging the accents while executing the...">PreprocessorStatistics::nRegionsAfterMerging</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nRegions)
+<a name="l00317"></a>00317 {
+<a name="l00318"></a>00318     <span class="keywordflow">if</span> ( nRegionsAfterMerging_ == 0 )
+<a name="l00319"></a>00319         nRegionsAfterMerging_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
+<a name="l00320"></a>00320 
+<a name="l00321"></a>00321     *nRegionsAfterMerging_ = nRegions;
+<a name="l00322"></a>00322 };
+<a name="l00323"></a>00323 
 <a name="l00324"></a>00324 
-<a name="l00325"></a>00325 
-<a name="l00326"></a><a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a">00326</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#89b8a3ecd00bc08c7ee0b9174fb3c21a" title="Stores the number of line delimiters found while executing the regions extraction...">PreprocessorStatistics::nLineDelimiters</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nDelimiters)
-<a name="l00327"></a>00327 {
-<a name="l00328"></a>00328     <span class="keywordflow">if</span> ( nLineDelimiters_ == 0 )
-<a name="l00329"></a>00329         nLineDelimiters_ = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> int;
-<a name="l00330"></a>00330 
-<a name="l00331"></a>00331     *nLineDelimiters_ = nDelimiters;
+<a name="l00325"></a><a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe">00325</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_preprocessor_statistics.html#b86800469353c52374550e78ec73d0fe" title="Stores the elapsed time while executing the regions extraction algorithm.">PreprocessorStatistics::regionsExtractionTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00326"></a>00326 {
+<a name="l00327"></a>00327     <span class="keywordflow">if</span> ( regionsExtractionTime_ == 0 )
+<a name="l00328"></a>00328         regionsExtractionTime_ = <span class="keyword">new</span> double;
+<a name="l00329"></a>00329 
+<a name="l00330"></a>00330     *regionsExtractionTime_ = elapsedTime;
+<a name="l00331"></a>00331     updateTotalTime();
 <a name="l00332"></a>00332 };
 <a name="l00333"></a>00333 
 <a name="l00334"></a>00334 
@@ -425,7 +425,7 @@ window.onload = initDynSections;
 <a name="l00501"></a>00501 <span class="preprocessor">#endif  //_STATISTICS_H</span>
 <a name="l00502"></a>00502 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 4 18:28:25 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Feb 6 18:27:04 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

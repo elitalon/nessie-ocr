@@ -23,9 +23,12 @@ class Pattern
 	public:
 
 		///	@brief	Constructor.
+		explicit Pattern ();
+
+		///	@brief	Constructor.
 		///
 		///	@param	region	A Region object from which builds the pattern.
-		explicit Pattern(const Region& region);
+		explicit Pattern (const Region& region);
 
 		/// @brief	Allows read-and-write access to a pixel in the pattern.
 		///
@@ -74,16 +77,15 @@ class Pattern
 
 	private:
 
-		std::vector<unsigned int>	pixels_;		///< Set of pixels that defines the whole pattern.
+		static const unsigned int	planeSize_;	///< Side size of the pattern.
 
-		unsigned int				height_;		///< Height of the pattern.
+		std::vector<unsigned int>	pixels_;	///< Set of pixels that defines the whole pattern.
 
-		unsigned int				width_;			///< Width of the pattern.
+		unsigned int				height_;	///< Height of the pattern.
 
-		unsigned int				size_;			///< Number of pixels in the pattern.
+		unsigned int				width_;		///< Width of the pattern.
 
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT!!
-		Pattern ();
+		unsigned int				size_;		///< Number of pixels in the pattern.
 };
 
 

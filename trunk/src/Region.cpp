@@ -88,6 +88,7 @@ void Region::normalizeCoordinates ()
 
 	height_ = bottomBorderRow_ - topBorderRow_ + 1;
 	width_	= rightBorderColumn_ - leftBorderColumn_ + 1;
+	size_	= coordinates_.size();
 
 	topLeftmostPixelCoordinates_ = PixelCoordinates(topBorderRow_, leftBorderColumn_);
 };

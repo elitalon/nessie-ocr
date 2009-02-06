@@ -108,19 +108,19 @@ class PreprocessorStatistics : public Statistics
 		/// @param	elapsedTime Elapsed time in seconds.
 		void thinningTime (const double& elapsedTime);
 
-		/// @brief	Stores the elapsed time while executing the regions extraction algorithm.
-		/// 
-		///	@post	The internal member is set to <em>elapsedTime</em>.
-		/// 
-		/// @param	elapsedTime Elapsed time in seconds.
-		void regionsExtractionTime (const double& elapsedTime);
-
 		/// @brief	Stores the number of regions found before merging the accents while executing the regions extraction algorithm.
 		/// 
 		///	@post	The internal member is set to <em>nRegions</em>.
 		/// 
 		/// @param	nRegions Number of regions found.
 		void nRegionsBeforeMerging (const unsigned int& nRegions);
+
+		/// @brief	Stores the number of line delimiters found while executing the regions extraction algorithm.
+		/// 
+		///	@post	The internal member is set to <em>nDelimiters</em>.
+		/// 
+		/// @param	nDelimiters Number of line delimiters found.
+		void nLineDelimiters (const unsigned int& nDelimiters);
 
 		/// @brief	Stores the number of regions found after merging the accents while executing the regions extraction algorithm.
 		/// 
@@ -129,12 +129,12 @@ class PreprocessorStatistics : public Statistics
 		/// @param	nRegions Number of regions found.
 		void nRegionsAfterMerging (const unsigned int& nRegions);
 
-		/// @brief	Stores the number of line delimiters found while executing the regions extraction algorithm.
+		/// @brief	Stores the elapsed time while executing the regions extraction algorithm.
 		/// 
-		///	@post	The internal member is set to <em>nDelimiters</em>.
+		///	@post	The internal member is set to <em>elapsedTime</em>.
 		/// 
-		/// @param	nDelimiters Number of line delimiters found.
-		void nLineDelimiters (const unsigned int& nDelimiters);
+		/// @param	elapsedTime Elapsed time in seconds.
+		void regionsExtractionTime (const double& elapsedTime);
 
 		/// @brief	Stores the slant angle estimation used to correct the slanting of every region found after executing the regions extraction algorithm.
 		/// 
@@ -185,13 +185,13 @@ class PreprocessorStatistics : public Statistics
 
 		double*			thinningTime_;				///< Elapsed time while executing the thinning algorithm.
 
-		double*			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
-
 		unsigned int*	nRegionsBeforeMerging_;		///< Number of regions of pixels found before merging accents while applying a segmentation process over the clip.
+
+		unsigned int*	nLineDelimiters_;			///< Number of line delimiters found while applying a segmentation process over the clip.
 
 		unsigned int*	nRegionsAfterMerging_;		///< Number of regions of pixels found after merging accents while applying a segmentation process over the clip.
 
-		unsigned int*	nLineDelimiters_;			///< Number of line delimiters found while applying a segmentation process over the clip.
+		double*			regionsExtractionTime_;		///< Elapsed time while extracting the regions of ink pixels applying a segmentation process over the press clip.
 
 		double*			slantAngleEstimation_;		///< Angle estimation in degrees to correct the slanting in characters.
 
@@ -295,22 +295,21 @@ inline void PreprocessorStatistics::averagingFilteringTime (const double& elapse
 };
 
 
-inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsedTime)
-{
-	if ( regionsExtractionTime_ == 0 )
-		regionsExtractionTime_ = new double;
-
-	*regionsExtractionTime_ = elapsedTime;
-	updateTotalTime();
-};
-
-
 inline void PreprocessorStatistics::nRegionsBeforeMerging (const unsigned int& nRegions)
 {
 	if ( nRegionsBeforeMerging_ == 0 )
 		nRegionsBeforeMerging_ = new unsigned int;
 
 	*nRegionsBeforeMerging_ = nRegions;
+};
+
+
+inline void PreprocessorStatistics::nLineDelimiters (const unsigned int& nDelimiters)
+{
+	if ( nLineDelimiters_ == 0 )
+		nLineDelimiters_ = new unsigned int;
+
+	*nLineDelimiters_ = nDelimiters;
 };
 
 
@@ -323,12 +322,13 @@ inline void PreprocessorStatistics::nRegionsAfterMerging (const unsigned int& nR
 };
 
 
-inline void PreprocessorStatistics::nLineDelimiters (const unsigned int& nDelimiters)
+inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsedTime)
 {
-	if ( nLineDelimiters_ == 0 )
-		nLineDelimiters_ = new unsigned int;
+	if ( regionsExtractionTime_ == 0 )
+		regionsExtractionTime_ = new double;
 
-	*nLineDelimiters_ = nDelimiters;
+	*regionsExtractionTime_ = elapsedTime;
+	updateTotalTime();
 };
 
 

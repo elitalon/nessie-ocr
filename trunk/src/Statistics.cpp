@@ -23,10 +23,10 @@ PreprocessorStatistics::PreprocessorStatistics ()
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
 	thinningTime_(0),
-	regionsExtractionTime_(0),
 	nRegionsBeforeMerging_(0),
-	nRegionsAfterMerging_(0),
 	nLineDelimiters_(0),
+	nRegionsAfterMerging_(0),
+	regionsExtractionTime_(0),
 	slantAngleEstimation_(0),
 	slantingCorrectionTime_(0),
 	spacesBetweenWords_(0),
@@ -43,10 +43,10 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
 	thinningTime_(0),
-	regionsExtractionTime_(0),
 	nRegionsBeforeMerging_(0),
-	nRegionsAfterMerging_(0),
 	nLineDelimiters_(0),
+	nRegionsAfterMerging_(0),
+	regionsExtractionTime_(0),
 	slantAngleEstimation_(0),
 	slantingCorrectionTime_(0),
 	spacesBetweenWords_(0),
@@ -71,17 +71,17 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	if ( statistics.thinningTime_ != 0 )
 		thinningTime_ = new double(*statistics.thinningTime_);
 
-	if ( statistics.regionsExtractionTime_ != 0 )
-		regionsExtractionTime_ = new double(*statistics.regionsExtractionTime_);
-
 	if ( statistics.nRegionsBeforeMerging_ != 0 )
 		nRegionsBeforeMerging_ = new unsigned int(*statistics.nRegionsBeforeMerging_);
+
+	if ( statistics.nLineDelimiters_ != 0 )
+		nLineDelimiters_ = new unsigned int(*statistics.nLineDelimiters_);
 
 	if ( statistics.nRegionsAfterMerging_ != 0 )
 		nRegionsAfterMerging_ = new unsigned int(*statistics.nRegionsAfterMerging_);
 
-	if ( statistics.nLineDelimiters_ != 0 )
-		nLineDelimiters_ = new unsigned int(*statistics.nLineDelimiters_);
+	if ( statistics.regionsExtractionTime_ != 0 )
+		regionsExtractionTime_ = new double(*statistics.regionsExtractionTime_);
 
 	if ( statistics.slantAngleEstimation_ != 0 )
 		slantAngleEstimation_ = new double(*statistics.slantAngleEstimation_);
@@ -97,7 +97,6 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 
 	if ( statistics.spacesLocationFindingTime_ != 0 )
 		spacesLocationFindingTime_ = new double(*statistics.spacesLocationFindingTime_);
-
 };
 
 
@@ -109,10 +108,10 @@ PreprocessorStatistics::~PreprocessorStatistics ()
 	delete templateFilteringTime_;
 	delete averagingFilteringTime_;
 	delete thinningTime_;		
-	delete regionsExtractionTime_;
 	delete nRegionsBeforeMerging_;
-	delete nRegionsAfterMerging_;
 	delete nLineDelimiters_;
+	delete nRegionsAfterMerging_;
+	delete regionsExtractionTime_;
 	delete slantAngleEstimation_;
 	delete slantingCorrectionTime_;
 	delete spacesBetweenWords_;
@@ -167,18 +166,18 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 		thinningTime_ = tmp;
 	}
 
-	if ( statistics.regionsExtractionTime_ != 0 )
-	{
-		double* tmp = new double(*statistics.regionsExtractionTime_);
-		delete regionsExtractionTime_;
-		regionsExtractionTime_ = tmp;
-	}
-
 	if ( statistics.nRegionsBeforeMerging_ != 0 )
 	{
 		unsigned int* tmp = new unsigned int(*statistics.nRegionsBeforeMerging_);
 		delete nRegionsBeforeMerging_;
 		nRegionsBeforeMerging_ = tmp;
+	}
+
+	if ( statistics.nLineDelimiters_ != 0 )
+	{
+		unsigned int* tmp = new unsigned int(*statistics.nLineDelimiters_);
+		delete nLineDelimiters_;
+		nLineDelimiters_ = tmp;
 	}
 
 	if ( statistics.nRegionsAfterMerging_ != 0 )
@@ -188,11 +187,11 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 		nRegionsAfterMerging_ = tmp;
 	}
 
-	if ( statistics.nLineDelimiters_ != 0 )
+	if ( statistics.regionsExtractionTime_ != 0 )
 	{
-		unsigned int* tmp = new unsigned int(*statistics.nLineDelimiters_);
-		delete nLineDelimiters_;
-		nLineDelimiters_ = tmp;
+		double* tmp = new double(*statistics.regionsExtractionTime_);
+		delete regionsExtractionTime_;
+		regionsExtractionTime_ = tmp;
 	}
 
 	if ( statistics.slantAngleEstimation_ != 0 )
@@ -256,17 +255,17 @@ void PreprocessorStatistics::print () const
 	if ( thinningTime_ != 0 )
 		std::cout << "  - Thinning time                : " << *thinningTime_ << std::endl;
 
-	if ( regionsExtractionTime_ != 0 )
-		std::cout << "  - Regions extraction time      : " << *regionsExtractionTime_ << std::endl;
-
 	if ( nRegionsAfterMerging_ != 0 )
 		std::cout << "  - Regions before merging       : " << *nRegionsBeforeMerging_ << std::endl;
+
+	if ( nLineDelimiters_ != 0 )
+		std::cout << "  - Line delimiters              : " << *nLineDelimiters_ << std::endl;
 
 	if ( nRegionsBeforeMerging_ != 0 )
 		std::cout << "  - Regions after merging        : " << *nRegionsAfterMerging_ << std::endl;
 
-	if ( nLineDelimiters_ != 0 )
-		std::cout << "  - Line delimiters              : " << *nLineDelimiters_ << std::endl;
+	if ( regionsExtractionTime_ != 0 )
+		std::cout << "  - Regions extraction time      : " << *regionsExtractionTime_ << std::endl;
 
 	if ( slantAngleEstimation_ != 0 )
 		std::cout << "  - Slant angle estimation       : " << *slantAngleEstimation_ << std::endl;

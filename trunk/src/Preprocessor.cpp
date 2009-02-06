@@ -9,6 +9,7 @@
 #include <numeric>
 #include <functional>
 #include <cmath>
+#include <iostream>
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
@@ -38,7 +39,7 @@ void Preprocessor::applyGlobalThresholding ()
 	{
 		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
-			if ( clip_(i,j) < threshold)
+			if ( clip_(i,j) <= threshold)
 				clip_(i,j) = 1;	// ink
 			else
 				clip_(i,j) = 0;	// background
@@ -571,7 +572,7 @@ void Preprocessor::extractRegions ()
 		}
 	}
 	statistics_.nRegionsBeforeMerging(regions_.size());
-
+	
 	std::list<LineDelimiter> delimiters(0);
 	findLineDelimiters(visited, delimiters);
 	statistics_.nLineDelimiters(delimiters.size());
@@ -630,7 +631,10 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 
 	while ( currentLineDelimiterIterator != delimiters.end() )
 	{
-		if ( ((*currentLineDelimiterIterator).first - (*previousLineDelimiterIterator).second + 1) > 2 )
+		unsigned int currentLineHeight	= (*currentLineDelimiterIterator).second - (*currentLineDelimiterIterator).first + 1;
+		unsigned int previousLineHeight	= (*previousLineDelimiterIterator).second - (*previousLineDelimiterIterator).first + 1;
+		
+		if ( previousLineHeight > (currentLineHeight / 2) )
 		{
 			advance( currentLineDelimiterIterator, 1 );
 			advance( previousLineDelimiterIterator, 1 );

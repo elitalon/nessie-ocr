@@ -98,7 +98,7 @@ static double tchebichefMoment (const Pattern& pattern, const unsigned int& n, c
 FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
 :	regions_(regions),
 	statistics_(FeatureExtractorStatistics()),
-	patterns_(std::vector<Pattern>(0, Pattern(Region()))),
+	patterns_(std::vector<Pattern>(0)),
 	featureVectors_(std::vector<FeatureVector>(0, FeatureVector(9)))
 {
 	boost::timer timer;
