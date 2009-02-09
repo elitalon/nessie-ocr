@@ -5,72 +5,65 @@
 #define _CLASSIFIER_H
 
 
-#include "DataSet.hpp"
 #include "FeatureVector.hpp"
-class Shape;
-
+#include "Statistics.hpp"
 #include <string>
-#include <deque>
-#include <utility>
+#include <vector>
 
 
 
-/// Classifier of the OCR process.
+///	@brief		Classifier of the OCR process.
 /// 
-/// This class encapsulates all the methods related to the classification stage of the OCR process. Its task
-/// is to match every shape found in the segmentation stage to a valid character.
+///	@details	This class encapsulates all the algorithms related to the classification stage of the OCR process. Its task is to match every feature
+///	vector passed in the constructor to its associated character. In the very end of the process, a string of characters is available through the
+/// Classifier::characters() method.
 /// 
-/// @see FeatureVector
+/// @see		FeatureVector, ClassifierStatistics
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-11-06
+/// @date 2009-02-09
 ///
 class Classifier
 {
-public:
-	
-	/// Constructor.
-	/// 
-	/// @param dataset A data set to use in the classification process.
-	Classifier (const DataSet& dataset);
-	
-	/// Matchs a shape to a character.
-	/// 
-	/// @param shape Shape that represents a character
-	/// 
-	/// @return The character if found, otherwise an empty string indicating a failure.
-	std::string matchShape (const Shape& shape);
-	
-	
-	/// Returns the elapsed time while matching a shape to a character.
-	/// 
-	/// @return Elpased time while matching a shape to a character.
-	const double& matchingShapeTime ();
+	public:
 
+		///	@brief	Constructor.
+		///
+		///	@param	featureVectors	An array of feature vectors to classify.
+		Classifier (const std::vector<FeatureVector>& featureVectors);
 
-private:
-	
-	DataSet			dataset_;			///< Data set where the classification samples are stored.
-	
-	FeatureVector	sample_;			///< A sample that represents a shape.
-	
-	double			matchingShapeTime_;	///< Elapsed time while matching a shape into a character.
-	
-	
-	Classifier ();
-	
-	///
-	/// Builds a feature vector from a shape.
-	/// 
-	/// @param shape	The source shape where the information is taken to build the feature vector.
-	void buildFeatureVector (const Shape& shape);
+		///	@brief	Returns the characters associated with the feature vectors passed in constructor.
+		/// 
+		/// @return	A std::string object with the characters found.
+		const std::string& characters () const;
+
+		///	@brief	Returns the statistics about the classification stage.
+		/// 
+		/// @return A ClassifierStatistics object with all the data gathered.
+		const ClassifierStatistics& statistics () const;
+
+		///	@brief	Executes the classification process over the feature vectors passed in constructor.
+		void classify();
+
+	private:
+
+		ClassifierStatistics		statistics_;		///< Statistics about the classification of feature vectors.
+
+		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
+
+		std::string					characters_;		///< Characters found after the classification process.
 };
 
 
-
-inline const double& Classifier::matchingShapeTime ()
+inline const std::string& Classifier::characters () const
 {
-	return matchingShapeTime_;
+	return characters_;
+};
+
+
+inline const ClassifierStatistics& Classifier::statistics () const
+{
+	return statistics_;
 };
 
 #endif  //_CLASSIFIER_H

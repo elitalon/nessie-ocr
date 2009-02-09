@@ -1,4 +1,5 @@
 <area shape="rect" href="$_recognizer_8hpp.html" title="Declaration of the class Recognizer." alt="" coords="5,81,112,105">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="187,156,253,180">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="239,81,356,105">
-<area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="328,156,461,180">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="288,156,355,180">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="237,81,355,105">
+<area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="29,156,163,180">
+<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="379,156,475,180">

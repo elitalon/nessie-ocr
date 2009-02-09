@@ -5,6 +5,7 @@
 #include "Clip.hpp"
 #include "Preprocessor.hpp"
 #include "FeatureExtractor.hpp"
+#include "Classifier.hpp"
 #include <vector>
 #include <string>
 #include <sstream>
@@ -56,6 +57,7 @@ void Recognizer::extractText (const Clip& pressClip)
 	}
 
 	// Classification stage
+	Classifier classifier(featureExtractor.featureVectors());
 	
 	// Postprocessing stage
 	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();

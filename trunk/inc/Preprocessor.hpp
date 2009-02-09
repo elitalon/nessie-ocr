@@ -15,7 +15,7 @@
 
 /// @brief		Preprocessor of the OCR process.
 ///
-/// @details	This class encapsulates all the algorithms related to preprocessing stage of the OCR process. Its task is to extract the regions
+/// @details	This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the regions
 ///	of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of
 ///	regions is available through the Preprocessor::regions() method.
 ///

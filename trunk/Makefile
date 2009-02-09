@@ -33,7 +33,7 @@ vpath %.dylib	$(libdir)
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
 MAIN = main.cpp Clip.o Recognizer.o
 CLIP = Clip.cpp Clip.hpp NessieException.o
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o Classifier.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
 PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o
@@ -43,7 +43,7 @@ PATTERN = Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
 
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
-CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o FeatureVector.o
+CLASSIFIER = Classifier.cpp Classifier.hpp
 
 LIBRARY_NAME = NessieOcr
 LIBRARY_VERSION = 1.0.0
