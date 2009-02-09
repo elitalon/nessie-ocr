@@ -6,8 +6,8 @@
 # Usage: make [ main | all | clean ]
 #	- main:		Compiles the source code, default option
 #	- clean:	Removes every file generated during compilation
-#	- all:		Executes clean and then main
-#
+#	- doc:		Generates documentation.
+#	- all:		Executes clean and then main and doc
 ###
 
 
@@ -30,25 +30,25 @@ vpath %.dylib	$(libdir)
 #
 # Dependencies
 #
+NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
+MAIN = main.cpp Clip.o Recognizer.o
+CLIP = Clip.cpp Clip.hpp NessieException.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
-REGION = Region.cpp Region.hpp
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o
 PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o
-PATTERN = Pattern.cpp Pattern.hpp Region.o Clip.o Preprocessor.o
-NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-MAIN = main.cpp Recognizer.o Clip.o
-FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
+REGION = Region.cpp Region.hpp
 FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o Statistics.o Pattern.o FeatureVector.o
+PATTERN = Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
+FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
+
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
-CLIP = Clip.cpp Clip.hpp NessieException.o
-CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o Pattern.o FeatureVector.o
+CLASSIFIER = Classifier.cpp Classifier.hpp DataSet.o FeatureVector.o
 
-
-
-LIBRARY = `sh platformLinkerOptions.sh -t`
-LIBRARY_BUILDING_OPTIONS = `sh platformLinkerOptions.sh -o`
+LIBRARY_NAME = NessieOcr
 LIBRARY_VERSION = 1.0.0
+LIBRARY_SHARED_FILE = lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
+LIBRARY_BUILDING_OPTIONS = -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
 
 OBJECTS = *.o
 PROGRAM = bin/ocr
@@ -61,9 +61,9 @@ LDFLAGS = $(MAGICK_LDFLAGS)
 
 
 main: main.o
-	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
-	@echo
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
+	@echo
+	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@echo
 
 main.o: $(MAIN)
@@ -79,7 +79,7 @@ Clip.o: $(CLIP)
 	@echo
 
 Recognizer.o: $(RECOGNIZER)
-	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Text.o: $(TEXT)
@@ -119,12 +119,15 @@ FeatureVector.o: $(FEATURE_VECTOR)
 	@echo
 
 install:
-	cp $(libdir)$(LIBRARY).$(LIBRARY_VERSION) /usr/local/lib
+	mkdir /usr/local/include/$(LIBRARY_NAME)
+	cp $(incdir)*.hpp /usr/local/include/$(LIBRARY_NAME)
+	cp $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION) /usr/local/lib
 	ldconfig -n /usr/local/lib
 
 uninstall:
-	rm -f /usr/local/lib/$(LIBRARY).$(LIBRARY_VERSION)
-	rm -f /usr/local/lib/$(LIBRARY)
+	rm -f /usr/local/include/$(LIBRARY_NAME)/*.hpp
+	rm -f /usr/local/lib/$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
+	rm -f /usr/local/lib/$(LIBRARY_SHARED_FILE)
 	ldconfig -n /usr/local/lib
 
 doc: $(incdir)*.hpp $(srcdir)*.cpp Doxyfile
@@ -132,7 +135,7 @@ doc: $(incdir)*.hpp $(srcdir)*.cpp Doxyfile
 	@doxygen
 
 clean:
-	@rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY).$(LIBRARY_VERSION)
+	@rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 
 all: clean main doc

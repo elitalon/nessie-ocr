@@ -2,27 +2,12 @@
 /// @brief Definition of FeatureExtractor class
 
 #include "FeatureExtractor.hpp"
+#include "Region.hpp"
 #include <boost/timer.hpp>
 #include <cmath>
-#include <string>
-#include <sstream>
 
 
-/// @brief	Prints every pattern that has been built.
-static void printPatterns (const std::vector<Pattern>& patterns)
-{
-	unsigned int patternNo = 0;
-	for ( std::vector<Pattern>::const_iterator i = patterns.begin(); i != patterns.end(); ++i )
-	{
-		std::ostringstream ostr;
-		ostr << patternNo++;
-		std::string filename("pattern");
-		filename.append(ostr.str().append(".bmp"));
-		(*i).writeToOutputImage(filename,true);
-	}
-};
-
-
+///	@brief	Computes the factorial of an integer.
 static unsigned int factorial (const unsigned int& n)
 {
 	unsigned int result = 1;
@@ -34,7 +19,7 @@ static unsigned int factorial (const unsigned int& n)
 };
 
 
-/// @brief	Auxiliary function for computing the scaled Tchebichef polynomials.
+/// @brief	Auxiliary function for computing the scaled Tchebichef polynomial.
 static double beta (const unsigned int& n, const unsigned int& N)
 {
 	double tmp	= factorial(n+N) / static_cast<double>(factorial(2*n + 1) * factorial((n+N) - (2*n+1)));
@@ -58,7 +43,7 @@ static double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
 };
 
 
-///	@brief	Computes the discrete scaled Tchebichef polynomials of order n.
+///	@brief	Computes the discrete scaled Tchebichef polynomial of order n.
 static double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
 {
 	double t = 0.0;
@@ -96,23 +81,22 @@ static double tchebichefMoment (const Pattern& pattern, const unsigned int& n, c
 
 
 FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
-:	regions_(regions),
-	statistics_(FeatureExtractorStatistics()),
+:	statistics_(FeatureExtractorStatistics()),
 	patterns_(std::vector<Pattern>(0)),
 	featureVectors_(std::vector<FeatureVector>(0, FeatureVector(9)))
 {
 	boost::timer timer;
 	timer.restart();
 
-	patterns_.reserve(regions_.size());
+	patterns_.reserve(regions.size());
 
-	for ( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
+	for ( std::list<Region>::const_iterator i = regions.begin(); i != regions.end(); ++i )
 	{
-		(*i).normalizeCoordinates();
-		patterns_.push_back( Pattern(*i) );
+		Region region(*i);
+		region.normalizeCoordinates();
+		patterns_.push_back( Pattern(region) );
 	}
 	statistics_.patternsBuildingTime(timer.elapsed());
-	printPatterns(this->patterns_);
 };
 
 
@@ -126,6 +110,7 @@ void FeatureExtractor::computeMoments ()
 	{
 		FeatureVector fv(9);
 
+		// Area
 		fv(0) = tchebichefMoment(*k, 0, 0);
 
 		// Centroid coordinates

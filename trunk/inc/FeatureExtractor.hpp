@@ -5,13 +5,12 @@
 #define _FEATURE_EXTRACTOR_H
 
 
+class Region;
 #include "Statistics.hpp"
-#include "Region.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
 #include <list>
 #include <vector>
-#include <utility>
 
 
 /// @brief		FeatureExtractor of the OCR process.
@@ -54,8 +53,6 @@ class FeatureExtractor
 		void computeMoments ();
 
 	private:
-
-		std::list<Region>				regions_;			///< A list of regions that represents every set of ink pixels found in the press clip.
 
 		FeatureExtractorStatistics		statistics_;		///< Statistics about the execution of algorithms.
 

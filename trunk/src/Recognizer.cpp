@@ -2,15 +2,16 @@
 /// @brief Implementation of the class Recognizer
 
 #include "Recognizer.hpp"
-#include "FeatureExtractor.hpp"
 #include "Clip.hpp"
 #include "Preprocessor.hpp"
+#include "FeatureExtractor.hpp"
 #include <vector>
-#include <boost/timer.hpp>
+#include <string>
+#include <sstream>
 
 
 Recognizer::Recognizer ()
-:	text_(),
+:	text_(Text()),
 	preprocessingStatistics_(0),
 	featureExtractorStatistics_(0),
 	classificationStatistics_(0)
@@ -42,6 +43,17 @@ void Recognizer::extractText (const Clip& pressClip)
 	// Feature extraction stage
 	FeatureExtractor featureExtractor(preprocessor.regions());
 	featureExtractor.computeMoments();
+	std::vector<Pattern> patterns(featureExtractor.patterns());
+	
+	unsigned int patternNo = 0;
+	for ( std::vector<Pattern>::iterator i = patterns.begin(); i != patterns.end(); ++i )
+	{
+		std::ostringstream ostr;
+		ostr << patternNo++;
+		std::string filename("pattern");
+		filename.append(ostr.str().append(".bmp"));
+		(*i).writeToOutputImage(filename,true);
+	}
 
 	// Classification stage
 	
