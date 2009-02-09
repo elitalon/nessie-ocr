@@ -14,7 +14,7 @@ Recognizer::Recognizer ()
 :	text_(Text()),
 	preprocessingStatistics_(0),
 	featureExtractorStatistics_(0),
-	classificationStatistics_(0)
+	classifierStatistics_(0)
 {};
 
 
@@ -22,7 +22,7 @@ Recognizer::~Recognizer ()
 {
 	delete preprocessingStatistics_;
 	delete featureExtractorStatistics_;
-	delete classificationStatistics_;
+	delete classifierStatistics_;
 };
 
 
@@ -63,6 +63,6 @@ void Recognizer::extractText (const Clip& pressClip)
 	// Gather statistics
 	preprocessingStatistics_	= new PreprocessorStatistics(preprocessor.statistics());
 	featureExtractorStatistics_	= new FeatureExtractorStatistics(featureExtractor.statistics());
-	classificationStatistics_	= new ClassificationStatistics();
+	classifierStatistics_		= new ClassifierStatistics();
 };
 

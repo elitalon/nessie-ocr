@@ -54,7 +54,7 @@ class Recognizer
 
 		Statistics*	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
 
-		Statistics*	classificationStatistics_;		///< Statistics gathered during the classification stage.
+		Statistics*	classifierStatistics_;		///< Statistics gathered during the classification stage.
 
 		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
 		Recognizer (const Recognizer&);
@@ -76,8 +76,8 @@ inline void Recognizer::printStatistics () const
 	if ( featureExtractorStatistics_ != 0 )
 		featureExtractorStatistics_->print();
 
-	if ( classificationStatistics_ != 0 )
-		classificationStatistics_->print();
+	if ( classifierStatistics_ != 0 )
+		classifierStatistics_->print();
 };
 
 #endif  //_RECOGNIZER_H

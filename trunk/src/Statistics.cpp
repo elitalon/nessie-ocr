@@ -354,15 +354,15 @@ void FeatureExtractorStatistics::print () const
 
 
 
-ClassificationStatistics::ClassificationStatistics ()
+ClassifierStatistics::ClassifierStatistics ()
 :	Statistics()
 {};
 
 
-ClassificationStatistics::~ClassificationStatistics () {};
+ClassifierStatistics::~ClassifierStatistics () {};
 
 
-void ClassificationStatistics::print () const
+void ClassifierStatistics::print () const
 {
 	std::cout << std::endl;
 	std::cout << "Classification stage statistics" << std::endl;

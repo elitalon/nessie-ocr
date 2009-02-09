@@ -20,7 +20,7 @@ class Shape;
 /// This class encapsulates all the methods related to the classification stage of the OCR process. Its task
 /// is to match every shape found in the segmentation stage to a valid character.
 /// 
-/// @see Shape, FeatureVector
+/// @see FeatureVector
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-11-06
