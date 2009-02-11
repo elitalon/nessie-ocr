@@ -33,17 +33,19 @@ vpath %.dylib	$(libdir)
 NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
 MAIN = main.cpp Clip.o Recognizer.o
 CLIP = Clip.cpp Clip.hpp NessieException.o
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Statistics.o Clip.o Preprocessor.o FeatureExtractor.o Classifier.o
+RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Clip.o Preprocessor.o FeatureExtractor.o Classifier.o
 TEXT = Text.cpp Text.hpp NessieException.o
 STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o Statistics.o Region.o
+PREPROCESSOR_STATISTICS = PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
+FEATURE_EXTRACTOR_STATISTICS = FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
+CLASSIFIER_STATISTICS = ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
+PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatistics.o Region.o
 REGION = Region.cpp Region.hpp
-FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o Statistics.o Pattern.o FeatureVector.o
+FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
 PATTERN = Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
-
+CLASSIFIER = Classifier.cpp Classifier.hpp ClassifierStatistics.o
 DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
-CLASSIFIER = Classifier.cpp Classifier.hpp
 
 LIBRARY_NAME = NessieOcr
 LIBRARY_VERSION = 1.0.0
@@ -90,8 +92,20 @@ Statistics.o: $(STATISTICS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
+FeatureExtractorStatistics.o: $(FEATURE_EXTRACTOR_STATISTICS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+ClassifierStatistics.o: $(CLASSIFIER_STATISTICS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
 Preprocessor.o: $(PREPROCESSOR)
 	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+PreprocessorStatistics.o: $(PREPROCESSOR_STATISTICS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Region.o: $(REGION)

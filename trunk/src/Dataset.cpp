@@ -2,7 +2,7 @@
 /// @brief Definition of DataSet class
 
 
-#include "DataSet.hpp"
+#include "Dataset.hpp"
 
 #include <fstream>
 #include <sstream>

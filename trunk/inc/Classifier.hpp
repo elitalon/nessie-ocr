@@ -6,7 +6,7 @@
 
 
 #include "FeatureVector.hpp"
-#include "Statistics.hpp"
+#include "ClassifierStatistics.hpp"
 #include <string>
 #include <vector>
 

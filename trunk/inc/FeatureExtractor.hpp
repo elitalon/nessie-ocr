@@ -6,7 +6,7 @@
 
 
 class Region;
-#include "Statistics.hpp"
+#include "FeatureExtractorStatistics.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
 #include <list>

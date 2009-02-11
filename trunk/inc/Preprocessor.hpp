@@ -6,7 +6,7 @@
 
 
 #include "Clip.hpp"
-#include "Statistics.hpp"
+#include "PreprocessorStatistics.hpp"
 #include "Region.hpp"
 #include <vector>
 #include <list>
