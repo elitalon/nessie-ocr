@@ -50,7 +50,9 @@ class FeatureExtractor
 		const FeatureExtractorStatistics& statistics () const;
 
 		///	@brief	Compute a number of image moments from the internal patterns.
-		void computeMoments ();
+		///
+		///	@param	n	Maximum order of moments to compute.
+		void computeMoments (const unsigned int& n);
 
 	private:
 
@@ -84,5 +86,5 @@ inline const FeatureExtractorStatistics& FeatureExtractor::statistics () const
 	return statistics_;
 };
 
-#endif  //_FEATURE_EXTRACTOR_H
+#endif
 

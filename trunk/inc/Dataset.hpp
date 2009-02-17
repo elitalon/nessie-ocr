@@ -1,158 +1,99 @@
 /// @file
-/// @brief Declaration of DataSet class
+/// @brief Declaration of Dataset class
 
 #if !defined(_DATASET_H)
 #define _DATASET_H
 
-
-#include <string>
 #include <utility>
-#include <deque>
+#include <vector>
 #include "FeatureVector.hpp"
-#include "NessieException.hpp"
+
+
+/// @typedef	Sample.
+/// @brief		Internal representation of a sample in a dataset.
+/// @author		Eliezer Talón (elitalon@gmail.com)
+/// @date		2009-02-12
+/// @see		FeatureVector
+typedef std::pair<FeatureVector, unsigned int> Sample;
 
 
 
-/// Data set of character samples encoded as feature vectors.
+///	@brief		Data set of character samples encoded as feature vectors.
 ///
-/// This class stores a set of feature vectors that represents different characters. Every feature vector belongs to a category, i.e. a character.
-/// You can read a bunch of data, work with it and update it (adding new samples o deleting any of them).
+///	@details	This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of previous recognized characters.
+///	A sample is composed of two fields: a feature vector and a lable. The label indicates the class which the feature vector belongs to. Any sample in the dataset can be read, and adding or
+///	deleting samples is also supported.
+///
+///	@see		FeatureVector
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2008-11-10
+/// @date 2009-02-12
 ///
-class DataSet
+class Dataset
 {
-public:
+	public:
 
-	/// @typedef Sample
-	///
-	/// @brief Sample of a data set.
-	///
-	/// @details This pair keeps the feature vector and the category that defines every sample in a data set.
-	///
-	/// @see FeatureVector
-	typedef std::pair<FeatureVector, unsigned int> Sample;
+		///	@brief	Constructor.
+		Dataset ();
 
-	/// Constructor.
-	///
-	/// @param sourceFile	Path in the filesystem to the file containing the data set.
-	///
-	/// @pre The source file must contain at least the number of features in its first line.
-	///
-	/// @post The content in the file is loaded into #samples_.
-	/// @post #nFeatures_ is set to the number of features per sample.
-	/// @post #size_ is set to the number of samples read.
-	DataSet (const std::string& sourceFile);
+		///	@brief	Destructor.
+		virtual ~Dataset ();
 
-	/// Constructor.
-	///
-	/// @param sourceFile	File path in the filesystem where the data set will be stored.
-	/// @param nFeatures	Number of features of the data set
-	///
-	/// @post An empty data set is created, with #size_ set to zero and #nFeatures_ set to the number passed.
-	DataSet (const std::string& sourceFile, const unsigned int& nFeatures);
+		///	@brief	Allows read-only access to a sample in the dataset.
+		///
+		/// @param	n	Row in the dataset where the required sample is.
+		///
+		/// @return	Sample at given position.
+		virtual const Sample&  at(const unsigned int& n) const;
 
-	/// Destructor.
-	~DataSet ();
+		///	@brief	Returns the number of samples in the dataset.
+		///
+		///	@return	Number of samples in the dataset.
+		virtual const unsigned int& size () const;
 
-	/// Adds a sample to the data set.
-	///
-	/// @param sample The sample to add
-	///
-	/// @post #samples_ is modified by adding the new sample.
-	void addSample (const Sample& sample);
+		///	@brief	Returns the number of features per sample.
+		///
+		/// @return	Number of features per sample.
+		virtual const unsigned int& features () const;
 
-	/// Gets a sample from the data set.
-	///
-	/// @param iSample Position in the data set of the sample to get
-	///
-	/// @return The sample at given position
-	const Sample& getSample (const unsigned int& iSample) const;
+		///	@brief	Adds a sample to the dataset.
+		///
+		///	@param	sample Sample to add.
+		///
+		///	@exception	NessieException	The number of features per sample in the dataset does not match with the sample passed.
+		virtual void addSample (const Sample& sample) = 0;
 
-	/// Returns the number of samples in the data set
-	///
-	/// @return The number of samples in the data set
-	const unsigned int& size () const;
+		///	@brief	Removes a sample from the dataset.
+		///
+		///	@param	n	Row in the dataset where remove the sample.
+		virtual void removeSample (const unsigned int& n) = 0;
 
-	///
-	/// Returns the number of features in every sample of the data set.
-	///
-	/// @return The number of features in every sample of the data set.
-	const unsigned int& nFeatures () const;
+	protected:
 
-	///
-	/// Returns the number of categories in the data set.
-	///
-	/// @return The number of categories in the data set.
-	const unsigned int& nCategories () const;
+		std::vector<Sample>	samples_;	///< Samples of the dataset.
 
-	///
-	/// Returns the file path where the data set is stored in the filesystem.
-	///
-	/// @return A string with the file path where the data set is stored in the filesystem.
-	const std::string& sourceFile () const;
+		unsigned int		size_;		///< Number of samples.
 
-private:
-
-	std::deque<Sample>	samples_;		///< Samples of the data set
-
-	unsigned int		size_;			///< Number of samples in the data set
-
-	unsigned int		nFeatures_;		///< Number of features in every sample of the data set
-
-	unsigned int		nCategories_;	///< Number of different categories in the data set
-
-	std::string			sourceFile_;	///< File path where the data set is stored in the filesystem
-
-	DataSet ();
-
-
-	/// Count the number of categories in the data set
-	void countCategories();
+		unsigned int		features_;	///< Number of features per sample.
 };
 
 
-inline void DataSet::addSample (const Sample& sample)
+inline const Sample& Dataset::at (const unsigned int& n) const
 {
-	if ( sample.first.size() not_eq nFeatures_ )
-		throw NessieException ("DataSet::addSample() : The number of features in the sample is different from the one in data set.");
-	else
-	{
-		samples_.push_back(sample);
-		size_ = samples_.size();
-		countCategories();
-	}
+	return samples_.at(n);
 };
 
 
-inline const DataSet::Sample& DataSet::getSample (const unsigned int& iSample) const
-{
-	return samples_.at(iSample);
-};
-
-
-inline const unsigned int& DataSet::size () const
+inline const unsigned int& Dataset::size () const
 {
 	return size_;
 };
 
 
-inline const unsigned int& DataSet::nFeatures () const
+inline const unsigned int& Dataset::features () const
 {
-	return nFeatures_;
+	return features_;
 };
 
-inline const unsigned int& DataSet::nCategories () const
-{
-	return nCategories_;
-};
-
-
-inline const std::string& DataSet::sourceFile () const
-{
-	return sourceFile_;
-};
-
-#endif  //_DATASET_H
+#endif
 

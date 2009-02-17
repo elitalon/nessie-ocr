@@ -9,6 +9,8 @@
 
 /// @brief	Statistical data gathered during the classification stage of the text recognition process.
 ///
+///	@see	Statistics
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
 ///
@@ -85,5 +87,5 @@ inline void ClassifierStatistics::classificationTime (const double& elapsedTime)
 	updateTotalTime();
 };
 
-#endif  //_STATISTICS_H
+#endif
 

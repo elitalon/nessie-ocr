@@ -105,11 +105,11 @@ class Preprocessor
 		/// @date		2009-01-19
 		typedef std::pair<unsigned int, unsigned int> LineDelimiter;
 
-		Clip						clip_;			///< The press clip over which the preprocessing algorithms are applied.
+		Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
 
-		PreprocessorStatistics		statistics_;	///< Statistics about the execution of algorithms.
+		PreprocessorStatistics	statistics_;	///< Statistics about the execution of algorithms.
 
-		std::list<Region>			regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
+		std::list<Region>		regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
 
 		/// @brief	Computes the optimal threshold value in a press clip following the Sonka's algorithm.
 		/// 
@@ -151,5 +151,5 @@ inline const std::list<Region>& Preprocessor::regions() const
 	return regions_;
 };
 
-#endif  //_PREPROCESSOR_H
+#endif
 

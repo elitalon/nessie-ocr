@@ -30,35 +30,48 @@ vpath %.dylib	$(libdir)
 #
 # Dependencies
 #
-NESSIE_EXCEPTION = NessieException.cpp NessieException.hpp
-MAIN = main.cpp Clip.o Recognizer.o
-CLIP = Clip.cpp Clip.hpp NessieException.o
-RECOGNIZER = Recognizer.cpp Recognizer.hpp Text.o Clip.o Preprocessor.o FeatureExtractor.o Classifier.o
-TEXT = Text.cpp Text.hpp NessieException.o
-STATISTICS = Statistics.cpp Statistics.hpp
-PREPROCESSOR_STATISTICS = PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
-FEATURE_EXTRACTOR_STATISTICS = FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
-CLASSIFIER_STATISTICS = ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
-PREPROCESSOR = Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatistics.o Region.o
-REGION = Region.cpp Region.hpp
-FEATURE_EXTRACTOR = FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
-PATTERN = Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
-FEATURE_VECTOR = FeatureVector.cpp FeatureVector.hpp NessieException.o
-CLASSIFIER = Classifier.cpp Classifier.hpp ClassifierStatistics.o
-DATASET = DataSet.cpp DataSet.hpp NessieException.o FeatureVector.o
+NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
+STATISTICS						= Statistics.cpp Statistics.hpp
+CLASSIFICATION_PARADIGM			= ClassificationParadigm.cpp ClassificationParadigm.hpp
+MAIN							= main.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
+CLIP							= Clip.cpp Clip.hpp NessieException.o
+PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
+POSTGRE_SQL_DATASET				= PostgreSqlDataset.cpp PostgreSqlDataset.hpp Dataset.o NessieException.o
+DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
+RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Dataset.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o ClassificationParadigm.o
+TEXT							= Text.cpp Text.hpp NessieException.o
+PREPROCESSOR					= Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatistics.o Region.o
+REGION							= Region.cpp Region.hpp
+PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
+FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
+PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
+FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
+FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
+CLASSIFIER						= Classifier.cpp Classifier.hpp ClassifierStatistics.o ClassificationParadigm.o
+CLASSIFIER_STATISTICS			= ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
 
+
+
+#
+# Library configuration
+#
 LIBRARY_NAME = NessieOcr
 LIBRARY_VERSION = 1.0.0
 LIBRARY_SHARED_FILE = lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
 LIBRARY_BUILDING_OPTIONS = -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
 
+
+#
+# Compiler flags
+#
 OBJECTS = *.o
 PROGRAM = bin/ocr
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
-CXXFLAGS = -ansi -pipe -Wall -Wextra -O3 -I$(incdir) -g -Weffc++ -fPIC
-LDFLAGS = $(MAGICK_LDFLAGS) 
+LIBPQXX_CXXFLAGS = -lpqxx
+CXXFLAGS = -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -fPIC
+LDFLAGS = $(MAGICK_LDFLAGS) $(LIBPQXX_CXXFLAGS) 
 
 
 
@@ -120,15 +133,27 @@ Pattern.o: $(PATTERN)
 	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
+FeatureVector.o: $(FEATURE_VECTOR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+ClassificationParadigm.o: $(CLASSIFICATION_PARADIGM)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
 Classifier.o: $(CLASSIFIER)
 	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
-DataSet.o: $(DATASET)
+Dataset.o: $(DATASET)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
-FeatureVector.o: $(FEATURE_VECTOR)
+PlainTextDataset.o: $(PLAIN_TEXT_DATASET)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+PostgreSqlDataset.o: $(POSTGRE_SQL_DATASET)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 

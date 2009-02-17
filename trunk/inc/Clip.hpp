@@ -130,5 +130,5 @@ inline const unsigned int& Clip::size () const
 	return size_;
 };
 
-#endif  //_CLIP_H
+#endif
 

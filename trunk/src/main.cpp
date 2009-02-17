@@ -3,7 +3,10 @@
 
 #include <Magick++.h>
 #include "Clip.hpp"
+#include "PlainTextDataset.hpp"
+#include "PostgreSqlDataset.hpp"
 #include "Recognizer.hpp"
+#include "ClassificationParadigm.hpp"
 #include <boost/timer.hpp>
 #include <iostream>
 
@@ -32,15 +35,14 @@ int main (int argc, char const *argv[])
 		Magick::Image image( argv[1] );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
-		Recognizer recon;
-		recon.extractText(pressClip);
+		//Recognizer recon( new PlainTextDataset("samples.dataset") );
+		Recognizer recon( new PostgreSqlDataset("db_nessieocr", "nessieocr", "nessieocr") );
+		recon.extractText(pressClip, ClassificationParadigm::knn());
 
-		Text result = recon.text();
-		std::cout << result.content() << std::endl;
+		std::cout << recon.text().content() << std::endl;
 		recon.printStatistics();
 
-		std::cout << std::endl;
-		std::cout << "Total time since program started: " << timer.elapsed() << std::endl;
+		std::cout << std::endl << "Total time since program started: " << timer.elapsed() << std::endl;
 	}
 	catch (std::exception &e)
 	{

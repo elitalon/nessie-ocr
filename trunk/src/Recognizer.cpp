@@ -1,8 +1,11 @@
 /// @file
-/// @brief Implementation of the class Recognizer
+/// @brief Implementation of Recognizer class
 
 #include "Recognizer.hpp"
+#include "NessieException.hpp"
+#include "Dataset.hpp"
 #include "Clip.hpp"
+#include "Statistics.hpp"
 #include "Preprocessor.hpp"
 #include "FeatureExtractor.hpp"
 #include "Classifier.hpp"
@@ -11,12 +14,16 @@
 #include <sstream>
 
 
-Recognizer::Recognizer ()
-:	text_(Text()),
+Recognizer::Recognizer (Dataset* dataset)
+:	dataset_(dataset),
+	text_(),
 	preprocessingStatistics_(0),
 	featureExtractorStatistics_(0),
 	classifierStatistics_(0)
-{};
+{
+	if ( dataset_ == 0 )
+		throw NessieException ("Recognizer::Recognizer() : A null pointer was passed to the constructor. You must provide an instantiated Dataset object.");
+};
 
 
 Recognizer::~Recognizer ()
@@ -24,6 +31,7 @@ Recognizer::~Recognizer ()
 	delete preprocessingStatistics_;
 	delete featureExtractorStatistics_;
 	delete classifierStatistics_;
+	delete dataset_;
 };
 
 
@@ -31,7 +39,7 @@ Recognizer::~Recognizer ()
 ///
 /// @details	As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
 /// the images, so that they can be directly and efficiently processed by the feature extraction stage.
-void Recognizer::extractText (const Clip& pressClip)
+void Recognizer::extractText (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
 	// Preprocessing stage
 	Preprocessor preprocessor(pressClip);
@@ -43,7 +51,7 @@ void Recognizer::extractText (const Clip& pressClip)
 
 	// Feature extraction stage
 	FeatureExtractor featureExtractor(preprocessor.regions());
-	featureExtractor.computeMoments();
+	featureExtractor.computeMoments(dataset_->features());
 	std::vector<Pattern> patterns(featureExtractor.patterns());
 	
 	unsigned int patternNo = 0;
@@ -58,7 +66,8 @@ void Recognizer::extractText (const Clip& pressClip)
 
 	// Classification stage
 	Classifier classifier(featureExtractor.featureVectors());
-	
+	classifier.classify(paradigm);
+
 	// Postprocessing stage
 	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();
 	
@@ -66,5 +75,18 @@ void Recognizer::extractText (const Clip& pressClip)
 	preprocessingStatistics_	= new PreprocessorStatistics(preprocessor.statistics());
 	featureExtractorStatistics_	= new FeatureExtractorStatistics(featureExtractor.statistics());
 	classifierStatistics_		= new ClassifierStatistics();
+};
+
+
+void Recognizer::printStatistics () const
+{
+	if ( preprocessingStatistics_ != 0 )
+		preprocessingStatistics_->print();
+
+	if ( featureExtractorStatistics_ != 0 )
+		featureExtractorStatistics_->print();
+
+	if ( classifierStatistics_ != 0 )
+		classifierStatistics_->print();
 };
 

@@ -42,5 +42,5 @@ class NessieException : public std::exception
 		NessieException ();
 };
 
-#endif  //_NESSIE_EXCEPTION_H
+#endif
 

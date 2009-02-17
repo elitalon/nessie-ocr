@@ -223,5 +223,5 @@ inline const unsigned int& Region::rightBorderColumn () const
 	return rightBorderColumn_;
 };
 
-#endif  //_REGION_H
+#endif
 

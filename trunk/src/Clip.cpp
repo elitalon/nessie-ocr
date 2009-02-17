@@ -7,7 +7,7 @@
 
 
 Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width)
-:	pixels_(std::vector<unsigned char>(0)),
+:	pixels_(0),
 	x_(x),
 	y_(y),
 	width_(width),

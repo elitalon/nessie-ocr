@@ -102,8 +102,6 @@ Collaboration diagram for Clip:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip.  <a href="#c8cca50dc34657c9dc24b59e614648a5"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Press clip of a newspaper page. 
-<p>
 This class manages a press clip within a newspaper's page, storing it as a set of pixels from an underlying image that representes the whole page. It is assumed that the origin of coordinates is located at the top leftmost pixel in the underlying image, as well in the clip itself.<p>
 The newspaper pages are images that may come in several formats, such JPEG, PDF, PNG, etc. The Magick++ library (an API for the ImageMagick suite) provides an abstraction layer to keep the code independent from the image format, so that other classes have an unified way to work with images. In future modifications any other library can be added to load images. In such case, the <em>constructor</em> and the writeToOutputImage method must be overloaded.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a href="http://www.imagemagick.org/Magick++/">Magick++ API</a></dd></dl>
@@ -154,8 +152,6 @@ The newspaper pages are images that may come in several formats, such JPEG, PDF,
 <div class="memdoc">
 
 <p>
-Constructor. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>image</em>&nbsp;</td><td>Underlying image which the clip belongs to. </td></tr>
@@ -191,8 +187,6 @@ Constructor.
 <div class="memdoc">
 
 <p>
-Returns the height of the clip. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Height of the clip in pixels. </dd></dl>
 
 </div>
@@ -222,8 +216,6 @@ Returns the height of the clip.
 </div>
 <div class="memdoc">
 
-<p>
-Allows read-only access to a pixel in the clip. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
@@ -261,8 +253,6 @@ Allows read-only access to a pixel in the clip.
 <div class="memdoc">
 
 <p>
-Allows read-and-write access to a pixel in the clip. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-axis coordinate of the row where the requested pixel is. </td></tr>
@@ -289,8 +279,6 @@ Allows read-and-write access to a pixel in the clip.
 <div class="memdoc">
 
 <p>
-Returns the number of pixels in the clip. 
-<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels in the clip. </dd></dl>
 
 </div>
@@ -310,8 +298,6 @@ Returns the number of pixels in the clip.
 </div>
 <div class="memdoc">
 
-<p>
-Returns the width of the clip. 
 <p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Width of the clip in pixels. </dd></dl>
 
@@ -343,8 +329,6 @@ Returns the width of the clip.
 <div class="memdoc">
 
 <p>
-Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip. 
-<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem. </td></tr>
@@ -356,7 +340,7 @@ Creates a new image in the filesystem using Magick++, reflecting the current sta
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 11 18:48:49 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:13 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

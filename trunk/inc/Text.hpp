@@ -93,5 +93,5 @@ inline unsigned int Text::size () const
 	return content_.size();
 };
 
-#endif  //_TEXT_H
+#endif
 

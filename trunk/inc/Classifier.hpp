@@ -7,6 +7,7 @@
 
 #include "FeatureVector.hpp"
 #include "ClassifierStatistics.hpp"
+#include "ClassificationParadigm.hpp"
 #include <string>
 #include <vector>
 
@@ -30,7 +31,7 @@ class Classifier
 		///	@brief	Constructor.
 		///
 		///	@param	featureVectors	An array of feature vectors to classify.
-		Classifier (const std::vector<FeatureVector>& featureVectors);
+		explicit Classifier (const std::vector<FeatureVector>& featureVectors);
 
 		///	@brief	Returns the characters associated with the feature vectors passed in constructor.
 		/// 
@@ -43,7 +44,9 @@ class Classifier
 		const ClassifierStatistics& statistics () const;
 
 		///	@brief	Executes the classification process over the feature vectors passed in constructor.
-		void classify();
+		///
+		///	@param	paradigm	Classification paradigm to be used.
+		void classify(const ClassificationParadigm& paradigm);
 
 	private:
 
@@ -66,5 +69,5 @@ inline const ClassifierStatistics& Classifier::statistics () const
 	return statistics_;
 };
 
-#endif  //_CLASSIFIER_H
+#endif
 

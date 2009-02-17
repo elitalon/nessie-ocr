@@ -6,7 +6,7 @@
 
 
 Text::Text ()
-:	content_(std::string(""))
+:	content_("")
 {};
 
 

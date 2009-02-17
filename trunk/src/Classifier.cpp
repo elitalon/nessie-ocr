@@ -7,16 +7,21 @@
 
 
 Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
-:	statistics_(ClassifierStatistics()),
+:	statistics_(),
 	featureVectors_(featureVectors),
-	characters_(std::string(""))
+	characters_("")
 {};
 
 
-void Classifier::classify ()
+void Classifier::classify (const ClassificationParadigm& paradigm)
 {
 	boost::timer timer;
 	timer.restart();
+
+	if ( paradigm.id() == ClassificationParadigm::knn().id() )
+	{
+		;
+	}
 
 	for ( std::vector<FeatureVector>::iterator i = featureVectors_.begin(); i != featureVectors_.end(); ++i )
 	{

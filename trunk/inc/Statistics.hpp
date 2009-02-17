@@ -5,13 +5,13 @@
 #define _STATISTICS_H
 
 
-/// @brief	Statistical data gathered during the text recognition process.
+/// @brief		Statistical data gathered during the text recognition process.
 ///
 /// @details	This abstract base class provides a common interface for every stage of the recognition process, allowing its redefinition
 /// so that derived classes can be customized according to the stage they belong. The statitical data is gathered mostly in internal algorithms,
 /// and provides time results among other parameters.
 /// 
-/// @see	PreprocessorStatistics, FeatureExtractorStatistics, ClassifierStatistics
+/// @see		PreprocessorStatistics, FeatureExtractorStatistics, ClassifierStatistics
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
@@ -39,5 +39,5 @@ class Statistics
 		virtual void updateTotalTime () = 0;
 };
 
-#endif	//_STATISTICS_H
+#endif
 

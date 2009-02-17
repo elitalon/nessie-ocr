@@ -118,5 +118,5 @@ inline const unsigned int& Pattern::size () const
 	return size_;
 };
 
-#endif  //_PATTERN_H
+#endif
 

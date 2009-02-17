@@ -4,8 +4,14 @@
 #include "FeatureVector.hpp"
 
 
-FeatureVector::FeatureVector(const unsigned int& nFeatures)
-:	features_(std::vector<double>(nFeatures, 0.0)),
-	size_(nFeatures)
+FeatureVector::FeatureVector()
+:	features_(0),
+	size_(0)
+{};
+
+
+FeatureVector::FeatureVector(const unsigned int& n)
+:	features_(std::vector<double>(n, 0.0)),
+	size_(n)
 {};
 

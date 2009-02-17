@@ -10,6 +10,8 @@
 
 ///	@brief	Statistical data gathered during the preprocessing stage of the text recognition process.
 ///
+///	@see	Statistics
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
 ///
@@ -344,5 +346,5 @@ inline void PreprocessorStatistics::spacesLocationFindingTime (const double& ela
 	updateTotalTime();
 };
 
-#endif	//_STATISTICS_H
+#endif
 

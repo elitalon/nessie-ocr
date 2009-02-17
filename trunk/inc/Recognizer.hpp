@@ -1,13 +1,15 @@
 /// @file
-/// @brief Declaration of the class Recognizer
+/// @brief Declaration of Recognizer class
 
 #if !defined(_RECOGNIZER_H)
 #define _RECOGNIZER_H
 
 
 class Clip;
+class Statistics;
+class Dataset;
+class ClassificationParadigm;
 #include "Text.hpp"
-#include "Statistics.hpp"
 
 
 /// @brief		Manager of the whole OCR process.
@@ -16,7 +18,9 @@ class Clip;
 /// every clip within a newspaper's page. For each image provided representing a press clip, you can obtain
 /// its text and a number of statistics regarding the recognition process.
 ///
-/// @see		Clip, Text, Statistics
+/// @see		Dataset, Text, Statistics, Clip
+///
+///	@warning	The Dataset object passed in constructor will destroyed when the Recognizer object is destroyed.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
@@ -26,17 +30,22 @@ class Recognizer
 	public:
 
 		/// @brief	Constructor.
-		explicit Recognizer ();
+		///
+		///	@param	dataset	The dataset to be used during the classification stage.
+		///
+		///	@warning	The Dataset object passed in constructor will destroyed when the Recognizer object is destroyed.
+		explicit Recognizer (Dataset* dataset);
 
 		/// @brief	Destructor.
 		~Recognizer ();
 
 		/// @brief	Extracts the text from a single press clip.
 		///
-		/// @param	pressClip	A Clip object with a press clip previously loaded.
+		/// @param	pressClip	Press clip to be processed.
+		///	@param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
 		///
 		///	@post	The internal members are set so that recognized text is available through Text::text() method.
-		void extractText (const Clip& pressClip);
+		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm);
 
 		/// @brief	Returns the text found in a press clip after the recognition process.
 		///
@@ -48,15 +57,18 @@ class Recognizer
 
 	private:
 
+		Dataset*	dataset_;						///< Dataset to be used during the classification stage.
+
 		Text		text_;							///< Text obtained after the recognition process.
 
 		Statistics*	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
 
 		Statistics*	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
 
-		Statistics*	classifierStatistics_;		///< Statistics gathered during the classification stage.
+		Statistics*	classifierStatistics_;			///< Statistics gathered during the classification stage.
 
 		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
+		Recognizer ();
 		Recognizer (const Recognizer&);
 		Recognizer& operator= (const Recognizer&);
 };
@@ -67,18 +79,5 @@ inline const Text& Recognizer::text () const
 	return text_;
 };
 
-
-inline void Recognizer::printStatistics () const
-{
-	if ( preprocessingStatistics_ != 0 )
-		preprocessingStatistics_->print();
-
-	if ( featureExtractorStatistics_ != 0 )
-		featureExtractorStatistics_->print();
-
-	if ( classifierStatistics_ != 0 )
-		classifierStatistics_->print();
-};
-
-#endif  //_RECOGNIZER_H
+#endif
 

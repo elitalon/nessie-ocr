@@ -6,11 +6,11 @@
 
 
 Region::Region ()
-:	coordinates_(std::vector<PixelCoordinates>(0)),
+:	coordinates_(0),
 	height_(0),
 	width_(0),
 	size_(0),
-	topLeftmostPixelCoordinates_(PixelCoordinates(0,0)),
+	topLeftmostPixelCoordinates_(0,0),
 	topBorderRow_(0),
 	bottomBorderRow_(0),
 	leftBorderColumn_(0),

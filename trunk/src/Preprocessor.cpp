@@ -14,8 +14,8 @@
 
 Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
-	statistics_(PreprocessorStatistics()),
-	regions_(std::list<Region>(0))
+	statistics_(),
+	regions_(0)
 {
 	statistics_.clipSize(pressClip.size());
 };

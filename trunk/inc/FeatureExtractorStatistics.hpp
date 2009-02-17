@@ -9,6 +9,8 @@
 
 /// @brief	Statistical data gathered during the feature extraction stage of the text recognition process.
 ///
+///	@see	Statistics
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
 ///
@@ -89,5 +91,5 @@ inline void FeatureExtractorStatistics::momentsComputingTime (const double& elap
 	updateTotalTime();
 };
 
-#endif	//_STATISTICS_H
+#endif
 

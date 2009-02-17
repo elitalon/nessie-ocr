@@ -21,23 +21,26 @@ class FeatureVector
 	public:
 
 		///	@brief	Constructor.
+		FeatureVector ();
+		
+		///	@brief	Constructor.
 		/// 
-		/// @param	nFeatures Number of features to hold.
-		FeatureVector (const unsigned int& nFeatures);
+		/// @param	n Number of features to store in the vector.
+		explicit FeatureVector (const unsigned int& n);
 
 		/// @brief	Allows read-and-write access to a certain feature.
 		///
-		/// @param	index	Position inside the vector where the feature is.
+		/// @param	n	Position inside the vector where the feature is.
 		/// 
 		/// @return A reference to the feature at given position.
-		double& operator() (const unsigned int& index);
+		double& at (const unsigned int& n);
 
 		///	@brief	Allows read-only access to a certain feature.
 		///
-		/// @param	index	Position inside the vector where the feature is.
+		/// @param	n	Position inside the vector where the feature is.
 		/// 
 		/// @return Feature at given position.
-		double operator() (const unsigned int& index) const;
+		const double& at (const unsigned int& n) const;
 
 		/// @brief	Computes the sum of two feature vectors.
 		/// 
@@ -70,21 +73,18 @@ class FeatureVector
 		std::vector<double>	features_;	///< Characteristic features of the pattern.
 
 		unsigned int		size_;		///< Number of features.
-
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
-		FeatureVector ();
 };
 
 
-inline double& FeatureVector::operator() (const unsigned int &index)
+inline double& FeatureVector::at (const unsigned int &n)
 {
-	return features_.at(index);
+	return features_.at(n);
 };
 
 
-inline double FeatureVector::operator() (const unsigned int &index) const
+inline const double& FeatureVector::at (const unsigned int &n) const
 {
-	return features_.at(index);
+	return features_.at(n);
 };
 
 
@@ -136,5 +136,5 @@ inline const unsigned int& FeatureVector::size () const
 	return size_;
 };
 
-#endif  //_FEATUREVECTOR_H
+#endif
 

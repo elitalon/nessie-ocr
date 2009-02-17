@@ -81,9 +81,9 @@ static double tchebichefMoment (const Pattern& pattern, const unsigned int& n, c
 
 
 FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
-:	statistics_(FeatureExtractorStatistics()),
-	patterns_(std::vector<Pattern>(0)),
-	featureVectors_(std::vector<FeatureVector>(0, FeatureVector(9)))
+:	statistics_(),
+	patterns_(0),
+	featureVectors_(0)
 {
 	boost::timer timer;
 	timer.restart();
@@ -100,35 +100,35 @@ FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
 };
 
 
-void FeatureExtractor::computeMoments ()
+void FeatureExtractor::computeMoments (const unsigned int& n)
 {
 	boost::timer timer;
 	timer.restart();
 
 	featureVectors_.reserve(patterns_.size());
-	for ( std::vector<Pattern>::iterator k = patterns_.begin(); k != patterns_.end(); ++k )
+	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
-		FeatureVector fv(9);
+		FeatureVector fv(2*n+1);
 
-		// Area
-		fv(0) = tchebichefMoment(*k, 0, 0);
-
-		// Centroid coordinates
-		fv(1) = round(tchebichefMoment(*k, 1, 0) / fv(0));	// x-axis
-		fv(2) = round(tchebichefMoment(*k, 0, 1) / fv(0));	// y-axis
-
-		// Variance
-		fv(3) = tchebichefMoment(*k, 2, 0);
-		fv(4) = tchebichefMoment(*k, 0, 2);
-
-		// Skewness
-		fv(5) = tchebichefMoment(*k, 0, 3);
-		fv(6) = tchebichefMoment(*k, 3, 0);
-
-		// Kurtosis
-		fv(7) = tchebichefMoment(*k, 0, 4);
-		fv(8) = tchebichefMoment(*k, 4, 0);
-
+		for( unsigned int j = 0; j <= n; ++j )
+		{
+			if ( j == 0 )
+				fv.at(0) = tchebichefMoment(*i, 0, 0);
+			else
+			{
+				if ( j == 1 )
+				{
+					fv.at(j)	= round(tchebichefMoment(*i, j, 0) / fv.at(0));	// x-axis
+					fv.at(j+1)	= round(tchebichefMoment(*i, 0, j) / fv.at(0));	// y-axis
+				}
+				else
+				{
+					fv.at(j)	= tchebichefMoment(*i, j, 0);
+					fv.at(j+1)	= tchebichefMoment(*i, 0, j);
+				}
+			}
+		}
+		
 		featureVectors_.push_back(fv);
 	}
 
