@@ -4,7 +4,6 @@
 #if !defined(_FEATUREVECTOR_H)
 #define _FEATUREVECTOR_H
 
-
 #include <vector>
 #include "NessieException.hpp"
 
@@ -15,17 +14,20 @@
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-04
-///
 class FeatureVector
 {
 	public:
 
 		///	@brief	Constructor.
+		///
+		///	@post	An empty feature vector of zero size is initialized. 
 		FeatureVector ();
 		
 		///	@brief	Constructor.
 		/// 
 		/// @param	n Number of features to store in the vector.
+		///
+		///	@post	An empty feature vector of size <em>n</em> is initialized to 0.0. 
 		explicit FeatureVector (const unsigned int& n);
 
 		/// @brief	Allows read-and-write access to a certain feature.
@@ -42,25 +44,31 @@ class FeatureVector
 		/// @return Feature at given position.
 		const double& at (const unsigned int& n) const;
 
-		/// @brief	Computes the sum of two feature vectors.
+		/// @brief		Computes the sum of two feature vectors.
 		/// 
-		/// @param	featureVector	Feature vector to sum.
+		/// @param		featureVector	Feature vector to sum.
 		/// 
-		/// @return A FeatureVector object as a result of summing both feature vectors.
+		/// @return		A FeatureVector object as a result of summing both feature vectors.
+		/// 
+		///	@exception	NessieException
 		FeatureVector operator+ (const FeatureVector& featureVector) const;
 
-		///	@brief	Computes the subtraction of two feature vectors.
+		///	@brief		Computes the subtraction of two feature vectors.
 		/// 
-		/// @param	featureVector	Feature vector to subtract.
+		/// @param		featureVector	Feature vector to subtract.
 		/// 
-		/// @return A FeatureVector object as a result of subtracting both feature vectors.
+		/// @return		A FeatureVector object as a result of subtracting both feature vectors.
+		/// 
+		///	@exception	NessieException
 		FeatureVector operator- (const FeatureVector& featureVector) const;
 
-		/// @brief	Computes the dot product of two feature vectors.
+		/// @brief		Computes the dot product of two feature vectors.
 		/// 
-		/// @param	featureVector	Feature vector to multiplicate.
+		/// @param		featureVector	Feature vector to multiplicate.
 		/// 
-		/// @return The result of multiplicating both feature vectors.
+		/// @return		The result of multiplicating both feature vectors.
+		/// 
+		///	@exception	NessieException
 		double operator* (const FeatureVector& featureVector) const;
 
 		/// @brief	Returns the number of features held.

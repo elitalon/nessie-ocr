@@ -143,8 +143,7 @@ Collaboration diagram for Text:</div>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is inserted at given position.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td>If <em>position</em> is greater than the value returned by <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b" title="Returns the size of the text in characters.">Text::size()</a>. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td>If <em>character</em> contains more than one character.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
   </table>
 </dl>
 <dl compact><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Design a better mechanism to throw an exception whenever the string passed contains more than one character. The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1. </dd></dl>
@@ -176,7 +175,7 @@ Collaboration diagram for Text:</div>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character is appended at the end of the text.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td>If <em>character</em> contains more than one character. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
   </table>
 </dl>
 
@@ -250,12 +249,7 @@ Collaboration diagram for Text:</div>
     <tr><td valign="top"></td><td valign="top"><em>position</em>&nbsp;</td><td>Position where the character must be removed.</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character at given position is removed.</dd></dl>
-<dl compact><dt><b>Exceptions:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>NessiException</em>&nbsp;</td><td>If <em>position</em> is greater than the value returned by <a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b" title="Returns the size of the text in characters.">Text::size()</a>. </td></tr>
-  </table>
-</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The character at given position is removed. </dd></dl>
 
 </div>
 </div><p>
@@ -280,7 +274,7 @@ Collaboration diagram for Text:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:15 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:40 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

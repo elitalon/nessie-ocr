@@ -74,7 +74,7 @@ Inheritance diagram for Dataset:</div>
 <div class="dynsection">
 <p><center><img src="class_dataset__inherit__graph.png" border="0" usemap="#_dataset__inherit__map" alt="Inheritance graph"></center>
 <map name="_dataset__inherit__map">
-<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,279,141,412"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,249,312,441"></map>
+<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,277,141,397"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,248,312,427"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Dataset:</div>
@@ -151,6 +151,7 @@ This abstract base class provides an interface for a classification dataset, i.e
     <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>Sample to add.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is appended to the end of the dataset.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td>The number of features per sample in the dataset does not match with the sample passed. </td></tr>
@@ -226,9 +227,10 @@ This abstract base class provides an interface for a classification dataset, i.e
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is removed from given position. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_plain_text_dataset.html#599b3113630ba0d975a72530fa075d77">PlainTextDataset</a>, and <a class="el" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06">PostgreSqlDataset</a>.</p>
 
@@ -255,7 +257,7 @@ This abstract base class provides an interface for a classification dataset, i.e
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:13 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:38 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

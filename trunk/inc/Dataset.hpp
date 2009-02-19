@@ -17,24 +17,22 @@
 typedef std::pair<FeatureVector, unsigned int> Sample;
 
 
-
 ///	@brief		Data set of character samples encoded as feature vectors.
 ///
-///	@details	This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of previous recognized characters.
-///	A sample is composed of two fields: a feature vector and a lable. The label indicates the class which the feature vector belongs to. Any sample in the dataset can be read, and adding or
-///	deleting samples is also supported.
+///	@details	This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of
+///	previous recognized characters. A sample is composed of two fields: a feature vector and a lable. The label indicates the class which the feature vector
+///	belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.
 ///
 ///	@see		FeatureVector
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-12
-///
 class Dataset
 {
 	public:
 
 		///	@brief	Constructor.
-		Dataset ();
+		explicit Dataset ();
 
 		///	@brief	Destructor.
 		virtual ~Dataset ();
@@ -60,12 +58,16 @@ class Dataset
 		///
 		///	@param	sample Sample to add.
 		///
+		///	@post	The sample is appended to the end of the dataset.
+		///
 		///	@exception	NessieException	The number of features per sample in the dataset does not match with the sample passed.
 		virtual void addSample (const Sample& sample) = 0;
 
 		///	@brief	Removes a sample from the dataset.
 		///
 		///	@param	n	Row in the dataset where remove the sample.
+		///
+		///	@post	The sample is removed from given position.
 		virtual void removeSample (const unsigned int& n) = 0;
 
 	protected:

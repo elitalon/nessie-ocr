@@ -24,7 +24,6 @@ class Region;
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-02
-///
 class FeatureExtractor
 {
 	public:
@@ -32,6 +31,8 @@ class FeatureExtractor
 		/// @brief	Constructor.
 		/// 
 		/// @param	regions A list of regions over which apply all the feature extraction algorithms.
+		///
+		///	@post	An array of normalized patterns is built using the regions passed.
 		explicit FeatureExtractor (const std::list<Region>& regions);
 
 		/// @brief	Returns the patterns built from the regions passed in constructor.
@@ -49,9 +50,11 @@ class FeatureExtractor
 		/// @return A FeatureExtractorStatistics object with all the data gathered.
 		const FeatureExtractorStatistics& statistics () const;
 
-		///	@brief	Compute a number of image moments from the internal patterns.
+		///	@brief	Compute a number of Tchebichef image moments from the internal patterns.
 		///
 		///	@param	n	Maximum order of moments to compute.
+		///
+		///	@post	An array of feature vectors become available through the FeatureExtractor::featureVectors() method.
 		void computeMoments (const unsigned int& n);
 
 	private:
@@ -62,8 +65,7 @@ class FeatureExtractor
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
 
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
-		FeatureExtractor ();
+		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		FeatureExtractor (const FeatureExtractor&);
 		FeatureExtractor& operator= (const FeatureExtractor&);
 };

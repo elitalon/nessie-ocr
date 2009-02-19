@@ -12,12 +12,26 @@
 #include <iostream>
 
 
+/// @brief	Computes the optimal threshold value in a press clip following the Sonka's algorithm.
+/// @return	A unsigned char with the optimal threshold value in a scale of [0,255].
+static unsigned char computeSonkaOptimalThreshold (const Clip& clip);
+
+
+/// @brief	Computes the optimal threshold value in a press clip following the Otsu's algorithm.
+///	@return	A unsigned char with the optimal threshold value in a scale of [0,255].
+static unsigned char computeOtsuOptimalThreshold (const Clip& clip);
+
+
 Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
 	statistics_(),
 	regions_(0)
 {
-	statistics_.clipSize(pressClip.size());
+	try
+	{
+		statistics_.clipSize(pressClip.size());
+	}
+	catch(...) {}	
 };
 
 
@@ -32,8 +46,12 @@ void Preprocessor::applyGlobalThresholding ()
 	boost::timer timer;
 	timer.restart();
 
-	unsigned char threshold = computeOtsuOptimalThreshold();
-	statistics_.optimalThreshold(threshold);
+	unsigned char threshold = computeOtsuOptimalThreshold(clip_);
+	try
+	{
+		statistics_.optimalThreshold(threshold);
+	}
+	catch(...) {}	
 
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
@@ -46,117 +64,14 @@ void Preprocessor::applyGlobalThresholding ()
 		}
 	}
 
-	statistics_.globalThresholdingTime(timer.elapsed());
+	try
+	{
+		statistics_.globalThresholdingTime(timer.elapsed());
+	}
+	catch(...) {}	
 };
 
 
-/// @details The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the
-/// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
-/// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
-/// zeroth- and the first-order cumulative moments of the gray-level histogram.
-unsigned char Preprocessor::computeOtsuOptimalThreshold () const
-{
-	// Compute the normalized clip histogram
-	std::vector<double> histogram(256, 0.0);
-
-	for ( unsigned int i = 0; i < clip_.height(); ++i )
-	{
-		for ( unsigned int j = 0; j < clip_.width(); ++j )
-		{
-			unsigned int grayLevel = static_cast<unsigned int>(clip_(i,j));
-
-			histogram.at(grayLevel) += 1.0;
-		}
-	}
-	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), clip_.size()) );
-
-	// Compute the total mean gray level of the clip
-	double totalMeanGrayLevel = 0.0;
-	for ( unsigned int i = 1; i <= histogram.size(); ++i )
-		totalMeanGrayLevel += histogram.at(i-1) * static_cast<double>(i);
-
-	// Compute the zeroth- and first-order cumulative moments, i.e. the probabilities of class occurrence and the
-	// class mean levels up to level i-th.
-	std::vector<double> zerothOrderMoment(256, 0.0);
-	std::vector<double> firstOrderMoment(256, 0.0);
-	for ( unsigned int i = 0; i < histogram.size(); ++i )
-	{
-		for ( unsigned int j = 0; j < i; ++j )
-		{
-			zerothOrderMoment.at(i)	+= histogram.at(j);
-			firstOrderMoment.at(i)	+= static_cast<double>(j+1) * histogram.at(j);
-		}
-	}
-
-	// Compute the between-class variance, according to the criterion measurements used in the discriminant analysis
-	std::vector<double> betweenClassVariance(256, 0.0);
-	for ( unsigned int i = 0; i < histogram.size(); ++i )
-	{
-		double numerator = pow(totalMeanGrayLevel * zerothOrderMoment.at(i) - firstOrderMoment.at(i), 2);
-		double denominator = zerothOrderMoment.at(i) * (1 - zerothOrderMoment.at(i));
-
-		if ( std::isnan(numerator / denominator) )
-			betweenClassVariance.at(i) = 0.0;
-		else
-			betweenClassVariance.at(i) = numerator / denominator;
-	}
-
-	// Find the gray level that maximizes the between-class variance
-	std::vector<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
-	std::vector<double>::iterator i = betweenClassVariance.begin();
-	unsigned char optimalThreshold = 0;
-
-	while ( i != maximumVariance )
-	{
-		++i;
-		++optimalThreshold;
-	}
-
-	return optimalThreshold;
-};
-
-
-/// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
-/// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
-/// computed from the four corners of the press clip.
-unsigned char Preprocessor::computeSonkaOptimalThreshold () const
-{
-	// Start with an initial threshold
-	unsigned char optimalThreshold = (clip_(0,0) + clip_(0, clip_.width()-1) + clip_(0, clip_.height()-1) + clip_(clip_.height()-1,clip_.width()-1)) / 4;
-	unsigned char currentThreshold = ~optimalThreshold;
-
-	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
-	while (currentThreshold != optimalThreshold)
-	{
-		double backgroundMeanValue = 0.0, objectsMeanValue = 0.0;
-		unsigned int nSamples = 0;
-
-		// Count the pixels that belong to objects and the pixels that belong to background
-		for ( unsigned int i = 0; i < clip_.height(); ++i )
-		{
-			for ( unsigned int j = 0; j < clip_.width(); ++j )
-			{
-				unsigned char grayLevel = clip_(i, j);
-
-				if ( grayLevel >= optimalThreshold )
-				{
-					backgroundMeanValue += static_cast<double>(grayLevel);
-					nSamples++;
-				}
-				else
-					objectsMeanValue += static_cast<double>(grayLevel);
-			}
-		}
-		backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
-		objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip_.size() - nSamples));
-
-		// Update the optimal threshold keeping the last one
-		currentThreshold = optimalThreshold;
-		optimalThreshold = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
-	}
-
-	return optimalThreshold;
-};
 
 
 void Preprocessor::applyTemplateFilters ()
@@ -280,7 +195,11 @@ void Preprocessor::applyTemplateFilters ()
 		}
 	}
 
-	statistics_.templateFilteringTime(timer.elapsed());
+	try
+	{
+		statistics_.templateFilteringTime(timer.elapsed());
+	}
+	catch(...) {}	
 };
 
 
@@ -338,7 +257,11 @@ void Preprocessor::applyAveragingFilters ()
 		}
 	}
 
-	statistics_.averagingFilteringTime(timer.elapsed());
+	try
+	{
+		statistics_.averagingFilteringTime(timer.elapsed());
+	}
+	catch(...) {}	
 };
 
 
@@ -489,7 +412,12 @@ void Preprocessor::applyThinning ()
 			}
 		}
 	}
-	statistics_.thinningTime(timer.elapsed());
+
+	try
+	{
+		statistics_.thinningTime(timer.elapsed());
+	}
+	catch(...) {}	
 };
 
 
@@ -571,18 +499,34 @@ void Preprocessor::extractRegions ()
 			regions_.push_back(region);
 		}
 	}
-	statistics_.nRegionsBeforeMerging(regions_.size());
-	
+	try
+	{
+		statistics_.nRegionsBeforeMerging(regions_.size());
+	}
+	catch(...) {}	
+
 	std::list<LineDelimiter> delimiters(0);
 	findLineDelimiters(visited, delimiters);
-	statistics_.nLineDelimiters(delimiters.size());
+	try
+	{
+		statistics_.nLineDelimiters(delimiters.size());
+	}
+	catch(...) {}	
 
 	mergeVerticallyOverlappedRegions (delimiters);
-	statistics_.nRegionsAfterMerging(regions_.size());
+	try
+	{
+		statistics_.nRegionsAfterMerging(regions_.size());
+	}
+	catch(...) {}	
 
 	regions_.sort();
 
-	statistics_.regionsExtractionTime(timer.elapsed());
+	try
+	{
+		statistics_.regionsExtractionTime(timer.elapsed());
+	}
+	catch(...) {}	
 };
 
 
@@ -633,7 +577,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 	{
 		unsigned int currentLineHeight	= (*currentLineDelimiterIterator).second - (*currentLineDelimiterIterator).first + 1;
 		unsigned int previousLineHeight	= (*previousLineDelimiterIterator).second - (*previousLineDelimiterIterator).first + 1;
-		
+
 		if ( previousLineHeight > (currentLineHeight / 2) )
 		{
 			advance( currentLineDelimiterIterator, 1 );
@@ -780,12 +724,20 @@ void Preprocessor::correctSlanting ()
 			}
 		}
 	}
-	statistics_.slantingCorrectionTime(timer.elapsed());;
+	try
+	{
+		statistics_.slantingCorrectionTime(timer.elapsed());;
+	}
+	catch(...) {}	
 
 	unsigned int meanSlantAngle = 0.0;
 	std::accumulate(angleEstimations.begin(), angleEstimations.end(), meanSlantAngle);
 	meanSlantAngle = meanSlantAngle / static_cast<double>(regions_.size());
-	statistics_.slantAngleEstimation(meanSlantAngle);
+	try
+	{
+		statistics_.slantAngleEstimation(meanSlantAngle);
+	}
+	catch(...) {}	
 };
 
 
@@ -809,7 +761,11 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 		advance (j, 1);
 	}
 	meanInterRegionSpace = meanInterRegionSpace / regions_.size();
-	statistics_.meanInterRegionSpace( meanInterRegionSpace );
+	try
+	{
+		statistics_.meanInterRegionSpace( meanInterRegionSpace );
+	}
+	catch(...) {}	
 
 	// Traverse the list of regions detecting a space between two regions greater than the mean space.
 	i = regions_.begin();
@@ -836,8 +792,122 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 		++spaceLocation;
 	}
 
-	statistics_.spacesBetweenWords(spaces.size());
-	statistics_.spacesLocationFindingTime(timer.elapsed());
+	try
+	{
+		statistics_.spacesBetweenWords(spaces.size());
+		statistics_.spacesLocationFindingTime(timer.elapsed());
+	}
+	catch(...) {}	
+	
 	return spaces;
+};
+
+
+/// @details The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the
+/// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
+/// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
+/// zeroth- and the first-order cumulative moments of the gray-level histogram.
+static unsigned char computeOtsuOptimalThreshold (const Clip& clip)
+{
+	// Compute the normalized clip histogram
+	std::vector<double> histogram(256, 0.0);
+
+	for ( unsigned int i = 0; i < clip.height(); ++i )
+	{
+		for ( unsigned int j = 0; j < clip.width(); ++j )
+		{
+			unsigned int grayLevel = static_cast<unsigned int>(clip(i,j));
+
+			histogram.at(grayLevel) += 1.0;
+		}
+	}
+	std::transform (histogram.begin(), histogram.end(), histogram.begin(), std::bind2nd(std::divides<double>(), clip.size()) );
+
+	// Compute the total mean gray level of the clip
+	double totalMeanGrayLevel = 0.0;
+	for ( unsigned int i = 1; i <= histogram.size(); ++i )
+		totalMeanGrayLevel += histogram.at(i-1) * static_cast<double>(i);
+
+	// Compute the zeroth- and first-order cumulative moments, i.e. the probabilities of class occurrence and the
+	// class mean levels up to level i-th.
+	std::vector<double> zerothOrderMoment(256, 0.0);
+	std::vector<double> firstOrderMoment(256, 0.0);
+	for ( unsigned int i = 0; i < histogram.size(); ++i )
+	{
+		for ( unsigned int j = 0; j < i; ++j )
+		{
+			zerothOrderMoment.at(i)	+= histogram.at(j);
+			firstOrderMoment.at(i)	+= static_cast<double>(j+1) * histogram.at(j);
+		}
+	}
+
+	// Compute the between-class variance, according to the criterion measurements used in the discriminant analysis
+	std::vector<double> betweenClassVariance(256, 0.0);
+	for ( unsigned int i = 0; i < histogram.size(); ++i )
+	{
+		double numerator = pow(totalMeanGrayLevel * zerothOrderMoment.at(i) - firstOrderMoment.at(i), 2);
+		double denominator = zerothOrderMoment.at(i) * (1 - zerothOrderMoment.at(i));
+
+		if ( std::isnan(numerator / denominator) )
+			betweenClassVariance.at(i) = 0.0;
+		else
+			betweenClassVariance.at(i) = numerator / denominator;
+	}
+
+	// Find the gray level that maximizes the between-class variance
+	std::vector<double>::iterator maximumVariance = std::max_element(betweenClassVariance.begin(), betweenClassVariance.end());
+	std::vector<double>::iterator i = betweenClassVariance.begin();
+	unsigned char optimalThreshold = 0;
+
+	while ( i != maximumVariance )
+	{
+		++i;
+		++optimalThreshold;
+	}
+
+	return optimalThreshold;
+};
+
+
+/// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
+/// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
+/// computed from the four corners of the press clip.
+static unsigned char computeSonkaOptimalThreshold (const Clip& clip)
+{
+	// Start with an initial threshold
+	unsigned char optimalThreshold = (clip(0,0) + clip(0, clip.width()-1) + clip(0, clip.height()-1) + clip(clip.height()-1,clip.width()-1)) / 4;
+	unsigned char currentThreshold = ~optimalThreshold;
+
+	// Loop as many times as needed to find the optimal threshold by averaging the pixel gray levels
+	while (currentThreshold != optimalThreshold)
+	{
+		double backgroundMeanValue = 0.0, objectsMeanValue = 0.0;
+		unsigned int nSamples = 0;
+
+		// Count the pixels that belong to objects and the pixels that belong to background
+		for ( unsigned int i = 0; i < clip.height(); ++i )
+		{
+			for ( unsigned int j = 0; j < clip.width(); ++j )
+			{
+				unsigned char grayLevel = clip(i, j);
+
+				if ( grayLevel >= optimalThreshold )
+				{
+					backgroundMeanValue += static_cast<double>(grayLevel);
+					nSamples++;
+				}
+				else
+					objectsMeanValue += static_cast<double>(grayLevel);
+			}
+		}
+		backgroundMeanValue = round(backgroundMeanValue / static_cast<double>(nSamples));
+		objectsMeanValue = round(objectsMeanValue / static_cast<double>(clip.size() - nSamples));
+
+		// Update the optimal threshold keeping the last one
+		currentThreshold = optimalThreshold;
+		optimalThreshold = static_cast<unsigned char>( round((objectsMeanValue + backgroundMeanValue) / 2.0) );
+	}
+
+	return optimalThreshold;
 };
 

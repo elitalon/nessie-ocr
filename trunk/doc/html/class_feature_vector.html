@@ -79,10 +79,9 @@ Collaboration diagram for FeatureVector:</div>
 <a href="class_feature_vector-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2a3ec2b56837886aa56040e64bda8b86"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="2a3ec2b56837886aa56040e64bda8b86" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#2a3ec2b56837886aa56040e64bda8b86">FeatureVector</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#2a3ec2b56837886aa56040e64bda8b86">FeatureVector</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#2a3ec2b56837886aa56040e64bda8b86"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#ab161bb5d9efdc4e74cd375eea65ff5a">FeatureVector</a> (const unsigned int &amp;n)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ab161bb5d9efdc4e74cd375eea65ff5a"></a><br></td></tr>
@@ -110,6 +109,26 @@ This class stores a set of features computed from a pattern where a character's 
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-04 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" name="2a3ec2b56837886aa56040e64bda8b86"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="2a3ec2b56837886aa56040e64bda8b86" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FeatureVector::FeatureVector           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty feature vector of zero size is initialized. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="ab161bb5d9efdc4e74cd375eea65ff5a"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="ab161bb5d9efdc4e74cd375eea65ff5a" args="(const unsigned int &amp;n)" -->
 <div class="memitem">
 <div class="memproto">
@@ -129,9 +148,10 @@ This class stores a set of features computed from a pattern where a character's 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of features to store in the vector. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of features to store in the vector.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty feature vector of size <em>n</em> is initialized to 0.0. </dd></dl>
 
 </div>
 </div><p>
@@ -210,7 +230,12 @@ This class stores a set of features computed from a pattern where a character's 
     <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to multiplicate.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The result of multiplicating both feature vectors. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The result of multiplicating both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
@@ -236,7 +261,12 @@ This class stores a set of features computed from a pattern where a character's 
     <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to sum.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of summing both feature vectors. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of summing both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
@@ -262,7 +292,12 @@ This class stores a set of features computed from a pattern where a character's 
     <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to subtract.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of subtracting both feature vectors. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of subtracting both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
@@ -287,7 +322,7 @@ This class stores a set of features computed from a pattern where a character's 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:14 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:39 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -17,6 +17,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 {
 	pqxx::work dbTransaction(connection_, "constructorTransaction");
 
+	// Get the number of features stored in the database
 	pqxx::result registers = dbTransaction.exec("SELECT count(*)\
 												FROM information_schema.columns\
 												WHERE table_name = 'samples' AND column_name LIKE 'm__'");
@@ -24,6 +25,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 	if ( features_ == 0 )
 		throw NessieException ("PostgreSqlDataset::postgreSqlDataset() : The table 'samples' has not any features columns.");
 
+	// Build the query section regarding the feature fields
 	std::string featureFields;
 	for( unsigned int i = 0; i < features_; ++i )
 	{
@@ -39,6 +41,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		}
 	}
 
+	// Get the samples
 	registers = dbTransaction.exec("SELECT id_sample, " + featureFields + "asciiCode\
 									FROM samples s, classes c\
 									WHERE s.class = c.id_class");
@@ -74,18 +77,27 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 	if ( sample.first.size() != features_ )
 		throw NessieException ("PostgreSqlDataset::addSample() : The number of features in the sample is different from the one expected by the dataset.");
 
-	pqxx::work dbTransaction(connection_, "addSampleTransaction");
-
 	// Get the id_class 
+	pqxx::result registers;
 	std::stringstream asciiCode;
-	asciiCode << sample.second;
-	pqxx::result registers = dbTransaction.exec("SELECT id_class FROM classes WHERE asciiCode = " + asciiCode.str());
+	try
+	{
+		pqxx::work dbTransaction(connection_, "addSampleTransaction");
 
+		asciiCode << sample.second;
+		registers = dbTransaction.exec("SELECT id_class FROM classes WHERE asciiCode = " + asciiCode.str());
+	}
+	catch (const std::exception& e)
+	{
+		std::string message(e.what());
+		throw NessieException ("PostgreSqlDataset::addSample() : The sample could not be inserted in the dataset. " + message);
+	}
+	
 	unsigned int id_class;
 	if ( !registers.front().at(0).to(id_class) )
 		throw NessieException ("PostgreSqlDataset::addSample() : No class was found with ASCII code equal to " + asciiCode.str());
 
-	// Build the query columns
+	// Build the query section regarding the feature fields
 	std::string featureFields;
 	for( unsigned int i = 0; i < features_; ++i )
 	{
@@ -102,28 +114,29 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 	}
 
 	// Insert the new sample
+	std::stringstream sampleClass;
 	try
 	{
-		std::stringstream sampleClass;
+		pqxx::work dbTransaction(connection_, "addSampleTransaction");
 		sampleClass << id_class;
 
 		registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureFields + "class) VALUES\
 										(DEFAULT, " + featureFields + sampleClass.str() + ") RETURNING id_sample");
 		dbTransaction.commit();
-
-		unsigned int id_sample;
-		if ( !registers.front().at(0).to(id_sample) )
-			throw NessieException ("PostgreSqlDataset::addSample() : The new sample ID could not be retrieved from the database.");
-
-		samples_.push_back(sample);
-		sampleIds_.push_back(id_sample);
-		size_ = samples_.size();
 	}
 	catch (const std::exception& e)
 	{
 		std::string message(e.what());
 		throw NessieException ("PostgreSqlDataset::addSample() : The sample could not be inserted in the dataset. " + message);
 	}
+
+	unsigned int id_sample;
+	if ( !registers.front().at(0).to(id_sample) )
+		throw NessieException ("PostgreSqlDataset::addSample() : The new sample ID could not be retrieved from the database.");
+
+	samples_.push_back(sample);
+	sampleIds_.push_back(id_sample);
+	size_ = samples_.size();
 };
 
 
@@ -137,15 +150,15 @@ void PostgreSqlDataset::removeSample (const unsigned int& n)
 		pqxx::work dbTransaction(connection_, "removeSampleTransaction");
 		dbTransaction.exec("DELETE FROM samples WHERE id_sample = " + id_sample.str());
 		dbTransaction.commit();
-
-		samples_.erase(samples_.begin() + n);
-		sampleIds_.erase(sampleIds_.begin() + n);
-		size_ = samples_.size();
 	}
 	catch (const std::exception& e)
 	{
 		std::string message(e.what());
 		throw NessieException ("PostgreSqlDataset::removeSample() : The sample could not be removed from the dataset. " + message);
 	}
+
+	samples_.erase(samples_.begin() + n);
+	sampleIds_.erase(sampleIds_.begin() + n);
+	size_ = samples_.size();
 };
 

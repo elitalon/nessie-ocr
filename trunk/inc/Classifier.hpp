@@ -23,7 +23,6 @@
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09
-///
 class Classifier
 {
 	public:
@@ -31,6 +30,8 @@ class Classifier
 		///	@brief	Constructor.
 		///
 		///	@param	featureVectors	An array of feature vectors to classify.
+		///
+		///	@post	The feature vectors are stored internally.
 		explicit Classifier (const std::vector<FeatureVector>& featureVectors);
 
 		///	@brief	Returns the characters associated with the feature vectors passed in constructor.
@@ -46,6 +47,8 @@ class Classifier
 		///	@brief	Executes the classification process over the feature vectors passed in constructor.
 		///
 		///	@param	paradigm	Classification paradigm to be used.
+		///
+		///	@post	The recognized characters become available through the Classifier::characters() method.
 		void classify(const ClassificationParadigm& paradigm);
 
 	private:
@@ -55,6 +58,10 @@ class Classifier
 		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
 
 		std::string					characters_;		///< Characters found after the classification process.
+
+		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
+		Classifier (const Classifier&);
+		Classifier& operator=(const Classifier&);
 };
 
 

@@ -26,13 +26,7 @@ Recognizer::Recognizer (Dataset* dataset)
 };
 
 
-Recognizer::~Recognizer ()
-{
-	delete preprocessingStatistics_;
-	delete featureExtractorStatistics_;
-	delete classifierStatistics_;
-	delete dataset_;
-};
+Recognizer::~Recognizer() {};
 
 
 /// @details	This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
@@ -41,7 +35,6 @@ Recognizer::~Recognizer ()
 /// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::extractText (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
-	// Preprocessing stage
 	Preprocessor preprocessor(pressClip);
 	preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
@@ -49,7 +42,6 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 	preprocessor.extractRegions();
 	preprocessor.correctSlanting();
 
-	// Feature extraction stage
 	FeatureExtractor featureExtractor(preprocessor.regions());
 	featureExtractor.computeMoments(dataset_->features());
 	std::vector<Pattern> patterns(featureExtractor.patterns());
@@ -64,29 +56,34 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 		(*i).writeToOutputImage(filename,true);
 	}
 
-	// Classification stage
 	Classifier classifier(featureExtractor.featureVectors());
 	classifier.classify(paradigm);
 
-	// Postprocessing stage
 	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();
 	
-	// Gather statistics
-	preprocessingStatistics_	= new PreprocessorStatistics(preprocessor.statistics());
-	featureExtractorStatistics_	= new FeatureExtractorStatistics(featureExtractor.statistics());
-	classifierStatistics_		= new ClassifierStatistics();
+	try
+	{
+		preprocessingStatistics_.reset(	new PreprocessorStatistics(preprocessor.statistics()) );
+		featureExtractorStatistics_.reset( new FeatureExtractorStatistics(featureExtractor.statistics()) );
+		classifierStatistics_.reset( new ClassifierStatistics(classifier.statistics()) );
+	}
+	catch (...) {}
 };
 
 
 void Recognizer::printStatistics () const
 {
-	if ( preprocessingStatistics_ != 0 )
-		preprocessingStatistics_->print();
+	try
+	{
+		if ( preprocessingStatistics_.get() != 0 )
+			preprocessingStatistics_->print();
 
-	if ( featureExtractorStatistics_ != 0 )
-		featureExtractorStatistics_->print();
+		if ( featureExtractorStatistics_.get() != 0 )
+			featureExtractorStatistics_->print();
 
-	if ( classifierStatistics_ != 0 )
-		classifierStatistics_->print();
+		if ( classifierStatistics_.get() != 0 )
+			classifierStatistics_->print();
+	}
+	catch (...) {}	// An error while printing the statistics should not stop the program.
 };
 

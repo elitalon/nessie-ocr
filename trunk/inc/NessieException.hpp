@@ -4,7 +4,6 @@
 #if !defined(_NESSIE_EXCEPTION_H)
 #define _NESSIE_EXCEPTION_H
 
-
 #include <string>
 #include <exception>
 
@@ -12,11 +11,10 @@
 /// @brief		Exception raised by a NessieOcr object.
 /// 
 /// @details	This class derives from std::exception class, so that all the exceptions either from this library or the STL itself
-/// can be caught using a reference to an <em>std::exception</em> object.
+/// can be caught using a reference to an std::exception> object.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
-///
 class NessieException : public std::exception
 {
 	public:
@@ -34,12 +32,23 @@ class NessieException : public std::exception
 		/// @return	Message that explains the situation that caused the exception.
 		virtual const char* what () const throw();
 
+		///	@brief	Adds additional information to explain the exception occurred.
+		///
+		///	@param	info	Additional information regarding the exception raised.
+		///
+		///	@post	The info is appended to the end of the message passed in constructor.
+		virtual void addInfo (const std::string& info) throw();
+
+		///	@brief	Adds additional information to explain the exception occurred.
+		///
+		///	@param	info	Additional information regarding the exception raised.
+		///
+		///	@post	The info is appended to the end of the message passed in constructor.
+		virtual void addInfo (const char* info) throw();
+
 	private:
 
 		std::string	what_;	///< Message that explains the exception raised
-
-		// Explicitly disallowed compiler-generated method. DO NOT IMPLEMENT!!
-		NessieException ();
 };
 
 #endif

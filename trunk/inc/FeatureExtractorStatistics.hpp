@@ -5,6 +5,7 @@
 #define _FEATURE_EXTRACTOR_STATISTICS_H
 
 #include "Statistics.hpp"
+#include <memory>
 
 
 /// @brief	Statistical data gathered during the feature extraction stage of the text recognition process.
@@ -13,7 +14,6 @@
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
-///
 class FeatureExtractorStatistics : public Statistics
 {
 	public:
@@ -49,9 +49,9 @@ class FeatureExtractorStatistics : public Statistics
 
 	private:
 
-		double*	patternsBuildingTime_;	///< Elapsed time while building an array of patterns.
+		std::auto_ptr<double>	patternsBuildingTime_;	///< Elapsed time while building an array of patterns.
 
-		double*	momentsComputingTime_;	///< Elapsed time while computing the image moments of patterns.
+		std::auto_ptr<double>	momentsComputingTime_;	///< Elapsed time while computing the image moments of patterns.
 
 		/// @brief	Updates the total elapsed time.
 		///
@@ -64,30 +64,24 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 
-	if ( patternsBuildingTime_ != 0 )
-		totalTime_ += *patternsBuildingTime_;
+	if ( patternsBuildingTime_.get() != 0 )
+		totalTime_ += *patternsBuildingTime_.get();
 
-	if ( momentsComputingTime_ != 0 )
-		totalTime_ += *momentsComputingTime_;
+	if ( momentsComputingTime_.get() != 0 )
+		totalTime_ += *momentsComputingTime_.get();
 };
 
 
 inline void FeatureExtractorStatistics::patternsBuildingTime (const double& elapsedTime)
 {
-	if ( patternsBuildingTime_ == 0 )
-		patternsBuildingTime_ = new double;
-
-	*patternsBuildingTime_ = elapsedTime;
+	patternsBuildingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 
 
 inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)
 {
-	if ( momentsComputingTime_ == 0 )
-		momentsComputingTime_ = new double;
-
-	*momentsComputingTime_ = elapsedTime;
+	momentsComputingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 

@@ -10,6 +10,7 @@ class Statistics;
 class Dataset;
 class ClassificationParadigm;
 #include "Text.hpp"
+#include <memory>
 
 
 /// @brief		Manager of the whole OCR process.
@@ -18,25 +19,26 @@ class ClassificationParadigm;
 /// every clip within a newspaper's page. For each image provided representing a press clip, you can obtain
 /// its text and a number of statistics regarding the recognition process.
 ///
-/// @see		Dataset, Text, Statistics, Clip
-///
-///	@warning	The Dataset object passed in constructor will destroyed when the Recognizer object is destroyed.
+/// @see		Dataset, Text, Statistics, Clip, ClassificationParadigm
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
-///
 class Recognizer
 {
 	public:
 
-		/// @brief	Constructor.
+		/// @brief		Constructor.
 		///
-		///	@param	dataset	The dataset to be used during the classification stage.
+		///	@param		dataset	The dataset to be used during the classification stage.
 		///
-		///	@warning	The Dataset object passed in constructor will destroyed when the Recognizer object is destroyed.
+		///	@pre		The dataset argument must not be a null pointer.
+		///
+		///	@warning	The dataset object is not copied, be careful with deleting it from the client until the Recognizer object becomes is destroyed.
+		///
+		///	@exception	NessieException
 		explicit Recognizer (Dataset* dataset);
 
-		/// @brief	Destructor.
+		///	@brief	Destructor.
 		~Recognizer ();
 
 		/// @brief	Extracts the text from a single press clip.
@@ -44,31 +46,32 @@ class Recognizer
 		/// @param	pressClip	Press clip to be processed.
 		///	@param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
 		///
-		///	@post	The internal members are set so that recognized text is available through Text::text() method.
+		///	@post	The text recognized from the pressClip is available through the Recognizer::text() method.
 		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm);
 
 		/// @brief	Returns the text found in a press clip after the recognition process.
 		///
-		/// @return A Text object with data about the recognized text.
+		/// @return A Text object with information about the recognized text.
 		const Text& text () const;
 
-		/// @brief	Prints detailed statistics about the text recognition process gathered during its execution.
+		/// @brief	Prints detailed statistics about the text recognition process.
+		///
+		///	@post	Every stage statistical data is printed using the standard output.
 		void printStatistics () const;
 
 	private:
 
-		Dataset*	dataset_;						///< Dataset to be used during the classification stage.
+		Dataset*					dataset_;						///< Dataset to be used during the classification stage.
 
-		Text		text_;							///< Text obtained after the recognition process.
+		Text						text_;							///< Text obtained after the recognition process.
 
-		Statistics*	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
+		std::auto_ptr<Statistics>	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
 
-		Statistics*	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
+		std::auto_ptr<Statistics>	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
 
-		Statistics*	classifierStatistics_;			///< Statistics gathered during the classification stage.
+		std::auto_ptr<Statistics>	classifierStatistics_;			///< Statistics gathered during the classification stage.
 
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
-		Recognizer ();
+		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Recognizer (const Recognizer&);
 		Recognizer& operator= (const Recognizer&);
 };

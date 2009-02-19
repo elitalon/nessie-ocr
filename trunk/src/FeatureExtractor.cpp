@@ -96,7 +96,12 @@ FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
 		region.normalizeCoordinates();
 		patterns_.push_back( Pattern(region) );
 	}
-	statistics_.patternsBuildingTime(timer.elapsed());
+
+	try
+	{
+		statistics_.patternsBuildingTime(timer.elapsed());
+	}
+	catch(...) {}
 };
 
 
@@ -132,6 +137,10 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		featureVectors_.push_back(fv);
 	}
 
-	statistics_.momentsComputingTime(timer.elapsed());
+	try
+	{
+		statistics_.momentsComputingTime(timer.elapsed());
+	}
+	catch(...) {}
 };
 

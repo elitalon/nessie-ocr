@@ -15,7 +15,6 @@
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
-///
 class Statistics
 {
 	public:

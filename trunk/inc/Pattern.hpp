@@ -17,7 +17,6 @@ class Region;
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-02
-///
 class Pattern
 {
 	public:

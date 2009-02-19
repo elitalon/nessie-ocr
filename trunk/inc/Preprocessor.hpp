@@ -4,7 +4,6 @@
 #if !defined(_PREPROCESSOR_H)
 #define _PREPROCESSOR_H
 
-
 #include "Clip.hpp"
 #include "PreprocessorStatistics.hpp"
 #include "Region.hpp"
@@ -32,7 +31,6 @@
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
-///
 class Preprocessor
 {
 	public:
@@ -40,6 +38,8 @@ class Preprocessor
 		/// @brief	Constructor.
 		/// 
 		/// @param	pressClip A press clip over which apply all the preprocessing algorithms.
+		///
+		///	@post	The pressClip is stored internally.
 		explicit Preprocessor (const Clip& pressClip);
 
 		/// @brief	Returns the regions found, if any, in the last segmentation process
@@ -111,16 +111,6 @@ class Preprocessor
 
 		std::list<Region>		regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
 
-		/// @brief	Computes the optimal threshold value in a press clip following the Sonka's algorithm.
-		/// 
-		/// @return	A unsigned char with the optimal threshold value in a scale of [0,255].
-		unsigned char computeSonkaOptimalThreshold () const;
-
-		/// @brief	Computes the optimal threshold value in a press clip following the Otsu's algorithm.
-		///
-		///	@return	A unsigned char with the optimal threshold value in a scale of [0,255].
-		unsigned char computeOtsuOptimalThreshold () const;
-
 		/// @brief		Finds every pair of rows that delimits a line of regions as if they were characters in a text.
 		///
 		///	@param		visited		A vector of boolean values that tell which pixels have been visited during the regions extraction process.
@@ -133,8 +123,7 @@ class Preprocessor
 		void mergeVerticallyOverlappedRegions (const std::list<LineDelimiter>& delimiters);
 
 
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT THEM!!
-		Preprocessor ();
+		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Preprocessor (const Preprocessor&);
 		Preprocessor& operator= (const Preprocessor&);
 };

@@ -2,6 +2,7 @@
 /// @brief Definition of PlainTextDataset class
 
 #include "PlainTextDataset.hpp"
+#include "NessieException.hpp"
 #include <fstream>
 #include <sstream>
 #include <sys/stat.h>
@@ -119,25 +120,29 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 
 PlainTextDataset::~PlainTextDataset ()
 {
-	std::ofstream stream( filename_.data(), std::ios::trunc );
-	if ( not stream.is_open() or not stream.good() )
+	try
 	{
-		stream.close();
-		return;
+		std::ofstream stream( filename_.data(), std::ios::trunc );
+		if ( not stream.is_open() or not stream.good() )
+		{
+			stream.close();
+			return;
+		}
+
+		stream << features_ << std::endl;
+
+		for ( unsigned int i = 0; i < size_; ++i )
+		{
+			FeatureVector features	= samples_.at(i).first;
+			unsigned int label		= samples_.at(i).second;
+
+			for ( unsigned int j = 0; j < features.size(); ++j )
+				stream << features.at(j) << " ";
+
+			stream << label << std::endl;
+		}
 	}
-
-	stream << features_ << std::endl;
-
-	for ( unsigned int i = 0; i < size_; ++i )
-	{
-		FeatureVector features	= samples_.at(i).first;
-		unsigned int label		= samples_.at(i).second;
-
-		for ( unsigned int j = 0; j < features.size(); ++j )
-			stream << features.at(j) << " ";
-
-		stream << label << std::endl;
-	}
+	catch (...) {}	// Bad luck if the dataset could not be dumped to disk.
 };
 
 

@@ -4,7 +4,6 @@
 #if !defined(_REGION_H)
 #define _REGION_H
 
-
 #include <vector>
 #include <utility>
 
@@ -14,7 +13,6 @@
 /// @author		Eliezer Talón (elitalon@gmail.com)
 /// @date		2009-01-19
 typedef std::pair<unsigned int, unsigned int> PixelCoordinates;
-
 
 
 ///	@brief		Set of ink pixels that defines an isolated region in the press clip.
@@ -28,13 +26,12 @@ typedef std::pair<unsigned int, unsigned int> PixelCoordinates;
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-19
-///
 class Region
 {
 	public:
 
 		/// @brief	Constructor.
-		Region();
+		explicit Region();
 
 		/// @brief	Allows read-and-write access to the coordinates of a pixel in the region.
 		///
@@ -107,6 +104,8 @@ class Region
 		/// @brief	Adds a pair of pixel coordinates to the region.
 		/// 
 		/// @param	coordinates		Coordinates of the pixel.
+		///
+		///	@post	The pair of coordinates is added to the region, and the points of reference are updated.
 		void addCoordinates(const PixelCoordinates& coordinates);
 
 		/// @brief	Normalize the coordinates of every pixel.

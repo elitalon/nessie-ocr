@@ -74,7 +74,7 @@ Collaboration diagram for Classifier:</div>
 <div class="dynsection">
 <p><center><img src="class_classifier__coll__graph.png" border="0" usemap="#_classifier__coll__map" alt="Collaboration graph"></center>
 <map name="_classifier__coll__map">
-<area shape="rect" title="STL class." alt="" coords="5,66,77,140"><area shape="rect" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition..." alt="" coords="296,7,440,199"></map>
+<area shape="rect" title="STL class." alt="" coords="5,65,77,140"><area shape="rect" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition..." alt="" coords="296,7,440,199"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -119,9 +119,10 @@ This class encapsulates all the algorithms related to the classification stage o
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors to classify. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors to classify.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The feature vectors are stored internally. </dd></dl>
 
 </div>
 </div><p>
@@ -165,9 +166,10 @@ This class encapsulates all the algorithms related to the classification stage o
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>paradigm</em>&nbsp;</td><td>Classification paradigm to be used. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>paradigm</em>&nbsp;</td><td>Classification paradigm to be used.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The recognized characters become available through the <a class="el" href="class_classifier.html#a1463cbe29e85a9951d0f35c150d9fe4" title="Returns the characters associated with the feature vectors passed in constructor...">Classifier::characters()</a> method. </dd></dl>
 
 </div>
 </div><p>
@@ -192,7 +194,7 @@ This class encapsulates all the algorithms related to the classification stage o
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:13 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:38 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

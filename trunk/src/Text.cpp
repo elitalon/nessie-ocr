@@ -28,18 +28,14 @@ void Text::addCharacter (const std::string& character, const unsigned int& posit
 	if ( character.size() > 2 )
 		throw NessieException("Text::addCharacter() : The string passed cannot contain more than one character.");
 
-	if(position > content_.size())
-		throw NessieException("Text::addCharacter() : The given position is greater than the size of the text.");
-	else
+	if( !(position > content_.size()) )
 		content_.insert(position, character);
 };
 
 
 void Text::removeCharacter (const unsigned int& position)
 {
-	if (position > content_.size())
-		throw NessieException("Text::addCharacter() : The given position is greater than the size of the text.");
-	else
+	if ( !(position > content_.size()) )
 		content_.erase(position, 1);	
 };
 

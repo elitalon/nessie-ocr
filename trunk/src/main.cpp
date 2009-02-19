@@ -9,6 +9,7 @@
 #include "ClassificationParadigm.hpp"
 #include <boost/timer.hpp>
 #include <iostream>
+#include <memory>
 
 
 /// @param argc		Number of command line arguments.
@@ -33,10 +34,12 @@ int main (int argc, char const *argv[])
 		timer.restart();
 
 		Magick::Image image( argv[1] );
+		
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
-		//Recognizer recon( new PlainTextDataset("samples.dataset") );
-		Recognizer recon( new PostgreSqlDataset("db_nessieocr", "nessieocr", "nessieocr") );
+		std::auto_ptr<Dataset> dataset( new PlainTextDataset("samples.dataset") );
+		
+		Recognizer recon( dataset.get() );
 		recon.extractText(pressClip, ClassificationParadigm::knn());
 
 		std::cout << recon.text().content() << std::endl;

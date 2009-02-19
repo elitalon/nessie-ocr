@@ -150,11 +150,11 @@ Dataset.o: $(DATASET)
 	@echo
 
 PlainTextDataset.o: $(PLAIN_TEXT_DATASET)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 PostgreSqlDataset.o: $(POSTGRE_SQL_DATASET)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 install:

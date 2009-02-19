@@ -17,11 +17,11 @@ FeatureExtractorStatistics::FeatureExtractorStatistics (const FeatureExtractorSt
 	patternsBuildingTime_(0),
 	momentsComputingTime_(0)
 {
-	if ( statistics.patternsBuildingTime_ != 0 )
-		patternsBuildingTime_ = new double(*statistics.patternsBuildingTime_);
+	if ( statistics.patternsBuildingTime_.get() != 0 )
+		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
 
-	if ( statistics.momentsComputingTime_ != 0 )
-		momentsComputingTime_ = new double(*statistics.momentsComputingTime_);
+	if ( statistics.momentsComputingTime_.get() != 0 )
+		momentsComputingTime_.reset( new double (*statistics.momentsComputingTime_.get() ));
 };
 
 
@@ -29,29 +29,17 @@ FeatureExtractorStatistics& FeatureExtractorStatistics::operator= (const Feature
 {
 	Statistics::operator=(statistics);	// Assign base class parts
 
-	if ( statistics.patternsBuildingTime_ != 0 )
-	{
-		double* tmp = new double(*statistics.patternsBuildingTime_);
-		delete patternsBuildingTime_;
-		patternsBuildingTime_ = tmp;
-	}
+	if ( statistics.patternsBuildingTime_.get() != 0 )
+		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
 
-	if ( statistics.momentsComputingTime_ != 0 )
-	{
-		double* tmp = new double(*statistics.momentsComputingTime_);
-		delete momentsComputingTime_;
-		momentsComputingTime_ = tmp;
-	}
-
+	if ( statistics.momentsComputingTime_.get() != 0 )
+		momentsComputingTime_.reset( new double (*statistics.momentsComputingTime_.get() ));
+	
 	return *this;
 };
 
 
-FeatureExtractorStatistics::~FeatureExtractorStatistics ()
-{
-	delete patternsBuildingTime_;
-	delete momentsComputingTime_;
-};
+FeatureExtractorStatistics::~FeatureExtractorStatistics () {};
 
 
 void FeatureExtractorStatistics::print () const
@@ -59,11 +47,11 @@ void FeatureExtractorStatistics::print () const
 	std::cout << std::endl;
 	std::cout << "Feature extraction stage statistics" << std::endl;
 
-	if ( patternsBuildingTime_ != 0 )
-		std::cout << "  - Patterns building time       : " << *patternsBuildingTime_ << std::endl;
+	if ( patternsBuildingTime_.get() != 0 )
+		std::cout << "  - Patterns building time       : " << *patternsBuildingTime_.get() << std::endl;
 
-	if ( momentsComputingTime_ != 0 )
-		std::cout << "  - Moments computing time       : " << *momentsComputingTime_ << std::endl;
+	if ( momentsComputingTime_.get() != 0 )
+		std::cout << "  - Moments computing time       : " << *momentsComputingTime_.get() << std::endl;
 
 	std::cout << "  - Total elapsed time           : " << totalTime_ << std::endl;
 };

@@ -64,7 +64,7 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>PlainTextDataset Class Reference</h1><!-- doxytag: class="PlainTextDataset" --><!-- doxytag: inherits="Dataset" --><a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> built by retrieving the data from a plain text file in the filesystem.  
+<h1>PlainTextDataset Class Reference</h1><!-- doxytag: class="PlainTextDataset" --><!-- doxytag: inherits="Dataset,boost::noncopyable" --><a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> built by retrieving the data from a plain text file in the filesystem.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_plain_text_dataset_8hpp-source.html">PlainTextDataset.hpp</a>&gt;</code>
@@ -74,14 +74,14 @@ Inheritance diagram for PlainTextDataset:</div>
 <div class="dynsection">
 <p><center><img src="class_plain_text_dataset__inherit__graph.png" border="0" usemap="#_plain_text_dataset__inherit__map" alt="Inheritance graph"></center>
 <map name="_plain_text_dataset__inherit__map">
-<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="12,6,135,198"></map>
+<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,6,128,198"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for PlainTextDataset:</div>
 <div class="dynsection">
 <p><center><img src="class_plain_text_dataset__coll__graph.png" border="0" usemap="#_plain_text_dataset__coll__map" alt="Collaboration graph"></center>
 <map name="_plain_text_dataset__coll__map">
-<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,6,128,198"><area shape="rect" title="STL class." alt="" coords="152,65,224,140"></map>
+<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,6,128,198"><area shape="rect" title="STL class." alt="" coords="304,65,376,140"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -130,6 +130,11 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   </table>
 </dl>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The file passed must have the number of features in its first line.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 This constructor loads a dataset from a file, which must have the following format:<p>
 The <em>first line</em> defines the number of features in every sample of the data set.<p>
 The <em>following lines</em> are the samples (one sample per line). Every line has a number of fields according to the definition in the first line, which constitutes a feature vector, and one additional field that tells the class of the feature vector. An example of a valid data set may be:<p>
@@ -165,9 +170,10 @@ The <em>feature</em> fields must have a floating point format: both the integer 
     <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>Sample to add.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is appended to the end of the dataset.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td>The number of features per sample in the dataset does not match with the sample passed. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
   </table>
 </dl>
 
@@ -194,16 +200,17 @@ The <em>feature</em> fields must have a floating point format: both the integer 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample.</td></tr>
   </table>
 </dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is removed from given position. </dd></dl>
 
 <p>Implements <a class="el" href="class_dataset.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">Dataset</a>.</p>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Feb 17 11:16:14 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:39 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

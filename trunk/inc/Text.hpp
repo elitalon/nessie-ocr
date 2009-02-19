@@ -11,13 +11,12 @@
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-30
-///
 class Text
 {
 	public:
 
 		///	@brief	Constructor.
-		Text ();
+		explicit Text ();
 
 		/// @brief	Allows to sum a pair of Text objects by appending its contents.
 		/// 
@@ -42,7 +41,7 @@ class Text
 		/// 
 		/// @post		The character is appended at the end of the text.
 		///
-		/// @exception	NessieException	If <em>character</em> contains more than one character.
+		/// @exception	NessieException
 		void addCharacter (const std::string& character);
 
 		/// @brief		Adds a character to the text at given position.
@@ -52,8 +51,7 @@ class Text
 		/// 
 		/// @post		The character is inserted at given position.
 		/// 
-		/// @exception	NessieException	If <em>position</em> is greater than the value returned by Text::size().
-		/// @exception	NessieException	If <em>character</em> contains more than one character.
+		/// @exception	NessieException
 		void addCharacter (const std::string& character, const unsigned int& position);
 
 		/// @brief		Removes a single character from the text.
@@ -61,8 +59,6 @@ class Text
 		/// @param		position		Position where the character must be removed.
 		/// 
 		/// @post		The character at given position is removed.
-		/// 
-		/// @exception	NessiException	If <em>position</em> is greater than the value returned by Text::size().
 		void removeCharacter (const unsigned int& position);
 
 	private:

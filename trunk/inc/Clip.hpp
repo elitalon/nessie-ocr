@@ -24,7 +24,6 @@
 ///
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
-///
 class Clip
 {
 	public:
@@ -39,23 +38,23 @@ class Clip
 		///
 		/// @post		The image is stored internally using a grayscale colorspace.
 		///
-		/// @exception	NessieException	If the clip partially falls outside the underlying image.
+		/// @exception	NessieException
 		explicit Clip (const Magick::Image& image, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width);
 
-		/// @brief	Allows read-and-write access to a pixel in the clip.
+		/// @brief		Allows read-and-write access to a pixel in the clip.
 		///
-		/// @param	x	X-axis coordinate of the row where the requested pixel is.
-		/// @param	y	Y-axis coordinates of the column where the requested pixel is.
+		/// @param		x	X-axis coordinate of the row where the requested pixel is.
+		/// @param		y	Y-axis coordinates of the column where the requested pixel is.
 		///
-		/// @return	The gray level of pixel at given coordinates.
+		/// @return		The gray level of pixel at given coordinates.
 		unsigned char& operator() (const unsigned int& x, const unsigned int& y);
 
-		/// @brief	Allows read-only access to a pixel in the clip.
+		/// @brief		Allows read-only access to a pixel in the clip.
 		///
-		/// @param	x	X-axis coordinate of the row where the pixel is.
-		/// @param	y	Y-axis coordinate of the column where the pixel is.
+		/// @param		x	X-axis coordinate of the row where the pixel is.
+		/// @param		y	Y-axis coordinate of the column where the pixel is.
 		///
-		/// @return	The gray level of pixel at given coordinates.
+		/// @return		The gray level of pixel at given coordinates.
 		unsigned char operator() (const unsigned int& x, const unsigned int& y) const;
 
 		/// @brief	Returns the width of the clip.
@@ -73,13 +72,13 @@ class Clip
 		/// @return	Number of pixels in the clip.
 		const unsigned int& size () const;
 
-		/// @brief	Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip.
+		/// @brief		Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip.
 		///
-		/// @param	outputFile		A string with the image name in the filesystem.
-		/// @param	scalingFactor	Top limit of the source image scale to use in the output image (i.e. 1 for [0..1], 255 for [0..255], etc.).
+		/// @param		outputFile		A string with the image name in the filesystem.
+		/// @param		scalingFactor	Top limit of the source image scale to use in the output image (i.e. 1 for [0..1], 255 for [0..255], etc.).
 		///
-		/// @post	A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the
-		///			filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent.
+		/// @post		A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the
+		///	filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent.
 		void writeToOutputImage (const std::string& outputFile, const double& scalingFactor = 1.0) const;
 
 	private:
@@ -95,9 +94,6 @@ class Clip
 		unsigned int				height_;	///< Height of the clip in pixels.
 
 		unsigned int				size_;		///< Size of the clip in pixels.
-
-		// Explicitly disallowed compiler-generated methods. DO NOT IMPLEMENT!!
-		Clip ();
 };
 
 

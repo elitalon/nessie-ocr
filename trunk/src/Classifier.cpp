@@ -23,12 +23,16 @@ void Classifier::classify (const ClassificationParadigm& paradigm)
 		;
 	}
 
-	for ( std::vector<FeatureVector>::iterator i = featureVectors_.begin(); i != featureVectors_.end(); ++i )
+	if ( paradigm.id() == ClassificationParadigm::svm().id() )
 	{
 		;
 	}
-
-	statistics_.classificationTime(timer.elapsed());
-	statistics_.charactersFound(characters_.size());
+	
+	try
+	{
+		statistics_.classificationTime(timer.elapsed());
+		statistics_.charactersFound(characters_.size());
+	}
+	catch(...) {}
 };
 

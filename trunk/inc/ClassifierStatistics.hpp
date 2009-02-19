@@ -5,6 +5,7 @@
 #define _CLASSIFIER_STATISTICS_H
 
 #include "Statistics.hpp"
+#include <memory>
 
 
 /// @brief	Statistical data gathered during the classification stage of the text recognition process.
@@ -13,7 +14,6 @@
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
-///
 class ClassifierStatistics : public Statistics
 {
 	public:
@@ -32,10 +32,10 @@ class ClassifierStatistics : public Statistics
 
 		///	@brief	Stores the number of characters found during the classification process.
 		///
-		///	@post	The internal member is set to <em>nCharacters</em>.
+		///	@post	The internal member is set to <em>n</em>.
 		///
-		///	@param	nCharacters	Number of characters.
-		void charactersFound (const unsigned int& nCharacters);
+		///	@param	n	Number of characters.
+		void charactersFound (const unsigned int& n);
 
 		///	@brief	Stores the elapsed time while classifying the feature vectors.
 		///
@@ -49,9 +49,9 @@ class ClassifierStatistics : public Statistics
 
 	private:
 
-		unsigned int*	charactersFound_;		///< Numbers of characters found during the classification process.
+		std::auto_ptr<unsigned int>	charactersFound_;		///< Numbers of characters found during the classification process.
 
-		double*			classificationTime_;	///< Elapsed time while classifing the feature vectors.
+		std::auto_ptr<double>		classificationTime_;	///< Elapsed time while classifing the feature vectors.
 
 		/// @brief	Updates the total elapsed time.
 		///
@@ -64,26 +64,20 @@ inline void ClassifierStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 
-	if ( classificationTime_ != 0 )
-		totalTime_ += *classificationTime_;
+	if ( classificationTime_.get() != 0 )
+		totalTime_ += *classificationTime_.get();
 };
 
 
-inline void ClassifierStatistics::charactersFound (const unsigned int& nCharacters)
+inline void ClassifierStatistics::charactersFound (const unsigned int& n)
 {
-	if ( charactersFound_ == 0 )
-		charactersFound_ = new unsigned int;
-
-	*charactersFound_ = nCharacters;
+	charactersFound_.reset(new unsigned int(n));
 };
 
 
 inline void ClassifierStatistics::classificationTime (const double& elapsedTime)
 {
-	if ( classificationTime_ == 0 )
-		classificationTime_ = new double;
-
-	*classificationTime_ = elapsedTime;
+	classificationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 
