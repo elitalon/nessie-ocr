@@ -61,17 +61,14 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 
 	// Read samples from the following lines
 	unsigned int currentLineInt = 1;
-	std::stringstream currentLineStr;
 	getline(stream, line);
 	++currentLineInt;
-	currentLineStr << currentLineInt;
 	while ( stream.good() )
 	{
 		if ( line.empty() )
 		{
 			getline(stream, line);
 			++currentLineInt;
-			currentLineStr << currentLineInt;
 			continue;
 		}
 
@@ -85,6 +82,8 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 		if ( fields.size() - 1 not_eq features_ )
 		{
 			stream.close();
+			std::stringstream currentLineStr;
+			currentLineStr << currentLineInt;
 			throw NessieException ("PlainTextDataset::PlainTextDataset() : An invalid sample has been found at line " + currentLineStr.str() + "; the number of features found is inconsistent.");
 		}
 
@@ -95,6 +94,8 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 			if ( (featureStream >> features.at(i)).fail() )
 			{
 				stream.close();
+				std::stringstream currentLineStr;
+				currentLineStr << currentLineInt;
 				throw NessieException ("PlainTextDataset::PlainTextDataset() : An invalid sample has been found at line " + currentLineStr.str() + "; a feature had not a valid format.");
 			}
 		}
@@ -104,13 +105,14 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 		if ( (labelStream >> label).fail() )
 		{
 			stream.close();
+			std::stringstream currentLineStr;
+			currentLineStr << currentLineInt;
 			throw NessieException ("PlainTextDataset::PlainTextDataset() : An invalid sample has been found at line " + currentLineStr.str() + "; the label had not a valid format.");
 		}
 		samples_.push_back( Sample(features, label) );
 
 		getline(stream, line);
 		++currentLineInt;
-		currentLineStr << currentLineInt;
 	}
 
 	stream.close();

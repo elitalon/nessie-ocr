@@ -38,7 +38,13 @@ int main (int argc, char const *argv[])
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 		std::auto_ptr<Dataset> dataset( new PlainTextDataset("samples.dataset") );
-		
+		std::cout << "The dataset contains " << dataset->size() << " samples" << std::endl;
+		for ( unsigned int i = 0; i < dataset->size(); ++i )
+		{
+			for ( unsigned int j = 0; j < dataset->at(i).first.size(); ++j )
+				std::cout << dataset->at(i).first.at(j) << " ";
+			std::cout << dataset->at(i).second << std::endl;
+		}
 		Recognizer recon( dataset.get() );
 		recon.extractText(pressClip, ClassificationParadigm::knn());
 
