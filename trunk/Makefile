@@ -69,9 +69,10 @@ PROGRAM = bin/ocr
 MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
 BOOST_CXXFLAGS = -I/usr/local/include/boost
-LIBPQXX_CXXFLAGS = -lpqxx
+LIBPQXX_LDFLAGS = -L/usr/local/lib/ -lpqxx
+LIBPQXX_CXXFLAGS = -I/usr/local/include/pqxx
 CXXFLAGS = -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -fPIC
-LDFLAGS = $(MAGICK_LDFLAGS) $(LIBPQXX_CXXFLAGS) 
+LDFLAGS = $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) 
 
 
 
@@ -82,7 +83,7 @@ main: main.o
 	@echo
 
 main.o: $(MAIN)
-	$(CXX) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(LIBPQXX_CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 NessieException.o: $(NESSIE_EXCEPTION)
@@ -154,7 +155,7 @@ PlainTextDataset.o: $(PLAIN_TEXT_DATASET)
 	@echo
 
 PostgreSqlDataset.o: $(POSTGRE_SQL_DATASET)
-	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(LIBPQXX_CXXFLAGS) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 install:
