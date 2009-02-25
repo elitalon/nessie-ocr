@@ -36,7 +36,7 @@ class Classifier
 		///	@brief	Returns the characters associated with the feature vectors passed in constructor.
 		/// 
 		/// @return	A std::string object with the characters found.
-		const std::string& characters () const;
+		const std::vector<std::string>& characters () const;
 
 		///	@brief	Returns the statistics about the classification stage.
 		/// 
@@ -57,7 +57,7 @@ class Classifier
 
 		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
 
-		std::string					characters_;		///< Characters found after the classification process.
+		std::vector<std::string>	characters_;		///< Characters found after the classification process.
 
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Classifier (const Classifier&);
@@ -65,7 +65,7 @@ class Classifier
 };
 
 
-inline const std::string& Classifier::characters () const
+inline const std::vector<std::string>& Classifier::characters () const
 {
 	return characters_;
 };

@@ -311,10 +311,10 @@ This class encapsulates all the stages related to the optical character recognit
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>Press clip to be processed. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>Press clip to be processed.</td></tr>
   </table>
 </dl>
-
+As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up the images, so that they can be directly and efficiently processed by the feature extraction stage. 
 </div>
 </div><p>
 <a class="anchor" name="b969a32fcac097fba30075c4d97b2ea0"></a><!-- doxytag: member="Recognizer::extractText" ref="b969a32fcac097fba30075c4d97b2ea0" args="(const Clip &amp;pressClip, const ClassificationParadigm &amp;paradigm)" -->
@@ -350,8 +350,7 @@ This class encapsulates all the stages related to the optical character recognit
   </table>
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The text recognized from the pressClip is available through the <a class="el" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347" title="Returns the text found, either in the last classification stage or the last postprocessing...">Recognizer::text()</a> method.</dd></dl>
-This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.<p>
-As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up the images, so that they can be directly and efficiently processed by the feature extraction stage. 
+This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing. 
 </div>
 </div><p>
 <a class="anchor" name="6dca64a7d07056bead92e3f271c461fd"></a><!-- doxytag: member="Recognizer::featureVectors" ref="6dca64a7d07056bead92e3f271c461fd" args="() const " -->
@@ -475,7 +474,7 @@ As the first important step, image and data <em>preprocessing</em> serve the pur
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 15:22:21 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 15:46:23 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -11,7 +11,7 @@
 Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 :	statistics_(),
 	featureVectors_(featureVectors),
-	characters_("")
+	characters_(0)
 {};
 
 
@@ -31,7 +31,7 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 
 	for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 	{
-		unsigned int label = 0;
+		unsigned char label = 0;
 
 		if ( paradigm.id() == ClassificationParadigm::knn().id() )
 			label = classifyUsingKnnParadigm(featureVectors_.at(i), dataset);
@@ -39,7 +39,8 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 		if ( paradigm.id() == ClassificationParadigm::svm().id() )
 			label = 'A';
 
-		characters_.push_back(label);
+		std::string character(1, label);
+		characters_.push_back(character);
 	}
 
 	try

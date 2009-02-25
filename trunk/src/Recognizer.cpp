@@ -4,8 +4,8 @@
 #include "Recognizer.hpp"
 #include "NessieException.hpp"
 #include "Dataset.hpp"
-#include "Clip.hpp"
 #include "Statistics.hpp"
+#include "Clip.hpp"
 #include "Preprocessor.hpp"
 #include "FeatureExtractor.hpp"
 #include "Classifier.hpp"
@@ -33,17 +33,17 @@ Recognizer::~Recognizer() {};
 
 
 /// @details	This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
-///
-/// @details	As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
-/// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::extractText (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
 	doPreprocessing(pressClip);
 	doFeatureExtraction();
 	doClassification(paradigm);
+	doPostprocessing();
 };
 
 
+/// @details	As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
+/// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::doPreprocessing (const Clip& pressClip)
 {
 	regions_.clear();
@@ -108,6 +108,10 @@ void Recognizer::doClassification (const ClassificationParadigm& paradigm)
 
 	Classifier classifier(featureVectors_);
 	classifier.classify(paradigm, dataset_);
+	std::vector<std::string> characters = classifier.characters();
+
+	for ( std::vector<std::string>::iterator i = characters.begin(); i != characters.end(); ++i )
+		text_.addCharacter(*i);
 
 	try
 	{
