@@ -88,35 +88,37 @@ window.onload = initDynSections;
 <a name="l00056"></a>00056 
 <a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="class_text.html#e04500eeada2a4a3bb00554b32263c52" title="Removes a single character from the text.">removeCharacter</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; position);
 <a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keyword">private</span>:
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         std::string content_;   
-<a name="l00067"></a>00067 
-<a name="l00071"></a>00071         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keyword">const</span> std::string&amp; text);
-<a name="l00072"></a>00072 };
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 
-<a name="l00075"></a><a class="code" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">00075</a> <span class="keyword">inline</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a> <a class="code" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d" title="Allows to sum a pair of Text objects by appending its contents.">Text::operator+ </a>(<span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; text)<span class="keyword"> const</span>
-<a name="l00076"></a>00076 <span class="keyword"></span>{
-<a name="l00077"></a>00077     <span class="keywordflow">return</span> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a>(this-&gt;content_ + text.<a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text content.">content_</a>);
-<a name="l00078"></a>00078 };
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="class_text.html#7dacbbf887593bff5a5e45cde06dca71" title="Removes all the characters in the text, leaving it with a size of 0.">clear</a> ();
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="keyword">private</span>:
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071         std::string content_;   
+<a name="l00072"></a>00072 
+<a name="l00076"></a>00076         <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a> (<span class="keyword">const</span> std::string&amp; text);
+<a name="l00077"></a>00077 };
+<a name="l00078"></a>00078 
 <a name="l00079"></a>00079 
-<a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c">00081</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::string&amp; <a class="code" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c" title="Returns the text content.">Text::content</a> ()<span class="keyword"> const</span>
-<a name="l00082"></a>00082 <span class="keyword"></span>{
-<a name="l00083"></a>00083     <span class="keywordflow">return</span> content_;
-<a name="l00084"></a>00084 };
+<a name="l00080"></a><a class="code" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">00080</a> <span class="keyword">inline</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a> <a class="code" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d" title="Allows to sum a pair of Text objects by appending its contents.">Text::operator+ </a>(<span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; text)<span class="keyword"> const</span>
+<a name="l00081"></a>00081 <span class="keyword"></span>{
+<a name="l00082"></a>00082     <span class="keywordflow">return</span> <a class="code" href="class_text.html#b3e26143fccc52699bcc5149cae852bc" title="Constructor.">Text</a>(this-&gt;content_ + text.<a class="code" href="class_text.html#8c5acddb86730d41099c87da7e386f6c" title="The text content.">content_</a>);
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
 <a name="l00085"></a>00085 
-<a name="l00086"></a>00086 
-<a name="l00087"></a><a class="code" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">00087</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#b66729ba84c2698ed888f641b3838a8b" title="Returns the size of the text in characters.">Text::size</a> ()<span class="keyword"> const</span>
-<a name="l00088"></a>00088 <span class="keyword"></span>{
-<a name="l00089"></a>00089     <span class="keywordflow">return</span> content_.size();
-<a name="l00090"></a>00090 };
+<a name="l00086"></a><a class="code" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c">00086</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::string&amp; <a class="code" href="class_text.html#8b6ac381338c5b3f719600b5f9be222c" title="Returns the text content.">Text::content</a> ()<span class="keyword"> const</span>
+<a name="l00087"></a>00087 <span class="keyword"></span>{
+<a name="l00088"></a>00088     <span class="keywordflow">return</span> content_;
+<a name="l00089"></a>00089 };
+<a name="l00090"></a>00090 
 <a name="l00091"></a>00091 
-<a name="l00092"></a>00092 <span class="preprocessor">#endif</span>
-<a name="l00093"></a>00093 <span class="preprocessor"></span>
+<a name="l00092"></a><a class="code" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">00092</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_text.html#b66729ba84c2698ed888f641b3838a8b" title="Returns the size of the text in characters.">Text::size</a> ()<span class="keyword"> const</span>
+<a name="l00093"></a>00093 <span class="keyword"></span>{
+<a name="l00094"></a>00094     <span class="keywordflow">return</span> content_.size();
+<a name="l00095"></a>00095 };
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#endif</span>
+<a name="l00098"></a>00098 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 11:30:32 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 15:22:18 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

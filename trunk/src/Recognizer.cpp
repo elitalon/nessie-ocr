@@ -9,13 +9,16 @@
 #include "Preprocessor.hpp"
 #include "FeatureExtractor.hpp"
 #include "Classifier.hpp"
-#include <vector>
 #include <string>
 #include <sstream>
 
 
 Recognizer::Recognizer (const Dataset* dataset)
 :	dataset_(dataset),
+	regions_(0),
+	spaceLocations_(0),
+	patterns_(0),
+	featureVectors_(0),
 	text_(),
 	preprocessingStatistics_(0),
 	featureExtractorStatistics_(0),
@@ -35,6 +38,17 @@ Recognizer::~Recognizer() {};
 /// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::extractText (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
+	doPreprocessing(pressClip);
+	doFeatureExtraction();
+	doClassification(paradigm);
+};
+
+
+void Recognizer::doPreprocessing (const Clip& pressClip)
+{
+	regions_.clear();
+	spaceLocations_.clear();
+
 	Preprocessor preprocessor(pressClip);
 	preprocessor.applyAveragingFilters();
 	preprocessor.applyGlobalThresholding();
@@ -42,12 +56,29 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 	preprocessor.extractRegions();
 	preprocessor.correctSlanting();
 
-	FeatureExtractor featureExtractor(preprocessor.regions());
+	regions_ = preprocessor.regions();
+	spaceLocations_ = preprocessor.findSpacesBetweenWords();
+
+	try
+	{
+		preprocessingStatistics_.reset(	new PreprocessorStatistics(preprocessor.statistics()) );
+	}
+	catch(...) {}
+};
+
+
+void Recognizer::doFeatureExtraction ()
+{
+	patterns_.clear();
+	featureVectors_.clear();
+
+	FeatureExtractor featureExtractor(regions_);
+	patterns_ = featureExtractor.patterns();
 	featureExtractor.computeMoments(dataset_->features());
-	std::vector<Pattern> patterns(featureExtractor.patterns());
-	
+	featureVectors_ = featureExtractor.featureVectors();
+
 	unsigned int patternNo = 0;
-	for ( std::vector<Pattern>::iterator i = patterns.begin(); i != patterns.end(); ++i )
+	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
 		std::ostringstream ostr;
 		ostr << patternNo++;
@@ -56,18 +87,54 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 		(*i).writeToOutputImage(filename,true);
 	}
 
-	Classifier classifier(featureExtractor.featureVectors());
-	classifier.classify(paradigm, dataset_);
-
-	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();
-	
 	try
 	{
-		preprocessingStatistics_.reset(	new PreprocessorStatistics(preprocessor.statistics()) );
 		featureExtractorStatistics_.reset( new FeatureExtractorStatistics(featureExtractor.statistics()) );
+	}
+	catch (...) {}
+};
+
+
+void Recognizer::doFeatureExtraction (const std::list<Region>& regions)
+{
+	regions_ = regions;
+	doFeatureExtraction();
+};
+
+
+void Recognizer::doClassification (const ClassificationParadigm& paradigm)
+{
+	text_.clear();
+
+	Classifier classifier(featureVectors_);
+	classifier.classify(paradigm, dataset_);
+
+	try
+	{
 		classifierStatistics_.reset( new ClassifierStatistics(classifier.statistics()) );
 	}
 	catch (...) {}
+};
+
+
+void Recognizer::doClassification (const std::vector<FeatureVector>& featureVectors, const ClassificationParadigm& paradigm)
+{
+	featureVectors_ = featureVectors;
+	doClassification(paradigm);
+};
+
+
+void Recognizer::doPostprocessing ()
+{
+	;
+};
+
+
+void Recognizer::doPostprocessing (Text& text, const std::vector<unsigned int>& spaceLocations)
+{
+	text_ = text;
+	spaceLocations_ = spaceLocations;
+	doPostprocessing();
 };
 
 

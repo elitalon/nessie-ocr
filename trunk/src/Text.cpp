@@ -39,3 +39,9 @@ void Text::removeCharacter (const unsigned int& position)
 		content_.erase(position, 1);	
 };
 
+
+void Text::clear ()
+{
+	content_.clear();
+};
+

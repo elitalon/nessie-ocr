@@ -4,7 +4,6 @@
 #if !defined(_CLASSIFIER_H)
 #define _CLASSIFIER_H
 
-
 #include "FeatureVector.hpp"
 #include "ClassifierStatistics.hpp"
 #include "ClassificationParadigm.hpp"
@@ -13,14 +12,13 @@
 #include <vector>
 
 
-
 ///	@brief		Classifier of the OCR process.
 /// 
 ///	@details	This class encapsulates all the algorithms related to the classification stage of the OCR process. Its task is to match every feature
 ///	vector passed in the constructor to its associated character. In the very end of the process, a string of characters is available through the
 /// Classifier::characters() method.
 /// 
-/// @see		FeatureVector, ClassifierStatistics
+/// @see		FeatureVector, ClassifierStatistics, Dataset, ClassificationParadigm
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09

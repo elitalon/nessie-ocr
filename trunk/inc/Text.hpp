@@ -61,6 +61,11 @@ class Text
 		/// @post		The character at given position is removed.
 		void removeCharacter (const unsigned int& position);
 
+		/// @brief	Removes all the characters in the text, leaving it with a size of 0.
+		///
+		///	@post	The text becomes empty, no characters at all.
+		void clear ();
+
 	private:
 
 		std::string content_;	///< The text content.
