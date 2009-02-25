@@ -36,7 +36,7 @@ class Recognizer
 		///	@warning	The dataset object is not copied, be careful with deleting it from the client until the Recognizer object becomes is destroyed.
 		///
 		///	@exception	NessieException
-		explicit Recognizer (Dataset* dataset);
+		explicit Recognizer (const Dataset* dataset);
 
 		///	@brief	Destructor.
 		~Recognizer ();
@@ -61,7 +61,7 @@ class Recognizer
 
 	private:
 
-		Dataset*					dataset_;						///< Dataset to be used during the classification stage.
+		const Dataset*				dataset_;						///< Dataset to be used during the classification stage.
 
 		Text						text_;							///< Text obtained after the recognition process.
 

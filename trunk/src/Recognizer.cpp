@@ -14,7 +14,7 @@
 #include <sstream>
 
 
-Recognizer::Recognizer (Dataset* dataset)
+Recognizer::Recognizer (const Dataset* dataset)
 :	dataset_(dataset),
 	text_(),
 	preprocessingStatistics_(0),
@@ -57,7 +57,7 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 	}
 
 	Classifier classifier(featureExtractor.featureVectors());
-	classifier.classify(paradigm);
+	classifier.classify(paradigm, dataset_);
 
 	std::vector<unsigned int> spaceLocations = preprocessor.findSpacesBetweenWords();
 	

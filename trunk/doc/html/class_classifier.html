@@ -90,9 +90,9 @@ Collaboration diagram for Classifier:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="class_classifier_statistics.html">ClassifierStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the statistics about the classification stage.  <a href="#265a12730a3fb6bdbbd53d3f97466502"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#57cd9603b67f7b0a6b9cf86825330b83">classify</a> (const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;paradigm)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a2e54ecc7dfe026218d721478f858a2b">classify</a> (const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;paradigm, const <a class="el" href="class_dataset.html">Dataset</a> *dataset)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the classification process over the feature vectors passed in constructor.  <a href="#57cd9603b67f7b0a6b9cf86825330b83"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the classification process over the feature vectors passed in constructor.  <a href="#a2e54ecc7dfe026218d721478f858a2b"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This class encapsulates all the algorithms related to the classification stage of the OCR process. Its task is to match every feature vector passed in the constructor to its associated character. In the very end of the process, a string of characters is available through the <a class="el" href="class_classifier.html#a1463cbe29e85a9951d0f35c150d9fe4" title="Returns the characters associated with the feature vectors passed in constructor...">Classifier::characters()</a> method.<p>
@@ -147,7 +147,7 @@ This class encapsulates all the algorithms related to the classification stage o
 
 </div>
 </div><p>
-<a class="anchor" name="57cd9603b67f7b0a6b9cf86825330b83"></a><!-- doxytag: member="Classifier::classify" ref="57cd9603b67f7b0a6b9cf86825330b83" args="(const ClassificationParadigm &amp;paradigm)" -->
+<a class="anchor" name="a2e54ecc7dfe026218d721478f858a2b"></a><!-- doxytag: member="Classifier::classify" ref="a2e54ecc7dfe026218d721478f858a2b" args="(const ClassificationParadigm &amp;paradigm, const Dataset *dataset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -155,9 +155,18 @@ This class encapsulates all the algorithms related to the classification stage o
           <td class="memname">void Classifier::classify           </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>paradigm</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramname"> <em>paradigm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_dataset.html">Dataset</a> *&nbsp;</td>
+          <td class="paramname"> <em>dataset</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -166,7 +175,8 @@ This class encapsulates all the algorithms related to the classification stage o
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>paradigm</em>&nbsp;</td><td>Classification paradigm to be used.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>paradigm</em>&nbsp;</td><td>Classification paradigm to be used. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>dataset</em>&nbsp;</td><td><a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> to be used during the classification process.</td></tr>
   </table>
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The recognized characters become available through the <a class="el" href="class_classifier.html#a1463cbe29e85a9951d0f35c150d9fe4" title="Returns the characters associated with the feature vectors passed in constructor...">Classifier::characters()</a> method. </dd></dl>
@@ -194,7 +204,7 @@ This class encapsulates all the algorithms related to the classification stage o
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 19 12:20:38 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 11:30:34 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

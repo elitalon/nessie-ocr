@@ -1,4 +1,4 @@
-<area shape="rect" href="$_feature_vector_8cpp.html" title="Definition of FeatureVector class." alt="" coords="5,81,125,105">
-<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="149,81,245,105">
-<area shape="rect" href="$_dataset_8hpp.html" title="Declaration of Dataset class." alt="" coords="269,81,357,105">
-<area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="381,81,515,105">
+<area shape="rect" href="$_feature_vector_8cpp.html" title="Definition of FeatureVector class." alt="" coords="5,82,125,106">
+<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="155,156,251,180">
+<area shape="rect" href="$_dataset_8hpp.html" title="Declaration of Dataset class." alt="" coords="200,82,288,106">
+<area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="312,82,445,106">

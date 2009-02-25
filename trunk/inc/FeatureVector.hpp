@@ -76,6 +76,20 @@ class FeatureVector
 		/// @return Number of features held.
 		const unsigned int& size () const;
 
+		///	@brief	Computes the Euclidean distance with the input vector.
+		///
+		///	@param	featureVector	Feature vector of reference.
+		///
+		///	@return	The Euclidean distance between this vector and the input vector.
+		double computeEuclideanDistance (const FeatureVector& featureVector) const;
+
+		///	@brief	Computes the Mahalanobis distance with the input vector.
+		///
+		///	@param	featureVector	Feature vector of reference.
+		///
+		///	@return	The Mahalanobis distance between this vector and the input vector.
+		double computeMahalanobisDistance (const FeatureVector& featureVector) const;
+
 	private:
 
 		std::vector<double>	features_;	///< Characteristic features of the pattern.

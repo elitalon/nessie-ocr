@@ -8,6 +8,7 @@
 #include "FeatureVector.hpp"
 #include "ClassifierStatistics.hpp"
 #include "ClassificationParadigm.hpp"
+#include "Dataset.hpp"
 #include <string>
 #include <vector>
 
@@ -47,9 +48,10 @@ class Classifier
 		///	@brief	Executes the classification process over the feature vectors passed in constructor.
 		///
 		///	@param	paradigm	Classification paradigm to be used.
+		///	@param	dataset		Dataset to be used during the classification process.
 		///
 		///	@post	The recognized characters become available through the Classifier::characters() method.
-		void classify(const ClassificationParadigm& paradigm);
+		void classify(const ClassificationParadigm& paradigm, const Dataset* dataset);
 
 	private:
 
