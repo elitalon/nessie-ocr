@@ -19,6 +19,7 @@ Recognizer::Recognizer (const Dataset* dataset)
 	spaceLocations_(0),
 	patterns_(0),
 	featureVectors_(0),
+	characters_(0),
 	text_(),
 	preprocessingStatistics_(0),
 	featureExtractorStatistics_(0),
@@ -104,14 +105,11 @@ void Recognizer::doFeatureExtraction (const std::list<Region>& regions)
 
 void Recognizer::doClassification (const ClassificationParadigm& paradigm)
 {
-	text_.clear();
+	characters_.clear();
 
 	Classifier classifier(featureVectors_);
 	classifier.classify(paradigm, dataset_);
-	std::vector<std::string> characters = classifier.characters();
-
-	for ( std::vector<std::string>::iterator i = characters.begin(); i != characters.end(); ++i )
-		text_.addCharacter(*i);
+	characters_ = classifier.characters();
 
 	try
 	{
@@ -130,13 +128,16 @@ void Recognizer::doClassification (const std::vector<FeatureVector>& featureVect
 
 void Recognizer::doPostprocessing ()
 {
-	;
+	text_.clear();
+	
+	for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
+		text_.addCharacter(*i);
 };
 
 
-void Recognizer::doPostprocessing (const Text& text, const std::vector<unsigned int>& spaceLocations)
+void Recognizer::doPostprocessing (const std::vector<std::string>& characters, const std::vector<unsigned int>& spaceLocations)
 {
-	text_ = text;
+	characters_ = characters;
 	spaceLocations_ = spaceLocations;
 	doPostprocessing();
 };
@@ -172,7 +173,11 @@ void Recognizer::trainClassifier (const std::list<Region>& regions, const std::v
 {
 	doFeatureExtraction(regions);
 	doClassification(paradigm);
-	
+
 	// Compare the resulting text with the reference text.
+	if ( characters_.size() == referenceText.size() )
+	{
+		;
+	}
 };
 

@@ -89,9 +89,9 @@ class Recognizer
 
 		/// @brief	Executes the postprocessing stage.
 		/// 
-		/// @param	text			Text to be postprocessed.
+		/// @param	characters		A set of characters to be postprocessed to build the final text.
 		/// @param	spaceLocations	Positions in the text where blanks spaces should be inserted.
-		void doPostprocessing (const Text& text, const std::vector<unsigned int>& spaceLocations);
+		void doPostprocessing (const std::vector<std::string>& characters, const std::vector<unsigned int>& spaceLocations);
 
 		/// @brief	Returns the regions found, if any, in the last preprocessing stage executed.
 		///
@@ -112,6 +112,11 @@ class Recognizer
 		///
 		///	@return	An array of FeatureVector objects.
 		std::vector<FeatureVector> featureVectors () const;
+
+		/// @brief	Returns the characters found in the last classification stage executed.
+		/// 
+		/// @return An array of strings, where each string constitutes a single character.
+		std::vector<std::string> characters () const;
 
 		/// @brief	Returns the text found, either in the last classification stage or the last postprocessing stage.
 		///
@@ -148,6 +153,8 @@ class Recognizer
 
 		std::vector<FeatureVector>	featureVectors_;				///< Array of feature vectors obtained after the feature extraction stage.
 		
+		std::vector<std::string>	characters_;					///< Array of strings that holds the characters found after the classification stage.
+
 		Text						text_;							///< Text obtained after the recognition process.
 
 		std::auto_ptr<Statistics>	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
@@ -180,6 +187,11 @@ inline std::vector<Pattern> Recognizer::patterns () const
 inline std::vector<FeatureVector> Recognizer::featureVectors () const
 {
 	return featureVectors_;
+};
+
+inline std::vector<std::string> Recognizer::characters () const
+{
+	return characters_;
 };
 
 inline const Text& Recognizer::text () const

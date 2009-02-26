@@ -109,9 +109,9 @@ Collaboration diagram for Recognizer:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#4c850e7c914ef98660e5b289beed15bc">doPostprocessing</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the postprocessing stage assuming the internal members were already set.  <a href="#4c850e7c914ef98660e5b289beed15bc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#0680bbf407862976a7263a0823257b28">doPostprocessing</a> (const <a class="el" href="class_text.html">Text</a> &amp;text, const std::vector&lt; unsigned int &gt; &amp;spaceLocations)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#8706f1aa7b8ce001193f5618f5d75057">doPostprocessing</a> (const std::vector&lt; std::string &gt; &amp;characters, const std::vector&lt; unsigned int &gt; &amp;spaceLocations)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the postprocessing stage.  <a href="#0680bbf407862976a7263a0823257b28"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the postprocessing stage.  <a href="#8706f1aa7b8ce001193f5618f5d75057"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::list&lt; <a class="el" href="class_region.html">Region</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#f24456b6a54c881e7bdbe06c345d285f">regions</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the regions found, if any, in the last preprocessing stage executed.  <a href="#f24456b6a54c881e7bdbe06c345d285f"></a><br></td></tr>
@@ -124,6 +124,9 @@ Collaboration diagram for Recognizer:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="class_feature_vector.html">FeatureVector</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#6dca64a7d07056bead92e3f271c461fd">featureVectors</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the feature vectors found in the last feature extraction stage executed.  <a href="#6dca64a7d07056bead92e3f271c461fd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#d7e78f6710d7eb1239f31b5f4be1ca06">characters</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the characters found in the last classification stage executed.  <a href="#d7e78f6710d7eb1239f31b5f4be1ca06"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="class_text.html">Text</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">text</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text found, either in the last classification stage or the last postprocessing stage.  <a href="#a651c8590cfc04532e2cfe205cdf9347"></a><br></td></tr>
@@ -176,6 +179,26 @@ This class encapsulates all the stages related to the optical character recognit
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="d7e78f6710d7eb1239f31b5f4be1ca06"></a><!-- doxytag: member="Recognizer::characters" ref="d7e78f6710d7eb1239f31b5f4be1ca06" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Recognizer::characters           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of strings, where each string constitutes a single character. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="926e709ab9d45ed4ef871ce609f15e6b"></a><!-- doxytag: member="Recognizer::doClassification" ref="926e709ab9d45ed4ef871ce609f15e6b" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const ClassificationParadigm &amp;paradigm)" -->
 <div class="memitem">
 <div class="memproto">
@@ -282,15 +305,15 @@ This class encapsulates all the stages related to the optical character recognit
 
 </div>
 </div><p>
-<a class="anchor" name="0680bbf407862976a7263a0823257b28"></a><!-- doxytag: member="Recognizer::doPostprocessing" ref="0680bbf407862976a7263a0823257b28" args="(const Text &amp;text, const std::vector&lt; unsigned int &gt; &amp;spaceLocations)" -->
+<a class="anchor" name="8706f1aa7b8ce001193f5618f5d75057"></a><!-- doxytag: member="Recognizer::doPostprocessing" ref="8706f1aa7b8ce001193f5618f5d75057" args="(const std::vector&lt; std::string &gt; &amp;characters, const std::vector&lt; unsigned int &gt; &amp;spaceLocations)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Recognizer::doPostprocessing           </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_text.html">Text</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>text</em>, </td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>characters</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -310,7 +333,7 @@ This class encapsulates all the stages related to the optical character recognit
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td><a class="el" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a> to be postprocessed. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>A set of characters to be postprocessed to build the final text. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>spaceLocations</em>&nbsp;</td><td>Positions in the text where blanks spaces should be inserted. </td></tr>
   </table>
 </dl>
@@ -596,7 +619,7 @@ This method executes the recognition process in four stages: preprocessing, feat
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 26 11:31:10 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 26 19:18:35 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
