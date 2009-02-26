@@ -33,10 +33,11 @@ int main (int argc, char const *argv[])
 		boost::timer timer;
 		timer.restart();
 
+		// Create a press clip from an external image.
 		Magick::Image image( argv[1] );
-		
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
+		// Load a dataset to use in the classification stage.
 		std::auto_ptr<Dataset> dataset( new PlainTextDataset("samples.dataset") );
 		std::cout << "The dataset contains " << dataset->size() << " samples" << std::endl;
 		for ( unsigned int i = 0; i < dataset->size(); ++i )
@@ -45,12 +46,14 @@ int main (int argc, char const *argv[])
 				std::cout << dataset->at(i).first.at(j) << " ";
 			std::cout << dataset->at(i).second << std::endl;
 		}
+
+		// Create a recognizer and extract the text
 		Recognizer recon( dataset.get() );
 		recon.extractText(pressClip, ClassificationParadigm::knn());
 
+		// Print the results
 		std::cout << recon.text().content() << std::endl;
 		recon.printStatistics();
-
 		std::cout << std::endl << "Total time since program started: " << timer.elapsed() << std::endl;
 	}
 	catch (std::exception &e)

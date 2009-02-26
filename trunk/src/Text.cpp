@@ -15,6 +15,12 @@ Text::Text (const std::string& content)
 {};
 
 
+Text Text::operator+ (const Text& text) const
+{
+	return Text(this->content_ + text.content_);
+};
+
+
 void Text::addCharacter (const std::string& character)
 {
 	addCharacter(character, content_.size());

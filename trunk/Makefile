@@ -30,25 +30,25 @@ vpath %.dylib	$(libdir)
 #
 # Dependencies
 #
-NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
-STATISTICS						= Statistics.cpp Statistics.hpp
 CLASSIFICATION_PARADIGM			= ClassificationParadigm.cpp ClassificationParadigm.hpp
-MAIN							= main.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
+CLASSIFIER						= Classifier.cpp Classifier.hpp Dataset.o FeatureVector.o ClassifierStatistics.o ClassificationParadigm.o
+CLASSIFIER_STATISTICS			= ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
 CLIP							= Clip.cpp Clip.hpp NessieException.o
+DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
+FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
+FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
+FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
+MAIN							= main.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
+NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
+PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
 POSTGRE_SQL_DATASET				= PostgreSqlDataset.cpp PostgreSqlDataset.hpp Dataset.o NessieException.o
-DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
-RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Dataset.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o ClassificationParadigm.o
-TEXT							= Text.cpp Text.hpp NessieException.o
 PREPROCESSOR					= Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatistics.o Region.o
-REGION							= Region.cpp Region.hpp
 PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
-FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
-PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
-FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
-FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
-CLASSIFIER						= Classifier.cpp Classifier.hpp ClassifierStatistics.o ClassificationParadigm.o
-CLASSIFIER_STATISTICS			= ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
+RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Statistics.o Dataset.o ClassificationParadigm.o Region.o Pattern.o FeatureVector.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o NessieException.o
+REGION							= Region.cpp Region.hpp
+STATISTICS						= Statistics.cpp Statistics.hpp
+TEXT							= Text.cpp Text.hpp NessieException.o
 
 
 

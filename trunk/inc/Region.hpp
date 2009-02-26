@@ -147,34 +147,6 @@ inline PixelCoordinates Region::operator() (const unsigned int& index) const
 };
 
 
-inline Region Region::operator+ (const Region& region) const
-{
-	Region temp;
-
-	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i != coordinates_.end(); ++i )
-		temp.addCoordinates( (*i) );
-
-	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i != region.coordinates_.end(); ++i )
-		temp.addCoordinates( (*i) );
-
-	return temp;
-};
-
-
-inline bool Region::operator< (const Region& region) const
-{
-	if ( this->bottomBorderRow() < region.topBorderRow() )
-		return true;
-	else
-	{
-		if ( region.bottomBorderRow() < this->topBorderRow() )
-			return false;
-		else
-			return ( this->topLeftmostPixelCoordinates().second < region.topLeftmostPixelCoordinates().second );
-	}
-};
-
-
 inline const unsigned int& Region::height () const
 {
 	return height_;

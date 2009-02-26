@@ -77,12 +77,6 @@ class Text
 };
 
 
-inline Text Text::operator+ (const Text& text) const
-{
-	return Text(this->content_ + text.content_);
-};
-
-
 inline const std::string& Text::content () const
 {
 	return content_;

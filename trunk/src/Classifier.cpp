@@ -10,8 +10,8 @@
 
 Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 :	statistics_(),
-	featureVectors_(featureVectors),
-	characters_(0)
+	characters_(0),
+	featureVectors_(featureVectors)
 {};
 
 

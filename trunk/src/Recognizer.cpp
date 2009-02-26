@@ -134,7 +134,7 @@ void Recognizer::doPostprocessing ()
 };
 
 
-void Recognizer::doPostprocessing (Text& text, const std::vector<unsigned int>& spaceLocations)
+void Recognizer::doPostprocessing (const Text& text, const std::vector<unsigned int>& spaceLocations)
 {
 	text_ = text;
 	spaceLocations_ = spaceLocations;
@@ -156,5 +156,23 @@ void Recognizer::printStatistics () const
 			classifierStatistics_->print();
 	}
 	catch (...) {}	// An error while printing the statistics should not stop the program.
+};
+
+
+void Recognizer::trainClassifier (const std::list<Region>& regions, const ClassificationParadigm& paradigm)
+{
+	doFeatureExtraction(regions);
+	doClassification(paradigm);
+
+	// Prompt the user confirmation for each classified character.
+};
+
+
+void Recognizer::trainClassifier (const std::list<Region>& regions, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm)
+{
+	doFeatureExtraction(regions);
+	doClassification(paradigm);
+	
+	// Compare the resulting text with the reference text.
 };
 

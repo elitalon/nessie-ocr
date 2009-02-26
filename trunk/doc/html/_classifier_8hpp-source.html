@@ -91,9 +91,9 @@ window.onload = initDynSections;
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056         <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>        statistics_;        
 <a name="l00057"></a>00057 
-<a name="l00058"></a>00058         std::vector&lt;FeatureVector&gt;  featureVectors_;    
+<a name="l00058"></a>00058         std::vector&lt;std::string&gt;    characters_;        
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060         std::vector&lt;std::string&gt;    characters_;        
+<a name="l00060"></a>00060         std::vector&lt;FeatureVector&gt;  featureVectors_;    
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
 <a name="l00063"></a>00063         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
@@ -115,7 +115,7 @@ window.onload = initDynSections;
 <a name="l00079"></a>00079 <span class="preprocessor">#endif</span>
 <a name="l00080"></a>00080 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Feb 25 15:46:19 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 26 11:31:07 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

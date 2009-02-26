@@ -55,9 +55,9 @@ class Classifier
 
 		ClassifierStatistics		statistics_;		///< Statistics about the classification of feature vectors.
 
-		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
-
 		std::vector<std::string>	characters_;		///< Characters found after the classification process.
+
+		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
 
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Classifier (const Classifier&);

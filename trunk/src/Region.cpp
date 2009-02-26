@@ -93,3 +93,31 @@ void Region::normalizeCoordinates ()
 	topLeftmostPixelCoordinates_ = PixelCoordinates(topBorderRow_, leftBorderColumn_);
 };
 
+
+Region Region::operator+ (const Region& region) const
+{
+	Region temp;
+
+	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i != coordinates_.end(); ++i )
+		temp.addCoordinates( (*i) );
+
+	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i != region.coordinates_.end(); ++i )
+		temp.addCoordinates( (*i) );
+
+	return temp;
+};
+
+
+bool Region::operator< (const Region& region) const
+{
+	if ( this->bottomBorderRow() < region.topBorderRow() )
+		return true;
+	else
+	{
+		if ( region.bottomBorderRow() < this->topBorderRow() )
+			return false;
+		else
+			return ( this->topLeftmostPixelCoordinates().second < region.topLeftmostPixelCoordinates().second );
+	}
+};
+

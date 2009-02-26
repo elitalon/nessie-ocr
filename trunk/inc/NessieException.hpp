@@ -51,5 +51,10 @@ class NessieException : public std::exception
 		std::string	what_;	///< Message that explains the exception raised
 };
 
+inline const char* NessieException::what () const throw()
+{
+	return what_.data();
+};
+
 #endif
 

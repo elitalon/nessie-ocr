@@ -24,7 +24,7 @@ class ClassificationParadigm;
 /// every clip within a newspaper's page. For each image provided representing a press clip, you can obtain
 /// its text and a number of statistics regarding the recognition process.
 ///
-/// @see		Dataset, Text, Statistics, Clip, ClassificationParadigm
+/// @see		Dataset, Text, Statistics, Clip, ClassificationParadigm, Pattern, Region, FeatureVector
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
@@ -60,6 +60,8 @@ class Recognizer
 		void doPreprocessing (const Clip& pressClip);
 
 		/// @brief	Executes the feature extraction stage assuming the internal members were already set. 
+		///
+		///	@pre	The preprocessing stage must have been previously executed. 
 		void doFeatureExtraction ();
 
 		/// @brief	Executes the feature extraction stage. 
@@ -70,6 +72,8 @@ class Recognizer
 		/// @brief	Executes the classification stage assuming the internal members were already set. 
 		///
 		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
+		///
+		///	@pre	The feature extraction stage must have been previously executed. 
 		void doClassification (const ClassificationParadigm& paradigm);
 
 		/// @brief	Executes the classification stage.
@@ -79,13 +83,15 @@ class Recognizer
 		void doClassification (const std::vector<FeatureVector>& featureVectors, const ClassificationParadigm& paradigm);
 
 		/// @brief	Executes the postprocessing stage assuming the internal members were already set. 
+		///
+		///	@pre	The classification stage must have been previously executed. 
 		void doPostprocessing ();
 
 		/// @brief	Executes the postprocessing stage.
 		/// 
 		/// @param	text			Text to be postprocessed.
 		/// @param	spaceLocations	Positions in the text where blanks spaces should be inserted.
-		void doPostprocessing (Text& text, const std::vector<unsigned int>& spaceLocations);
+		void doPostprocessing (const Text& text, const std::vector<unsigned int>& spaceLocations);
 
 		/// @brief	Returns the regions found, if any, in the last preprocessing stage executed.
 		///
@@ -116,6 +122,19 @@ class Recognizer
 		///
 		///	@post	Every stage statistical data is printed using the standard output.
 		void printStatistics () const;
+
+		/// @brief	Executes a classifier interactive training using the input array of patterns.
+		/// 
+		/// @param	regions		A list of regions to classify.
+		/// @param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
+		void trainClassifier (const std::list<Region>& regions, const ClassificationParadigm& paradigm);
+
+		/// @brief	Executes a classifier automatic training, comparing the input patterns with a reference text.
+		/// 
+		/// @param	regions		A list of regions to classify.
+		/// @param	referenceText	A text to compare with the classification results character by character.
+		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
+		void trainClassifier (const std::list<Region>& regions, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm);
 
 	private:
 

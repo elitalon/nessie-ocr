@@ -13,12 +13,6 @@ NessieException::NessieException (const std::string& what)
 NessieException::~NessieException () throw() {};
 
 
-const char* NessieException::what () const throw()
-{
-	return what_.data();
-};
-
-
 void NessieException::addInfo (const std::string& info) throw()
 {
 	this->addInfo(info.data());
