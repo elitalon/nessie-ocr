@@ -5,9 +5,14 @@
 #define _TEXT_H
 
 #include <string>
+#include <vector>
 
 
 /// @brief		Text extracted from a press clip during the recognition process.
+///
+///	@details	The text that comes in newspaper articles might have characters with accents and, in general, characters that do not belong
+///	to the standard ASCII set. By default, the STL <em>string</em> class stores these special characters as if their size were two instead of one (e.g. a vocal plus
+///	its accent). That's why this class handles an array of strings, rather than a simple <em>string</em> object.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-30
@@ -25,15 +30,20 @@ class Text
 		/// @return	A Text object as a result of appending both contents.
 		Text operator+ (const Text& text) const;
 
-		///	@brief	Returns the text content.
-		///
-		/// @return	A STL string object with the content of the text.
-		const std::string& content () const;
+		/// @brief	Returns the text content.
+		/// 
+		/// @return	An array of STL string objects, with one text's character per element.
+		const std::vector<std::string>& characters () const;
 
 		///	@brief	Returns the size of the text in characters.
 		///
 		/// @return	Number of characters in the text.
 		unsigned int size () const;	
+
+		///	@brief	Returns the text content.
+		///
+		/// @return	A STL string object with the content of the text.
+		std::string content () const;
 
 		/// @brief	Adds a character at the end of the text.
 		///
@@ -68,24 +78,23 @@ class Text
 
 	private:
 
-		std::string content_;	///< The text content.
+		std::vector<std::string>	characters_;	///< The text content.
 
 		///	@brief	Constructor.
 		/// 
 		/// @param	text	A STL string object with the initial content.
-		Text (const std::string& text);
+		Text (const std::vector<std::string>& text);
 };
 
 
-inline const std::string& Text::content () const
+inline const std::vector<std::string>& Text::characters () const
 {
-	return content_;
+	return characters_;
 };
-
 
 inline unsigned int Text::size () const
 {
-	return content_.size();
+	return characters_.size();
 };
 
 #endif
