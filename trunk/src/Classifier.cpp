@@ -19,19 +19,18 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 	boost::timer timer;
 	timer.restart();
 
-	if ( dataset->size() == 0 )
-		return;
-
 	for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 	{
 		unsigned char label = 32;	// Blank space
 
-		if ( paradigm.id() == ClassificationParadigm::knn().id() )
-			label = knn(featureVectors_.at(i), dataset);
+		if ( dataset->size() > 0 )
+		{
+			if ( paradigm.id() == ClassificationParadigm::knn().id() )
+				label = knn(featureVectors_.at(i), dataset);
 
-		if ( paradigm.id() == ClassificationParadigm::svm().id() )
-			label = 32;
-
+			if ( paradigm.id() == ClassificationParadigm::svm().id() )
+				label = 32;
+		}
 		std::string character(1, label);
 		characters_.push_back(character);
 	}

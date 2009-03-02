@@ -10,6 +10,7 @@
 #include "FeatureExtractor.hpp"
 #include "Classifier.hpp"
 #include <string>
+#include <iostream>
 #include <sstream>
 
 
@@ -160,18 +161,47 @@ void Recognizer::printStatistics () const
 };
 
 
-void Recognizer::trainClassifier (const std::list<Region>& regions, const ClassificationParadigm& paradigm)
+void Recognizer::trainClassifier (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
-	doFeatureExtraction(regions);
+	doPreprocessing(pressClip);
+	doFeatureExtraction();
 	doClassification(paradigm);
 
-	// Prompt the user confirmation for each classified character.
+	unsigned int regionNo = 0;
+	for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
+	{
+		std::cout << "Region #" << regionNo << ":" << std::endl;
+
+		std::cout << " - Feature vector      : ";
+		FeatureVector fv = featureVectors_.at(regionNo);
+		for ( unsigned int j = 0; j < fv.size(); ++j )
+			std::cout << fv.at(j) << " ";
+		std::cout << std::endl;
+
+		std::cout << " - Candidate character : " << *i << std::endl;
+
+		std::cout << " - Valid classification [y/n]? ";
+		unsigned char answer;
+		std::cin >> answer;
+
+		if ( answer == 'y' )
+		{
+			std::cout << "The sample has been stored." << std::endl << std::endl;
+		}
+		else
+		{
+			std::cout << "The sample has been discarded." << std::endl << std::endl;
+		}
+
+		++regionNo;
+	}
 };
 
 
-void Recognizer::trainClassifier (const std::list<Region>& regions, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm)
+void Recognizer::trainClassifier (const Clip& pressClip, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm)
 {
-	doFeatureExtraction(regions);
+	doPreprocessing(pressClip);
+	doFeatureExtraction();
 	doClassification(paradigm);
 
 	// Compare the resulting text with the reference text.

@@ -10,7 +10,6 @@
 #	- all:		Executes clean and then main and doc
 ###
 
-
 SHELL = /bin/sh
 CHMOD = chmod
 .SUFFIXES:
@@ -19,12 +18,12 @@ CHMOD = chmod
 srcdir = src/
 incdir = inc/
 libdir = lib/
+bindir = bin/
 vpath %.hpp		$(incdir)
 vpath %.cpp		$(srcdir)
 vpath %.o		./
 vpath %.so		$(libdir)
 vpath %.dylib	$(libdir)
-
 
 
 #
@@ -38,7 +37,6 @@ DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
 FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
 FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
 FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
-MAIN							= main.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
 NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
 PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
@@ -48,41 +46,42 @@ PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hp
 RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Statistics.o Dataset.o ClassificationParadigm.o Region.o Pattern.o FeatureVector.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o NessieException.o
 REGION							= Region.cpp Region.hpp
 STATISTICS						= Statistics.cpp Statistics.hpp
+TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
 TEXT							= Text.cpp Text.hpp NessieException.o
-
+PROGRAMS						= tester.o
 
 
 #
 # Library configuration
 #
-LIBRARY_NAME = NessieOcr
-LIBRARY_VERSION = 1.0.0
-LIBRARY_SHARED_FILE = lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
-LIBRARY_BUILDING_OPTIONS = -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
+LIBRARY_NAME				= NessieOcr
+LIBRARY_VERSION				= 1.0.0
+LIBRARY_SHARED_FILE			= lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
+LIBRARY_BUILDING_OPTIONS	= -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
+TESTER_NAME					= $(bindir)tester
 
 
 #
 # Compiler flags
 #
-OBJECTS = *.o
-PROGRAM = bin/ocr
-MAGICK_LDFLAGS = `Magick++-config --cppflags --cxxflags --ldflags --libs`
-MAGICK_CXXFLAGS = `Magick++-config --cppflags --cxxflags`
-BOOST_CXXFLAGS = -I/usr/local/include/boost
-LIBPQXX_LDFLAGS = -L/usr/local/lib/ -lpqxx
-LIBPQXX_CXXFLAGS = -I/usr/local/include/pqxx
-CXXFLAGS = -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -fPIC
-LDFLAGS = $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) 
+OBJECTS				= *.o
+MAGICK_LDFLAGS		= `Magick++-config --cppflags --cxxflags --ldflags --libs`
+MAGICK_CXXFLAGS		= `Magick++-config --cppflags --cxxflags`
+BOOST_CXXFLAGS		= -I/usr/local/include/boost
+BOOST_LDFLAGS		= -L/usr/local/lib/ -lboost_program_options
+LIBPQXX_LDFLAGS		= -L/usr/local/lib/ -lpqxx
+LIBPQXX_CXXFLAGS	= -I/usr/local/include/pqxx
+CXXFLAGS			= -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -fPIC
+LDFLAGS				= $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) $(BOOST_LDFLAGS) 
 
 
 
-main: main.o
-	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
-	@echo
+$(LIBRARY_NAME): $(PROGRAMS)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(TESTER_NAME)
 	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@echo
 
-main.o: $(MAIN)
+tester.o: $(TESTER)
 	$(CXX) $(LIBPQXX_CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
@@ -165,18 +164,18 @@ install:
 	ldconfig -n /usr/local/lib
 
 uninstall:
-	rm -f /usr/local/include/$(LIBRARY_NAME)/*.hpp
-	rm -f /usr/local/lib/$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
-	rm -f /usr/local/lib/$(LIBRARY_SHARED_FILE)
+	$(RM) -f /usr/local/include/$(LIBRARY_NAME)/*.hpp
+	$(RM) -f /usr/local/lib/$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
+	$(RM) -f /usr/local/lib/$(LIBRARY_SHARED_FILE)
 	ldconfig -n /usr/local/lib
 
 doc: $(incdir)*.hpp $(srcdir)*.cpp Doxyfile
-	@rm -rf doc/html/*
+	@$(RM) -rf doc/html/*
 	@doxygen
 
 clean:
-	@rm -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
+	@$(RM) -f $(OBJECTS) $(PROGRAM_NAME) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 
-all: clean main doc
+all: clean $(LIBRARY_NAME) doc
 

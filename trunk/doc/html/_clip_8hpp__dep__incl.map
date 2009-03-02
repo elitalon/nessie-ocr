@@ -1,5 +1,5 @@
 <area shape="rect" href="$_clip_8cpp.html" title="Definition of Clip class." alt="" coords="5,82,72,106">
-<area shape="rect" href="$main_8cpp.html" title="Implementation of a command line program for testing purposes." alt="" coords="96,82,168,106">
-<area shape="rect" href="$_pattern_8cpp.html" title="Definition of Pattern class." alt="" coords="183,156,265,180">
-<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="325,156,432,180">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="243,82,360,106">
+<area shape="rect" href="$_pattern_8cpp.html" title="Definition of Pattern class." alt="" coords="108,156,191,180">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="295,156,401,180">
+<area shape="rect" href="$test_8cpp.html" title="Implementation of a command line program for training purposes." alt="" coords="288,82,352,106">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="147,82,264,106">

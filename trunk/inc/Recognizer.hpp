@@ -54,6 +54,19 @@ class Recognizer
 		///	@post	The text recognized from the pressClip is available through the Recognizer::text() method.
 		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm);
 
+		/// @brief	Executes a classifier interactive training, requiring the user confirmation for each classified pattern.
+		/// 
+		/// @param	pressClip	Press clip to be processed.
+		/// @param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
+		void trainClassifier (const Clip& pressClip, const ClassificationParadigm& paradigm);
+
+		/// @brief	Executes a classifier automatic training, comparing the classified patterns with a reference text.
+		/// 
+		/// @param	pressClip		Press clip to be processed.
+		/// @param	referenceText	A text to compare with the classification results character by character.
+		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
+		void trainClassifier (const Clip& pressClip, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm);
+
 		/// @brief	Executes the preprocessing stage.
 		/// 
 		/// @param	pressClip	Press clip to be processed.
@@ -127,19 +140,6 @@ class Recognizer
 		///
 		///	@post	Every stage statistical data is printed using the standard output.
 		void printStatistics () const;
-
-		/// @brief	Executes a classifier interactive training using the input array of patterns.
-		/// 
-		/// @param	regions		A list of regions to classify.
-		/// @param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
-		void trainClassifier (const std::list<Region>& regions, const ClassificationParadigm& paradigm);
-
-		/// @brief	Executes a classifier automatic training, comparing the input patterns with a reference text.
-		/// 
-		/// @param	regions		A list of regions to classify.
-		/// @param	referenceText	A text to compare with the classification results character by character.
-		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
-		void trainClassifier (const std::list<Region>& regions, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm);
 
 	private:
 

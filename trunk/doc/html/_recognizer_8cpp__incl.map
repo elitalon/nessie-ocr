@@ -2,7 +2,7 @@
 <area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of NessieException class." alt="" coords="729,156,865,180">
 <area shape="rect" href="$_dataset_8hpp.html" title="Declaration of Dataset class." alt="" coords="539,156,627,180">
 <area shape="rect" href="$_statistics_8hpp.html" title="Declaration of Statistics class." alt="" coords="379,81,472,105">
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="263,156,329,180">
-<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="237,81,355,105">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="308,156,375,180">
+<area shape="rect" href="$_preprocessor_8hpp.html" title="Declaration of Preprocessor class." alt="" coords="187,81,304,105">
 <area shape="rect" href="$_feature_extractor_8hpp.html" title="Declaration of FeatureExtractor class." alt="" coords="667,81,800,105">
 <area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="496,81,592,105">
