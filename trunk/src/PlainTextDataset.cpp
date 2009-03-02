@@ -87,7 +87,7 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 			throw NessieException ("PlainTextDataset::PlainTextDataset() : An invalid sample has been found at line " + currentLineStr.str() + "; the number of features found is inconsistent.");
 		}
 
-		FeatureVector features(features_);
+		FeatureVector features(2*features_+1);
 		for ( unsigned int i = 0; i < features_; ++i )
 		{
 			std::stringstream featureStream( fields.at(i) );
@@ -150,7 +150,7 @@ PlainTextDataset::~PlainTextDataset ()
 
 void PlainTextDataset::addSample (const Sample& sample)
 {
-	if ( sample.first.size() != features_ )
+	if ( sample.first.size() != (2*features_+1) )
 		throw NessieException ("PlainTextDataset::addSample() : The number of features in the sample is different from the one expected by the dataset.");
 	else
 	{

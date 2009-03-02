@@ -105,7 +105,7 @@ FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
 };
 
 
-void FeatureExtractor::computeMoments (const unsigned int& n)
+void FeatureExtractor::computeMoments (const unsigned int& order)
 {
 	boost::timer timer;
 	timer.restart();
@@ -113,9 +113,9 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 	featureVectors_.reserve(patterns_.size());
 	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
-		FeatureVector fv(2*n+1);
+		FeatureVector fv(2*order+1);
 
-		for( unsigned int j = 0; j <= n; ++j )
+		for( unsigned int j = 0; j <= order; ++j )
 		{
 			if ( j == 0 )
 				fv.at(0) = tchebichefMoment(*i, 0, 0);

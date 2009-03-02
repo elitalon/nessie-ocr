@@ -59,7 +59,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		unsigned int asciiCode;
 		row.at(row.size()-1).to(asciiCode);
 
-		FeatureVector fv(features_);
+		FeatureVector fv(2*features_+1);
 		for( unsigned int j = 1; j <= features_; ++i )
 			row.at(j).to(fv.at(j-1));
 
@@ -74,7 +74,7 @@ PostgreSqlDataset::~PostgreSqlDataset () {};
 
 void PostgreSqlDataset::addSample (const Sample& sample)
 {
-	if ( sample.first.size() != features_ )
+	if ( sample.first.size() != (2*features_+1) )
 		throw NessieException ("PostgreSqlDataset::addSample() : The number of features in the sample is different from the one expected by the dataset.");
 
 	// Get the id_class 

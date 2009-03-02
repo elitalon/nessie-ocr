@@ -52,10 +52,10 @@ class FeatureExtractor
 
 		///	@brief	Compute a number of Tchebichef image moments from the internal patterns.
 		///
-		///	@param	n	Maximum order of moments to compute.
+		///	@param	order	Maximum order of moments to compute.
 		///
 		///	@post	An array of feature vectors become available through the FeatureExtractor::featureVectors() method.
-		void computeMoments (const unsigned int& n);
+		void computeMoments (const unsigned int& order);
 
 	private:
 
