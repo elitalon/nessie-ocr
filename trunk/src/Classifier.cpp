@@ -1,7 +1,6 @@
 /// @file
 /// @brief Definition of Classifier class
 
-
 #include "Classifier.hpp"
 #include <boost/timer.hpp>
 #include <utility>
@@ -15,29 +14,23 @@ Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 {};
 
 
-/// @brief	Classifies a feature vector into its most probably class using the KNN paradigm.
-/// 
-/// @param featureVector	The feature vector to classify.
-/// @param dataset			The dataset to use in the process.
-/// 
-/// @return The class (label) where the feature vector belongs to.
-static unsigned int classifyUsingKnnParadigm(const FeatureVector& featureVector, const Dataset* dataset);
-
-
 void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset* dataset)
 {
 	boost::timer timer;
 	timer.restart();
 
+	if ( dataset->size() == 0 )
+		return;
+
 	for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 	{
-		unsigned char label = 0;
+		unsigned char label = 32;	// Blank space
 
 		if ( paradigm.id() == ClassificationParadigm::knn().id() )
-			label = classifyUsingKnnParadigm(featureVectors_.at(i), dataset);
+			label = knn(featureVectors_.at(i), dataset);
 
 		if ( paradigm.id() == ClassificationParadigm::svm().id() )
-			label = 'A';
+			label = 32;
 
 		std::string character(1, label);
 		characters_.push_back(character);
@@ -52,10 +45,10 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 };
 
 
-static unsigned int classifyUsingKnnParadigm(const FeatureVector& featureVector, const Dataset* dataset)
+unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* dataset) const
 {
 	typedef std::pair<double, unsigned int> Neighbour;
-	std::vector<Neighbour> neighbours;
+	std::vector<Neighbour> neighbours(0);
 	neighbours.reserve(dataset->size());
 
 	for( unsigned int i = 0; i < dataset->size(); ++i )
@@ -66,11 +59,11 @@ static unsigned int classifyUsingKnnParadigm(const FeatureVector& featureVector,
 		neighbours.push_back(Neighbour(distance, label));
 	}
 	std::sort(neighbours.begin(), neighbours.end());
-	const unsigned int KNN = (neighbours.size() >= 7 )?7:neighbours.size();
+	const unsigned int KNN = (neighbours.size() >= 6 )?6:neighbours.size();	// K = 7
 
 	std::vector<unsigned int> kNearestNeighbours(0);
 	kNearestNeighbours.reserve(KNN);
-	for ( std::vector<Neighbour>::iterator i = neighbours.begin(); i != neighbours.begin() + (KNN-1); ++i )
+	for ( std::vector<Neighbour>::iterator i = neighbours.begin(); i != neighbours.begin() + KNN; ++i )
 		kNearestNeighbours.push_back((*i).second);
 
 	std::vector<unsigned int> candidateClasses(0);

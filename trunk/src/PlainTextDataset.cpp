@@ -29,17 +29,17 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 	struct stat fileInfo;
 	int fileStatus = stat(filename.data(), &fileInfo);
 
-	if ( fileStatus not_eq 0 )
-		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename_ + " does not exist.");
+	if ( fileStatus != 0 )
+		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename + " does not exist.");
 
 	if ( not S_ISREG(fileInfo.st_mode) )
-		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename_ + " exists but it is not a regular file.");
+		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename + " exists but it is not a regular file.");
 
 	std::ifstream stream( filename_.data() );
 	if ( not stream.is_open() or not stream.good() )
 	{
 		stream.close();
-		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename_ + " could not be open.");
+		throw NessieException ("PlainTextDataset::PlainTextDataset() : File " + filename + " could not be open.");
 	}
 
 	// Read the number of features from the first line

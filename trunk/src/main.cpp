@@ -52,7 +52,7 @@ int main (int argc, char const *argv[])
 		recon.extractText(pressClip, ClassificationParadigm::knn());
 
 		// Print the results
-		std::cout << recon.text().content() << std::endl;
+		std::cout << std::endl << "Text extracted: " << recon.text().content() << std::endl;
 		recon.printStatistics();
 		std::cout << std::endl << "Total time since program started: " << timer.elapsed() << std::endl;
 	}

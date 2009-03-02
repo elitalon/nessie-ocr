@@ -95,27 +95,29 @@ window.onload = initDynSections;
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060         std::vector&lt;FeatureVector&gt;  featureVectors_;    
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
-<a name="l00063"></a>00063         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
-<a name="l00064"></a>00064         <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
-<a name="l00065"></a>00065 };
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">00068</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Returns the characters associated with the feature vectors passed in constructor...">Classifier::characters</a> ()<span class="keyword"> const</span>
-<a name="l00069"></a>00069 <span class="keyword"></span>{
-<a name="l00070"></a>00070     <span class="keywordflow">return</span> characters_;
-<a name="l00071"></a>00071 };
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">00074</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Returns the statistics about the classification stage.">Classifier::statistics</a> ()<span class="keyword"> const</span>
-<a name="l00075"></a>00075 <span class="keyword"></span>{
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> statistics_;
-<a name="l00077"></a>00077 };
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="preprocessor">#endif</span>
-<a name="l00080"></a>00080 <span class="preprocessor"></span>
+<a name="l00068"></a>00068         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> knn(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* dataset) <span class="keyword">const</span>;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
+<a name="l00071"></a>00071         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
+<a name="l00072"></a>00072         <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
+<a name="l00073"></a>00073 };
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a><a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">00076</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Returns the characters associated with the feature vectors passed in constructor...">Classifier::characters</a> ()<span class="keyword"> const</span>
+<a name="l00077"></a>00077 <span class="keyword"></span>{
+<a name="l00078"></a>00078     <span class="keywordflow">return</span> characters_;
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a><a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">00082</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Returns the statistics about the classification stage.">Classifier::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00083"></a>00083 <span class="keyword"></span>{
+<a name="l00084"></a>00084     <span class="keywordflow">return</span> statistics_;
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="preprocessor">#endif</span>
+<a name="l00088"></a>00088 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Feb 26 19:18:32 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 2 13:21:43 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

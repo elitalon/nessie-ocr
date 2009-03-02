@@ -59,6 +59,14 @@ class Classifier
 
 		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
 
+		/// @brief	Classifies a feature vector into its most probably class using the KNN paradigm.
+		/// 
+		/// @param featureVector	The feature vector to classify.
+		/// @param dataset			The dataset to use in the process.
+		/// 
+		/// @return The class (label) where the feature vector belongs to.
+		unsigned int knn(const FeatureVector& featureVector, const Dataset* dataset) const;
+
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Classifier (const Classifier&);
 		Classifier& operator=(const Classifier&);
