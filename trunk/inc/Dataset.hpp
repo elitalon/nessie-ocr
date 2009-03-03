@@ -20,7 +20,7 @@ typedef std::pair<FeatureVector, unsigned int> Sample;
 ///	@brief		Data set of character samples encoded as feature vectors.
 ///
 ///	@details	This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of
-///	previous recognized characters. A sample is composed of two fields: a feature vector and a lable. The label indicates the class which the feature vector
+///	previously recognized characters. A sample is composed of two fields: a feature vector and its label. The label indicates the class where the feature vector
 ///	belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.
 ///
 ///	@see		FeatureVector
@@ -85,12 +85,10 @@ inline const Sample& Dataset::at (const unsigned int& n) const
 	return samples_.at(n);
 };
 
-
 inline const unsigned int& Dataset::size () const
 {
 	return size_;
 };
-
 
 inline const unsigned int& Dataset::features () const
 {
@@ -98,4 +96,3 @@ inline const unsigned int& Dataset::features () const
 };
 
 #endif
-

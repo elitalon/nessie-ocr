@@ -4,7 +4,6 @@
 #if !defined(_FEATURE_EXTRACTOR_H)
 #define _FEATURE_EXTRACTOR_H
 
-
 class Region;
 #include "FeatureExtractorStatistics.hpp"
 #include "Pattern.hpp"
@@ -50,9 +49,9 @@ class FeatureExtractor
 		/// @return A FeatureExtractorStatistics object with all the data gathered.
 		const FeatureExtractorStatistics& statistics () const;
 
-		///	@brief	Compute a number of Tchebichef image moments from the internal patterns.
+		///	@brief	Computes the image moments from the internal patterns.
 		///
-		///	@param	order	Maximum order of moments to compute.
+		///	@param	n	Maximum number of moments to compute.
 		///
 		///	@post	An array of feature vectors become available through the FeatureExtractor::featureVectors() method.
 		void computeMoments (const unsigned int& order);
@@ -65,6 +64,15 @@ class FeatureExtractor
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
 
+		///	@brief	Computes the standard image moment of order (n + m) of a pattern.
+		///
+		/// @param	pattern	Input pattern.
+		/// @param	n		Order in the x-axis.
+		/// @param	m		Order in the y-axis.
+		/// 
+		/// @return	The result of computing the moment of order (n + m).
+		double imageMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m) const;
+		
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		FeatureExtractor (const FeatureExtractor&);
 		FeatureExtractor& operator= (const FeatureExtractor&);
@@ -76,12 +84,10 @@ inline const std::vector<Pattern>& FeatureExtractor::patterns() const
 	return patterns_;
 };
 
-
 inline const std::vector<FeatureVector>& FeatureExtractor::featureVectors () const
 {
 	return featureVectors_;
 };
-
 
 inline const FeatureExtractorStatistics& FeatureExtractor::statistics () const
 {
@@ -89,4 +95,3 @@ inline const FeatureExtractorStatistics& FeatureExtractor::statistics () const
 };
 
 #endif
-

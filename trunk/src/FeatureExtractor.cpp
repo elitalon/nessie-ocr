@@ -105,7 +105,7 @@ FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
 };
 
 
-void FeatureExtractor::computeMoments (const unsigned int& order)
+void FeatureExtractor::computeMoments (const unsigned int& n)
 {
 	boost::timer timer;
 	timer.restart();
@@ -113,24 +113,20 @@ void FeatureExtractor::computeMoments (const unsigned int& order)
 	featureVectors_.reserve(patterns_.size());
 	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
-		FeatureVector fv(2*order+1);
-
-		for( unsigned int j = 0; j <= order; ++j )
+		FeatureVector fv(n);
+		
+		for( unsigned int j = 0; j < n; ++j )
 		{
 			if ( j == 0 )
-				fv.at(0) = tchebichefMoment(*i, 0, 0);
+				fv.at(j) = tchebichefMoment(*i, j, j);
 			else
 			{
-				if ( j == 1 )
-				{
-					fv.at(j)	= round(tchebichefMoment(*i, j, 0) / fv.at(0));	// x-axis
-					fv.at(j+1)	= round(tchebichefMoment(*i, 0, j) / fv.at(0));	// y-axis
-				}
+				unsigned int order = floor((j + 1.0) / 2.0);
+				
+				if ( j%2 == 1 )	// is odd
+					fv.at(j) = imageMoment(*i, order, 0) / fv.at(0);
 				else
-				{
-					fv.at(j)	= tchebichefMoment(*i, j, 0);
-					fv.at(j+1)	= tchebichefMoment(*i, 0, j);
-				}
+					fv.at(j) = imageMoment(*i, 0, order) / fv.at(0);				
 			}
 		}
 		
@@ -144,3 +140,20 @@ void FeatureExtractor::computeMoments (const unsigned int& order)
 	catch(...) {}
 };
 
+
+double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m) const
+{
+	double t = 0.0;
+	for ( unsigned int i = 0; i < pattern.height(); ++i )
+	{
+		double ti = pow(i, n);
+		
+		for (unsigned int j = 0; j < pattern.width(); ++j )
+		{	
+			double tj = pow(j, m);
+
+			t += ti * tj * pattern(i,j);
+		}
+	}
+	return t;
+};

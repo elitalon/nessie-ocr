@@ -53,4 +53,3 @@ class PlainTextDataset : public Dataset, private boost::noncopyable
 };
 
 #endif
-
