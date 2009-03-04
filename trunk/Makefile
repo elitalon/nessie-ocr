@@ -71,7 +71,7 @@ BOOST_CXXFLAGS		= -I/usr/local/include/boost
 BOOST_LDFLAGS		= -L/usr/local/lib/ -lboost_program_options
 LIBPQXX_LDFLAGS		= -L/usr/local/lib/ -lpqxx
 LIBPQXX_CXXFLAGS	= -I/usr/local/include/pqxx
-CXXFLAGS			= -ansi -pipe -Wall -Wextra -O2 -I$(incdir) -g -Weffc++ -fPIC
+CXXFLAGS			= -ansi -pipe -Wall -Wextra -I$(incdir) -g -Weffc++ -fPIC
 LDFLAGS				= $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) $(BOOST_LDFLAGS) 
 
 

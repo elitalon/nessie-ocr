@@ -4,76 +4,64 @@
 #include "FeatureExtractor.hpp"
 #include "Region.hpp"
 #include <boost/timer.hpp>
+#include <boost/math/special_functions/factorials.hpp>
+#include <boost/math/special_functions/binomial.hpp>
 #include <cmath>
 
 
-///	@brief	Computes the factorial of an integer.
-static unsigned int factorial (const unsigned int& n)
-{
-	unsigned int result = 1;
-
-	for( unsigned int i = 1; i <= n; ++i )
-		result *= i;
-
-	return result;
-};
-
-
 /// @brief	Auxiliary function for computing the scaled Tchebichef polynomial.
-static double beta (const unsigned int& n, const unsigned int& N)
+double beta (const unsigned int& n, const unsigned int& N)
 {
-	double tmp	= factorial(n+N) / static_cast<double>(factorial(2*n + 1) * factorial((n+N) - (2*n+1)));
-	double ro	= factorial(2*n) * tmp;	// Equation (8)
+	double a = boost::math::factorial<double>(2*n);
+	double b = boost::math::binomial_coefficient<double>(N+n, 2*n+1);
 
-	return sqrt(ro);	// Equation (11)
+	return sqrt(a*b);
 };
 
 
 ///	@brief	Computes the expression of the modified Pochhammer symbol, suitable for simplifying the notation of other equations.
-static double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
+double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
 {
 	if ( k == 0 )
 		return 1.0;
 
 	double tmp = a;
-	for ( unsigned int i = 1; i < (k+2); ++i )	// Equation (4)
-		tmp *= tmp - i;
+	for ( unsigned int i = 1; i <= (k+1); ++i )
+		tmp = tmp * (tmp - i);
 
 	return tmp;
 };
 
 
 ///	@brief	Computes the discrete scaled Tchebichef polynomial of order n.
-static double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
+double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
 {
 	double t = 0.0;
 	for ( unsigned int k = 0; k <= n; ++k )
 	{
-		double a = modifiedPochhammerSymbol(x,k);
+		double num = boost::math::factorial<double>(n+k);
+		double den = boost::math::factorial<double>(n-k) * pow(boost::math::factorial<double>(k), 2);
+		double B = (num / den) * modifiedPochhammerSymbol(n-N, n-k);
 
-		double B = modifiedPochhammerSymbol(n-N, n-k);
-		double tmp = factorial(n+k) / static_cast<double>(factorial(n-k) * pow(factorial(k),2));
-		B = tmp * B;	// Equation (6)
-
-		t += B * a;	// Equation (5)
+		t += B * modifiedPochhammerSymbol(x, k);
 	}
-
-	return t / beta(n, N);	// Equation (9)
+	return t / beta(n, N);
 };
 
 
 ///	@brief	Computes the standard 2D Tchebichef moment of order (n + m) of a pattern.
-static double tchebichefMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m)
+double tchebichefMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m)
 {
 	double t = 0.0;
 	for ( unsigned int i = 0; i < pattern.height(); ++i )
 	{
+		double ti = scaledTchebichefPolynomial(n, i, pattern.height()) / beta(n, pattern.height());
+		
 		for (unsigned int j = 0; j < pattern.width(); ++j )
 		{
-			double ti = scaledTchebichefPolynomial(n, i, pattern.height()) / beta(n, pattern.height());
 			double tj = scaledTchebichefPolynomial(m, j, pattern.width()) / beta(m, pattern.width());
 
-			t += ti * tj * pattern(i,j);	// Equation (12)
+			t += ti * tj * pattern(i,j);
 		}
 	}
 	return t;
@@ -114,19 +102,29 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
 		FeatureVector fv(n);
-		
+
 		for( unsigned int j = 0; j < n; ++j )
 		{
 			if ( j == 0 )
-				fv.at(j) = tchebichefMoment(*i, j, j);
+				fv.at(j) = imageMoment(*i, j, j);
 			else
 			{
 				unsigned int order = floor((j + 1.0) / 2.0);
 				
-				if ( j%2 == 1 )	// is odd
-					fv.at(j) = imageMoment(*i, order, 0) / fv.at(0);
+				if ( j%2 == 1 )
+				{
+					if ( order == 1 )
+						fv.at(j) = imageMoment(*i, order, 0) / fv.at(0);
+					else
+						fv.at(j) = imageMoment(*i, order, 0, fv.at(1), fv.at(2));
+				}
 				else
-					fv.at(j) = imageMoment(*i, 0, order) / fv.at(0);				
+				{
+					if ( order == 1 )
+						fv.at(j) = imageMoment(*i, 0, order) / fv.at(0);
+					else
+						fv.at(j) = imageMoment(*i, 0, order, fv.at(1), fv.at(2));
+				}
 			}
 		}
 		
@@ -141,19 +139,20 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 };
 
 
-double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m) const
+double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int& p, const unsigned int& q, const double& xc, const double& yc) const
 {
 	double t = 0.0;
 	for ( unsigned int i = 0; i < pattern.height(); ++i )
 	{
-		double ti = pow(i, n);
+		double ti = pow(i-xc, p);
 		
 		for (unsigned int j = 0; j < pattern.width(); ++j )
 		{	
-			double tj = pow(j, m);
+			double tj = pow(j-yc, q);
 
 			t += ti * tj * pattern(i,j);
 		}
 	}
 	return t;
 };
+

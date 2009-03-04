@@ -54,7 +54,7 @@ class FeatureExtractor
 		///	@param	n	Maximum number of moments to compute.
 		///
 		///	@post	An array of feature vectors become available through the FeatureExtractor::featureVectors() method.
-		void computeMoments (const unsigned int& order);
+		void computeMoments (const unsigned int& n);
 
 	private:
 
@@ -64,14 +64,16 @@ class FeatureExtractor
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
 
-		///	@brief	Computes the standard image moment of order (n + m) of a pattern.
+		///	@brief	Computes the standard image moment of order (p + q) of a pattern.
 		///
 		/// @param	pattern	Input pattern.
-		/// @param	n		Order in the x-axis.
-		/// @param	m		Order in the y-axis.
+		/// @param	p		Order in the x-axis.
+		/// @param	q		Order in the y-axis.
+		///	@param	xc		X-axis coordinate of the pattern's centroid.
+		///	@param	yc		Y-axis coordinate of the pattern's centroid.
 		/// 
 		/// @return	The result of computing the moment of order (n + m).
-		double imageMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m) const;
+		double imageMoment (const Pattern& pattern, const unsigned int& p, const unsigned int& q, const double& xc=0.0, const double& yc=0.0) const;
 		
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		FeatureExtractor (const FeatureExtractor&);
