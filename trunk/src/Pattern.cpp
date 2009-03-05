@@ -39,7 +39,7 @@ Pattern::Pattern (const Region& region)
 
 		for ( unsigned int i = 0; i < region.size(); ++i )
 		{
-			pixel	= originPixel + (region(i).first * view.columns() + region(i).second);
+			pixel	= originPixel + (region.at(i).first * view.columns() + region.at(i).second);
 			*pixel	= Magick::ColorGray (0.0);
 		}
 		view.sync();
@@ -57,7 +57,7 @@ Pattern::Pattern (const Region& region)
 		// Build the pattern
 		Region normalizedRegion(preprocessor.regions().front());
 		for ( unsigned int i = 0; i < normalizedRegion.size(); ++i )
-			pixels_.at(normalizedRegion(i).first * width_ + normalizedRegion(i).second) = 1;
+			pixels_.at(normalizedRegion.at(i).first * width_ + normalizedRegion.at(i).second) = 1;
 
 		// Center the pattern in the standard plane using the centroid coordinates
 		std::pair<unsigned int, unsigned int> centroid(this->centroid());

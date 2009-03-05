@@ -37,6 +37,7 @@ DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o NessieException.o
 FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o FeatureExtractorStatistics.o Pattern.o FeatureVector.o
 FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
 FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
+MAIN							= tester.o
 NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
 PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
@@ -48,7 +49,6 @@ REGION							= Region.cpp Region.hpp
 STATISTICS						= Statistics.cpp Statistics.hpp
 TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
 TEXT							= Text.cpp Text.hpp NessieException.o
-PROGRAMS						= tester.o
 
 
 #
@@ -58,12 +58,12 @@ LIBRARY_NAME				= NessieOcr
 LIBRARY_VERSION				= 1.0.0
 LIBRARY_SHARED_FILE			= lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
 LIBRARY_BUILDING_OPTIONS	= -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
-TESTER_NAME					= $(bindir)tester
 
 
 #
 # Compiler flags
 #
+PROGRAM				= $(bindir)tester
 OBJECTS				= *.o
 MAGICK_LDFLAGS		= `Magick++-config --cppflags --cxxflags --ldflags --libs`
 MAGICK_CXXFLAGS		= `Magick++-config --cppflags --cxxflags`
@@ -71,17 +71,17 @@ BOOST_CXXFLAGS		= -I/usr/local/include/boost
 BOOST_LDFLAGS		= -L/usr/local/lib/ -lboost_program_options
 LIBPQXX_LDFLAGS		= -L/usr/local/lib/ -lpqxx
 LIBPQXX_CXXFLAGS	= -I/usr/local/include/pqxx
-CXXFLAGS			= -ansi -pipe -Wall -Wextra -I$(incdir) -g -Weffc++ -fPIC
+CXXFLAGS			= -ansi -pipe -Wall -Wextra -g -fPIC -O2 -I$(incdir)
 LDFLAGS				= $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) $(BOOST_LDFLAGS) 
 
 
 
-$(LIBRARY_NAME): $(PROGRAMS)
-	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(TESTER_NAME)
+$(LIBRARY_NAME): $(MAIN)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) $(OBJECTS) -o $(PROGRAM)
 	$(CXX) $(LDFLAGS) $(LIBRARY_BUILDING_OPTIONS) $(OBJECTS) -o $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@echo
 
-tester.o: $(TESTER)
+$(MAIN): $(TESTER)
 	$(CXX) $(LIBPQXX_CXXFLAGS) $(BOOST_CXXFLAGS) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
@@ -174,7 +174,7 @@ doc: $(incdir)*.hpp $(srcdir)*.cpp Doxyfile
 	@doxygen
 
 clean:
-	@$(RM) -f $(OBJECTS) $(PROGRAM_NAME) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
+	@$(RM) -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 
 all: clean $(LIBRARY_NAME) doc

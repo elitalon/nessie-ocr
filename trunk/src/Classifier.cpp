@@ -63,7 +63,7 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* 
 	std::vector<unsigned int> kNearestNeighbours(0);
 	kNearestNeighbours.reserve(KNN);
 	for ( std::vector<Neighbour>::iterator i = neighbours.begin(); i != neighbours.begin() + KNN; ++i )
-		kNearestNeighbours.push_back((*i).second);
+		kNearestNeighbours.push_back(i->second);
 
 	std::vector<unsigned int> candidateClasses(0);
 	for ( unsigned int i = 0; i < KNN; ++i )

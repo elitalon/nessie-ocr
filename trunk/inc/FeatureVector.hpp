@@ -34,14 +34,14 @@ class FeatureVector
 		///
 		/// @param	n	Position inside the vector where the feature is.
 		/// 
-		/// @return A reference to the feature at given position.
+		/// @return The feature at given position.
 		double& at (const unsigned int& n);
 
 		///	@brief	Allows read-only access to a certain feature.
 		///
 		/// @param	n	Position inside the vector where the feature is.
 		/// 
-		/// @return Feature at given position.
+		/// @return The feature at given position.
 		const double& at (const unsigned int& n) const;
 
 		/// @brief		Computes the sum of two feature vectors.

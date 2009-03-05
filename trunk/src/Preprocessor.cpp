@@ -448,8 +448,8 @@ void Preprocessor::extractRegions ()
 	std::vector<bool> visited(clip_.size(), false);
 	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s != seeds.end(); ++s )
 	{
-		int row		= (*s).first;
-		int column	= (*s).second;
+		int row		= s->first;
+		int column	= s->second;
 
 		if ( not visited.at(row * clip_.width() + column) )
 		{
@@ -479,7 +479,7 @@ void Preprocessor::extractRegions ()
 			unsigned int k = 1;
 			while ( region.size() > k )
 			{
-				PixelCoordinates coordinates( region(k) );
+				PixelCoordinates coordinates( region.at(k) );
 
 				for ( int i = coordinates.first-1; (i <= static_cast<int>(coordinates.first+1)) && (i < static_cast<int>(clip_.height())); ++i )
 				{
@@ -577,8 +577,8 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 
 	while ( currentLineDelimiterIterator != delimiters.end() )
 	{
-		unsigned int currentLineHeight	= (*currentLineDelimiterIterator).second - (*currentLineDelimiterIterator).first + 1;
-		unsigned int previousLineHeight	= (*previousLineDelimiterIterator).second - (*previousLineDelimiterIterator).first + 1;
+		unsigned int currentLineHeight	= currentLineDelimiterIterator->second - currentLineDelimiterIterator->first + 1;
+		unsigned int previousLineHeight	= previousLineDelimiterIterator->second - previousLineDelimiterIterator->first + 1;
 
 		if ( previousLineHeight > (currentLineHeight / 2) )
 		{
@@ -588,7 +588,7 @@ void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::li
 		else
 		{
 			// A new line delimiter is inserted by joining the two line delimiters explored.
-			delimiters.insert( previousLineDelimiterIterator, LineDelimiter((*previousLineDelimiterIterator).first, (*currentLineDelimiterIterator).second) );
+			delimiters.insert( previousLineDelimiterIterator, LineDelimiter(previousLineDelimiterIterator->first, currentLineDelimiterIterator->second) );
 
 			std::list<LineDelimiter>::iterator newLineDelimiterIterator = previousLineDelimiterIterator;
 			advance ( newLineDelimiterIterator, -1 );
@@ -610,16 +610,16 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 {
 	for ( std::list<LineDelimiter>::const_iterator delimitersIterator = delimiters.begin(); delimitersIterator != delimiters.end(); ++delimitersIterator  )
 	{
-		unsigned int lineTopBorder		= (*delimitersIterator).first;
-		unsigned int lineBottomBorder	= (*delimitersIterator).second;
+		unsigned int lineTopBorder		= delimitersIterator->first;
+		unsigned int lineBottomBorder	= delimitersIterator->second;
 
 		// Traverse the list of regions searching a pair of regions vertically overlapped.
 		std::list<Region>::iterator i = regions_.begin();
 
 		while ( i != regions_.end() )
 		{
-			bool regionIsAboveLine = (*i)(0).first < lineTopBorder;
-			bool regionIsBelowLine = (*i)(0).first > lineBottomBorder;
+			bool regionIsAboveLine = i->at(0).first < lineTopBorder;
+			bool regionIsBelowLine = i->at(0).first > lineBottomBorder;
 
 			if ( regionIsAboveLine || regionIsBelowLine )
 				advance (i, 1);
@@ -633,8 +633,8 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 					if ( i == j )
 						continue;
 
-					bool candidateRegionIsAboveLine = (*j)(0).first < lineTopBorder;
-					bool candidateRegionIsBelowLine = (*j)(0).first > lineBottomBorder;
+					bool candidateRegionIsAboveLine = j->at(0).first < lineTopBorder;
+					bool candidateRegionIsBelowLine = j->at(0).first > lineBottomBorder;
 
 					if ( candidateRegionIsAboveLine || candidateRegionIsBelowLine )
 						continue;
@@ -644,15 +644,15 @@ void Preprocessor::mergeVerticallyOverlappedRegions (const std::list<LineDelimit
 					std::set<unsigned int> regionJ;
 
 					for ( unsigned int k = 0; k < (*i).size(); ++k )
-						regionI.insert((*i)(k).second);
+						regionI.insert(i->at(k).second);
 
 					for ( unsigned int k = 0; k < (*j).size(); ++k )
-						regionJ.insert((*j)(k).second);
+						regionJ.insert(j->at(k).second);
 
 					std::vector<int> intersection( std::max(regionI.size(), regionJ.size()), -1 );
 					std::vector<int>::iterator k = std::set_intersection(regionI.begin(), regionI.end(), regionJ.begin(), regionJ.end(), intersection.begin());
 
-					if ( std::count_if(intersection.begin(), intersection.end(), std::bind2nd(std::not_equal_to<int>(), -1) )> round((*i).width() / 2) )
+					if ( std::count_if(intersection.begin(), intersection.end(), std::bind2nd(std::not_equal_to<int>(), -1) )> round(i->width() / 2) )
 						break;
 				}
 
@@ -686,22 +686,22 @@ void Preprocessor::correctSlanting ()
 		const unsigned int rotationLimit = 46;
 
 		// Detect the optimal angle for slanting correction
-		Region rotatingRegion((*i));
+		Region rotatingRegion(*i);
 		std::vector<unsigned int> maximumPixelsPerColumn(rotationLimit);
 
 		for ( unsigned int j = 0; j < rotationLimit; ++j )
 		{
 			for ( unsigned int k = 0; k < rotatingRegion.size(); ++k )
 			{
-				double x = static_cast<double>(rotatingRegion(k).first);
-				double y = static_cast<double>(rotatingRegion(k).second);
+				double x = static_cast<double>(rotatingRegion.at(k).first);
+				double y = static_cast<double>(rotatingRegion.at(k).second);
 
-				rotatingRegion(k).first	= static_cast<unsigned int>(round(x - y * tan(j)));
+				rotatingRegion.at(k).first	= static_cast<unsigned int>(round(x - y * tan(j)));
 			}
 
 			std::vector<unsigned int> pixelsPerColumn((*i).width(), 0);
 			for ( unsigned int k = 0; k < rotatingRegion.size(); ++k )
-				pixelsPerColumn.at(rotatingRegion(k).second - rotatingRegion.topLeftmostPixelCoordinates().second) += 1;
+				pixelsPerColumn.at(rotatingRegion.at(k).second - rotatingRegion.topLeftmostPixelCoordinates().second) += 1;
 
 			std::sort(pixelsPerColumn.begin(), pixelsPerColumn.end());
 			maximumPixelsPerColumn.at(j) = pixelsPerColumn.back();
@@ -719,10 +719,10 @@ void Preprocessor::correctSlanting ()
 		{
 			for ( unsigned int j = 0; j < (*i).size(); ++j )
 			{
-				double x = static_cast<double>((*i)(j).first);
-				double y = static_cast<double>((*i)(j).second);
+				double x = static_cast<double>(i->at(j).first);
+				double y = static_cast<double>(i->at(j).second);
 
-				(*i)(j).first	= static_cast<unsigned int>(round(x - y * tan(slantAngle)));
+				i->at(j).first	= static_cast<unsigned int>(round(x - y * tan(slantAngle)));
 			}
 		}
 	}
@@ -756,8 +756,8 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 	double meanInterRegionSpace = 0.0;
 	while ( i != regions_.end() )
 	{
-		if ( (*i).leftBorderColumn() >=  (*j).rightBorderColumn() )
-			meanInterRegionSpace += (*i).leftBorderColumn() - (*j).rightBorderColumn() + 1;
+		if ( i->leftBorderColumn() >=  j->rightBorderColumn() )
+			meanInterRegionSpace += i->leftBorderColumn() - j->rightBorderColumn() + 1;
 
 		advance (i, 1);
 		advance (j, 1);
@@ -779,11 +779,11 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 
 	while ( i != regions_.end() )
 	{
-		if ( (*i).leftBorderColumn() < (*j).rightBorderColumn() )
+		if ( i->leftBorderColumn() < j->rightBorderColumn() )
 			spaces.push_back(spaceLocation);
 		else
 		{
-			unsigned int distanceBetweenRegions = (*i).leftBorderColumn() - (*j).rightBorderColumn() + 1;
+			unsigned int distanceBetweenRegions = i->leftBorderColumn() - j->rightBorderColumn() + 1;
 
 			if ( distanceBetweenRegions > meanInterRegionSpace )
 				spaces.push_back(spaceLocation);

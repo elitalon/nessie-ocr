@@ -86,7 +86,7 @@ void Recognizer::doFeatureExtraction ()
 		ostr << patternNo++;
 		std::string filename("pattern");
 		filename.append(ostr.str().append(".bmp"));
-		(*i).writeToOutputImage(filename,true);
+		i->writeToOutputImage(filename,true);
 	}
 
 	try

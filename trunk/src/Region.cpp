@@ -52,8 +52,8 @@ void Region::normalizeCoordinates ()
 
 	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 	{
-		(*i).first	= (*i).first	- x0;
-		(*i).second	= (*i).second	- y0;
+		i->first	= i->first	- x0;
+		i->second	= i->second	- y0;
 	}
 
 	if ( size_ > 1 )
@@ -66,8 +66,8 @@ void Region::normalizeCoordinates ()
 
 		for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 		{
-			rowCoordinates.push_back((*i).first);
-			columnCoordinates.push_back((*i).second);
+			rowCoordinates.push_back(i->first);
+			columnCoordinates.push_back(i->second);
 		}
 
 		std::sort(rowCoordinates.begin(), rowCoordinates.end());
@@ -99,10 +99,10 @@ Region Region::operator+ (const Region& region) const
 	Region temp;
 
 	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i != coordinates_.end(); ++i )
-		temp.addCoordinates( (*i) );
+		temp.addCoordinates(*i);
 
 	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i != region.coordinates_.end(); ++i )
-		temp.addCoordinates( (*i) );
+		temp.addCoordinates(*i);
 
 	return temp;
 };

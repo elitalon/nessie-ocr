@@ -38,14 +38,14 @@ class Region
 		/// @param	index	The position of a pair of coordinates.
 		/// 
 		/// @return	A pair of coordinates.
-		PixelCoordinates& operator() (const unsigned int& index);
+		PixelCoordinates& at (const unsigned int& index);
 
 		/// @brief	Allows read-only access to the coordinates of a pixel in the region.
 		///
 		/// @param	index	The position of a pair of coordinates.
 		/// 
 		/// @return A pair of coordinates.
-		PixelCoordinates operator() (const unsigned int& index) const;
+		const PixelCoordinates& at (const unsigned int& index) const;
 
 		/// @brief	Adds a region to the current one.
 		/// 
@@ -135,13 +135,13 @@ class Region
 };
 
 
-inline PixelCoordinates& Region::operator() (const unsigned int& index)
+inline PixelCoordinates& Region::at (const unsigned int& index)
 {
 	return coordinates_.at(index);
 };
 
 
-inline PixelCoordinates Region::operator() (const unsigned int& index) const
+inline const PixelCoordinates& Region::at (const unsigned int& index) const
 {
 	return coordinates_.at(index);
 };
