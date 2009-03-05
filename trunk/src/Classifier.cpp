@@ -58,6 +58,7 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* 
 		neighbours.push_back(Neighbour(distance, code));
 	}
 	std::sort(neighbours.begin(), neighbours.end());
+	
 	const unsigned int KNN = (neighbours.size() >= 6 )?6:neighbours.size();	// K = 7
 
 	std::vector<unsigned int> kNearestNeighbours(0);
@@ -77,14 +78,18 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* 
 		classAppearances.at(i) = std::count(kNearestNeighbours.begin(), kNearestNeighbours.end(), candidateClasses.at(i));
 
 	std::vector<unsigned int>::iterator	j = std::max_element(classAppearances.begin(), classAppearances.end());
-	std::vector<unsigned int>::iterator	k = classAppearances.begin();
-	unsigned int index = 0;
-	while ( k != j )
+	if ( *j < 2 )
+		return kNearestNeighbours.front();
+	else
 	{
-		++index;
-		++k;
-	}
+		std::vector<unsigned int>::iterator	k = classAppearances.begin();
+		unsigned int index = 0;
+		while ( k != j )
+		{
+			++index;
+			++k;
+		}
 
-	return candidateClasses.at(index);
+		return candidateClasses.at(index);
+	}	
 };
-
