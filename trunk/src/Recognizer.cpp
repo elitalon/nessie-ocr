@@ -14,7 +14,7 @@
 #include <sstream>
 
 
-Recognizer::Recognizer (const Dataset* dataset)
+Recognizer::Recognizer (Dataset* const dataset)
 :	dataset_(dataset),
 	regions_(0),
 	spaceLocations_(0),
@@ -170,29 +170,50 @@ void Recognizer::trainClassifier (const Clip& pressClip, const ClassificationPar
 	unsigned int regionNo = 0;
 	for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 	{
-		std::cout << "Region #" << regionNo << ":" << std::endl;
+		try
+		{
+			std::cout << "Region #" << regionNo << ":" << std::endl;
+			
+			std::cout << " - Feature vector      : ";
+			for ( unsigned int j = 0; j < dataset_->features(); ++j )
+				std::cout << featureVectors_.at(regionNo).at(j) << " ";
+			std::cout << std::endl;
+		
+			std::cout << " - Candidate character : ";
+			unsigned int code = dataset_->code(*i);
+			if ( code != 256 )
+				std::cout << *i << "(" << code << ")" << std::endl;
+			else
+				std::cout << "none" << std::endl;
+			
+			std::cout << " - Valid classification [y/N]? ";
+			unsigned char userAnswer;
+			std::cin >> userAnswer;
 
-		std::cout << " - Feature vector      : ";
-		FeatureVector fv = featureVectors_.at(regionNo);
-		for ( unsigned int j = 0; j < fv.size(); ++j )
-			std::cout << fv.at(j) << " ";
+			if ( userAnswer == 'y' )
+				dataset_->addSample(Sample(featureVectors_.at(regionNo), code));
+			else
+			{
+				unsigned int code = 256;
+
+				while ( code == 256 )
+				{
+					std::cout << " - Please, enter the right character: ";
+					std::string character;
+					std::cin >> character;
+				
+					code = dataset_->code(character);
+					if ( code != 256 )
+						dataset_->addSample(Sample(featureVectors_.at(regionNo), code));
+				}
+			}
+		}
+		catch(std::exception& e)
+		{
+			std::cout << "The training of sample " << regionNo << " could not be completed: " << e.what() << std::endl;
+		}
 		std::cout << std::endl;
-
-		std::cout << " - Candidate character : " << *i << std::endl;
-
-		std::cout << " - Valid classification [y/n]? ";
-		unsigned char answer;
-		std::cin >> answer;
-
-		if ( answer == 'y' )
-		{
-			std::cout << "The sample has been stored." << std::endl << std::endl;
-		}
-		else
-		{
-			std::cout << "The sample has been discarded." << std::endl << std::endl;
-		}
-
+		
 		++regionNo;
 	}
 };
@@ -204,10 +225,29 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::vector<std::
 	doFeatureExtraction();
 	doClassification(paradigm);
 
-	// Compare the resulting text with the reference text.
 	if ( characters_.size() == referenceText.size() )
 	{
-		;
+		unsigned int regionNo = 0;
+		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
+		{
+			try
+			{
+				unsigned int code;
+				if ( *i == referenceText.at(regionNo) )
+					code = dataset_->code(*i);
+				else
+					code = dataset_->code(referenceText.at(regionNo));
+				
+				if ( code != 256 )
+					dataset_->addSample(Sample(featureVectors_.at(regionNo), code));
+			}
+			catch(std::exception& e)
+			{
+				std::cout << "The training of sample " << regionNo << " could not be completed: " << e.what() << std::endl;
+			}
+
+			++regionNo;
+		}
 	}
 };
 

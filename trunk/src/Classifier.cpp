@@ -14,24 +14,24 @@ Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 {};
 
 
-void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset* dataset)
+void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset* const dataset)
 {
 	boost::timer timer;
 	timer.restart();
 
 	for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 	{
-		unsigned char label = 32;	// Blank space
+		unsigned int code = 32;	// Blank space
 
 		if ( dataset->size() > 0 )
 		{
 			if ( paradigm.id() == ClassificationParadigm::knn().id() )
-				label = knn(featureVectors_.at(i), dataset);
+				code = knn(featureVectors_.at(i), dataset);
 
 			if ( paradigm.id() == ClassificationParadigm::svm().id() )
-				label = 32;
+				code = 32;
 		}
-		std::string character(1, label);
+		std::string character(1, code);
 		characters_.push_back(character);
 	}
 
@@ -44,7 +44,7 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 };
 
 
-unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* dataset) const
+unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* const dataset) const
 {
 	typedef std::pair<double, unsigned int> Neighbour;
 	std::vector<Neighbour> neighbours(0);
@@ -53,9 +53,9 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* 
 	for( unsigned int i = 0; i < dataset->size(); ++i )
 	{
 		double distance		= featureVector.computeEuclideanDistance( dataset->at(i).first );
-		unsigned int label	= dataset->at(i).second;
+		unsigned int code	= dataset->at(i).second;
 
-		neighbours.push_back(Neighbour(distance, label));
+		neighbours.push_back(Neighbour(distance, code));
 	}
 	std::sort(neighbours.begin(), neighbours.end());
 	const unsigned int KNN = (neighbours.size() >= 6 )?6:neighbours.size();	// K = 7

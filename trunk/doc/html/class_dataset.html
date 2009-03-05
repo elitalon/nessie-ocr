@@ -74,7 +74,7 @@ Inheritance diagram for Dataset:</div>
 <div class="dynsection">
 <p><center><img src="class_dataset__inherit__graph.png" border="0" usemap="#_dataset__inherit__map" alt="Inheritance graph"></center>
 <map name="_dataset__inherit__map">
-<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,277,141,397"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,248,312,427"></map>
+<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,320,141,440"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,291,312,470"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Dataset:</div>
@@ -103,6 +103,12 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#efecdda5323a818fca5c9206eb76dc23">features</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#06b9132afd07f5dd8147a7530a137e56">code</a> (const std::string &amp;character) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#ecaee990ce9d07085198bf32509a3507">character</a> (const unsigned int &amp;code) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#65e42c7d35bd3270115455c3a6bc7b6f">addSample</a> (const <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;sample)=0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a sample to the dataset.  <a href="#65e42c7d35bd3270115455c3a6bc7b6f"></a><br></td></tr>
@@ -114,6 +120,11 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 std::vector&lt; <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Samples of the dataset. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8ec00731bc31069b93719b22d90546d"></a><!-- doxytag: member="Dataset::classes_" ref="a8ec00731bc31069b93719b22d90546d" args="" -->
+std::map&lt; std::string, <br class="typebreak">
+unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#a8ec00731bc31069b93719b22d90546d">classes_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Map of classes that associates a character with its code. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e8574908c87a3d36080e1b5a687c8a94"></a><!-- doxytag: member="Dataset::size_" ref="e8574908c87a3d36080e1b5a687c8a94" args="" -->
 unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#e8574908c87a3d36080e1b5a687c8a94">size_</a></td></tr>
 
@@ -124,7 +135,7 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of features per sample. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of previously recognized characters. A sample is composed of two fields: a feature vector and its label. The label indicates the class where the feature vector belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.<p>
+This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of previously recognized characters. A sample is composed of two fields: a feature vector and its code. The code is a numeric identifier that indicates the class where the feature vector belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.<p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-12 </dd></dl>
@@ -185,6 +196,58 @@ This abstract base class provides an interface for a classification dataset, i.e
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>Sample at given position. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ecaee990ce9d07085198bf32509a3507"></a><!-- doxytag: member="Dataset::character" ref="ecaee990ce9d07085198bf32509a3507" args="(const unsigned int &amp;code) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Dataset::character           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>code</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>code</em>&nbsp;</td><td>A valid code.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The character associated to the code or an empty string if there is no association. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="06b9132afd07f5dd8147a7530a137e56"></a><!-- doxytag: member="Dataset::code" ref="06b9132afd07f5dd8147a7530a137e56" args="(const std::string &amp;character) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dataset::code           </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A valid character.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The code associated to the character or 256 if there is no association. </dd></dl>
 
 </div>
 </div><p>
@@ -257,7 +320,7 @@ This abstract base class provides an interface for a classification dataset, i.e
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Mar 4 09:42:15 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

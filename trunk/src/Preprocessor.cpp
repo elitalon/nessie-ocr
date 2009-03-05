@@ -14,12 +14,14 @@
 
 /// @brief	Computes the optimal threshold value in a press clip following the Sonka's algorithm.
 /// @return	A unsigned char with the optimal threshold value in a scale of [0,255].
-static unsigned char computeSonkaOptimalThreshold (const Clip& clip);
+/// @param	clip	The input press clip.
+unsigned char computeSonkaOptimalThreshold (const Clip& clip);
 
 
 /// @brief	Computes the optimal threshold value in a press clip following the Otsu's algorithm.
 ///	@return	A unsigned char with the optimal threshold value in a scale of [0,255].
-static unsigned char computeOtsuOptimalThreshold (const Clip& clip);
+/// @param	clip	The input press clip.
+unsigned char computeOtsuOptimalThreshold (const Clip& clip);
 
 
 Preprocessor::Preprocessor (const Clip& pressClip)
@@ -807,7 +809,7 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 /// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
 /// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
 /// zeroth- and the first-order cumulative moments of the gray-level histogram.
-static unsigned char computeOtsuOptimalThreshold (const Clip& clip)
+unsigned char computeOtsuOptimalThreshold (const Clip& clip)
 {
 	// Compute the normalized clip histogram
 	std::vector<double> histogram(256, 0.0);
@@ -872,7 +874,7 @@ static unsigned char computeOtsuOptimalThreshold (const Clip& clip)
 /// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
 /// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
 /// computed from the four corners of the press clip.
-static unsigned char computeSonkaOptimalThreshold (const Clip& clip)
+unsigned char computeSonkaOptimalThreshold (const Clip& clip)
 {
 	// Start with an initial threshold
 	unsigned char optimalThreshold = (clip(0,0) + clip(0, clip.width()-1) + clip(0, clip.height()-1) + clip(clip.height()-1,clip.width()-1)) / 4;

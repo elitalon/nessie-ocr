@@ -86,10 +86,70 @@ Include dependency graph for Preprocessor.cpp:</div>
 </div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_preprocessor_8cpp.html#a7214b097e7747018eb2b804469d42e7">computeSonkaOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the optimal threshold value in a press clip following the Sonka's algorithm.  <a href="#a7214b097e7747018eb2b804469d42e7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_preprocessor_8cpp.html#28529ce4b31b84fd081cab0275e8f36f">computeOtsuOptimalThreshold</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;clip)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the optimal threshold value in a press clip following the Otsu's algorithm.  <a href="#28529ce4b31b84fd081cab0275e8f36f"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+<hr><h2>Function Documentation</h2>
+<a class="anchor" name="28529ce4b31b84fd081cab0275e8f36f"></a><!-- doxytag: member="Preprocessor.cpp::computeOtsuOptimalThreshold" ref="28529ce4b31b84fd081cab0275e8f36f" args="(const Clip &amp;clip)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char computeOtsuOptimalThreshold           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Mar 4 09:42:14 2009 for NessieOcr by&nbsp;
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A unsigned char with the optimal threshold value in a scale of [0,255]. </dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The input press clip.</td></tr>
+  </table>
+</dl>
+The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and the first-order cumulative moments of the gray-level histogram. 
+</div>
+</div><p>
+<a class="anchor" name="a7214b097e7747018eb2b804469d42e7"></a><!-- doxytag: member="Preprocessor.cpp::computeSonkaOptimalThreshold" ref="a7214b097e7747018eb2b804469d42e7" args="(const Clip &amp;clip)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char computeSonkaOptimalThreshold           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A unsigned char with the optimal threshold value in a scale of [0,255]. </dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The input press clip.</td></tr>
+  </table>
+</dl>
+The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is computed from the four corners of the press clip. 
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:18 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

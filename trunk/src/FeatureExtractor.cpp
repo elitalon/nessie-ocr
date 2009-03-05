@@ -10,62 +10,16 @@
 
 
 /// @brief	Auxiliary function for computing the scaled Tchebichef polynomial.
-double beta (const unsigned int& n, const unsigned int& N)
-{
-	double a = boost::math::factorial<double>(2*n);
-	double b = boost::math::binomial_coefficient<double>(N+n, 2*n+1);
-
-	return sqrt(a*b);
-};
-
+double beta (const unsigned int& n, const unsigned int& N) ;
 
 ///	@brief	Computes the expression of the modified Pochhammer symbol, suitable for simplifying the notation of other equations.
-double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
-{
-	if ( k == 0 )
-		return 1.0;
-
-	double tmp = a;
-	for ( unsigned int i = 1; i <= (k+1); ++i )
-		tmp = tmp * (tmp - i);
-
-	return tmp;
-};
-
+double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k);
 
 ///	@brief	Computes the discrete scaled Tchebichef polynomial of order n.
-double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
-{
-	double t = 0.0;
-	for ( unsigned int k = 0; k <= n; ++k )
-	{
-		double num = boost::math::factorial<double>(n+k);
-		double den = boost::math::factorial<double>(n-k) * pow(boost::math::factorial<double>(k), 2);
-		double B = (num / den) * modifiedPochhammerSymbol(n-N, n-k);
-
-		t += B * modifiedPochhammerSymbol(x, k);
-	}
-	return t / beta(n, N);
-};
-
+double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N);
 
 ///	@brief	Computes the standard 2D Tchebichef moment of order (n + m) of a pattern.
-double tchebichefMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m)
-{
-	double t = 0.0;
-	for ( unsigned int i = 0; i < pattern.height(); ++i )
-	{
-		double ti = scaledTchebichefPolynomial(n, i, pattern.height()) / beta(n, pattern.height());
-		
-		for (unsigned int j = 0; j < pattern.width(); ++j )
-		{
-			double tj = scaledTchebichefPolynomial(m, j, pattern.width()) / beta(m, pattern.width());
-
-			t += ti * tj * pattern(i,j);
-		}
-	}
-	return t;
-};
+double tchebichefMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m);
 
 
 FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
@@ -149,6 +103,61 @@ double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int
 		for (unsigned int j = 0; j < pattern.width(); ++j )
 		{	
 			double tj = pow(j-yc, q);
+
+			t += ti * tj * pattern(i,j);
+		}
+	}
+	return t;
+};
+
+
+double beta (const unsigned int& n, const unsigned int& N)
+{
+	double a = boost::math::factorial<double>(2*n);
+	double b = boost::math::binomial_coefficient<double>(N+n, 2*n+1);
+
+	return sqrt(a*b);
+};
+
+
+double modifiedPochhammerSymbol (const unsigned& a, const unsigned& k)
+{
+	if ( k == 0 )
+		return 1.0;
+
+	double tmp = a;
+	for ( unsigned int i = 1; i <= (k+1); ++i )
+		tmp = tmp * (tmp - i);
+
+	return tmp;
+};
+
+
+double scaledTchebichefPolynomial(const unsigned int& n, const unsigned int& x, const unsigned int& N)
+{
+	double t = 0.0;
+	for ( unsigned int k = 0; k <= n; ++k )
+	{
+		double num = boost::math::factorial<double>(n+k);
+		double den = boost::math::factorial<double>(n-k) * pow(boost::math::factorial<double>(k), 2);
+		double B = (num / den) * modifiedPochhammerSymbol(n-N, n-k);
+
+		t += B * modifiedPochhammerSymbol(x, k);
+	}
+	return t / beta(n, N);
+};
+
+
+double tchebichefMoment (const Pattern& pattern, const unsigned int& n, const unsigned int& m)
+{
+	double t = 0.0;
+	for ( unsigned int i = 0; i < pattern.height(); ++i )
+	{
+		double ti = scaledTchebichefPolynomial(n, i, pattern.height()) / beta(n, pattern.height());
+		
+		for (unsigned int j = 0; j < pattern.width(); ++j )
+		{
+			double tj = scaledTchebichefPolynomial(m, j, pattern.width()) / beta(m, pattern.width());
 
 			t += ti * tj * pattern(i,j);
 		}

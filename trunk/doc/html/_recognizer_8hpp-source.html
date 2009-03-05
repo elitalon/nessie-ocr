@@ -85,7 +85,7 @@ window.onload = initDynSections;
 <a name="l00032"></a>00032 {
 <a name="l00033"></a>00033     <span class="keyword">public</span>:
 <a name="l00034"></a>00034 
-<a name="l00044"></a>00044         <span class="keyword">explicit</span> <a class="code" href="class_recognizer.html#b5c9a5e29ae734341cc13275e3635843" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* dataset);
+<a name="l00044"></a>00044         <span class="keyword">explicit</span> <a class="code" href="class_recognizer.html#51e2151519fffb22b04ac85af98271e2" title="Constructor.">Recognizer</a> (<a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span> dataset);
 <a name="l00045"></a>00045 
 <a name="l00047"></a>00047         <a class="code" href="class_recognizer.html#a0035e71951a13fe00764a54913d0e5a" title="Destructor.">~Recognizer</a> ();
 <a name="l00048"></a>00048 
@@ -125,7 +125,7 @@ window.onload = initDynSections;
 <a name="l00143"></a>00143 
 <a name="l00144"></a>00144     <span class="keyword">private</span>:
 <a name="l00145"></a>00145 
-<a name="l00146"></a>00146         <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>*              dataset_;                       
+<a name="l00146"></a>00146         <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span>              dataset_;                       
 <a name="l00147"></a>00147 
 <a name="l00148"></a>00148         std::list&lt;Region&gt;           regions_;                       
 <a name="l00149"></a>00149 
@@ -146,7 +146,7 @@ window.onload = initDynSections;
 <a name="l00164"></a>00164         std::auto_ptr&lt;Statistics&gt;   classifierStatistics_;          
 <a name="l00165"></a>00165 
 <a name="l00166"></a>00166         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
-<a name="l00167"></a>00167         <a class="code" href="class_recognizer.html#b5c9a5e29ae734341cc13275e3635843" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>&amp;);
+<a name="l00167"></a>00167         <a class="code" href="class_recognizer.html#51e2151519fffb22b04ac85af98271e2" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>&amp;);
 <a name="l00168"></a>00168         <a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the whole OCR process.">Recognizer</a>&amp;);
 <a name="l00169"></a>00169 };
 <a name="l00170"></a>00170 
@@ -184,7 +184,7 @@ window.onload = initDynSections;
 <a name="l00202"></a>00202 <span class="preprocessor">#endif</span>
 <a name="l00203"></a>00203 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Mar 4 09:42:13 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:17 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

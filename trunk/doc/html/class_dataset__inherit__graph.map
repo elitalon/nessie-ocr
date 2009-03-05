@@ -1,2 +1,2 @@
-<area shape="rect" href="$class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,277,141,397">
-<area shape="rect" href="$class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,248,312,427">
+<area shape="rect" href="$class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,320,141,440">
+<area shape="rect" href="$class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,291,312,470">

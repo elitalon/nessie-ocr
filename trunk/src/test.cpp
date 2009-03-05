@@ -9,6 +9,7 @@
 #include "ClassificationParadigm.hpp"
 #include <boost/program_options.hpp>
 #include <iostream>
+#include <fstream>
 #include <memory>
 #include <string>
 
@@ -27,7 +28,7 @@ int main (int argc, char *argv[])
 		po::options_description availableOptions("Available options");
 		availableOptions.add_options()
 			("help,h",		"Print this help message")
-			("training,t",	"Executes a dataset training instead of a normal OCR")
+			("training,t",	po::value<std::string>(),"Executes a dataset training instead of a normal OCR")
 			("filename,f",	po::value<std::string>(), "Use a plain text file as dataset")
 			("database,d",	po::value<std::string>(), "Use a database as dataset (e.g. db_nessie). Superseded by the <filename> option")
 			("username,u",	po::value<std::string>(), "Username when connecting to the database. The <database> argument will be used by default")
@@ -85,18 +86,42 @@ int main (int argc, char *argv[])
 
 			dataset.reset( new PostgreSqlDataset(dbName, username, password) );
 		}
-		std::cout << "The dataset contains " << dataset->size() << " samples" << std::endl;
 
 		// Create a recognizer and executes the required action
 		Recognizer recon( dataset.get() );
 
 		if ( passedOptions.count("training") )
-			recon.trainClassifier(pressClip, ClassificationParadigm::knn());
-		else
-			recon.extractText(pressClip, ClassificationParadigm::knn());
+		{
+			std::string filename( passedOptions["training"].as<std::string>() );
+			if ( filename != "" )
+			{
+				std::ifstream inputFile( filename.data() );
+				if ( not inputFile.is_open() or not inputFile.good() )
+				{
+					std::cout << "The file passed for training is not valid." << std::endl;
+					return 1;
+				}
 
-		// Print the results
-		std::cout << std::endl << "Text extracted: " << recon.text().content() << std::endl;
+				std::vector<std::string> referenceText(0);
+				while ( inputFile.good() )
+				{   
+					std::string character;
+					getline(inputFile, character);
+					if (!character.empty())
+						referenceText.push_back(character);
+				}   
+				inputFile.close();	
+			
+				recon.trainClassifier(pressClip, referenceText, ClassificationParadigm::knn());
+			}
+			else
+				recon.trainClassifier(pressClip, ClassificationParadigm::knn());
+		}
+		else
+		{
+			recon.extractText(pressClip, ClassificationParadigm::knn());
+			std::cout << "Text extracted: " << recon.text().content() << std::endl;
+		}
 		recon.printStatistics();
 	}
 	catch (std::exception &e)

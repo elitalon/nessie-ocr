@@ -85,7 +85,7 @@ window.onload = initDynSections;
 <a name="l00040"></a>00040 
 <a name="l00044"></a>00044         <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Returns the statistics about the classification stage.">statistics</a> () <span class="keyword">const</span>;
 <a name="l00045"></a>00045 
-<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#a2e54ecc7dfe026218d721478f858a2b" title="Executes the classification process over the feature vectors passed in constructor...">classify</a>(<span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm to be used by the OCR process to classify the patterns found in a press...">ClassificationParadigm</a>&amp; paradigm, <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* dataset);
+<a name="l00052"></a>00052         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#ae1bd2e0840bcc9cb66456a3b84a6130" title="Executes the classification process over the feature vectors passed in constructor...">classify</a>(<span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm to be used by the OCR process to classify the patterns found in a press...">ClassificationParadigm</a>&amp; paradigm, <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span> dataset);
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054     <span class="keyword">private</span>:
 <a name="l00055"></a>00055 
@@ -95,7 +95,7 @@ window.onload = initDynSections;
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060         std::vector&lt;FeatureVector&gt;  featureVectors_;    
 <a name="l00061"></a>00061 
-<a name="l00068"></a>00068         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> knn(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* dataset) <span class="keyword">const</span>;
+<a name="l00068"></a>00068         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> knn(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span> dataset) <span class="keyword">const</span>;
 <a name="l00069"></a>00069 
 <a name="l00070"></a>00070         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
 <a name="l00071"></a>00071         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
@@ -117,7 +117,7 @@ window.onload = initDynSections;
 <a name="l00087"></a>00087 <span class="preprocessor">#endif</span>
 <a name="l00088"></a>00088 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Mar 4 09:42:13 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:17 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

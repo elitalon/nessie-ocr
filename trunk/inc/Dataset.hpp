@@ -6,6 +6,8 @@
 
 #include <utility>
 #include <vector>
+#include <string>
+#include <map>
 #include "FeatureVector.hpp"
 
 
@@ -20,8 +22,8 @@ typedef std::pair<FeatureVector, unsigned int> Sample;
 ///	@brief		Data set of character samples encoded as feature vectors.
 ///
 ///	@details	This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of
-///	previously recognized characters. A sample is composed of two fields: a feature vector and its label. The label indicates the class where the feature vector
-///	belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.
+///	previously recognized characters. A sample is composed of two fields: a feature vector and its code. The code is a numeric identifier that indicates the class
+/// where the feature vector belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.
 ///
 ///	@see		FeatureVector
 ///
@@ -54,6 +56,20 @@ class Dataset
 		/// @return	Number of features per sample.
 		virtual const unsigned int& features () const;
 
+		/// @brief	Returns the code associated to the character passed.
+		/// 
+		/// @param	character	A valid character.
+		/// 
+		/// @return The code associated to the character or 256 if there is no association.
+		virtual unsigned int code (const std::string& character) const;
+
+		/// @brief	Returns the character associated to the code passed.
+		/// 
+		/// @param	code	A valid code.
+		/// 
+		/// @return The character associated to the code or an empty string if there is no association.
+		virtual std::string character (const unsigned int& code) const;
+
 		///	@brief	Adds a sample to the dataset.
 		///
 		///	@param	sample Sample to add.
@@ -72,11 +88,13 @@ class Dataset
 
 	protected:
 
-		std::vector<Sample>	samples_;	///< Samples of the dataset.
+		std::vector<Sample>					samples_;	///< Samples of the dataset.
 
-		unsigned int		size_;		///< Number of samples.
+		std::map<std::string, unsigned int>	classes_;	///< Map of classes that associates a character with its code.
 
-		unsigned int		features_;	///< Number of features per sample.
+		unsigned int						size_;		///< Number of samples.
+
+		unsigned int						features_;	///< Number of features per sample.
 };
 
 

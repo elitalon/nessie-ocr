@@ -49,7 +49,7 @@ class Classifier
 		///	@param	dataset		Dataset to be used during the classification process.
 		///
 		///	@post	The recognized characters become available through the Classifier::characters() method.
-		void classify(const ClassificationParadigm& paradigm, const Dataset* dataset);
+		void classify(const ClassificationParadigm& paradigm, const Dataset* const dataset);
 
 	private:
 
@@ -64,8 +64,8 @@ class Classifier
 		/// @param featureVector	The feature vector to classify.
 		/// @param dataset			The dataset to use in the process.
 		/// 
-		/// @return The class (label) where the feature vector belongs to.
-		unsigned int knn(const FeatureVector& featureVector, const Dataset* dataset) const;
+		/// @return The class where the feature vector belongs to.
+		unsigned int knn(const FeatureVector& featureVector, const Dataset* const dataset) const;
 
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Classifier (const Classifier&);
