@@ -5,12 +5,13 @@
 #define _FEATUREVECTOR_H
 
 #include <vector>
-#include "NessieException.hpp"
 
 
 ///	@brief		Array of characteristic features that identifies a pattern.
 /// 
 /// @details	This class stores a set of features computed from a pattern where a character's shape has been mapped.
+///
+/// @todo		Implement another method to compute distance between vectors (e.g. the Mahalanobis distance).
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-04
@@ -27,7 +28,7 @@ class FeatureVector
 		/// 
 		/// @param	n Number of features to store in the vector.
 		///
-		///	@post	An empty feature vector of size <em>n</em> is initialized to 0.0. 
+		///	@post	An empty feature vector of size <em>n</em> is initialized to 0.0.
 		explicit FeatureVector (const unsigned int& n);
 
 		/// @brief	Allows read-and-write access to a certain feature.
@@ -75,6 +76,21 @@ class FeatureVector
 		/// 
 		/// @return Number of features held.
 		const unsigned int& size () const;
+		
+		/// @brief	Clear the vector content.
+		///
+		///	@post	The features are removed and the size becomes 0.
+		void clear ();
+		
+		/// @brief	Reset the vector content.
+		///
+		///	@post	The features are set to 0.0 but the vector size remains equal.
+		void reset ();
+		
+		/// @brief	Resize the vector to the specified size.
+		///
+		///	@post	The previous features are removed and an new vector of size <em>n</em> is initialized to 0.0.
+		void resize (const unsigned int& n);
 
 		///	@brief	Computes the Euclidean distance with the input vector.
 		///
@@ -83,18 +99,11 @@ class FeatureVector
 		///	@return	The Euclidean distance between this vector and the input vector.
 		double computeEuclideanDistance (const FeatureVector& featureVector) const;
 
-		///	@brief	Computes the Mahalanobis distance with the input vector.
-		///
-		///	@param	featureVector	Feature vector of reference.
-		///
-		///	@return	The Mahalanobis distance between this vector and the input vector.
-		double computeMahalanobisDistance (const FeatureVector& featureVector) const;
-
 	private:
 
 		std::vector<double>	features_;	///< Characteristic features of the pattern.
-
-		unsigned int		size_;		///< Number of features.
+		
+		unsigned int		size_;		///< Size of the vector.
 };
 
 
@@ -113,6 +122,26 @@ inline const double& FeatureVector::at (const unsigned int &n) const
 inline const unsigned int& FeatureVector::size () const
 {
 	return size_;
+};
+
+inline void FeatureVector::clear ()
+{
+	features_.clear();
+	size_ = 0;
+};
+
+inline void FeatureVector::reset ()
+{
+	for ( std::vector<double>::iterator i = features_.begin(); i != features_.end(); ++i )
+		*i = 0.0;
+};
+
+inline void FeatureVector::resize (const unsigned int& n)
+{
+	features_.clear();
+	features_.assign(n, 0.0);
+	
+	size_ = n;
 };
 
 #endif

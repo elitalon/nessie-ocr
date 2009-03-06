@@ -2,6 +2,7 @@
 /// @brief Definition of FeatureVector class
 
 #include "FeatureVector.hpp"
+#include "NessieException.hpp"
 #include <cmath>
 
 
@@ -26,12 +27,6 @@ double FeatureVector::computeEuclideanDistance (const FeatureVector& featureVect
 		result += pow(tmp.at(i), 2);
 
 	return sqrt(result);
-};
-
-
-double FeatureVector::computeMahalanobisDistance (const FeatureVector& featureVector) const
-{
-	return 0.0;
 };
 
 
