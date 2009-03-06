@@ -27,6 +27,8 @@ typedef std::pair<FeatureVector, unsigned int> Sample;
 ///
 ///	@see		FeatureVector
 ///
+///	@todo		Implement a mechanism to condense the dataset by eliminating useless samples during training.
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-12
 class Dataset

@@ -14,6 +14,22 @@
 #include <sstream>
 
 
+Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
+:	dataset_(dataset),
+	regions_(0),
+	spaceLocations_(0),
+	patterns_(0),
+	featureVectors_(0),
+	characters_(0),
+	text_(),
+	preprocessingStatistics_(0),
+	featureExtractorStatistics_(0),
+	classifierStatistics_(0)
+{
+	if ( dataset_.get() == 0 )
+		throw NessieException ("Recognizer::Recognizer() : A null pointer was passed to the constructor. You must provide an instantiated Dataset object.");
+};
+
 Recognizer::Recognizer (Dataset* const dataset)
 :	dataset_(dataset),
 	regions_(0),
@@ -26,7 +42,7 @@ Recognizer::Recognizer (Dataset* const dataset)
 	featureExtractorStatistics_(0),
 	classifierStatistics_(0)
 {
-	if ( dataset_ == 0 )
+	if ( dataset_.get() == 0 )
 		throw NessieException ("Recognizer::Recognizer() : A null pointer was passed to the constructor. You must provide an instantiated Dataset object.");
 };
 
@@ -34,7 +50,6 @@ Recognizer::Recognizer (Dataset* const dataset)
 Recognizer::~Recognizer() {};
 
 
-/// @details	This method executes the recognition process in four stages: preprocessing, feature extraction, classification and postprocessing.
 void Recognizer::extractText (const Clip& pressClip, const ClassificationParadigm& paradigm)
 {
 	doPreprocessing(pressClip);
@@ -44,8 +59,6 @@ void Recognizer::extractText (const Clip& pressClip, const ClassificationParadig
 };
 
 
-/// @details	As the first important step, image and data <em>preprocessing</em> serve the purpose of extracting regions of interest, enhancing and cleaning up
-/// the images, so that they can be directly and efficiently processed by the feature extraction stage.
 void Recognizer::doPreprocessing (const Clip& pressClip)
 {
 	regions_.clear();

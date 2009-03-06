@@ -83,12 +83,12 @@ Collaboration diagram for Region:</div>
 &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#a8796c9b4ac95da7f7ca4f374673800c">Region</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6">operator()</a> (const unsigned int &amp;index)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#fd480d88401cee03be25b4667381f40f">at</a> (const unsigned int &amp;index)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to the coordinates of a pixel in the region.  <a href="#62cd3703aa53a260c2181833d0bbfac6"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#8fd140fada34f639bba50a6b574a2722">operator()</a> (const unsigned int &amp;index) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to the coordinates of a pixel in the region.  <a href="#fd480d88401cee03be25b4667381f40f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#aad017ee8b650d4868a41d2722851ced">at</a> (const unsigned int &amp;index) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to the coordinates of a pixel in the region.  <a href="#8fd140fada34f639bba50a6b574a2722"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to the coordinates of a pixel in the region.  <a href="#aad017ee8b650d4868a41d2722851ced"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_region.html">Region</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_region.html#3985afe70bbd6e546d456a99db47ca14">operator+</a> (const <a class="el" href="class_region.html">Region</a> &amp;region) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a region to the current one.  <a href="#3985afe70bbd6e546d456a99db47ca14"></a><br></td></tr>
@@ -155,6 +155,58 @@ After preprocessing a press clip, a list of regions is available to build a set 
   </table>
 </dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The pair of coordinates is added to the region, and the points of reference are updated. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="aad017ee8b650d4868a41d2722851ced"></a><!-- doxytag: member="Region::at" ref="aad017ee8b650d4868a41d2722851ced" args="(const unsigned int &amp;index) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::at           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>index</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="fd480d88401cee03be25b4667381f40f"></a><!-- doxytag: member="Region::at" ref="fd480d88401cee03be25b4667381f40f" args="(const unsigned int &amp;index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::at           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>index</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
 
 </div>
 </div><p>
@@ -235,58 +287,6 @@ After preprocessing a press clip, a list of regions is available to build a set 
 
 <p>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The coordinates are translated so that the top leftmost pixel is located at (0,0). </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="8fd140fada34f639bba50a6b574a2722"></a><!-- doxytag: member="Region::operator()" ref="8fd140fada34f639bba50a6b574a2722" args="(const unsigned int &amp;index) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> Region::operator()           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>index</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="62cd3703aa53a260c2181833d0bbfac6"></a><!-- doxytag: member="Region::operator()" ref="62cd3703aa53a260c2181833d0bbfac6" args="(const unsigned int &amp;index)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::operator()           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>index</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
 
 </div>
 </div><p>
@@ -443,7 +443,7 @@ After preprocessing a press clip, a list of regions is available to build a set 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:20 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:03 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -80,9 +80,9 @@ window.onload = initDynSections;
 <a name="l00032"></a>00032 
 <a name="l00034"></a>00034         <span class="keyword">explicit</span> <a class="code" href="class_region.html#a8796c9b4ac95da7f7ca4f374673800c" title="Constructor.">Region</a>();
 <a name="l00035"></a>00035 
-<a name="l00041"></a>00041         <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6" title="Allows read-and-write access to the coordinates of a pixel in the region.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index);
+<a name="l00041"></a>00041         <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#fd480d88401cee03be25b4667381f40f" title="Allows read-and-write access to the coordinates of a pixel in the region.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index);
 <a name="l00042"></a>00042 
-<a name="l00048"></a>00048         <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a> <a class="code" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6" title="Allows read-and-write access to the coordinates of a pixel in the region.">operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index) <span class="keyword">const</span>;
+<a name="l00048"></a>00048         <span class="keyword">const</span> <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#fd480d88401cee03be25b4667381f40f" title="Allows read-and-write access to the coordinates of a pixel in the region.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index) <span class="keyword">const</span>;
 <a name="l00049"></a>00049 
 <a name="l00055"></a>00055         <a class="code" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a> <a class="code" href="class_region.html#3985afe70bbd6e546d456a99db47ca14" title="Adds a region to the current one.">operator+ </a>(<span class="keyword">const</span> <a class="code" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a>&amp; region) <span class="keyword">const</span>;
 <a name="l00056"></a>00056 
@@ -130,13 +130,13 @@ window.onload = initDynSections;
 <a name="l00135"></a>00135 };
 <a name="l00136"></a>00136 
 <a name="l00137"></a>00137 
-<a name="l00138"></a><a class="code" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6">00138</a> <span class="keyword">inline</span> <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6" title="Allows read-and-write access to the coordinates of a pixel in the region.">Region::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)
+<a name="l00138"></a><a class="code" href="class_region.html#fd480d88401cee03be25b4667381f40f">00138</a> <span class="keyword">inline</span> <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#fd480d88401cee03be25b4667381f40f" title="Allows read-and-write access to the coordinates of a pixel in the region.">Region::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)
 <a name="l00139"></a>00139 {
 <a name="l00140"></a>00140     <span class="keywordflow">return</span> coordinates_.at(index);
 <a name="l00141"></a>00141 };
 <a name="l00142"></a>00142 
 <a name="l00143"></a>00143 
-<a name="l00144"></a><a class="code" href="class_region.html#8fd140fada34f639bba50a6b574a2722">00144</a> <span class="keyword">inline</span> <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a> <a class="code" href="class_region.html#62cd3703aa53a260c2181833d0bbfac6" title="Allows read-and-write access to the coordinates of a pixel in the region.">Region::operator() </a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)<span class="keyword"> const</span>
+<a name="l00144"></a><a class="code" href="class_region.html#aad017ee8b650d4868a41d2722851ced">00144</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="_region_8hpp.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a>&amp; <a class="code" href="class_region.html#fd480d88401cee03be25b4667381f40f" title="Allows read-and-write access to the coordinates of a pixel in the region.">Region::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; index)<span class="keyword"> const</span>
 <a name="l00145"></a>00145 <span class="keyword"></span>{
 <a name="l00146"></a>00146     <span class="keywordflow">return</span> coordinates_.at(index);
 <a name="l00147"></a>00147 };
@@ -192,7 +192,7 @@ window.onload = initDynSections;
 <a name="l00197"></a>00197 <span class="preprocessor">#endif</span>
 <a name="l00198"></a>00198 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 5 13:24:17 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:00 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

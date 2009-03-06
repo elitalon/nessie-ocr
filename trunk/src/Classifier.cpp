@@ -14,7 +14,7 @@ Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 {};
 
 
-void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset* const dataset)
+void Classifier::classify (const ClassificationParadigm& paradigm, const std::auto_ptr<Dataset>& dataset)
 {
 	boost::timer timer;
 	timer.restart();
@@ -44,7 +44,7 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const Dataset
 };
 
 
-unsigned int Classifier::knn(const FeatureVector& featureVector, const Dataset* const dataset) const
+unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset) const
 {
 	typedef std::pair<double, unsigned int> Neighbour;
 	std::vector<Neighbour> neighbours(0);

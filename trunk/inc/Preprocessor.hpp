@@ -29,6 +29,8 @@
 ///
 /// @see	Clip, PreprocessorStatistics, Region
 ///
+///	@todo	Implement a method to correct the slope of text lines with respect to the x-axis that prevents the lines to be completely horizontal or vertical.
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
 class Preprocessor

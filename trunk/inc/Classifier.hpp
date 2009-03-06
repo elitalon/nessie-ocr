@@ -10,6 +10,7 @@
 #include "Dataset.hpp"
 #include <string>
 #include <vector>
+#include <memory>
 
 
 ///	@brief		Classifier of the OCR process.
@@ -19,6 +20,8 @@
 /// Classifier::characters() method.
 /// 
 /// @see		FeatureVector, ClassifierStatistics, Dataset, ClassificationParadigm
+///
+///	@todo		Implement new paradigms of classification (neural networks, support vector machines,...).
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09
@@ -49,7 +52,7 @@ class Classifier
 		///	@param	dataset		Dataset to be used during the classification process.
 		///
 		///	@post	The recognized characters become available through the Classifier::characters() method.
-		void classify(const ClassificationParadigm& paradigm, const Dataset* const dataset);
+		void classify(const ClassificationParadigm& paradigm, const std::auto_ptr<Dataset>& dataset);
 
 	private:
 
@@ -65,7 +68,7 @@ class Classifier
 		/// @param dataset			The dataset to use in the process.
 		/// 
 		/// @return The class where the feature vector belongs to.
-		unsigned int knn(const FeatureVector& featureVector, const Dataset* const dataset) const;
+		unsigned int knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset) const;
 
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Classifier (const Classifier&);

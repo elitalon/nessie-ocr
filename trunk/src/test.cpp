@@ -87,8 +87,7 @@ int main (int argc, char *argv[])
 			dataset.reset( new PostgreSqlDataset(dbName, username, password) );
 		}
 
-		// Create a recognizer and executes the required action
-		Recognizer recon( dataset.get() );
+		Recognizer recon( dataset );
 
 		if ( passedOptions.count("training") )
 		{
