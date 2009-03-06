@@ -8,7 +8,8 @@
 #include <cmath>
 #include <algorithm>
 #include <Magick++.h>
-
+#include <list>
+#include <iostream>
 
 const unsigned int Pattern::planeSize_ = 35;
 
@@ -53,51 +54,60 @@ Pattern::Pattern (const Region& region)
 		preprocessor.applyGlobalThresholding();
 		preprocessor.applyTemplateFilters();
 		preprocessor.extractRegions();
+		std::list<Region> regions(preprocessor.regions());
+		
+		// Merge subregions if preprocessing splitted the original region
+		if ( regions.size() > 1 )
+		{
+			Region tmp;
+			
+			for ( std::list<Region>::iterator i = regions.begin(); i != regions.end(); ++i )
+				tmp = tmp + *i;
+			
+			regions.clear();
+			regions.push_back(tmp);
+		}
 
 		// Build the pattern
-		Region normalizedRegion(preprocessor.regions().front());
+		Region normalizedRegion(regions.front());
 		for ( unsigned int i = 0; i < normalizedRegion.size(); ++i )
 			pixels_.at(normalizedRegion.at(i).first * width_ + normalizedRegion.at(i).second) = 1;
 
-		// Center the pattern in the standard plane using the centroid coordinates
-		std::pair<unsigned int, unsigned int> centroid(this->centroid());
-
-		if ( regionImage.rows() == planeSize_ )	// Shift columns from right to left
+		if ( regionImage.rows() < planeSize_ )	// Shift rows from top to the center
 		{
-			unsigned int offset = (planeSize_ / 2) - centroid.second;
-
-			for ( unsigned int i = 0; i < planeSize_; ++i )
+			unsigned int offset = (planeSize_ - regionImage.rows()) / 2;
+			
+			while ( offset != 0 )
 			{
-				for ( int j = planeSize_-2; j >= 0; --j )
+				for ( int i = planeSize_-2; i >= 0; --i )
 				{
-					if ( pixels_.at(i * planeSize_ + j) == 1 )
-					{
-						pixels_.at(i * planeSize_ + j) = 0;
-
-						if ( (j+offset) < planeSize_ )
-							pixels_.at(i * planeSize_ + (j+offset)) = 1;
-					}
+					for ( unsigned int j = 0; j < planeSize_; ++j )
+						pixels_.at((i+1) * planeSize_ + j) = pixels_.at(i * planeSize_ + j);
 				}
-			}
-		}
-		else	// Shift rows from bottom to top
-		{
-			unsigned int offset = (planeSize_ / 2) - centroid.first;
-
-			for ( int i = planeSize_-2; i >= 0; --i )
-			{
 				for ( unsigned int j = 0; j < planeSize_; ++j )
-				{
-					if ( pixels_.at(i * planeSize_ + j) == 1 )
-					{
-						pixels_.at(i * planeSize_ + j) = 0;
-
-						if ( (i+offset) < planeSize_ )
-							pixels_.at(((i+offset) * planeSize_) + j) = 1;
-					}
-				}
+					pixels_.at(j) = 0;
+				
+				--offset;
 			}
 		}
+		
+		if ( regionImage.columns() < planeSize_ )	// Shift columns from left to center
+		{
+			unsigned int offset = (planeSize_ - regionImage.columns()) / 2;
+
+			while ( offset != 0 )
+			{
+				for ( unsigned int i = 0; i < planeSize_; ++i )
+				{
+					for ( int j = planeSize_-2; j >= 0; --j )
+						pixels_.at(i * planeSize_ + (j+1)) = pixels_.at(i * planeSize_ + j);
+				}
+				for ( unsigned int i = 0; i < planeSize_; ++i )
+					pixels_.at(i * planeSize_) = 0;
+					
+				--offset;
+			}
+		}		
 	}
 	catch (...) {}	// Ignore the exception, a blank pattern will be created.
 };
