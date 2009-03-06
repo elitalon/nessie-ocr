@@ -41,7 +41,7 @@ class Clip
 		/// @exception	NessieException
 		explicit Clip (const Magick::Image& image, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width);
 
-		/// @brief		Allows read-and-write access to a pixel in the clip.
+		/// @brief		Allow read-and-write access to a pixel in the clip.
 		///
 		/// @param		x	X-axis coordinate of the row where the requested pixel is.
 		/// @param		y	Y-axis coordinates of the column where the requested pixel is.
@@ -49,7 +49,7 @@ class Clip
 		/// @return		The gray level of pixel at given coordinates.
 		unsigned char& operator() (const unsigned int& x, const unsigned int& y);
 
-		/// @brief		Allows read-only access to a pixel in the clip.
+		/// @brief		Allow read-only access to a pixel in the clip.
 		///
 		/// @param		x	X-axis coordinate of the row where the pixel is.
 		/// @param		y	Y-axis coordinate of the column where the pixel is.
@@ -57,22 +57,22 @@ class Clip
 		/// @return		The gray level of pixel at given coordinates.
 		unsigned char operator() (const unsigned int& x, const unsigned int& y) const;
 
-		/// @brief	Returns the width of the clip.
+		/// @brief	Get the width of the clip.
 		///
 		/// @return	Width of the clip in pixels.
 		const unsigned int& width () const;
 
-		/// @brief	Returns the height of the clip.
+		/// @brief	Get the height of the clip.
 		///
 		/// @return Height of the clip in pixels.
 		const unsigned int& height () const;
 
-		/// @brief	Returns the number of pixels in the clip.
+		/// @brief	Get the number of pixels in the clip.
 		///
 		/// @return	Number of pixels in the clip.
 		const unsigned int& size () const;
 
-		/// @brief		Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip.
+		/// @brief		Create a new image in the filesystem using Magick++, reflecting the current state of the press clip.
 		///
 		/// @param		outputFile		A string with the image name in the filesystem.
 		/// @param		scalingFactor	Top limit of the source image scale to use in the output image (i.e. 1 for [0..1], 255 for [0..255], etc.).
@@ -102,24 +102,20 @@ inline unsigned char& Clip::operator() (const unsigned int &x, const unsigned in
 	return pixels_.at(x * width_ + y);
 };
 
-
 inline unsigned char Clip::operator() (const unsigned int &x, const unsigned int &y) const
 {
 	return pixels_.at(x * width_ + y);
 };
-
 
 inline const unsigned int& Clip::width () const
 {
 	return width_;
 };
 
-
 inline const unsigned int& Clip::height () const
 {
 	return height_;
 };
-
 
 inline const unsigned int& Clip::size () const
 {

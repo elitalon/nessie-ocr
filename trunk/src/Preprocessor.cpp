@@ -12,15 +12,25 @@
 #include <iostream>
 
 
-/// @brief	Computes the optimal threshold value in a press clip following the Sonka's algorithm.
-/// @return	A unsigned char with the optimal threshold value in a scale of [0,255].
-/// @param	clip	The input press clip.
+/// @brief		Computes the optimal threshold value in a press clip following the Sonka's algorithm.
+/// @details	The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
+/// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
+/// computed from the four corners of the press clip.
+
+/// 
+/// @return		A unsigned char with the optimal threshold value in a scale of [0,255].
+/// @param		clip	The input press clip.
 unsigned char computeSonkaOptimalThreshold (const Clip& clip);
 
 
-/// @brief	Computes the optimal threshold value in a press clip following the Otsu's algorithm.
-///	@return	A unsigned char with the optimal threshold value in a scale of [0,255].
-/// @param	clip	The input press clip.
+/// @brief		Computes the optimal threshold value in a press clip following the Otsu's algorithm.
+/// @details	The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the
+/// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
+/// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
+/// zeroth- and the first-order cumulative moments of the gray-level histogram.
+///
+///	@return		A unsigned char with the optimal threshold value in a scale of [0,255].
+/// @param		clip	The input press clip.
 unsigned char computeOtsuOptimalThreshold (const Clip& clip);
 
 
@@ -37,12 +47,6 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 };
 
 
-/// @details	The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
-/// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm
-/// also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.
-///
-/// @todo		Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
-/// ones. Some function should be developed to automatically make the right decision.
 void Preprocessor::applyGlobalThresholding ()
 {
 	boost::timer timer;
@@ -72,8 +76,6 @@ void Preprocessor::applyGlobalThresholding ()
 	}
 	catch(...) {}	
 };
-
-
 
 
 void Preprocessor::applyTemplateFilters ()
@@ -267,166 +269,6 @@ void Preprocessor::applyAveragingFilters ()
 };
 
 
-/// @details This method peels off every region of pixel following the Hilditch's thinning algorithm. It consists in multiple passes on the press clip, where on
-///	each pass the algorithm checks all the pixels and decides to change a pixel from black to white if it satisfies four conditions. The algorithm stops when there
-///	are no changes in the press clip.
-void Preprocessor::applyThinning ()
-{
-	boost::timer timer;
-	timer.restart();
-
-	bool clipHasChanged = true;
-	while ( clipHasChanged )
-	{
-		clipHasChanged = false;
-
-		for( int i = 0; i < static_cast<int>(clip_.height()); ++i)
-		{
-			for( int j = 0; j < static_cast<int>(clip_.width()); ++j)
-			{
-				if ( clip_(i,j) == 0 )
-					continue;
-
-				std::vector<unsigned int> p1Neighbours(8,0);	// p1 is the central pixel
-				unsigned int z = 0;
-				for ( int m = i-1; m < i+2; ++m )
-				{
-					for ( int n = j-1; n < j+2; ++n )
-					{
-						if ( not (m == i && n == j) )
-						{
-							if ( m >= 0 && m < static_cast<int>(clip_.height()) && n >= 0 && n< static_cast<int>(clip_.width()) )
-								p1Neighbours.at(z) = clip_(m,n);
-
-							++z;
-						}
-					}
-				}
-				std::rotate (p1Neighbours.begin(), p1Neighbours.begin()+1, p1Neighbours.end());
-				std::swap ( *(p1Neighbours.begin()+4), *(p1Neighbours.begin()+5) );
-				std::swap ( *(p1Neighbours.begin()+2), *(p1Neighbours.begin()+3) );
-				std::swap ( *(p1Neighbours.begin()+3), *(p1Neighbours.begin()+6) ) ;
-
-				// Compute additional pixels
-				unsigned int p10 = 0, p11 = 0, p12 = 0, p14 = 0, p15 = 0, p16 = 0;
-				if( i-2 >= 0 && j-1 >= 0 )
-					p10 = clip_(i-2,j-1);
-
-				if( i-2 >= 0 )
-					p11 = clip_(i-2,j);
-
-				if( i-2 >= 0 && j+1 < static_cast<int>(clip_.width()) )
-					p12 = clip_(i-2,j+1);
-
-				if( i-1 >= 0 && j+2 < static_cast<int>(clip_.width()) )
-					p14 = clip_(i-1,j+2);
-
-				if( j+2 < static_cast<int>(clip_.width()) )
-					p15 = clip_(i,j+2);
-
-				if( i+1 < static_cast<int>(clip_.height()) && j+2 < static_cast<int>(clip_.width()) )
-					p16 = clip_(i+1,j+2);
-
-				std::vector<unsigned int> p2Neighbours(8);
-				p2Neighbours.at(0) = p11;
-				p2Neighbours.at(1) = p12;
-				p2Neighbours.at(2) = p1Neighbours.at(1); // p3
-				p2Neighbours.at(3) = p1Neighbours.at(2); // p4
-				p2Neighbours.at(4) = clip_(i,j);
-				p2Neighbours.at(5) = p1Neighbours.at(6); // p8
-				p2Neighbours.at(6) = p1Neighbours.at(7); // p9
-				p2Neighbours.at(7) = p10;
-
-				std::vector<unsigned int> p4Neighbours(8);
-				p4Neighbours.at(0) = p1Neighbours.at(1); // p3
-				p4Neighbours.at(1) = p14;
-				p4Neighbours.at(2) = p15;
-				p4Neighbours.at(3) = p16;
-				p4Neighbours.at(4) = p1Neighbours.at(3); // p5
-				p4Neighbours.at(5) = p1Neighbours.at(4); // p6
-				p4Neighbours.at(6) = clip_(i,j);
-				p4Neighbours.at(7) = p1Neighbours.at(0); // p2
-
-				// Discriminant function A(p1)
-				unsigned int a_p1 = 0;
-				std::vector<unsigned int>::iterator k = p1Neighbours.begin();
-				std::vector<unsigned int>::iterator l = p1Neighbours.begin();
-				advance (l,1);
-				while ( l != p1Neighbours.end() )
-				{
-					if ( (*k) == 0 && (*l) == 1 )
-						++a_p1;
-
-					advance (k,1);
-					advance (l,1);
-				}
-				if ( p1Neighbours.at(7) == 0 && p1Neighbours.at(0) == 1 )
-					++a_p1;
-
-				// Discriminant function B(p1)
-				unsigned int b_p1 = 0;
-				for( unsigned int k = 0; k < 8; ++k )
-					b_p1 += p1Neighbours.at(k);
-
-				// Discriminant function A(p2)
-				unsigned int a_p2 = 0;
-				k = p2Neighbours.begin();
-				l = p2Neighbours.begin();
-				advance (l,1);
-				while ( l != p2Neighbours.end() )
-				{
-					if ( (*k) == 0 && (*l) == 1 )
-						++a_p2;
-
-					advance (k,1);
-					advance (l,1);
-				}
-				if ( p2Neighbours.at(7) == 0 && p2Neighbours.at(0) == 1 )
-					++a_p2;
-
-				// Discriminant function A(p4)
-				unsigned int a_p4 = 0;
-				k = p4Neighbours.begin();
-				l = p4Neighbours.begin();
-				advance (l,1);
-				while ( l != p4Neighbours.end() )
-				{
-					if ( (*k) == 0 && (*l) == 1 )
-						++a_p4;
-
-					advance (k,1);
-					advance (l,1);
-				}
-				if ( p4Neighbours.at(7) == 0 && p4Neighbours.at(0) == 1 )
-					++a_p4;
-
-				// Decide whether to peel of the pixel or not
-				bool firstCondition		= (2 <= b_p1) && (b_p1 <= 6);
-				bool secondCondition	= (a_p1 == 1);
-				bool thirdCondition		= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(6)) == 0) || (a_p2 != 1);
-				bool fourthCondition	= ((p1Neighbours.at(0) * p1Neighbours.at(2) * p1Neighbours.at(4)) == 0) || (a_p4 != 1);
-
-				if ( firstCondition && secondCondition && thirdCondition && fourthCondition )
-				{
-					clip_(i,j) = 0;
-					clipHasChanged = true;
-				}
-			}
-		}
-	}
-
-	try
-	{
-		statistics_.thinningTime(timer.elapsed());
-	}
-	catch(...) {}	
-};
-
-
-/// @details This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink,
-///	it connects its neighbouring ink pixels and builds a set of regions. This set is then post-processed to join accents and other punctuation signs to their
-/// final region. A final list is generated by sorting the set of regions by lines and columns, so that traversing the list forward is equivalent to reading
-/// the text from left to right and from up to down.
 void Preprocessor::extractRegions ()
 {
 	boost::timer timer;
@@ -805,10 +647,6 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 };
 
 
-/// @details The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the
-/// threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant
-/// criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the
-/// zeroth- and the first-order cumulative moments of the gray-level histogram.
 unsigned char computeOtsuOptimalThreshold (const Clip& clip)
 {
 	// Compute the normalized clip histogram
@@ -871,9 +709,6 @@ unsigned char computeOtsuOptimalThreshold (const Clip& clip)
 };
 
 
-/// @details The strategy proposed by M. Sonka, V. Hlavac and R. Boyle in "Image Processing, Analysis and Machine Vision" (2008) is to find a mean
-/// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
-/// computed from the four corners of the press clip.
 unsigned char computeSonkaOptimalThreshold (const Clip& clip)
 {
 	// Start with an initial threshold

@@ -19,20 +19,17 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 	boost::timer timer;
 	timer.restart();
 
-	for( unsigned int i = 0; i < featureVectors_.size(); ++i )
+	if ( dataset->size() > 0 )
 	{
-		unsigned int code = 32;	// Blank space
-
-		if ( dataset->size() > 0 )
+		for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 		{
+			unsigned int code;
+
 			if ( paradigm.id() == ClassificationParadigm::knn().id() )
 				code = knn(featureVectors_.at(i), dataset);
 
-			if ( paradigm.id() == ClassificationParadigm::svm().id() )
-				code = 32;
-		}
-		std::string character(1, code);
-		characters_.push_back(character);
+			characters_.push_back(dataset->character(code));
+		}	
 	}
 
 	try

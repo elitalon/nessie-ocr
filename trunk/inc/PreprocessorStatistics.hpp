@@ -8,7 +8,7 @@
 #include <memory>
 
 
-///	@brief	Statistical data gathered during the preprocessing stage of the text recognition process.
+///	@brief	Statistics gathered during the preprocessing stage of the text recognition process.
 ///
 ///	@see	Statistics
 ///
@@ -30,112 +30,82 @@ class PreprocessorStatistics : public Statistics
 		/// @brief Assignment operator.
 		PreprocessorStatistics& operator= (const PreprocessorStatistics& statistics);
 
-		///	@brief	Prints the statistical data gathered.
+		///	@brief	Print the statistical data gathered.
 		void print () const;
 
-		/// @brief	@brief	Stores the press clip size in number of pixels.
+		/// @brief	@brief	Set the press clip size in number of pixels.
 		///
 		/// @param	n	Number of pixels in the press clip.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void clipSize (const unsigned int& n);
 
-		/// @brief	@brief	Stores the optimal threshold used to binarize the press clip.
+		/// @brief	@brief	Set the optimal threshold used to binarize the press clip.
 		///
 		/// @param	threshold A gray level.
-		///
-		///	@post	The internal member is set to <em>threshold</em>.
 		void optimalThreshold (const unsigned char& threshold);
 
-		/// @brief	Stores the elapsed time while executing the global thresholding algorithm.
+		/// @brief	Set the elapsed time while executing the global thresholding algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void globalThresholdingTime (const double& elapsedTime);
 
-		/// @brief	Stores the elapsed time while executing the template filtering algorithm.
+		/// @brief	Set the elapsed time while executing the template filtering algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void templateFilteringTime (const double& elapsedTime);
 
-		/// @brief	Stores the elapsed time while executing the averaging filtering algorithm.
+		/// @brief	Set the elapsed time while executing the averaging filtering algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void averagingFilteringTime (const double& elapsedTime);
 
-		///	@brief	Stores the elapsed time while executing the thinning algorithm.
+		///	@brief	Set the elapsed time while executing the thinning algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void thinningTime (const double& elapsedTime);
 
-		/// @brief	Stores the number of regions found before merging the accents while executing the regions extraction algorithm.
+		/// @brief	Set the number of regions found before merging the accents while executing the regions extraction algorithm.
 		///
 		/// @param	n Number of regions found.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void nRegionsBeforeMerging (const unsigned int& n);
 
-		/// @brief	Stores the number of line delimiters found while executing the regions extraction algorithm.
+		/// @brief	Set the number of line delimiters found while executing the regions extraction algorithm.
 		///
 		/// @param	n Number of line delimiters found.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void nLineDelimiters (const unsigned int& n);
 
-		/// @brief	Stores the number of regions found after merging the accents while executing the regions extraction algorithm.
+		/// @brief	Set the number of regions found after merging the accents while executing the regions extraction algorithm.
 		///
 		/// @param	n Number of regions found.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void nRegionsAfterMerging (const unsigned int& n);
 
-		/// @brief	Stores the elapsed time while executing the regions extraction algorithm.
+		/// @brief	Set the elapsed time while executing the regions extraction algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void regionsExtractionTime (const double& elapsedTime);
 
-		/// @brief	Stores the slant angle estimation used to correct the slanting of every region found after executing the regions extraction algorithm.
+		/// @brief	Set the slant angle estimation used to correct the slanting of every region found after executing the regions extraction algorithm.
 		///
 		/// @param	angle Angle estimation in degrees.
-		///
-		///	@post	The internal member is set to <em>angle</em>.
 		void slantAngleEstimation (const double& angle);
 
-		/// @brief	Stores the elapsed time while executing the slanting correction algorithm.
+		/// @brief	Set the elapsed time while executing the slanting correction algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
 		void slantingCorrectionTime (const double& elapsedTime);
 
-		/// @brief	Stores the number of spaces between words found in text after post-processing the list of regions.
+		/// @brief	Set the number of spaces between words found in text after post-processing the list of regions.
 		///
 		///	@param	n	Number of spaces found.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void spacesBetweenWords (const unsigned int& n);
 
-		/// @brief	Stores the mean interregion space found in text after post-processing the list of regions.
+		/// @brief	Set the mean interregion space found in text after post-processing the list of regions.
 		///
 		///	@param	n	Mean space width in pixels.
-		///
-		///	@post	The internal member is set to <em>n</em>.
 		void meanInterRegionSpace (const double& n);
 
-		/// @brief	Stores the elapsed time while finding the spaces location in text.
+		/// @brief	Set the elapsed time while finding the spaces location in text.
 		///
-		/// @param	elapsedTime Elapsed time in seconds.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
+		/// @param	elapsedTime Elapsed time in seconds.		
 		void spacesLocationFindingTime (const double& elapsedTime);
 
 	private:
@@ -170,7 +140,7 @@ class PreprocessorStatistics : public Statistics
 
 		std::auto_ptr<double>			spacesLocationFindingTime_;	///< Elapsed time when finding the spaces location in text.
 
-		/// @brief	Updates the total elapsed time.
+		/// @brief	Update the total elapsed time.
 		///
 		/// @post #totalTime_ is set by summing all the individual timers.
 		void updateTotalTime ();
@@ -203,18 +173,15 @@ inline void PreprocessorStatistics::updateTotalTime ()
 		totalTime_ += *spacesLocationFindingTime_.get();
 };
 
-
 inline void PreprocessorStatistics::clipSize (const unsigned int& n)
 {
 	clipSize_.reset(new unsigned int(n));
 };
 
-
 inline void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
 {
 	optimalThreshold_.reset(new unsigned char(threshold));
 };
-
 
 inline void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
@@ -222,20 +189,17 @@ inline void PreprocessorStatistics::globalThresholdingTime (const double& elapse
 	updateTotalTime();
 };
 
-
 inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
 	templateFilteringTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 
-
 inline void PreprocessorStatistics::thinningTime (const double& elapsedTime)
 {
 	thinningTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
-
 
 inline void PreprocessorStatistics::averagingFilteringTime (const double& elapsedTime)
 {
@@ -244,24 +208,20 @@ inline void PreprocessorStatistics::averagingFilteringTime (const double& elapse
 	updateTotalTime();
 };
 
-
 inline void PreprocessorStatistics::nRegionsBeforeMerging (const unsigned int& n)
 {
 	nRegionsBeforeMerging_.reset(new unsigned int(n));
 };
-
 
 inline void PreprocessorStatistics::nLineDelimiters (const unsigned int& n)
 {
 	nLineDelimiters_.reset(new unsigned int(n));
 };
 
-
 inline void PreprocessorStatistics::nRegionsAfterMerging (const unsigned int& n)
 {
 	nRegionsAfterMerging_.reset(new unsigned int(n));
 };
-
 
 inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsedTime)
 {
@@ -269,12 +229,10 @@ inline void PreprocessorStatistics::regionsExtractionTime (const double& elapsed
 	updateTotalTime();
 };
 
-
 inline void PreprocessorStatistics::slantAngleEstimation (const double& angle)
 {
 	slantAngleEstimation_.reset(new double(angle));
 };
-
 
 inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
 {
@@ -282,18 +240,15 @@ inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapse
 	updateTotalTime();
 };
 
-
 inline void PreprocessorStatistics::spacesBetweenWords (const unsigned int& n)
 {
 	spacesBetweenWords_.reset(new unsigned int(n));
 };
 
-
 inline void PreprocessorStatistics::meanInterRegionSpace (const double& n)
 {
 	meanInterRegionSpace_.reset(new double(n));
 };
-
 
 inline void PreprocessorStatistics::spacesLocationFindingTime (const double& elapsedTime)
 {

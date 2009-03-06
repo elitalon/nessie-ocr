@@ -9,7 +9,7 @@
 
 ///	@brief		Array of characteristic features that identifies a pattern.
 /// 
-/// @details	This class stores a set of features computed from a pattern where a character's shape has been mapped.
+/// @details	This class stores a set of features computed from a pattern where the character's pixels has been mapped.
 ///
 /// @todo		Implement another method to compute distance between vectors (e.g. the Mahalanobis distance).
 /// 
@@ -31,21 +31,21 @@ class FeatureVector
 		///	@post	An empty feature vector of size <em>n</em> is initialized to 0.0.
 		explicit FeatureVector (const unsigned int& n);
 
-		/// @brief	Allows read-and-write access to a certain feature.
+		/// @brief	Allow read-and-write access to a certain feature.
 		///
 		/// @param	n	Position inside the vector where the feature is.
 		/// 
 		/// @return The feature at given position.
 		double& at (const unsigned int& n);
 
-		///	@brief	Allows read-only access to a certain feature.
+		///	@brief	Allow read-only access to a certain feature.
 		///
 		/// @param	n	Position inside the vector where the feature is.
 		/// 
 		/// @return The feature at given position.
 		const double& at (const unsigned int& n) const;
 
-		/// @brief		Computes the sum of two feature vectors.
+		/// @brief		Compute the sum of two feature vectors.
 		/// 
 		/// @param		featureVector	Feature vector to sum.
 		/// 
@@ -54,7 +54,7 @@ class FeatureVector
 		///	@exception	NessieException
 		FeatureVector operator+ (const FeatureVector& featureVector) const;
 
-		///	@brief		Computes the subtraction of two feature vectors.
+		///	@brief		Compute the subtraction of two feature vectors.
 		/// 
 		/// @param		featureVector	Feature vector to subtract.
 		/// 
@@ -63,7 +63,7 @@ class FeatureVector
 		///	@exception	NessieException
 		FeatureVector operator- (const FeatureVector& featureVector) const;
 
-		/// @brief		Computes the dot product of two feature vectors.
+		/// @brief		Compute the dot product of two feature vectors.
 		/// 
 		/// @param		featureVector	Feature vector to multiplicate.
 		/// 
@@ -72,7 +72,7 @@ class FeatureVector
 		///	@exception	NessieException
 		double operator* (const FeatureVector& featureVector) const;
 
-		/// @brief	Returns the number of features held.
+		/// @brief	Get the number of features held.
 		/// 
 		/// @return Number of features held.
 		const unsigned int& size () const;
@@ -88,11 +88,13 @@ class FeatureVector
 		void reset ();
 		
 		/// @brief	Resize the vector to the specified size.
+		/// 
+		/// @param	n Number of features to store in the vector.
 		///
 		///	@post	The previous features are removed and an new vector of size <em>n</em> is initialized to 0.0.
 		void resize (const unsigned int& n);
 
-		///	@brief	Computes the Euclidean distance with the input vector.
+		///	@brief	Compute the Euclidean distance with the input vector.
 		///
 		///	@param	featureVector	Feature vector of reference.
 		///
@@ -112,12 +114,10 @@ inline double& FeatureVector::at (const unsigned int &n)
 	return features_.at(n);
 };
 
-
 inline const double& FeatureVector::at (const unsigned int &n) const
 {
 	return features_.at(n);
 };
-
 
 inline const unsigned int& FeatureVector::size () const
 {

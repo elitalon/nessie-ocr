@@ -8,7 +8,7 @@
 #include <memory>
 
 
-/// @brief	Statistical data gathered during the feature extraction stage of the text recognition process.
+/// @brief	Statistics gathered during the feature extraction stage of the text recognition process.
 ///
 ///	@see	Statistics
 ///
@@ -27,24 +27,20 @@ class FeatureExtractorStatistics : public Statistics
 		/// @brief	Destructor.
 		virtual ~FeatureExtractorStatistics ();
 
-		/// @brief Assignment operator.
+		/// @brief	Assignment operator.
 		FeatureExtractorStatistics& operator= (const FeatureExtractorStatistics& statistics);
 
-		/// @brief	Stores the elapsed time while building an array of patterns from a list of regions.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
+		/// @brief	Set the elapsed time while building an array of patterns from a list of regions.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
 		void patternsBuildingTime (const double& elapsedTime);
 
-		///	@brief	Stores the elapsed time while computing the image moments of patterns.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
+		///	@brief	Set the elapsed time while computing the image moments of patterns.
 		///
 		///	@param	elapsedTime	Elapsed time in seconds.
 		void momentsComputingTime (const double& elapsedTime);
 
-		/// @brief	Prints the statistical data gathered.
+		/// @brief	Print the statistics gathered.
 		void print () const;
 
 	private:
@@ -53,7 +49,7 @@ class FeatureExtractorStatistics : public Statistics
 
 		std::auto_ptr<double>	momentsComputingTime_;	///< Elapsed time while computing the image moments of patterns.
 
-		/// @brief	Updates the total elapsed time.
+		/// @brief	Update the total elapsed time.
 		///
 		/// @post	#totalTime_ is set by summing all the individual timers.
 		void updateTotalTime ();
@@ -71,13 +67,11 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 		totalTime_ += *momentsComputingTime_.get();
 };
 
-
 inline void FeatureExtractorStatistics::patternsBuildingTime (const double& elapsedTime)
 {
 	patternsBuildingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
-
 
 inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)
 {

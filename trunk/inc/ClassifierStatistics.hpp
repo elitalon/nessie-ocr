@@ -30,30 +30,26 @@ class ClassifierStatistics : public Statistics
 		///	@brief	Assignment operator.
 		ClassifierStatistics& operator= (const ClassifierStatistics& statistics);
 
-		///	@brief	Stores the number of characters found during the classification process.
-		///
-		///	@post	The internal member is set to <em>n</em>.
+		///	@brief	Set the number of characters found during the classification process.
 		///
 		///	@param	n	Number of characters.
 		void charactersFound (const unsigned int& n);
 
-		///	@brief	Stores the elapsed time while classifying the feature vectors.
-		///
-		///	@post	The internal member is set to <em>elapsedTime</em>.
+		///	@brief	Set the elapsed time while classifying the feature vectors.
 		///
 		///	@param	elapsedTime	Elapsed time in seconds.
 		void classificationTime (const double& elapsedTime);
 
-		/// @brief	Prints the statistical data gathered.
+		/// @brief	Print the statistics gathered.
 		void print () const;
 
 	private:
 
-		std::auto_ptr<unsigned int>	charactersFound_;		///< Numbers of characters found during the classification process.
+		std::auto_ptr<unsigned int>	charactersFound_;		///< Number of characters found during the classification process.
 
 		std::auto_ptr<double>		classificationTime_;	///< Elapsed time while classifing the feature vectors.
 
-		/// @brief	Updates the total elapsed time.
+		/// @brief	Update the total elapsed time.
 		///
 		/// @post	#totalTime_ is set by summing all the individual timers.
 		void updateTotalTime ();
@@ -68,12 +64,10 @@ inline void ClassifierStatistics::updateTotalTime ()
 		totalTime_ += *classificationTime_.get();
 };
 
-
 inline void ClassifierStatistics::charactersFound (const unsigned int& n)
 {
 	charactersFound_.reset(new unsigned int(n));
 };
-
 
 inline void ClassifierStatistics::classificationTime (const double& elapsedTime)
 {

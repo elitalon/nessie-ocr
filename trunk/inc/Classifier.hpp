@@ -15,7 +15,7 @@
 
 ///	@brief		Classifier of the OCR process.
 /// 
-///	@details	This class encapsulates all the algorithms related to the classification stage of the OCR process. Its task is to match every feature
+///	@details	This class encapsulates all the algorithms regarding the classification stage of the OCR process. Its task is to match every feature
 ///	vector passed in the constructor to its associated character. In the very end of the process, a string of characters is available through the
 /// Classifier::characters() method.
 /// 
@@ -32,24 +32,22 @@ class Classifier
 		///	@brief	Constructor.
 		///
 		///	@param	featureVectors	An array of feature vectors to classify.
-		///
-		///	@post	The feature vectors are stored internally.
 		explicit Classifier (const std::vector<FeatureVector>& featureVectors);
 
-		///	@brief	Returns the characters associated with the feature vectors passed in constructor.
+		///	@brief	Get the characters associated with the feature vectors passed in constructor.
 		/// 
-		/// @return	A std::string object with the characters found.
+		/// @return	An array of std::string objects with the characters found, one character per vector element.
 		const std::vector<std::string>& characters () const;
 
-		///	@brief	Returns the statistics about the classification stage.
+		///	@brief	Get the statistics regarding the classification stage.
 		/// 
-		/// @return A ClassifierStatistics object with all the data gathered.
+		/// @return A ClassifierStatistics object.
 		const ClassifierStatistics& statistics () const;
 
-		///	@brief	Executes the classification process over the feature vectors passed in constructor.
+		///	@brief	Execute the classification of feature vectors passed in constructor.
 		///
-		///	@param	paradigm	Classification paradigm to be used.
-		///	@param	dataset		Dataset to be used during the classification process.
+		///	@param	paradigm	Classification paradigm to use.
+		///	@param	dataset		Dataset to use.
 		///
 		///	@post	The recognized characters become available through the Classifier::characters() method.
 		void classify(const ClassificationParadigm& paradigm, const std::auto_ptr<Dataset>& dataset);
@@ -62,10 +60,10 @@ class Classifier
 
 		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
 
-		/// @brief	Classifies a feature vector into its most probably class using the KNN paradigm.
+		/// @brief	Classify a feature vector into its most probably class using the KNN paradigm.
 		/// 
-		/// @param featureVector	The feature vector to classify.
-		/// @param dataset			The dataset to use in the process.
+		/// @param	featureVector	The feature vector to classify.
+		/// @param	dataset			The dataset to use.
 		/// 
 		/// @return The class where the feature vector belongs to.
 		unsigned int knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset) const;
@@ -80,7 +78,6 @@ inline const std::vector<std::string>& Classifier::characters () const
 {
 	return characters_;
 };
-
 
 inline const ClassifierStatistics& Classifier::statistics () const
 {

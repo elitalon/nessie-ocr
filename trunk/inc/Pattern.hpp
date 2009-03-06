@@ -29,33 +29,33 @@ class Pattern
 		///	@param	region	A Region object from which builds the pattern.
 		explicit Pattern (const Region& region);
 
-		/// @brief	Allows read-and-write access to a pixel in the pattern.
+		/// @brief	Allow read-and-write access to a pixel in the pattern.
 		///
 		/// @param	x	X-axis coordinate of pixel.
 		/// @param	y	Y-axis coordinate of pixel.
 		///
-		/// @return A reference to the gray level value of a pixel at given coordinates.
+		/// @return Gray level of a pixel at given coordinates.
 		unsigned int& operator() (const unsigned int& x, const unsigned int& y);
 
-		/// @brief	Allows read-only access to a pixel in the pattern.
+		/// @brief	Allow read-only access to a pixel in the pattern.
 		///
 		/// @param	x	X-axis coordinate of pixel.
 		/// @param	y	Y-axis coordinate of pixel.
 		///
-		/// @return A reference to the gray level value of a pixel at given coordinates.
+		/// @return Gray level of a pixel at given coordinates.
 		unsigned int operator() (const unsigned int& x, const unsigned int& y) const;
 
-		/// @brief	Returns the height of the pattern.
+		/// @brief	Get the height of the pattern.
 		///
 		/// @return Height of the pattern in pixels.
 		const unsigned int& height () const;
 
-		/// @brief	Returns the width of the pattern.
+		/// @brief	Get the width of the pattern.
 		///
 		/// @return Width of the pattern in pixels.
 		const unsigned int& width () const;
 
-		/// @brief	Returns the number of pixels in the pattern.
+		/// @brief	Get the number of pixels in the pattern.
 		///
 		/// @return	Number of pixels in the pattern.
 		const unsigned int& size () const;
@@ -65,7 +65,7 @@ class Pattern
 		/// @return	The coordinates of the centroid as a pair of integers.
 		std::pair<unsigned int, unsigned int> centroid () const;
 
-		/// @brief	Creates a new image in the filesystem using Magick++ with the pattern drawn.
+		/// @brief	Create a new image in the filesystem using Magick++ with the pattern drawn.
 		///
 		/// @param	outputFile		A string with the image name in the filesystem.
 		/// @param	invert			A boolean value that decides whether to invert the pixel values or not.
@@ -93,24 +93,20 @@ inline unsigned int& Pattern::operator() (const unsigned int& x, const unsigned 
 	return pixels_.at(x * width_ + y);
 };
 
-
 inline unsigned int Pattern::operator() (const unsigned int& x, const unsigned int& y) const
 {
 	return pixels_.at(x * width_ + y);
 };
-
 
 inline const unsigned int& Pattern::width () const
 {
 	return width_;
 };
 
-
 inline const unsigned int& Pattern::height () const
 {
 	return height_;
 };
-
 
 inline const unsigned int& Pattern::size () const
 {

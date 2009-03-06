@@ -9,21 +9,6 @@
 #include <sys/stat.h>
 
 
-/// @details This constructor loads a dataset from a file, which must have the following format:
-///
-/// The <em>first line</em> defines the number of features in every sample of the data set.
-///
-/// The <em>following lines</em> are the samples (one sample per line). Every line has a number of fields according to the definition in the first line,
-///	which constitutes a feature vector, and one additional field that tells the class of the feature vector. An example of a valid data set may be:
-///
-/// 4<br>
-/// 0.1 0.3 1.3 2.4 3<br>
-/// 1.5 2.8 6.2 2.4 1<br>
-/// 3.3 1.2 0.9 1.1 3<br>
-/// . . .<br>
-///
-/// The <em>feature</em> fields must have a floating point format: both the integer and decimal parts are required and separated by a point.
-///	The <em>class</em> field must be an integer.
 PlainTextDataset::PlainTextDataset (const std::string& filename)
 :	Dataset(),
 	filename_(filename)
@@ -174,7 +159,7 @@ PlainTextDataset::~PlainTextDataset ()
 			stream << code << std::endl;
 		}
 	}
-	catch (...) {}	// Bad luck if the dataset could not be dumped to disk.
+	catch (...) {}
 };
 
 

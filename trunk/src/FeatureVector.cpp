@@ -32,7 +32,6 @@ double FeatureVector::computeEuclideanDistance (const FeatureVector& featureVect
 
 FeatureVector FeatureVector::operator+ (const FeatureVector& featureVector) const
 {
-	// Check if vectors have the same size
 	if ( this->size_ not_eq featureVector.size_ )
 		throw NessieException ("FeatureVector::operator+() : Size of vectors to sum must be equal");
 

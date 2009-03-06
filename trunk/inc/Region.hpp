@@ -33,75 +33,75 @@ class Region
 		/// @brief	Constructor.
 		explicit Region();
 
-		/// @brief	Allows read-and-write access to the coordinates of a pixel in the region.
+		/// @brief	Allow read-and-write access to the coordinates of a pixel in the region.
 		///
 		/// @param	index	The position of a pair of coordinates.
 		/// 
 		/// @return	A pair of coordinates.
 		PixelCoordinates& at (const unsigned int& index);
 
-		/// @brief	Allows read-only access to the coordinates of a pixel in the region.
+		/// @brief	Allow read-only access to the coordinates of a pixel in the region.
 		///
 		/// @param	index	The position of a pair of coordinates.
 		/// 
 		/// @return A pair of coordinates.
 		const PixelCoordinates& at (const unsigned int& index) const;
 
-		/// @brief	Adds a region to the current one.
+		/// @brief	Add a region to the current one.
 		/// 
 		/// @param	region	Region whose coordinates are going to be added.
 		/// 
 		/// @return A Region object as a result of joining the pixel coordinates of both regions.
 		Region operator+ (const Region& region) const;
 
-		/// @brief	Evaluates if a region position is less than another, according to their position in text when reading from up to down and left to right.
+		/// @brief	Evaluate if a region position is less than another, according to their position in text when reading from up to down and left to right.
 		/// 
 		/// @param	region	Region of reference.
 		/// 
 		/// @return True if the current region is placed before than <em>region</em> in a press clip, false otherwise.
 		bool operator< (const Region& region) const;
 
-		/// @brief	@brief	Returns the height of the region.
+		/// @brief	Get the height of the region.
 		/// 
 		/// @return Height of the region in pixels.
 		const unsigned int& height () const;
 
-		/// @brief	@brief	Returns the width of the region.
+		/// @brief	Get the width of the region.
 		/// 
 		/// @return Width of the region in pixels.
 		const unsigned int& width () const;
 
-		/// @brief	@brief	Returns the number of pixels in the region.
+		/// @brief	Get the number of pixels in the region.
 		/// 
 		/// @return Number of pixels.
 		const unsigned int& size () const;
 
-		/// @brief	@brief	Returns the coordinates of the top leftmost pixel.
+		/// @brief	Get the coordinates of the top leftmost pixel.
 		/// 
 		/// @return A PixelCoordinates object with the coordinates of the top leftmost pixel.
 		const PixelCoordinates& topLeftmostPixelCoordinates () const;
 
-		///	@brief	Returns the X-axis coordinate of the top pixel in the region.
+		///	@brief	Get the X-axis coordinate of the top pixel in the region.
 		///
 		/// @return X-axis coordinate of the top pixel.
 		const unsigned int& topBorderRow () const;
 
-		///	@brief	Returns the X-axis coordinate of the bottom pixel in the region.
+		///	@brief	Get the X-axis coordinate of the bottom pixel in the region.
 		///
 		/// @return X-axis coordinate of the bottom pixel.
 		const unsigned int& bottomBorderRow () const;
 
-		///	@brief	Returns the Y-axis coordinate of the leftmost pixel in the region.
+		///	@brief	Get the Y-axis coordinate of the leftmost pixel in the region.
 		///
 		/// @return Y-axis coordinate of the leftmost pixel.
 		const unsigned int& leftBorderColumn () const;
 
-		///	@brief	Returns the Y-axis coordinate of the rightmost pixel in the region.
+		///	@brief	Get the Y-axis coordinate of the rightmost pixel in the region.
 		///
 		/// @return Y-axis coordinate of the rightmost pixel.
 		const unsigned int& rightBorderColumn () const;
 
-		/// @brief	Adds a pair of pixel coordinates to the region.
+		/// @brief	Add a pair of pixel coordinates to the region.
 		/// 
 		/// @param	coordinates		Coordinates of the pixel.
 		///
@@ -140,54 +140,45 @@ inline PixelCoordinates& Region::at (const unsigned int& index)
 	return coordinates_.at(index);
 };
 
-
 inline const PixelCoordinates& Region::at (const unsigned int& index) const
 {
 	return coordinates_.at(index);
 };
-
 
 inline const unsigned int& Region::height () const
 {
 	return height_;
 };
 
-
 inline const unsigned int& Region::width () const
 {
 	return width_;
 };
-
 
 inline const unsigned int& Region::size () const
 {
 	return size_;
 };
 
-
 inline const PixelCoordinates& Region::topLeftmostPixelCoordinates () const
 {
 	return topLeftmostPixelCoordinates_;
 };
-
 
 inline const unsigned int& Region::topBorderRow () const
 {
 	return topBorderRow_;
 };
 
-
 inline const unsigned int& Region::bottomBorderRow () const
 {
 	return bottomBorderRow_;
 };
 
-
 inline const unsigned int& Region::leftBorderColumn () const
 {
 	return leftBorderColumn_;
 };
-
 
 inline const unsigned int& Region::rightBorderColumn () const
 {

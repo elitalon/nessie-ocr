@@ -34,7 +34,7 @@ class PostgreSqlDataset : public Dataset, private boost::noncopyable
 		///	@brief	Destructor.
 		virtual ~PostgreSqlDataset ();
 
-		///	@brief		Adds a sample to the dataset.
+		///	@brief		Add a sample to the dataset.
 		///
 		///	@param		sample Sample to add.
 		///
@@ -43,11 +43,9 @@ class PostgreSqlDataset : public Dataset, private boost::noncopyable
 		///	@exception	NessieException
 		void addSample (const Sample& sample);
 
-		///	@brief		Removes a sample from the dataset.
+		///	@brief		Remove a sample from the dataset.
 		///
 		///	@param		n	Row in the dataset where remove the sample.
-		///
-		///	@post		The sample is removed from given position.
 		///
 		///	@exception	NessieException
 		void removeSample (const unsigned int& n);

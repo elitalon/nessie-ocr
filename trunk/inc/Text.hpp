@@ -23,29 +23,32 @@ class Text
 		///	@brief	Constructor.
 		explicit Text ();
 
-		/// @brief	Allows to sum a pair of Text objects by appending its contents.
+		/// @brief	Allow to sum a pair of Text objects by appending its contents.
 		/// 
 		/// @param	text	The text to be appended to the current Text object.
 		/// 
 		/// @return	A Text object as a result of appending both contents.
 		Text operator+ (const Text& text) const;
 
-		/// @brief	Returns the text content.
+		/// @brief	Get the text content.
 		/// 
 		/// @return	An array of STL string objects, with one text's character per element.
 		const std::vector<std::string>& characters () const;
 
-		///	@brief	Returns the size of the text in characters.
+		///	@brief	Get the size of the text in characters.
 		///
 		/// @return	Number of characters in the text.
 		unsigned int size () const;	
 
-		///	@brief	Returns the text content.
+		///	@brief	Get the text content.
 		///
 		/// @return	A STL string object with the content of the text.
 		std::string content () const;
 
-		/// @brief	Adds a character at the end of the text.
+		/// @brief		Add a character at the end of the text.
+		/// 
+		/// @todo		Design a better mechanism to throw an exception whenever the string passed contains more than one character. The solution is not simple,
+		/// as any character with accent causes std::string::size() method to return 2 instead of 1.
 		///
 		/// @param		character	A STL string object with a single character to add.
 		/// 
@@ -55,6 +58,9 @@ class Text
 		void addCharacter (const std::string& character);
 
 		/// @brief		Adds a character to the text at given position.
+		/// 
+		/// @todo 		Design a better mechanism to throw an exception whenever the string passed contains more than one character.
+		/// The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1.
 		///
 		/// @param		character	A STL string object with a single character to add.
 		/// @param		position	Position where the character will be inserted.
@@ -64,14 +70,14 @@ class Text
 		/// @exception	NessieException
 		void addCharacter (const std::string& character, const unsigned int& position);
 
-		/// @brief		Removes a single character from the text.
+		/// @brief		Remove a single character from the text.
 		///
 		/// @param		position		Position where the character must be removed.
 		/// 
 		/// @post		The character at given position is removed.
 		void removeCharacter (const unsigned int& position);
 
-		/// @brief	Removes all the characters in the text, leaving it with a size of 0.
+		/// @brief	Remove all the characters in the text, leaving it with a size of 0.
 		///
 		///	@post	The text becomes empty, no characters at all.
 		void clear ();

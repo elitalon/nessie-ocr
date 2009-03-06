@@ -56,8 +56,7 @@ Pattern::Pattern (const Region& region)
 		preprocessor.extractRegions();
 		std::list<Region> regions(preprocessor.regions());
 		
-		// Merge subregions if preprocessing splitted the original region
-		if ( regions.size() > 1 )
+		if ( regions.size() > 1 )	// Merge subregions if preprocessing splitted the original region
 		{
 			Region tmp;
 			

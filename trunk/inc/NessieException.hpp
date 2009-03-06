@@ -27,19 +27,19 @@ class NessieException : public std::exception
 		/// @brief	Destructor.
 		virtual ~NessieException () throw ();
 
-		///	@brief	Returns a message that explains the exception raised.
+		///	@brief	Get a message that explains the exception raised.
 		/// 
 		/// @return	Message that explains the situation that caused the exception.
 		virtual const char* what () const throw();
 
-		///	@brief	Adds additional information to explain the exception occurred.
+		///	@brief	Add additional information to explain the exception occurred.
 		///
 		///	@param	info	Additional information regarding the exception raised.
 		///
 		///	@post	The info is appended to the end of the message passed in constructor.
 		virtual void addInfo (const std::string& info) throw();
 
-		///	@brief	Adds additional information to explain the exception occurred.
+		///	@brief	Add additional information to explain the exception occurred.
 		///
 		///	@param	info	Additional information regarding the exception raised.
 		///

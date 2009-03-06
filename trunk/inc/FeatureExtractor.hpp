@@ -31,29 +31,29 @@ class FeatureExtractor
 		/// 
 		/// @param	regions A list of regions over which apply all the feature extraction algorithms.
 		///
-		///	@post	An array of normalized patterns is built using the regions passed.
+		///	@post	An array of normalized patterns becomes available through the FeatureExtractor::patterns() method.
 		explicit FeatureExtractor (const std::list<Region>& regions);
 
-		/// @brief	Returns the patterns built from the regions passed in constructor.
+		/// @brief	Get the patterns built from the regions passed in constructor.
 		///
 		/// @return An array of Pattern objects.
 		const std::vector<Pattern>& patterns () const;
 
-		///	@brief	Returns the feature vectors built from the patterns.
+		///	@brief	Get the feature vectors built from the patterns.
 		///
 		///	@return	An array of FeatureVector objects.
 		const std::vector<FeatureVector>& featureVectors () const;
 
-		///	@brief	Returns the statistics about the feature extraction stage.
+		///	@brief	Get the statistics about the feature extraction stage.
 		/// 
-		/// @return A FeatureExtractorStatistics object with all the data gathered.
+		/// @return A FeatureExtractorStatistics object with all the statistics gathered.
 		const FeatureExtractorStatistics& statistics () const;
 
-		///	@brief	Computes the image moments from the internal patterns.
+		///	@brief	Compute the image moments from the internal patterns.
 		///
 		///	@param	n	Maximum number of moments to compute.
 		///
-		///	@post	An array of feature vectors become available through the FeatureExtractor::featureVectors() method.
+		///	@post	An array of feature vectors becomes available through the FeatureExtractor::featureVectors() method.
 		void computeMoments (const unsigned int& n);
 
 	private:
@@ -64,7 +64,7 @@ class FeatureExtractor
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
 
-		///	@brief	Computes the standard image moment of order (p + q) of a pattern.
+		///	@brief	Compute the standard image moment of order (p + q) of a pattern.
 		///
 		/// @param	pattern	Input pattern.
 		/// @param	p		Order in the x-axis.
