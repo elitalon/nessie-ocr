@@ -74,7 +74,7 @@ Inheritance diagram for Dataset:</div>
 <div class="dynsection">
 <p><center><img src="class_dataset__inherit__graph.png" border="0" usemap="#_dataset__inherit__map" alt="Inheritance graph"></center>
 <map name="_dataset__inherit__map">
-<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,320,141,440"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="165,291,312,470"></map>
+<area shape="rect" href="class_plain_text_dataset.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="5,299,160,411"><area shape="rect" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="184,272,349,437"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Dataset:</div>
@@ -96,25 +96,25 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#4ceae5eaf79ece96939b50f2b890bc27">at</a> (const unsigned int &amp;n) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#8b51c08005af5c5b1a94ff15af646c2b">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of samples in the dataset.  <a href="#8b51c08005af5c5b1a94ff15af646c2b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of samples in the dataset.  <a href="#8b51c08005af5c5b1a94ff15af646c2b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#efecdda5323a818fca5c9206eb76dc23">features</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#06b9132afd07f5dd8147a7530a137e56">code</a> (const std::string &amp;character) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#ecaee990ce9d07085198bf32509a3507">character</a> (const unsigned int &amp;code) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#65e42c7d35bd3270115455c3a6bc7b6f">addSample</a> (const <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;sample)=0</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a sample to the dataset.  <a href="#65e42c7d35bd3270115455c3a6bc7b6f"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a sample to the dataset.  <a href="#65e42c7d35bd3270115455c3a6bc7b6f"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">removeSample</a> (const unsigned int &amp;n)=0</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes a sample from the dataset.  <a href="#d4fa59997c016c2f9ff6ff7d3fe90f4d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#d4fa59997c016c2f9ff6ff7d3fe90f4d"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8774177ef709ce626031df1f8c1521c7"></a><!-- doxytag: member="Dataset::samples_" ref="8774177ef709ce626031df1f8c1521c7" args="" -->
 std::vector&lt; <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td></tr>
@@ -136,8 +136,8 @@ unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This abstract base class provides an interface for a classification dataset, i.e. a set of samples that represents different characteristics of previously recognized characters. A sample is composed of two fields: a feature vector and its code. The code is a numeric identifier that indicates the class where the feature vector belongs to. Any sample in the dataset can be read, and adding or deleting samples is also supported.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a></dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement a mechanism to condense the dataset by eliminating useless samples during training.</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a></dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Implement a mechanism to condense the dataset by eliminating useless samples during training.</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-12 </dd></dl>
 <hr><h2>Member Function Documentation</h2>
@@ -291,10 +291,9 @@ This abstract base class provides an interface for a classification dataset, i.e
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample. </td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is removed from given position. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_plain_text_dataset.html#599b3113630ba0d975a72530fa075d77">PlainTextDataset</a>, and <a class="el" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06">PostgreSqlDataset</a>.</p>
 
@@ -321,7 +320,7 @@ This abstract base class provides an interface for a classification dataset, i.e
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:02 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:17 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

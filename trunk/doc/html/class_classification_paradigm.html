@@ -64,7 +64,7 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>ClassificationParadigm Class Reference</h1><!-- doxytag: class="ClassificationParadigm" -->Paradigm to be used by the OCR process to classify the patterns found in a press clip.  
+<h1>ClassificationParadigm Class Reference</h1><!-- doxytag: class="ClassificationParadigm" -->Paradigm used by the OCR process in the classification stage.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_classification_paradigm_8hpp-source.html">ClassificationParadigm.hpp</a>&gt;</code>
@@ -81,14 +81,11 @@ Collaboration diagram for ClassificationParadigm:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classification_paradigm.html#9a3cbe9a9aa9200a845af678aadd0afd">id</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the paradigm currently in use.  <a href="#9a3cbe9a9aa9200a845af678aadd0afd"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the paradigm currently in use.  <a href="#9a3cbe9a9aa9200a845af678aadd0afd"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classification_paradigm.html#efaa86963759a80cb0ad7008c3d40aac">knn</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an object set to use the KNN classification paradigm.  <a href="#efaa86963759a80cb0ad7008c3d40aac"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classification_paradigm.html#4c2481c4add6aa72194dadc91c4f6e1b">svm</a> ()</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an object set to use the SVM classification paradigm.  <a href="#4c2481c4add6aa72194dadc91c4f6e1b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the KNN classification paradigm.  <a href="#efaa86963759a80cb0ad7008c3d40aac"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
@@ -130,32 +127,12 @@ Collaboration diagram for ClassificationParadigm:</div>
 <div class="memdoc">
 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_classification_paradigm.html" title="Paradigm to be used by the OCR process to classify the patterns found in a press...">ClassificationParadigm</a> object set to use the KNN paradigm. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="4c2481c4add6aa72194dadc91c4f6e1b"></a><!-- doxytag: member="ClassificationParadigm::svm" ref="4c2481c4add6aa72194dadc91c4f6e1b" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> ClassificationParadigm::svm           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_classification_paradigm.html" title="Paradigm to be used by the OCR process to classify the patterns found in a press...">ClassificationParadigm</a> object set to use the SVM paradigm. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a> object set to the KNN classification paradigm. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:01 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:16 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

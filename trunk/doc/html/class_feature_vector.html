@@ -87,31 +87,38 @@ Collaboration diagram for FeatureVector:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ab161bb5d9efdc4e74cd375eea65ff5a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#befee1fb8cf23956c07a4df8b2fc1edb">at</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to a certain feature.  <a href="#befee1fb8cf23956c07a4df8b2fc1edb"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to a certain feature.  <a href="#befee1fb8cf23956c07a4df8b2fc1edb"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#0bd1fad60b18740189dde5e54cf1e885">at</a> (const unsigned int &amp;n) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a certain feature.  <a href="#0bd1fad60b18740189dde5e54cf1e885"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a certain feature.  <a href="#0bd1fad60b18740189dde5e54cf1e885"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_feature_vector.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#58a2309387bd18d956e16c148585352a">operator+</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the sum of two feature vectors.  <a href="#58a2309387bd18d956e16c148585352a"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the sum of two feature vectors.  <a href="#58a2309387bd18d956e16c148585352a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_feature_vector.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#fa1a86fbb34177281854406deea435ab">operator-</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the subtraction of two feature vectors.  <a href="#fa1a86fbb34177281854406deea435ab"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the subtraction of two feature vectors.  <a href="#fa1a86fbb34177281854406deea435ab"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#a372a9185d83db2283947d50a2913db0">operator*</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the dot product of two feature vectors.  <a href="#a372a9185d83db2283947d50a2913db0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the dot product of two feature vectors.  <a href="#a372a9185d83db2283947d50a2913db0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#4e3bd39520fdd8afbefa90ed203d512b">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of features held.  <a href="#4e3bd39520fdd8afbefa90ed203d512b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features held.  <a href="#4e3bd39520fdd8afbefa90ed203d512b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#6fe2c9d558623f94fdbb7dac653a69f5">clear</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clear the vector content.  <a href="#6fe2c9d558623f94fdbb7dac653a69f5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#43c8513a501ddbd01cb02047f2730c9c">reset</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reset the vector content.  <a href="#43c8513a501ddbd01cb02047f2730c9c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#747c566a31accf96ee43e047122e86cd">resize</a> (const unsigned int &amp;n)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Resize the vector to the specified size.  <a href="#747c566a31accf96ee43e047122e86cd"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#c3e33132c9eaca6ff30bcf21ea27d3f3">computeEuclideanDistance</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the Euclidean distance with the input vector.  <a href="#c3e33132c9eaca6ff30bcf21ea27d3f3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_vector.html#99c0c66895deb0efa42b8932cff5657a">computeMahalanobisDistance</a> (const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;featureVector) const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the Mahalanobis distance with the input vector.  <a href="#99c0c66895deb0efa42b8932cff5657a"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the Euclidean distance with the input vector.  <a href="#c3e33132c9eaca6ff30bcf21ea27d3f3"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-This class stores a set of features computed from a pattern where a character's shape has been mapped.<p>
+This class stores a set of features computed from a pattern where the character's pixels has been mapped.<p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement another method to compute distance between vectors (e.g. the Mahalanobis distance).</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-04 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -214,6 +221,26 @@ This class stores a set of features computed from a pattern where a character's 
 
 </div>
 </div><p>
+<a class="anchor" name="6fe2c9d558623f94fdbb7dac653a69f5"></a><!-- doxytag: member="FeatureVector::clear" ref="6fe2c9d558623f94fdbb7dac653a69f5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeatureVector::clear           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The features are removed and the size becomes 0. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="c3e33132c9eaca6ff30bcf21ea27d3f3"></a><!-- doxytag: member="FeatureVector::computeEuclideanDistance" ref="c3e33132c9eaca6ff30bcf21ea27d3f3" args="(const FeatureVector &amp;featureVector) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -237,32 +264,6 @@ This class stores a set of features computed from a pattern where a character's 
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The Euclidean distance between this vector and the input vector. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="99c0c66895deb0efa42b8932cff5657a"></a><!-- doxytag: member="FeatureVector::computeMahalanobisDistance" ref="99c0c66895deb0efa42b8932cff5657a" args="(const FeatureVector &amp;featureVector) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double FeatureVector::computeMahalanobisDistance           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_feature_vector.html">FeatureVector</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>featureVector</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector of reference.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The Mahalanobis distance between this vector and the input vector. </dd></dl>
 
 </div>
 </div><p>
@@ -359,6 +360,52 @@ This class stores a set of features computed from a pattern where a character's 
 
 </div>
 </div><p>
+<a class="anchor" name="43c8513a501ddbd01cb02047f2730c9c"></a><!-- doxytag: member="FeatureVector::reset" ref="43c8513a501ddbd01cb02047f2730c9c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeatureVector::reset           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The features are set to 0.0 but the vector size remains equal. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="747c566a31accf96ee43e047122e86cd"></a><!-- doxytag: member="FeatureVector::resize" ref="747c566a31accf96ee43e047122e86cd" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeatureVector::resize           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of features to store in the vector.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The previous features are removed and an new vector of size <em>n</em> is initialized to 0.0. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="4e3bd39520fdd8afbefa90ed203d512b"></a><!-- doxytag: member="FeatureVector::size" ref="4e3bd39520fdd8afbefa90ed203d512b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +427,7 @@ This class stores a set of features computed from a pattern where a character's 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:02 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:17 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

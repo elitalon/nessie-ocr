@@ -88,26 +88,26 @@ Collaboration diagram for Pattern:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#e5fa9a1d9b9676dc3a946215e9465e80"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#63ff50ca80535a69ddc17abbd55ecfe3">operator()</a> (const unsigned int &amp;x, const unsigned int &amp;y)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to a pixel in the pattern.  <a href="#63ff50ca80535a69ddc17abbd55ecfe3"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to a pixel in the pattern.  <a href="#63ff50ca80535a69ddc17abbd55ecfe3"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#99321ee617cd444e871ce087887e92f3">operator()</a> (const unsigned int &amp;x, const unsigned int &amp;y) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a pixel in the pattern.  <a href="#99321ee617cd444e871ce087887e92f3"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a pixel in the pattern.  <a href="#99321ee617cd444e871ce087887e92f3"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb">height</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the pattern.  <a href="#47965f659aec8df4af1970f1b3b1dabb"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the height of the pattern.  <a href="#47965f659aec8df4af1970f1b3b1dabb"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#f576b39ce0513ccb60a016dce5c27de4">width</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the pattern.  <a href="#f576b39ce0513ccb60a016dce5c27de4"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the width of the pattern.  <a href="#f576b39ce0513ccb60a016dce5c27de4"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#9b1e427a988877e74de08d8b6c957ddc">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels in the pattern.  <a href="#9b1e427a988877e74de08d8b6c957ddc"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of pixels in the pattern.  <a href="#9b1e427a988877e74de08d8b6c957ddc"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::pair&lt; unsigned int, <br class="typebreak">
 unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#6b68a8e768946a755c4be160bc9de91d">centroid</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the centroid of a pattern using geometric moments.  <a href="#6b68a8e768946a755c4be160bc9de91d"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pattern.html#f39af1cd08cd55a2a5aff289a4cf815d">writeToOutputImage</a> (const std::string &amp;outputFile, const bool &amp;invert=false) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new image in the filesystem using Magick++ with the pattern drawn.  <a href="#f39af1cd08cd55a2a5aff289a4cf815d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a new image in the filesystem using Magick++ with the pattern drawn.  <a href="#f39af1cd08cd55a2a5aff289a4cf815d"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 A pattern is a matrix of binary pixels that holds a region found in the preprocessing stage. Thus, it is composed of ink pixels, i.e. the region pixels, and a number of background pixels to fill the holes in the matrix that do not belong to the region.<p>
@@ -212,7 +212,7 @@ A pattern is a matrix of binary pixels that holds a region found in the preproce
     <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of pixel.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the gray level value of a pixel at given coordinates. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Gray level of a pixel at given coordinates. </dd></dl>
 
 </div>
 </div><p>
@@ -248,7 +248,7 @@ A pattern is a matrix of binary pixels that holds a region found in the preproce
     <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of pixel.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A reference to the gray level value of a pixel at given coordinates. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Gray level of a pixel at given coordinates. </dd></dl>
 
 </div>
 </div><p>
@@ -329,7 +329,7 @@ A pattern is a matrix of binary pixels that holds a region found in the preproce
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:02 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:18 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

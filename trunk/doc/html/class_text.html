@@ -85,28 +85,28 @@ Collaboration diagram for Text:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_text.html">Text</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#c8887fb224e0402448ede4f3b9f7452d">operator+</a> (const <a class="el" href="class_text.html">Text</a> &amp;text) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows to sum a pair of <a class="el" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a> objects by appending its contents.  <a href="#c8887fb224e0402448ede4f3b9f7452d"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow to sum a pair of <a class="el" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a> objects by appending its contents.  <a href="#c8887fb224e0402448ede4f3b9f7452d"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#2231cb9d63a6d8329cef013f8c2dc204">characters</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text content.  <a href="#2231cb9d63a6d8329cef013f8c2dc204"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the text content.  <a href="#2231cb9d63a6d8329cef013f8c2dc204"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#b66729ba84c2698ed888f641b3838a8b">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the size of the text in characters.  <a href="#b66729ba84c2698ed888f641b3838a8b"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the size of the text in characters.  <a href="#b66729ba84c2698ed888f641b3838a8b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#58a34fa2cfd0c240a7517132017b6a83">content</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the text content.  <a href="#58a34fa2cfd0c240a7517132017b6a83"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the text content.  <a href="#58a34fa2cfd0c240a7517132017b6a83"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#d2c0cb733cef33657a44e4efc9e518ee">addCharacter</a> (const std::string &amp;character)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character at the end of the text.  <a href="#d2c0cb733cef33657a44e4efc9e518ee"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a character at the end of the text.  <a href="#d2c0cb733cef33657a44e4efc9e518ee"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#585f0fde5ef0796ccde09a059d90cc3b">addCharacter</a> (const std::string &amp;character, const unsigned int &amp;position)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a character to the text at given position.  <a href="#585f0fde5ef0796ccde09a059d90cc3b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#e04500eeada2a4a3bb00554b32263c52">removeCharacter</a> (const unsigned int &amp;position)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes a single character from the text.  <a href="#e04500eeada2a4a3bb00554b32263c52"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a single character from the text.  <a href="#e04500eeada2a4a3bb00554b32263c52"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#7dacbbf887593bff5a5e45cde06dca71">clear</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes all the characters in the text, leaving it with a size of 0.  <a href="#7dacbbf887593bff5a5e45cde06dca71"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove all the characters in the text, leaving it with a size of 0.  <a href="#7dacbbf887593bff5a5e45cde06dca71"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 The text that comes in newspaper articles might have characters with accents and, in general, characters that do not belong to the standard ASCII set. By default, the STL <em>string</em> class stores these special characters as if their size were two instead of one (e.g. a vocal plus its accent). That's why this class handles an array of strings, rather than a simple <em>string</em> object.<p>
@@ -139,6 +139,7 @@ The text that comes in newspaper articles might have characters with accents and
 <div class="memdoc">
 
 <p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Design a better mechanism to throw an exception whenever the string passed contains more than one character. The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A STL string object with a single character to add. </td></tr>
@@ -151,7 +152,6 @@ The text that comes in newspaper articles might have characters with accents and
     <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
   </table>
 </dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Design a better mechanism to throw an exception whenever the string passed contains more than one character. The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1. </dd></dl>
 
 </div>
 </div><p>
@@ -172,6 +172,7 @@ The text that comes in newspaper articles might have characters with accents and
 <div class="memdoc">
 
 <p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Design a better mechanism to throw an exception whenever the string passed contains more than one character. The solution is not simple, as any character with accent causes std::string::size() method to return 2 instead of 1.</dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A STL string object with a single character to add.</td></tr>
@@ -319,7 +320,7 @@ The text that comes in newspaper articles might have characters with accents and
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:03 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:20 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

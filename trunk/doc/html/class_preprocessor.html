@@ -74,7 +74,7 @@ Collaboration diagram for Preprocessor:</div>
 <div class="dynsection">
 <p><center><img src="class_preprocessor__coll__graph.png" border="0" usemap="#_preprocessor__coll__map" alt="Collaboration graph"></center>
 <map name="_preprocessor__coll__map">
-<area shape="rect" href="class_preprocessor_statistics.html" title="Statistical data gathered during the preprocessing stage of the text recognition..." alt="" coords="5,7,197,580"><area shape="rect" href="class_clip.html" title="Press clip of a newspaper page." alt="" coords="363,175,509,412"></map>
+<area shape="rect" href="class_preprocessor_statistics.html" title="Statistics gathered during the preprocessing stage of the text recognition process..." alt="" coords="5,5,213,531"><area shape="rect" href="class_clip.html" title="Press clip of a newspaper page." alt="" coords="395,159,563,377"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -86,40 +86,37 @@ Collaboration diagram for Preprocessor:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#d5bdc15c2c4ad5e638a82926fcaa45c1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::list&lt; <a class="el" href="class_region.html">Region</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7">regions</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the regions found, if any, in the last segmentation process.  <a href="#36c183d9c8bf87ca5c6311db07e444a7"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the regions found, if any, in the last segmentation process.  <a href="#36c183d9c8bf87ca5c6311db07e444a7"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="class_preprocessor_statistics.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#760ecd922ae5ad557edcf5f3d9be2a19">statistics</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the statistics about the preprocessing stage.  <a href="#760ecd922ae5ad557edcf5f3d9be2a19"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics about the preprocessing stage.  <a href="#760ecd922ae5ad557edcf5f3d9be2a19"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#2e4497571f6c728efcbcaf34187958b1">applyAveragingFilters</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.  <a href="#2e4497571f6c728efcbcaf34187958b1"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.  <a href="#2e4497571f6c728efcbcaf34187958b1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#3a751b1343980bbfd3337d962a8e7db3">applyGlobalThresholding</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies a global thresholding algorithm over the press clip.  <a href="#3a751b1343980bbfd3337d962a8e7db3"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a global thresholding algorithm over the press clip.  <a href="#3a751b1343980bbfd3337d962a8e7db3"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf">applyTemplateFilters</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies four 3x3 matching templates over the press clip to remove noise and smooth character borders.  <a href="#a223334c6c9fa84a15d9ad0808ce57cf"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#09e5dcc9a70034284201d5160d17aacf">applyThinning</a> ()</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies a thinning algorithm to convert every region of pixels into its fundamental skeleton.  <a href="#09e5dcc9a70034284201d5160d17aacf"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply four 3x3 matching templates over the press clip to remove noise and smooth character borders.  <a href="#a223334c6c9fa84a15d9ad0808ce57cf"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#c6c2bf889180380d459b90b32c726247">extractRegions</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Applies a segmentation process over the press clip to isolate every region of ink pixels.  <a href="#c6c2bf889180380d459b90b32c726247"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a segmentation process over the press clip to isolate every region of ink pixels.  <a href="#c6c2bf889180380d459b90b32c726247"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Corrects the slanting of every region extracted from press clip.  <a href="#1be36c8dc2dc249cb7e896f9dbbffc3c"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Correct the slanting of every region extracted from press clip.  <a href="#1be36c8dc2dc249cb7e896f9dbbffc3c"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor.html#de90e5448d726d11fcf126166ffa2e40">findSpacesBetweenWords</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Scans the list of regions detecting the spaces between words.  <a href="#de90e5448d726d11fcf126166ffa2e40"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Scan the list of regions detecting the spaces between words.  <a href="#de90e5448d726d11fcf126166ffa2e40"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the regions of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of regions is available through the <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7" title="Returns the regions found, if any, in the last segmentation process.">Preprocessor::regions()</a> method.<p>
+This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the regions of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of regions is available through the <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7" title="Get the regions found, if any, in the last segmentation process.">Preprocessor::regions()</a> method.<p>
 For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed:<p>
 <ol type=1>
-<li>Global gray level thresholding</li><li>Smoothing and noise removal</li><li>Patterns extraction and isolation</li><li>Slant detection and correction</li><li>Character normalization</li><li>Thinning (skeleton construction)</li></ol>
+<li>Smoothing and noise removal by averaging filters</li><li>Global gray level thresholding</li><li>Smoothing and noise removal by template filters</li><li>Patterns extraction and isolation</li><li>Slant detection and correction</li></ol>
 <p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a>, <a class="el" href="class_preprocessor_statistics.html" title="Statistical data gathered during the preprocessing stage of the text recognition...">PreprocessorStatistics</a>, <a class="el" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a></dd></dl>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Implement a method to correct the slope of text lines with respect to the x-axis that prevents the lines to be completely horizontal or vertical.</dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a>, <a class="el" href="class_preprocessor_statistics.html" title="Statistics gathered during the preprocessing stage of the text recognition process...">PreprocessorStatistics</a>, <a class="el" href="class_region.html" title="Set of ink pixels that defines an isolated region in the press clip.">Region</a></dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement a method to correct the slope of text lines with respect to the x-axis that prevents the lines to be completely horizontal or vertical (skewness).</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-08 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -142,10 +139,9 @@ For an optimal preprocessing, it is strongly recommended that the following algo
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>A press clip over which apply all the preprocessing algorithms.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>A press clip over which apply all the preprocessing algorithms. </td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The pressClip is stored internally. </dd></dl>
 
 </div>
 </div><p>
@@ -187,9 +183,9 @@ For an optimal preprocessing, it is strongly recommended that the following algo
 <div class="memdoc">
 
 <p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1.</dd></dl>
 The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.<p>
-<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light ones. Some function should be developed to automatically make the right decision. </dd></dl>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light ones. Some function should be developed to automatically make the right decision.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1. </dd></dl>
 
 </div>
 </div><p>
@@ -214,27 +210,6 @@ The algorithm uses the Otsu's method to find automatically the optimal threshold
 
 </div>
 </div><p>
-<a class="anchor" name="09e5dcc9a70034284201d5160d17aacf"></a><!-- doxytag: member="Preprocessor::applyThinning" ref="09e5dcc9a70034284201d5160d17aacf" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::applyThinning           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been converted to binary mode and cleaned from noise.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The regions of ink are peeled off.</dd></dl>
-This method peels off every region of pixel following the Hilditch's thinning algorithm. It consists in multiple passes on the press clip, where on each pass the algorithm checks all the pixels and decides to change a pixel from black to white if it satisfies four conditions. The algorithm stops when there are no changes in the press clip. 
-</div>
-</div><p>
 <a class="anchor" name="1be36c8dc2dc249cb7e896f9dbbffc3c"></a><!-- doxytag: member="Preprocessor::correctSlanting" ref="1be36c8dc2dc249cb7e896f9dbbffc3c" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -251,7 +226,7 @@ This method peels off every region of pixel following the Hilditch's thinning al
 <div class="memdoc">
 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The internal list of regions must have been initialized by calling <a class="el" href="class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Applies a segmentation process over the press clip to isolate every region of ink...">Preprocessor::extractRegions()</a>.</dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The internal list of regions must have been initialized by calling <a class="el" href="class_preprocessor.html#c6c2bf889180380d459b90b32c726247" title="Apply a segmentation process over the press clip to isolate every region of ink pixels...">Preprocessor::extractRegions()</a>.</dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The regions that present slanting are rotated as much as possible to be aligned with the Y-axis. </dd></dl>
 
 </div>
@@ -272,9 +247,10 @@ This method peels off every region of pixel following the Hilditch's thinning al
 <div class="memdoc">
 
 <p>
+This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink, it connects its neighbouring ink pixels and builds a set of regions. This set is then post-processed to join accents and other punctuation signs to their final region. A final list is generated by sorting the set of regions by lines and columns, so that traversing the list forward is equivalent to reading the text from left to right and from up to down.<p>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been thresholded.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The internal members are set, so that a list of regions becomes available through <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7" title="Returns the regions found, if any, in the last segmentation process.">Preprocessor::regions()</a> method.</dd></dl>
-This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink, it connects its neighbouring ink pixels and builds a set of regions. This set is then post-processed to join accents and other punctuation signs to their final region. A final list is generated by sorting the set of regions by lines and columns, so that traversing the list forward is equivalent to reading the text from left to right and from up to down. 
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The internal members are set, so that a list of regions becomes available through <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7" title="Get the regions found, if any, in the last segmentation process.">Preprocessor::regions()</a> method. </dd></dl>
+
 </div>
 </div><p>
 <a class="anchor" name="de90e5448d726d11fcf126166ffa2e40"></a><!-- doxytag: member="Preprocessor::findSpacesBetweenWords" ref="de90e5448d726d11fcf126166ffa2e40" args="()" -->
@@ -333,12 +309,12 @@ This method isolates every region of ink pixels in a press clip following a regi
 <div class="memdoc">
 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_preprocessor_statistics.html" title="Statistical data gathered during the preprocessing stage of the text recognition...">PreprocessorStatistics</a> object with all the data gathered. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_preprocessor_statistics.html" title="Statistics gathered during the preprocessing stage of the text recognition process...">PreprocessorStatistics</a> object with all the statistics gathered. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:02 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:18 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

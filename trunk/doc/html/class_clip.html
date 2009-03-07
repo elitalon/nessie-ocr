@@ -84,22 +84,22 @@ Collaboration diagram for Clip:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#cf1b75d1f0a7b7fb4c9b7cf6fe904bde"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#5de746cdfd7f238092213d783238af48">operator()</a> (const unsigned int &amp;x, const unsigned int &amp;y)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-and-write access to a pixel in the clip.  <a href="#5de746cdfd7f238092213d783238af48"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to a pixel in the clip.  <a href="#5de746cdfd7f238092213d783238af48"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#f587f13310e230bec5792f1e99836912">operator()</a> (const unsigned int &amp;x, const unsigned int &amp;y) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allows read-only access to a pixel in the clip.  <a href="#f587f13310e230bec5792f1e99836912"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a pixel in the clip.  <a href="#f587f13310e230bec5792f1e99836912"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#88d1a47c0ec077e8c6680785509389b0">width</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the width of the clip.  <a href="#88d1a47c0ec077e8c6680785509389b0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the width of the clip.  <a href="#88d1a47c0ec077e8c6680785509389b0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#939908a8dde602d25335792cc0fd5d97">height</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the height of the clip.  <a href="#939908a8dde602d25335792cc0fd5d97"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the height of the clip.  <a href="#939908a8dde602d25335792cc0fd5d97"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#eb6b12a1a0570b529d6a09633b991fcd">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of pixels in the clip.  <a href="#eb6b12a1a0570b529d6a09633b991fcd"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of pixels in the clip.  <a href="#eb6b12a1a0570b529d6a09633b991fcd"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clip.html#c8cca50dc34657c9dc24b59e614648a5">writeToOutputImage</a> (const std::string &amp;outputFile, const double &amp;scalingFactor=1.0) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a new image in the filesystem using Magick++, reflecting the current state of the press clip.  <a href="#c8cca50dc34657c9dc24b59e614648a5"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a new image in the filesystem using Magick++, reflecting the current state of the press clip.  <a href="#c8cca50dc34657c9dc24b59e614648a5"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This class manages a press clip within a newspaper's page, storing it as a set of pixels from an underlying image that representes the whole page. It is assumed that the origin of coordinates is located at the top leftmost pixel in the underlying image, as well in the clip itself.<p>
@@ -340,7 +340,7 @@ The newspaper pages are images that may come in several formats, such JPEG, PDF,
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:02 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:17 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

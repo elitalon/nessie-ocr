@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: NessieException.hpp Source File</title>
+<title>NessieOcr: NessieException.hpp (292) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>NessieException.hpp</h1><a href="_nessie_exception_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>NessieException.hpp (292)</h1><a href="_nessie_exception_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_NESSIE_EXCEPTION_H)</span>
@@ -75,22 +75,22 @@ window.onload = initDynSections;
 <a name="l00019"></a>00019 {
 <a name="l00020"></a>00020     <span class="keyword">public</span>:
 <a name="l00021"></a>00021 
-<a name="l00025"></a>00025         <span class="keyword">explicit</span> <a class="code" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859" title="Constructor.">NessieException</a> (<span class="keyword">const</span> std::string&amp; <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns a message that explains the exception raised.">what</a>);
+<a name="l00025"></a>00025         <span class="keyword">explicit</span> <a class="code" href="class_nessie_exception.html#80c86c892438045635bf6a99da17e859" title="Constructor.">NessieException</a> (<span class="keyword">const</span> std::string&amp; <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">what</a>);
 <a name="l00026"></a>00026 
 <a name="l00028"></a>00028         <span class="keyword">virtual</span> <a class="code" href="class_nessie_exception.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">~NessieException</a> () <span class="keywordflow">throw</span> ();
 <a name="l00029"></a>00029 
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns a message that explains the exception raised.">what</a> () <span class="keyword">const</span> <span class="keywordflow">throw</span>();
+<a name="l00033"></a>00033         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">what</a> () <span class="keyword">const</span> <span class="keywordflow">throw</span>();
 <a name="l00034"></a>00034 
-<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_nessie_exception.html#542d434dbad09f00853c19e3258db909" title="Adds additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> std::string&amp; info) <span class="keywordflow">throw</span>();
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_nessie_exception.html#542d434dbad09f00853c19e3258db909" title="Add additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> std::string&amp; info) <span class="keywordflow">throw</span>();
 <a name="l00041"></a>00041 
-<a name="l00047"></a>00047         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_nessie_exception.html#542d434dbad09f00853c19e3258db909" title="Adds additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* info) <span class="keywordflow">throw</span>();
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_nessie_exception.html#542d434dbad09f00853c19e3258db909" title="Add additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* info) <span class="keywordflow">throw</span>();
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049     <span class="keyword">private</span>:
 <a name="l00050"></a>00050 
 <a name="l00051"></a>00051         std::string what_;  
 <a name="l00052"></a>00052 };
 <a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909">00054</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Returns a message that explains the exception raised.">NessieException::what</a> () <span class="keyword">const</span> throw()
+<a name="l00054"></a><a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909">00054</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_nessie_exception.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">NessieException::what</a> () <span class="keyword">const</span> throw()
 <a name="l00055"></a>00055 {
 <a name="l00056"></a>00056     <span class="keywordflow">return</span> what_.data();
 <a name="l00057"></a>00057 };
@@ -98,7 +98,7 @@ window.onload = initDynSections;
 <a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
 <a name="l00060"></a>00060 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:00 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:09 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

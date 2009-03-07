@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: PostgreSqlDataset.hpp Source File</title>
+<title>NessieOcr: PostgreSqlDataset.hpp (292) Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,7 +61,7 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>PostgreSqlDataset.hpp</h1><a href="_postgre_sql_dataset_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>PostgreSqlDataset.hpp (292)</h1><a href="_postgre_sql_dataset_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_POSTGRE_SQL_DATASET_H)</span>
@@ -81,27 +81,27 @@ window.onload = initDynSections;
 <a name="l00033"></a>00033 
 <a name="l00035"></a>00035         <span class="keyword">virtual</span> <a class="code" href="class_postgre_sql_dataset.html#5c447dbd74f97569d9ac556e47188242" title="Destructor.">~PostgreSqlDataset</a> ();
 <a name="l00036"></a>00036 
-<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#57481d14c68e08d46794aaeaaae35d25" title="Adds a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#57481d14c68e08d46794aaeaaae35d25" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
 <a name="l00045"></a>00045 
-<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06" title="Removes a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055     <span class="keyword">private</span>:
-<a name="l00056"></a>00056         
-<a name="l00057"></a>00057         std::string                 database_;      
+<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     <span class="keyword">private</span>:
+<a name="l00054"></a>00054         
+<a name="l00055"></a>00055         std::string                 database_;      
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057         std::string                 username_;      
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059         std::string                 username_;      
+<a name="l00059"></a>00059         std::string                 password_;      
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061         std::string                 password_;      
+<a name="l00061"></a>00061         pqxx::connection            connection_;    
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063         pqxx::connection            connection_;    
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065         std::vector&lt;unsigned int&gt;   sampleIds_;     
-<a name="l00066"></a>00066 };
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
-<a name="l00069"></a>00069 <span class="preprocessor"></span>
+<a name="l00063"></a>00063         std::vector&lt;unsigned int&gt;   sampleIds_;     
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 6 14:58:00 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Mar 7 17:52:09 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
