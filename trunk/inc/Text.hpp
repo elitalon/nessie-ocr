@@ -23,6 +23,11 @@ class Text
 		/// @return	A STL string object with the content of the text.
 		const std::string& content () const;
 
+		///	@brief	Set the text content.
+		///
+		/// @param	content A STL string object with the content of the text.
+		void content (const std::string& content);
+
 		///	@brief	Get the size of the text in characters.
 		///
 		/// @return	Number of characters in the text.

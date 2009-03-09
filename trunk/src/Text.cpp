@@ -11,6 +11,21 @@ Text::Text ()
 {};
 
 
+void Text::content (const std::string& content)
+{
+	content_ = content;
+	size_ = 0;
+	
+	for ( std::string::iterator i = content_.begin(); i != content_.end(); ++i )
+	{
+		if ( static_cast<int>(*i) < 0 )	// Wide character
+			++i;
+			
+		++size_;
+	}
+};
+
+
 void Text::addCharacter (const std::string& character)
 {
 	if ( character.size() > 2 || (character.size() == 2 && character.at(0) > 0) )
