@@ -119,7 +119,7 @@ int main (int argc, char *argv[])
 		else
 		{
 			recon.extractText(pressClip, ClassificationParadigm::knn());
-			std::cout << "Text extracted: " << recon.text().content() << std::endl;
+			std::cout << "Text extracted: " << recon.text().content() << "(" << recon.text().size() << ")" << std::endl;
 		}
 		recon.printStatistics();
 	}

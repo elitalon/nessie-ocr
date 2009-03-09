@@ -12,7 +12,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <boost/regex.hpp>
+//#include <boost/regex.hpp>
 
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
