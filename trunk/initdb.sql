@@ -103,6 +103,7 @@ INSERT INTO classes (id_class, label, asciiCode) VALUES
 	(DEFAULT, 'ú', 250),
 	(DEFAULT, 'ü', 252),
 	(DEFAULT, 'ç', 231),
+	(DEFAULT, ' ', 32),
 	(DEFAULT, '¡', 161),
 	(DEFAULT, '!', 33),
 	(DEFAULT, '¿', 191),

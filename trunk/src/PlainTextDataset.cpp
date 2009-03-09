@@ -108,6 +108,7 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 		classes_.insert(Register(character, static_cast<unsigned int>(c)));
 	}
 
+	classes_.insert(Register(" ", static_cast<unsigned int>(' ')));
 	classes_.insert(Register("{", static_cast<unsigned int>('{')));
 	classes_.insert(Register("}", static_cast<unsigned int>('}')));
 	classes_.insert(Register("!", static_cast<unsigned int>('!')));

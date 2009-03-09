@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <boost/regex.hpp>
 
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
@@ -143,6 +144,15 @@ void Recognizer::doClassification (const std::vector<FeatureVector>& featureVect
 void Recognizer::doPostprocessing ()
 {
 	text_.clear();
+	
+	for ( std::vector<unsigned int>::reverse_iterator i = spaceLocations_.rbegin(); i != spaceLocations_.rend(); ++i )
+	{
+		try
+		{
+			characters_.insert(characters_.begin() + *i, " ");
+		}
+		catch (...) {}
+	}
 	
 	for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 		text_.addCharacter(*i);

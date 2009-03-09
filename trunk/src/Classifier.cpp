@@ -31,6 +31,8 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 			characters_.push_back(dataset->character(code));
 		}	
 	}
+	else
+		characters_.assign(featureVectors_.size(), " ");
 
 	try
 	{
