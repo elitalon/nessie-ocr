@@ -18,7 +18,7 @@ unsigned int Dataset::code (const std::string& character) const
 {
 	if ( classes_.empty() )
 		return 256;
-
+	
 	std::map<std::string, unsigned int>::const_iterator i = classes_.find(character);
 
 	if ( i != classes_.end() )

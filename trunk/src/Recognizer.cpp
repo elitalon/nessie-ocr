@@ -272,7 +272,7 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::vector<std::
 			}
 			catch(std::exception& e)
 			{
-				std::cout << "The training of sample " << regionNo << " could not be completed: " << e.what() << std::endl;
+				std::cout << "The training of sample " << regionNo << " could not be completed. " << e.what() << std::endl;
 			}
 
 			++regionNo;

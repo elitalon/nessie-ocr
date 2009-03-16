@@ -6,6 +6,7 @@
 
 #include "Dataset.hpp"
 #include <string>
+#include <map>
 #include <pqxx/pqxx>
 #include <boost/noncopyable.hpp>
 
@@ -52,15 +53,17 @@ class PostgreSqlDataset : public Dataset, private boost::noncopyable
 
 	private:
 		
-		std::string					database_;		///< Name of the database to connect.
+		std::string								database_;		///< Name of the database to connect.
 
-		std::string					username_;		///< User name to use in the database connection.
+		std::string								username_;		///< User name to use in the database connection.
 
-		std::string					password_;		///< User password.
+		std::string								password_;		///< User password.
 
-		pqxx::connection			connection_;	///< Connection to the local database.
+		pqxx::connection						connection_;	///< Connection to the local database.
 
-		std::vector<unsigned int>	sampleIds_;		///< Array of integers to store the id field of samples in the database.
+		std::vector<unsigned int>				sampleIds_;		///< Array of integers to store the id_sample field of samples table in the database.
+		
+		std::map<unsigned int, unsigned int>	classIds_;		///< Map that associates a class ID with its code.
 };
 
 #endif
