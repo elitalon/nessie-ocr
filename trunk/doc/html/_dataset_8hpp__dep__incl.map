@@ -1,5 +1,5 @@
-<area shape="rect" href="$_dataset_8cpp.html" title="Definition of Dataset class." alt="" coords="5,77,99,101">
-<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="124,149,236,173">
-<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="173,77,275,101">
-<area shape="rect" href="$_plain_text_dataset_8hpp.html" title="Declaration of PlainTextDataset class." alt="" coords="299,77,448,101">
-<area shape="rect" href="$_postgre_sql_dataset_8hpp.html" title="Declaration of PostgreSqlDataset class." alt="" coords="472,77,632,101">
+<area shape="rect" href="$_dataset_8cpp.html" title="Definition of Dataset class." alt="" coords="5,82,91,106">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="117,156,224,180">
+<area shape="rect" href="$_classifier_8hpp.html" title="Declaration of Classifier class." alt="" coords="165,82,261,106">
+<area shape="rect" href="$_plain_text_dataset_8hpp.html" title="Declaration of PlainTextDataset class." alt="" coords="285,82,421,106">
+<area shape="rect" href="$_postgre_sql_dataset_8hpp.html" title="Declaration of PostgreSqlDataset class." alt="" coords="445,82,592,106">
