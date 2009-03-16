@@ -78,7 +78,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		// Get the samples
 		registers = dbTransaction.exec("SELECT id_sample, " + featureFields + "asciiCode\
 										FROM samples s, classes c\
-										WHERE s.class = c.id_class");
+										WHERE s.id_class = c.id_class");
 		size_ = registers.size();
 		
 		samples_.reserve(size_);
@@ -166,7 +166,7 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 	{
 		pqxx::work dbTransaction(connection_, "addSampleTransaction");
 
-		pqxx::result registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureFields + "class) VALUES\
+		pqxx::result registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureFields + "id_class) VALUES\
 										(DEFAULT, " + featureValues + idClass.str() + ") RETURNING id_sample");
 		
 		unsigned int id_sample;

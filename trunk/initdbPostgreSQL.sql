@@ -17,7 +17,7 @@ CREATE TABLE samples (
 	m03			numeric	NOT NULL DEFAULT 0.0,
 	m40			numeric	NOT NULL DEFAULT 0.0,
 	m04			numeric	NOT NULL DEFAULT 0.0,
-	class		integer	REFERENCES classes
+	id_class	integer	REFERENCES classes
 );
 CREATE INDEX iClass ON samples(class);
 COMMENT ON TABLE samples IS 'Feature vectors associated to a class of characters.';
