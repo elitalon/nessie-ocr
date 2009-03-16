@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <boost/regex.hpp>
 
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
@@ -157,14 +158,10 @@ void Recognizer::doPostprocessing ()
 		text_.addCharacter(*i);
 		
 	std::string brokenText(text_.content());
-	unsigned int i = brokenText.find("- ");
-	while ( i != std::string::npos )
-	{
-		brokenText.replace(i, 2, "");
-		i = brokenText.find("- ");
-	}
-	
-	text_.content(brokenText);
+	const boost::regex pattern("- ");
+	const std::string replacement("");
+
+	text_.content(regex_replace(brokenText, pattern, replacement));
 };
 
 
