@@ -159,9 +159,7 @@ void Recognizer::doPostprocessing ()
 		
 	std::string brokenText(text_.content());
 	const boost::regex pattern("- ");
-	const std::string replacement("");
-
-	text_.content(regex_replace(brokenText, pattern, replacement));
+	text_.content(regex_replace(brokenText, pattern, ""));
 };
 
 
@@ -254,8 +252,9 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 	doFeatureExtraction();
 	doClassification(paradigm);
 
+	const boost::regex pattern("\\s*");
 	Text referenceText;
-	referenceText.content(text);
+	referenceText.content(regex_replace(text, pattern, ""));
 
 	if ( characters_.size() == referenceText.size() )
 	{

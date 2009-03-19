@@ -58,7 +58,7 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto
 	}
 	std::sort(neighbours.begin(), neighbours.end());
 	
-	const unsigned int KNN = (neighbours.size() >= 6 )?6:neighbours.size();	// K = 7
+	const unsigned int KNN = (neighbours.size() >= 5 )?5:neighbours.size();
 
 	std::vector<unsigned int> kNearestNeighbours(0);
 	kNearestNeighbours.reserve(KNN);

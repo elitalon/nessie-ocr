@@ -32,10 +32,19 @@ const std::string Text::at(const unsigned int& n) const
 
 	if( !(n > size_) )
 	{
-		if ( static_cast<int>(content_.at(n)) < 0 )	// Wide character
-			tmp = content_.substr (n, 2);
+		unsigned int i = 0;
+		for ( unsigned int j = 0; j < n; ++j )
+		{
+			if ( static_cast<int>(content_.at(i)) < 0 )	// Wide character
+				i += 2;
+			else
+				++i;
+		}
+
+		if ( static_cast<int>(content_.at(i)) < 0 )	// Wide character
+			tmp = content_.substr (i, 2);
 		else
-			tmp = content_.at(n);
+			tmp = content_.at(i);
 	}
 	
 	return tmp;
