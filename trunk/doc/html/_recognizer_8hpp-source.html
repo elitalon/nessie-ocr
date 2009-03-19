@@ -125,82 +125,82 @@ window.onload = initDynSections;
 <a name="l00177"></a>00177 
 <a name="l00184"></a>00184         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#4c1a6a9736084d524ae3e607c107e3d4" title="Execute an interactive training of the classifier, prompting the user to confirm...">trainClassifier</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a>&amp; pressClip, <span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a>&amp; paradigm);
 <a name="l00185"></a>00185 
-<a name="l00196"></a>00196         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#4c1a6a9736084d524ae3e607c107e3d4" title="Execute an interactive training of the classifier, prompting the user to confirm...">trainClassifier</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a>&amp; pressClip, <span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a>&amp; paradigm);
-<a name="l00197"></a>00197 
-<a name="l00201"></a>00201         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90" title="Print detailed statistical data about every stage of the recognition process.">printStatistics</a> () <span class="keyword">const</span>;
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203     <span class="keyword">private</span>:
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205         std::auto_ptr&lt;Dataset&gt;      dataset_;                       
-<a name="l00206"></a>00206 
-<a name="l00207"></a>00207         std::list&lt;Region&gt;           regions_;                       
-<a name="l00208"></a>00208 
-<a name="l00209"></a>00209         std::vector&lt;unsigned int&gt;   spaceLocations_;                
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211         std::vector&lt;Pattern&gt;        patterns_;                      
-<a name="l00212"></a>00212 
-<a name="l00213"></a>00213         std::vector&lt;FeatureVector&gt;  featureVectors_;                
-<a name="l00214"></a>00214         
-<a name="l00215"></a>00215         std::vector&lt;std::string&gt;    characters_;                    
-<a name="l00216"></a>00216 
-<a name="l00217"></a>00217         <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>                        text_;                          
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219         std::auto_ptr&lt;Statistics&gt;   preprocessingStatistics_;       
-<a name="l00220"></a>00220 
-<a name="l00221"></a>00221         std::auto_ptr&lt;Statistics&gt;   featureExtractorStatistics_;    
-<a name="l00222"></a>00222 
-<a name="l00223"></a>00223         std::auto_ptr&lt;Statistics&gt;   classifierStatistics_;          
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
-<a name="l00226"></a>00226         <a class="code" href="class_recognizer.html#54d76296a60e1da4153661471275655c" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp;);
-<a name="l00227"></a>00227         <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp;);
-<a name="l00228"></a>00228 };
-<a name="l00229"></a>00229 
-<a name="l00230"></a>00230 
-<a name="l00231"></a><a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40">00231</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; <a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40" title="Get the dataset that is being used in classification and training.">Recognizer::dataset</a> ()<span class="keyword"> const</span>
-<a name="l00232"></a>00232 <span class="keyword"></span>{
-<a name="l00233"></a>00233     <span class="keywordflow">return</span> dataset_;
-<a name="l00234"></a>00234 };
-<a name="l00235"></a>00235 
-<a name="l00236"></a><a class="code" href="class_recognizer.html#a3cc57e5411d081783f3023fd5b7d0e3">00236</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40" title="Get the dataset that is being used in classification and training.">Recognizer::dataset</a> (std::auto_ptr&lt;Dataset&gt;&amp; dataset)
-<a name="l00237"></a>00237 {
-<a name="l00238"></a>00238     dataset_ = dataset;
-<a name="l00239"></a>00239 };
-<a name="l00240"></a>00240 
-<a name="l00241"></a><a class="code" href="class_recognizer.html#f24456b6a54c881e7bdbe06c345d285f">00241</a> <span class="keyword">inline</span> std::list&lt;Region&gt; <a class="code" href="class_recognizer.html#f24456b6a54c881e7bdbe06c345d285f" title="Get the regions found in the last preprocessing stage executed.">Recognizer::regions</a> ()<span class="keyword"> const</span>
-<a name="l00242"></a>00242 <span class="keyword"></span>{
-<a name="l00243"></a>00243     <span class="keywordflow">return</span> regions_; 
-<a name="l00244"></a>00244 };
-<a name="l00245"></a>00245 
-<a name="l00246"></a><a class="code" href="class_recognizer.html#2e3f62d37f3973fab43d501e6ec01bcf">00246</a> <span class="keyword">inline</span> std::vector&lt;unsigned int&gt; <a class="code" href="class_recognizer.html#2e3f62d37f3973fab43d501e6ec01bcf" title="Get the positions of blank spaces found in the last preprocessing stage executed...">Recognizer::spaceLocations</a> ()<span class="keyword"> const</span>
-<a name="l00247"></a>00247 <span class="keyword"></span>{
-<a name="l00248"></a>00248     <span class="keywordflow">return</span> spaceLocations_;
-<a name="l00249"></a>00249 };
-<a name="l00250"></a>00250 
-<a name="l00251"></a><a class="code" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961">00251</a> <span class="keyword">inline</span> std::vector&lt;Pattern&gt; <a class="code" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961" title="Get an array with the patterns built in the last feature extraction stage executed...">Recognizer::patterns</a> ()<span class="keyword"> const</span>
-<a name="l00252"></a>00252 <span class="keyword"></span>{
-<a name="l00253"></a>00253     <span class="keywordflow">return</span> patterns_;
-<a name="l00254"></a>00254 };
-<a name="l00255"></a>00255 
-<a name="l00256"></a><a class="code" href="class_recognizer.html#6dca64a7d07056bead92e3f271c461fd">00256</a> <span class="keyword">inline</span> std::vector&lt;FeatureVector&gt; <a class="code" href="class_recognizer.html#6dca64a7d07056bead92e3f271c461fd" title="Get the feature vectors found in the last feature extraction stage executed.">Recognizer::featureVectors</a> ()<span class="keyword"> const</span>
-<a name="l00257"></a>00257 <span class="keyword"></span>{
-<a name="l00258"></a>00258     <span class="keywordflow">return</span> featureVectors_;
-<a name="l00259"></a>00259 };
-<a name="l00260"></a>00260 
-<a name="l00261"></a><a class="code" href="class_recognizer.html#d7e78f6710d7eb1239f31b5f4be1ca06">00261</a> <span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="class_recognizer.html#d7e78f6710d7eb1239f31b5f4be1ca06" title="Get the characters found in the last classification stage executed.">Recognizer::characters</a> ()<span class="keyword"> const</span>
-<a name="l00262"></a>00262 <span class="keyword"></span>{
-<a name="l00263"></a>00263     <span class="keywordflow">return</span> characters_;
-<a name="l00264"></a>00264 };
-<a name="l00265"></a>00265 
-<a name="l00266"></a><a class="code" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">00266</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; <a class="code" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347" title="Get the text found, either in the last classification stage or the last postprocessing...">Recognizer::text</a> ()<span class="keyword"> const</span>
-<a name="l00267"></a>00267 <span class="keyword"></span>{
-<a name="l00268"></a>00268     <span class="keywordflow">return</span> text_;
-<a name="l00269"></a>00269 };
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271 <span class="preprocessor">#endif</span>
-<a name="l00272"></a>00272 <span class="preprocessor"></span>
+<a name="l00193"></a>00193         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#4c1a6a9736084d524ae3e607c107e3d4" title="Execute an interactive training of the classifier, prompting the user to confirm...">trainClassifier</a> (<span class="keyword">const</span> <a class="code" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a>&amp; pressClip, <span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a>&amp; paradigm);
+<a name="l00194"></a>00194 
+<a name="l00198"></a>00198         <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90" title="Print detailed statistical data about every stage of the recognition process.">printStatistics</a> () <span class="keyword">const</span>;
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200     <span class="keyword">private</span>:
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202         std::auto_ptr&lt;Dataset&gt;      dataset_;                       
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204         std::list&lt;Region&gt;           regions_;                       
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206         std::vector&lt;unsigned int&gt;   spaceLocations_;                
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208         std::vector&lt;Pattern&gt;        patterns_;                      
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210         std::vector&lt;FeatureVector&gt;  featureVectors_;                
+<a name="l00211"></a>00211         
+<a name="l00212"></a>00212         std::vector&lt;std::string&gt;    characters_;                    
+<a name="l00213"></a>00213 
+<a name="l00214"></a>00214         <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>                        text_;                          
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216         std::auto_ptr&lt;Statistics&gt;   preprocessingStatistics_;       
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218         std::auto_ptr&lt;Statistics&gt;   featureExtractorStatistics_;    
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220         std::auto_ptr&lt;Statistics&gt;   classifierStatistics_;          
+<a name="l00221"></a>00221 
+<a name="l00222"></a>00222         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
+<a name="l00223"></a>00223         <a class="code" href="class_recognizer.html#54d76296a60e1da4153661471275655c" title="Constructor.">Recognizer</a> (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp;);
+<a name="l00224"></a>00224         <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp; operator= (<span class="keyword">const</span> <a class="code" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a>&amp;);
+<a name="l00225"></a>00225 };
+<a name="l00226"></a>00226 
+<a name="l00227"></a>00227 
+<a name="l00228"></a><a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40">00228</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; <a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40" title="Get the dataset that is being used in classification and training.">Recognizer::dataset</a> ()<span class="keyword"> const</span>
+<a name="l00229"></a>00229 <span class="keyword"></span>{
+<a name="l00230"></a>00230     <span class="keywordflow">return</span> dataset_;
+<a name="l00231"></a>00231 };
+<a name="l00232"></a>00232 
+<a name="l00233"></a><a class="code" href="class_recognizer.html#a3cc57e5411d081783f3023fd5b7d0e3">00233</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_recognizer.html#501523c090cef30900935bf523637a40" title="Get the dataset that is being used in classification and training.">Recognizer::dataset</a> (std::auto_ptr&lt;Dataset&gt;&amp; dataset)
+<a name="l00234"></a>00234 {
+<a name="l00235"></a>00235     dataset_ = dataset;
+<a name="l00236"></a>00236 };
+<a name="l00237"></a>00237 
+<a name="l00238"></a><a class="code" href="class_recognizer.html#f24456b6a54c881e7bdbe06c345d285f">00238</a> <span class="keyword">inline</span> std::list&lt;Region&gt; <a class="code" href="class_recognizer.html#f24456b6a54c881e7bdbe06c345d285f" title="Get the regions found in the last preprocessing stage executed.">Recognizer::regions</a> ()<span class="keyword"> const</span>
+<a name="l00239"></a>00239 <span class="keyword"></span>{
+<a name="l00240"></a>00240     <span class="keywordflow">return</span> regions_; 
+<a name="l00241"></a>00241 };
+<a name="l00242"></a>00242 
+<a name="l00243"></a><a class="code" href="class_recognizer.html#2e3f62d37f3973fab43d501e6ec01bcf">00243</a> <span class="keyword">inline</span> std::vector&lt;unsigned int&gt; <a class="code" href="class_recognizer.html#2e3f62d37f3973fab43d501e6ec01bcf" title="Get the positions of blank spaces found in the last preprocessing stage executed...">Recognizer::spaceLocations</a> ()<span class="keyword"> const</span>
+<a name="l00244"></a>00244 <span class="keyword"></span>{
+<a name="l00245"></a>00245     <span class="keywordflow">return</span> spaceLocations_;
+<a name="l00246"></a>00246 };
+<a name="l00247"></a>00247 
+<a name="l00248"></a><a class="code" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961">00248</a> <span class="keyword">inline</span> std::vector&lt;Pattern&gt; <a class="code" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961" title="Get an array with the patterns built in the last feature extraction stage executed...">Recognizer::patterns</a> ()<span class="keyword"> const</span>
+<a name="l00249"></a>00249 <span class="keyword"></span>{
+<a name="l00250"></a>00250     <span class="keywordflow">return</span> patterns_;
+<a name="l00251"></a>00251 };
+<a name="l00252"></a>00252 
+<a name="l00253"></a><a class="code" href="class_recognizer.html#6dca64a7d07056bead92e3f271c461fd">00253</a> <span class="keyword">inline</span> std::vector&lt;FeatureVector&gt; <a class="code" href="class_recognizer.html#6dca64a7d07056bead92e3f271c461fd" title="Get the feature vectors found in the last feature extraction stage executed.">Recognizer::featureVectors</a> ()<span class="keyword"> const</span>
+<a name="l00254"></a>00254 <span class="keyword"></span>{
+<a name="l00255"></a>00255     <span class="keywordflow">return</span> featureVectors_;
+<a name="l00256"></a>00256 };
+<a name="l00257"></a>00257 
+<a name="l00258"></a><a class="code" href="class_recognizer.html#d7e78f6710d7eb1239f31b5f4be1ca06">00258</a> <span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="class_recognizer.html#d7e78f6710d7eb1239f31b5f4be1ca06" title="Get the characters found in the last classification stage executed.">Recognizer::characters</a> ()<span class="keyword"> const</span>
+<a name="l00259"></a>00259 <span class="keyword"></span>{
+<a name="l00260"></a>00260     <span class="keywordflow">return</span> characters_;
+<a name="l00261"></a>00261 };
+<a name="l00262"></a>00262 
+<a name="l00263"></a><a class="code" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">00263</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; <a class="code" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347" title="Get the text found, either in the last classification stage or the last postprocessing...">Recognizer::text</a> ()<span class="keyword"> const</span>
+<a name="l00264"></a>00264 <span class="keyword"></span>{
+<a name="l00265"></a>00265     <span class="keywordflow">return</span> text_;
+<a name="l00266"></a>00266 };
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 <span class="preprocessor">#endif</span>
+<a name="l00269"></a>00269 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 19 15:49:11 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 19 15:55:15 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

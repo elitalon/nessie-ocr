@@ -190,9 +190,6 @@ class Recognizer
 		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
 		/// 
 		///	@post	The internal dataset is updated according to the user responses, e.g. new samples might be added.
-		///
-		///	@todo	Implement a better mechanism to pass the reference text, since an array of strings avoids the problem of internationalization,
-		///	but it is not useful for an external user.
 		void trainClassifier (const Clip& pressClip, const std::string& text, const ClassificationParadigm& paradigm);
 
 		/// @brief	Print detailed statistical data about every stage of the recognition process.
