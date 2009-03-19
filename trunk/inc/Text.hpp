@@ -33,6 +33,13 @@ class Text
 		/// @return	Number of characters in the text.
 		const unsigned int& size () const;	
 
+		/// @brief	Get the character at given position.
+		/// 
+		/// @param	n	Position within the text.
+		/// 
+		/// @return	A STL string object with the character at given position.
+		const std::string at(const unsigned int& n) const;
+
 		/// @brief		Add a character at the end of the text.
 		/// 
 		/// @param		character	A STL string object with a single character to add.
@@ -45,19 +52,19 @@ class Text
 		/// @brief		Adds a character to the text at given position.
 		///
 		/// @param		character	A STL string object with a single character to add.
-		/// @param		position	Position where the character will be inserted.
+		/// @param		n			Position where the character will be inserted.
 		/// 
 		/// @post		The character is inserted at given position.
 		/// 
 		/// @exception	NessieException
-		void addCharacter (const std::string& character, const unsigned int& position);
+		void addCharacter (const std::string& character, const unsigned int& n);
 
 		/// @brief		Remove a single character from the text.
 		///
-		/// @param		position		Position where the character must be removed.
+		/// @param		n	Position where the character must be removed.
 		/// 
 		/// @post		The character at given position is removed.
-		void removeCharacter (const unsigned int& position);
+		void removeCharacter (const unsigned int& n);
 
 		/// @brief	Remove all the characters in the text, leaving it with a size of 0.
 		///

@@ -248,34 +248,38 @@ void Recognizer::trainClassifier (const Clip& pressClip, const ClassificationPar
 };
 
 
-void Recognizer::trainClassifier (const Clip& pressClip, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm)
+void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text, const ClassificationParadigm& paradigm)
 {
 	doPreprocessing(pressClip);
 	doFeatureExtraction();
 	doClassification(paradigm);
 
+	Text referenceText;
+	referenceText.content(text);
+
 	if ( characters_.size() == referenceText.size() )
 	{
-		unsigned int regionNo = 0;
+		unsigned int patternNo = 0;
+	
 		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 		{
 			try
 			{
 				unsigned int code;
-				if ( *i == referenceText.at(regionNo) )
+				if ( *i == referenceText.at(patternNo) )
 					code = dataset_->code(*i);
 				else
-					code = dataset_->code(referenceText.at(regionNo));
+					code = dataset_->code(referenceText.at(patternNo));
 				
 				if ( code != 256 )
-					dataset_->addSample(Sample(featureVectors_.at(regionNo), code));
+					dataset_->addSample(Sample(featureVectors_.at(patternNo), code));
 			}
 			catch(std::exception& e)
 			{
-				std::cout << "The training of sample " << regionNo << " could not be completed. " << e.what() << std::endl;
+				std::cout << "The training of sample " << patternNo << " could not be completed. " << e.what() << std::endl;
 			}
 
-			++regionNo;
+			++patternNo;
 		}
 	}
 };

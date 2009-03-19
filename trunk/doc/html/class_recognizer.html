@@ -74,7 +74,7 @@ Collaboration diagram for Recognizer:</div>
 <div class="dynsection">
 <p><center><img src="class_recognizer__coll__graph.png" border="0" usemap="#_recognizer__coll__map" alt="Collaboration graph"></center>
 <map name="_recognizer__coll__map">
-<area shape="rect" href="class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="480,6,613,198"></map>
+<area shape="rect" href="class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="480,6,613,214"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -142,9 +142,9 @@ Collaboration diagram for Recognizer:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#4c1a6a9736084d524ae3e607c107e3d4">trainClassifier</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;pressClip, const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;paradigm)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Execute an interactive training of the classifier, prompting the user to confirm each classification decision.  <a href="#4c1a6a9736084d524ae3e607c107e3d4"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#9aedff1790cedbb14e35b2adbd5329e2">trainClassifier</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;pressClip, const std::vector&lt; std::string &gt; &amp;referenceText, const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;paradigm)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#cb4bc9fec23b37dae581523811a903d3">trainClassifier</a> (const <a class="el" href="class_clip.html">Clip</a> &amp;pressClip, const std::string &amp;text, const <a class="el" href="class_classification_paradigm.html">ClassificationParadigm</a> &amp;paradigm)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Execute an automatic training of the classifier, comparing each classification decision with a reference text.  <a href="#9aedff1790cedbb14e35b2adbd5329e2"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Execute an automatic training of the classifier, comparing each classification decision with a reference text.  <a href="#cb4bc9fec23b37dae581523811a903d3"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90">printStatistics</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print detailed statistical data about every stage of the recognition process.  <a href="#f2dd58549c8f8e712fd5311cf329cd90"></a><br></td></tr>
@@ -647,7 +647,7 @@ This method executes sequentially all the recognition stages: preprocessing, fea
 
 </div>
 </div><p>
-<a class="anchor" name="9aedff1790cedbb14e35b2adbd5329e2"></a><!-- doxytag: member="Recognizer::trainClassifier" ref="9aedff1790cedbb14e35b2adbd5329e2" args="(const Clip &amp;pressClip, const std::vector&lt; std::string &gt; &amp;referenceText, const ClassificationParadigm &amp;paradigm)" -->
+<a class="anchor" name="cb4bc9fec23b37dae581523811a903d3"></a><!-- doxytag: member="Recognizer::trainClassifier" ref="cb4bc9fec23b37dae581523811a903d3" args="(const Clip &amp;pressClip, const std::string &amp;text, const ClassificationParadigm &amp;paradigm)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -660,8 +660,8 @@ This method executes sequentially all the recognition stages: preprocessing, fea
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>referenceText</em>, </td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>text</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -682,7 +682,7 @@ This method executes sequentially all the recognition stages: preprocessing, fea
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>Press clip to be processed. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>referenceText</em>&nbsp;</td><td>A text to compare with the classification results character by character. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>text</em>&nbsp;</td><td>A text to compare with the classification results character by character. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>paradigm</em>&nbsp;</td><td>Paradigm that must be used to classify the patterns found in the press clip.</td></tr>
   </table>
 </dl>
@@ -728,7 +728,7 @@ This method executes sequentially all the recognition stages: preprocessing, fea
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 19 13:05:16 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 19 15:49:14 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

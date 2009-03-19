@@ -186,14 +186,14 @@ class Recognizer
 		/// @brief	Execute an automatic training of the classifier, comparing each classification decision with a reference text.
 		/// 
 		/// @param	pressClip		Press clip to be processed.
-		/// @param	referenceText	A text to compare with the classification results character by character.
+		/// @param	text			A text to compare with the classification results character by character.
 		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
 		/// 
 		///	@post	The internal dataset is updated according to the user responses, e.g. new samples might be added.
 		///
 		///	@todo	Implement a better mechanism to pass the reference text, since an array of strings avoids the problem of internationalization,
 		///	but it is not useful for an external user.
-		void trainClassifier (const Clip& pressClip, const std::vector<std::string>& referenceText, const ClassificationParadigm& paradigm);
+		void trainClassifier (const Clip& pressClip, const std::string& text, const ClassificationParadigm& paradigm);
 
 		/// @brief	Print detailed statistical data about every stage of the recognition process.
 		///

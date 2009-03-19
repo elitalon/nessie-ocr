@@ -29,11 +29,12 @@ int main (int argc, char *argv[])
 		po::options_description availableOptions("Available options");
 		availableOptions.add_options()
 			("help,h",		"Print this help message")
-			("training,t",	po::value<std::string>(),"Executes a dataset training instead of a normal OCR")
-			("filename,f",	po::value<std::string>(), "Use a plain text file as dataset")
-			("database,d",	po::value<std::string>(), "Use a database as dataset (e.g. db_nessie). Superseded by the <filename> option")
-			("username,u",	po::value<std::string>(), "Username when connecting to the database. The <database> argument will be used by default")
-			("password,p",	po::value<std::string>(), "Password when connecting to the database. The <user> argument will be used by default")
+			("file,f",		po::value<std::string>(), "Use the content of a file as reference text to execute a dataset training instead of an OCR. Superseded by the <result> option.")
+			("result,r",	po::value<std::string>(), "Use a string as reference text to execute a dataset training instead of an OCR.")
+			("text,t",		po::value<std::string>(), "Use a plain text file as dataset.")
+			("database,d",	po::value<std::string>(), "Use a database as dataset (e.g. db_nessie). Superseded by the <filename> option.")
+			("username,u",	po::value<std::string>(), "Username when connecting to the database. The <database> argument will be used by default.")
+			("password,p",	po::value<std::string>(), "Password when connecting to the database. The <user> argument will be used by default.")
 			("image",		po::value<std::string>(), "Input image file to process");
 		po::positional_options_description p;
 		p.add("image", -1);
@@ -43,6 +44,8 @@ int main (int argc, char *argv[])
 		po::store(po::command_line_parser(argc, argv).options(availableOptions).positional(p).run(), passedOptions);
 		po::notify(passedOptions);
 
+
+		// Help option
 		if ( passedOptions.count("help") )
 		{
 			std::cout << "Usage: tester [options] <image>" << std::endl;
@@ -50,79 +53,111 @@ int main (int argc, char *argv[])
 			return 0;
 		}
 
+
+		// The image filename is mandatory.
 		if ( !passedOptions.count("image") )
 		{
 			std::cout << "The image file was not specified." << std::endl;
 			return 1;
 		}
-
-		// Create a press clip from an external image.
 		Magick::Image image( passedOptions["image"].as<std::string>() );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
-		
+	
+
+		// Dataset option
 		if ( !passedOptions.count("filename") && !passedOptions.count("database") )
 		{
 			std::cout << "The classification dataset was not specified." << std::endl;
 			return 1;
 		}
 
-		// Create a dataset to use in the classification stage.
 		std::auto_ptr<Dataset> dataset;
-		if ( passedOptions.count("filename") )
+		if ( passedOptions.count("text") )
 		{
-			std::string filename( passedOptions["filename"].as<std::string>() );
-			dataset.reset( new PlainTextDataset(filename) );
+			if ( passedOptions["text"].as<std::string>() != "" )
+			{
+				std::string filename( passedOptions["text"].as<std::string>() );
+				dataset.reset( new PlainTextDataset(filename) );
+			}
+			else
+			{
+				std::cout << "The plain text file was not correctly specified." << std::endl;
+				return 1;
+			}
 		}
 		else
 		{
-			std::string dbName( passedOptions["database"].as<std::string>() );
-			std::string username(dbName);
-			std::string password(username);
-
-			if ( passedOptions.count("username") )
-				username = passedOptions["username"].as<std::string>();
-			
-			if ( passedOptions.count("password") )
-				password = passedOptions["password"].as<std::string>();
-
-			//dataset.reset( new PostgreSqlDataset(dbName, username, password) );
-			dataset.reset( new MySqlDataset(dbName, username, password) );
-		}
-
-		Recognizer recon( dataset );
-
-		if ( passedOptions.count("training") )
-		{
-			std::string filename( passedOptions["training"].as<std::string>() );
-			if ( filename != "" )
+			if ( passedOptions["database"].as<std::string>() != "" )
 			{
-				std::ifstream inputFile( filename.data() );
-				if ( not inputFile.is_open() or not inputFile.good() )
+				std::string dbName( passedOptions["database"].as<std::string>() );
+				std::string username(dbName);
+				std::string password(username);
+
+				if ( passedOptions.count("username") )
 				{
-					std::cout << "The file passed for training is not valid." << std::endl;
-					return 1;
+					username = passedOptions["username"].as<std::string>();
+					password = username;
 				}
 
-				std::vector<std::string> referenceText(0);
-				while ( inputFile.good() )
-				{   
-					std::string character;
-					getline(inputFile, character);
-					if (!character.empty())
-						referenceText.push_back(character);
-				}   
-				inputFile.close();	
-			
-				recon.trainClassifier(pressClip, referenceText, ClassificationParadigm::knn());
+				if ( passedOptions.count("password") )
+					password = passedOptions["password"].as<std::string>();
+
+				//dataset.reset( new PostgreSqlDataset(dbName, username, password) );
+				dataset.reset( new MySqlDataset(dbName, username, password) );
 			}
 			else
-				recon.trainClassifier(pressClip, ClassificationParadigm::knn());
+			{
+				std::cout << "The database name was not correctly specified." << std::endl;
+				return 1;
+			}
+		}
+		Recognizer recon( dataset );
+
+	
+		// Training options
+		if ( passedOptions.count("file") || passedOptions.count("result") )
+		{
+			if ( passedOptions.count("result") )
+			{
+				if ( passedOptions["result"].as<std::string>() == "" )
+					recon.trainClassifier(pressClip, ClassificationParadigm::knn());
+				else
+					recon.trainClassifier(pressClip, passedOptions["result"].as<std::string>(), ClassificationParadigm::knn());
+			}
+			else
+			{
+				if ( passedOptions["file"].as<std::string>() != "" )
+				{
+					std::ifstream inputFile( passedOptions["file"].as<std::string>().data() );
+					if ( not inputFile.is_open() or not inputFile.good() )
+					{
+						std::cout << "The file passed for training is not valid." << std::endl;
+						return 1;
+					}
+
+					std::string text("");
+					while ( inputFile.good() )
+					{   
+						std::string line;
+						getline(inputFile, line);
+
+						if (!line.empty())
+							text.append(line);
+					}   
+					inputFile.close();
+					
+					recon.trainClassifier(pressClip, text, ClassificationParadigm::knn());
+				}
+				else
+					recon.trainClassifier(pressClip, ClassificationParadigm::knn());
+			}
 		}
 		else
 		{
 			recon.extractText(pressClip, ClassificationParadigm::knn());
 			std::cout << "Text extracted: " << recon.text().content() << " (" << recon.text().size() << ")" << std::endl;
 		}
+
 		recon.printStatistics();
 	}
 	catch (std::exception &e)

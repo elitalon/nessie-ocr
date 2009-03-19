@@ -26,6 +26,22 @@ void Text::content (const std::string& content)
 };
 
 
+const std::string Text::at(const unsigned int& n) const
+{
+	std::string tmp("");
+
+	if( !(n > size_) )
+	{
+		if ( static_cast<int>(content_.at(n)) < 0 )	// Wide character
+			tmp = content_.substr (n, 2);
+		else
+			tmp = content_.at(n);
+	}
+	
+	return tmp;
+};
+
+
 void Text::addCharacter (const std::string& character)
 {
 	if ( character.size() > 2 || (character.size() == 2 && character.at(0) > 0) )
@@ -36,19 +52,19 @@ void Text::addCharacter (const std::string& character)
 }
 
 
-void Text::addCharacter (const std::string& character, const unsigned int& position)
+void Text::addCharacter (const std::string& character, const unsigned int& n)
 {
 	if ( character.size() > 2 || (character.size() == 2 && character.at(0) >= 0) )
 		throw NessieException("Text::addCharacter() : The string passed cannot contain more than one character.");
 
-	if( !(position > size_) )
+	if( !(n > size_) )
 	{
-		if ( position == 0 )
+		if ( n == 0 )
 			content_.insert(0, character);
 		else
 		{
 			unsigned int i = 0;
-			for ( unsigned int j = 0; j < position; ++j )
+			for ( unsigned int j = 0; j < n; ++j )
 			{
 				if ( static_cast<int>(content_.at(i)) < 0 )	// Wide character
 					i += 2;
@@ -68,12 +84,12 @@ void Text::addCharacter (const std::string& character, const unsigned int& posit
 };
 
 
-void Text::removeCharacter (const unsigned int& position)
+void Text::removeCharacter (const unsigned int& n)
 {
-	if ( !(position > size_) )
+	if ( !(n > size_) )
 	{
 		unsigned int i = 0;
-		for ( unsigned int j = 0; j < position; ++j )
+		for ( unsigned int j = 0; j < n; ++j )
 		{
 			if ( static_cast<int>(content_.at(i)) < 0 )	// Wide character
 				i += 2;
