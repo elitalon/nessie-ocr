@@ -3,6 +3,7 @@
 
 #include "PostgreSqlDataset.hpp"
 #include "NessieException.hpp"
+#include <pqxx/pqxx>
 #include <utility>
 #include <sstream>
 #include <exception>
@@ -13,13 +14,13 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 	database_(database),
 	username_(username),
 	password_(password),
-	connection_("dbname="+database+" user="+username+" password="+password),
 	sampleIds_(0),
 	classIds_()
 {
 	try
 	{
-		pqxx::work dbTransaction(connection_, "constructorTransaction");
+		pqxx::connection connection("dbname=" + database_ + " user=" + username_ + " password=" + password_);
+		pqxx::work dbTransaction(connection, "constructorTransaction");
 		
 		// Get the number of features stored in the database
 		pqxx::result registers = dbTransaction.exec("SELECT count(*)\
@@ -164,7 +165,8 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 	
 	try
 	{
-		pqxx::work dbTransaction(connection_, "addSampleTransaction");
+		pqxx::connection connection("dbname=" + database_ + " user=" + username_ + " password=" + password_);
+		pqxx::work dbTransaction(connection, "addSampleTransaction");
 
 		pqxx::result registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureFields + "id_class) VALUES\
 										(DEFAULT, " + featureValues + idClass.str() + ") RETURNING id_sample");
@@ -194,7 +196,9 @@ void PostgreSqlDataset::removeSample (const unsigned int& n)
 		std::stringstream id_sample;
 		id_sample << sampleIds_.at(n);
 		
-		pqxx::work dbTransaction(connection_, "removeSampleTransaction");
+		pqxx::connection connection("dbname=" + database_ + " user=" + username_ + " password=" + password_);
+		pqxx::work dbTransaction(connection, "removeSampleTransaction");
+		
 		dbTransaction.exec("DELETE FROM samples WHERE id_sample = " + id_sample.str());
 		dbTransaction.commit();
 	}

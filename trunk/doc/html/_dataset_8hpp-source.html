@@ -87,7 +87,7 @@ window.onload = initDynSections;
 <a name="l00043"></a>00043 
 <a name="l00049"></a>00049         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp;  <a class="code" href="class_dataset.html#4ceae5eaf79ece96939b50f2b890bc27" title="Allow read-only access to a sample in the dataset.">at</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n) <span class="keyword">const</span>;
 <a name="l00050"></a>00050 
-<a name="l00054"></a>00054         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#8b51c08005af5c5b1a94ff15af646c2b" title="Get the number of samples in the dataset.">size</a> () <span class="keyword">const</span>;
+<a name="l00054"></a>00054         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#251b5cebd112449fc91d00179d61ab48" title="Get the number of samples in the dataset.">size</a> () <span class="keyword">const</span>;
 <a name="l00055"></a>00055 
 <a name="l00059"></a>00059         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#efecdda5323a818fca5c9206eb76dc23" title="Get the number of features per sample.">features</a> () <span class="keyword">const</span>;
 <a name="l00060"></a>00060 
@@ -105,7 +105,7 @@ window.onload = initDynSections;
 <a name="l00092"></a>00092 
 <a name="l00093"></a><a class="code" href="class_dataset.html#a8ec00731bc31069b93719b22d90546d">00093</a>         std::map&lt;std::string, unsigned int&gt; <a class="code" href="class_dataset.html#a8ec00731bc31069b93719b22d90546d" title="Map of classes that associates a character with its code.">classes_</a>;   
 <a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="class_dataset.html#e8574908c87a3d36080e1b5a687c8a94">00095</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                        <a class="code" href="class_dataset.html#e8574908c87a3d36080e1b5a687c8a94" title="Number of samples.">size_</a>;      
+<a name="l00095"></a><a class="code" href="class_dataset.html#5c866bcb920dbaf42c6dfcbd0bf123f9">00095</a>         <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                   <a class="code" href="class_dataset.html#5c866bcb920dbaf42c6dfcbd0bf123f9" title="Number of samples.">size_</a>;      
 <a name="l00096"></a>00096 
 <a name="l00097"></a><a class="code" href="class_dataset.html#2b2952fe46a49eb27822c7f683c30285">00097</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                        <a class="code" href="class_dataset.html#2b2952fe46a49eb27822c7f683c30285" title="Number of features per sample.">features_</a>;  
 <a name="l00098"></a>00098 };
@@ -116,9 +116,9 @@ window.onload = initDynSections;
 <a name="l00103"></a>00103     <span class="keywordflow">return</span> <a class="code" href="class_dataset.html#8774177ef709ce626031df1f8c1521c7" title="Samples of the dataset.">samples_</a>.at(n);
 <a name="l00104"></a>00104 };
 <a name="l00105"></a>00105 
-<a name="l00106"></a><a class="code" href="class_dataset.html#8b51c08005af5c5b1a94ff15af646c2b">00106</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#8b51c08005af5c5b1a94ff15af646c2b" title="Get the number of samples in the dataset.">Dataset::size</a> ()<span class="keyword"> const</span>
+<a name="l00106"></a><a class="code" href="class_dataset.html#251b5cebd112449fc91d00179d61ab48">00106</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#251b5cebd112449fc91d00179d61ab48" title="Get the number of samples in the dataset.">Dataset::size</a> ()<span class="keyword"> const</span>
 <a name="l00107"></a>00107 <span class="keyword"></span>{
-<a name="l00108"></a>00108     <span class="keywordflow">return</span> <a class="code" href="class_dataset.html#e8574908c87a3d36080e1b5a687c8a94" title="Number of samples.">size_</a>;
+<a name="l00108"></a>00108     <span class="keywordflow">return</span> <a class="code" href="class_dataset.html#5c866bcb920dbaf42c6dfcbd0bf123f9" title="Number of samples.">size_</a>;
 <a name="l00109"></a>00109 };
 <a name="l00110"></a>00110 
 <a name="l00111"></a><a class="code" href="class_dataset.html#efecdda5323a818fca5c9206eb76dc23">00111</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="class_dataset.html#efecdda5323a818fca5c9206eb76dc23" title="Get the number of features per sample.">Dataset::features</a> ()<span class="keyword"> const</span>
@@ -128,7 +128,7 @@ window.onload = initDynSections;
 <a name="l00115"></a>00115 
 <a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 16 17:22:22 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 19 13:05:13 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

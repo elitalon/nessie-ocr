@@ -26,9 +26,7 @@ vpath %.so		$(libdir)
 vpath %.dylib	$(libdir)
 
 
-#
 # Dependencies
-#
 CLASSIFICATION_PARADIGM			= ClassificationParadigm.cpp ClassificationParadigm.hpp
 CLASSIFIER						= Classifier.cpp Classifier.hpp Dataset.o FeatureVector.o ClassifierStatistics.o ClassificationParadigm.o
 CLASSIFIER_STATISTICS			= ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
@@ -38,6 +36,7 @@ FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp Region.o Featur
 FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
 FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
 MAIN							= tester.o
+MYSQL_DATASET					= MySqlDataset.cpp MySqlDataset.hpp Dataset.o NessieException.o
 NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
 PATTERN							= Pattern.cpp Pattern.hpp Region.o Preprocessor.o Clip.o
 PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
@@ -47,32 +46,35 @@ PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hp
 RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Statistics.o Dataset.o ClassificationParadigm.o Region.o Pattern.o FeatureVector.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o NessieException.o
 REGION							= Region.cpp Region.hpp
 STATISTICS						= Statistics.cpp Statistics.hpp
-TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o Recognizer.o ClassificationParadigm.o
+TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o MySqlDataset.o Recognizer.o ClassificationParadigm.o
 TEXT							= Text.cpp Text.hpp NessieException.o
 
 
-#
-# Library configuration
-#
+# Output library configuration
 LIBRARY_NAME				= NessieOcr
 LIBRARY_VERSION				= 1.0.0
 LIBRARY_SHARED_FILE			= lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
 LIBRARY_BUILDING_OPTIONS	= -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
 
-
-#
-# Compiler flags
-#
+# Executable and objects name
 PROGRAM				= $(bindir)tester
 OBJECTS				= *.o
-MAGICK_LDFLAGS		= `Magick++-config --cppflags --cxxflags --ldflags --libs`
+
+# Search directories
 MAGICK_CXXFLAGS		= `Magick++-config --cppflags --cxxflags`
-BOOST_CXXFLAGS		= -I/usr/local/include/boost
-BOOST_LDFLAGS		= -L/usr/local/lib/ -lboost_program_options -lboost_regex
-LIBPQXX_LDFLAGS		= -L/usr/local/lib/ -lpqxx
-LIBPQXX_CXXFLAGS	= -I/usr/local/include/pqxx
+BOOST_CXXFLAGS		= -I/usr/local/include/boost -I/usr/include/boost
+LIBPQXX_CXXFLAGS	= -I/usr/local/include/pqxx -I/usr/include/pqxx
+LIBMYSQL_CXXFLAGS	= -I/usr/include/mysql -I/usr/include/mysql++
+
+# Libraries
+MAGICK_LDFLAGS		= `Magick++-config --ldflags --libs`
+LIBPQXX_LDFLAGS		= -lpqxx
+BOOST_LDFLAGS		= -lboost_program_options -lboost_regex
+LIBMYSQL_LDFLAGS	= -lmysqlpp -lmysqlclient
+
+# Compiler flags
 CXXFLAGS			= -ansi -pipe -Wall -Wextra -g -fPIC -O2 -I$(incdir)
-LDFLAGS				= $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) $(BOOST_LDFLAGS) 
+LDFLAGS				= -L/usr/local/lib $(MAGICK_LDFLAGS) $(LIBPQXX_LDFLAGS) $(BOOST_LDFLAGS) $(LIBMYSQL_LDFLAGS)
 
 
 
@@ -155,6 +157,10 @@ PlainTextDataset.o: $(PLAIN_TEXT_DATASET)
 
 PostgreSqlDataset.o: $(POSTGRE_SQL_DATASET)
 	$(CXX) $(LIBPQXX_CXXFLAGS) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+MySqlDataset.o: $(MYSQL_DATASET)
+	$(CXX) $(LIBMYSQL_CXXFLAGS) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 install:

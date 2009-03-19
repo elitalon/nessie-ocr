@@ -51,7 +51,7 @@ class Dataset
 		///	@brief	Get the number of samples in the dataset.
 		///
 		///	@return	Number of samples in the dataset.
-		virtual const unsigned int& size () const;
+		virtual const long unsigned int& size () const;
 
 		///	@brief	Get the number of features per sample.
 		///
@@ -92,7 +92,7 @@ class Dataset
 
 		std::map<std::string, unsigned int>	classes_;	///< Map of classes that associates a character with its code.
 
-		unsigned int						size_;		///< Number of samples.
+		long unsigned int					size_;		///< Number of samples.
 
 		unsigned int						features_;	///< Number of features per sample.
 };
@@ -103,7 +103,7 @@ inline const Sample& Dataset::at (const unsigned int& n) const
 	return samples_.at(n);
 };
 
-inline const unsigned int& Dataset::size () const
+inline const long unsigned int& Dataset::size () const
 {
 	return size_;
 };

@@ -1,7 +1,8 @@
 <area shape="rect" href="$_clip_8cpp.html" title="Definition of Clip class." alt="" coords="5,81,72,105">
 <area shape="rect" href="$_feature_vector_8cpp.html" title="Definition of FeatureVector class." alt="" coords="96,81,216,105">
-<area shape="rect" href="$_nessie_exception_8cpp.html" title="Definition of NessieException class." alt="" coords="240,81,376,105">
-<area shape="rect" href="$_plain_text_dataset_8cpp.html" title="Definition of PlainTextDataset class." alt="" coords="400,81,536,105">
-<area shape="rect" href="$_postgre_sql_dataset_8cpp.html" title="Definition of PostgreSqlDataset class." alt="" coords="560,81,707,105">
-<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="731,81,837,105">
-<area shape="rect" href="$_text_8cpp.html" title="Definition of Text class." alt="" coords="861,81,928,105">
+<area shape="rect" href="$_my_sql_dataset_8cpp.html" title="Definition of MySqlDataset class." alt="" coords="240,81,360,105">
+<area shape="rect" href="$_nessie_exception_8cpp.html" title="Definition of NessieException class." alt="" coords="384,81,520,105">
+<area shape="rect" href="$_plain_text_dataset_8cpp.html" title="Definition of PlainTextDataset class." alt="" coords="544,81,680,105">
+<area shape="rect" href="$_postgre_sql_dataset_8cpp.html" title="Definition of PostgreSqlDataset class." alt="" coords="704,81,851,105">
+<area shape="rect" href="$_recognizer_8cpp.html" title="Implementation of Recognizer class." alt="" coords="875,81,981,105">
+<area shape="rect" href="$_text_8cpp.html" title="Definition of Text class." alt="" coords="1005,81,1072,105">

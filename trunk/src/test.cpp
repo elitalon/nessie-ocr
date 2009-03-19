@@ -5,6 +5,7 @@
 #include "Clip.hpp"
 #include "PlainTextDataset.hpp"
 #include "PostgreSqlDataset.hpp"
+#include "MySqlDataset.hpp"
 #include "Recognizer.hpp"
 #include "ClassificationParadigm.hpp"
 #include <boost/program_options.hpp>
@@ -84,7 +85,8 @@ int main (int argc, char *argv[])
 			if ( passedOptions.count("password") )
 				password = passedOptions["password"].as<std::string>();
 
-			dataset.reset( new PostgreSqlDataset(dbName, username, password) );
+			//dataset.reset( new PostgreSqlDataset(dbName, username, password) );
+			dataset.reset( new MySqlDataset(dbName, username, password) );
 		}
 
 		Recognizer recon( dataset );
