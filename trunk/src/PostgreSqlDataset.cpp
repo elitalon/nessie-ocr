@@ -15,7 +15,8 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 	username_(username),
 	password_(password),
 	sampleIds_(0),
-	classIds_()
+	classIds_(),
+	featureColumns_()
 {
 	try
 	{
@@ -23,34 +24,24 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		pqxx::work dbTransaction(connection, "constructorTransaction");
 		
 		// Get the number of features stored in the database
-		pqxx::result registers = dbTransaction.exec("SELECT count(*)\
+		pqxx::result registers = dbTransaction.exec("SELECT column_name\
 													FROM information_schema.columns\
 													WHERE table_name = 'samples' AND column_name LIKE 'm__'");
 
-		if ( !registers.front().at(0).to(features_) || features_ == 0 )
-			throw NessieException ("The table 'samples' has not any features columns.");
+		if ( registers.size() == 0 )
+			throw NessieException ("The table 'samples' has not any feature column.");
 		
 		// Build the query section regarding the feature columns
-		std::string featureFields;
-		unsigned int j = 0;
-		for( unsigned int i = 0; i < features_; ++i )
+		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
-			if ( i == 0 )
-				featureFields.append("m00, ");
-			else
-			{
-				std::stringstream order;
-				order << j;
+			std::string column;
+			i->at(0).to(column);
 
-				featureFields.append("m" + order.str() +"0, ");
-				featureFields.append("m0" + order.str() +", ");
-
-				++i;
-			}
-
-			++j;
+			featureColumns_.append(column + ",");
+			++features_;
 		}
-
+		featureColumns_.erase(featureColumns_.end() - 1);
+		
 		// Get the classes
 		registers = dbTransaction.exec("SELECT * FROM classes");
 
@@ -58,18 +49,16 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		typedef std::pair<unsigned int, unsigned int> ClassIdRegister;
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
-			pqxx::result::tuple row(*i);
-
 			unsigned int idClass;
-			if ( !row.at(0).to(idClass) )
+			if ( !i->at(0).to(idClass) )
 				throw NessieException ("The table 'classes' has an invalid id_class column.");
 			
 			std::string label;
-			if ( !row.at(1).to(label) )
+			if ( !i->at(1).to(label) )
 				throw NessieException ("The table 'classes' has an invalid label column.");
 
 			unsigned int asciiCode;
-			if ( !row.at(2).to(asciiCode) )
+			if ( !i->at(2).to(asciiCode) )
 				throw NessieException ("The table 'classes' has an invalid asciiCode column.");
 
 			classes_.insert(asciiCodeRegister(label, asciiCode));
@@ -77,7 +66,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		}
 
 		// Get the samples
-		registers = dbTransaction.exec("SELECT id_sample, " + featureFields + "asciiCode\
+		registers = dbTransaction.exec("SELECT id_sample, " + featureColumns_ + ", asciiCode\
 										FROM samples s, classes c\
 										WHERE s.id_class = c.id_class");
 		size_ = registers.size();
@@ -86,20 +75,18 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		sampleIds_.reserve(size_);
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
-			pqxx::result::tuple row(*i);
-
 			unsigned int id_sample;
-			if ( !row.at(0).to(id_sample) )
+			if ( !i->at(0).to(id_sample) )
 				throw NessieException ("The table 'samples' has an invalid id_sample column.");
 
 			unsigned int asciiCode;
-			if ( !row.at(row.size()-1).to(asciiCode) )
+			if ( !i->at(i->size()-1).to(asciiCode) )
 				throw NessieException ("The table 'samples' has an invalid asciiCode column.");
 
 			FeatureVector fv(features_);
 			for( unsigned int j = 0; j < features_; ++j )
 			{
-				if ( !row.at(j+1).to(fv.at(j)) )
+				if ( !i->at(j+1).to(fv.at(j)) )
 					throw NessieException ("The table 'samples' has an invalid feature column.");
 			}
 
@@ -129,27 +116,6 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 	if ( sample.first.size() != features_ )
 		throw NessieException ("PostgreSqlDataset::addSample() : The number of features in the sample is different from the one expected by the dataset.");
 
-	// Build the query section regarding the feature columns
-	std::string featureFields;
-	unsigned int j = 0;
-	for( unsigned int i = 0; i < features_; ++i )
-	{
-		if ( i == 0 )
-			featureFields.append("m00, ");
-		else
-		{
-			std::stringstream order;
-			order << j;
-
-			featureFields.append("m" + order.str() +"0, ");
-			featureFields.append("m0" + order.str() +", ");
-			
-			++i;
-		}
-		
-		++j;
-	}
-	
 	// Build the query section regarding the feature values
 	std::string featureValues;
 	for( unsigned int i = 0; i < sample.first.size(); ++i )
@@ -168,7 +134,7 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 		pqxx::connection connection("dbname=" + database_ + " user=" + username_ + " password=" + password_);
 		pqxx::work dbTransaction(connection, "addSampleTransaction");
 
-		pqxx::result registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureFields + "id_class) VALUES\
+		pqxx::result registers = dbTransaction.exec("INSERT INTO samples (id_sample, " + featureColumns_ + ", id_class) VALUES\
 										(DEFAULT, " + featureValues + idClass.str() + ") RETURNING id_sample");
 		
 		unsigned int id_sample;

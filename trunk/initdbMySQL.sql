@@ -7,7 +7,7 @@ ENGINE=InnoDB,
 COMMENT = 'Classes of characters assumed in classification stage.';
 
 
-CREATE TABLE samples (
+CREATE TABLE IF NOT EXISTS samples (
 	id_sample	int unsigned		AUTO_INCREMENT PRIMARY KEY,
 	m00			double				NOT NULL DEFAULT 0.0,
 	m10			double				NOT NULL DEFAULT 0.0,

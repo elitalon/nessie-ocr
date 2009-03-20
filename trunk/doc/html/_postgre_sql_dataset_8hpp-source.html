@@ -73,35 +73,37 @@ window.onload = initDynSections;
 <a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012 
-<a name="l00019"></a><a class="code" href="class_postgre_sql_dataset.html">00019</a> <span class="keyword">class </span><a class="code" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database.">PostgreSqlDataset</a> : <span class="keyword">public</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>, <span class="keyword">private</span> boost::noncopyable
-<a name="l00020"></a>00020 {
-<a name="l00021"></a>00021     <span class="keyword">public</span>:
-<a name="l00022"></a>00022     
-<a name="l00032"></a>00032         <span class="keyword">explicit</span> <a class="code" href="class_postgre_sql_dataset.html#99261cb23ebf08f888826b4fd44bc23c" title="Constructor.">PostgreSqlDataset</a> (<span class="keyword">const</span> std::string&amp; database, <span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password);
-<a name="l00033"></a>00033 
-<a name="l00035"></a>00035         <span class="keyword">virtual</span> <a class="code" href="class_postgre_sql_dataset.html#5c447dbd74f97569d9ac556e47188242" title="Destructor.">~PostgreSqlDataset</a> ();
-<a name="l00036"></a>00036 
-<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#57481d14c68e08d46794aaeaaae35d25" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
-<a name="l00045"></a>00045 
-<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053     <span class="keyword">private</span>:
-<a name="l00054"></a>00054         
-<a name="l00055"></a>00055         std::string                             database_;      
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057         std::string                             username_;      
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059         std::string                             password_;      
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         std::vector&lt;unsigned int&gt;               sampleIds_;     
-<a name="l00062"></a>00062         
-<a name="l00063"></a>00063         std::map&lt;unsigned int, unsigned int&gt;    classIds_;      
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00049"></a><a class="code" href="class_postgre_sql_dataset.html">00049</a> <span class="keyword">class </span><a class="code" href="class_postgre_sql_dataset.html" title="Dataset built by retrieving the data from a PostgreSQL database.">PostgreSqlDataset</a> : <span class="keyword">public</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>, <span class="keyword">private</span> boost::noncopyable
+<a name="l00050"></a>00050 {
+<a name="l00051"></a>00051     <span class="keyword">public</span>:
+<a name="l00052"></a>00052     
+<a name="l00062"></a>00062         <span class="keyword">explicit</span> <a class="code" href="class_postgre_sql_dataset.html#99261cb23ebf08f888826b4fd44bc23c" title="Constructor.">PostgreSqlDataset</a> (<span class="keyword">const</span> std::string&amp; database, <span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password);
+<a name="l00063"></a>00063 
+<a name="l00065"></a>00065         <span class="keyword">virtual</span> <a class="code" href="class_postgre_sql_dataset.html#5c447dbd74f97569d9ac556e47188242" title="Destructor.">~PostgreSqlDataset</a> ();
+<a name="l00066"></a>00066 
+<a name="l00074"></a>00074         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#57481d14c68e08d46794aaeaaae35d25" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
+<a name="l00075"></a>00075 
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <span class="keyword">private</span>:
+<a name="l00084"></a>00084         
+<a name="l00085"></a>00085         std::string                             database_;          
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         std::string                             username_;          
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         std::string                             password_;          
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         std::vector&lt;unsigned int&gt;               sampleIds_;         
+<a name="l00092"></a>00092         
+<a name="l00093"></a>00093         std::map&lt;unsigned int, unsigned int&gt;    classIds_;          
+<a name="l00094"></a>00094         
+<a name="l00095"></a>00095         std::string                             featureColumns_;    
+<a name="l00096"></a>00096 };
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#endif</span>
+<a name="l00099"></a>00099 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 20 17:28:57 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 20 18:57:32 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

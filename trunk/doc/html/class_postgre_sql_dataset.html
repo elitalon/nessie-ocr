@@ -81,7 +81,7 @@ Collaboration diagram for PostgreSqlDataset:</div>
 <div class="dynsection">
 <p><center><img src="class_postgre_sql_dataset__coll__graph.png" border="0" usemap="#_postgre_sql_dataset__coll__map" alt="Collaboration graph"></center>
 <map name="_postgre_sql_dataset__coll__map">
-<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,5,128,243"><area shape="rect" title="STL class." alt="" coords="555,87,627,161"></map>
+<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,5,128,242"><area shape="rect" title="STL class." alt="" coords="555,86,627,161"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -103,6 +103,24 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#e43f7840d1a8152d02d72cb01ecbed06"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+The database must contain two tables named <em>samples</em> and <em>classes</em>. The table <em>classes</em> stores the characters that can be recognized. It must contain three columns: id_class, label and asciiCode. The <em>id_class</em> column must be an integer and will act as the primary key. The <em>label</em> column must be a variable-length array of two characters. Finally, the <em>asciiCode</em> column must be an integer. A posible definition for this table is acomplished with the following SQL statement:<p>
+<div class="fragment"><pre class="fragment">        CREATE TABLE classes (
+            id_class    serial      PRIMARY KEY,
+            label       varchar(2)  NOT NULL,
+            asciiCode   integer     NOT NULL
+        );
+</pre></div><p>
+The table <em>samples</em> stores the features of every trained sample using the classifier. It must contain a column named <em>id_sample</em>, an integer which will act as the primary key, a foreign key named <em>id_class</em> which points to the 'classes' table, and a variable number of feature columns, which are numbers whose only constraint is that their name must have the letter <em>m</em> and two digits from 0 to 9. A posible definition for this table is acomplished with the following SQL statement:<p>
+<div class="fragment"><pre class="fragment">        CREATE TABLE samples (
+            id_sample   serial  PRIMARY KEY,
+            m00         numeric NOT NULL DEFAULT 0.0,
+            m10         numeric NOT NULL DEFAULT 0.0,
+            m01         numeric NOT NULL DEFAULT 0.0,
+            m20         numeric NOT NULL DEFAULT 0.0,
+            m02         numeric NOT NULL DEFAULT 0.0,
+            id_class    integer REFERENCES classes
+        );
+</pre></div><p>
 <dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-13 </dd></dl>
@@ -222,7 +240,7 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 20 17:28:59 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 20 18:57:35 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

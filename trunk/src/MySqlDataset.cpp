@@ -16,7 +16,8 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 	username_(username),
 	password_(password),
 	sampleIds_(0),
-	classIds_()
+	classIds_(),
+	featureColumns_()
 {
 	try
 	{
@@ -25,16 +26,26 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 		
 		// Get the number of features stored in the database
 		mysqlpp::Query query(&connection);
-		mysqlpp::StoreQueryResult registers = query.store("SELECT count(*)\
+		mysqlpp::StoreQueryResult registers = query.store("SELECT column_name\
 														FROM information_schema.columns\
 														WHERE table_name = 'samples' AND column_name LIKE 'm__'");
 
 		if ( !registers )
-			throw NessieException ("The table 'samples' has not any features columns.");
+			throw NessieException ("The table 'samples' has not any feature column.");
 		
-		features_ = registers[0][0];
+		features_ = registers.num_rows();
 		if ( features_ == 0 )
-			throw NessieException ("The table 'samples' has not any features columns.");
+			throw NessieException ("The table 'samples' has not any feature column.");
+		
+		// Build the query section regarding the feature columns
+		for ( size_t i = 0; i < registers.num_rows(); ++i )
+		{
+			mysqlpp::Row row(registers[i]);
+			
+			std::string column(row[0]);
+			featureColumns_.append(column + ",");
+		}
+		featureColumns_.erase(featureColumns_.end() - 1);
 
 		// Get the classes
 		query.reset();
@@ -57,29 +68,8 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 			classIds_.insert(ClassIdRegister(asciiCode, idClass));
 		}
 
-		// Build the query section regarding the feature columns
-		std::string featureFields;
-		unsigned int j = 0;
-		for( unsigned int i = 0; i < features_; ++i )
-		{
-			if ( i == 0 )
-				featureFields.append("m00, ");
-			else
-			{
-				std::stringstream order;
-				order << j;
-
-				featureFields.append("m" + order.str() +"0, ");
-				featureFields.append("m0" + order.str() +", ");
-
-				++i;
-			}
-
-			++j;
-		}
-
 		// Get the samples
-		mysqlpp::UseQueryResult useRegisters = query.use("SELECT id_sample, " + featureFields + "asciiCode\
+		mysqlpp::UseQueryResult useRegisters = query.use("SELECT id_sample, " + featureColumns_ + ", asciiCode\
 								FROM samples s, classes c\
 								WHERE s.id_class = c.id_class");
 		
@@ -124,27 +114,6 @@ void MySqlDataset::addSample (const Sample& sample)
 	if ( sample.first.size() != features_ )
 		throw NessieException ("MySqlDataset::addSample() : The number of features in the sample is different from the one expected by the dataset.");
 
-	// Build the query section regarding the feature columns
-	std::string featureFields;
-	unsigned int j = 0;
-	for( unsigned int i = 0; i < features_; ++i )
-	{
-		if ( i == 0 )
-			featureFields.append("m00, ");
-		else
-		{
-			std::stringstream order;
-			order << j;
-
-			featureFields.append("m" + order.str() +"0, ");
-			featureFields.append("m0" + order.str() +", ");
-			
-			++i;
-		}
-		
-		++j;
-	}
-	
 	// Build the query section regarding the feature values
 	std::string featureValues;
 	for( unsigned int i = 0; i < sample.first.size(); ++i )
@@ -163,7 +132,7 @@ void MySqlDataset::addSample (const Sample& sample)
 		mysqlpp::Connection connection (database_.data(), 0, username_.data(), password_.data());
 		mysqlpp::Transaction dbTransaction(connection);
 
-		mysqlpp::Query query(connection.query("INSERT INTO samples (id_sample, " + featureFields + "id_class) VALUES\
+		mysqlpp::Query query(connection.query("INSERT INTO samples (id_sample, " + featureColumns_ + ", id_class) VALUES\
 											(DEFAULT, " + featureValues + idClass.str() + ")"));
 		mysqlpp::SimpleResult registers = query.execute();
 		
