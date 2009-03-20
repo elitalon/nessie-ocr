@@ -53,14 +53,14 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 				if ( j%2 == 1 )
 				{
 					if ( order == 1 )
-						fv.at(j) = imageMoment(*i, order, 0) / fv.at(0);
+						fv.at(j) = 0.0; //imageMoment(*i, order, 0) / fv.at(0);
 					else
 						fv.at(j) = imageMoment(*i, order, 0, fv.at(1), fv.at(2));
 				}
 				else
 				{
 					if ( order == 1 )
-						fv.at(j) = imageMoment(*i, 0, order) / fv.at(0);
+						fv.at(j) = 0.0; //imageMoment(*i, 0, order) / fv.at(0);
 					else
 						fv.at(j) = imageMoment(*i, 0, order, fv.at(1), fv.at(2));
 				}

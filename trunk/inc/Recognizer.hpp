@@ -66,6 +66,8 @@ class Recognizer
 		explicit Recognizer (Dataset* const dataset);
 
 		///	@brief	Destructor.
+		///
+		///	@post	The dataset is also destroyed and its memory deallocated.
 		~Recognizer ();
 
 		/// @brief	Get the dataset that is being used in classification and training.
@@ -88,7 +90,7 @@ class Recognizer
 		/// @return An array of integers, each one representing the position where a blank space must be inserted when building the text in postprocessing.
 		std::vector<unsigned int> spaceLocations () const;
 
-		/// @brief	Get an array with the patterns built in the last feature extraction stage executed.
+		/// @brief	Get an array of patterns built in the last feature extraction stage executed.
 		///
 		/// @return An array of Pattern objects.
 		std::vector<Pattern> patterns () const;
@@ -124,14 +126,6 @@ class Recognizer
 		///	@post		An array of FeatureVector objects becomes available through the Recognizer::featureVectors() method.
 		void doFeatureExtraction ();
 
-		/// @brief		Execute the feature extraction stage.
-		///	@details	The <em>feature extraction</em> measures the attributes of patterns that are most pertinent to a given classification task.
-		/// 
-		/// @param		regions	A list of regions from which extract the patterns and its feature vectors.
-		///
-		///	@post		An array of FeatureVector objects becomes available through the Recognizer::featureVectors() method.
-		void doFeatureExtraction (const std::list<Region>& regions);
-
 		/// @brief		Execute the classification stage. 
 		///	@details	The feature vectors of input patterns are mapped onto points in a feature space and assigned to a class of characters.
 		///
@@ -141,30 +135,12 @@ class Recognizer
 		///	@post		An array of characters becomes available through the Recognizer::characters() method.
 		void doClassification (const ClassificationParadigm& paradigm);
 
-		/// @brief		Execute the classification stage.
-		///	@details	The feature vectors of input patterns are mapped onto points in a feature space and assigned to a class of characters.
-		/// 
-		/// @param		featureVectors	An array of feature vectors that identifies characters to be classified.
-		/// @param		paradigm		Paradigm that must be used to classify the patterns found in the press clip.
-		/// 
-		///	@post		An array of characters becomes available through the Recognizer::characters() method.
-		void doClassification (const std::vector<FeatureVector>& featureVectors, const ClassificationParadigm& paradigm);
-
 		/// @brief		Execute the postprocessing stage.
 		///	@details	Characters <em>postprocessing</em> builds a meaningful text by inserting blank spaces between characters to separate the words.
 		///
 		///	@pre		The Recognizer::doClassification() method must have been previously executed. 
 		///	@post		A Text object with the result becomes available through the Recognizer::text() method.
 		void doPostprocessing ();
-
-		/// @brief		Execute the postprocessing stage.
-		///	@details	Characters <em>postprocessing</em> builds a meaningful text by inserting blank spaces between characters to separate the words.
-		/// 
-		/// @param		characters		An array of characters to be postprocessed to build the final text.
-		/// @param		spaceLocations	Positions in the text where blanks spaces should be inserted.
-		/// 
-		///	@post		A Text object with the result becomes available through the Recognizer::text() method.
-		void doPostprocessing (const std::vector<std::string>& characters, const std::vector<unsigned int>& spaceLocations);
 
 		/// @brief		Extract the text from a press clip.
 		///	@details	This method executes sequentially all the recognition stages: preprocessing, feature extraction, classification and postprocessing.

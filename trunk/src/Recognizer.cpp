@@ -11,8 +11,8 @@
 #include "Classifier.hpp"
 #include <string>
 #include <iostream>
-#include <sstream>
 #include <boost/regex.hpp>
+#include <iomanip>
 
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
@@ -93,28 +93,11 @@ void Recognizer::doFeatureExtraction ()
 	featureExtractor.computeMoments(dataset_->features());
 	featureVectors_ = featureExtractor.featureVectors();
 
-	unsigned int patternNo = 0;
-	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
-	{
-		std::ostringstream ostr;
-		ostr << patternNo++;
-		std::string filename("pattern");
-		filename.append(ostr.str().append(".bmp"));
-		i->writeToOutputImage(filename,true);
-	}
-
 	try
 	{
 		featureExtractorStatistics_.reset( new FeatureExtractorStatistics(featureExtractor.statistics()) );
 	}
 	catch (...) {}
-};
-
-
-void Recognizer::doFeatureExtraction (const std::list<Region>& regions)
-{
-	regions_ = regions;
-	doFeatureExtraction();
 };
 
 
@@ -131,13 +114,6 @@ void Recognizer::doClassification (const ClassificationParadigm& paradigm)
 		classifierStatistics_.reset( new ClassifierStatistics(classifier.statistics()) );
 	}
 	catch (...) {}
-};
-
-
-void Recognizer::doClassification (const std::vector<FeatureVector>& featureVectors, const ClassificationParadigm& paradigm)
-{
-	featureVectors_ = featureVectors;
-	doClassification(paradigm);
 };
 
 
@@ -160,14 +136,6 @@ void Recognizer::doPostprocessing ()
 	std::string brokenText(text_.content());
 	const boost::regex pattern("- ");
 	text_.content(regex_replace(brokenText, pattern, ""));
-};
-
-
-void Recognizer::doPostprocessing (const std::vector<std::string>& characters, const std::vector<unsigned int>& spaceLocations)
-{
-	characters_ = characters;
-	spaceLocations_ = spaceLocations;
-	doPostprocessing();
 };
 
 
@@ -259,16 +227,24 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 	if ( characters_.size() == referenceText.size() )
 	{
 		unsigned int patternNo = 0;
-	
+		double hits = 0.0;
+		double misses = 0.0;
+
 		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 		{
 			try
 			{
 				unsigned int code;
 				if ( *i == referenceText.at(patternNo) )
+				{
 					code = dataset_->code(*i);
+					hits += 1.0;
+				}
 				else
+				{
 					code = dataset_->code(referenceText.at(patternNo));
+					misses += 1.0;
+				}
 				
 				if ( code != 256 )
 					dataset_->addSample(Sample(featureVectors_.at(patternNo), code));
@@ -280,6 +256,9 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 
 			++patternNo;
 		}
+
+		std::cout << "Hit rate  : " << std::setprecision(2) << std::fixed << (hits / characters_.size()) * 100 << "%" << std::endl;
+		std::cout << "Miss rate : " << std::setprecision(2) << std::fixed << (misses / characters_.size()) * 100  << "%" << std::endl;
 	}
 };
 

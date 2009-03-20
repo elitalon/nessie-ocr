@@ -627,7 +627,7 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 		{
 			unsigned int distanceBetweenRegions = i->leftBorderColumn() - j->rightBorderColumn() + 1;
 
-			if ( distanceBetweenRegions > meanInterRegionSpace )
+			if ( distanceBetweenRegions > (meanInterRegionSpace * 1.5) )
 				spaces.push_back(spaceLocation);
 		}
 

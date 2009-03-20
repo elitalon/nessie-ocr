@@ -11,6 +11,7 @@
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <memory>
 #include <string>
 
@@ -103,8 +104,8 @@ int main (int argc, char *argv[])
 				if ( passedOptions.count("password") )
 					password = passedOptions["password"].as<std::string>();
 
-				//dataset.reset( new PostgreSqlDataset(dbName, username, password) );
-				dataset.reset( new MySqlDataset(dbName, username, password) );
+				dataset.reset( new PostgreSqlDataset(dbName, username, password) );
+				//dataset.reset( new MySqlDataset(dbName, username, password) );
 			}
 			else
 			{
@@ -154,6 +155,18 @@ int main (int argc, char *argv[])
 			std::cout << "Text extracted: " << recon.text().content() << " (" << recon.text().size() << ")" << std::endl;
 		}
 
+		/*
+		unsigned int patternNo = 0;
+		std::vector<Pattern> patterns = recon.patterns();
+		for ( std::vector<Pattern>::iterator i = patterns.begin(); i != patterns.end(); ++i )
+		{
+			std::ostringstream ostr;
+			ostr << patternNo++;
+			std::string filename("pattern");
+			filename.append(ostr.str().append(".bmp"));
+			i->writeToOutputImage(filename,true);
+		}
+		*/
 		recon.printStatistics();
 	}
 	catch (std::exception &e)

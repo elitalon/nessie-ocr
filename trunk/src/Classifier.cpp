@@ -5,7 +5,7 @@
 #include <boost/timer.hpp>
 #include <utility>
 #include <algorithm>
-
+#include <cmath>
 
 Classifier::Classifier (const std::vector<FeatureVector>& featureVectors)
 :	statistics_(),
@@ -51,14 +51,14 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto
 
 	for( unsigned int i = 0; i < dataset->size(); ++i )
 	{
-		double distance		= featureVector.computeEuclideanDistance( dataset->at(i).first );
+		double distance		= featureVector.computeEuclideanDistance(dataset->at(i).first);
 		unsigned int code	= dataset->at(i).second;
 
 		neighbours.push_back(Neighbour(distance, code));
 	}
 	std::sort(neighbours.begin(), neighbours.end());
 	
-	const unsigned int KNN = (neighbours.size() >= 5 )?5:neighbours.size();
+	const unsigned int KNN = (neighbours.size() >= ceil(sqrt(dataset->size())) )?ceil(sqrt(dataset->size())):neighbours.size();
 
 	std::vector<unsigned int> kNearestNeighbours(0);
 	kNearestNeighbours.reserve(KNN);
