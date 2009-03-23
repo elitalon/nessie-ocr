@@ -3,7 +3,7 @@
 
 #include "MySqlDataset.hpp"
 #include "NessieException.hpp"
-#include <mysql++.h>
+#include <mysql++/mysql++.h>
 #include <utility>
 #include <sstream>
 #include <exception>
@@ -23,7 +23,7 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 	{
 		mysqlpp::Connection connection (database_.data(), 0, username_.data(), password_.data());
 		mysqlpp::Transaction dbTransaction(connection);
-		
+
 		// Get the number of features stored in the database
 		mysqlpp::Query query(&connection);
 		mysqlpp::StoreQueryResult registers = query.store("SELECT column_name\
@@ -32,16 +32,16 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 
 		if ( !registers )
 			throw NessieException ("The table 'samples' has not any feature column.");
-		
+
 		features_ = registers.num_rows();
 		if ( features_ == 0 )
 			throw NessieException ("The table 'samples' has not any feature column.");
-		
+
 		// Build the query section regarding the feature columns
 		for ( size_t i = 0; i < registers.num_rows(); ++i )
 		{
 			mysqlpp::Row row(registers[i]);
-			
+
 			std::string column(row[0]);
 			featureColumns_.append(column + ",");
 		}
@@ -59,7 +59,7 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 		for ( size_t i = 0; i < registers.num_rows(); ++i )
 		{
 			mysqlpp::Row row(registers[i]);
-			
+
 			unsigned int idClass = row[0];
 			std::string label(row[1]);
 			unsigned int asciiCode = row[2];
@@ -72,7 +72,7 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 		mysqlpp::UseQueryResult useRegisters = query.use("SELECT id_sample, " + featureColumns_ + ", asciiCode\
 								FROM samples s, classes c\
 								WHERE s.id_class = c.id_class");
-		
+
 		size_ = 0;
 		while( mysqlpp::Row row = useRegisters.fetch_row() )
 		{
@@ -88,7 +88,7 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 			samples_.push_back(Sample(fv, asciiCode));
 			++size_;
 		}
-		
+
 		if ( connection.errnum() )
 			throw NessieException ("The table 'samples' could not be accessed.");
 	}
@@ -122,11 +122,11 @@ void MySqlDataset::addSample (const Sample& sample)
 		value << sample.first.at(i);
 		featureValues.append(value.str() + ", ");
 	}
-	
+
 	// Get the class ID and its ASCII code
 	std::stringstream idClass;
 	idClass << classIds_[sample.second];
-	
+
 	try
 	{
 		mysqlpp::Connection connection (database_.data(), 0, username_.data(), password_.data());
@@ -135,14 +135,14 @@ void MySqlDataset::addSample (const Sample& sample)
 		mysqlpp::Query query(connection.query("INSERT INTO samples (id_sample, " + featureColumns_ + ", id_class) VALUES\
 											(DEFAULT, " + featureValues + idClass.str() + ")"));
 		mysqlpp::SimpleResult registers = query.execute();
-		
+
 		if ( !registers )
 			throw NessieException("");
 
 		samples_.push_back(sample);
 		sampleIds_.push_back(registers.insert_id());
 		size_ = samples_.size();
-		
+
 		dbTransaction.commit();
 	}
 	catch (const std::exception& e)
@@ -159,10 +159,10 @@ void MySqlDataset::removeSample (const unsigned int& n)
 	{
 		std::stringstream id_sample;
 		id_sample << sampleIds_.at(n);
-		
+
 		mysqlpp::Connection connection (database_.data(), 0, username_.data(), password_.data());
 		mysqlpp::Transaction dbTransaction(connection);
-		
+
 		mysqlpp::Query query(connection.query("DELETE FROM samples WHERE id_sample = " + id_sample.str()));
 		if ( !query.exec() )
 			throw NessieException("");

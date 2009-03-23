@@ -3,13 +3,11 @@
 
 #include "Preprocessor.hpp"
 #include <boost/timer.hpp>
-#include <vector>
 #include <set>
 #include <algorithm>
 #include <numeric>
 #include <functional>
 #include <cmath>
-#include <iostream>
 
 
 /// @brief		Computes the optimal threshold value in a press clip following the Sonka's algorithm.
@@ -363,7 +361,7 @@ void Preprocessor::extractRegions ()
 		statistics_.nRegionsAfterMerging(regions_.size());
 	}
 	catch(...) {}	
-
+	
 	regions_.sort();
 
 	try

@@ -67,7 +67,7 @@ int main (int argc, char *argv[])
 	
 
 		// Dataset option
-		if ( !passedOptions.count("filename") && !passedOptions.count("database") )
+		if ( !passedOptions.count("database") && !passedOptions.count("text") )
 		{
 			std::cout << "The classification dataset was not specified." << std::endl;
 			return 1;
@@ -152,10 +152,10 @@ int main (int argc, char *argv[])
 		else
 		{
 			recon.extractText(pressClip, ClassificationParadigm::knn());
-			std::cout << "Text extracted: " << recon.text().content() << " (" << recon.text().size() << ")" << std::endl;
+			std::cout << "Text extracted    : " << recon.text().content() << std::endl;
+			std::cout << "No. of characters : " << recon.text().size() << std::endl;
 		}
 
-		/*
 		unsigned int patternNo = 0;
 		std::vector<Pattern> patterns = recon.patterns();
 		for ( std::vector<Pattern>::iterator i = patterns.begin(); i != patterns.end(); ++i )
@@ -166,7 +166,6 @@ int main (int argc, char *argv[])
 			filename.append(ostr.str().append(".bmp"));
 			i->writeToOutputImage(filename,true);
 		}
-		*/
 		recon.printStatistics();
 	}
 	catch (std::exception &e)

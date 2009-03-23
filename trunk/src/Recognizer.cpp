@@ -120,22 +120,25 @@ void Recognizer::doClassification (const ClassificationParadigm& paradigm)
 void Recognizer::doPostprocessing ()
 {
 	text_.clear();
-	
-	for ( std::vector<unsigned int>::reverse_iterator i = spaceLocations_.rbegin(); i != spaceLocations_.rend(); ++i )
+
+	if ( characters_.size() > 0 )
 	{
-		try
+		for ( std::vector<unsigned int>::reverse_iterator i = spaceLocations_.rbegin(); i != spaceLocations_.rend(); ++i )
 		{
-			characters_.insert(characters_.begin() + *i, " ");
+			try
+			{
+				characters_.insert(characters_.begin() + *i, " ");
+			}
+			catch (...) {}
 		}
-		catch (...) {}
+
+		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
+			text_.addCharacter(*i);
+
+		std::string brokenText(text_.content());
+		const boost::regex pattern("- ");
+		text_.content(regex_replace(brokenText, pattern, ""));
 	}
-	
-	for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
-		text_.addCharacter(*i);
-		
-	std::string brokenText(text_.content());
-	const boost::regex pattern("- ");
-	text_.content(regex_replace(brokenText, pattern, ""));
 };
 
 

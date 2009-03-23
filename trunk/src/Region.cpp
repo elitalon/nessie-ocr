@@ -110,14 +110,14 @@ Region Region::operator+ (const Region& region) const
 
 bool Region::operator< (const Region& region) const
 {
-	if ( this->bottomBorderRow() < region.topBorderRow() )
+	if ( this->bottomBorderRow_ < region.topBorderRow_ )
 		return true;
 	else
 	{
-		if ( region.bottomBorderRow() < this->topBorderRow() )
+		if ( region.bottomBorderRow_ < this->topBorderRow_ )
 			return false;
 		else
-			return ( this->topLeftmostPixelCoordinates().second < region.topLeftmostPixelCoordinates().second );
+			return ( this->topLeftmostPixelCoordinates_.second < region.topLeftmostPixelCoordinates_.second );
 	}
 };
 
