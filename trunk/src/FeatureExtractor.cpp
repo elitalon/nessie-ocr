@@ -47,7 +47,7 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		double xc = imageMoment(*i, 1, 0) / area;
 		double yc = imageMoment(*i, 0, 1) / area;
 		
-		double eta11 = imageMoment(*i, 1, 1, xc, yc) / pow(area, ((1+1)/2) + 1);
+		double eta22 = imageMoment(*i, 2, 2, xc, yc) / pow(area, ((2+2)/2) + 1);
 		double eta20 = imageMoment(*i, 2, 0, xc, yc) / pow(area, ((2+0)/2) + 1);
 		double eta02 = imageMoment(*i, 0, 2, xc, yc) / pow(area, ((0+2)/2) + 1);
 		double eta21 = imageMoment(*i, 2, 1, xc, yc) / pow(area, ((2+1)/2) + 1);
@@ -57,7 +57,7 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
 		double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
 
-		fv.at(0) = eta11;
+		fv.at(0) = eta22;
 		fv.at(1) = eta20;
 		fv.at(2) = eta02;
 		fv.at(3) = eta21;
@@ -66,31 +66,6 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		fv.at(6) = eta03;
 		fv.at(7) = eta40;
 		fv.at(8) = eta04;
-		/*
-		for( unsigned int j = 0; j < n; ++j )
-		{
-			if ( j == 0 )
-				fv.at(j) = imageMoment(*i, j, j);
-			else
-			{
-				unsigned int order = floor((j + 1.0) / 2.0);
-				
-				if ( j%2 == 1 )
-				{
-					if ( order == 1 )
-						fv.at(j) = 0.0; //imageMoment(*i, order, 0) / fv.at(0);
-					else
-						fv.at(j) = imageMoment(*i, order, 0, fv.at(1), fv.at(2));
-				}
-				else
-				{
-					if ( order == 1 )
-						fv.at(j) = 0.0; //imageMoment(*i, 0, order) / fv.at(0);
-					else
-						fv.at(j) = imageMoment(*i, 0, order, fv.at(1), fv.at(2));
-				}
-			}
-		}*/
 		
 		featureVectors_.push_back(fv);
 	}

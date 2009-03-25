@@ -45,7 +45,7 @@ Pattern::Pattern (const Region& region)
 		}
 		view.sync();
 		regionImage.syncPixels();
-		regionImage.sample( Magick::Geometry(planeSize_, planeSize_) );
+		regionImage.scale( Magick::Geometry(planeSize_, planeSize_) );
 
 		// Preprocess the normalized region
 		Clip clip(regionImage, 0, 0, regionImage.rows(), regionImage.columns());

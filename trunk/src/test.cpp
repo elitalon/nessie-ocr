@@ -62,7 +62,10 @@ int main (int argc, char *argv[])
 			std::cout << "The image file was not specified." << std::endl;
 			return 1;
 		}
-		Magick::Image image( passedOptions["image"].as<std::string>() );
+		Magick::Image image;
+		image.resolutionUnits(Magick::PixelsPerInchResolution);
+		image.density("800x800");
+		image.read( passedOptions["image"].as<std::string>() );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 	
 
