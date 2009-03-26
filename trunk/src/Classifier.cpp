@@ -21,6 +21,8 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 
 	if ( dataset->size() > 0 )
 	{
+		characters_.clear();
+
 		for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 		{
 			unsigned int code;

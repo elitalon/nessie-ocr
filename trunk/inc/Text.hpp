@@ -33,6 +33,16 @@ class Text
 		/// @return	Number of characters in the text.
 		const unsigned int& size () const;	
 
+		/// @brief	Get the average height of characters in text.
+		/// 
+		/// @return	The average height of characters in pixels.
+		const double& averageCharacterHeight () const;
+
+		/// @brief	Set the average height of characters in text.
+		/// 
+		/// @param	height	Average height of characters in pixels.
+		void averageCharacterHeight (const double& height);
+
 		/// @brief	Get the character at given position.
 		/// 
 		/// @param	n	Position within the text.
@@ -73,9 +83,11 @@ class Text
 
 	private:
 
-		std::string		content_;	///< Characters of text.
+		std::string		content_;					///< Characters of text.
 		
-		unsigned int	size_;		///< Size of text.
+		unsigned int	size_;						///< Size of text.
+
+		double			averageCharacterHeight_;	///< Average character height.
 };
 
 
@@ -87,6 +99,16 @@ inline const std::string& Text::content () const
 inline const unsigned int& Text::size () const
 {
 	return size_;
+};
+
+inline const double& Text::averageCharacterHeight () const
+{
+	return averageCharacterHeight_;
+};
+
+inline void Text::averageCharacterHeight (const double& height)
+{
+	averageCharacterHeight_ = height;
 };
 
 inline void Text::clear ()

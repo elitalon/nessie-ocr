@@ -35,7 +35,8 @@ unsigned char computeOtsuOptimalThreshold (const Clip& clip);
 Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
 	statistics_(),
-	regions_(0)
+	regions_(0),
+	averageCharacterHeight_(0.0)
 {
 	try
 	{
@@ -361,7 +362,11 @@ void Preprocessor::extractRegions ()
 		statistics_.nRegionsAfterMerging(regions_.size());
 	}
 	catch(...) {}	
-	
+
+	for( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
+		averageCharacterHeight_ += i->height();
+	averageCharacterHeight_ = averageCharacterHeight_ / regions_.size();
+
 	regions_.sort();
 
 	try

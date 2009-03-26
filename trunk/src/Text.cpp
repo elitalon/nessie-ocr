@@ -7,7 +7,8 @@
 
 Text::Text ()
 :	content_(""),
-	size_(0)
+	size_(0),
+	averageCharacterHeight_(0)
 {};
 
 

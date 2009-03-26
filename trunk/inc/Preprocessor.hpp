@@ -99,6 +99,11 @@ class Preprocessor
 		/// @return An array of numbers, each one represents the position where a blank space must be inserted when building the text in further post-processing.
 		std::vector<unsigned int> findSpacesBetweenWords ();
 
+		/// @brief	Computes the average character height.
+		/// 
+		/// @return	The average character height in pixels.
+		const double& averageCharacterHeight () const;
+
 	private:
 
 		/// @typedef	LineDelimiter.
@@ -107,11 +112,13 @@ class Preprocessor
 		/// @date		2009-01-19
 		typedef std::pair<unsigned int, unsigned int> LineDelimiter;
 
-		Clip					clip_;			///< The press clip over which the preprocessing algorithms are applied.
+		Clip					clip_;						///< The press clip over which the preprocessing algorithms are applied.
 
-		PreprocessorStatistics	statistics_;	///< Statistics about the execution of algorithms.
+		PreprocessorStatistics	statistics_;				///< Statistics about the execution of algorithms.
 
-		std::list<Region>		regions_;		///< A list of regions that represents every set of ink pixels found in the press clip.
+		std::list<Region>		regions_;					///< A list of regions that represents every set of ink pixels found in the press clip.
+		
+		double					averageCharacterHeight_;	///< Average character height.
 
 		/// @brief		Find every pair of rows that delimits a line of regions as if they were characters in a text.
 		///
@@ -138,6 +145,11 @@ inline const PreprocessorStatistics& Preprocessor::statistics () const
 inline const std::list<Region>& Preprocessor::regions() const
 {
 	return regions_;
+};
+
+inline const double& Preprocessor::averageCharacterHeight () const
+{
+	return averageCharacterHeight_;
 };
 
 #endif

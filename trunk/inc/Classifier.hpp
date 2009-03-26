@@ -31,8 +31,15 @@ class Classifier
 
 		///	@brief	Constructor.
 		///
-		///	@param	featureVectors	An array of feature vectors to classify.
+		///	@param	featureVectors	An array of feature vectors.
 		explicit Classifier (const std::vector<FeatureVector>& featureVectors);
+
+		/// @brief	Set the feature vectors to classify.
+		/// 
+		/// @param	vectors	An array of feature vectors.
+		///
+		///	@post	The characters previously recognized are cleared.
+		void featureVectors (const std::vector<FeatureVector>& vectors);
 
 		///	@brief	Get the characters associated with the feature vectors passed in constructor.
 		/// 
@@ -73,6 +80,12 @@ class Classifier
 		Classifier& operator=(const Classifier&);
 };
 
+
+inline void Classifier::featureVectors (const std::vector<FeatureVector>& vectors)
+{
+	featureVectors_ = vectors;
+	characters_.clear();
+};
 
 inline const std::vector<std::string>& Classifier::characters () const
 {

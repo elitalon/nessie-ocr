@@ -74,7 +74,7 @@ Collaboration diagram for Text:</div>
 <div class="dynsection">
 <p><center><img src="class_text__coll__graph.png" border="0" usemap="#_text__coll__map" alt="Collaboration graph"></center>
 <map name="_text__coll__map">
-<area shape="rect" title="STL class." alt="" coords="5,7,77,81"></map>
+<area shape="rect" title="STL class." alt="" coords="172,6,244,81"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -94,6 +94,12 @@ Collaboration diagram for Text:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#a05912a202cab83c508537e19b16dae1">size</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the size of the text in characters.  <a href="#a05912a202cab83c508537e19b16dae1"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#fe3c78f0d38165bb47df3749bdb7749f">averageCharacterHeight</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average height of characters in text.  <a href="#fe3c78f0d38165bb47df3749bdb7749f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#e0a06fbc5938aee8e6abf25a5573dd4b">averageCharacterHeight</a> (const double &amp;height)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average height of characters in text.  <a href="#e0a06fbc5938aee8e6abf25a5573dd4b"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text.html#bbc13c13dd5831d49186708275c23938">at</a> (const unsigned int &amp;n) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the character at given position.  <a href="#bbc13c13dd5831d49186708275c23938"></a><br></td></tr>
@@ -212,6 +218,51 @@ Collaboration diagram for Text:</div>
 
 </div>
 </div><p>
+<a class="anchor" name="e0a06fbc5938aee8e6abf25a5573dd4b"></a><!-- doxytag: member="Text::averageCharacterHeight" ref="e0a06fbc5938aee8e6abf25a5573dd4b" args="(const double &amp;height)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Text::averageCharacterHeight           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>height</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Average height of characters in pixels. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="fe3c78f0d38165bb47df3749bdb7749f"></a><!-- doxytag: member="Text::averageCharacterHeight" ref="fe3c78f0d38165bb47df3749bdb7749f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; Text::averageCharacterHeight           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The average height of characters in pixels. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="7dacbbf887593bff5a5e45cde06dca71"></a><!-- doxytag: member="Text::clear" ref="7dacbbf887593bff5a5e45cde06dca71" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -324,7 +375,7 @@ Collaboration diagram for Text:</div>
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 23 20:53:01 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Mar 26 17:02:03 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

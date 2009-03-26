@@ -17,6 +17,7 @@
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
 :	dataset_(dataset),
+	clip_(0),
 	regions_(0),
 	spaceLocations_(0),
 	patterns_(0),
@@ -74,6 +75,8 @@ void Recognizer::doPreprocessing (const Clip& pressClip)
 
 	regions_ = preprocessor.regions();
 	spaceLocations_ = preprocessor.findSpacesBetweenWords();
+	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
+	clip_.reset(new Clip(pressClip));
 
 	try
 	{

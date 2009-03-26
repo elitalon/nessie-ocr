@@ -1,4 +1,5 @@
-<area shape="rect" href="$_region_8hpp.html" title="Declaration of Region class." alt="" coords="117,82,203,106">
-<area shape="rect" href="$_pattern_8hpp.html" title="Declaration of Pattern class." alt="" coords="227,82,309,106">
-<area shape="rect" href="$_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="333,82,453,106">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="477,82,544,106">
+<area shape="rect" href="$_classification_paradigm_8hpp.html" title="Declaration of ClassificationParadigm class." alt="" coords="117,82,288,106">
+<area shape="rect" href="$_region_8hpp.html" title="Declaration of Region class." alt="" coords="312,82,397,106">
+<area shape="rect" href="$_pattern_8hpp.html" title="Declaration of Pattern class." alt="" coords="421,82,504,106">
+<area shape="rect" href="$_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="528,82,648,106">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="672,82,739,106">

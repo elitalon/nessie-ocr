@@ -8,9 +8,9 @@
 class Clip;
 class Statistics;
 class Dataset;
-class ClassificationParadigm;
 #include <list>
 #include <vector>
+#include "ClassificationParadigm.hpp"
 #include "Region.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
@@ -75,20 +75,10 @@ class Recognizer
 		/// @return	A pointer's constant reference to the internal Dataset object.
 		const std::auto_ptr<Dataset>& dataset () const;
 		
-		/// @brief	Set the dataset that will be used in classification and training.
+		/// @brief	Get the last clip used during recognition.
 		/// 
-		/// @param	dataset	A pointer's reference to the internal Dataset object.
-		void dataset (std::auto_ptr<Dataset>& dataset);
-
-		/// @brief	Get the regions found in the last preprocessing stage executed.
-		///
-		/// @return A list of Region objects.
-		std::list<Region> regions () const;
-
-		/// @brief	Get the positions of blank spaces found in the last preprocessing stage executed.
-		///
-		/// @return An array of integers, each one representing the position where a blank space must be inserted when building the text in postprocessing.
-		std::vector<unsigned int> spaceLocations () const;
+		/// @return	A Clip object.
+		const Clip& clip () const;
 
 		/// @brief	Get an array of patterns built in the last feature extraction stage executed.
 		///
@@ -100,15 +90,15 @@ class Recognizer
 		///	@return	An array of FeatureVector objects.
 		std::vector<FeatureVector> featureVectors () const;
 
-		/// @brief	Get the characters found in the last classification stage executed.
-		/// 
-		/// @return An array of strings, where each string constitutes a single character.
-		std::vector<std::string> characters () const;
-
 		/// @brief	Get the text found, either in the last classification stage or the last postprocessing stage.
 		///
 		/// @return A Text object with the recognized characters forming a meaningful content.
 		const Text& text () const;
+
+		/// @brief	Set the dataset that will be used in classification and training.
+		/// 
+		/// @param	dataset	A pointer's reference to the internal Dataset object.
+		void dataset (std::auto_ptr<Dataset>& dataset);
 
 		/// @brief		Execute the preprocessing stage.
 		/// @details	Image and data <em>preprocessing</em> enhances and cleans the press clip up, and extracts the regions of interest.
@@ -133,7 +123,7 @@ class Recognizer
 		///
 		///	@pre		The Recognizer::doFeatureExtraction() method must have been previously executed. 
 		///	@post		An array of characters becomes available through the Recognizer::characters() method.
-		void doClassification (const ClassificationParadigm& paradigm);
+		void doClassification (const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
 
 		/// @brief		Execute the postprocessing stage.
 		///	@details	Characters <em>postprocessing</em> builds a meaningful text by inserting blank spaces between characters to separate the words.
@@ -149,7 +139,7 @@ class Recognizer
 		///	@param		paradigm	Paradigm that must be used to classify the patterns found in the press clip.
 		///
 		///	@post		A Text object with the result becomes available through the Recognizer::text() method.
-		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm);
+		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
 
 		/// @brief	Execute an interactive training of the classifier, prompting the user to confirm each classification decision.
 		/// 
@@ -157,7 +147,7 @@ class Recognizer
 		/// @param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
 		/// 
 		///	@post	The internal dataset is updated according to the user responses, e.g. new samples might be added.
-		void trainClassifier (const Clip& pressClip, const ClassificationParadigm& paradigm);
+		void trainClassifier (const Clip& pressClip, const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
 
 		/// @brief	Execute an automatic training of the classifier, comparing each classification decision with a reference text.
 		/// 
@@ -166,7 +156,7 @@ class Recognizer
 		/// @param	paradigm		Paradigm that must be used to classify the patterns found in the press clip.
 		/// 
 		///	@post	The internal dataset is updated according to the user responses, e.g. new samples might be added.
-		void trainClassifier (const Clip& pressClip, const std::string& text, const ClassificationParadigm& paradigm);
+		void trainClassifier (const Clip& pressClip, const std::string& text, const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
 
 		/// @brief	Print detailed statistical data about every stage of the recognition process.
 		///
@@ -176,6 +166,8 @@ class Recognizer
 	private:
 
 		std::auto_ptr<Dataset>		dataset_;						///< Dataset to be used during the classification stage.
+
+		std::auto_ptr<Clip>			clip_;							///< Press clip whose text must be recognized.
 
 		std::list<Region>			regions_;						///< List of regions obtained after the preprocessing stage.
 
@@ -211,14 +203,9 @@ inline void Recognizer::dataset (std::auto_ptr<Dataset>& dataset)
 	dataset_ = dataset;
 };
 
-inline std::list<Region> Recognizer::regions () const
+inline const Clip& Recognizer::clip () const
 {
-	return regions_; 
-};
-
-inline std::vector<unsigned int> Recognizer::spaceLocations () const
-{
-	return spaceLocations_;
+	return *clip_.get();
 };
 
 inline std::vector<Pattern> Recognizer::patterns () const
@@ -229,11 +216,6 @@ inline std::vector<Pattern> Recognizer::patterns () const
 inline std::vector<FeatureVector> Recognizer::featureVectors () const
 {
 	return featureVectors_;
-};
-
-inline std::vector<std::string> Recognizer::characters () const
-{
-	return characters_;
 };
 
 inline const Text& Recognizer::text () const
