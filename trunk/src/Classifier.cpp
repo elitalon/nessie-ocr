@@ -39,7 +39,6 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 	try
 	{
 		statistics_.classificationTime(timer.elapsed());
-		statistics_.charactersFound(characters_.size());
 	}
 	catch(...) {}
 };

@@ -48,11 +48,11 @@ void FeatureExtractorStatistics::print () const
 	std::cout << "Feature extraction stage statistics" << std::endl;
 
 	if ( patternsBuildingTime_.get() != 0 )
-		std::cout << "  - Patterns building time       : " << *patternsBuildingTime_.get() << std::endl;
+		std::cout << "  - Patterns building time        : " << *patternsBuildingTime_.get() << " s" << std::endl;
 
 	if ( momentsComputingTime_.get() != 0 )
-		std::cout << "  - Moments computing time       : " << *momentsComputingTime_.get() << std::endl;
+		std::cout << "  - Moments computing time        : " << *momentsComputingTime_.get()  << " s" << std::endl;
 
-	std::cout << "  - Total elapsed time           : " << totalTime_ << std::endl;
+	std::cout << "  - Total elapsed time            : " << totalTime_  << " s" << std::endl;
 };
 

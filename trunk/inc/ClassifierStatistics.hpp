@@ -30,11 +30,6 @@ class ClassifierStatistics : public Statistics
 		///	@brief	Assignment operator.
 		ClassifierStatistics& operator= (const ClassifierStatistics& statistics);
 
-		///	@brief	Set the number of characters found during the classification process.
-		///
-		///	@param	n	Number of characters.
-		void charactersFound (const unsigned int& n);
-
 		///	@brief	Set the elapsed time while classifying the feature vectors.
 		///
 		///	@param	elapsedTime	Elapsed time in seconds.
@@ -44,8 +39,6 @@ class ClassifierStatistics : public Statistics
 		void print () const;
 
 	private:
-
-		std::auto_ptr<unsigned int>	charactersFound_;		///< Number of characters found during the classification process.
 
 		std::auto_ptr<double>		classificationTime_;	///< Elapsed time while classifing the feature vectors.
 
@@ -62,11 +55,6 @@ inline void ClassifierStatistics::updateTotalTime ()
 
 	if ( classificationTime_.get() != 0 )
 		totalTime_ += *classificationTime_.get();
-};
-
-inline void ClassifierStatistics::charactersFound (const unsigned int& n)
-{
-	charactersFound_.reset(new unsigned int(n));
 };
 
 inline void ClassifierStatistics::classificationTime (const double& elapsedTime)

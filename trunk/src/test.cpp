@@ -59,7 +59,7 @@ int main (int argc, char *argv[])
 		// The image filename is mandatory.
 		if ( !passedOptions.count("image") )
 		{
-			std::cout << "The image file was not specified." << std::endl;
+			std::cerr << "The image file was not specified." << std::endl;
 			return 1;
 		}
 		Magick::Image image;
@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
 		// Dataset option
 		if ( !passedOptions.count("database") && !passedOptions.count("text") )
 		{
-			std::cout << "The classification dataset was not specified." << std::endl;
+			std::cerr << "The classification dataset was not specified." << std::endl;
 			return 1;
 		}
 
@@ -86,7 +86,7 @@ int main (int argc, char *argv[])
 			}
 			else
 			{
-				std::cout << "The plain text file was not correctly specified." << std::endl;
+				std::cerr << "The plain text file was not correctly specified." << std::endl;
 				return 1;
 			}
 		}
@@ -112,7 +112,7 @@ int main (int argc, char *argv[])
 			}
 			else
 			{
-				std::cout << "The database name was not correctly specified." << std::endl;
+				std::cerr << "The database name was not correctly specified." << std::endl;
 				return 1;
 			}
 		}
@@ -133,7 +133,7 @@ int main (int argc, char *argv[])
 						std::ifstream inputFile( passedOptions["file"].as<std::string>().data() );
 						if ( not inputFile.is_open() or not inputFile.good() )
 						{
-							std::cout << "The file passed for training is not valid." << std::endl;
+							std::cerr << "The file passed for training is not valid." << std::endl;
 							return 1;
 						}
 
@@ -173,7 +173,7 @@ int main (int argc, char *argv[])
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 		return 1;
 	}
 	return 0;

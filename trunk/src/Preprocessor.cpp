@@ -15,7 +15,7 @@
 /// value between the mean value of background's gray level and the mean value of objects' gray level, starting from an initial threshold that is
 /// computed from the four corners of the press clip.
 
-/// 
+///
 /// @return		A unsigned char with the optimal threshold value in a scale of [0,255].
 /// @param		clip	The input press clip.
 unsigned char computeSonkaOptimalThreshold (const Clip& clip);
@@ -42,7 +42,7 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 	{
 		statistics_.clipSize(pressClip.size());
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
@@ -56,16 +56,62 @@ void Preprocessor::applyGlobalThresholding ()
 	{
 		statistics_.optimalThreshold(threshold);
 	}
-	catch(...) {}	
+	catch(...) {}
 
+	// Find background's average gray level
+	unsigned int backgroundAverageGrayLevel = 0, nPixels = 0;
+	for( unsigned int i = 0; (i < 3) && (i < clip_.height()); ++i )
+	{
+		for( unsigned int j = 0; (j < 3) && (j < clip_.width()); ++j )
+		{
+			backgroundAverageGrayLevel += clip_(i,j);
+			++nPixels;
+		}
+
+		for( unsigned int j = clip_.width()-1; (j > clip_.width()-4) && (j > 0); --j )
+		{
+			backgroundAverageGrayLevel += clip_(i,j);
+			++nPixels;
+		}
+	}
+
+	for( unsigned int i = clip_.height()-1; (i > clip_.height()-4) && (i > 0); --i )
+	{
+		for( unsigned int j = 0; (j < 3) && (j < clip_.width()); ++j )
+		{
+			backgroundAverageGrayLevel += clip_(i,j);
+			++nPixels;
+		}
+
+		for( unsigned int j = clip_.width()-1; (j > clip_.width()-4) && (j > 0); --j )
+		{
+			backgroundAverageGrayLevel += clip_(i,j);
+			++nPixels;
+		}
+	}
+	backgroundAverageGrayLevel = backgroundAverageGrayLevel / nPixels;
+	
+	unsigned char ink, background;
+	if ( backgroundAverageGrayLevel <= threshold )
+	{
+		ink = 0;
+		background = 1;
+	}
+	else
+	{
+		ink = 1;
+		background = 0;
+	}
+
+	// Apply threshold
 	for ( unsigned int i = 0; i < clip_.height(); ++i )
 	{
 		for ( unsigned int j = 0; j < clip_.width(); ++j )
 		{
 			if ( clip_(i,j) <= threshold)
-				clip_(i,j) = 1;	// ink
+				clip_(i,j) = ink;
 			else
-				clip_(i,j) = 0;	// background
+				clip_(i,j) = background;
 		}
 	}
 
@@ -73,7 +119,7 @@ void Preprocessor::applyGlobalThresholding ()
 	{
 		statistics_.globalThresholdingTime(timer.elapsed());
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
@@ -202,7 +248,7 @@ void Preprocessor::applyTemplateFilters ()
 	{
 		statistics_.templateFilteringTime(timer.elapsed());
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
@@ -264,7 +310,7 @@ void Preprocessor::applyAveragingFilters ()
 	{
 		statistics_.averagingFilteringTime(timer.elapsed());
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
@@ -342,26 +388,10 @@ void Preprocessor::extractRegions ()
 			regions_.push_back(region);
 		}
 	}
-	try
-	{
-		statistics_.nRegionsBeforeMerging(regions_.size());
-	}
-	catch(...) {}	
 
 	std::list<LineDelimiter> delimiters(0);
 	findLineDelimiters(visited, delimiters);
-	try
-	{
-		statistics_.nLineDelimiters(delimiters.size());
-	}
-	catch(...) {}	
-
 	mergeVerticallyOverlappedRegions (delimiters);
-	try
-	{
-		statistics_.nRegionsAfterMerging(regions_.size());
-	}
-	catch(...) {}	
 
 	for( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
 		averageCharacterHeight_ += i->height();
@@ -371,9 +401,12 @@ void Preprocessor::extractRegions ()
 
 	try
 	{
-		statistics_.regionsExtractionTime(timer.elapsed());
+		statistics_.nCharacters(regions_.size());
+		statistics_.nLines(delimiters.size());
+		statistics_.averageCharacterHeight(averageCharacterHeight_);
+		statistics_.segmentationTime(timer.elapsed());
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
@@ -571,28 +604,21 @@ void Preprocessor::correctSlanting ()
 			}
 		}
 	}
-	try
-	{
-		statistics_.slantingCorrectionTime(timer.elapsed());;
-	}
-	catch(...) {}	
 
 	unsigned int meanSlantAngle = 0.0;
 	std::accumulate(angleEstimations.begin(), angleEstimations.end(), meanSlantAngle);
 	meanSlantAngle = meanSlantAngle / static_cast<double>(regions_.size());
 	try
 	{
-		statistics_.slantAngleEstimation(meanSlantAngle);
+		statistics_.slantAngle(meanSlantAngle);
+		statistics_.slantingCorrectionTime(timer.elapsed());;
 	}
-	catch(...) {}	
+	catch(...) {}
 };
 
 
 std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 {
-	boost::timer timer;
-	timer.restart();
-
 	// Compute the mean inter-character space
 	std::list<Region>::const_iterator i = regions_.begin();
 	advance (i, 1);
@@ -610,9 +636,9 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 	meanInterRegionSpace = meanInterRegionSpace / regions_.size();
 	try
 	{
-		statistics_.meanInterRegionSpace( meanInterRegionSpace );
+		statistics_.averageInterCharacterSpace( meanInterRegionSpace );
 	}
-	catch(...) {}	
+	catch(...) {}
 
 	// Traverse the list of regions detecting a space between two regions greater than the mean space.
 	i = regions_.begin();
@@ -639,13 +665,6 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 		++spaceLocation;
 	}
 
-	try
-	{
-		statistics_.spacesBetweenWords(spaces.size());
-		statistics_.spacesLocationFindingTime(timer.elapsed());
-	}
-	catch(...) {}	
-	
 	return spaces;
 };
 

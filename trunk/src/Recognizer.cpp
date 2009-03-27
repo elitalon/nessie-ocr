@@ -211,7 +211,7 @@ void Recognizer::trainClassifier (const Clip& pressClip, const ClassificationPar
 		}
 		catch(std::exception& e)
 		{
-			std::cout << "The training of sample " << regionNo << " could not be completed: " << e.what() << std::endl;
+			std::cerr << "The training of sample " << regionNo << " could not be completed: " << e.what() << std::endl;
 		}
 		std::cout << std::endl;
 		
@@ -257,7 +257,7 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 			}
 			catch(std::exception& e)
 			{
-				std::cout << "The training of sample " << patternNo << " could not be completed. " << e.what() << std::endl;
+				std::cerr << "The training of sample " << patternNo << " could not be completed. " << e.what() << std::endl;
 			}
 
 			++patternNo;

@@ -28,8 +28,6 @@
 ///
 /// @see	Clip, PreprocessorStatistics, Region
 ///
-///	@todo	Implement a method to correct the slope of text lines with respect to the x-axis that prevents the lines to be completely horizontal or vertical (skewness).
-///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
 class Preprocessor
@@ -62,9 +60,6 @@ class Preprocessor
 		/// @details	The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
 		/// gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm
 		/// also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.
-		///
-		/// @todo		Avoid the assumption made about background's gray level. Sometimes a press clip background comes in dark gray levels and the ink in light
-		/// ones. Some function should be developed to automatically make the right decision.
 		///
 		/// @post		Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1.
 		void applyGlobalThresholding ();

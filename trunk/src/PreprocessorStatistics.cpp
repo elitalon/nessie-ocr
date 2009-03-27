@@ -9,19 +9,17 @@ PreprocessorStatistics::PreprocessorStatistics ()
 :	Statistics(),	// Invoke base class constructor
 	clipSize_(0),
 	optimalThreshold_(0),
+	nCharacters_(0),
+	nLines_(0),
+	slantAngle_(0),
+	averageInterCharacterSpace_(0),
+	averageCharacterHeight_(0),
 	globalThresholdingTime_(0),
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
+	segmentationTime_(0),
 	thinningTime_(0),
-	nRegionsBeforeMerging_(0),
-	nLineDelimiters_(0),
-	nRegionsAfterMerging_(0),
-	regionsExtractionTime_(0),
-	slantAngleEstimation_(0),
-	slantingCorrectionTime_(0),
-	spacesBetweenWords_(0),
-	meanInterRegionSpace_(0),
-	spacesLocationFindingTime_(0)
+	slantingCorrectionTime_(0)
 {};
 
 
@@ -29,25 +27,38 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 :	Statistics(statistics),	// Invoke base class copy constructor
 	clipSize_(0),
 	optimalThreshold_(0),
+	nCharacters_(0),
+	nLines_(0),
+	slantAngle_(0),
+	averageInterCharacterSpace_(0),
+	averageCharacterHeight_(0),
 	globalThresholdingTime_(0),
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
+	segmentationTime_(0),
 	thinningTime_(0),
-	nRegionsBeforeMerging_(0),
-	nLineDelimiters_(0),
-	nRegionsAfterMerging_(0),
-	regionsExtractionTime_(0),
-	slantAngleEstimation_(0),
-	slantingCorrectionTime_(0),
-	spacesBetweenWords_(0),
-	meanInterRegionSpace_(0),
-	spacesLocationFindingTime_(0)
+	slantingCorrectionTime_(0)
 {
 	if ( statistics.clipSize_.get() != 0 )
 		clipSize_.reset(new unsigned int(*statistics.clipSize_.get()));
 
 	if ( statistics.optimalThreshold_.get() != 0 )
 		optimalThreshold_.reset(new unsigned char(*statistics.optimalThreshold_.get()));
+
+	if ( statistics.nCharacters_.get() != 0 )
+		nCharacters_.reset(new unsigned int(*statistics.nCharacters_.get()));
+
+	if ( statistics.nLines_.get() != 0 )
+		nLines_.reset(new unsigned int(*statistics.nLines_.get()));
+
+	if ( statistics.slantAngle_.get() != 0 )
+		slantAngle_.reset(new double(*statistics.slantAngle_.get()));
+
+	if ( statistics.averageInterCharacterSpace_.get() != 0 )
+		averageInterCharacterSpace_.reset(new double(*statistics.averageInterCharacterSpace_.get()));
+	
+	if ( statistics.averageCharacterHeight_.get() != 0 )
+		averageCharacterHeight_.reset(new double(*statistics.averageCharacterHeight_.get()));
 
 	if ( statistics.globalThresholdingTime_.get() != 0 )
 		globalThresholdingTime_.reset(new double(*statistics.globalThresholdingTime_.get()));
@@ -58,35 +69,14 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	if ( statistics.averagingFilteringTime_.get() != 0 )
 		averagingFilteringTime_.reset(new double(*statistics.averagingFilteringTime_.get()));
 
+	if ( statistics.segmentationTime_.get() != 0 )
+		segmentationTime_.reset(new double(*statistics.segmentationTime_.get()));
+
 	if ( statistics.thinningTime_.get() != 0 )
 		thinningTime_.reset(new double(*statistics.thinningTime_.get()));
 
-	if ( statistics.nRegionsBeforeMerging_.get() != 0 )
-		nRegionsBeforeMerging_.reset(new unsigned int(*statistics.nRegionsBeforeMerging_.get()));
-
-	if ( statistics.nLineDelimiters_.get() != 0 )
-		nLineDelimiters_.reset(new unsigned int(*statistics.nLineDelimiters_.get()));
-
-	if ( statistics.nRegionsAfterMerging_.get() != 0 )
-		nRegionsAfterMerging_.reset(new unsigned int(*statistics.nRegionsAfterMerging_.get()));
-
-	if ( statistics.regionsExtractionTime_.get() != 0 )
-		regionsExtractionTime_.reset(new double(*statistics.regionsExtractionTime_.get()));
-
-	if ( statistics.slantAngleEstimation_.get() != 0 )
-		slantAngleEstimation_.reset(new double(*statistics.slantAngleEstimation_.get()));
-
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
-
-	if ( statistics.spacesBetweenWords_.get() != 0 )
-		spacesBetweenWords_.reset(new unsigned int(*statistics.spacesBetweenWords_.get()));
-
-	if ( statistics.meanInterRegionSpace_.get() != 0 )
-		meanInterRegionSpace_.reset(new double(*statistics.meanInterRegionSpace_.get()));
-
-	if ( statistics.spacesLocationFindingTime_.get() != 0 )
-		spacesLocationFindingTime_.reset(new double(*statistics.spacesLocationFindingTime_.get()));
 };
 
 
@@ -103,6 +93,21 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 	if ( statistics.optimalThreshold_.get() != 0 )
 		optimalThreshold_.reset(new unsigned char(*statistics.optimalThreshold_.get()));
 
+	if ( statistics.nCharacters_.get() != 0 )
+		nCharacters_.reset(new unsigned int(*statistics.nCharacters_.get()));
+
+	if ( statistics.nLines_.get() != 0 )
+		nLines_.reset(new unsigned int(*statistics.nLines_.get()));
+
+	if ( statistics.slantAngle_.get() != 0 )
+		slantAngle_.reset(new double(*statistics.slantAngle_.get()));
+
+	if ( statistics.averageInterCharacterSpace_.get() != 0 )
+		averageInterCharacterSpace_.reset(new double(*statistics.averageInterCharacterSpace_.get()));
+
+	if ( statistics.averageCharacterHeight_.get() != 0 )
+		averageCharacterHeight_.reset(new double(*statistics.averageCharacterHeight_.get()));
+
 	if ( statistics.globalThresholdingTime_.get() != 0 )
 		globalThresholdingTime_.reset(new double(*statistics.globalThresholdingTime_.get()));
 
@@ -112,35 +117,14 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 	if ( statistics.averagingFilteringTime_.get() != 0 )
 		averagingFilteringTime_.reset(new double(*statistics.averagingFilteringTime_.get()));
 
+	if ( statistics.segmentationTime_.get() != 0 )
+		segmentationTime_.reset(new double(*statistics.segmentationTime_.get()));
+
 	if ( statistics.thinningTime_.get() != 0 )
 		thinningTime_.reset(new double(*statistics.thinningTime_.get()));
 
-	if ( statistics.nRegionsBeforeMerging_.get() != 0 )
-		nRegionsBeforeMerging_.reset(new unsigned int(*statistics.nRegionsBeforeMerging_.get()));
-
-	if ( statistics.nLineDelimiters_.get() != 0 )
-		nLineDelimiters_.reset(new unsigned int(*statistics.nLineDelimiters_.get()));
-
-	if ( statistics.nRegionsAfterMerging_.get() != 0 )
-		nRegionsAfterMerging_.reset(new unsigned int(*statistics.nRegionsAfterMerging_.get()));
-
-	if ( statistics.regionsExtractionTime_.get() != 0 )
-		regionsExtractionTime_.reset(new double(*statistics.regionsExtractionTime_.get()));
-
-	if ( statistics.slantAngleEstimation_.get() != 0 )
-		slantAngleEstimation_.reset(new double(*statistics.slantAngleEstimation_.get()));
-
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
-
-	if ( statistics.spacesBetweenWords_.get() != 0 )
-		spacesBetweenWords_.reset(new unsigned int(*statistics.spacesBetweenWords_.get()));
-
-	if ( statistics.meanInterRegionSpace_.get() != 0 )
-		meanInterRegionSpace_.reset(new double(*statistics.meanInterRegionSpace_.get()));
-
-	if ( statistics.spacesLocationFindingTime_.get() != 0 )
-		spacesLocationFindingTime_.reset(new double(*statistics.spacesLocationFindingTime_.get()));
 
 	return *this;
 };
@@ -151,50 +135,44 @@ void PreprocessorStatistics::print () const
 	std::cout << std::endl << "Preprocessing stage statistics" << std::endl;
 	
 	if ( clipSize_.get() != 0 )
-		std::cout << "  - Number of pixels             : " << *clipSize_.get() << std::endl;
-
-	if ( averagingFilteringTime_.get() != 0 )
-		std::cout << "  - Averaging filtering time     : " << *averagingFilteringTime_.get() << std::endl;
+		std::cout << "  - Clip size                     : " << *clipSize_.get() << " pixels" << std::endl;
 
 	if ( optimalThreshold_.get() != 0 )
-		std::cout << "  - Optimal threshold            : " << static_cast<unsigned int>(*optimalThreshold_) << std::endl;
+		std::cout << "  - Optimal threshold             : " << static_cast<unsigned int>(*optimalThreshold_) << std::endl;
+
+	if ( nCharacters_.get() != 0 )
+		std::cout << "  - Number of characters          : " << *nCharacters_.get() << std::endl;
+
+	if ( nLines_.get() != 0 )
+		std::cout << "  - Number of lines               : " << *nLines_.get() << std::endl;
+
+	if ( slantAngle_.get() != 0 )
+		std::cout << "  - Slant angle                   : " << *slantAngle_.get() << " degrees" << std::endl;
+
+	if ( averageInterCharacterSpace_.get() != 0 )
+		std::cout << "  - Average inter-character space : " << *averageInterCharacterSpace_.get() << " pixels" << std::endl;
+
+	if ( averageCharacterHeight_.get() != 0 )
+		std::cout << "  - Average character height      : " << *averageCharacterHeight_.get() << " pixels" << std::endl;
 
 	if ( globalThresholdingTime_.get() != 0 )
-		std::cout << "  - Global thresholding time     : " << *globalThresholdingTime_.get() << std::endl;
+		std::cout << "  - Global thresholding time      : " << *globalThresholdingTime_.get() << " s" << std::endl;
+
+	if ( averagingFilteringTime_.get() != 0 )
+		std::cout << "  - Averaging filtering time      : " << *averagingFilteringTime_.get() << " s" << std::endl;
 
 	if ( templateFilteringTime_.get() != 0 )
-		std::cout << "  - Template filtering time      : " << *templateFilteringTime_.get() << std::endl;
+		std::cout << "  - Template filtering time       : " << *templateFilteringTime_.get() << " s" << std::endl;
+
+	if ( segmentationTime_.get() != 0 )
+		std::cout << "  - Segmentation time             : " << *segmentationTime_.get() << " s" << std::endl;
 
 	if ( thinningTime_.get() != 0 )
-		std::cout << "  - Thinning time                : " << *thinningTime_.get() << std::endl;
-
-	if ( nRegionsAfterMerging_.get() != 0 )
-		std::cout << "  - Regions before merging       : " << *nRegionsBeforeMerging_.get() << std::endl;
-
-	if ( nLineDelimiters_.get() != 0 )
-		std::cout << "  - Line delimiters              : " << *nLineDelimiters_.get() << std::endl;
-
-	if ( nRegionsBeforeMerging_.get() != 0 )
-		std::cout << "  - Regions after merging        : " << *nRegionsAfterMerging_.get() << std::endl;
-
-	if ( regionsExtractionTime_.get() != 0 )
-		std::cout << "  - Regions extraction time      : " << *regionsExtractionTime_.get() << std::endl;
-
-	if ( slantAngleEstimation_.get() != 0 )
-		std::cout << "  - Slant angle estimation       : " << *slantAngleEstimation_.get() << std::endl;
+		std::cout << "  - Thinning time                 : " << *thinningTime_.get() << " s" << std::endl;
 
 	if ( slantingCorrectionTime_.get() != 0 )
-		std::cout << "  - Slanting correction time     : " << *slantingCorrectionTime_.get() << std::endl;
+		std::cout << "  - Slanting correction time      : " << *slantingCorrectionTime_.get() << " s" << std::endl;
 
-	if ( spacesBetweenWords_.get() != 0 )
-		std::cout << "  - Spaces between words found   : " << *spacesBetweenWords_.get() << std::endl;
-
-	if ( meanInterRegionSpace_.get() != 0 )
-		std::cout << "  - Mean inter-region space      : " << *meanInterRegionSpace_.get() << std::endl;
-
-	if ( spacesLocationFindingTime_.get() != 0 )
-		std::cout << "  - Spaces location finding time : " << *spacesLocationFindingTime_.get() << std::endl;
-
-	std::cout << "  - Total elapsed time           : " << totalTime_ << std::endl;
+	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
 };
 
