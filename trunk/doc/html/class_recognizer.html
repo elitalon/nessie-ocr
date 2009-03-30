@@ -74,7 +74,7 @@ Collaboration diagram for Recognizer:</div>
 <div class="dynsection">
 <p><center><img src="class_recognizer__coll__graph.png" border="0" usemap="#_recognizer__coll__map" alt="Collaboration graph"></center>
 <map name="_recognizer__coll__map">
-<area shape="rect" href="class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="635,6,808,257"></map>
+<area shape="rect" href="class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="480,7,653,257"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -84,18 +84,15 @@ Collaboration diagram for Recognizer:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#54d76296a60e1da4153661471275655c">Recognizer</a> (std::auto_ptr&lt; <a class="el" href="class_dataset.html">Dataset</a> &gt; &amp;dataset)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#54d76296a60e1da4153661471275655c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#51e2151519fffb22b04ac85af98271e2">Recognizer</a> (<a class="el" href="class_dataset.html">Dataset</a> *const dataset)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#d1ef31a02edfb32b60d1da1ef2161631">Recognizer</a> (<a class="el" href="class_dataset.html">Dataset</a> *dataset)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#51e2151519fffb22b04ac85af98271e2"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#d1ef31a02edfb32b60d1da1ef2161631"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#a0035e71951a13fe00764a54913d0e5a">~Recognizer</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor.  <a href="#a0035e71951a13fe00764a54913d0e5a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const std::auto_ptr&lt; <a class="el" href="class_dataset.html">Dataset</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#501523c090cef30900935bf523637a40">dataset</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the dataset that is being used in classification and training.  <a href="#501523c090cef30900935bf523637a40"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="class_clip.html">Clip</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#f32f11b6c0d9c8098889ea283d059edc">clip</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the last clip used during recognition.  <a href="#f32f11b6c0d9c8098889ea283d059edc"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; <a class="el" href="class_pattern.html">Pattern</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961">patterns</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get an array of patterns built in the last feature extraction stage executed.  <a href="#9b0880cecc41e460184e4ea43b64a961"></a><br></td></tr>
@@ -167,6 +164,7 @@ In the end, <em>postprocessing</em> builds a meaningful text by inserting blank 
   </table>
 </dl>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd><em>dataset</em> must not be a null pointer.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The input dataset is released and set to null. The <a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> object is managed internally and destroyed with the <a class="el" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a> object.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
@@ -175,14 +173,14 @@ In the end, <em>postprocessing</em> builds a meaningful text by inserting blank 
 
 </div>
 </div><p>
-<a class="anchor" name="51e2151519fffb22b04ac85af98271e2"></a><!-- doxytag: member="Recognizer::Recognizer" ref="51e2151519fffb22b04ac85af98271e2" args="(Dataset *const dataset)" -->
+<a class="anchor" name="d1ef31a02edfb32b60d1da1ef2161631"></a><!-- doxytag: member="Recognizer::Recognizer" ref="d1ef31a02edfb32b60d1da1ef2161631" args="(Dataset *dataset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Recognizer::Recognizer           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_dataset.html">Dataset</a> *const &nbsp;</td>
+          <td class="paramtype"><a class="el" href="class_dataset.html">Dataset</a> *&nbsp;</td>
           <td class="paramname"> <em>dataset</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [explicit]</code></td>
@@ -198,7 +196,7 @@ In the end, <em>postprocessing</em> builds a meaningful text by inserting blank 
   </table>
 </dl>
 <dl class="pre" compact><dt><b>Precondition:</b></dt><dd><em>dataset</em> must not be a null pointer.</dd></dl>
-<dl class="warning" compact><dt><b>Warning:</b></dt><dd><em>dataset</em> is not copied by allocating new memory, but owned internally. Thus, be careful with deallocating the memory using external pointer. However, also notice that when a <a class="el" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a> object is destroyed, the internal dataset is also destroyed and its memory deallocated.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The input pointer is set to null. The <a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> object is managed internally and destroyed with the <a class="el" href="class_recognizer.html" title="Manager of the optical character recognition process.">Recognizer</a> object.</dd></dl>
 <dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_nessie_exception.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
@@ -228,26 +226,6 @@ In the end, <em>postprocessing</em> builds a meaningful text by inserting blank 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="f32f11b6c0d9c8098889ea283d059edc"></a><!-- doxytag: member="Recognizer::clip" ref="f32f11b6c0d9c8098889ea283d059edc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="class_clip.html">Clip</a> &amp; Recognizer::clip           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="class_clip.html" title="Press clip of a newspaper page.">Clip</a> object. </dd></dl>
-
-</div>
-</div><p>
 <a class="anchor" name="a3cc57e5411d081783f3023fd5b7d0e3"></a><!-- doxytag: member="Recognizer::dataset" ref="a3cc57e5411d081783f3023fd5b7d0e3" args="(std::auto_ptr&lt; Dataset &gt; &amp;dataset)" -->
 <div class="memitem">
 <div class="memproto">
@@ -590,7 +568,7 @@ This method executes sequentially all the recognition stages: preprocessing, fea
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Mar 27 16:51:14 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 16:49:12 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

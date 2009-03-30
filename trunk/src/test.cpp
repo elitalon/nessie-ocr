@@ -156,7 +156,6 @@ int main (int argc, char *argv[])
 		{
 			recon.extractText(pressClip, ClassificationParadigm::knn());
 			std::cout << "Text extracted    : " << recon.text().content() << std::endl;
-			std::cout << "No. of characters : " << recon.text().size() << std::endl;
 		}
 
 		unsigned int patternNo = 0;

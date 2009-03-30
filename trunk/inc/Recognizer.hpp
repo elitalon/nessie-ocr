@@ -50,6 +50,8 @@ class Recognizer
 		///
 		///	@pre		<em>dataset</em> must not be a null pointer.
 		///
+		///	@post		The input dataset is released and set to null. The Dataset object is managed internally and destroyed with the Recognizer object.
+		///
 		///	@exception	NessieException
 		explicit Recognizer (std::auto_ptr<Dataset>& dataset);
 		
@@ -59,11 +61,10 @@ class Recognizer
 		///
 		///	@pre		<em>dataset</em> must not be a null pointer.
 		///
-		///	@warning	<em>dataset</em> is not copied by allocating new memory, but owned internally. Thus, be careful with deallocating the memory using
-		///	external pointer. However, also notice that when a Recognizer object is destroyed, the internal dataset is also destroyed and its memory deallocated.
+		///	@post		The input pointer is set to null. The Dataset object is managed internally and destroyed with the Recognizer object.
 		///
 		///	@exception	NessieException
-		explicit Recognizer (Dataset* const dataset);
+		explicit Recognizer (Dataset* dataset);
 
 		///	@brief	Destructor.
 		///
@@ -75,11 +76,6 @@ class Recognizer
 		/// @return	A pointer's constant reference to the internal Dataset object.
 		const std::auto_ptr<Dataset>& dataset () const;
 		
-		/// @brief	Get the last clip used during recognition.
-		/// 
-		/// @return	A Clip object.
-		const Clip& clip () const;
-
 		/// @brief	Get an array of patterns built in the last feature extraction stage executed.
 		///
 		/// @return An array of Pattern objects.
@@ -167,8 +163,6 @@ class Recognizer
 
 		std::auto_ptr<Dataset>		dataset_;						///< Dataset to be used during the classification stage.
 
-		std::auto_ptr<Clip>			clip_;							///< Press clip whose text must be recognized.
-
 		std::list<Region>			regions_;						///< List of regions obtained after the preprocessing stage.
 
 		std::vector<unsigned int>	spaceLocations_;				///< Array of space locations in text, useful in the postprocessing stage.
@@ -201,11 +195,6 @@ inline const std::auto_ptr<Dataset>& Recognizer::dataset () const
 inline void Recognizer::dataset (std::auto_ptr<Dataset>& dataset)
 {
 	dataset_ = dataset;
-};
-
-inline const Clip& Recognizer::clip () const
-{
-	return *clip_.get();
 };
 
 inline std::vector<Pattern> Recognizer::patterns () const

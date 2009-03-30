@@ -32,7 +32,7 @@ Pattern::Pattern (const Region& region)
 	{
 		// Normalize region using a Magick++ object
 		Magick::Image regionImage(Magick::Geometry(region.width(), region.height()), Magick::ColorGray(1.0));
-		regionImage.type( Magick::GrayscaleType );
+		regionImage.type( Magick::BilevelType );
 
 		Magick::Pixels view(regionImage);
 		Magick::PixelPacket *originPixel = view.get(0, 0, region.width(), region.height());
@@ -45,14 +45,12 @@ Pattern::Pattern (const Region& region)
 		}
 		view.sync();
 		regionImage.syncPixels();
-		regionImage.scale( Magick::Geometry(planeSize_, planeSize_) );
+		regionImage.sample( Magick::Geometry(planeSize_, planeSize_) );
 
 		// Preprocess the normalized region
 		Clip clip(regionImage, 0, 0, regionImage.rows(), regionImage.columns());
 		Preprocessor preprocessor(clip);
-		preprocessor.applyAveragingFilters();
 		preprocessor.applyGlobalThresholding();
-		preprocessor.applyTemplateFilters();
 		preprocessor.extractRegions();
 		std::list<Region> regions(preprocessor.regions());
 		

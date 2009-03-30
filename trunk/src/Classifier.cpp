@@ -19,10 +19,9 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 	boost::timer timer;
 	timer.restart();
 
+	characters_.clear();
 	if ( dataset->size() > 0 )
 	{
-		characters_.clear();
-
 		for( unsigned int i = 0; i < featureVectors_.size(); ++i )
 		{
 			unsigned int code;
@@ -33,8 +32,6 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 			characters_.push_back(dataset->character(code));
 		}	
 	}
-	else
-		characters_.assign(featureVectors_.size(), " ");
 
 	try
 	{

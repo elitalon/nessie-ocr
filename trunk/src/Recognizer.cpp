@@ -13,11 +13,11 @@
 #include <iostream>
 #include <boost/regex.hpp>
 #include <iomanip>
+#include <algorithm>
 
 
 Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
 :	dataset_(dataset),
-	clip_(0),
 	regions_(0),
 	spaceLocations_(0),
 	patterns_(0),
@@ -32,7 +32,7 @@ Recognizer::Recognizer (std::auto_ptr<Dataset>& dataset)
 		throw NessieException ("Recognizer::Recognizer() : A null pointer was passed to the constructor. You must provide an instantiated Dataset object.");
 };
 
-Recognizer::Recognizer (Dataset* const dataset)
+Recognizer::Recognizer (Dataset* dataset)
 :	dataset_(dataset),
 	regions_(0),
 	spaceLocations_(0),
@@ -46,6 +46,8 @@ Recognizer::Recognizer (Dataset* const dataset)
 {
 	if ( dataset_.get() == 0 )
 		throw NessieException ("Recognizer::Recognizer() : A null pointer was passed to the constructor. You must provide an instantiated Dataset object.");
+
+	dataset = 0;
 };
 
 
@@ -76,7 +78,6 @@ void Recognizer::doPreprocessing (const Clip& pressClip)
 	regions_ = preprocessor.regions();
 	spaceLocations_ = preprocessor.findSpacesBetweenWords();
 	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
-	clip_.reset(new Clip(pressClip));
 
 	try
 	{
