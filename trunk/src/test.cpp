@@ -32,7 +32,6 @@ int main (int argc, char *argv[])
 			("help,h",		"Print this help message")
 			("file,f",			po::value<std::string>(), "Use the content of a file as reference text to execute a dataset training instead of an OCR. Superseded by the <result> option.")
 			("result,r",		po::value<std::string>(), "Use a string as reference text to execute a dataset training instead of an OCR.")
-			("interactive,i",	"Execute a dataset interactive training instead of an OCR.")
 			("text,t",			po::value<std::string>(), "Use a plain text file as dataset.")
 			("database,d",		po::value<std::string>(), "Use a database as dataset (e.g. db_nessie). Superseded by the <filename> option.")
 			("username,u",		po::value<std::string>(), "Username when connecting to the database. The <database> argument will be used by default.")
@@ -120,36 +119,31 @@ int main (int argc, char *argv[])
 
 	
 		// Training options
-		if ( passedOptions.count("file") || passedOptions.count("result") || passedOptions.count("interactive") )
+		if ( passedOptions.count("file") || passedOptions.count("result") )
 		{
-			if ( passedOptions.count("interactive") )
-				recon.trainClassifier(pressClip, ClassificationParadigm::knn());
+			if ( passedOptions.count("result") )
+				recon.trainClassifier(pressClip, passedOptions["result"].as<std::string>(), ClassificationParadigm::knn());
 			else
 			{
-				if ( passedOptions.count("result") )
-					recon.trainClassifier(pressClip, passedOptions["result"].as<std::string>(), ClassificationParadigm::knn());
-				else
+				std::ifstream inputFile( passedOptions["file"].as<std::string>().data() );
+				if ( not inputFile.is_open() or not inputFile.good() )
 				{
-						std::ifstream inputFile( passedOptions["file"].as<std::string>().data() );
-						if ( not inputFile.is_open() or not inputFile.good() )
-						{
-							std::cerr << "The file passed for training is not valid." << std::endl;
-							return 1;
-						}
-
-						std::string text("");
-						while ( inputFile.good() )
-						{   
-							std::string line;
-							getline(inputFile, line);
-
-							if (!line.empty())
-								text.append(line);
-						}   
-						inputFile.close();
-
-						recon.trainClassifier(pressClip, text, ClassificationParadigm::knn());
+					std::cerr << "The file passed for training is not valid." << std::endl;
+					return 1;
 				}
+
+				std::string text("");
+				while ( inputFile.good() )
+				{   
+					std::string line;
+					getline(inputFile, line);
+
+					if (!line.empty())
+						text.append(line);
+				}   
+				inputFile.close();
+
+				recon.trainClassifier(pressClip, text, ClassificationParadigm::knn());
 			}
 		}
 		else

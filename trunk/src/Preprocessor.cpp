@@ -2,6 +2,7 @@
 /// @brief Definition of Preprocessor class
 
 #include "Preprocessor.hpp"
+#include <Magick++.h>
 #include <boost/timer.hpp>
 #include <set>
 #include <algorithm>
@@ -36,6 +37,7 @@ Preprocessor::Preprocessor (const Clip& pressClip)
 :	clip_(pressClip),
 	statistics_(),
 	regions_(0),
+	patterns_(0),
 	averageCharacterHeight_(0.0)
 {
 	try
@@ -332,6 +334,7 @@ void Preprocessor::extractRegions ()
 	}
 
 	// Build the initial list of regions by applying the flooding algorithm
+	regions_.clear();
 	std::vector<bool> visited(clip_.size(), false);
 	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s != seeds.end(); ++s )
 	{
@@ -612,6 +615,120 @@ void Preprocessor::correctSlanting ()
 	{
 		statistics_.slantAngle(meanSlantAngle);
 		statistics_.slantingCorrectionTime(timer.elapsed());;
+	}
+	catch(...) {}
+};
+
+
+void Preprocessor::buildPatterns ()
+{
+	boost::timer timer;
+	timer.restart();
+
+	// Make a backup of critical data
+	PreprocessorStatistics backupStatistics(statistics_);
+	Clip backupClip(clip_);
+	std::list<Region> backupRegions(regions_);
+	double backupAverageCharacterHeight = averageCharacterHeight_;
+
+	patterns_.clear();
+	patterns_.reserve(regions_.size());
+
+	for ( std::list<Region>::iterator i = backupRegions.begin(); i != backupRegions.end(); ++i )
+	{
+		Pattern pattern;
+		try
+		{
+			i->normalizeCoordinates();
+
+			// Normalize region using a Magick++ object
+			Magick::Image regionImage(Magick::Geometry(i->width(), i->height()), Magick::ColorGray(1.0));
+			regionImage.type( Magick::BilevelType );
+
+			Magick::Pixels view(regionImage);
+			Magick::PixelPacket *originPixel = view.get(0, 0, i->width(), i->height());
+			Magick::PixelPacket *pixel;
+
+			for ( unsigned int j = 0; j < i->size(); ++j )
+			{
+				pixel	= originPixel + (i->at(j).first * view.columns() + i->at(j).second);
+				*pixel	= Magick::ColorGray (0.0);
+			}
+			view.sync();
+			regionImage.syncPixels();
+			regionImage.sample( Magick::Geometry(Pattern::planeSize(), Pattern::planeSize()) );
+
+			// Preprocess the normalized region
+			clip_ = Clip(regionImage, 0, 0, regionImage.rows(), regionImage.columns());
+			this->applyGlobalThresholding();
+			this->extractRegions();
+
+			if ( regions_.size() > 1 )	// Merge subregions if preprocessing splitted the original region
+			{
+				Region tmp;
+
+				for ( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
+					tmp = tmp + *i;
+
+				regions_.clear();
+				regions_.push_back(tmp);
+			}
+
+			// Build the pattern
+			Region normalizedRegion(regions_.front());
+			for ( unsigned int i = 0; i < normalizedRegion.size(); ++i )
+				pattern.at(normalizedRegion.at(i).first, normalizedRegion.at(i).second) = 1;
+
+			if ( regionImage.rows() < Pattern::planeSize() )	// Shift rows from top to the center
+			{
+				unsigned int offset = (Pattern::planeSize() - regionImage.rows()) / 2;
+
+				while ( offset != 0 )
+				{
+					for ( int i = Pattern::planeSize()-2; i >= 0; --i )
+					{
+						for ( unsigned int j = 0; j < Pattern::planeSize(); ++j )
+							pattern.at(i+1, j) = pattern.at(i, j);
+					}
+					for ( unsigned int j = 0; j < Pattern::planeSize(); ++j )
+						pattern.at(0, j) = 0;
+
+					--offset;
+				}
+			}
+
+			if ( regionImage.columns() < Pattern::planeSize() )	// Shift columns from left to center
+			{
+				unsigned int offset = (Pattern::planeSize() - regionImage.columns()) / 2;
+
+				while ( offset != 0 )
+				{
+					for ( unsigned int i = 0; i < Pattern::planeSize(); ++i )
+					{
+						for ( int j = Pattern::planeSize()-2; j >= 0; --j )
+							pattern.at(i, j+1) = pattern.at(i, j);
+					}
+					for ( unsigned int i = 0; i < Pattern::planeSize(); ++i )
+						pattern.at(i, 0) = 0;
+
+					--offset;
+				}
+			}
+		}
+		catch (...) {}	// Ignore the exception, a blank pattern will be created.
+
+		patterns_.push_back( pattern );
+	}
+
+	try
+	{
+		statistics_ = backupStatistics;
+		
+		clip_ = backupClip;
+		regions_ = backupRegions;
+		averageCharacterHeight_ = backupAverageCharacterHeight;
+		
+		statistics_.patternsBuildingTime(timer.elapsed());
 	}
 	catch(...) {}
 };

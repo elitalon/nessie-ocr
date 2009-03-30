@@ -30,11 +30,6 @@ class FeatureExtractorStatistics : public Statistics
 		/// @brief	Assignment operator.
 		FeatureExtractorStatistics& operator= (const FeatureExtractorStatistics& statistics);
 
-		/// @brief	Set the elapsed time while building an array of patterns from a list of regions.
-		///
-		/// @param	elapsedTime Elapsed time in seconds.
-		void patternsBuildingTime (const double& elapsedTime);
-
 		///	@brief	Set the elapsed time while computing the image moments of patterns.
 		///
 		///	@param	elapsedTime	Elapsed time in seconds.
@@ -44,8 +39,6 @@ class FeatureExtractorStatistics : public Statistics
 		void print () const;
 
 	private:
-
-		std::auto_ptr<double>	patternsBuildingTime_;	///< Elapsed time while building an array of patterns.
 
 		std::auto_ptr<double>	momentsComputingTime_;	///< Elapsed time while computing the image moments of patterns.
 
@@ -60,17 +53,8 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 {
 	totalTime_ = 0.0;
 
-	if ( patternsBuildingTime_.get() != 0 )
-		totalTime_ += *patternsBuildingTime_.get();
-
 	if ( momentsComputingTime_.get() != 0 )
 		totalTime_ += *momentsComputingTime_.get();
-};
-
-inline void FeatureExtractorStatistics::patternsBuildingTime (const double& elapsedTime)
-{
-	patternsBuildingTime_.reset(new double(elapsedTime));
-	updateTotalTime();
 };
 
 inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)

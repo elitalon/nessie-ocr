@@ -83,49 +83,36 @@ window.onload = initDynSections;
 <a name="l00029"></a>00029 
 <a name="l00031"></a>00031         <a class="code" href="class_feature_extractor_statistics.html" title="Statistics gathered during the feature extraction stage of the text recognition process...">FeatureExtractorStatistics</a>&amp; <a class="code" href="class_feature_extractor_statistics.html#95a915ad796c0b2c7595cf6b848ab667" title="Assignment operator.">operator= </a>(<span class="keyword">const</span> <a class="code" href="class_feature_extractor_statistics.html" title="Statistics gathered during the feature extraction stage of the text recognition process...">FeatureExtractorStatistics</a>&amp; statistics);
 <a name="l00032"></a>00032 
-<a name="l00036"></a>00036         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7" title="Set the elapsed time while building an array of patterns from a list of regions.">patternsBuildingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00036"></a>00036         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Set the elapsed time while computing the image moments of patterns.">momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
 <a name="l00037"></a>00037 
-<a name="l00041"></a>00041         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Set the elapsed time while computing the image moments of patterns.">momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00039"></a>00039         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483" title="Print the statistics gathered.">print</a> () <span class="keyword">const</span>;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <span class="keyword">private</span>:
 <a name="l00042"></a>00042 
-<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483" title="Print the statistics gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046     <span class="keyword">private</span>:
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048         std::auto_ptr&lt;double&gt;   patternsBuildingTime_;  
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         std::auto_ptr&lt;double&gt;   momentsComputingTime_;  
+<a name="l00043"></a>00043         std::auto_ptr&lt;double&gt;   momentsComputingTime_;  
+<a name="l00044"></a>00044 
+<a name="l00048"></a>00048         <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00049"></a>00049 };
+<a name="l00050"></a>00050 
 <a name="l00051"></a>00051 
-<a name="l00055"></a>00055         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00056"></a>00056 };
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
-<a name="l00060"></a>00060 {
-<a name="l00061"></a>00061     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063     <span class="keywordflow">if</span> ( patternsBuildingTime_.get() != 0 )
-<a name="l00064"></a>00064         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *patternsBuildingTime_.get();
+<a name="l00052"></a>00052 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
+<a name="l00053"></a>00053 {
+<a name="l00054"></a>00054     <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> = 0.0;
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="keywordflow">if</span> ( momentsComputingTime_.get() != 0 )
+<a name="l00057"></a>00057         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *momentsComputingTime_.get();
+<a name="l00058"></a>00058 };
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e">00060</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Set the elapsed time while computing the image moments of patterns.">FeatureExtractorStatistics::momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00061"></a>00061 {
+<a name="l00062"></a>00062     momentsComputingTime_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(elapsedTime));
+<a name="l00063"></a>00063     updateTotalTime();
+<a name="l00064"></a>00064 };
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <span class="keywordflow">if</span> ( momentsComputingTime_.get() != 0 )
-<a name="l00067"></a>00067         <a class="code" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time during stage execution.">totalTime_</a> += *momentsComputingTime_.get();
-<a name="l00068"></a>00068 };
-<a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7">00070</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7" title="Set the elapsed time while building an array of patterns from a list of regions.">FeatureExtractorStatistics::patternsBuildingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00071"></a>00071 {
-<a name="l00072"></a>00072     patternsBuildingTime_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(elapsedTime));
-<a name="l00073"></a>00073     updateTotalTime();
-<a name="l00074"></a>00074 };
-<a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e">00076</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e" title="Set the elapsed time while computing the image moments of patterns.">FeatureExtractorStatistics::momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00077"></a>00077 {
-<a name="l00078"></a>00078     momentsComputingTime_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(elapsedTime));
-<a name="l00079"></a>00079     updateTotalTime();
-<a name="l00080"></a>00080 };
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="preprocessor">#endif</span>
-<a name="l00083"></a>00083 <span class="preprocessor"></span>
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 16:49:08 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 20:56:01 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

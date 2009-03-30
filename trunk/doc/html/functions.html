@@ -118,8 +118,10 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_preprocessor.html#a223334c6c9fa84a15d9ad0808ce57cf">Preprocessor</a>
 <li>at()
 : <a class="el" href="class_feature_vector.html#0bd1fad60b18740189dde5e54cf1e885">FeatureVector</a>
+, <a class="el" href="class_pattern.html#b871f7fe4402f4a85e9000142af6c3fe">Pattern</a>
 , <a class="el" href="class_region.html#fd480d88401cee03be25b4667381f40f">Region</a>
 , <a class="el" href="class_text.html#bbc13c13dd5831d49186708275c23938">Text</a>
+, <a class="el" href="class_region.html#aad017ee8b650d4868a41d2722851ced">Region</a>
 , <a class="el" href="class_dataset.html#4ceae5eaf79ece96939b50f2b890bc27">Dataset</a>
 , <a class="el" href="class_feature_vector.html#befee1fb8cf23956c07a4df8b2fc1edb">FeatureVector</a>
 <li>averageCharacterHeight()
@@ -134,6 +136,8 @@ Here is a list of all documented class members with links to the class documenta
 <h3><a class="anchor" name="index_b">- b -</a></h3><ul>
 <li>bottomBorderRow()
 : <a class="el" href="class_region.html#5aed45a8517e8e70d5c9ae749b08eb0b">Region</a>
+<li>buildPatterns()
+: <a class="el" href="class_preprocessor.html#ae658f27ef4d1a2e6f25ba7f2280e110">Preprocessor</a>
 </ul>
 <h3><a class="anchor" name="index_c">- c -</a></h3><ul>
 <li>centroid()
@@ -192,7 +196,7 @@ Here is a list of all documented class members with links to the class documenta
 </ul>
 <h3><a class="anchor" name="index_f">- f -</a></h3><ul>
 <li>FeatureExtractor()
-: <a class="el" href="class_feature_extractor.html#2428758f474ec3631dd09ddb44b36180">FeatureExtractor</a>
+: <a class="el" href="class_feature_extractor.html#6a8990171907902b1136cf62ca620924">FeatureExtractor</a>
 <li>FeatureExtractorStatistics()
 : <a class="el" href="class_feature_extractor_statistics.html#7d84885ee81ff35294ad6cb4698f62b6">FeatureExtractorStatistics</a>
 <li>features()
@@ -215,8 +219,10 @@ Here is a list of all documented class members with links to the class documenta
 <h3><a class="anchor" name="index_h">- h -</a></h3><ul>
 <li>height()
 : <a class="el" href="class_clip.html#939908a8dde602d25335792cc0fd5d97">Clip</a>
-, <a class="el" href="class_region.html#c2fa3f432d7af689b6796d85749393d5">Region</a>
 , <a class="el" href="class_pattern.html#47965f659aec8df4af1970f1b3b1dabb">Pattern</a>
+, <a class="el" href="class_region.html#c2fa3f432d7af689b6796d85749393d5">Region</a>
+<li>hitRate()
+: <a class="el" href="class_classifier_statistics.html#cf0dae4a1bb50b6dcd110b98886e3157">ClassifierStatistics</a>
 </ul>
 <h3><a class="anchor" name="index_i">- i -</a></h3><ul>
 <li>id()
@@ -231,6 +237,8 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_region.html#5172ac8ca95c70526f2fc9773fed337e">Region</a>
 </ul>
 <h3><a class="anchor" name="index_m">- m -</a></h3><ul>
+<li>missRate()
+: <a class="el" href="class_classifier_statistics.html#ab9e855e2e2b98e8f3de1672b8e6d1a9">ClassifierStatistics</a>
 <li>momentsComputingTime()
 : <a class="el" href="class_feature_extractor_statistics.html#ede3e00e2967532af5a699b84366447e">FeatureExtractorStatistics</a>
 <li>MySqlDataset()
@@ -249,7 +257,6 @@ Here is a list of all documented class members with links to the class documenta
 <h3><a class="anchor" name="index_o">- o -</a></h3><ul>
 <li>operator()()
 : <a class="el" href="class_clip.html#5de746cdfd7f238092213d783238af48">Clip</a>
-, <a class="el" href="class_pattern.html#99321ee617cd444e871ce087887e92f3">Pattern</a>
 <li>operator*()
 : <a class="el" href="class_feature_vector.html#a372a9185d83db2283947d50a2913db0">FeatureVector</a>
 <li>operator+()
@@ -260,9 +267,9 @@ Here is a list of all documented class members with links to the class documenta
 <li>operator&lt;()
 : <a class="el" href="class_region.html#10878c058c3568e5583588342fe80e5a">Region</a>
 <li>operator=()
-: <a class="el" href="class_preprocessor_statistics.html#0d08a60f8ddc9441a2d8e9028d27fa0b">PreprocessorStatistics</a>
+: <a class="el" href="class_feature_extractor_statistics.html#95a915ad796c0b2c7595cf6b848ab667">FeatureExtractorStatistics</a>
 , <a class="el" href="class_classifier_statistics.html#2e47c8f6fe037a3e15aae6bcc2ade578">ClassifierStatistics</a>
-, <a class="el" href="class_feature_extractor_statistics.html#95a915ad796c0b2c7595cf6b848ab667">FeatureExtractorStatistics</a>
+, <a class="el" href="class_preprocessor_statistics.html#0d08a60f8ddc9441a2d8e9028d27fa0b">PreprocessorStatistics</a>
 <li>optimalThreshold()
 : <a class="el" href="class_preprocessor_statistics.html#cbd29d227ffdd48c507a4ff3b50da82f">PreprocessorStatistics</a>
 </ul>
@@ -270,12 +277,14 @@ Here is a list of all documented class members with links to the class documenta
 <li>Pattern()
 : <a class="el" href="class_pattern.html#95f42b0f1717d9e6c2d831e87d27f83c">Pattern</a>
 <li>patterns()
-: <a class="el" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961">Recognizer</a>
-, <a class="el" href="class_feature_extractor.html#8f386080a72d21f9e9cd81b1740c4671">FeatureExtractor</a>
+: <a class="el" href="class_preprocessor.html#f675a33328b938dd5cf0527f9fa4175d">Preprocessor</a>
+, <a class="el" href="class_recognizer.html#9b0880cecc41e460184e4ea43b64a961">Recognizer</a>
 <li>patternsBuildingTime()
-: <a class="el" href="class_feature_extractor_statistics.html#1577491a98833fb651f38fb1cee7a8e7">FeatureExtractorStatistics</a>
+: <a class="el" href="class_preprocessor_statistics.html#8ef54d640d738ce30c5e405e268b4d04">PreprocessorStatistics</a>
 <li>PlainTextDataset()
 : <a class="el" href="class_plain_text_dataset.html#02ba8290b4e8e3a2cf29396a4421f278">PlainTextDataset</a>
+<li>planeSize()
+: <a class="el" href="class_pattern.html#556fb0da03c53d1b5dd2c65f71bd702c">Pattern</a>
 <li>PostgreSqlDataset()
 : <a class="el" href="class_postgre_sql_dataset.html#99261cb23ebf08f888826b4fd44bc23c">PostgreSqlDataset</a>
 <li>Preprocessor()
@@ -283,10 +292,10 @@ Here is a list of all documented class members with links to the class documenta
 <li>PreprocessorStatistics()
 : <a class="el" href="class_preprocessor_statistics.html#d5546ee1767c5da79fceb17bccea85aa">PreprocessorStatistics</a>
 <li>print()
-: <a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">PreprocessorStatistics</a>
+: <a class="el" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa">Statistics</a>
 , <a class="el" href="class_classifier_statistics.html#b55518e38247ef594c826159e3511569">ClassifierStatistics</a>
 , <a class="el" href="class_feature_extractor_statistics.html#dca97bede22e0932f0eda0f983910483">FeatureExtractorStatistics</a>
-, <a class="el" href="class_statistics.html#b5b3a9a0914c4dbcbcb629840b07b8aa">Statistics</a>
+, <a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">PreprocessorStatistics</a>
 <li>printStatistics()
 : <a class="el" href="class_recognizer.html#f2dd58549c8f8e712fd5311cf329cd90">Recognizer</a>
 </ul>
@@ -295,15 +304,13 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_recognizer.html#54d76296a60e1da4153661471275655c">Recognizer</a>
 <li>Region()
 : <a class="el" href="class_region.html#a8796c9b4ac95da7f7ca4f374673800c">Region</a>
-<li>regions()
-: <a class="el" href="class_preprocessor.html#36c183d9c8bf87ca5c6311db07e444a7">Preprocessor</a>
 <li>removeCharacter()
 : <a class="el" href="class_text.html#552a449bf10f0b79379495c55db845dc">Text</a>
 <li>removeSample()
 : <a class="el" href="class_postgre_sql_dataset.html#e43f7840d1a8152d02d72cb01ecbed06">PostgreSqlDataset</a>
-, <a class="el" href="class_my_sql_dataset.html#5d7c1ff7811edacb08744efa4d9d03e0">MySqlDataset</a>
 , <a class="el" href="class_plain_text_dataset.html#599b3113630ba0d975a72530fa075d77">PlainTextDataset</a>
 , <a class="el" href="class_dataset.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">Dataset</a>
+, <a class="el" href="class_my_sql_dataset.html#5d7c1ff7811edacb08744efa4d9d03e0">MySqlDataset</a>
 <li>reset()
 : <a class="el" href="class_feature_vector.html#43c8513a501ddbd01cb02047f2730c9c">FeatureVector</a>
 <li>resize()
@@ -339,10 +346,10 @@ Here is a list of all documented class members with links to the class documenta
 <h3><a class="anchor" name="index_t">- t -</a></h3><ul>
 <li>templateFilteringTime()
 : <a class="el" href="class_preprocessor_statistics.html#19cb995b637ec62be16b237e97cc65e5">PreprocessorStatistics</a>
-<li>text()
-: <a class="el" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">Recognizer</a>
 <li>Text()
 : <a class="el" href="class_text.html#b3e26143fccc52699bcc5149cae852bc">Text</a>
+<li>text()
+: <a class="el" href="class_recognizer.html#a651c8590cfc04532e2cfe205cdf9347">Recognizer</a>
 <li>thinningTime()
 : <a class="el" href="class_preprocessor_statistics.html#6f26bb237b608b51a284c5a34af283b0">PreprocessorStatistics</a>
 <li>topBorderRow()
@@ -352,7 +359,7 @@ Here is a list of all documented class members with links to the class documenta
 <li>totalTime_
 : <a class="el" href="class_statistics.html#7256bc5d1785a0ef7c0cd21afbc53737">Statistics</a>
 <li>trainClassifier()
-: <a class="el" href="class_recognizer.html#8444baa88d2c89c08376b2960eadc89e">Recognizer</a>
+: <a class="el" href="class_recognizer.html#cb5f36f305f7c3306cc8667664613fd0">Recognizer</a>
 </ul>
 <h3><a class="anchor" name="index_u">- u -</a></h3><ul>
 <li>updateTotalTime()
@@ -392,7 +399,7 @@ Here is a list of all documented class members with links to the class documenta
 : <a class="el" href="class_statistics.html#b68ede75479e44d5c35b78ec1284065b">Statistics</a>
 </ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 16:49:10 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 20:56:03 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

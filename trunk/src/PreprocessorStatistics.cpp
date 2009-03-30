@@ -19,7 +19,8 @@ PreprocessorStatistics::PreprocessorStatistics ()
 	averagingFilteringTime_(0),
 	segmentationTime_(0),
 	thinningTime_(0),
-	slantingCorrectionTime_(0)
+	slantingCorrectionTime_(0),
+	patternsBuildingTime_(0)
 {};
 
 
@@ -37,7 +38,8 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	averagingFilteringTime_(0),
 	segmentationTime_(0),
 	thinningTime_(0),
-	slantingCorrectionTime_(0)
+	slantingCorrectionTime_(0),
+	patternsBuildingTime_(0)
 {
 	if ( statistics.clipSize_.get() != 0 )
 		clipSize_.reset(new unsigned int(*statistics.clipSize_.get()));
@@ -77,6 +79,9 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
+
+	if ( statistics.patternsBuildingTime_.get() != 0 )
+		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
 };
 
 
@@ -126,6 +131,9 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
 
+	if ( statistics.patternsBuildingTime_.get() != 0 )
+		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
+
 	return *this;
 };
 
@@ -172,6 +180,9 @@ void PreprocessorStatistics::print () const
 
 	if ( slantingCorrectionTime_.get() != 0 )
 		std::cout << "  - Slanting correction time      : " << *slantingCorrectionTime_.get() << " s" << std::endl;
+
+	if ( patternsBuildingTime_.get() != 0 )
+		std::cout << "  - Patterns building time        : " << *patternsBuildingTime_.get() << " s" << std::endl;
 
 	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
 };

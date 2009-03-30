@@ -1,1 +1,4 @@
-<area shape="rect" href="$class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="480,7,653,257">
+<area shape="rect" href="$class_feature_extractor_statistics.html" title="Statistics gathered during the feature extraction stage of the text recognition process..." alt="" coords="5,198,189,360">
+<area shape="rect" href="$class_preprocessor_statistics.html" title="Statistics gathered during the preprocessing stage of the text recognition process..." alt="" coords="547,7,744,551">
+<area shape="rect" href="$class_text.html" title="Text extracted from a press clip during the recognition process." alt="" coords="768,154,941,404">
+<area shape="rect" href="$class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition..." alt="" coords="1517,168,1661,390">

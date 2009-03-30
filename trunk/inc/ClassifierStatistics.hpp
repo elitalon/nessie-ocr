@@ -35,12 +35,26 @@ class ClassifierStatistics : public Statistics
 		///	@param	elapsedTime	Elapsed time in seconds.
 		void classificationTime (const double& elapsedTime);
 
+		///	@brief	Set the hit rate within training stage.
+		///
+		///	@param	rate	Hit rate in %.
+		void hitRate (const double& rate);
+
+		///	@brief	Set the miss rate within training stage.
+		///
+		///	@param	rate	Miss rate in %.
+		void missRate (const double& rate);
+
 		/// @brief	Print the statistics gathered.
 		void print () const;
 
 	private:
 
 		std::auto_ptr<double>		classificationTime_;	///< Elapsed time while classifing the feature vectors.
+
+		std::auto_ptr<double>		hitRate_;				///< Hit rate during training stage.
+
+		std::auto_ptr<double>		missRate_;				///< Miss rate during training stage.
 
 		/// @brief	Update the total elapsed time.
 		///
@@ -61,6 +75,16 @@ inline void ClassifierStatistics::classificationTime (const double& elapsedTime)
 {
 	classificationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
+};
+
+inline void ClassifierStatistics::hitRate (const double& rate)
+{
+	hitRate_.reset(new double(rate));
+};
+
+inline void ClassifierStatistics::missRate (const double& rate)
+{
+	missRate_.reset(new double(rate));
 };
 
 #endif

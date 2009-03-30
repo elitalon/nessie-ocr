@@ -95,6 +95,11 @@ class PreprocessorStatistics : public Statistics
 		/// @param	elapsedTime Elapsed time in seconds.
 		void slantingCorrectionTime (const double& elapsedTime);
 
+		/// @brief	Set the elapsed time while building an array of patterns from a list of regions.
+		///
+		/// @param	elapsedTime Elapsed time in seconds.
+		void patternsBuildingTime (const double& elapsedTime);
+
 		///	@brief	Print the statistical data gathered.
 		void print () const;
 
@@ -126,6 +131,8 @@ class PreprocessorStatistics : public Statistics
 
 		std::auto_ptr<double>			slantingCorrectionTime_;		///< Elapsed time when correcting the slant in characters.
 
+		std::auto_ptr<double>			patternsBuildingTime_;			///< Elapsed time while building an array of patterns.
+
 		/// @brief	Update the total elapsed time.
 		///
 		/// @post #totalTime_ is set by summing all the individual timers.
@@ -154,6 +161,9 @@ inline void PreprocessorStatistics::updateTotalTime ()
 
 	if ( slantingCorrectionTime_.get() != 0 )
 		totalTime_ += *slantingCorrectionTime_.get();
+	
+	if ( patternsBuildingTime_.get() != 0 )
+		totalTime_ += *patternsBuildingTime_.get();
 };
 
 inline void PreprocessorStatistics::clipSize (const unsigned int& n)
@@ -224,6 +234,12 @@ inline void PreprocessorStatistics::thinningTime (const double& elapsedTime)
 inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
 {
 	slantingCorrectionTime_.reset(new double(elapsedTime));
+	updateTotalTime();
+};
+
+inline void PreprocessorStatistics::patternsBuildingTime (const double& elapsedTime)
+{
+	patternsBuildingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 

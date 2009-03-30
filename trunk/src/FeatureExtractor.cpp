@@ -2,33 +2,16 @@
 /// @brief Definition of FeatureExtractor class
 
 #include "FeatureExtractor.hpp"
-#include "Region.hpp"
+#include "Pattern.hpp"
 #include <boost/timer.hpp>
 #include <cmath>
 
 
-FeatureExtractor::FeatureExtractor (const std::list<Region>& regions)
+FeatureExtractor::FeatureExtractor (const std::vector<Pattern>& patterns)
 :	statistics_(),
-	patterns_(0),
+	patterns_(patterns),
 	featureVectors_(0)
 {
-	boost::timer timer;
-	timer.restart();
-
-	patterns_.reserve(regions.size());
-
-	for ( std::list<Region>::const_iterator i = regions.begin(); i != regions.end(); ++i )
-	{
-		Region region(*i);
-		region.normalizeCoordinates();
-		patterns_.push_back( Pattern(region) );
-	}
-
-	try
-	{
-		statistics_.patternsBuildingTime(timer.elapsed());
-	}
-	catch(...) {}
 };
 
 
@@ -89,7 +72,7 @@ double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int
 		{	
 			double tj = pow(j-yc, q);
 
-			t += ti * tj * pattern(i,j);
+			t += ti * tj * pattern.at(i,j);
 		}
 	}
 	return t;

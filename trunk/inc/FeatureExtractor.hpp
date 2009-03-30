@@ -4,11 +4,9 @@
 #if !defined(_FEATURE_EXTRACTOR_H)
 #define _FEATURE_EXTRACTOR_H
 
-class Region;
+class Pattern;
 #include "FeatureExtractorStatistics.hpp"
-#include "Pattern.hpp"
 #include "FeatureVector.hpp"
-#include <list>
 #include <vector>
 
 
@@ -19,7 +17,7 @@ class Region;
 ///	pertinent to a given classification task. In the very end of the process, an array of patterns is available through the
 ///	FeatureExtractor::patterns() method, and an array of feature vectors through the method FeatureExtractor::featureVectors() method.
 ///
-/// @see		Region, FeatureExtractorStatistics, Pattern, FeatureVector
+/// @see		FeatureExtractorStatistics, Pattern, FeatureVector
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-02
@@ -29,15 +27,8 @@ class FeatureExtractor
 
 		/// @brief	Constructor.
 		/// 
-		/// @param	regions A list of regions over which apply all the feature extraction algorithms.
-		///
-		///	@post	An array of normalized patterns becomes available through the FeatureExtractor::patterns() method.
-		explicit FeatureExtractor (const std::list<Region>& regions);
-
-		/// @brief	Get the patterns built from the regions passed in constructor.
-		///
-		/// @return An array of Pattern objects.
-		const std::vector<Pattern>& patterns () const;
+		/// @param	patterns An array of patterns over which apply all the feature extraction algorithms.
+		explicit FeatureExtractor (const std::vector<Pattern>& patterns);
 
 		///	@brief	Get the feature vectors built from the patterns.
 		///
@@ -81,11 +72,6 @@ class FeatureExtractor
 };
 
 
-inline const std::vector<Pattern>& FeatureExtractor::patterns() const
-{
-	return patterns_;
-};
-
 inline const std::vector<FeatureVector>& FeatureExtractor::featureVectors () const
 {
 	return featureVectors_;
@@ -97,3 +83,4 @@ inline const FeatureExtractorStatistics& FeatureExtractor::statistics () const
 };
 
 #endif
+

@@ -6,15 +6,15 @@
 
 
 class Clip;
-class Statistics;
 class Dataset;
-#include <list>
-#include <vector>
 #include "ClassificationParadigm.hpp"
-#include "Region.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
 #include "Text.hpp"
+#include "PreprocessorStatistics.hpp"
+#include "FeatureExtractorStatistics.hpp"
+#include "ClassifierStatistics.hpp"
+#include <vector>
 #include <memory>
 
 
@@ -101,7 +101,7 @@ class Recognizer
 		/// 
 		/// @param		pressClip	Press clip to be processed.
 		///
-		///	@post		A list of regions becomes available through the Recognizer::regions() method.
+		///	@post		An array of patterns becomes available through the Recognizer::patterns() method.
 		///	@post		The position of blank spaces becomes available through the Recognizer::spaceLocations() method.
 		void doPreprocessing (const Clip& pressClip);
 		
@@ -137,14 +137,6 @@ class Recognizer
 		///	@post		A Text object with the result becomes available through the Recognizer::text() method.
 		void extractText (const Clip& pressClip, const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
 
-		/// @brief	Execute an interactive training of the classifier, prompting the user to confirm each classification decision.
-		/// 
-		/// @param	pressClip	Press clip to be processed.
-		/// @param	paradigm	Paradigm that must be used to classify the patterns found in the press clip.
-		/// 
-		///	@post	The internal dataset is updated according to the user responses, e.g. new samples might be added.
-		void trainClassifier (const Clip& pressClip, const ClassificationParadigm& paradigm=ClassificationParadigm::knn());
-
 		/// @brief	Execute an automatic training of the classifier, comparing each classification decision with a reference text.
 		/// 
 		/// @param	pressClip		Press clip to be processed.
@@ -163,8 +155,6 @@ class Recognizer
 
 		std::auto_ptr<Dataset>		dataset_;						///< Dataset to be used during the classification stage.
 
-		std::list<Region>			regions_;						///< List of regions obtained after the preprocessing stage.
-
 		std::vector<unsigned int>	spaceLocations_;				///< Array of space locations in text, useful in the postprocessing stage.
 
 		std::vector<Pattern>		patterns_;						///< Array of patterns obtained after the feature extraction stage.
@@ -175,11 +165,11 @@ class Recognizer
 
 		Text						text_;							///< Text obtained after the recognition process.
 
-		std::auto_ptr<Statistics>	preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
+		PreprocessorStatistics		preprocessingStatistics_;		///< Statistics gathered during the preprocessing stage.
 
-		std::auto_ptr<Statistics>	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
+		FeatureExtractorStatistics	featureExtractorStatistics_;	///< Statistics gathered during the feature extraction stage.
 
-		std::auto_ptr<Statistics>	classifierStatistics_;			///< Statistics gathered during the classification stage.
+		ClassifierStatistics		classifierStatistics_;			///< Statistics gathered during the classification stage.
 
 		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
 		Recognizer (const Recognizer&);

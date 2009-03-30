@@ -7,6 +7,7 @@
 #include "Clip.hpp"
 #include "PreprocessorStatistics.hpp"
 #include "Region.hpp"
+#include "Pattern.hpp"
 #include <vector>
 #include <list>
 #include <utility>
@@ -39,10 +40,10 @@ class Preprocessor
 		/// @param	pressClip A press clip over which apply all the preprocessing algorithms.
 		explicit Preprocessor (const Clip& pressClip);
 
-		/// @brief	Get the regions found, if any, in the last segmentation process
+		/// @brief	Get the patterns found, if any, in the last segmentation process
 		///
-		/// @return A list of Region objects
-		const std::list<Region>& regions () const;
+		/// @return An array of Pattern objects
+		const std::vector<Pattern>& patterns () const;
 
 		///	@brief	Get the statistics about the preprocessing stage.
 		/// 
@@ -78,8 +79,6 @@ class Preprocessor
 		/// the text from left to right and from up to down.
 		///
 		///	@pre		The press clip must have been thresholded.
-		///
-		///@post		The internal members are set, so that a list of regions becomes available through Preprocessor::regions() method.
 		void extractRegions ();
 
 		///	@brief	Correct the slanting of every region extracted from press clip.
@@ -88,6 +87,14 @@ class Preprocessor
 		///
 		///	@post	The regions that present slanting are rotated as much as possible to be aligned with the Y-axis.
 		void correctSlanting ();
+
+		/// @brief	Build an array of patterns using the regions extracted during the segmentation of the press clip.
+		///
+		///	@pre	There must be a list of regions available by executing the Preprocessor::extractRegions() method.
+		///
+		///	@post	The internal members are set, so that an array of patterns becomes available through Preprocessor::patterns() method.
+		///	@post	The coordinates of regions are normalized.
+		void buildPatterns ();
 
 		/// @brief	Scan the list of regions detecting the spaces between words.
 		///
@@ -113,6 +120,8 @@ class Preprocessor
 
 		std::list<Region>		regions_;					///< A list of regions that represents every set of ink pixels found in the press clip.
 		
+		std::vector<Pattern>	patterns_;					///< An array of patterns suitable for feature extraction.
+		
 		double					averageCharacterHeight_;	///< Average character height.
 
 		/// @brief		Find every pair of rows that delimits a line of regions as if they were characters in a text.
@@ -137,9 +146,9 @@ inline const PreprocessorStatistics& Preprocessor::statistics () const
 	return statistics_;
 };
 
-inline const std::list<Region>& Preprocessor::regions() const
+inline const std::vector<Pattern>& Preprocessor::patterns() const
 {
-	return regions_;
+	return patterns_;
 };
 
 inline const double& Preprocessor::averageCharacterHeight () const

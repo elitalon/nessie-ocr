@@ -4,7 +4,6 @@
 #if !defined(_PATTERN_H)
 #define _PATTERN_H
 
-class Region;
 #include <vector>
 #include <string>
 #include <utility>
@@ -24,18 +23,13 @@ class Pattern
 		///	@brief	Constructor.
 		explicit Pattern ();
 
-		///	@brief	Constructor.
-		///
-		///	@param	region	A Region object from which builds the pattern.
-		explicit Pattern (const Region& region);
-
 		/// @brief	Allow read-and-write access to a pixel in the pattern.
 		///
 		/// @param	x	X-axis coordinate of pixel.
 		/// @param	y	Y-axis coordinate of pixel.
 		///
 		/// @return Gray level of a pixel at given coordinates.
-		unsigned int& operator() (const unsigned int& x, const unsigned int& y);
+		unsigned int& at (const unsigned int& x, const unsigned int& y);
 
 		/// @brief	Allow read-only access to a pixel in the pattern.
 		///
@@ -43,7 +37,7 @@ class Pattern
 		/// @param	y	Y-axis coordinate of pixel.
 		///
 		/// @return Gray level of a pixel at given coordinates.
-		unsigned int operator() (const unsigned int& x, const unsigned int& y) const;
+		const unsigned int& at (const unsigned int& x, const unsigned int& y) const;
 
 		/// @brief	Get the height of the pattern.
 		///
@@ -60,6 +54,11 @@ class Pattern
 		/// @return	Number of pixels in the pattern.
 		const unsigned int& size () const;
 
+		/// @brief	Get the side size of the standard plane used for every pattern.
+		///
+		/// @return	Side size in pixels.
+		static unsigned int planeSize () { return 35; };
+		
 		/// @brief	Computes the centroid of a pattern using geometric moments.
 		/// 
 		/// @return	The coordinates of the centroid as a pair of integers.
@@ -76,8 +75,6 @@ class Pattern
 
 	private:
 
-		static const unsigned int	planeSize_;	///< Side size of the pattern.
-
 		std::vector<unsigned int>	pixels_;	///< Set of pixels that defines the whole pattern.
 
 		unsigned int				height_;	///< Height of the pattern.
@@ -88,12 +85,12 @@ class Pattern
 };
 
 
-inline unsigned int& Pattern::operator() (const unsigned int& x, const unsigned int& y)
+inline unsigned int& Pattern::at (const unsigned int& x, const unsigned int& y)
 {
 	return pixels_.at(x * width_ + y);
 };
 
-inline unsigned int Pattern::operator() (const unsigned int& x, const unsigned int& y) const
+inline const unsigned int& Pattern::at (const unsigned int& x, const unsigned int& y) const
 {
 	return pixels_.at(x * width_ + y);
 };
@@ -112,6 +109,6 @@ inline const unsigned int& Pattern::size () const
 {
 	return size_;
 };
-
+		
 #endif
 
