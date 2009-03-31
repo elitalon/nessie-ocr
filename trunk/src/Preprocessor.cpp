@@ -125,7 +125,7 @@ void Preprocessor::applyGlobalThresholding ()
 };
 
 
-void Preprocessor::applyTemplateFilters ()
+void Preprocessor::removeNoiseByTemplateMatching ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -254,7 +254,7 @@ void Preprocessor::applyTemplateFilters ()
 };
 
 
-void Preprocessor::applyAveragingFilters ()
+void Preprocessor::removeNoiseByLinearFiltering ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -316,7 +316,7 @@ void Preprocessor::applyAveragingFilters ()
 };
 
 
-void Preprocessor::extractRegions ()
+void Preprocessor::isolateRegions ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -661,7 +661,7 @@ void Preprocessor::buildPatterns ()
 			// Preprocess the normalized region
 			clip_ = Clip(regionImage, 0, 0, regionImage.rows(), regionImage.columns());
 			this->applyGlobalThresholding();
-			this->extractRegions();
+			this->isolateRegions();
 
 			if ( regions_.size() > 1 )	// Merge subregions if preprocessing splitted the original region
 			{
@@ -731,6 +731,147 @@ void Preprocessor::buildPatterns ()
 		statistics_.patternsBuildingTime(timer.elapsed());
 	}
 	catch(...) {}
+};
+
+void Preprocessor::skeletonizePatterns()
+{
+	boost::timer timer;
+	timer.restart();
+
+	for ( std::vector<Pattern>::iterator p = patterns_.begin(); p != patterns_.end(); ++p )
+	{
+		bool pixelsHaveBeenRemoved = true;
+		while ( pixelsHaveBeenRemoved )
+		{
+			pixelsHaveBeenRemoved = false;
+
+			// Step 1
+			std::vector<bool> removablePixels(p->size(), false);
+			for ( int i = 0; i < static_cast<int>(p->height()); ++i )
+			{
+				for ( int j = 0; j < static_cast<int>(p->width()); ++j )
+				{
+					if ( p->at(i,j) == 0 )	// Skip background pixels
+						continue;
+					
+					unsigned int p2 = ( i-1 > 0 ) ? p->at(i-1,j) : 0;
+					unsigned int p9 = ( i-1 > 0 && j-1 > 0 ) ? p->at(i-1,j-1) : 0;
+					unsigned int p3 = ( i-1 > 0 && j+1 < static_cast<int>(p->width()) ) ? p->at(i-1,j+1) : 0;
+
+					unsigned int p6 = ( i+1 < static_cast<int>(p->height()) ) ? p->at(i+1,j) : 0;
+					unsigned int p7 = ( i+1 < static_cast<int>(p->height()) && j-1 > 0 ) ? p->at(i+1,j-1) : 0;
+					unsigned int p5 = ( i+1 < static_cast<int>(p->height()) && j+1 < static_cast<int>(p->width()) ) ? p->at(i+1,j+1) : 0;
+					
+					unsigned int p8 = ( j-1 > 0 ) ? p->at(i,j-1) : 0;
+					unsigned int p4 = ( j+1 < static_cast<int>(p->width()) ) ? p->at(i,j+1) : 0;
+					unsigned int nonBackgroundNeighbours = p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9;
+
+					unsigned int zeroToOneTransitions = 0;
+					zeroToOneTransitions += (p2 == 0 && p3 == 1)?1:0;
+					zeroToOneTransitions += (p3 == 0 && p4 == 1)?1:0;
+					zeroToOneTransitions += (p4 == 0 && p5 == 1)?1:0;
+					zeroToOneTransitions += (p5 == 0 && p6 == 1)?1:0;
+					zeroToOneTransitions += (p6 == 0 && p7 == 1)?1:0;
+					zeroToOneTransitions += (p7 == 0 && p8 == 1)?1:0;
+					zeroToOneTransitions += (p8 == 0 && p9 == 1)?1:0;
+					zeroToOneTransitions += (p9 == 0 && p2 == 1)?1:0;
+
+					bool isRemovable = true;
+					if ( !(2 <= nonBackgroundNeighbours && nonBackgroundNeighbours <= 6) )
+						isRemovable = false;
+					
+					if ( zeroToOneTransitions != 1 )
+						isRemovable = false;
+					
+					if ( p2*p4*p6 != 0 )
+						isRemovable = false;
+					
+					if ( p4*p6*p8 != 0 )
+						isRemovable = false;
+
+					removablePixels.at(i * p->width() + j) = isRemovable;
+				}
+			}
+			
+			for ( unsigned int i = 0; i < p->height(); ++i )
+			{
+				for ( unsigned int j = 0; j < p->width(); ++j )
+				{
+					if ( removablePixels.at(i * p->width() + j) )
+					{
+						p->at(i,j) = 0;
+						pixelsHaveBeenRemoved = true;
+					}
+				}
+			}
+			
+			// Step 2
+			removablePixels.assign(p->size(), false);
+			for ( int i = 0; i < static_cast<int>(p->height()); ++i )
+			{
+				for ( int j = 0; j < static_cast<int>(p->width()); ++j )
+				{
+					if ( p->at(i,j) == 0 )	// Skip background pixels
+						continue;
+	
+					unsigned int p2 = ( i-1 > 0 ) ? p->at(i-1,j) : 0;
+					unsigned int p9 = ( i-1 > 0 && j-1 > 0 ) ? p->at(i-1,j-1) : 0;
+					unsigned int p3 = ( i-1 > 0 && j+1 < static_cast<int>(p->width()) ) ? p->at(i-1,j+1) : 0;
+
+					unsigned int p6 = ( i+1 < static_cast<int>(p->height()) ) ? p->at(i+1,j) : 0;
+					unsigned int p7 = ( i+1 < static_cast<int>(p->height()) && j-1 > 0 ) ? p->at(i+1,j-1) : 0;
+					unsigned int p5 = ( i+1 < static_cast<int>(p->height()) && j+1 < static_cast<int>(p->width()) ) ? p->at(i+1,j+1) : 0;
+					
+					unsigned int p8 = ( j-1 > 0 ) ? p->at(i,j-1) : 0;
+					unsigned int p4 = ( j+1 < static_cast<int>(p->width()) ) ? p->at(i,j+1) : 0;
+					unsigned int nonBackgroundNeighbours = p2 + p3 + p4 + p5 + p6 + p7 + p8 + p9;
+
+					unsigned int zeroToOneTransitions = 0;
+					zeroToOneTransitions += (p2 == 0 && p3 == 1)?1:0;
+					zeroToOneTransitions += (p3 == 0 && p4 == 1)?1:0;
+					zeroToOneTransitions += (p4 == 0 && p5 == 1)?1:0;
+					zeroToOneTransitions += (p5 == 0 && p6 == 1)?1:0;
+					zeroToOneTransitions += (p6 == 0 && p7 == 1)?1:0;
+					zeroToOneTransitions += (p7 == 0 && p8 == 1)?1:0;
+					zeroToOneTransitions += (p8 == 0 && p9 == 1)?1:0;
+					zeroToOneTransitions += (p9 == 0 && p2 == 1)?1:0;
+
+					bool isRemovable = true;
+					if ( !(2 <= nonBackgroundNeighbours && nonBackgroundNeighbours <= 6) )
+						isRemovable = false;
+					
+					if ( zeroToOneTransitions != 1 )
+						isRemovable = false;
+					
+					if ( p2*p4*p8 != 0 )
+						isRemovable = false;
+					
+					if ( p2*p6*p8 != 0 )
+						isRemovable = false;
+
+					removablePixels.at(i * p->width() + j) = isRemovable;
+				}
+			}
+			
+			for ( unsigned int i = 0; i < p->height(); ++i )
+			{
+				for ( unsigned int j = 0; j < p->width(); ++j )
+				{
+					if ( removablePixels.at(i * p->width() + j) )
+					{
+						p->at(i,j) = 0;
+						pixelsHaveBeenRemoved = true;
+					}
+				}
+			}
+		}
+	}
+
+	try
+	{
+		statistics_.skeletonizationTime(timer.elapsed());
+	}
+	catch (...) {}
 };
 
 

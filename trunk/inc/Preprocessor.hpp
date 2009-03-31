@@ -19,15 +19,17 @@
 ///	of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of
 ///	regions is available through the Preprocessor::regions() method.
 ///
-///	@details	For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed:
+///	@details	For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed in this order:
 ///	
-///		-# Smoothing and noise removal by averaging filters
-///		-# Global gray level thresholding
-///		-# Smoothing and noise removal by template filters
-///		-# Patterns extraction and isolation
-///		-# Slant detection and correction
+///		-# Smoothing and noise removal by averaging filters.
+///		-# Global gray level thresholding.
+///		-# Smoothing and noise removal by template filters.
+///		-# Regions extraction and isolation.
+///		-# Slant detection and correction.
+///		-# Patterns building.
+///		-# Skeletonization of patterns.
 ///
-/// @see	Clip, PreprocessorStatistics, Region
+/// @see	Clip, Pattern, PreprocessorStatistics
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-08
@@ -55,7 +57,7 @@ class Preprocessor
 		///	@pre	The press clip must be in grayscale mode.
 		///
 		///	@post	The noise in the image is removed and the borders of characters are blurred.
-		void applyAveragingFilters ();
+		void removeNoiseByLinearFiltering ();
 	
 		/// @brief		Apply a global thresholding algorithm over the press clip.
 		/// @details	The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel
@@ -70,7 +72,7 @@ class Preprocessor
 		///	@pre	The press clip must have been converted to binary mode, i.e. 0 for background pixels and 1 for ink pixels.
 		///
 		///	@post	The noise in the image is removed and the borders of characters are smoothed.
-		void applyTemplateFilters ();
+		void removeNoiseByTemplateMatching ();
 
 		/// @brief		Apply a segmentation process over the press clip to isolate every region of ink pixels.
 		/// @details	This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink,
@@ -79,7 +81,7 @@ class Preprocessor
 		/// the text from left to right and from up to down.
 		///
 		///	@pre		The press clip must have been thresholded.
-		void extractRegions ();
+		void isolateRegions ();
 
 		///	@brief	Correct the slanting of every region extracted from press clip.
 		///
@@ -90,11 +92,16 @@ class Preprocessor
 
 		/// @brief	Build an array of patterns using the regions extracted during the segmentation of the press clip.
 		///
-		///	@pre	There must be a list of regions available by executing the Preprocessor::extractRegions() method.
+		///	@pre	There must be a list of regions available by executing the Preprocessor::isolateRegions() method.
 		///
 		///	@post	The internal members are set, so that an array of patterns becomes available through Preprocessor::patterns() method.
 		///	@post	The coordinates of regions are normalized.
 		void buildPatterns ();
+
+		/// @brief	Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm.
+		///
+		///	@pre	There must be an array of patterns available by executing the Preprocessor::buildPatterns() method.
+		void skeletonizePatterns();
 
 		/// @brief	Scan the list of regions detecting the spaces between words.
 		///

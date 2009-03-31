@@ -18,7 +18,7 @@ PreprocessorStatistics::PreprocessorStatistics ()
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
 	segmentationTime_(0),
-	thinningTime_(0),
+	skeletonizationTime_(0),
 	slantingCorrectionTime_(0),
 	patternsBuildingTime_(0)
 {};
@@ -37,7 +37,7 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	templateFilteringTime_(0),
 	averagingFilteringTime_(0),
 	segmentationTime_(0),
-	thinningTime_(0),
+	skeletonizationTime_(0),
 	slantingCorrectionTime_(0),
 	patternsBuildingTime_(0)
 {
@@ -74,14 +74,17 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	if ( statistics.segmentationTime_.get() != 0 )
 		segmentationTime_.reset(new double(*statistics.segmentationTime_.get()));
 
-	if ( statistics.thinningTime_.get() != 0 )
-		thinningTime_.reset(new double(*statistics.thinningTime_.get()));
+	if ( statistics.skeletonizationTime_.get() != 0 )
+		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
 
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
 
 	if ( statistics.patternsBuildingTime_.get() != 0 )
 		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
+
+	if ( statistics.skeletonizationTime_.get() != 0 )
+		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
 };
 
 
@@ -125,14 +128,17 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 	if ( statistics.segmentationTime_.get() != 0 )
 		segmentationTime_.reset(new double(*statistics.segmentationTime_.get()));
 
-	if ( statistics.thinningTime_.get() != 0 )
-		thinningTime_.reset(new double(*statistics.thinningTime_.get()));
+	if ( statistics.skeletonizationTime_.get() != 0 )
+		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
 
 	if ( statistics.slantingCorrectionTime_.get() != 0 )
 		slantingCorrectionTime_.reset(new double(*statistics.slantingCorrectionTime_.get()));
 
 	if ( statistics.patternsBuildingTime_.get() != 0 )
 		patternsBuildingTime_.reset( new double (*statistics.patternsBuildingTime_.get() ));
+
+	if ( statistics.skeletonizationTime_.get() != 0 )
+		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
 
 	return *this;
 };
@@ -175,14 +181,14 @@ void PreprocessorStatistics::print () const
 	if ( segmentationTime_.get() != 0 )
 		std::cout << "  - Segmentation time             : " << *segmentationTime_.get() << " s" << std::endl;
 
-	if ( thinningTime_.get() != 0 )
-		std::cout << "  - Thinning time                 : " << *thinningTime_.get() << " s" << std::endl;
-
 	if ( slantingCorrectionTime_.get() != 0 )
 		std::cout << "  - Slanting correction time      : " << *slantingCorrectionTime_.get() << " s" << std::endl;
 
 	if ( patternsBuildingTime_.get() != 0 )
 		std::cout << "  - Patterns building time        : " << *patternsBuildingTime_.get() << " s" << std::endl;
+
+	if ( skeletonizationTime_.get() != 0 )
+		std::cout << "  - Skeletonization time          : " << *skeletonizationTime_.get() << " s" << std::endl;
 
 	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
 };

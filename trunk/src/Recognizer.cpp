@@ -64,12 +64,13 @@ void Recognizer::doPreprocessing (const Clip& pressClip)
 	spaceLocations_.clear();
 
 	Preprocessor preprocessor(pressClip);
-	preprocessor.applyAveragingFilters();
+	preprocessor.removeNoiseByLinearFiltering();
 	preprocessor.applyGlobalThresholding();
-	preprocessor.applyTemplateFilters();
-	preprocessor.extractRegions();
+	preprocessor.removeNoiseByTemplateMatching();
+	preprocessor.isolateRegions();
 	preprocessor.correctSlanting();
 	preprocessor.buildPatterns();
+	preprocessor.skeletonizePatterns();
 
 	patterns_ = preprocessor.patterns();
 	spaceLocations_ = preprocessor.findSpacesBetweenWords();

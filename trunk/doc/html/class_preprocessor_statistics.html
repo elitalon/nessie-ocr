@@ -137,15 +137,15 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#e02437709a427ea35a3f067b42477a9e">segmentationTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the regions extraction algorithm.  <a href="#e02437709a427ea35a3f067b42477a9e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#6f26bb237b608b51a284c5a34af283b0">thinningTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the thinning algorithm.  <a href="#6f26bb237b608b51a284c5a34af283b0"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#ae04f9e334a8f0a7cba5dad02833e7f9">slantingCorrectionTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the slanting correction algorithm.  <a href="#ae04f9e334a8f0a7cba5dad02833e7f9"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#8ef54d640d738ce30c5e405e268b4d04">patternsBuildingTime</a> (const double &amp;elapsedTime)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while building an array of patterns from a list of regions.  <a href="#8ef54d640d738ce30c5e405e268b4d04"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#3a6a0fe44965a288396d615bf1edba16">skeletonizationTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the skeletonization algorithm.  <a href="#3a6a0fe44965a288396d615bf1edba16"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3337f135bde27a43901f2930d76dd99a"></a><!-- doxytag: member="PreprocessorStatistics::print" ref="3337f135bde27a43901f2930d76dd99a" args="() const " -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_preprocessor_statistics.html#3337f135bde27a43901f2930d76dd99a">print</a> () const </td></tr>
 
@@ -406,6 +406,31 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div><p>
+<a class="anchor" name="3a6a0fe44965a288396d615bf1edba16"></a><!-- doxytag: member="PreprocessorStatistics::skeletonizationTime" ref="3a6a0fe44965a288396d615bf1edba16" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::skeletonizationTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
 <a class="anchor" name="3da1ac91e2f21d938349320f63531664"></a><!-- doxytag: member="PreprocessorStatistics::slantAngle" ref="3da1ac91e2f21d938349320f63531664" args="(const double &amp;angle)" -->
 <div class="memitem">
 <div class="memproto">
@@ -481,33 +506,8 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div><p>
-<a class="anchor" name="6f26bb237b608b51a284c5a34af283b0"></a><!-- doxytag: member="PreprocessorStatistics::thinningTime" ref="6f26bb237b608b51a284c5a34af283b0" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::thinningTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
 </div>
-<div class="memdoc">
-
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-</div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 20:56:04 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Mar 31 17:35:11 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

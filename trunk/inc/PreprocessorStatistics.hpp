@@ -85,11 +85,6 @@ class PreprocessorStatistics : public Statistics
 		/// @param	elapsedTime Elapsed time in seconds.
 		void segmentationTime (const double& elapsedTime);
 
-		///	@brief	Set the elapsed time while executing the thinning algorithm.
-		///
-		/// @param	elapsedTime Elapsed time in seconds.
-		void thinningTime (const double& elapsedTime);
-
 		/// @brief	Set the elapsed time while executing the slanting correction algorithm.
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
@@ -99,6 +94,11 @@ class PreprocessorStatistics : public Statistics
 		///
 		/// @param	elapsedTime Elapsed time in seconds.
 		void patternsBuildingTime (const double& elapsedTime);
+
+		///	@brief	Set the elapsed time while executing the skeletonization algorithm.
+		///
+		/// @param	elapsedTime Elapsed time in seconds.
+		void skeletonizationTime (const double& elapsedTime);
 
 		///	@brief	Print the statistical data gathered.
 		void print () const;
@@ -127,7 +127,7 @@ class PreprocessorStatistics : public Statistics
 
 		std::auto_ptr<double>			segmentationTime_;				///< Elapsed time when executing the segmentation algorithm.
 
-		std::auto_ptr<double>			thinningTime_;					///< Elapsed time when executing the thinning algorithm.
+		std::auto_ptr<double>			skeletonizationTime_;			///< Elapsed time when executing the skeletonization algorithm.
 
 		std::auto_ptr<double>			slantingCorrectionTime_;		///< Elapsed time when correcting the slant in characters.
 
@@ -153,8 +153,8 @@ inline void PreprocessorStatistics::updateTotalTime ()
 	if ( averagingFilteringTime_.get() != 0 )
 		totalTime_ += *averagingFilteringTime_.get();
 
-	if ( thinningTime_.get() != 0 )
-		totalTime_ += *thinningTime_.get();
+	if ( skeletonizationTime_.get() != 0 )
+		totalTime_ += *skeletonizationTime_.get();
 
 	if ( segmentationTime_.get() != 0 )
 		totalTime_ += *segmentationTime_.get();
@@ -225,9 +225,9 @@ inline void PreprocessorStatistics::segmentationTime (const double& elapsedTime)
 	updateTotalTime();
 };
 
-inline void PreprocessorStatistics::thinningTime (const double& elapsedTime)
+inline void PreprocessorStatistics::skeletonizationTime (const double& elapsedTime)
 {
-	thinningTime_.reset(new double(elapsedTime));
+	skeletonizationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
 };
 
