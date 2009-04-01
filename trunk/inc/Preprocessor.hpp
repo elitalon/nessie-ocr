@@ -26,6 +26,7 @@
 ///		-# Smoothing and noise removal by template filters.
 ///		-# Regions extraction and isolation.
 ///		-# Slant detection and correction.
+///		-# Location of spaces between words.
 ///		-# Patterns building.
 ///		-# Skeletonization of patterns.
 ///

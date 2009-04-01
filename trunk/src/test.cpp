@@ -62,8 +62,8 @@ int main (int argc, char *argv[])
 			return 1;
 		}
 		Magick::Image image;
-		image.resolutionUnits(Magick::PixelsPerInchResolution);
-		image.density("800x800");
+		//image.resolutionUnits(Magick::PixelsPerInchResolution);
+		//image.density("800x800");
 		image.read( passedOptions["image"].as<std::string>() );
 		Clip pressClip(image, 0, 0, image.rows(), image.columns());
 	
@@ -162,6 +162,7 @@ int main (int argc, char *argv[])
 			filename.append(ostr.str().append(".bmp"));
 			i->writeToOutputImage(filename,true);
 		}
+
 		recon.printStatistics();
 	}
 	catch (std::exception &e)

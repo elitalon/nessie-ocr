@@ -32,6 +32,8 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 			characters_.push_back(dataset->character(code));
 		}	
 	}
+	else
+		characters_.assign(featureVectors_.size(), std::string(""));
 
 	try
 	{
@@ -43,10 +45,11 @@ void Classifier::classify (const ClassificationParadigm& paradigm, const std::au
 
 unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset) const
 {
-	typedef std::pair<double, unsigned int> Neighbour;
+	typedef std::pair<double, unsigned int> Neighbour;	// (distance, class)
 	std::vector<Neighbour> neighbours(0);
 	neighbours.reserve(dataset->size());
 
+	// Compute the distance from every sample in the dataset.
 	for( unsigned int i = 0; i < dataset->size(); ++i )
 	{
 		double distance		= featureVector.computeEuclideanDistance(dataset->at(i).first);
@@ -56,14 +59,15 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto
 	}
 	std::sort(neighbours.begin(), neighbours.end());
 	
-	//const unsigned int KNN = (neighbours.size() >= ceil(sqrt(dataset->size())) )?ceil(sqrt(dataset->size())):neighbours.size();
-	const unsigned int KNN = (neighbours.size() >= 20 )?20:neighbours.size();
+	const unsigned int KNN = ceil( sqrt(dataset->size()) );
 
+	// Store the class of the K nearest neighbours
 	std::vector<unsigned int> kNearestNeighbours(0);
 	kNearestNeighbours.reserve(KNN);
 	for ( std::vector<Neighbour>::iterator i = neighbours.begin(); i != neighbours.begin() + KNN; ++i )
 		kNearestNeighbours.push_back(i->second);
 
+	// Get the unique candidate classes
 	std::vector<unsigned int> candidateClasses(0);
 	for ( unsigned int i = 0; i < KNN; ++i )
 	{
@@ -71,6 +75,7 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto
 			candidateClasses.push_back(kNearestNeighbours.at(i));
 	}
 
+	// Count how many times a class appears in the KNN set.
 	std::vector<unsigned int> classAppearances(candidateClasses.size());
 	for ( unsigned int i = 0; i < candidateClasses.size(); ++i )
 		classAppearances.at(i) = std::count(kNearestNeighbours.begin(), kNearestNeighbours.end(), candidateClasses.at(i));

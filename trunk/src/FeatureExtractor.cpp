@@ -40,11 +40,11 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
 		double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
 
-		fv.at(0) = eta22;
-		fv.at(1) = eta20;
-		fv.at(2) = eta02;
-		fv.at(3) = eta21;
-		fv.at(4) = eta12;
+		fv.at(0) = eta20;
+		fv.at(1) = eta02;
+		fv.at(2) = eta21;
+		fv.at(3) = eta12;
+		fv.at(4) = eta22;
 		fv.at(5) = eta30;
 		fv.at(6) = eta03;
 		fv.at(7) = eta40;

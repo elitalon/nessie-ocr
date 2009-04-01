@@ -69,12 +69,12 @@ void Recognizer::doPreprocessing (const Clip& pressClip)
 	preprocessor.removeNoiseByTemplateMatching();
 	preprocessor.isolateRegions();
 	preprocessor.correctSlanting();
-	preprocessor.buildPatterns();
-	preprocessor.skeletonizePatterns();
-
-	patterns_ = preprocessor.patterns();
 	spaceLocations_ = preprocessor.findSpacesBetweenWords();
 	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
+	
+	preprocessor.buildPatterns();
+	preprocessor.skeletonizePatterns();
+	patterns_ = preprocessor.patterns();
 
 	preprocessingStatistics_ = preprocessor.statistics();
 };
