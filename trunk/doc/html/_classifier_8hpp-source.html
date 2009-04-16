@@ -76,56 +76,56 @@ window.onload = initDynSections;
 <a name="l00013"></a>00013 <span class="preprocessor">#include &lt;memory&gt;</span>
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 
-<a name="l00028"></a><a class="code" href="class_classifier.html">00028</a> <span class="keyword">class </span><a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>
-<a name="l00029"></a>00029 {
-<a name="l00030"></a>00030     <span class="keyword">public</span>:
-<a name="l00031"></a>00031 
-<a name="l00035"></a>00035         <span class="keyword">explicit</span> <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">featureVectors</a>);
-<a name="l00036"></a>00036 
-<a name="l00042"></a>00042         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">featureVectors</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; vectors);
-<a name="l00043"></a>00043 
-<a name="l00047"></a>00047         <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Get the characters associated with the feature vectors passed in constructor.">characters</a> () <span class="keyword">const</span>;
-<a name="l00048"></a>00048 
-<a name="l00052"></a>00052         <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">statistics</a> () <span class="keyword">const</span>;
-<a name="l00053"></a>00053 
-<a name="l00060"></a>00060         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#0b0d17ee52818512a6fa2dcaa5e07f9b" title="Execute the classification of feature vectors passed in constructor.">classify</a>(<span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a>&amp; paradigm, <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; dataset);
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062     <span class="keyword">private</span>:
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064         <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>        statistics_;        
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         std::vector&lt;std::string&gt;    characters_;        
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068         std::vector&lt;FeatureVector&gt;  featureVectors_;    
-<a name="l00069"></a>00069 
-<a name="l00076"></a>00076         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> knn(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; dataset) <span class="keyword">const</span>;
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
-<a name="l00079"></a>00079         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
-<a name="l00080"></a>00080         <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
-<a name="l00081"></a>00081 };
-<a name="l00082"></a>00082 
+<a name="l00029"></a><a class="code" href="class_classifier.html">00029</a> <span class="keyword">class </span><a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>
+<a name="l00030"></a>00030 {
+<a name="l00031"></a>00031     <span class="keyword">public</span>:
+<a name="l00032"></a>00032 
+<a name="l00036"></a>00036         <span class="keyword">explicit</span> <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">featureVectors</a>);
+<a name="l00037"></a>00037 
+<a name="l00043"></a>00043         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">featureVectors</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; vectors);
+<a name="l00044"></a>00044 
+<a name="l00048"></a>00048         <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Get the characters associated with the feature vectors passed in constructor.">characters</a> () <span class="keyword">const</span>;
+<a name="l00049"></a>00049 
+<a name="l00053"></a>00053         <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">statistics</a> () <span class="keyword">const</span>;
+<a name="l00054"></a>00054 
+<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#0b0d17ee52818512a6fa2dcaa5e07f9b" title="Execute the classification of feature vectors passed in constructor.">classify</a>(<span class="keyword">const</span> <a class="code" href="class_classification_paradigm.html" title="Paradigm used by the OCR process in the classification stage.">ClassificationParadigm</a>&amp; paradigm, <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; dataset);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keyword">private</span>:
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>        statistics_;        
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067         std::vector&lt;std::string&gt;    characters_;        
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069         std::vector&lt;FeatureVector&gt;  featureVectors_;    
+<a name="l00070"></a>00070 
+<a name="l00077"></a>00077         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> knn(<span class="keyword">const</span> <a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> std::auto_ptr&lt;Dataset&gt;&amp; dataset) <span class="keyword">const</span>;
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079         <span class="comment">// Do not implement these methods, as they are only declared here to prevent objects to be copied. </span>
+<a name="l00080"></a>00080         <a class="code" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997" title="Constructor.">Classifier</a> (<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
+<a name="l00081"></a>00081         <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>&amp;);
+<a name="l00082"></a>00082 };
 <a name="l00083"></a>00083 
-<a name="l00084"></a><a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983">00084</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">Classifier::featureVectors</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; vectors)
-<a name="l00085"></a>00085 {
-<a name="l00086"></a>00086     featureVectors_ = vectors;
-<a name="l00087"></a>00087     characters_.clear();
-<a name="l00088"></a>00088 };
-<a name="l00089"></a>00089 
-<a name="l00090"></a><a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">00090</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Get the characters associated with the feature vectors passed in constructor.">Classifier::characters</a> ()<span class="keyword"> const</span>
-<a name="l00091"></a>00091 <span class="keyword"></span>{
-<a name="l00092"></a>00092     <span class="keywordflow">return</span> characters_;
-<a name="l00093"></a>00093 };
-<a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">00095</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">Classifier::statistics</a> ()<span class="keyword"> const</span>
-<a name="l00096"></a>00096 <span class="keyword"></span>{
-<a name="l00097"></a>00097     <span class="keywordflow">return</span> statistics_;
-<a name="l00098"></a>00098 };
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="preprocessor">#endif</span>
-<a name="l00101"></a>00101 <span class="preprocessor"></span>
+<a name="l00084"></a>00084 
+<a name="l00085"></a><a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983">00085</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_classifier.html#c893e64aac6413a6821092251e092983" title="Set the feature vectors to classify.">Classifier::featureVectors</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; vectors)
+<a name="l00086"></a>00086 {
+<a name="l00087"></a>00087     featureVectors_ = vectors;
+<a name="l00088"></a>00088     characters_.clear();
+<a name="l00089"></a>00089 };
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">00091</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Get the characters associated with the feature vectors passed in constructor.">Classifier::characters</a> ()<span class="keyword"> const</span>
+<a name="l00092"></a>00092 <span class="keyword"></span>{
+<a name="l00093"></a>00093     <span class="keywordflow">return</span> characters_;
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a><a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">00096</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_classifier_statistics.html" title="Statistical data gathered during the classification stage of the text recognition...">ClassifierStatistics</a>&amp; <a class="code" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">Classifier::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00097"></a>00097 <span class="keyword"></span>{
+<a name="l00098"></a>00098     <span class="keywordflow">return</span> statistics_;
+<a name="l00099"></a>00099 };
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="preprocessor">#endif</span>
+<a name="l00102"></a>00102 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 1 13:20:13 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 16 18:30:36 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

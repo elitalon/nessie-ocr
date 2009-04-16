@@ -59,7 +59,7 @@ unsigned int Classifier::knn(const FeatureVector& featureVector, const std::auto
 	}
 	std::sort(neighbours.begin(), neighbours.end());
 	
-	const unsigned int KNN = ceil( sqrt(dataset->size()) );
+	const unsigned int KNN = 3;
 
 	// Store the class of the K nearest neighbours
 	std::vector<unsigned int> kNearestNeighbours(0);

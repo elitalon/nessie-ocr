@@ -147,6 +147,8 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 	Text referenceText;
 	referenceText.content(regex_replace(text, pattern, ""));
 
+	std::cout << characters_.size() << std::endl;
+	std::cout << referenceText.size() << std::endl;
 	if ( characters_.size() == referenceText.size() )
 	{
 		unsigned int patternNo = 0;

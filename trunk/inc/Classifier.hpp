@@ -22,6 +22,7 @@
 /// @see		FeatureVector, ClassifierStatistics, Dataset, ClassificationParadigm
 ///
 ///	@todo		Implement new paradigms of classification (neural networks, support vector machines,...).
+///	@todo		Design a way to set the parameters associated to a paradigm, i.e. the K constant for KNN.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09

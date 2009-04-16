@@ -162,7 +162,7 @@ int main (int argc, char *argv[])
 			filename.append(ostr.str().append(".bmp"));
 			i->writeToOutputImage(filename,true);
 		}
-
+		
 		recon.printStatistics();
 	}
 	catch (std::exception &e)
