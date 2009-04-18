@@ -26,6 +26,8 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 		FeatureVector fv(n);
 
 		double area = imageMoment(*i, 0, 0);
+		if ( area == 0.0 )
+			area = 1.0;
 
 		double xc = imageMoment(*i, 1, 0) / area;
 		double yc = imageMoment(*i, 0, 1) / area;

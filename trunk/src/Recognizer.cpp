@@ -123,8 +123,11 @@ void Recognizer::doPostprocessing ()
 			text_.addCharacter(*i);
 
 		std::string brokenText(text_.content());
-		const boost::regex pattern("- ");
+		boost::regex pattern("- ");
 		text_.content(regex_replace(brokenText, pattern, ""));
+		
+		pattern = "''";
+		text_.content(regex_replace(brokenText, pattern, "\""));
 	}
 };
 

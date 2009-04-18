@@ -183,5 +183,5 @@ clean:
 	@$(RM) -f $(OBJECTS) $(PROGRAM) $(libdir)$(LIBRARY_SHARED_FILE).$(LIBRARY_VERSION)
 	@$(CHMOD) 0644 $(srcdir)*.cpp $(incdir)*.hpp
 
-all: clean $(LIBRARY_NAME) doc
+all: clean $(LIBRARY_NAME) 
 
