@@ -126,6 +126,9 @@ void Recognizer::doPostprocessing ()
 		boost::regex pattern("- ");
 		text_.content(regex_replace(brokenText, pattern, ""));
 		
+		pattern = ",,";
+		text_.content(regex_replace(brokenText, pattern, "\""));
+		
 		pattern = "''";
 		text_.content(regex_replace(brokenText, pattern, "\""));
 	}
