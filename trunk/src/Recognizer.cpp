@@ -173,8 +173,8 @@ void Recognizer::trainClassifier (const Clip& pressClip, const std::string& text
 				else
 					code = dataset_->code(referenceText.at(patternNo));
 				
-				if ( code != 256 )
-					dataset_->addSample(Sample(featureVectors_.at(patternNo), code));
+				//if ( code != 256 )
+				//	dataset_->addSample(Sample(featureVectors_.at(patternNo), code));
 			}
 			catch(std::exception& e)
 			{

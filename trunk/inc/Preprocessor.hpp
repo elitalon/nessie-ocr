@@ -107,6 +107,8 @@ class Preprocessor
 		/// @brief	Scan the list of regions detecting the spaces between words.
 		///
 		/// @return An array of numbers, each one represents the position where a blank space must be inserted when building the text in further post-processing.
+		///
+		///	@todo	Improve the algorithm to compute the average distance between characters. Sometimes a word is splitted when it shouldn't.
 		std::vector<unsigned int> findSpacesBetweenWords ();
 
 		/// @brief	Computes the average character height.
