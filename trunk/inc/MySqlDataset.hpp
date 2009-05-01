@@ -7,7 +7,6 @@
 #include "Dataset.hpp"
 #include <string>
 #include <map>
-#include <boost/noncopyable.hpp>
 
 
 ///	@brief		Dataset built by retrieving the data from a MySQL database.
@@ -49,7 +48,7 @@
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class MySqlDataset : public Dataset, private boost::noncopyable
+class MySqlDataset : public Dataset
 {
 	public:
 	

@@ -65,13 +65,17 @@ window.onload = initDynSections;
 </div>
 <div class="contents">
 <h1>Classifier Member List</h1>This is the complete list of members for <a class="el" href="class_classifier.html">Classifier</a>, including all inherited members.<p><table>
-  <tr class="memlist"><td><a class="el" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">characters</a>() const </td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_classifier.html#ba11bafb0c6de3c967bf619fc1e73997">Classifier</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_classifier.html#0b0d17ee52818512a6fa2dcaa5e07f9b">classify</a>(const ClassificationParadigm &amp;paradigm, const std::auto_ptr&lt; Dataset &gt; &amp;dataset)</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_classifier.html#c893e64aac6413a6821092251e092983">featureVectors</a>(const std::vector&lt; FeatureVector &gt; &amp;vectors)</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a>() const </td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">characters</a>() const </td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#0249043aa0ee7c81fb94863993781c1a">characters_</a></td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#673d1ebcca388882f1987b1be37dca1d">classificationAlgorithm_</a></td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#e6132b100c96a4f3d8ad3885b5acb28e">Classifier</a>()</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#dbccb058af482d10d926c2681a69c251">performClassification</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)=0</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#1615ad7c13e54de1488d31a4ab3cd62b">performTraining</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)=0</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a>() const </td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_classifier.html#7831f2accc6c1e98ba11ba5ee67f6d0c">~Classifier</a>()</td><td><a class="el" href="class_classifier.html">Classifier</a></td><td><code> [virtual]</code></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 18:40:20 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:21 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

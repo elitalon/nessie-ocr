@@ -3,6 +3,7 @@
 
 #include "FeatureExtractor.hpp"
 #include "Pattern.hpp"
+#include "FeatureVector.hpp"
 #include <boost/timer.hpp>
 #include <cmath>
 
@@ -11,11 +12,10 @@ FeatureExtractor::FeatureExtractor (const std::vector<Pattern>& patterns)
 :	statistics_(),
 	patterns_(patterns),
 	featureVectors_(0)
-{
-};
+{};
 
 
-void FeatureExtractor::computeMoments (const unsigned int& n)
+void FeatureExtractor::computeMoments ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -23,34 +23,47 @@ void FeatureExtractor::computeMoments (const unsigned int& n)
 	featureVectors_.reserve(patterns_.size());
 	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
-		FeatureVector fv(n);
+		FeatureVector fv(27);
 
 		double area = imageMoment(*i, 0, 0);
 		if ( area == 0.0 )
 			area = 1.0;
 
-		double xc = imageMoment(*i, 1, 0) / area;
-		double yc = imageMoment(*i, 0, 1) / area;
+		std::pair<unsigned int, unsigned int> centroid = i->centroid();
+		double xc = centroid.first;
+		double yc = centroid.second; 
 		
-		double eta22 = imageMoment(*i, 2, 2, xc, yc) / pow(area, ((2+2)/2) + 1);
+		double eta11 = imageMoment(*i, 1, 1, xc, yc) / pow(area, ((1+1)/2) + 1);
 		double eta20 = imageMoment(*i, 2, 0, xc, yc) / pow(area, ((2+0)/2) + 1);
 		double eta02 = imageMoment(*i, 0, 2, xc, yc) / pow(area, ((0+2)/2) + 1);
 		double eta21 = imageMoment(*i, 2, 1, xc, yc) / pow(area, ((2+1)/2) + 1);
 		double eta12 = imageMoment(*i, 1, 2, xc, yc) / pow(area, ((1+2)/2) + 1);
+		double eta22 = imageMoment(*i, 2, 2, xc, yc) / pow(area, ((2+2)/2) + 1);
 		double eta30 = imageMoment(*i, 3, 0, xc, yc) / pow(area, ((3+0)/2) + 1);
 		double eta03 = imageMoment(*i, 0, 3, xc, yc) / pow(area, ((0+3)/2) + 1);
 		double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
 		double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
+		double eta50 = imageMoment(*i, 5, 0, xc, yc) / pow(area, ((5+0)/2) + 1);
+		double eta05 = imageMoment(*i, 0, 5, xc, yc) / pow(area, ((0+5)/2) + 1);
+
+		//	GOOD CHOICES
+		//	m10 m01 m20 m02 m21 m12 m22 m30 m03
+
+		//	BAD CHOICES
+		//	m00 m10 m01 m20 m02 m21 m12 m22 m30 m03
+		//	m00 m10 m01 m11 m20 m02 m21 m12 m22 m30 m03
 
 		fv.at(0) = area;
 		fv.at(1) = xc;
 		fv.at(2) = yc;
 		fv.at(3) = eta20;
 		fv.at(4) = eta02;
-		fv.at(5) = eta30;
-		fv.at(6) = eta03;
-		fv.at(7) = eta40;
-		fv.at(8) = eta04;
+		fv.at(5) = eta21;
+		fv.at(6) = eta12;
+		fv.at(7) = eta22;
+		fv.at(8) = eta30;
+		fv.at(9) = eta03;
+		fv.at(10) = eta11;
 		
 		featureVectors_.push_back(fv);
 	}

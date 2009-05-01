@@ -4,10 +4,10 @@
 #if !defined(_PREPROCESSOR_H)
 #define _PREPROCESSOR_H
 
+class Pattern;
+#include "Region.hpp"
 #include "Clip.hpp"
 #include "PreprocessorStatistics.hpp"
-#include "Region.hpp"
-#include "Pattern.hpp"
 #include <vector>
 #include <list>
 #include <utility>

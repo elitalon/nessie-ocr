@@ -6,7 +6,6 @@
 #include <pqxx/pqxx>
 #include <utility>
 #include <sstream>
-#include <exception>
 
 
 PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::string& username, const std::string& password)

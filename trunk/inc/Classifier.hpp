@@ -4,10 +4,10 @@
 #if !defined(_CLASSIFIER_H)
 #define _CLASSIFIER_H
 
-#include "FeatureVector.hpp"
+class FeatureVector;
+class Text;
 #include "ClassifierStatistics.hpp"
-#include "ClassificationParadigm.hpp"
-#include "Dataset.hpp"
+#include "ClassificationAlgorithm.hpp"
 #include <string>
 #include <vector>
 #include <memory>
@@ -15,14 +15,13 @@
 
 ///	@brief		Classifier of the OCR process.
 /// 
-///	@details	This class encapsulates all the algorithms regarding the classification stage of the OCR process. Its task is to match every feature
-///	vector passed in the constructor to its associated character. In the very end of the process, a string of characters is available through the
-/// Classifier::characters() method.
+///	@details	This class represents the classification stage of the OCR process, providing an interface to encapsulate different classification paradigms.
+///	Its task is to match every feature vector passed to its associated character. In the end of the process, a string of characters is available through the
+///	Classifier::characters() method.
 /// 
-/// @see		FeatureVector, ClassifierStatistics, Dataset, ClassificationParadigm
+/// @see		ClassificationAlgorithm, ClassifierStatistics, FeatureVector, Dataset
 ///
 ///	@todo		Implement new paradigms of classification (neural networks, support vector machines,...).
-///	@todo		Design a way to set the parameters associated to a paradigm, i.e. the K constant for KNN.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09
@@ -31,62 +30,45 @@ class Classifier
 	public:
 
 		///	@brief	Constructor.
-		///
-		///	@param	featureVectors	An array of feature vectors.
-		explicit Classifier (const std::vector<FeatureVector>& featureVectors);
+		explicit Classifier ();
 
-		/// @brief	Set the feature vectors to classify.
-		/// 
-		/// @param	vectors	An array of feature vectors.
-		///
-		///	@post	The characters previously recognized are cleared.
-		void featureVectors (const std::vector<FeatureVector>& vectors);
+		///	@brief	Destructor.
+		virtual ~Classifier ();
 
 		///	@brief	Get the characters associated with the feature vectors passed in constructor.
 		/// 
-		/// @return	An array of std::string objects with the characters found, one character per vector element.
-		const std::vector<std::string>& characters () const;
+		/// @return	An array of std::string objects with the characters found, one character per feature vector passed in Classifier::classify() method.
+		virtual const std::vector<std::string>& characters () const;
 
 		///	@brief	Get the statistics regarding the classification stage.
 		/// 
 		/// @return A ClassifierStatistics object.
-		const ClassifierStatistics& statistics () const;
+		virtual const ClassifierStatistics& statistics () const;
 
-		///	@brief	Execute the classification of feature vectors passed in constructor.
+		///	@brief	Classify each feature vector passed into its most probably class (character).
 		///
-		///	@param	paradigm	Classification paradigm to use.
-		///	@param	dataset		Dataset to use.
+		/// @param	featureVectors	An array of feature vectors to classify.
 		///
-		///	@post	The recognized characters become available through the Classifier::characters() method.
-		void classify(const ClassificationParadigm& paradigm, const std::auto_ptr<Dataset>& dataset);
-
-	private:
-
-		ClassifierStatistics		statistics_;		///< Statistics about the classification of feature vectors.
-
-		std::vector<std::string>	characters_;		///< Characters found after the classification process.
-
-		std::vector<FeatureVector>	featureVectors_;	///< Feature vectors to classify.
-
-		/// @brief	Classify a feature vector into its most probably class using the KNN paradigm.
+		///	@return	An array of std::string objects with the characters found, one character per vector element.
+		///
+		///	@post	The recognized characters become also available through the Classifier::characters() method.
+		virtual const std::vector<std::string>& performClassification (const std::vector<FeatureVector>& featureVectors) = 0;
+		
+		/// @brief	Train the classifier, comparing each classification decision with a reference text.
 		/// 
-		/// @param	featureVector	The feature vector to classify.
-		/// @param	dataset			The dataset to use.
-		/// 
-		/// @return The class where the feature vector belongs to.
-		unsigned int knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset) const;
+		/// @param	characters		An array of std::string objects with sample characters to train.
+		/// @param	referenceText	A text to compare with the classification results character by character.
+		virtual void performTraining (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText) = 0;
 
-		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
-		Classifier (const Classifier&);
-		Classifier& operator=(const Classifier&);
+	protected:
+
+		ClassifierStatistics					statistics_;				///< Statistics about the classification of feature vectors.
+
+		std::vector<std::string>				characters_;				///< Characters found after the classification process.
+
+		std::auto_ptr<ClassificationAlgorithm>	classificationAlgorithm_;	///< Concrete classification algorithm to be used.
 };
 
-
-inline void Classifier::featureVectors (const std::vector<FeatureVector>& vectors)
-{
-	featureVectors_ = vectors;
-	characters_.clear();
-};
 
 inline const std::vector<std::string>& Classifier::characters () const
 {

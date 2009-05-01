@@ -7,7 +7,6 @@
 #include "Dataset.hpp"
 #include <string>
 #include <map>
-#include <boost/noncopyable.hpp>
 
 
 ///	@brief		Dataset built by retrieving the data from a PostgreSQL database.
@@ -46,7 +45,7 @@
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class PostgreSqlDataset : public Dataset, private boost::noncopyable
+class PostgreSqlDataset : public Dataset
 {
 	public:
 	

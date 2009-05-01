@@ -2,6 +2,7 @@
 /// @brief Definition of Preprocessor class
 
 #include "Preprocessor.hpp"
+#include "Pattern.hpp"
 #include <Magick++.h>
 #include <boost/timer.hpp>
 #include <set>

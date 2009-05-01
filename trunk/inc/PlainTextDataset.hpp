@@ -6,7 +6,6 @@
 
 #include "Dataset.hpp"
 #include <string>
-#include <boost/noncopyable.hpp>
 
 
 ///	@brief		Dataset built by retrieving the data from a plain text file in the filesystem.
@@ -29,7 +28,7 @@
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class PlainTextDataset : public Dataset, private boost::noncopyable
+class PlainTextDataset : public Dataset
 {
 	public:
 

@@ -11,15 +11,33 @@ CREATE TABLE samples (
 	m00			numeric	NOT NULL DEFAULT 0.0,
 	m10			numeric	NOT NULL DEFAULT 0.0,
 	m01			numeric	NOT NULL DEFAULT 0.0,
+	m11			numeric	NOT NULL DEFAULT 0.0,
 	m20			numeric	NOT NULL DEFAULT 0.0,
 	m02			numeric	NOT NULL DEFAULT 0.0,
+	m21			numeric	NOT NULL DEFAULT 0.0,
+	m12			numeric	NOT NULL DEFAULT 0.0,
+	m22			numeric	NOT NULL DEFAULT 0.0,
 	m30			numeric	NOT NULL DEFAULT 0.0,
 	m03			numeric	NOT NULL DEFAULT 0.0,
+	m31			numeric	NOT NULL DEFAULT 0.0,
+	m13			numeric	NOT NULL DEFAULT 0.0,
+	m32			numeric	NOT NULL DEFAULT 0.0,
+	m23			numeric	NOT NULL DEFAULT 0.0,
+	m33			numeric	NOT NULL DEFAULT 0.0,
 	m40			numeric	NOT NULL DEFAULT 0.0,
 	m04			numeric	NOT NULL DEFAULT 0.0,
+	m41			numeric	NOT NULL DEFAULT 0.0,
+	m14			numeric	NOT NULL DEFAULT 0.0,
+	m42			numeric	NOT NULL DEFAULT 0.0,
+	m24			numeric	NOT NULL DEFAULT 0.0,
+	m43			numeric	NOT NULL DEFAULT 0.0,
+	m34			numeric	NOT NULL DEFAULT 0.0,
+	m44			numeric	NOT NULL DEFAULT 0.0,
+	m50			numeric	NOT NULL DEFAULT 0.0,
+	m05			numeric	NOT NULL DEFAULT 0.0,
 	id_class	integer	REFERENCES classes
 );
-CREATE INDEX iClass ON samples(class);
+CREATE INDEX iClass ON samples(id_class);
 COMMENT ON TABLE samples IS 'Feature vectors associated to a class of characters.';
 
 

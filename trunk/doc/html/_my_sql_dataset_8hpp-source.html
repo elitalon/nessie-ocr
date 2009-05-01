@@ -70,40 +70,39 @@ window.onload = initDynSections;
 <a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="_dataset_8hpp.html" title="Declaration of Dataset class.">Dataset.hpp</a>"</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00009"></a>00009 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
+<a name="l00010"></a>00010 
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 
-<a name="l00052"></a><a class="code" href="class_my_sql_dataset.html">00052</a> <span class="keyword">class </span><a class="code" href="class_my_sql_dataset.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> : <span class="keyword">public</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>, <span class="keyword">private</span> boost::noncopyable
-<a name="l00053"></a>00053 {
-<a name="l00054"></a>00054     <span class="keyword">public</span>:
-<a name="l00055"></a>00055     
-<a name="l00065"></a>00065         <span class="keyword">explicit</span> <a class="code" href="class_my_sql_dataset.html#0921d1bc0bde9c91900ddd02c08c0550" title="Constructor.">MySqlDataset</a> (<span class="keyword">const</span> std::string&amp; database, <span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password);
-<a name="l00066"></a>00066 
-<a name="l00068"></a>00068         <span class="keyword">virtual</span> <a class="code" href="class_my_sql_dataset.html#a9758216a8aafd4a749413bca58f724a" title="Destructor.">~MySqlDataset</a> ();
-<a name="l00069"></a>00069 
-<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="class_my_sql_dataset.html#6a7189ef3357fe3dc5bc251239ac05ee" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
-<a name="l00078"></a>00078 
-<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="class_my_sql_dataset.html#5d7c1ff7811edacb08744efa4d9d03e0" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086     <span class="keyword">private</span>:
-<a name="l00087"></a>00087         
-<a name="l00088"></a>00088         std::string                             database_;          
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090         std::string                             username_;          
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092         std::string                             password_;          
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094         std::vector&lt;unsigned int&gt;               sampleIds_;         
-<a name="l00095"></a>00095         
-<a name="l00096"></a>00096         std::map&lt;unsigned int, unsigned int&gt;    classIds_;          
-<a name="l00097"></a>00097         
-<a name="l00098"></a>00098         std::string                             featureColumns_;    
-<a name="l00099"></a>00099 };
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101 <span class="preprocessor">#endif</span>
-<a name="l00102"></a>00102 <span class="preprocessor"></span>
+<a name="l00051"></a><a class="code" href="class_my_sql_dataset.html">00051</a> <span class="keyword">class </span><a class="code" href="class_my_sql_dataset.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> : <span class="keyword">public</span> <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>
+<a name="l00052"></a>00052 {
+<a name="l00053"></a>00053     <span class="keyword">public</span>:
+<a name="l00054"></a>00054     
+<a name="l00064"></a>00064         <span class="keyword">explicit</span> <a class="code" href="class_my_sql_dataset.html#0921d1bc0bde9c91900ddd02c08c0550" title="Constructor.">MySqlDataset</a> (<span class="keyword">const</span> std::string&amp; database, <span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password);
+<a name="l00065"></a>00065 
+<a name="l00067"></a>00067         <span class="keyword">virtual</span> <a class="code" href="class_my_sql_dataset.html#a9758216a8aafd4a749413bca58f724a" title="Destructor.">~MySqlDataset</a> ();
+<a name="l00068"></a>00068 
+<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="class_my_sql_dataset.html#6a7189ef3357fe3dc5bc251239ac05ee" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
+<a name="l00077"></a>00077 
+<a name="l00083"></a>00083         <span class="keywordtype">void</span> <a class="code" href="class_my_sql_dataset.html#5d7c1ff7811edacb08744efa4d9d03e0" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085     <span class="keyword">private</span>:
+<a name="l00086"></a>00086         
+<a name="l00087"></a>00087         std::string                             database_;          
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         std::string                             username_;          
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         std::string                             password_;          
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093         std::vector&lt;unsigned int&gt;               sampleIds_;         
+<a name="l00094"></a>00094         
+<a name="l00095"></a>00095         std::map&lt;unsigned int, unsigned int&gt;    classIds_;          
+<a name="l00096"></a>00096         
+<a name="l00097"></a>00097         std::string                             featureColumns_;    
+<a name="l00098"></a>00098 };
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="preprocessor">#endif</span>
+<a name="l00101"></a>00101 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 18:40:18 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:20 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

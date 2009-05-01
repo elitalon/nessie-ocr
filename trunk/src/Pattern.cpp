@@ -4,9 +4,6 @@
 #include "Pattern.hpp"
 #include <Magick++.h>
 #include <cmath>
-#include <algorithm>
-#include <list>
-#include <iostream>
 
 
 Pattern::Pattern ()
@@ -32,6 +29,9 @@ std::pair<unsigned int, unsigned int> Pattern::centroid () const
 			m01 += j * pixels_.at(i * width_ + j);
 		}
 	}
+
+	if ( area == 0 )
+		area = 1;
 
 	m10 = round( m10 / area );
 	m01 = round( m01 / area );

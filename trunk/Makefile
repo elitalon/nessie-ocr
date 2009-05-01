@@ -27,26 +27,28 @@ vpath %.dylib	$(libdir)
 
 
 # Dependencies
-CLASSIFICATION_PARADIGM			= ClassificationParadigm.cpp ClassificationParadigm.hpp
-CLASSIFIER						= Classifier.cpp Classifier.hpp Dataset.o FeatureVector.o ClassifierStatistics.o ClassificationParadigm.o
+CLASSIFICATION_ALGORITHM		= ClassificationAlgorithm.cpp ClassificationAlgorithm.hpp
+CLASSIFIER						= Classifier.cpp Classifier.hpp ClassificationAlgorithm.o ClassifierStatistics.o
 CLASSIFIER_STATISTICS			= ClassifierStatistics.cpp ClassifierStatistics.hpp Statistics.o
 CLIP							= Clip.cpp Clip.hpp NessieException.o
-DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o NessieException.o
+DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
 FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp FeatureExtractorStatistics.o Pattern.o FeatureVector.o
 FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
 FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
+KNN_CLASSIFICATION_ALGORITHM	= KnnClassificationAlgorithm.cpp KnnClassificationAlgorithm.hpp ClassificationAlgorithm.o FeatureVector.o Dataset.o Text.o NessieException.o
+KNN_CLASSIFIER					= KnnClassifier.cpp KnnClassifier.hpp Classifier.o ClassificationAlgorithm.o FeatureVector.o Text.o ClassifierStatistics.o
 MAIN							= tester.o
-MYSQL_DATASET					= MySqlDataset.cpp MySqlDataset.hpp Dataset.o NessieException.o
+MYSQL_DATASET					= MySqlDataset.cpp MySqlDataset.hpp FeatureVector.o Dataset.o NessieException.o
 NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
+NESSIE_OCR						= NessieOcr.cpp NessieOcr.hpp Text.o Preprocessor.o FeatureExtractor.o KnnClassifier.o Clip.o ClassificationAlgorithm.o Pattern.o FeatureVector.o NessieException.o
 PATTERN							= Pattern.cpp Pattern.hpp
-PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp Dataset.o NessieException.o
-POSTGRE_SQL_DATASET				= PostgreSqlDataset.cpp PostgreSqlDataset.hpp Dataset.o NessieException.o
+PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp FeatureVector.o Dataset.o NessieException.o
+POSTGRE_SQL_DATASET				= PostgreSqlDataset.cpp PostgreSqlDataset.hpp FeatureVector.o Dataset.o NessieException.o
 PREPROCESSOR					= Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatistics.o Region.o Pattern.o
 PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
-RECOGNIZER						= Recognizer.cpp Recognizer.hpp Clip.o Statistics.o Dataset.o ClassificationParadigm.o Pattern.o FeatureVector.o Text.o Preprocessor.o FeatureExtractor.o Classifier.o NessieException.o
 REGION							= Region.cpp Region.hpp
 STATISTICS						= Statistics.cpp Statistics.hpp
-TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o MySqlDataset.o Recognizer.o ClassificationParadigm.o
+TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o NessieOcr.o KnnClassificationAlgorithm.o Pattern.o
 TEXT							= Text.cpp Text.hpp NessieException.o
 
 
@@ -95,7 +97,7 @@ Clip.o: $(CLIP)
 	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
-Recognizer.o: $(RECOGNIZER)
+NessieOcr.o: $(NESSIE_OCR)
 	$(CXX) $(MAGICK_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 
@@ -139,11 +141,19 @@ FeatureVector.o: $(FEATURE_VECTOR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
-ClassificationParadigm.o: $(CLASSIFICATION_PARADIGM)
+ClassificationAlgorithm.o: $(CLASSIFICATION_ALGORITHM)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+KnnClassificationAlgorithm.o: $(KNN_CLASSIFICATION_ALGORITHM)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo
 
 Classifier.o: $(CLASSIFIER)
+	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	@echo
+
+KnnClassifier.o: $(KNN_CLASSIFIER)
 	$(CXX) $(BOOST_CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 	@echo
 

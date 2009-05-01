@@ -3,11 +3,11 @@
 
 #include <Magick++.h>
 #include "Clip.hpp"
-#include "PlainTextDataset.hpp"
+#include "NessieOcr.hpp"
 #include "PostgreSqlDataset.hpp"
-#include "MySqlDataset.hpp"
-#include "Recognizer.hpp"
-#include "ClassificationParadigm.hpp"
+#include "PlainTextDataset.hpp"
+#include "KnnClassificationAlgorithm.hpp"
+#include "Pattern.hpp"
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <fstream>
@@ -16,6 +16,7 @@
 #include <string>
 
 namespace po = boost::program_options;
+
 
 /// @param argc		Number of command line arguments.
 /// @param argv[]	Command line arguments.
@@ -94,9 +95,17 @@ int main (int argc, char *argv[])
 			
 			dataset.reset( new PostgreSqlDataset(databaseName, databaseUser, databasePassword) );
 		}
-		Recognizer recon( dataset );
 
-	
+
+		// Define the classification algorithm
+		std::auto_ptr<ClassificationAlgorithm> algorithm;
+		algorithm.reset( new KnnClassificationAlgorithm (1, dataset) );
+
+
+		// Create the OCR
+		NessieOcr ocr;
+
+
 		// Load reference text for training
 		if ( passedOptions.count("training") )
 		{
@@ -118,12 +127,12 @@ int main (int argc, char *argv[])
 			}   
 			inputFile.close();
 
-			recon.trainClassifier(pressClip, text, ClassificationParadigm::knn());
+			ocr.trainClassifier(pressClip, text, algorithm);
 		}
 		else
 		{
-			recon.extractText(pressClip, ClassificationParadigm::knn());
-			std::cout << recon.text().content() << std::endl;
+			ocr.extractText(pressClip, algorithm);
+			std::cout << ocr.text().content() << std::endl;
 		}
 
 
@@ -131,7 +140,7 @@ int main (int argc, char *argv[])
 		if ( passedOptions.count("create-patterns") )
 		{
 			unsigned int patternNo = 0;
-			std::vector<Pattern> patterns = recon.patterns();
+			std::vector<Pattern> patterns = ocr.patterns();
 			for ( std::vector<Pattern>::iterator i = patterns.begin(); i != patterns.end(); ++i )
 			{
 				std::ostringstream ostr;
@@ -145,7 +154,7 @@ int main (int argc, char *argv[])
 
 		// Show statistics
 		if ( passedOptions.count("statistics") )
-			recon.printStatistics();
+			ocr.printStatistics();
 	}
 	catch (std::exception &e)
 	{

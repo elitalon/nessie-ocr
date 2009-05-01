@@ -74,7 +74,7 @@ Collaboration diagram for FeatureExtractor:</div>
 <div class="dynsection">
 <p><center><img src="class_feature_extractor__coll__graph.png" border="0" usemap="#_feature_extractor__coll__map" alt="Collaboration graph"></center>
 <map name="_feature_extractor__coll__map">
-<area shape="rect" href="class_feature_extractor_statistics.html" title="Statistics gathered during the feature extraction stage of the text recognition process..." alt="" coords="5,7,189,170"></map>
+<area shape="rect" href="class_feature_extractor_statistics.html" title="Statistics gathered during the feature extraction stage of the text recognition process..." alt="" coords="5,7,189,169"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -91,9 +91,9 @@ Collaboration diagram for FeatureExtractor:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="class_feature_extractor_statistics.html">FeatureExtractorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_extractor.html#b1b93ff45d510e5fecab7c2db692c22c">statistics</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics about the feature extraction stage.  <a href="#b1b93ff45d510e5fecab7c2db692c22c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_extractor.html#f90bd7447596facc0d9d5dfff2d05e32">computeMoments</a> (const unsigned int &amp;n)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_feature_extractor.html#d8ae9f900054609abf5181dff31eb678">computeMoments</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the image moments from the internal patterns.  <a href="#f90bd7447596facc0d9d5dfff2d05e32"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the image moments from the internal patterns.  <a href="#d8ae9f900054609abf5181dff31eb678"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 This class encapsulates all the algorithms related to feature extraction stage of the OCR process. Its task is to capture the distinctive characteristics of the digitized characters for recognition, i.e. the measurement of those attributes of patterns that are most pertinent to a given classification task. In the very end of the process, an array of patterns is available through the FeatureExtractor::patterns() method, and an array of feature vectors through the method <a class="el" href="class_feature_extractor.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">FeatureExtractor::featureVectors()</a> method.<p>
@@ -127,15 +127,14 @@ This class encapsulates all the algorithms related to feature extraction stage o
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="f90bd7447596facc0d9d5dfff2d05e32"></a><!-- doxytag: member="FeatureExtractor::computeMoments" ref="f90bd7447596facc0d9d5dfff2d05e32" args="(const unsigned int &amp;n)" -->
+<a class="anchor" name="d8ae9f900054609abf5181dff31eb678"></a><!-- doxytag: member="FeatureExtractor::computeMoments" ref="d8ae9f900054609abf5181dff31eb678" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void FeatureExtractor::computeMoments           </td>
           <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
+          <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -144,11 +143,6 @@ This class encapsulates all the algorithms related to feature extraction stage o
 <div class="memdoc">
 
 <p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Maximum number of moments to compute.</td></tr>
-  </table>
-</dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An array of feature vectors becomes available through the <a class="el" href="class_feature_extractor.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">FeatureExtractor::featureVectors()</a> method. </dd></dl>
 
 </div>
@@ -194,7 +188,7 @@ This class encapsulates all the algorithms related to feature extraction stage o
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 18:40:20 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:22 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
