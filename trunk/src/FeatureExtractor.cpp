@@ -31,8 +31,8 @@ void FeatureExtractor::computeMoments ()
 
 		std::pair<unsigned int, unsigned int> centroid = i->centroid();
 		double xc = centroid.first;
-		double yc = centroid.second; 
-		
+		double yc = centroid.second;
+
 		double eta11 = imageMoment(*i, 1, 1, xc, yc) / pow(area, ((1+1)/2) + 1);
 		double eta20 = imageMoment(*i, 2, 0, xc, yc) / pow(area, ((2+0)/2) + 1);
 		double eta02 = imageMoment(*i, 0, 2, xc, yc) / pow(area, ((0+2)/2) + 1);
@@ -41,10 +41,10 @@ void FeatureExtractor::computeMoments ()
 		double eta22 = imageMoment(*i, 2, 2, xc, yc) / pow(area, ((2+2)/2) + 1);
 		double eta30 = imageMoment(*i, 3, 0, xc, yc) / pow(area, ((3+0)/2) + 1);
 		double eta03 = imageMoment(*i, 0, 3, xc, yc) / pow(area, ((0+3)/2) + 1);
-		double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
-		double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
-		double eta50 = imageMoment(*i, 5, 0, xc, yc) / pow(area, ((5+0)/2) + 1);
-		double eta05 = imageMoment(*i, 0, 5, xc, yc) / pow(area, ((0+5)/2) + 1);
+		//double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
+		//double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
+		//double eta50 = imageMoment(*i, 5, 0, xc, yc) / pow(area, ((5+0)/2) + 1);
+		//double eta05 = imageMoment(*i, 0, 5, xc, yc) / pow(area, ((0+5)/2) + 1);
 
 		//	GOOD CHOICES
 		//	m10 m01 m20 m02 m21 m12 m22 m30 m03
@@ -64,7 +64,7 @@ void FeatureExtractor::computeMoments ()
 		fv.at(8) = eta30;
 		fv.at(9) = eta03;
 		fv.at(10) = eta11;
-		
+
 		featureVectors_.push_back(fv);
 	}
 
@@ -82,9 +82,9 @@ double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int
 	for ( unsigned int i = 0; i < pattern.height(); ++i )
 	{
 		double ti = pow(i-xc, p);
-		
+
 		for (unsigned int j = 0; j < pattern.width(); ++j )
-		{	
+		{
 			double tj = pow(j-yc, q);
 
 			t += ti * tj * pattern.at(i,j);

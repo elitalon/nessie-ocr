@@ -42,7 +42,7 @@ void KnnClassifier::performTraining (const std::vector<FeatureVector>& featureVe
 	try
 	{
 		statistics_.hitRate(hitRate);
-		statistics_.missRate(1 - hitRate);
+		statistics_.missRate(100.0 - hitRate);
 	}
 	catch(...) {}
 };

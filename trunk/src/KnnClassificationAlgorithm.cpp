@@ -8,7 +8,6 @@
 #include "NessieException.hpp"
 #include <utility>
 #include <map>
-#include <algorithm>
 #include <sstream>
 
 
@@ -22,32 +21,69 @@ KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNei
 KnnClassificationAlgorithm::~KnnClassificationAlgorithm () {};
 
 
-unsigned int knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset);
 std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector<FeatureVector>& featureVectors)
 {
 	std::vector<std::string> characters(0);
+	
+	if ( dataset_->size() > 0 )
+	{
+		typedef std::pair<double, Sample> Neighbour;
 
-	if ( dataset_->size() > 0 ) 
-	{   
-		for( unsigned int i = 0; i < featureVectors.size(); ++i )
-		{   
-			unsigned int code;
+		for( unsigned int k = 0; k < featureVectors.size(); ++k )
+		{
+			std::multimap<double, Sample> kNearestNeighbours;
 
-			code = knn(featureVectors.at(i), dataset_);
+			// Search the K nearest neighbours
+			for( unsigned int i = 0; i < dataset_->size(); ++i )
+			{
+				double distance	= featureVectors.at(k).computeEuclideanDistance(dataset_->at(i).first);
+				Sample sample	= dataset_->at(i);
 
-			characters.push_back(dataset_->character(code));
-		}   
-	}   
+				if( kNearestNeighbours.size() < kNeighbours_ )
+					kNearestNeighbours.insert( Neighbour(distance, sample) );
+				else
+				{
+					std::multimap<double, Sample>::iterator j = kNearestNeighbours.upper_bound( distance );
+
+					if ( j != kNearestNeighbours.end() )
+					{
+						kNearestNeighbours.insert(j, Neighbour(distance, sample));
+						kNearestNeighbours.erase(j);
+					}
+				}
+			}
+			
+			if ( kNeighbours_ == 1 )
+				characters.push_back( dataset_->character(kNearestNeighbours.begin()->second.second) );
+			else
+			{
+				// Gather the class of the k nearest neighbours
+				std::map<unsigned int, unsigned int> classes;	// (label, appearances)
+
+				for ( std::multimap<double, Sample>::iterator i = kNearestNeighbours.begin(); i != kNearestNeighbours.end(); ++i )
+				{
+					if ( classes.count(i->second.second) == 0 )
+						classes.insert( std::pair<unsigned int, unsigned int>(i->second.second, 1) );
+					else
+						classes[i->second.second]++;
+				}
+
+				// Get the most probably class
+				unsigned int label = classes.begin()->second;
+				for ( std::map<unsigned int, unsigned>::iterator i = classes.begin(); i != classes.end(); ++i )
+				{
+					if ( classes[label] > i->second )
+						label = i->first;
+				}
+
+				characters.push_back(dataset_->character(label));
+			}
+		}
+	}
 	else
 		characters.assign(featureVectors.size(), std::string(""));
 
 	return characters;
-};
-
-
-unsigned int knn(const FeatureVector& featureVector, const std::auto_ptr<Dataset>& dataset)
-{
-	return 32;
 };
 
 
@@ -76,7 +112,7 @@ double KnnClassificationAlgorithm::train (const std::vector<FeatureVector>& feat
 		{
 			std::stringstream patternNoStr;
 			patternNoStr << patternNo;
-			
+
 			std::string message(e.what());
 			throw NessieException ("KnnClassificationAlgorithm::train() : Training of sample " + patternNoStr.str() + " could not be completed. " + message);
 		}

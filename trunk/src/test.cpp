@@ -37,6 +37,7 @@ int main (int argc, char *argv[])
 			("user,u",				po::value<std::string>()->default_value("nessieocr"), "Database user.")
 			("password,p",			po::value<std::string>()->default_value("nessieocr"), "Database user's password.")
 			("training,t",			po::value<std::string>(), "Use a plain text file as reference text to execute a training stage.")
+			("knn,k",				po::value<unsigned int>()->default_value(1), "Maximum number of neighbours when using the KNN algorithm.")
 			("create-patterns,c",	"Create an output BMP image for each pattern found in the input image.")
 			("statistics,s",		"Show statistical data regarding the OCR process.")
 			("help,h",				"Print this help message");
@@ -99,7 +100,7 @@ int main (int argc, char *argv[])
 
 		// Define the classification algorithm
 		std::auto_ptr<ClassificationAlgorithm> algorithm;
-		algorithm.reset( new KnnClassificationAlgorithm (1, dataset) );
+		algorithm.reset( new KnnClassificationAlgorithm (passedOptions["knn"].as<unsigned int>(), dataset) );
 
 
 		// Create the OCR
