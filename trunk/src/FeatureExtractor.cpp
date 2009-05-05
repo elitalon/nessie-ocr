@@ -63,7 +63,7 @@ void FeatureExtractor::computeMoments ()
 		fv.at(7) = eta22;
 		fv.at(8) = eta30;
 		fv.at(9) = eta03;
-		fv.at(10) = eta11;
+		fv.at(10) = 0.0;
 
 		featureVectors_.push_back(fv);
 	}

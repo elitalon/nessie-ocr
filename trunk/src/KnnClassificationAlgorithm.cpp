@@ -72,10 +72,10 @@ std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector
 				}
 
 				// Get the most probably class
-				unsigned int label = classes.begin()->second;
+				unsigned int label = classes.begin()->first;
 				for ( std::map<unsigned int, unsigned>::iterator i = classes.begin(); i != classes.end(); ++i )
 				{
-					if ( classes[label] > i->second )
+					if ( classes[label] < i->second )
 						label = i->first;
 				}
 

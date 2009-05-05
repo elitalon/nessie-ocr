@@ -14,6 +14,7 @@
 #include <sstream>
 #include <memory>
 #include <string>
+#include <vector>
 
 namespace po = boost::program_options;
 
@@ -28,7 +29,7 @@ int main (int argc, char *argv[])
 	try
 	{
 		// Declare program arguments and options
-		std::string inputImage;
+		std::vector<std::string> inputImages;
 
 		po::options_description visibleOptions("Options");
 		visibleOptions.add_options()
@@ -43,7 +44,7 @@ int main (int argc, char *argv[])
 			("help,h",				"Print this help message");
 		po::options_description hiddenOptions("Hidden options");
 		
-		hiddenOptions.add_options() ("image", po::value<std::string>(&inputImage), "Input image file to process");
+		hiddenOptions.add_options() ("image", po::value< std::vector<std::string> >(&inputImages), "Input image file to process");
 		po::positional_options_description p;
 		p.add("image", -1);
 
@@ -66,7 +67,7 @@ int main (int argc, char *argv[])
 		}
 
 
-		// Load input image
+		// Test program arguments
 		if ( !passedOptions.count("image") )
 		{
 			std::cerr << "tester: Missing image file." << std::endl;
@@ -74,16 +75,8 @@ int main (int argc, char *argv[])
 			std::cerr << visibleOptions << std::endl;
 			return 1;
 		}
-		Magick::Image image( inputImage );
-		if ( image.magick() == "PDF" )
-		{
-			image.resolutionUnits(Magick::PixelsPerInchResolution);
-			image.density("800x800");
-			image.read( inputImage );
-		}
-		Clip pressClip(image, 0, 0, image.rows(), image.columns());
-	
-
+		
+		
 		// Load dataset
 		std::auto_ptr<Dataset> dataset;
 		if ( passedOptions.count("file") )
@@ -128,12 +121,36 @@ int main (int argc, char *argv[])
 			}   
 			inputFile.close();
 
-			ocr.trainClassifier(pressClip, text, algorithm);
+			for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
+			{
+				Magick::Image image( *i );
+				if ( image.magick() == "PDF" )
+				{
+					image.resolutionUnits(Magick::PixelsPerInchResolution);
+					image.density("800x800");
+					image.read( *i );
+				}
+				Clip pressClip(image, 0, 0, image.rows(), image.columns());
+
+				ocr.trainClassifier(pressClip, text, algorithm);
+			}
 		}
 		else
 		{
-			ocr.extractText(pressClip, algorithm);
-			std::cout << ocr.text().content() << std::endl;
+			for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
+			{
+				Magick::Image image( *i );
+				if ( image.magick() == "PDF" )
+				{
+					image.resolutionUnits(Magick::PixelsPerInchResolution);
+					image.density("800x800");
+					image.read( *i );
+				}
+				Clip pressClip(image, 0, 0, image.rows(), image.columns());
+
+				ocr.extractText(pressClip, algorithm);
+				std::cout << ocr.text().content() << std::endl;
+			}
 		}
 
 

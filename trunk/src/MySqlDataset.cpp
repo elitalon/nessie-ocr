@@ -7,7 +7,6 @@
 #include <utility>
 #include <sstream>
 #include <exception>
-#include <iostream>
 
 
 MySqlDataset::MySqlDataset (const std::string& database, const std::string& username, const std::string& password)
