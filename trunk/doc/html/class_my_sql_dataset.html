@@ -74,14 +74,14 @@ Inheritance diagram for MySqlDataset:</div>
 <div class="dynsection">
 <p><center><img src="class_my_sql_dataset__inherit__graph.png" border="0" usemap="#_my_sql_dataset__inherit__map" alt="Inheritance graph"></center>
 <map name="_my_sql_dataset__inherit__map">
-<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,5,128,243"></map>
+<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,7,128,257"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for MySqlDataset:</div>
 <div class="dynsection">
 <p><center><img src="class_my_sql_dataset__coll__graph.png" border="0" usemap="#_my_sql_dataset__coll__map" alt="Collaboration graph"></center>
 <map name="_my_sql_dataset__coll__map">
-<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,5,128,243"><area shape="rect" title="STL class." alt="" coords="403,87,475,161"></map>
+<area shape="rect" href="class_dataset.html" title="Data set of character samples encoded as feature vectors." alt="" coords="5,7,128,257"><area shape="rect" title="STL class." alt="" coords="403,95,475,169"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -101,6 +101,9 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sql_dataset.html#5d7c1ff7811edacb08744efa4d9d03e0">removeSample</a> (const unsigned int &amp;n)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#5d7c1ff7811edacb08744efa4d9d03e0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_dataset.html">Dataset</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_my_sql_dataset.html#02bfcc4f35e498c09e26bcd9da32ca51">clone</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clone a <a class="el" href="class_my_sql_dataset.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> object.  <a href="#02bfcc4f35e498c09e26bcd9da32ca51"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="_dataset_8hpp.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dataset.html#4ceae5eaf79ece96939b50f2b890bc27">at</a> (const unsigned int &amp;n) const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
@@ -295,6 +298,28 @@ The table <em>samples</em> stores the features of every trained sample using the
 
 </div>
 </div><p>
+<a class="anchor" name="02bfcc4f35e498c09e26bcd9da32ca51"></a><!-- doxytag: member="MySqlDataset::clone" ref="02bfcc4f35e498c09e26bcd9da32ca51" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_dataset.html">Dataset</a> * MySqlDataset::clone           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pointer to a <a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> object. </dd></dl>
+
+<p>Implements <a class="el" href="class_dataset.html#495031fac07b94fc6ff929f996a8b94f">Dataset</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="06b9132afd07f5dd8147a7530a137e56"></a><!-- doxytag: member="MySqlDataset::code" ref="06b9132afd07f5dd8147a7530a137e56" args="(const std::string &amp;character) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +419,7 @@ The table <em>samples</em> stores the features of every trained sample using the
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:22 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 18:58:27 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

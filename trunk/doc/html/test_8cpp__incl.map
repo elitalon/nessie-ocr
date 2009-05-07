@@ -1,6 +1,6 @@
-<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="49,81,116,105">
-<area shape="rect" href="$_nessie_ocr_8hpp.html" title="Declaration of NessieOcr class." alt="" coords="844,81,945,105">
-<area shape="rect" href="$_postgre_sql_dataset_8hpp.html" title="Declaration of PostgreSqlDataset class." alt="" coords="191,81,337,105">
-<area shape="rect" href="$_plain_text_dataset_8hpp.html" title="Declaration of PlainTextDataset class." alt="" coords="361,81,497,105">
-<area shape="rect" href="$_knn_classification_algorithm_8hpp.html" title="Declaration of KnnClassificationAlgorithm class." alt="" coords="628,81,820,105">
-<area shape="rect" href="$_pattern_8hpp.html" title="Declaration of Pattern class." alt="" coords="521,81,604,105">
+<area shape="rect" href="$_nessie_ocr_8hpp.html" title="Declaration of NessieOcr class." alt="" coords="416,81,517,105">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="293,156,360,180">
+<area shape="rect" href="$_clip_8hpp.html" title="Declaration of Clip class." alt="" coords="83,81,149,105">
+<area shape="rect" href="$_postgre_sql_dataset_8hpp.html" title="Declaration of PostgreSqlDataset class." alt="" coords="523,156,669,180">
+<area shape="rect" href="$_plain_text_dataset_8hpp.html" title="Declaration of PlainTextDataset class." alt="" coords="693,156,829,180">
+<area shape="rect" href="$_knn_classifier_8hpp.html" title="Declaration of KnnClassifier class." alt="" coords="173,81,291,105">

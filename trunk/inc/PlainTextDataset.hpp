@@ -58,6 +58,11 @@ class PlainTextDataset : public Dataset
 		///	@param	n	Row in the dataset where remove the sample.
 		void removeSample (const unsigned int& n);
 
+		///	@brief	Clone a PlainTextDataset object.
+		///
+		///	@return	A pointer to a Dataset object.
+		Dataset* clone () const;
+
 	private:
 
 		std::string	filename_;	///< File path where the data set is stored in the filesystem.

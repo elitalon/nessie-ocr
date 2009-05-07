@@ -67,38 +67,37 @@ window.onload = initDynSections;
 <a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_KNN_CLASSIFICATION_PARADIGM_H)</span>
 <a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _KNN_CLASSIFICATION_PARADIGM_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 
+<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>;
 <a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>;
-<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>;
-<a name="l00010"></a>00010 <span class="keyword">class </span><a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>;
-<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="_classification_algorithm_8hpp.html" title="Declaration of ClassificationAlgorithm class.">ClassificationAlgorithm.hpp</a>"</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;memory&gt;</span>
-<a name="l00015"></a>00015 
-<a name="l00020"></a><a class="code" href="class_knn_classification_algorithm.html">00020</a> <span class="keyword">class </span><a class="code" href="class_knn_classification_algorithm.html" title="Algorithm used by the OCR process in the classification stage based on the KNN paradigm...">KnnClassificationAlgorithm</a> : <span class="keyword">public</span> <a class="code" href="class_classification_algorithm.html" title="Algorithm used by the OCR process in the classification stage.">ClassificationAlgorithm</a>
-<a name="l00021"></a>00021 {
-<a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00023"></a>00023 
-<a name="l00026"></a>00026         <span class="keyword">explicit</span> <a class="code" href="class_knn_classification_algorithm.html#6e8004d281453da10673935cb33e0b9d" title="Constructor.">KnnClassificationAlgorithm</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; kNeighbours, std::auto_ptr&lt;Dataset&gt;&amp; dataset);
-<a name="l00027"></a>00027 
-<a name="l00029"></a>00029         <span class="keyword">virtual</span> <a class="code" href="class_knn_classification_algorithm.html#08cd4548110bcca5a9138956bf2cde58" title="Destructor.">~KnnClassificationAlgorithm</a> ();
-<a name="l00030"></a>00030 
-<a name="l00036"></a>00036         std::vector&lt;std::string&gt; <a class="code" href="class_knn_classification_algorithm.html#b93ae412d4a70b91344cec63a1de6227" title="Classify a set of feature vectors into their most probably classes.">classify</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors);
+<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>;
+<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="_classification_algorithm_8hpp.html" title="Declaration of ClassificationAlgorithm class.">ClassificationAlgorithm.hpp</a>"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00021"></a><a class="code" href="class_knn_classification_algorithm.html">00021</a> <span class="keyword">class </span><a class="code" href="class_knn_classification_algorithm.html" title="Classification algorithm based on the KNN paradigm.">KnnClassificationAlgorithm</a> : <span class="keyword">public</span> <a class="code" href="class_classification_algorithm.html" title="Algorithm used by the OCR process in the classification stage.">ClassificationAlgorithm</a>
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023     <span class="keyword">public</span>:
+<a name="l00024"></a>00024 
+<a name="l00033"></a>00033         <span class="keyword">explicit</span> <a class="code" href="class_knn_classification_algorithm.html#c7a9659dd2f49e4dfe6f446bb7e59015" title="Constructor.">KnnClassificationAlgorithm</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; kNeighbours, <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span> dataset);
+<a name="l00034"></a>00034 
+<a name="l00036"></a>00036         <span class="keyword">virtual</span> <a class="code" href="class_knn_classification_algorithm.html#08cd4548110bcca5a9138956bf2cde58" title="Destructor.">~KnnClassificationAlgorithm</a> ();
 <a name="l00037"></a>00037 
-<a name="l00044"></a>00044         <span class="keywordtype">double</span> <a class="code" href="class_knn_classification_algorithm.html#0e1312aa9a1898c6c70ef628b18b1f58" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; referenceText);
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046     <span class="keyword">private</span>:
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            kNeighbours_;   
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         std::auto_ptr&lt;Dataset&gt;  dataset_;       
-<a name="l00051"></a>00051 };
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#endif</span>
-<a name="l00054"></a>00054 <span class="preprocessor"></span>
+<a name="l00043"></a>00043         std::vector&lt;std::string&gt; <a class="code" href="class_knn_classification_algorithm.html#a03c853fec79230280ffeeb64849b9db" title="Classify a set of feature vectors into their most probably classes.">classify</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors) <span class="keyword">const</span>;
+<a name="l00044"></a>00044 
+<a name="l00055"></a>00055         <span class="keywordtype">double</span> <a class="code" href="class_knn_classification_algorithm.html#0e1312aa9a1898c6c70ef628b18b1f58" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; referenceText);
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="keyword">private</span>:
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    kNeighbours_;   
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <a class="code" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>*        dataset_;       
+<a name="l00062"></a>00062 };
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:20 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 18:58:24 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

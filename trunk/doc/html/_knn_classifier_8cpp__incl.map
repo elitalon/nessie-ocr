@@ -1,4 +1,6 @@
 <area shape="rect" href="$_knn_classifier_8hpp.html" title="Declaration of KnnClassifier class." alt="" coords="5,81,123,105">
-<area shape="rect" href="$_classification_algorithm_8hpp.html" title="Declaration of ClassificationAlgorithm class." alt="" coords="147,81,317,105">
-<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="341,81,408,105">
-<area shape="rect" href="$_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="432,81,552,105">
+<area shape="rect" href="$_knn_classification_algorithm_8hpp.html" title="Declaration of KnnClassificationAlgorithm class." alt="" coords="147,81,339,105">
+<area shape="rect" href="$_text_8hpp.html" title="Declaration of Text class." alt="" coords="363,81,429,105">
+<area shape="rect" href="$_dataset_8hpp.html" title="Declaration of Dataset class." alt="" coords="453,81,541,105">
+<area shape="rect" href="$_feature_vector_8hpp.html" title="Declaration of FeatureVector class." alt="" coords="477,156,597,180">
+<area shape="rect" href="$_nessie_exception_8hpp.html" title="Declaration of NessieException class." alt="" coords="616,81,752,105">

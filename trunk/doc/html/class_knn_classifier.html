@@ -74,37 +74,33 @@ Inheritance diagram for KnnClassifier:</div>
 <div class="dynsection">
 <p><center><img src="class_knn_classifier__inherit__graph.png" border="0" usemap="#_knn_classifier__inherit__map" alt="Inheritance graph"></center>
 <map name="_knn_classifier__inherit__map">
-<area shape="rect" href="class_classifier.html" title="Classifier of the OCR process." alt="" coords="5,5,165,184"></map>
+<area shape="rect" href="class_classifier.html" title="Classifier of the OCR process." alt="" coords="5,5,165,155"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for KnnClassifier:</div>
 <div class="dynsection">
 <p><center><img src="class_knn_classifier__coll__graph.png" border="0" usemap="#_knn_classifier__coll__map" alt="Collaboration graph"></center>
 <map name="_knn_classifier__coll__map">
-<area shape="rect" href="class_classifier.html" title="Classifier of the OCR process." alt="" coords="5,5,165,184"></map>
+<area shape="rect" href="class_classifier.html" title="Classifier of the OCR process." alt="" coords="5,5,165,155"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
 <a href="class_knn_classifier-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#5bca5ff9bf61a6d8dd14f27ea7526f88">KnnClassifier</a> (std::auto_ptr&lt; <a class="el" href="class_classification_algorithm.html">ClassificationAlgorithm</a> &gt; algorithm)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#02ed13dc455d2febc01021c4e9b72ba1">KnnClassifier</a> (const unsigned int &amp;nNeighbours, <a class="el" href="class_dataset.html">Dataset</a> *const dataset)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#5bca5ff9bf61a6d8dd14f27ea7526f88"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#02ed13dc455d2febc01021c4e9b72ba1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="bfb8bf17893ee64371cc3dab7b1a1dc1"></a><!-- doxytag: member="KnnClassifier::~KnnClassifier" ref="bfb8bf17893ee64371cc3dab7b1a1dc1" args="()" -->
 virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#bfb8bf17893ee64371cc3dab7b1a1dc1">~KnnClassifier</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; std::string &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#3cf4d1c6c515b99ebadf683c6de75ef5">performClassification</a> (const std::vector&lt; <a class="el" href="class_feature_vector.html">FeatureVector</a> &gt; &amp;featureVectors)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#67350f136aca9f03d8328861db374613">performClassification</a> (const std::vector&lt; <a class="el" href="class_feature_vector.html">FeatureVector</a> &gt; &amp;featureVectors)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classify each feature vector passed into its most probably class (character).  <a href="#3cf4d1c6c515b99ebadf683c6de75ef5"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classify each feature vector passed into its most probably class (character).  <a href="#67350f136aca9f03d8328861db374613"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_knn_classifier.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">performTraining</a> (const std::vector&lt; <a class="el" href="class_feature_vector.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="class_text.html">Text</a> &amp;referenceText)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#7c290e7a015b3d3f8ad92a8ec8dc0b09"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const std::vector<br class="typebreak">
-&lt; std::string &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#07db50ac7361ae109262f628ebeba950">characters</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the characters associated with the feature vectors passed in constructor.  <a href="#07db50ac7361ae109262f628ebeba950"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <br class="typebreak">
 <a class="el" href="class_classifier_statistics.html">ClassifierStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a> () const </td></tr>
 
@@ -114,70 +110,60 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <a class="el" href="class_classifier_statistics.html">ClassifierStatistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="class_statistics.html" title="Statistics gathered during the text recognition process.">Statistics</a> about the classification of feature vectors. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0249043aa0ee7c81fb94863993781c1a"></a><!-- doxytag: member="KnnClassifier::characters_" ref="0249043aa0ee7c81fb94863993781c1a" args="" -->
-std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#0249043aa0ee7c81fb94863993781c1a">characters_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Characters found after the classification process. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="673d1ebcca388882f1987b1be37dca1d"></a><!-- doxytag: member="KnnClassifier::classificationAlgorithm_" ref="673d1ebcca388882f1987b1be37dca1d" args="" -->
-std::auto_ptr<br class="typebreak">
-&lt; <a class="el" href="class_classification_algorithm.html">ClassificationAlgorithm</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#673d1ebcca388882f1987b1be37dca1d">classificationAlgorithm_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="16ed33c24d275a6c4d9028d8ebf38573"></a><!-- doxytag: member="KnnClassifier::classificationAlgorithm_" ref="16ed33c24d275a6c4d9028d8ebf38573" args="" -->
+<a class="el" href="class_classification_algorithm.html">ClassificationAlgorithm</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#16ed33c24d275a6c4d9028d8ebf38573">classificationAlgorithm_</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Concrete classification algorithm to be used. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-This class implements the OCR classification stage using the KNN paradigm to match every feature vector to its associated character.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>, <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a></dd></dl>
+This class implements the <a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a> class using the KNN paradigm. A KNN classifier only needs as input parameters the number of neighbours and a dataset.<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_classifier.html" title="Classifier of the OCR process.">Classifier</a>, <a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a>, <a class="el" href="class_feature_vector.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-04-29 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="5bca5ff9bf61a6d8dd14f27ea7526f88"></a><!-- doxytag: member="KnnClassifier::KnnClassifier" ref="5bca5ff9bf61a6d8dd14f27ea7526f88" args="(std::auto_ptr&lt; ClassificationAlgorithm &gt; algorithm)" -->
+<a class="anchor" name="02ed13dc455d2febc01021c4e9b72ba1"></a><!-- doxytag: member="KnnClassifier::KnnClassifier" ref="02ed13dc455d2febc01021c4e9b72ba1" args="(const unsigned int &amp;nNeighbours, Dataset *const dataset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">KnnClassifier::KnnClassifier           </td>
           <td>(</td>
-          <td class="paramtype">std::auto_ptr&lt; <a class="el" href="class_classification_algorithm.html">ClassificationAlgorithm</a> &gt;&nbsp;</td>
-          <td class="paramname"> <em>algorithm</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [explicit]</code></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>nNeighbours</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_dataset.html">Dataset</a> *const &nbsp;</td>
+          <td class="paramname"> <em>dataset</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Input <a class="el" href="class_classification_algorithm.html" title="Algorithm used by the OCR process in the classification stage.">ClassificationAlgorithm</a> object is released and managed internally. </dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>nNeighbours</em>&nbsp;</td><td>Number of neighbours to search for every sample. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>dataset</em>&nbsp;</td><td><a class="el" href="class_dataset.html" title="Data set of character samples encoded as feature vectors.">Dataset</a> to use in classification and training methods.</td></tr>
+  </table>
+</dl>
+<dl class="warning" compact><dt><b>Warning:</b></dt><dd>The dataset is only used by the class. A <a class="el" href="class_knn_classifier.html" title="Classifier of the OCR process based on the KNN paradigm.">KnnClassifier</a> object is not responsible of deallocating the dataset. </dd></dl>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="07db50ac7361ae109262f628ebeba950"></a><!-- doxytag: member="KnnClassifier::characters" ref="07db50ac7361ae109262f628ebeba950" args="() const " -->
+<a class="anchor" name="67350f136aca9f03d8328861db374613"></a><!-- doxytag: member="KnnClassifier::performClassification" ref="67350f136aca9f03d8328861db374613" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; std::string &gt; &amp; Classifier::characters           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of std::string objects with the characters found, one character per feature vector passed in Classifier::classify() method. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="3cf4d1c6c515b99ebadf683c6de75ef5"></a><!-- doxytag: member="KnnClassifier::performClassification" ref="3cf4d1c6c515b99ebadf683c6de75ef5" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; std::string &gt; &amp; KnnClassifier::performClassification           </td>
+          <td class="memname">std::vector&lt; std::string &gt; KnnClassifier::performClassification           </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; <a class="el" href="class_feature_vector.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>featureVectors</em>          </td>
@@ -194,10 +180,9 @@ This class implements the OCR classification stage using the KNN paradigm to mat
     <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors to classify.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of std::string objects with the characters found, one character per vector element.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The recognized characters become also available through the <a class="el" href="class_classifier.html#07db50ac7361ae109262f628ebeba950" title="Get the characters associated with the feature vectors passed in constructor.">Classifier::characters()</a> method. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of std::string objects with the characters found, one character per vector in the array passed. </dd></dl>
 
-<p>Implements <a class="el" href="class_classifier.html#dbccb058af482d10d926c2681a69c251">Classifier</a>.</p>
+<p>Implements <a class="el" href="class_classifier.html#0e305866df409a318d8b8a4ea6a7f858">Classifier</a>.</p>
 
 </div>
 </div><p>
@@ -235,10 +220,12 @@ This class implements the OCR classification stage using the KNN paradigm to mat
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>An array of std::string objects with sample characters to train. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>referenceText</em>&nbsp;</td><td>A text to compare with the classification results character by character. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors that matches the array of characters previously classified. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>An array of std::string objects with classified characters for training. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>referenceText</em>&nbsp;</td><td>A text to compare with the classificatios results to control the training decision.</td></tr>
   </table>
 </dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The size of all input parameters must be equal. </dd></dl>
 
 <p>Implements <a class="el" href="class_classifier.html#1615ad7c13e54de1488d31a4ab3cd62b">Classifier</a>.</p>
 
@@ -265,7 +252,7 @@ This class implements the OCR classification stage using the KNN paradigm to mat
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:22 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 18:58:27 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -81,7 +81,7 @@ window.onload = initDynSections;
 <a name="l00023"></a>00023 
 <a name="l00025"></a>00025         <span class="keyword">virtual</span> <a class="code" href="class_classification_algorithm.html#049cd02b064f23619bc8bbf96dbbe22b" title="Destructor.">~ClassificationAlgorithm</a> ();
 <a name="l00026"></a>00026 
-<a name="l00032"></a>00032         <span class="keyword">virtual</span> std::vector&lt;std::string&gt; <a class="code" href="class_classification_algorithm.html#8b8ac7cf8816ec8dfbef56fcc4882b80" title="Classify a set of feature vectors into their most probably classes.">classify</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors) = 0;
+<a name="l00032"></a>00032         <span class="keyword">virtual</span> std::vector&lt;std::string&gt; <a class="code" href="class_classification_algorithm.html#442a4eb2f495482a164d45965d6bd70b" title="Classify a set of feature vectors into their most probably classes.">classify</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors) <span class="keyword">const</span> = 0;
 <a name="l00033"></a>00033         
 <a name="l00041"></a>00041         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_classification_algorithm.html#3ba939700df1f0dbbcbfbd0a53f9a3d6" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="class_text.html" title="Text extracted from a press clip during the recognition process.">Text</a>&amp; referenceText) = 0;
 <a name="l00042"></a>00042 };
@@ -89,7 +89,7 @@ window.onload = initDynSections;
 <a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
 <a name="l00045"></a>00045 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:20 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 18:58:24 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

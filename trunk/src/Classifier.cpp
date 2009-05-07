@@ -2,10 +2,10 @@
 /// @brief Definition of Classifier class
 
 #include "Classifier.hpp"
+#include "ClassificationAlgorithm.hpp"
 
 Classifier::Classifier ()
 :	statistics_(),
-	characters_(0),
 	classificationAlgorithm_(0)
 {};
 

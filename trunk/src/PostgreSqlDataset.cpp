@@ -178,3 +178,9 @@ void PostgreSqlDataset::removeSample (const unsigned int& n)
 	size_ = samples_.size();
 };
 
+
+Dataset* PostgreSqlDataset::clone () const
+{
+	return new PostgreSqlDataset(*this);
+};
+

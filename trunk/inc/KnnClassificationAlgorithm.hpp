@@ -4,50 +4,61 @@
 #if !defined(_KNN_CLASSIFICATION_PARADIGM_H)
 #define _KNN_CLASSIFICATION_PARADIGM_H
 
-
-class FeatureVector;
 class Dataset;
+class FeatureVector;
 class Text;
 #include "ClassificationAlgorithm.hpp"
 #include <vector>
 #include <string>
-#include <memory>
 
-///	@brief		Algorithm used by the OCR process in the classification stage based on the KNN paradigm.
+
+///	@brief		Classification algorithm based on the KNN paradigm.
+///	@details	This class implements the ClassificationAlgorithm class using the KNN paradigm for classifying and/or training purposes. The number of
+///	neighbours to take into account is set in the class constructor, as well as the necessary dataset.
 /// 
-/// @author Eliezer Talón (elitalon@gmail.com)
-/// @date 2009-04-29 
+/// @author	Eliezer Talón (elitalon@gmail.com)
+/// @date	2009-04-29 
 class KnnClassificationAlgorithm : public ClassificationAlgorithm
 {
 	public:
 
-		///	@brief	Constructor
-		///	@post	The input Dataset object is released and becomes managed internally.
-		explicit KnnClassificationAlgorithm (const unsigned int& kNeighbours, std::auto_ptr<Dataset>& dataset);
+		///	@brief		Constructor
+		///
+		///	@param		kNeighbours	Number of neighbours to take when classifying.
+		/// @param		dataset		A dataset with previously trained samples.
+		///
+		///	@pre		The dataset must not be empty or set to a null value.
+		///
+		///	@warning	A client program or function must be aware since this class only uses the dataset and does not manage it.
+		explicit KnnClassificationAlgorithm (const unsigned int& kNeighbours, Dataset* const dataset);
 
 		///	@brief	Destructor
 		virtual ~KnnClassificationAlgorithm ();
 
-		/// @brief	Classify a set of feature vectors into their most probably classes.
+		/// @brief		Classify a set of feature vectors into their most probably classes.
 		/// 
-		/// @param	featureVectors	An array of feature vectors.
+		/// @param		featureVectors	An array of feature vectors.
 		/// 
 		/// @return An array of characters, one character per feature vector passes.
-		std::vector<std::string> classify (const std::vector<FeatureVector>& featureVectors);
+		std::vector<std::string> classify (const std::vector<FeatureVector>& featureVectors) const;
 
-		/// @brief	Train the classifier, comparing each classification decision with a reference text.
+		/// @brief		Train the classifier, comparing each classification decision with a reference text.
 		/// 
-		/// @param	characters		An array of std::string objects with sample characters to train.
-		/// @param	referenceText	A text to compare with the classification results character by character.
+		/// @param		featureVectors	An array of feature vectors.
+		/// @param		characters		An array of std::string objects with characters that match the feature vectors.
+		/// @param		referenceText	A text to compare with the characters passed.
 		///
-		///	@return	The hit rate achieved after training (e.g. 0,9 for 90%).
+		///	@pre		The size of <em>featureVectors</em>, <em>characters</em> and <em>referenceText</em> must be equal.
+		///	@post		The dataset might be updated with the addition of new samples.
+		///
+		///	@return		The hit rate achieved after training (e.g. 0,9 for 90%).
 		double train (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText);
 
 	private:
 
-		unsigned int			kNeighbours_;	///< Maximum number of negihbouring samples.
+		unsigned int	kNeighbours_;	///< Maximum number of negihbouring samples.
 
-		std::auto_ptr<Dataset>	dataset_;		///< Set of previously trained samples.
+		Dataset*		dataset_;		///< Dataset with previously trained characters.
 };
 
 #endif

@@ -1,16 +1,22 @@
 /// @file
 /// @brief Implementation of NessieOcr class
 
-#include "NessieOcr.hpp"
 #include "NessieException.hpp"
+#include "NessieOcr.hpp"
 #include "Clip.hpp"
-#include "Preprocessor.hpp"
-#include "FeatureExtractor.hpp"
-#include "KnnClassifier.hpp"
+#include "Classifier.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
-#include <string>
+
+#include "PreprocessorStatistics.hpp"
+#include "FeatureExtractorStatistics.hpp"
+#include "ClassifierStatistics.hpp"
+
+#include "Preprocessor.hpp"
+#include "FeatureExtractor.hpp"
 #include <boost/regex.hpp>
+#include <sstream>
+#include <iostream>
 
 
 NessieOcr::NessieOcr ()
@@ -19,28 +25,91 @@ NessieOcr::NessieOcr ()
 	featureVectors_(0),
 	characters_(0),
 	text_(),
-	preprocessingStatistics_(),
-	featureExtractorStatistics_(),
-	classifierStatistics_()
+	preprocessingStatistics_(0),
+	featureExtractionStatistics_(0),
+	classificationStatistics_(0)
 {};
 
 
 NessieOcr::~NessieOcr() {};
 
 
-void NessieOcr::extractText (const Clip& pressClip, std::auto_ptr<ClassificationAlgorithm>& algorithm)
+const Text& NessieOcr::recognize (const Clip& pressClip, const std::auto_ptr<Classifier>& classifier)
 {
+	if ( classifier.get() == 0 )
+		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
+
 	doPreprocessing(pressClip);
 	doFeatureExtraction();
-	doClassification(algorithm);
+	doClassification(classifier);
 	doPostprocessing();
+
+	return text_;
+};
+
+
+void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Clip& pressClip, const std::string& text )
+{
+	if ( classifier.get() == 0 )
+		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
+
+	doPreprocessing(pressClip);
+	doFeatureExtraction();
+	characters_ = classifier->performClassification(featureVectors_);
+
+	const boost::regex pattern("\\s*");
+	Text referenceText;
+	referenceText.content(regex_replace(text, pattern, ""));
+
+	std::cout << std::endl << "Size of reference text: " << referenceText.size() << std::endl;
+
+	if ( characters_.size() == referenceText.size() )
+		classifier->performTraining(featureVectors_, characters_, referenceText);
+	
+	classificationStatistics_.reset (new ClassifierStatistics(classifier->statistics()) );
+};
+
+
+void NessieOcr::exportPatternImages () const
+{
+	unsigned int patternNo = 0;
+	
+	for ( std::vector<Pattern>::const_iterator i = patterns_.begin(); i != patterns_.end(); ++i )
+	{
+		std::ostringstream filename;
+		filename << "pattern" << patternNo++ << ".bmp";
+
+		i->writeToOutputImage(filename.str(), true);
+	}
+};
+
+
+void NessieOcr::printStatistics () const
+{
+	if ( preprocessingStatistics_.get() != 0 )
+		preprocessingStatistics_->print();
+	else
+		std::cout << std::endl << "There is no statistics for the preprocessing stage." << std::endl;
+	
+	if ( featureExtractionStatistics_.get() != 0 )
+		featureExtractionStatistics_->print();
+	else
+		std::cout << std::endl << "There is no statistics for the feature extraction stage." << std::endl;
+	
+	if ( classificationStatistics_.get() != 0 )
+		classificationStatistics_->print();
+	else
+		std::cout << std::endl << "There is no statistics for the classification stage." << std::endl;
 };
 
 
 void NessieOcr::doPreprocessing (const Clip& pressClip)
 {
-	patterns_.clear();
 	spaceLocations_.clear();
+	patterns_.clear();
+	featureVectors_.clear();
+	characters_.clear();
+	text_.clear();
 
 	Preprocessor preprocessor(pressClip);
 	preprocessor.removeNoiseByLinearFiltering();
@@ -48,6 +117,7 @@ void NessieOcr::doPreprocessing (const Clip& pressClip)
 	preprocessor.removeNoiseByTemplateMatching();
 	preprocessor.isolateRegions();
 	preprocessor.correctSlanting();
+
 	spaceLocations_ = preprocessor.findSpacesBetweenWords();
 	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
 	
@@ -55,32 +125,32 @@ void NessieOcr::doPreprocessing (const Clip& pressClip)
 	preprocessor.skeletonizePatterns();
 	patterns_ = preprocessor.patterns();
 
-	preprocessingStatistics_ = preprocessor.statistics();
+	preprocessingStatistics_.reset ( new PreprocessorStatistics(preprocessor.statistics()) );
 };
 
 
 void NessieOcr::doFeatureExtraction ()
 {
 	featureVectors_.clear();
+	characters_.clear();
+	text_.clear();
 
 	FeatureExtractor featureExtractor(patterns_);
 	featureExtractor.computeMoments();
 	featureVectors_ = featureExtractor.featureVectors();
 
-	featureExtractorStatistics_ = featureExtractor.statistics();
+	featureExtractionStatistics_.reset ( new FeatureExtractorStatistics(featureExtractor.statistics()) );
 };
 
 
-void NessieOcr::doClassification (std::auto_ptr<ClassificationAlgorithm>& algorithm)
+void NessieOcr::doClassification (const std::auto_ptr<Classifier>& classifier)
 {
 	characters_.clear();
+	text_.clear();
 
-	std::auto_ptr<Classifier> classifier;
-	classifier.reset( new KnnClassifier(algorithm) );
-	classifier->performClassification(featureVectors_);
-	characters_ = classifier->characters();
+	characters_ = classifier->performClassification(featureVectors_);
 
-	classifierStatistics_ = classifier->statistics();
+	classificationStatistics_.reset ( new ClassifierStatistics(classifier->statistics()) );
 };
 
 
@@ -103,7 +173,7 @@ void NessieOcr::doPostprocessing ()
 			text_.addCharacter(*i);
 
 		std::string brokenText(text_.content());
-		boost::regex pattern("- ");
+		boost::regex pattern("-\\s+");
 		text_.content(regex_replace(brokenText, pattern, ""));
 		
 		pattern = ",,";
@@ -112,38 +182,5 @@ void NessieOcr::doPostprocessing ()
 		pattern = "''";
 		text_.content(regex_replace(brokenText, pattern, "\""));
 	}
-};
-
-
-void NessieOcr::printStatistics () const
-{
-	preprocessingStatistics_.print();
-	featureExtractorStatistics_.print();
-	classifierStatistics_.print();
-};
-
-
-#include <iostream>
-void NessieOcr::trainClassifier (const Clip& pressClip, const std::string& text, std::auto_ptr<ClassificationAlgorithm>& algorithm)
-{
-	doPreprocessing(pressClip);
-	doFeatureExtraction();
-	
-	characters_.clear();
-	std::auto_ptr<Classifier> classifier;
-	classifier.reset( new KnnClassifier(algorithm) );
-	classifier->performClassification(featureVectors_);
-	characters_ = classifier->characters();
-
-	const boost::regex pattern("\\s*");
-	Text referenceText;
-	referenceText.content(regex_replace(text, pattern, ""));
-
-	std::cout << std::endl << "Size of reference text: " << referenceText.size() << std::endl;
-
-	if ( characters_.size() == referenceText.size() )
-		classifier->performTraining(featureVectors_, characters_, referenceText);
-	
-	classifierStatistics_ = classifier->statistics();
 };
 

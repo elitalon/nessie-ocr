@@ -2,8 +2,8 @@
 /// @brief Definition of KnnClassificationAlgorithm class
 
 #include "KnnClassificationAlgorithm.hpp"
-#include "FeatureVector.hpp"
 #include "Dataset.hpp"
+#include "FeatureVector.hpp"
 #include "Text.hpp"
 #include "NessieException.hpp"
 #include <utility>
@@ -11,23 +11,25 @@
 #include <sstream>
 
 
-KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNeighbours, std::auto_ptr<Dataset>& dataset)
+KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNeighbours, Dataset* const dataset)
 :	ClassificationAlgorithm(),
 	kNeighbours_(kNeighbours),
 	dataset_(dataset)
-{ };
+{
+	if ( dataset == 0 )
+		throw NessieException ("KnnClassificationAlgorithm::KnnClassificationAlgorithm() : The dataset is set to a null value.");
+};
 
 
 KnnClassificationAlgorithm::~KnnClassificationAlgorithm () {};
 
 
-std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector<FeatureVector>& featureVectors)
+std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector<FeatureVector>& featureVectors) const
 {
 	if ( dataset_->features() != featureVectors.begin()->size() )
-		throw NessieException ("KnnClassificationAlgorithm::classify() : The number of features stored in the dataset is different from the one expected by the program.");
+		throw NessieException ("KnnClassificationAlgorithm::classify() : The number of features stored in the dataset_ is different from the one expected by the program.");
 	
 	std::vector<std::string> characters(0);
-	
 	if ( dataset_->size() > 0 )
 	{
 		typedef std::pair<double, Sample> Neighbour;
@@ -93,8 +95,8 @@ std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector
 double KnnClassificationAlgorithm::train (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText)
 {
 	if ( dataset_->features() != featureVectors.begin()->size() )
-		throw NessieException ("KnnClassificationAlgorithm::train() : The number of features stored in the dataset is different from the one expected by the program.");
-	
+		throw NessieException ("KnnClassificationAlgorithm::train() : The number of features stored in the dataset_ is different from the one expected by the program.");
+
 	unsigned int patternNo = 0;
 	double hits = 0.0;
 

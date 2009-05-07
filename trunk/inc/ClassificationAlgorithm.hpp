@@ -29,7 +29,7 @@ class ClassificationAlgorithm
 		/// @param	featureVectors	An array of feature vectors.
 		/// 
 		/// @return An array of characters, one character per feature vector passes.
-		virtual std::vector<std::string> classify (const std::vector<FeatureVector>& featureVectors) = 0;
+		virtual std::vector<std::string> classify (const std::vector<FeatureVector>& featureVectors) const = 0;
 		
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.
 		/// 

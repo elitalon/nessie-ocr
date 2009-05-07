@@ -35,12 +35,12 @@ DATASET							= Dataset.cpp Dataset.hpp FeatureVector.o
 FEATURE_EXTRACTOR				= FeatureExtractor.cpp FeatureExtractor.hpp FeatureExtractorStatistics.o Pattern.o FeatureVector.o
 FEATURE_EXTRACTOR_STATISTICS	= FeatureExtractorStatistics.cpp FeatureExtractorStatistics.hpp Statistics.o
 FEATURE_VECTOR					= FeatureVector.cpp FeatureVector.hpp NessieException.o
-KNN_CLASSIFICATION_ALGORITHM	= KnnClassificationAlgorithm.cpp KnnClassificationAlgorithm.hpp ClassificationAlgorithm.o FeatureVector.o Dataset.o Text.o NessieException.o
-KNN_CLASSIFIER					= KnnClassifier.cpp KnnClassifier.hpp Classifier.o ClassificationAlgorithm.o FeatureVector.o Text.o ClassifierStatistics.o
+KNN_CLASSIFICATION_ALGORITHM	= KnnClassificationAlgorithm.cpp KnnClassificationAlgorithm.hpp ClassificationAlgorithm.o Dataset.o FeatureVector.o Text.o NessieException.o
+KNN_CLASSIFIER					= KnnClassifier.cpp KnnClassifier.hpp Classifier.o KnnClassificationAlgorithm.o FeatureVector.o Text.o NessieException.o
 MAIN							= tester.o
 MYSQL_DATASET					= MySqlDataset.cpp MySqlDataset.hpp FeatureVector.o Dataset.o NessieException.o
 NESSIE_EXCEPTION				= NessieException.cpp NessieException.hpp
-NESSIE_OCR						= NessieOcr.cpp NessieOcr.hpp Text.o Preprocessor.o FeatureExtractor.o KnnClassifier.o Clip.o ClassificationAlgorithm.o Pattern.o FeatureVector.o NessieException.o
+NESSIE_OCR						= NessieOcr.cpp NessieOcr.hpp Text.o Clip.o Classifier.o Pattern.o FeatureVector.o Preprocessor.o FeatureExtractor.o NessieException.o
 PATTERN							= Pattern.cpp Pattern.hpp
 PLAIN_TEXT_DATASET				= PlainTextDataset.cpp PlainTextDataset.hpp FeatureVector.o Dataset.o NessieException.o
 POSTGRE_SQL_DATASET				= PostgreSqlDataset.cpp PostgreSqlDataset.hpp FeatureVector.o Dataset.o NessieException.o
@@ -48,7 +48,7 @@ PREPROCESSOR					= Preprocessor.cpp Preprocessor.hpp Clip.o PreprocessorStatisti
 PREPROCESSOR_STATISTICS			= PreprocessorStatistics.cpp PreprocessorStatistics.hpp Statistics.o
 REGION							= Region.cpp Region.hpp
 STATISTICS						= Statistics.cpp Statistics.hpp
-TESTER							= test.cpp Clip.o PlainTextDataset.o PostgreSqlDataset.o NessieOcr.o KnnClassificationAlgorithm.o Pattern.o
+TESTER							= test.cpp NessieOcr.o Clip.o PostgreSqlDataset.o PlainTextDataset.o KnnClassifier.o Text.o
 TEXT							= Text.cpp Text.hpp NessieException.o
 
 

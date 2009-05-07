@@ -6,20 +6,19 @@
 
 class FeatureVector;
 class Text;
+class ClassificationAlgorithm;
 #include "ClassifierStatistics.hpp"
-#include "ClassificationAlgorithm.hpp"
 #include <string>
 #include <vector>
-#include <memory>
 
 
 ///	@brief		Classifier of the OCR process.
 /// 
 ///	@details	This class represents the classification stage of the OCR process, providing an interface to encapsulate different classification paradigms.
-///	Its task is to match every feature vector passed to its associated character. In the end of the process, a string of characters is available through the
-///	Classifier::characters() method.
+///	When performing a classification, its task is to match every feature vector passed to the most probably character. When performing a training, its task is
+/// to compare the classified characters with a reference text, fixing the wrong decisions.
 /// 
-/// @see		ClassificationAlgorithm, ClassifierStatistics, FeatureVector, Dataset
+/// @see		ClassificationAlgorithm, ClassifierStatistics, FeatureVector, Text
 ///
 ///	@todo		Implement new paradigms of classification (neural networks, support vector machines,...).
 /// 
@@ -35,11 +34,6 @@ class Classifier
 		///	@brief	Destructor.
 		virtual ~Classifier ();
 
-		///	@brief	Get the characters associated with the feature vectors passed in constructor.
-		/// 
-		/// @return	An array of std::string objects with the characters found, one character per feature vector passed in Classifier::classify() method.
-		virtual const std::vector<std::string>& characters () const;
-
 		///	@brief	Get the statistics regarding the classification stage.
 		/// 
 		/// @return A ClassifierStatistics object.
@@ -52,28 +46,22 @@ class Classifier
 		///	@return	An array of std::string objects with the characters found, one character per vector element.
 		///
 		///	@post	The recognized characters become also available through the Classifier::characters() method.
-		virtual const std::vector<std::string>& performClassification (const std::vector<FeatureVector>& featureVectors) = 0;
+		virtual std::vector<std::string> performClassification (const std::vector<FeatureVector>& featureVectors) = 0;
 		
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.
 		/// 
+		///	@param	featureVectors	An array of feature vectors that matches the array of characters previously classified.
 		/// @param	characters		An array of std::string objects with sample characters to train.
 		/// @param	referenceText	A text to compare with the classification results character by character.
 		virtual void performTraining (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText) = 0;
 
 	protected:
 
-		ClassifierStatistics					statistics_;				///< Statistics about the classification of feature vectors.
+		ClassifierStatistics		statistics_;				///< Statistics about the classification of feature vectors.
 
-		std::vector<std::string>				characters_;				///< Characters found after the classification process.
-
-		std::auto_ptr<ClassificationAlgorithm>	classificationAlgorithm_;	///< Concrete classification algorithm to be used.
+		ClassificationAlgorithm*	classificationAlgorithm_;	///< Concrete classification algorithm to be used.
 };
 
-
-inline const std::vector<std::string>& Classifier::characters () const
-{
-	return characters_;
-};
 
 inline const ClassifierStatistics& Classifier::statistics () const
 {

@@ -65,20 +65,14 @@ window.onload = initDynSections;
 </div>
 <div class="contents">
 <h1>NessieOcr Member List</h1>This is the complete list of members for <a class="el" href="class_nessie_ocr.html">NessieOcr</a>, including all inherited members.<p><table>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#b7b5ebdc9ca105269852a2250cbfb447">doClassification</a>(std::auto_ptr&lt; ClassificationAlgorithm &gt; &amp;algorithm)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#189e2cef43898bfb883c1a7385bfa135">doFeatureExtraction</a>()</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#2b8d8d05dcd077802fbbfee568ded5e7">doPostprocessing</a>()</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#8abd0f7dbe54829e76fb398b0af29c3a">doPreprocessing</a>(const Clip &amp;pressClip)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#6476f3009025796aa8308e182ebc3ff7">extractText</a>(const Clip &amp;pressClip, std::auto_ptr&lt; ClassificationAlgorithm &gt; &amp;algorithm)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#3a66670253aa35be1f76a76726aef333">featureVectors</a>() const </td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#0b571117c702a32c851a07baa7e3c965">exportPatternImages</a>() const </td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#38b73367c74767bdec9986c0cd119d4d">NessieOcr</a>()</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#c08a67f26471d820726353c2446018c1">patterns</a>() const </td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#4238fabd5c03487eb98e9b6c2a48f737">printStatistics</a>() const </td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#2d876208169b49e687945cdc9b124848">text</a>() const </td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#4de87fb6e53463ce2fde10e5f1a4de47">trainClassifier</a>(const Clip &amp;pressClip, const std::string &amp;text, std::auto_ptr&lt; ClassificationAlgorithm &gt; &amp;algorithm)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#1665dcedc2e0816666cd1a34b750bda5">recognize</a>(const Clip &amp;pressClip, const std::auto_ptr&lt; Classifier &gt; &amp;classifier)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#fb3c1124d4b73f8d63a4831970ff0fe0">train</a>(const std::auto_ptr&lt; Classifier &gt; &amp;classifier, const Clip &amp;pressClip, const std::string &amp;text)</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_nessie_ocr.html#1ec62ac7f69401516018fac35593e816">~NessieOcr</a>()</td><td><a class="el" href="class_nessie_ocr.html">NessieOcr</a></td><td></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 1 14:31:23 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 7 18:58:27 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

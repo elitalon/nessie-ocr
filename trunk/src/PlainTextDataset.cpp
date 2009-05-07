@@ -181,3 +181,10 @@ void PlainTextDataset::removeSample (const unsigned int& n)
 	samples_.erase(samples_.begin() + n);
 	size_ = samples_.size();
 };
+
+
+Dataset* PlainTextDataset::clone () const
+{
+	return new PlainTextDataset(*this);
+};
+

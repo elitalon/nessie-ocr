@@ -179,3 +179,9 @@ void MySqlDataset::removeSample (const unsigned int& n)
 	size_ = samples_.size();
 };
 
+
+Dataset* MySqlDataset::clone () const
+{
+	return new MySqlDataset(*this);
+};
+
