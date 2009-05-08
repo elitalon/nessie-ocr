@@ -16,7 +16,7 @@ CHMOD = chmod
 .SUFFIXES: .cpp .o .hpp
 
 srcdir = src/
-incdir = inc/
+incdir = include/
 libdir = lib/
 bindir = bin/
 vpath %.hpp		$(incdir)
@@ -59,7 +59,7 @@ LIBRARY_SHARED_FILE			= lib$(LIBRARY_NAME)`sh platformOptions.sh -e`
 LIBRARY_BUILDING_OPTIONS	= -shared -Wl,`sh platformOptions.sh -o`,$(LIBRARY_SHARED_FILE)
 
 # Executable and objects name
-PROGRAM				= $(bindir)tester
+PROGRAM				= $(bindir)ocrtester
 OBJECTS				= *.o
 
 # Search directories

@@ -86,6 +86,11 @@ class Dataset
 		///	@param	n	Row in the dataset where remove the sample.
 		virtual void removeSample (const unsigned int& n) = 0;
 
+		///	@brief	Clone a Dataset object.
+		///
+		///	@return	A pointer to a Dataset object.
+		virtual Dataset* clone () const = 0;
+
 	protected:
 
 		std::vector<Sample>					samples_;	///< Samples of the dataset.

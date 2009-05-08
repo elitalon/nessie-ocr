@@ -7,7 +7,6 @@
 #include "Dataset.hpp"
 #include <string>
 #include <map>
-#include <boost/noncopyable.hpp>
 
 
 ///	@brief		Dataset built by retrieving the data from a MySQL database.
@@ -49,7 +48,7 @@
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class MySqlDataset : public Dataset, private boost::noncopyable
+class MySqlDataset : public Dataset
 {
 	public:
 	
@@ -82,6 +81,11 @@ class MySqlDataset : public Dataset, private boost::noncopyable
 		///
 		///	@exception	NessieException
 		void removeSample (const unsigned int& n);
+
+		///	@brief	Clone a MySqlDataset object.
+		///
+		///	@return	A pointer to a Dataset object.
+		Dataset* clone () const;
 
 	private:
 		
