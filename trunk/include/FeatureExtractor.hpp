@@ -4,9 +4,9 @@
 #if !defined(_FEATURE_EXTRACTOR_H)
 #define _FEATURE_EXTRACTOR_H
 
-class FeatureVector;
 class Pattern;
 #include "FeatureExtractorStatistics.hpp"
+#include "FeatureVector.hpp"
 #include <vector>
 
 
@@ -42,8 +42,10 @@ class FeatureExtractor
 
 		///	@brief	Compute the image moments from the internal patterns.
 		///
+		///	@param	n	Maximum number of moments to compute.
+		///
 		///	@post	An array of feature vectors becomes available through the FeatureExtractor::featureVectors() method.
-		void computeMoments ();
+		void computeMoments (const unsigned int& n);
 
 	private:
 

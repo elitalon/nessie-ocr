@@ -18,15 +18,30 @@ class Text
 		///	@brief	Constructor.
 		explicit Text ();
 
-		///	@brief	Get the size of the text in number of characters.
+		///	@brief	Get the text content.
+		///
+		/// @return	A STL string object with the content of the text.
+		const std::string& content () const;
+
+		///	@brief	Set the text content.
+		///
+		/// @param	content A STL string object with the content of the text.
+		void content (const std::string& content);
+
+		///	@brief	Get the size of the text in characters.
 		///
 		/// @return	Number of characters in the text.
-		const unsigned int& size () const;
-		
-		/// @brief	Remove all the characters in the text, leaving it with a size of 0.
-		///
-		///	@post	The text becomes empty, no characters at all.
-		void clear ();
+		const unsigned int& size () const;	
+
+		/// @brief	Get the average height of characters in text.
+		/// 
+		/// @return	The average height of characters in pixels.
+		const double& averageCharacterHeight () const;
+
+		/// @brief	Set the average height of characters in text.
+		/// 
+		/// @param	height	Average height of characters in pixels.
+		void averageCharacterHeight (const double& height);
 
 		/// @brief	Get the character at given position.
 		/// 
@@ -42,13 +57,8 @@ class Text
 		/// @post		The character is appended at the end of the text.
 		///
 		/// @exception	NessieException
-		void append (const std::string& character);
+		void addCharacter (const std::string& character);
 
-		///	@brief	Set the text data.
-		///
-		/// @param	data A STL string object with the content of the text.
-		void assign (const std::string& data);
-		
 		/// @brief		Adds a character to the text at given position.
 		///
 		/// @param		character	A STL string object with a single character to add.
@@ -57,43 +67,23 @@ class Text
 		/// @post		The character is inserted at given position.
 		/// 
 		/// @exception	NessieException
-		void insert (const std::string& character, const unsigned int& n);
+		void addCharacter (const std::string& character, const unsigned int& n);
 
 		/// @brief		Remove a single character from the text.
 		///
 		/// @param		n	Position where the character must be removed.
 		/// 
 		/// @post		The character at given position is removed.
-		void erase (const unsigned int& n);
+		void removeCharacter (const unsigned int& n);
 
-		///	@brief	Get the text data.
+		/// @brief	Remove all the characters in the text, leaving it with a size of 0.
 		///
-		/// @return	A STL string object with the content of the text.
-		const std::string& data () const;
-
-		/// @brief	Get the average height of characters in text.
-		/// 
-		/// @return	The average height of characters in pixels.
-		const double& averageCharacterHeight () const;
-
-		/// @brief	Set the average height of characters in text.
-		/// 
-		/// @param	height	Average height of characters in pixels.
-		void averageCharacterHeight (const double& height);
-		
-		///	@brief	Get the size of the text in number of words.
-		///
-		///	@return	Number of words in the text.
-		unsigned int nWords () const;
-
-		///	@brief	Get the average word size.
-		///
-		///	@return	Average word size in number of characters
-		double averageWordSize () const;
+		///	@post	The text becomes empty, no characters at all.
+		void clear ();
 
 	private:
 
-		std::string		data_;						///< Characters of text.
+		std::string		content_;					///< Characters of text.
 		
 		unsigned int	size_;						///< Size of text.
 
@@ -101,9 +91,9 @@ class Text
 };
 
 
-inline const std::string& Text::data () const
+inline const std::string& Text::content () const
 {
-	return data_;
+	return content_;
 };
 
 inline const unsigned int& Text::size () const
@@ -123,7 +113,7 @@ inline void Text::averageCharacterHeight (const double& height)
 
 inline void Text::clear ()
 {
-	data_.clear();
+	content_.clear();
 	size_ = 0;
 };
 

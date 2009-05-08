@@ -1,15 +1,16 @@
 ///	@file
-///	@brief	Declaration of MySqlDataset class
+///	@brief	Declaration of PostgreSqlDataset class
 
-#if !defined(_MYSQL_DATASET_H)
-#define _MYSQL_DATASET_H
+#if !defined(_POSTGRE_SQL_DATASET_H)
+#define _POSTGRE_SQL_DATASET_H
 
 #include "Dataset.hpp"
 #include <string>
 #include <map>
+#include <boost/noncopyable.hpp>
 
 
-///	@brief		Dataset built by retrieving the data from a MySQL database.
+///	@brief		Dataset built by retrieving the data from a PostgreSQL database.
 ///
 ///	@details	The database must contain two tables named <em>samples</em> and <em>classes</em>. The table <em>classes</em> stores the characters
 ///	that can be recognized. It must contain three columns: id_class, label and asciiCode. The <em>id_class</em> column must be an integer
@@ -17,12 +18,11 @@
 ///	must be an integer. A posible definition for this table is acomplished with the following SQL statement:
 ///
 ///	@code
-///		CREATE TABLE IF NOT EXISTS classes (
-///			id_class	smallint unsigned	AUTO_INCREMENT PRIMARY KEY,
-///			label		varchar(2)			NOT NULL DEFAULT ' ',
-///			asciiCode	smallint unsigned	NOT NULL DEFAULT 32
-///		)
-///		ENGINE=InnoDB;
+///		CREATE TABLE classes (
+///			id_class	serial		PRIMARY KEY,
+///			label		varchar(2)	NOT NULL,
+///			asciiCode	integer		NOT NULL
+///		);
 ///	@endcode
 ///
 ///	The table <em>samples</em> stores the features of every trained sample using the classifier. It must contain a column named <em>id_sample</em>,
@@ -32,23 +32,21 @@
 ///
 ///	@code
 ///		CREATE TABLE samples (
-///			id_sample	int unsigned		AUTO_INCREMENT PRIMARY KEY,
-///			m00			double				NOT NULL DEFAULT 0.0,
-///			m10			double				NOT NULL DEFAULT 0.0,
-///			m01			double				NOT NULL DEFAULT 0.0,
-///			m20			double				NOT NULL DEFAULT 0.0,
-///			m02			double				NOT NULL DEFAULT 0.0,
-///			id_class	smallint unsigned	REFERENCES classes(id_class) ON DELETE CASCADE ON UPDATE CASCADE,
-///			INDEX		class(id_class)
-///		)
-///		ENGINE=InnoDB;
+///			id_sample	serial	PRIMARY KEY,
+///			m00			numeric	NOT NULL DEFAULT 0.0,
+///			m10			numeric	NOT NULL DEFAULT 0.0,
+///			m01			numeric	NOT NULL DEFAULT 0.0,
+///			m20			numeric	NOT NULL DEFAULT 0.0,
+///			m02			numeric	NOT NULL DEFAULT 0.0,
+///			id_class	integer	REFERENCES classes
+///		);
 ///	@endcode
 ///
 ///	@see		Dataset
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class MySqlDataset : public Dataset
+class PostgreSqlDataset : public Dataset, private boost::noncopyable
 {
 	public:
 	
@@ -58,13 +56,13 @@ class MySqlDataset : public Dataset
 		///	@param		username	Username to use in the database connection.
 		///	@param		password	User password.
 		///
-		///	@post		A connection with the MySQL database is stablished using the given parameters.
+		///	@post		A connection with the PostgreSQL database is stablished using the given parameters.
 		///
 		///	@exception	NessieException
-		explicit MySqlDataset (const std::string& database, const std::string& username, const std::string& password);
+		explicit PostgreSqlDataset (const std::string& database, const std::string& username, const std::string& password);
 
 		///	@brief	Destructor.
-		virtual ~MySqlDataset ();
+		virtual ~PostgreSqlDataset ();
 
 		///	@brief		Add a sample to the dataset.
 		///
@@ -81,11 +79,6 @@ class MySqlDataset : public Dataset
 		///
 		///	@exception	NessieException
 		void removeSample (const unsigned int& n);
-
-		///	@brief	Clone a MySqlDataset object.
-		///
-		///	@return	A pointer to a Dataset object.
-		Dataset* clone () const;
 
 	private:
 		

@@ -6,6 +6,7 @@
 
 #include "Dataset.hpp"
 #include <string>
+#include <boost/noncopyable.hpp>
 
 
 ///	@brief		Dataset built by retrieving the data from a plain text file in the filesystem.
@@ -28,7 +29,7 @@
 ///
 ///	@author Eliezer Talón (elitalon@gmail.com)
 ///	@date 2009-02-13
-class PlainTextDataset : public Dataset
+class PlainTextDataset : public Dataset, private boost::noncopyable
 {
 	public:
 
@@ -57,11 +58,6 @@ class PlainTextDataset : public Dataset
 		///
 		///	@param	n	Row in the dataset where remove the sample.
 		void removeSample (const unsigned int& n);
-
-		///	@brief	Clone a PlainTextDataset object.
-		///
-		///	@return	A pointer to a Dataset object.
-		Dataset* clone () const;
 
 	private:
 
