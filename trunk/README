@@ -3,9 +3,9 @@ See the end of file for copying conditions.
 
 * Introduction
 
-Please glance through *all* sections of this
-`README' file before starting configuration.  Also make sure you read
-file `INSTALL' if you are not familiar with them already.
+Please glance through *all* sections of this `README' file before
+starting configuration.  Also make sure you read file `INSTALL'
+if you are not familiar with them already.
 
 NessieOCR provide a simple library to perform an optical character
 recognition process over press clips, extracted from newspapers and
@@ -18,6 +18,10 @@ See file `COPYING' for copying conditions.
 See file `INSTALL' for compilation and installation instructions.
 See file `NEWS' for a list of major changes in the current release.
 See file `THANKS' for a list of contributors.
+
+NessieOcr library comes with documentation in HTML format. You can
+find it under the directory 'doc/html', being 'index.html' the
+main page.
 
 
 * Installation hints
@@ -60,6 +64,7 @@ databases:
 
 You should also read the package documentation to know the database
 design requirements for NessieOCR.
+
 
 * Bug reporting.
 
