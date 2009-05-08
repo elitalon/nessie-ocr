@@ -59,7 +59,7 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Clip& 
 
 	const boost::regex pattern("\\s*");
 	Text referenceText;
-	referenceText.content(regex_replace(text, pattern, ""));
+	referenceText.assign(regex_replace(text, pattern, ""));
 
 	std::cout << std::endl << "Size of reference text: " << referenceText.size() << std::endl;
 
@@ -170,17 +170,17 @@ void NessieOcr::doPostprocessing ()
 		}
 
 		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
-			text_.addCharacter(*i);
+			text_.append(*i);
 
-		std::string brokenText(text_.content());
+		std::string brokenText(text_.data());
 		boost::regex pattern("-\\s+");
-		text_.content(regex_replace(brokenText, pattern, ""));
+		text_.assign(regex_replace(brokenText, pattern, ""));
 		
 		pattern = ",,";
-		text_.content(regex_replace(brokenText, pattern, "\""));
+		text_.assign(regex_replace(brokenText, pattern, "\""));
 		
 		pattern = "''";
-		text_.content(regex_replace(brokenText, pattern, "\""));
+		text_.assign(regex_replace(brokenText, pattern, "\""));
 	}
 };
 

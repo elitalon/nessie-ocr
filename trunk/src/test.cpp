@@ -167,7 +167,9 @@ int main (int argc, char *argv[])
 				Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 				Text text(ocr.recognize(pressClip, classifier));
-				std::cout << text.content() << std::endl;
+				std::cout << text.data() << std::endl << std::endl;
+				std::cout << "Número total de palabras   : " << text.nWords() << std::endl;
+				std::cout << "Tamaño medio por palabra   : " << text.averageWordSize() << std::endl;
 			}
 		}
 
