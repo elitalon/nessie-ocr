@@ -45,13 +45,8 @@ void FeatureExtractor::computeMoments ()
 		double eta13 = imageMoment(*i, 1, 3, xc, yc) / pow(area, ((1+3)/2) + 1);
 		double eta32 = imageMoment(*i, 3, 2, xc, yc) / pow(area, ((3+2)/2) + 1);
 		double eta23 = imageMoment(*i, 2, 3, xc, yc) / pow(area, ((2+3)/2) + 1);
-		double eta33 = imageMoment(*i, 3, 3, xc, yc) / pow(area, ((3+3)/2) + 1);
-		//double eta40 = imageMoment(*i, 4, 0, xc, yc) / pow(area, ((4+0)/2) + 1);
-		//double eta04 = imageMoment(*i, 0, 4, xc, yc) / pow(area, ((0+4)/2) + 1);
-		//double eta50 = imageMoment(*i, 5, 0, xc, yc) / pow(area, ((5+0)/2) + 1);
-		//double eta05 = imageMoment(*i, 0, 5, xc, yc) / pow(area, ((0+5)/2) + 1);
 
-		fv.at(0) = 0.0;	// m00
+		fv.at(0) = 0.0;		// m00
 		fv.at(1) = xc;		// m10
 		fv.at(2) = yc;		// m01
 		fv.at(3) = eta11;	// m11
@@ -60,13 +55,12 @@ void FeatureExtractor::computeMoments ()
 		fv.at(6) = eta21;	// m21
 		fv.at(7) = eta12;	// m12
 		fv.at(8) = eta22;	// m22
-		fv.at(9) = 0.0;	// m30
-		fv.at(10) = 0.0;	// m03
-		fv.at(11) = 0.0;	// m31
-		fv.at(12) = 0.0;	// m13
+		fv.at(9) = eta30;	// m30
+		fv.at(10) = eta03;	// m03
+		fv.at(11) = eta31;	// m31
+		fv.at(12) = eta13;	// m13
 		fv.at(13) = eta32;	// m32
 		fv.at(14) = eta23;	// m23
-		fv.at(15) = 0.0;	// m33
 
 		featureVectors_.push_back(fv);
 	}

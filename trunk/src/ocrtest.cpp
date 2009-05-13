@@ -152,6 +152,13 @@ int main (int argc, char *argv[])
 			Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 			ocr.train(classifier, pressClip, text);
+			// Create BMP images for patterns
+			if ( passedOptions.count("create-patterns") )
+				ocr.exportPatternImages();
+
+			// Show statistics
+			if ( passedOptions.count("statistics") )
+				ocr.printStatistics();
 		}
 		else
 		{
@@ -170,18 +177,16 @@ int main (int argc, char *argv[])
 				std::cout << text.data() << std::endl << std::endl;
 				std::cout << "Número total de palabras   : " << text.nWords() << std::endl;
 				std::cout << "Tamaño medio por palabra   : " << text.averageWordSize() << std::endl;
+
+				// Create BMP images for patterns
+				if ( passedOptions.count("create-patterns") )
+					ocr.exportPatternImages();
+
+				// Show statistics
+				if ( passedOptions.count("statistics") )
+					ocr.printStatistics();
 			}
 		}
-
-
-		// Create BMP images for patterns
-		if ( passedOptions.count("create-patterns") )
-			ocr.exportPatternImages();
-
-
-		// Show statistics
-		if ( passedOptions.count("statistics") )
-			ocr.printStatistics();
 	}
 	catch (std::exception &e)
 	{

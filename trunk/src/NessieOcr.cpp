@@ -173,12 +173,14 @@ void NessieOcr::doPostprocessing ()
 			text_.append(*i);
 
 		std::string brokenText(text_.data());
-		boost::regex pattern("-\\s+");
+		boost::regex pattern("-\\s+,?\\s*");
 		text_.assign(regex_replace(brokenText, pattern, ""));
 		
+		brokenText = text_.data();
 		pattern = ",,";
 		text_.assign(regex_replace(brokenText, pattern, "\""));
 		
+		brokenText = text_.data();
 		pattern = "''";
 		text_.assign(regex_replace(brokenText, pattern, "\""));
 	}
