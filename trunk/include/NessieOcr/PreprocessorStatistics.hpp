@@ -43,7 +43,7 @@ class PreprocessorStatistics : public Statistics
 		/// @brief	Set the number of regions found after merging the accents.
 		///
 		/// @param	n Number of characters found.
-		void nCharacters (const unsigned int& n);
+		void nRegions (const unsigned int& n);
 
 		/// @brief	Set the number of lines found.
 		///
@@ -109,7 +109,7 @@ class PreprocessorStatistics : public Statistics
 
 		std::auto_ptr<unsigned char>	optimalThreshold_;				///< Optimal threshold to binarize the press clip.
 
-		std::auto_ptr<unsigned int>		nCharacters_;					///< Number of characters found after merging accents.
+		std::auto_ptr<unsigned int>		nRegions_;						///< Number of regions of ink found after merging accents.
 
 		std::auto_ptr<unsigned int>		nLines_;						///< Number of lines found in the press clip.
 
@@ -176,9 +176,9 @@ inline void PreprocessorStatistics::optimalThreshold (const unsigned char& thres
 	optimalThreshold_.reset(new unsigned char(threshold));
 };
 
-inline void PreprocessorStatistics::nCharacters (const unsigned int& n)
+inline void PreprocessorStatistics::nRegions (const unsigned int& n)
 {
-	nCharacters_.reset(new unsigned int(n));
+	nRegions_.reset(new unsigned int(n));
 };
 
 inline void PreprocessorStatistics::nLines (const unsigned int& n)

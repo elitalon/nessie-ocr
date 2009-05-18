@@ -317,7 +317,7 @@ void Preprocessor::removeNoiseByLinearFiltering ()
 };
 
 
-void Preprocessor::isolateRegions ()
+std::vector<unsigned int> Preprocessor::isolateRegions ()
 {
 	boost::timer timer;
 	timer.restart();
@@ -403,14 +403,17 @@ void Preprocessor::isolateRegions ()
 
 	regions_.sort();
 
+	std::vector<unsigned int> spaceLocations = findSpacesBetweenWords(delimiters);
 	try
 	{
-		statistics_.nCharacters(regions_.size());
+		statistics_.nRegions(regions_.size());
 		statistics_.nLines(delimiters.size());
 		statistics_.averageCharacterHeight(averageCharacterHeight_);
 		statistics_.segmentationTime(timer.elapsed());
 	}
 	catch(...) {}
+
+	return spaceLocations;
 };
 
 
@@ -631,6 +634,7 @@ void Preprocessor::buildPatterns ()
 	Clip backupClip(clip_);
 	std::list<Region> backupRegions(regions_);
 	double backupAverageCharacterHeight = averageCharacterHeight_;
+	double backupAverageInterRegionSpace = averageInterRegionSpace_;
 
 	patterns_.clear();
 	patterns_.reserve(regions_.size());
@@ -728,6 +732,7 @@ void Preprocessor::buildPatterns ()
 		clip_ = backupClip;
 		regions_ = backupRegions;
 		averageCharacterHeight_ = backupAverageCharacterHeight;
+		averageInterRegionSpace_ = backupAverageInterRegionSpace;
 		
 		statistics_.patternsBuildingTime(timer.elapsed());
 	}
@@ -876,28 +881,38 @@ void Preprocessor::skeletonizePatterns()
 };
 
 
-std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
+std::vector<unsigned int> Preprocessor::findSpacesBetweenWords (const std::list<LineDelimiter>& delimiters)
 {
-	// Compute the mean inter-character space
+	averageInterRegionSpace_ = 0.0;
+
 	std::list<Region>::const_iterator i = regions_.begin();
-	advance (i, 1);
 	std::list<Region>::const_iterator j = regions_.begin();
-
-	double meanInterRegionSpace = 0.0;
-	while ( i != regions_.end() )
+	advance (j, 1);
+	while ( j != regions_.end() )
 	{
-		if ( i->leftBorderColumn() >=  j->rightBorderColumn() )
-			meanInterRegionSpace += i->leftBorderColumn() - j->rightBorderColumn() + 1;
+		bool lineBreak = false;
+		for ( std::list<LineDelimiter>::const_iterator k = delimiters.begin(); k != delimiters.end(); ++k )
+		{
+			if ( i->topBorderRow() >= k->first && i->bottomBorderRow() <= k->second )	// line found
+			{
+				if ( !(j->topBorderRow() >= k->first && j->bottomBorderRow() <= k->second) )	// the second region is in another line
+					lineBreak = true;
+			}
+		}
 
+		if ( !lineBreak && (j->leftBorderColumn() >= i->rightBorderColumn()) )
+			averageInterRegionSpace_ += static_cast<int>(j->leftBorderColumn()) - static_cast<int>(i->rightBorderColumn()) + 1;
+		
 		advance (i, 1);
 		advance (j, 1);
 	}
-	meanInterRegionSpace = meanInterRegionSpace / regions_.size();
+	averageInterRegionSpace_ = averageInterRegionSpace_ / regions_.size();
 	try
 	{
-		statistics_.averageInterCharacterSpace( meanInterRegionSpace );
+		statistics_.averageInterCharacterSpace( averageInterRegionSpace_ );
 	}
 	catch(...) {}
+
 
 	// Traverse the list of regions detecting a space between two regions greater than the mean space.
 	i = regions_.begin();
@@ -909,13 +924,23 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 
 	while ( i != regions_.end() )
 	{
-		if ( i->leftBorderColumn() < j->rightBorderColumn() )
+		bool lineBreak = false;
+		for ( std::list<LineDelimiter>::const_iterator k = delimiters.begin(); k != delimiters.end(); ++k )
+		{
+			if ( i->topBorderRow() >= k->first && i->bottomBorderRow() <= k->second )	// line found
+			{
+				if ( !(j->topBorderRow() >= k->first && j->bottomBorderRow() <= k->second) )	// the second region is in another line
+					lineBreak = true;
+			}
+		}
+
+		if ( lineBreak )
 			spaces.push_back(spaceLocation);
 		else
 		{
-			unsigned int distanceBetweenRegions = i->leftBorderColumn() - j->rightBorderColumn() + 1;
+			int distanceBetweenRegions = static_cast<int>(i->leftBorderColumn()) - static_cast<int>(j->rightBorderColumn()) + 1;
 
-			if ( distanceBetweenRegions > (meanInterRegionSpace * 1.5) )
+			if ( distanceBetweenRegions > (averageInterRegionSpace_ / 0.7) )
 				spaces.push_back(spaceLocation);
 		}
 

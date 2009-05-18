@@ -115,10 +115,9 @@ void NessieOcr::doPreprocessing (const Clip& pressClip)
 	preprocessor.removeNoiseByLinearFiltering();
 	preprocessor.applyGlobalThresholding();
 	preprocessor.removeNoiseByTemplateMatching();
-	preprocessor.isolateRegions();
+	spaceLocations_ = preprocessor.isolateRegions();
 	preprocessor.correctSlanting();
 
-	spaceLocations_ = preprocessor.findSpacesBetweenWords();
 	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
 	
 	preprocessor.buildPatterns();
@@ -171,18 +170,26 @@ void NessieOcr::doPostprocessing ()
 
 		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 			text_.append(*i);
-
+	
+		// Remove broken words due to line breaks
 		std::string brokenText(text_.data());
-		boost::regex pattern("-\\s+,?\\s*");
+		boost::regex pattern("-\\s*[,.]?\\s*");
 		text_.assign(regex_replace(brokenText, pattern, ""));
 		
+		// Remove non-alphanumeric characters
 		brokenText = text_.data();
-		pattern = ",,";
-		text_.assign(regex_replace(brokenText, pattern, "\""));
+		pattern = "[\\?¿,;.:\\!+*/=<>'\\()\\{}\\[\\]|]+";
+		text_.assign(regex_replace(brokenText, pattern, ""));
+	
+		// This character must be removed in a separate pattern
+		brokenText = text_.data();
+		pattern = "¡+";
+		text_.assign(regex_replace(brokenText, pattern, ""));
 		
+		// Remove innecesary spaces
 		brokenText = text_.data();
-		pattern = "''";
-		text_.assign(regex_replace(brokenText, pattern, "\""));
+		pattern = "\\s+";
+		text_.assign(regex_replace(brokenText, pattern, " "));
 	}
 };
 

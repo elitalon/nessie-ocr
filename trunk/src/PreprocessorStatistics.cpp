@@ -9,7 +9,7 @@ PreprocessorStatistics::PreprocessorStatistics ()
 :	Statistics(),	// Invoke base class constructor
 	clipSize_(0),
 	optimalThreshold_(0),
-	nCharacters_(0),
+	nRegions_(0),
 	nLines_(0),
 	slantAngle_(0),
 	averageInterCharacterSpace_(0),
@@ -28,7 +28,7 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 :	Statistics(statistics),	// Invoke base class copy constructor
 	clipSize_(0),
 	optimalThreshold_(0),
-	nCharacters_(0),
+	nRegions_(0),
 	nLines_(0),
 	slantAngle_(0),
 	averageInterCharacterSpace_(0),
@@ -47,8 +47,8 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 	if ( statistics.optimalThreshold_.get() != 0 )
 		optimalThreshold_.reset(new unsigned char(*statistics.optimalThreshold_.get()));
 
-	if ( statistics.nCharacters_.get() != 0 )
-		nCharacters_.reset(new unsigned int(*statistics.nCharacters_.get()));
+	if ( statistics.nRegions_.get() != 0 )
+		nRegions_.reset(new unsigned int(*statistics.nRegions_.get()));
 
 	if ( statistics.nLines_.get() != 0 )
 		nLines_.reset(new unsigned int(*statistics.nLines_.get()));
@@ -101,8 +101,8 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 	if ( statistics.optimalThreshold_.get() != 0 )
 		optimalThreshold_.reset(new unsigned char(*statistics.optimalThreshold_.get()));
 
-	if ( statistics.nCharacters_.get() != 0 )
-		nCharacters_.reset(new unsigned int(*statistics.nCharacters_.get()));
+	if ( statistics.nRegions_.get() != 0 )
+		nRegions_.reset(new unsigned int(*statistics.nRegions_.get()));
 
 	if ( statistics.nLines_.get() != 0 )
 		nLines_.reset(new unsigned int(*statistics.nLines_.get()));
@@ -154,8 +154,8 @@ void PreprocessorStatistics::print () const
 	if ( optimalThreshold_.get() != 0 )
 		std::cout << "  - Optimal threshold             : " << static_cast<unsigned int>(*optimalThreshold_) << std::endl;
 
-	if ( nCharacters_.get() != 0 )
-		std::cout << "  - Number of characters          : " << *nCharacters_.get() << std::endl;
+	if ( nRegions_.get() != 0 )
+		std::cout << "  - Number of regions             : " << *nRegions_.get() << std::endl;
 
 	if ( nLines_.get() != 0 )
 		std::cout << "  - Number of lines               : " << *nLines_.get() << std::endl;

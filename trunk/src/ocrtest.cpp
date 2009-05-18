@@ -175,8 +175,8 @@ int main (int argc, char *argv[])
 
 				Text text(ocr.recognize(pressClip, classifier));
 				std::cout << text.data() << std::endl << std::endl;
-				std::cout << "Número total de palabras   : " << text.nWords() << std::endl;
-				std::cout << "Tamaño medio por palabra   : " << text.averageWordSize() << std::endl;
+				std::cout << "Número total de palabras : " << text.nWords() << std::endl;
+				std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
 
 				// Create BMP images for patterns
 				if ( passedOptions.count("create-patterns") )
