@@ -2,9 +2,7 @@
 /// @brief Implementation of a command line program for testing purposes.
 
 #include <Magick++.h>
-
 #include "NessieOcr.hpp"
-#include "Clip.hpp"
 #include "PostgreSqlDataset.hpp"
 #include "PlainTextDataset.hpp"
 #include "KnnClassifier.hpp"
@@ -151,9 +149,8 @@ int main (int argc, char *argv[])
 				image.density("800x800");
 				image.read( inputImages.at(0) );
 			}
-			Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
-			ocr.train(classifier, pressClip, text);
+			ocr.train(classifier, image, 0, 0, image.rows(), image.columns(), text);
 		
 			// Create BMP images for patterns
 			if ( passedOptions.count("create-patterns") )
@@ -175,10 +172,8 @@ int main (int argc, char *argv[])
 					image.density("800x800");
 					image.read( *i );
 				}
-	
-				Clip pressClip(image, 0, 0, image.rows(), image.columns());
 				
-				Text text( ocr.recognize(pressClip, classifier) );
+				Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
 				//if ( !text.data().empty() )
 				//	std::cout << text.data() << std::endl << std::endl;
 
@@ -206,4 +201,3 @@ int main (int argc, char *argv[])
 	std::cout << timer.elapsed() << std::endl;
 	return 0;
 }
-

@@ -1,10 +1,8 @@
 /// @file
 /// @brief Implementation of NessieOcr class
 
-#include "NessieException.hpp"
 #include "NessieOcr.hpp"
-#include "Clip.hpp"
-#include "Classifier.hpp"
+#include "NessieException.hpp"
 #include "Pattern.hpp"
 #include "FeatureVector.hpp"
 
@@ -14,6 +12,8 @@
 
 #include "Preprocessor.hpp"
 #include "FeatureExtractor.hpp"
+#include "Classifier.hpp"
+
 #include <boost/regex.hpp>
 #include <sstream>
 #include <iostream>
@@ -34,12 +34,12 @@ NessieOcr::NessieOcr ()
 NessieOcr::~NessieOcr() {}
 
 
-const Text& NessieOcr::recognize (const Clip& pressClip, const std::auto_ptr<Classifier>& classifier)
+const Text& NessieOcr::recognize (const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width, const std::auto_ptr<Classifier>& classifier)
 {
 	if ( classifier.get() == 0 )
 		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
 
-	doPreprocessing(pressClip);
+	doPreprocessing(page, x, y, height, width);
 	//doFeatureExtraction();
 	//doClassification(classifier);
 	//doPostprocessing();
@@ -48,12 +48,12 @@ const Text& NessieOcr::recognize (const Clip& pressClip, const std::auto_ptr<Cla
 }
 
 
-void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Clip& pressClip, const std::string& text )
+void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width, const std::string& text)
 {
 	if ( classifier.get() == 0 )
 		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
 
-	doPreprocessing(pressClip);
+	doPreprocessing(page, x, y, height, width);
 	doFeatureExtraction();
 	characters_ = classifier->performClassification(featureVectors_);
 
@@ -103,9 +103,9 @@ void NessieOcr::printStatistics () const
 }
 
 
-void NessieOcr::doPreprocessing (const Clip& pressClip)
+void NessieOcr::doPreprocessing (const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width)
 {
-	Preprocessor preprocessor(pressClip);
+	//Preprocessor preprocessor(pressClip);
 	//preprocessor.removeNoiseByLinearFiltering();
 	//preprocessor.applyGlobalThresholding();
 	//preprocessor.removeNoiseByTemplateMatching();
