@@ -138,52 +138,52 @@ class Region
 inline PixelCoordinates& Region::at (const unsigned int& index)
 {
 	return coordinates_.at(index);
-};
+}
 
 inline const PixelCoordinates& Region::at (const unsigned int& index) const
 {
 	return coordinates_.at(index);
-};
+}
 
 inline const unsigned int& Region::height () const
 {
 	return height_;
-};
+}
 
 inline const unsigned int& Region::width () const
 {
 	return width_;
-};
+}
 
 inline const unsigned int& Region::size () const
 {
 	return size_;
-};
+}
 
 inline const PixelCoordinates& Region::topLeftmostPixelCoordinates () const
 {
 	return topLeftmostPixelCoordinates_;
-};
+}
 
 inline const unsigned int& Region::topBorderRow () const
 {
 	return topBorderRow_;
-};
+}
 
 inline const unsigned int& Region::bottomBorderRow () const
 {
 	return bottomBorderRow_;
-};
+}
 
 inline const unsigned int& Region::leftBorderColumn () const
 {
 	return leftBorderColumn_;
-};
+}
 
 inline const unsigned int& Region::rightBorderColumn () const
 {
 	return rightBorderColumn_;
-};
+}
 
 #endif
 

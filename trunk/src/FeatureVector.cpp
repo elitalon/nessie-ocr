@@ -9,25 +9,26 @@
 FeatureVector::FeatureVector()
 :	features_(0),
 	size_(0)
-{};
+{}
 
 
 FeatureVector::FeatureVector(const unsigned int& n)
 :	features_(std::vector<double>(n, 0.0)),
 	size_(n)
-{};
+{}
 
 
 double FeatureVector::computeEuclideanDistance (const FeatureVector& featureVector) const
 {
-	FeatureVector tmp(*this - featureVector);
-
+	if ( this->size_ not_eq featureVector.size_ )
+		throw NessieException ("FeatureVector::computeEuclideanDistance() : Size of vectors must be equal");
+	
 	double result = 0.0;
 	for ( unsigned int i = 0; i < this->size_; ++i )
-		result += pow(tmp.at(i), 2);
+		result += pow(this->at(i) - featureVector.at(i), 2);
 
 	return sqrt(result);
-};
+}
 
 
 FeatureVector FeatureVector::operator+ (const FeatureVector& featureVector) const
@@ -41,7 +42,7 @@ FeatureVector FeatureVector::operator+ (const FeatureVector& featureVector) cons
 		temp.features_.at(i) = this->features_.at(i) + featureVector.features_.at(i);
 
 	return temp;
-};
+}
 
 
 FeatureVector FeatureVector::operator- (const FeatureVector& featureVector) const
@@ -55,7 +56,7 @@ FeatureVector FeatureVector::operator- (const FeatureVector& featureVector) cons
 		temp.features_.at(i) = this->features_.at(i) - featureVector.features_.at(i);
 
 	return temp;
-};
+}
 
 
 double FeatureVector::operator* (const FeatureVector& featureVector) const
@@ -69,5 +70,5 @@ double FeatureVector::operator* (const FeatureVector& featureVector) const
 		result += this->features_.at(i) * featureVector.features_.at(i);
 
 	return result;
-};
+}
 

@@ -22,7 +22,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		pqxx::connection connection("dbname=" + database_ + " user=" + username_ + " password=" + password_);
 		pqxx::work dbTransaction(connection, "constructorTransaction");
 		
-		// Get the number of features stored in the database
+		// Get the name of feature columns
 		pqxx::result registers = dbTransaction.exec("SELECT column_name\
 													FROM information_schema.columns\
 													WHERE table_name = 'samples' AND column_name LIKE 'm__'");
@@ -30,7 +30,6 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		if ( registers.size() == 0 )
 			throw NessieException ("The table 'samples' has not any feature column.");
 		
-		// Build the query section regarding the feature columns
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
 			std::string column;
@@ -41,11 +40,13 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		}
 		featureColumns_.erase(featureColumns_.end() - 1);
 		
+
 		// Get the classes
 		registers = dbTransaction.exec("SELECT * FROM classes");
 
 		typedef std::pair<std::string, unsigned int> asciiCodeRegister;
 		typedef std::pair<unsigned int, unsigned int> ClassIdRegister;
+		
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
 			unsigned int idClass;
@@ -64,14 +65,15 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 			classIds_.insert(ClassIdRegister(asciiCode, idClass));
 		}
 
+
 		// Get the samples
 		registers = dbTransaction.exec("SELECT id_sample, " + featureColumns_ + ", asciiCode\
 										FROM samples s, classes c\
 										WHERE s.id_class = c.id_class");
 		size_ = registers.size();
-		
 		samples_.reserve(size_);
 		sampleIds_.reserve(size_);
+		
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )
 		{
 			unsigned int id_sample;
@@ -104,10 +106,10 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 		std::string message(e.what());
 		throw NessieException ("PostgreSqlDataset::PostgreSqlDataset() : The dataset could not be built from the database. " + message);
 	}
-};
+}
 
 
-PostgreSqlDataset::~PostgreSqlDataset () {};
+PostgreSqlDataset::~PostgreSqlDataset () {}
 
 
 void PostgreSqlDataset::addSample (const Sample& sample)
@@ -151,7 +153,7 @@ void PostgreSqlDataset::addSample (const Sample& sample)
 		std::string message(e.what());
 		throw NessieException ("PostgreSqlDataset::addSample() : The sample could not be inserted in the dataset. " + message);
 	}
-};
+}
 
 
 void PostgreSqlDataset::removeSample (const unsigned int& n)
@@ -176,11 +178,5 @@ void PostgreSqlDataset::removeSample (const unsigned int& n)
 	samples_.erase(samples_.begin() + n);
 	sampleIds_.erase(sampleIds_.begin() + n);
 	size_ = samples_.size();
-};
-
-
-Dataset* PostgreSqlDataset::clone () const
-{
-	return new PostgreSqlDataset(*this);
-};
+}
 

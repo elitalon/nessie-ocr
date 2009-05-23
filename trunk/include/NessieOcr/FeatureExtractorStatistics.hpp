@@ -8,7 +8,7 @@
 #include <memory>
 
 
-/// @brief	Statistics gathered during the feature extraction stage of the text recognition process.
+/// @brief	Statistics of feature extraction stage.
 ///
 ///	@see	Statistics
 ///
@@ -55,13 +55,13 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 
 	if ( momentsComputingTime_.get() != 0 )
 		totalTime_ += *momentsComputingTime_.get();
-};
+}
 
 inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)
 {
 	momentsComputingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 #endif
 

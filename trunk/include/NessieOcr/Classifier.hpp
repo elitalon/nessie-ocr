@@ -13,15 +13,15 @@ class ClassificationAlgorithm;
 
 
 ///	@brief		Classifier of the OCR process.
-/// 
-///	@details	This class represents the classification stage of the OCR process, providing an interface to encapsulate different classification paradigms.
+///
+///	@details	This class represents the classification stage of NessieOcr, providing an interface to encapsulate different classification paradigms.
 ///	When performing a classification, its task is to match every feature vector passed to the most probably character. When performing a training, its task is
 /// to compare the classified characters with a reference text, fixing the wrong decisions.
-/// 
+///
 /// @see		ClassificationAlgorithm, ClassifierStatistics, FeatureVector, Text
 ///
 ///	@todo		Implement new paradigms of classification (neural networks, support vector machines,...).
-/// 
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-09
 class Classifier
@@ -35,7 +35,7 @@ class Classifier
 		virtual ~Classifier ();
 
 		///	@brief	Get the statistics regarding the classification stage.
-		/// 
+		///
 		/// @return A ClassifierStatistics object.
 		virtual const ClassifierStatistics& statistics () const;
 
@@ -47,9 +47,9 @@ class Classifier
 		///
 		///	@post	The recognized characters become also available through the Classifier::characters() method.
 		virtual std::vector<std::string> performClassification (const std::vector<FeatureVector>& featureVectors) = 0;
-		
+
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.
-		/// 
+		///
 		///	@param	featureVectors	An array of feature vectors that matches the array of characters previously classified.
 		/// @param	characters		An array of std::string objects with sample characters to train.
 		/// @param	referenceText	A text to compare with the classification results character by character.
@@ -66,7 +66,7 @@ class Classifier
 inline const ClassifierStatistics& Classifier::statistics () const
 {
 	return statistics_;
-};
+}
 
 #endif
 

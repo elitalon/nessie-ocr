@@ -79,11 +79,6 @@ class PostgreSqlDataset : public Dataset
 		///	@exception	NessieException
 		void removeSample (const unsigned int& n);
 
-		///	@brief	Clone a PostgreSqlDataset object.
-		///
-		///	@return	A pointer to a Dataset object.
-		Dataset* clone () const;
-
 	private:
 		
 		std::string								database_;			///< Name of the database to connect.

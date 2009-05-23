@@ -17,7 +17,7 @@ KnnClassifier::KnnClassifier (const unsigned int& nNeighbours, Dataset* const da
 		throw NessieException ("KnnClassifier::KnnClassifier() : The dataset is set to a null value.");
 
 	classificationAlgorithm_ = new KnnClassificationAlgorithm(nNeighbours, dataset);
-};
+}
 
 
 KnnClassifier::~KnnClassifier () {};
@@ -28,7 +28,7 @@ std::vector<std::string> KnnClassifier::performClassification (const std::vector
 	boost::timer timer;
 	timer.restart();
 
-	std::vector<std::string> characters = classificationAlgorithm_->classify(featureVectors);
+	std::vector<std::string> characters( classificationAlgorithm_->classify(featureVectors) );
 
 	try
 	{
@@ -37,7 +37,7 @@ std::vector<std::string> KnnClassifier::performClassification (const std::vector
 	catch(...) {}
 
 	return characters;
-};
+}
 
 
 void KnnClassifier::performTraining (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText)
@@ -56,5 +56,5 @@ void KnnClassifier::performTraining (const std::vector<FeatureVector>& featureVe
 		statistics_.missRate(100.0 - hitRate);
 	}
 	catch(...) {}
-};
+}
 

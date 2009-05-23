@@ -8,20 +8,19 @@
 #include <cmath>
 
 
-FeatureExtractor::FeatureExtractor (const std::vector<Pattern>& patterns)
+FeatureExtractor::FeatureExtractor ()
 :	statistics_(),
-	patterns_(patterns),
 	featureVectors_(0)
-{};
+{}
 
 
-void FeatureExtractor::computeMoments ()
+void FeatureExtractor::computeMoments (const std::vector<Pattern>& patterns)
 {
 	boost::timer timer;
 	timer.restart();
 
-	featureVectors_.reserve(patterns_.size());
-	for ( std::vector<Pattern>::iterator i = patterns_.begin(); i != patterns_.end(); ++i )
+	featureVectors_.reserve(patterns.size());
+	for ( std::vector<Pattern>::const_iterator i = patterns.begin(); i != patterns.end(); ++i )
 	{
 		FeatureVector fv(27);
 
@@ -70,7 +69,7 @@ void FeatureExtractor::computeMoments ()
 		statistics_.momentsComputingTime(timer.elapsed());
 	}
 	catch(...) {}
-};
+}
 
 
 double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int& p, const unsigned int& q, const double& xc, const double& yc) const
@@ -88,4 +87,5 @@ double FeatureExtractor::imageMoment (const Pattern& pattern, const unsigned int
 		}
 	}
 	return t;
-};
+}
+

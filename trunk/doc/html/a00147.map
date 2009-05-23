@@ -1,6 +1,4 @@
-<area shape="rect" href="$a00051.html" title="Declaration of Pattern class." alt="" coords="200,81,283,105">
-<area shape="rect" href="$a00038.html" title="Declaration of FeatureVector class." alt="" coords="357,81,477,105">
-<area shape="rect" href="$a00067.html" title="Declaration of Text class." alt="" coords="501,81,568,105">
-<area shape="rect" href="$a00059.html" title="Declaration of PreprocessorStatistics class." alt="" coords="592,81,757,105">
-<area shape="rect" href="$a00036.html" title="Declaration of FeatureExtractorStatistics class." alt="" coords="832,81,1016,105">
-<area shape="rect" href="$a00028.html" title="Declaration of ClassifierStatistics class." alt="" coords="1040,81,1184,105">
+<area shape="rect" href="$a00061.html" title="Definition of Statistics class." alt="" coords="5,81,96,105">
+<area shape="rect" href="$a00027.html" title="Declaration of ClassifierStatistics class." alt="" coords="120,81,264,105">
+<area shape="rect" href="$a00035.html" title="Declaration of FeatureExtractorStatistics class." alt="" coords="288,81,472,105">
+<area shape="rect" href="$a00058.html" title="Declaration of PreprocessorStatistics class." alt="" coords="496,81,661,105">

@@ -6,8 +6,8 @@
 
 Statistics::Statistics ()
 :	totalTime_(0.0)
-{};
+{}
 
 
-Statistics::~Statistics () {};
+Statistics::~Statistics () {}
 

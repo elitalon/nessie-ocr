@@ -8,7 +8,7 @@
 #include <memory>
 
 
-///	@brief	Statistics gathered during the preprocessing stage of the text recognition process.
+///	@brief	Statistics of preprocessing stage.
 ///
 ///	@see	Statistics
 ///
@@ -164,84 +164,84 @@ inline void PreprocessorStatistics::updateTotalTime ()
 	
 	if ( patternsBuildingTime_.get() != 0 )
 		totalTime_ += *patternsBuildingTime_.get();
-};
+}
 
 inline void PreprocessorStatistics::clipSize (const unsigned int& n)
 {
 	clipSize_.reset(new unsigned int(n));
-};
+}
 
 inline void PreprocessorStatistics::optimalThreshold (const unsigned char& threshold)
 {
 	optimalThreshold_.reset(new unsigned char(threshold));
-};
+}
 
 inline void PreprocessorStatistics::nRegions (const unsigned int& n)
 {
 	nRegions_.reset(new unsigned int(n));
-};
+}
 
 inline void PreprocessorStatistics::nLines (const unsigned int& n)
 {
 	nLines_.reset(new unsigned int(n));
-};
+}
 
 inline void PreprocessorStatistics::slantAngle (const double& angle)
 {
 	slantAngle_.reset(new double(angle));
-};
+}
 
 inline void PreprocessorStatistics::averageInterCharacterSpace (const double& n)
 {
 	averageInterCharacterSpace_.reset(new double(n));
-};
+}
 
 inline void PreprocessorStatistics::averageCharacterHeight (const double& n)
 {
 	averageCharacterHeight_.reset(new double(n));
-};
+}
 
 inline void PreprocessorStatistics::globalThresholdingTime (const double& elapsedTime)
 {
 	globalThresholdingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::templateFilteringTime (const double& elapsedTime)
 {
 	templateFilteringTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::averagingFilteringTime (const double& elapsedTime)
 {
 	averagingFilteringTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::segmentationTime (const double& elapsedTime)
 {
 	segmentationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::skeletonizationTime (const double& elapsedTime)
 {
 	skeletonizationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::slantingCorrectionTime (const double& elapsedTime)
 {
 	slantingCorrectionTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void PreprocessorStatistics::patternsBuildingTime (const double& elapsedTime)
 {
 	patternsBuildingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 #endif
 

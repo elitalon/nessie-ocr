@@ -1,3 +1,4 @@
-<area shape="rect" href="$a00047.html" title="Implementation of NessieOcr class." alt="" coords="5,81,104,105">
-<area shape="rect" href="$a00049.html" title="Implementation of a command line program for testing purposes." alt="" coords="128,81,208,105">
-<area shape="rect" href="$a00065.html" title="Implementation of a command line program for testing purposes." alt="" coords="232,81,296,105">
+<area shape="rect" href="$a00032.html" title="Definition of FeatureExtractor class." alt="" coords="5,81,139,105">
+<area shape="rect" href="$a00046.html" title="Implementation of NessieOcr class." alt="" coords="163,81,261,105">
+<area shape="rect" href="$a00049.html" title="Definition of Pattern class." alt="" coords="285,81,368,105">
+<area shape="rect" href="$a00055.html" title="Definition of Preprocessor class." alt="" coords="392,81,507,105">

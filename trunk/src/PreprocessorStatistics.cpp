@@ -21,7 +21,7 @@ PreprocessorStatistics::PreprocessorStatistics ()
 	skeletonizationTime_(0),
 	slantingCorrectionTime_(0),
 	patternsBuildingTime_(0)
-{};
+{}
 
 
 PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& statistics)
@@ -85,10 +85,10 @@ PreprocessorStatistics::PreprocessorStatistics (const PreprocessorStatistics& st
 
 	if ( statistics.skeletonizationTime_.get() != 0 )
 		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
-};
+}
 
 
-PreprocessorStatistics::~PreprocessorStatistics () {};
+PreprocessorStatistics::~PreprocessorStatistics () {}
 
 
 PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorStatistics& statistics)
@@ -141,7 +141,7 @@ PreprocessorStatistics& PreprocessorStatistics::operator= (const PreprocessorSta
 		skeletonizationTime_.reset(new double(*statistics.skeletonizationTime_.get()));
 
 	return *this;
-};
+}
 
 
 void PreprocessorStatistics::print () const
@@ -191,5 +191,5 @@ void PreprocessorStatistics::print () const
 		std::cout << "  - Skeletonization time          : " << *skeletonizationTime_.get() << " s" << std::endl;
 
 	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
-};
+}
 

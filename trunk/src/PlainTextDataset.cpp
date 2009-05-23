@@ -133,7 +133,7 @@ PlainTextDataset::PlainTextDataset (const std::string& filename)
 	classes_.insert(Register("ü", 252));
 	classes_.insert(Register("¡", 161));
 	classes_.insert(Register("¿", 191));
-};
+}
 
 
 PlainTextDataset::~PlainTextDataset ()
@@ -161,7 +161,7 @@ PlainTextDataset::~PlainTextDataset ()
 		}
 	}
 	catch (...) {}
-};
+}
 
 
 void PlainTextDataset::addSample (const Sample& sample)
@@ -173,18 +173,12 @@ void PlainTextDataset::addSample (const Sample& sample)
 		samples_.push_back(sample);
 		size_ = samples_.size();
 	}
-};
+}
 
 
 void PlainTextDataset::removeSample (const unsigned int& n)
 {
 	samples_.erase(samples_.begin() + n);
 	size_ = samples_.size();
-};
-
-
-Dataset* PlainTextDataset::clone () const
-{
-	return new PlainTextDataset(*this);
-};
+}
 

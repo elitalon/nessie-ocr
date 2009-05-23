@@ -317,6 +317,18 @@ void Preprocessor::removeNoiseByLinearFiltering ()
 };
 
 
+/// @brief	Auxiliary function to use in accumulate algorithm.
+/// 
+/// @param	x		Value to update.
+/// @param	region	Reference value to use in update
+/// 
+/// @return The size of input string 'region'.
+double autoHeightIncrement (const double& x, const Region& region)
+{
+	return (x + region.height());
+}
+
+
 std::vector<unsigned int> Preprocessor::isolateRegions ()
 {
 	boost::timer timer;
@@ -336,7 +348,7 @@ std::vector<unsigned int> Preprocessor::isolateRegions ()
 
 	// Build the initial list of regions by applying the flooding algorithm
 	regions_.clear();
-	std::vector<bool> visited(clip_.size(), false);
+	std::deque<bool> visited(clip_.size(), false);
 	for ( std::vector<PixelCoordinates>::iterator s = seeds.begin(); s != seeds.end(); ++s )
 	{
 		int row		= s->first;
@@ -394,15 +406,13 @@ std::vector<unsigned int> Preprocessor::isolateRegions ()
 	}
 
 	std::list<LineDelimiter> delimiters(0);
+	
 	findLineDelimiters(visited, delimiters);
 	mergeVerticallyOverlappedRegions (delimiters);
 
-	for( std::list<Region>::iterator i = regions_.begin(); i != regions_.end(); ++i )
-		averageCharacterHeight_ += i->height();
-	averageCharacterHeight_ = averageCharacterHeight_ / regions_.size();
-
+	averageCharacterHeight_ = std::accumulate (regions_.begin(), regions_.end(), 0.0, autoHeightIncrement) / regions_.size();
+	
 	regions_.sort();
-
 	std::vector<unsigned int> spaceLocations = findSpacesBetweenWords(delimiters);
 	try
 	{
@@ -412,12 +422,12 @@ std::vector<unsigned int> Preprocessor::isolateRegions ()
 		statistics_.segmentationTime(timer.elapsed());
 	}
 	catch(...) {}
-
+	
 	return spaceLocations;
 };
 
 
-void Preprocessor::findLineDelimiters (const std::vector<bool>& visited, std::list<LineDelimiter>& delimiters) const
+void Preprocessor::findLineDelimiters (const std::deque<bool>& visited, std::list<LineDelimiter>& delimiters) const
 {
 	// Traverse each row searching non-visited pixels
 	unsigned int topRowOfTextLine = 0;
@@ -752,7 +762,7 @@ void Preprocessor::skeletonizePatterns()
 			pixelsHaveBeenRemoved = false;
 
 			// Step 1
-			std::vector<bool> removablePixels(p->size(), false);
+			std::deque<bool> removablePixels(p->size(), false);
 			for ( int i = 0; i < static_cast<int>(p->height()); ++i )
 			{
 				for ( int j = 0; j < static_cast<int>(p->width()); ++j )

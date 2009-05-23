@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: NessieException.hpp Source File</title>
+<title>NessieOcr: PlainTextDataset.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,44 +61,36 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>NessieException.hpp</h1><a href="a00046.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>PlainTextDataset.hpp</h1><a href="a00052.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_NESSIE_EXCEPTION_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _NESSIE_EXCEPTION_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_PLAIN_TEXT_DATASET_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _PLAIN_TEXT_DATASET_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;exception&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="a00031.html" title="Declaration of Dataset class.">Dataset.hpp</a>"</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 
-<a name="l00018"></a><a class="code" href="a00012.html">00018</a> <span class="keyword">class </span><a class="code" href="a00012.html" title="Exception raised by a NessieOcr object.">NessieException</a> : <span class="keyword">public</span> std::exception
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     <span class="keyword">public</span>:
-<a name="l00021"></a>00021 
-<a name="l00025"></a>00025         <span class="keyword">explicit</span> <a class="code" href="a00012.html#80c86c892438045635bf6a99da17e859" title="Constructor.">NessieException</a> (<span class="keyword">const</span> std::string&amp; <a class="code" href="a00012.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">what</a>);
-<a name="l00026"></a>00026 
-<a name="l00028"></a>00028         <span class="keyword">virtual</span> <a class="code" href="a00012.html#19f44d2725dd53e2f10505a88e5773f2" title="Destructor.">~NessieException</a> () <span class="keywordflow">throw</span> ();
-<a name="l00029"></a>00029 
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00012.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">what</a> () <span class="keyword">const</span> <span class="keywordflow">throw</span>();
-<a name="l00034"></a>00034 
-<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00012.html#542d434dbad09f00853c19e3258db909" title="Add additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> std::string&amp; info) <span class="keywordflow">throw</span>();
-<a name="l00041"></a>00041 
-<a name="l00047"></a>00047         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00012.html#542d434dbad09f00853c19e3258db909" title="Add additional information to explain the exception occurred.">addInfo</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* info) <span class="keywordflow">throw</span>();
+<a name="l00032"></a><a class="code" href="a00015.html">00032</a> <span class="keyword">class </span><a class="code" href="a00015.html" title="Dataset built by retrieving the data from a plain text file in the filesystem.">PlainTextDataset</a> : <span class="keyword">public</span> <a class="code" href="a00005.html" title="Data set of characters encoded as feature vectors.">Dataset</a>
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034     <span class="keyword">public</span>:
+<a name="l00035"></a>00035 
+<a name="l00044"></a>00044         <span class="keyword">explicit</span> <a class="code" href="a00015.html#02ba8290b4e8e3a2cf29396a4421f278" title="Constructor.">PlainTextDataset</a> (<span class="keyword">const</span> std::string&amp; filename);
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> <a class="code" href="a00015.html#0ac0a2bd238b7a8bbde59dad44a8b519" title="Destructor.">~PlainTextDataset</a> ();
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049     <span class="keyword">private</span>:
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051         std::string what_;  
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="a00012.html#a522c2ea164e88be0b26670170b33909">00054</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00012.html#a522c2ea164e88be0b26670170b33909" title="Get a message that explains the exception raised.">NessieException::what</a> () <span class="keyword">const</span> throw()
-<a name="l00055"></a>00055 {
-<a name="l00056"></a>00056     <span class="keywordflow">return</span> what_.data();
-<a name="l00057"></a>00057 };
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
-<a name="l00060"></a>00060 <span class="preprocessor"></span>
+<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="a00015.html#3850b9c76eef875fd56e1b82d2bb3043" title="Addsa sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="a00015.html#599b3113630ba0d975a72530fa075d77" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keyword">private</span>:
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         std::string filename_;  
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 8 21:58:45 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:51 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

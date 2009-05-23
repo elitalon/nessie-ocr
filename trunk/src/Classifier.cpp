@@ -7,7 +7,7 @@
 Classifier::Classifier ()
 :	statistics_(),
 	classificationAlgorithm_(0)
-{};
+{}
 
-Classifier::~Classifier () {};
+Classifier::~Classifier () {}
 

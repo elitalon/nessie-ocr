@@ -16,7 +16,6 @@ nobase_include_HEADERS = NessieOcr/ClassificationAlgorithm.hpp \
 						 NessieOcr/PostgreSqlDataset.hpp \
 						 NessieOcr/Preprocessor.hpp \
 						 NessieOcr/PreprocessorStatistics.hpp \
-						 NessieOcr/Recognizer.hpp \
 						 NessieOcr/Region.hpp \
 						 NessieOcr/Statistics.hpp \
 						 NessieOcr/Text.hpp

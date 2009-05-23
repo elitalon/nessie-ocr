@@ -7,16 +7,16 @@
 NessieException::NessieException (const std::string& what)
 :	std::exception(),
 	what_(what)
-{};
+{}
 
 
-NessieException::~NessieException () throw() {};
+NessieException::~NessieException () throw() {}
 
 
 void NessieException::addInfo (const std::string& info) throw()
 {
 	this->addInfo(info.data());
-};
+}
 
 
 void NessieException::addInfo (const char* info) throw()
@@ -24,5 +24,5 @@ void NessieException::addInfo (const char* info) throw()
 	std::string additionalMessage(info);
 
 	what_.append(additionalMessage);
-};
+}
 

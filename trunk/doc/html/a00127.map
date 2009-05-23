@@ -1,10 +1,6 @@
-<area shape="rect" href="$a00029.html" title="Definition of Clip class." alt="" coords="5,81,72,105">
-<area shape="rect" href="$a00037.html" title="Definition of FeatureVector class." alt="" coords="96,81,216,105">
-<area shape="rect" href="$a00039.html" title="Definition of KnnClassificationAlgorithm class." alt="" coords="240,81,432,105">
-<area shape="rect" href="$a00041.html" title="Definition of KnnClassifier class." alt="" coords="456,81,571,105">
-<area shape="rect" href="$a00043.html" title="Definition of MySqlDataset class." alt="" coords="595,81,715,105">
-<area shape="rect" href="$a00045.html" title="Definition of NessieException class." alt="" coords="739,81,875,105">
-<area shape="rect" href="$a00047.html" title="Implementation of NessieOcr class." alt="" coords="899,81,997,105">
-<area shape="rect" href="$a00052.html" title="Definition of PlainTextDataset class." alt="" coords="1021,81,1157,105">
-<area shape="rect" href="$a00054.html" title="Definition of PostgreSqlDataset class." alt="" coords="1181,81,1328,105">
-<area shape="rect" href="$a00066.html" title="Definition of Text class." alt="" coords="1352,81,1419,105">
+<area shape="rect" href="$a00047.html" title="Declaration of NessieOcr class." alt="" coords="416,81,517,105">
+<area shape="rect" href="$a00064.html" title="Declaration of Text class." alt="" coords="293,156,360,180">
+<area shape="rect" href="$a00029.html" title="Declaration of Clip class." alt="" coords="83,81,149,105">
+<area shape="rect" href="$a00054.html" title="Declaration of PostgreSqlDataset class." alt="" coords="523,156,669,180">
+<area shape="rect" href="$a00052.html" title="Declaration of PlainTextDataset class." alt="" coords="693,156,829,180">
+<area shape="rect" href="$a00041.html" title="Declaration of KnnClassifier class." alt="" coords="173,81,291,105">

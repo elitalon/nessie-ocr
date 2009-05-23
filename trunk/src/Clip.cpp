@@ -8,8 +8,6 @@
 
 Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width)
 :	pixels_(0),
-	x_(x),
-	y_(y),
 	width_(width),
 	height_(height),
 	size_(0)
@@ -35,16 +33,16 @@ Clip::Clip (const Magick::Image& image, const unsigned int& x, const unsigned in
 	Magick::Pixels frame(const_cast<Magick::Image&>(image));
 	Magick::PixelPacket *pixels = frame.get(x, y, width_, height_);
 
+	Magick::ColorGray grayLevel;
 	for ( unsigned int i = 0; i < height_; ++i )
 	{
 		for ( unsigned int j = 0; j < width_; ++j )
 		{
-			Magick::ColorGray grayLevel(*pixels++);
-
+			grayLevel = *pixels++;
 			pixels_.push_back( static_cast<unsigned char>(round(grayLevel.shade() * 255.0)) );
 		}
 	}
-};
+}
 
 
 void Clip::writeToOutputImage (const std::string& outputFile, const double& scalingFactor ) const
@@ -69,5 +67,5 @@ void Clip::writeToOutputImage (const std::string& outputFile, const double& scal
 	view.sync();
 	outputImage.syncPixels();
 	outputImage.write(outputFile);
-};
+}
 

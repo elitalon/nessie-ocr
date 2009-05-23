@@ -8,7 +8,7 @@
 FeatureExtractorStatistics::FeatureExtractorStatistics ()
 :	Statistics(),	// Invoke base class copy constructor
 	momentsComputingTime_(0)
-{};
+{}
 
 
 FeatureExtractorStatistics::FeatureExtractorStatistics (const FeatureExtractorStatistics& statistics)
@@ -17,7 +17,7 @@ FeatureExtractorStatistics::FeatureExtractorStatistics (const FeatureExtractorSt
 {
 	if ( statistics.momentsComputingTime_.get() != 0 )
 		momentsComputingTime_.reset( new double (*statistics.momentsComputingTime_.get() ));
-};
+}
 
 
 FeatureExtractorStatistics& FeatureExtractorStatistics::operator= (const FeatureExtractorStatistics& statistics)
@@ -28,7 +28,7 @@ FeatureExtractorStatistics& FeatureExtractorStatistics::operator= (const Feature
 		momentsComputingTime_.reset( new double (*statistics.momentsComputingTime_.get() ));
 	
 	return *this;
-};
+}
 
 
 FeatureExtractorStatistics::~FeatureExtractorStatistics () {};
@@ -43,5 +43,5 @@ void FeatureExtractorStatistics::print () const
 		std::cout << "  - Moments computing time        : " << *momentsComputingTime_.get()  << " s" << std::endl;
 
 	std::cout << "  - Total elapsed time            : " << totalTime_  << " s" << std::endl;
-};
+}
 

@@ -8,10 +8,10 @@ Dataset::Dataset ()
 	classes_(),
 	size_(0),
 	features_(0)
-{};
+{}
 
 
-Dataset::~Dataset () {};
+Dataset::~Dataset () {}
 
 
 unsigned int Dataset::code (const std::string& character) const
@@ -25,7 +25,7 @@ unsigned int Dataset::code (const std::string& character) const
 		return i->second;
 	else
 		return 256;
-};
+}
 
 
 std::string Dataset::character (const unsigned int& code) const
@@ -40,5 +40,5 @@ std::string Dataset::character (const unsigned int& code) const
 	}
 
 	return "";
-};
+}
 

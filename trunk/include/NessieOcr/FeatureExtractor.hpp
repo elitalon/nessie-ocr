@@ -26,9 +26,7 @@ class FeatureExtractor
 	public:
 
 		/// @brief	Constructor.
-		/// 
-		/// @param	patterns An array of patterns over which apply all the feature extraction algorithms.
-		explicit FeatureExtractor (const std::vector<Pattern>& patterns);
+		explicit FeatureExtractor ();
 
 		///	@brief	Get the feature vectors built from the patterns.
 		///
@@ -41,15 +39,15 @@ class FeatureExtractor
 		const FeatureExtractorStatistics& statistics () const;
 
 		///	@brief	Compute the image moments from the internal patterns.
+		/// 
+		/// @param	patterns An array of patterns over which apply all the feature extraction algorithms.
 		///
 		///	@post	An array of feature vectors becomes available through the FeatureExtractor::featureVectors() method.
-		void computeMoments ();
+		void computeMoments (const std::vector<Pattern>& patterns);
 
 	private:
 
 		FeatureExtractorStatistics		statistics_;		///< Statistics about the execution of algorithms.
-
-		std::vector<Pattern>			patterns_;			///< An array of patterns from which compute characteristic features.
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
 
@@ -63,10 +61,6 @@ class FeatureExtractor
 		/// 
 		/// @return	The result of computing the moment of order (n + m).
 		double imageMoment (const Pattern& pattern, const unsigned int& p, const unsigned int& q, const double& xc=0.0, const double& yc=0.0) const;
-		
-		// Do not implement these methods, as they are only declared here to prevent objects to be copied. 
-		FeatureExtractor (const FeatureExtractor&);
-		FeatureExtractor& operator= (const FeatureExtractor&);
 };
 
 

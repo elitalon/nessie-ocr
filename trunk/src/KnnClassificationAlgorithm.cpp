@@ -18,10 +18,10 @@ KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNei
 {
 	if ( dataset == 0 )
 		throw NessieException ("KnnClassificationAlgorithm::KnnClassificationAlgorithm() : The dataset is set to a null value.");
-};
+}
 
 
-KnnClassificationAlgorithm::~KnnClassificationAlgorithm () {};
+KnnClassificationAlgorithm::~KnnClassificationAlgorithm () {}
 
 
 std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector<FeatureVector>& featureVectors) const
@@ -89,7 +89,7 @@ std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector
 		characters.assign(featureVectors.size(), std::string(""));
 
 	return characters;
-};
+}
 
 
 double KnnClassificationAlgorithm::train (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText)
@@ -129,5 +129,5 @@ double KnnClassificationAlgorithm::train (const std::vector<FeatureVector>& feat
 	}
 
 	return (hits / characters.size()) * 100;
-};
+}
 

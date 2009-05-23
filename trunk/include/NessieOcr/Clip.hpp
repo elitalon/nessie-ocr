@@ -85,10 +85,6 @@ class Clip
 
 		std::vector<unsigned char>	pixels_;	///< Set of pixels that defines the press clip.
 
-		unsigned int				x_;			///< X-axis coordinate of the row in the underlying image where the top leftmost pixel of the press clip is.
-
-		unsigned int				y_;			///< Y-axis coordinate of the column in the underlying image where the top leftmost pixel of the press clip is.
-
 		unsigned int				width_;		///< Width of the clip in pixels.
 
 		unsigned int				height_;	///< Height of the clip in pixels.
@@ -100,27 +96,27 @@ class Clip
 inline unsigned char& Clip::operator() (const unsigned int &x, const unsigned int &y)
 {
 	return pixels_.at(x * width_ + y);
-};
+}
 
 inline unsigned char Clip::operator() (const unsigned int &x, const unsigned int &y) const
 {
 	return pixels_.at(x * width_ + y);
-};
+}
 
 inline const unsigned int& Clip::width () const
 {
 	return width_;
-};
+}
 
 inline const unsigned int& Clip::height () const
 {
 	return height_;
-};
+}
 
 inline const unsigned int& Clip::size () const
 {
 	return size_;
-};
+}
 
 #endif
 

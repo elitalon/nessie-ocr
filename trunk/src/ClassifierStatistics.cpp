@@ -11,7 +11,7 @@ ClassifierStatistics::ClassifierStatistics ()
 	classificationTime_(0),
 	hitRate_(0),
 	missRate_(0)
-{};
+{}
 
 
 ClassifierStatistics::ClassifierStatistics (const ClassifierStatistics& statistics)
@@ -28,10 +28,10 @@ ClassifierStatistics::ClassifierStatistics (const ClassifierStatistics& statisti
 
 	if ( statistics.missRate_.get() != 0 )
 		missRate_.reset( new double (*statistics.missRate_.get() ));
-};
+}
 
 
-ClassifierStatistics::~ClassifierStatistics () {};
+ClassifierStatistics::~ClassifierStatistics () {}
 
 
 ClassifierStatistics& ClassifierStatistics::operator= (const ClassifierStatistics& statistics)
@@ -48,7 +48,7 @@ ClassifierStatistics& ClassifierStatistics::operator= (const ClassifierStatistic
 		missRate_.reset( new double (*statistics.missRate_.get() ));
 
 	return *this;
-};
+}
 
 
 void ClassifierStatistics::print () const
@@ -66,5 +66,5 @@ void ClassifierStatistics::print () const
 		std::cout << "  - Miss rate                     : " << std::setprecision(2) << std::fixed << *missRate_.get() << " %" << std::endl;
 
 	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
-};
+}
 

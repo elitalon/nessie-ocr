@@ -102,10 +102,10 @@ MySqlDataset::MySqlDataset (const std::string& database, const std::string& user
 		std::string message(e.what());
 		throw NessieException ("MySqlDataset::MySqlDataset() : The dataset could not be built from the database. " + message);
 	}
-};
+}
 
 
-MySqlDataset::~MySqlDataset () {};
+MySqlDataset::~MySqlDataset () {}
 
 
 void MySqlDataset::addSample (const Sample& sample)
@@ -149,7 +149,7 @@ void MySqlDataset::addSample (const Sample& sample)
 		std::string message(e.what());
 		throw NessieException ("MySqlDataset::addSample() : The sample could not be inserted in the dataset. " + message);
 	}
-};
+}
 
 
 void MySqlDataset::removeSample (const unsigned int& n)
@@ -177,11 +177,5 @@ void MySqlDataset::removeSample (const unsigned int& n)
 	samples_.erase(samples_.begin() + n);
 	sampleIds_.erase(sampleIds_.begin() + n);
 	size_ = samples_.size();
-};
-
-
-Dataset* MySqlDataset::clone () const
-{
-	return new MySqlDataset(*this);
-};
+}
 

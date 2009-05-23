@@ -10,7 +10,7 @@ class Text;
 #include <vector>
 #include <string>
 
-///	@brief		Algorithm used by the OCR process in the classification stage.
+///	@brief		Algorithm used by NessieOcr in the classification stage.
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-04-29 

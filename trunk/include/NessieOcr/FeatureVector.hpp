@@ -112,37 +112,34 @@ class FeatureVector
 inline double& FeatureVector::at (const unsigned int &n)
 {
 	return features_.at(n);
-};
+}
 
 inline const double& FeatureVector::at (const unsigned int &n) const
 {
 	return features_.at(n);
-};
+}
 
 inline const unsigned int& FeatureVector::size () const
 {
 	return size_;
-};
+}
 
 inline void FeatureVector::clear ()
 {
 	features_.clear();
 	size_ = 0;
-};
+}
 
 inline void FeatureVector::reset ()
 {
-	for ( std::vector<double>::iterator i = features_.begin(); i != features_.end(); ++i )
-		*i = 0.0;
-};
+	features_.assign(size_, 0.0);
+}
 
 inline void FeatureVector::resize (const unsigned int& n)
 {
-	features_.clear();
-	features_.assign(n, 0.0);
-	
 	size_ = n;
-};
+	reset();
+}
 
 #endif
 

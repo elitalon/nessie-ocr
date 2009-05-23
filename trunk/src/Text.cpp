@@ -3,14 +3,30 @@
 
 #include "Text.hpp"
 #include "NessieException.hpp"
+#include <numeric>
 #include <boost/tokenizer.hpp>
 
 
 Text::Text ()
-:	data_(""),
+:	data_(),
 	size_(0),
 	averageCharacterHeight_(0)
-{};
+{}
+
+
+Text::Text (const std::string& data)
+:	data_(data),
+	size_(0),
+	averageCharacterHeight_(0)
+{
+	for ( std::string::iterator i = data_.begin(); i != data_.end(); ++i )
+	{
+		if ( static_cast<int>(*i) < 0 )	// Wide character
+			++i;
+			
+		++size_;
+	}
+}
 
 
 void Text::assign (const std::string& data)
@@ -25,7 +41,7 @@ void Text::assign (const std::string& data)
 			
 		++size_;
 	}
-};
+}
 
 
 const std::string Text::at(const unsigned int& n) const
@@ -50,7 +66,7 @@ const std::string Text::at(const unsigned int& n) const
 	}
 	
 	return tmp;
-};
+}
 
 
 void Text::append (const std::string& character)
@@ -59,7 +75,7 @@ void Text::append (const std::string& character)
 		throw NessieException("Text::addCharacter() : The string passed cannot contain more than one character.");
 	
 	data_.append(character);
-	size_++;
+	++size_;
 }
 
 
@@ -90,9 +106,9 @@ void Text::insert (const std::string& character, const unsigned int& n)
 
 			data_ = tmp;
 		}
-		size_++;
+		++size_;
 	}
-};
+}
 
 
 void Text::erase (const unsigned int& n)
@@ -117,42 +133,52 @@ void Text::erase (const unsigned int& n)
 			tmp.append(data_.begin() + i + 1, data_.end());
 
 		data_ = tmp;
-		size_--;
+		--size_;
 	}
-};
+}
+
+
+/// @brief	Auxiliary function to use in accumulate algorithm.
+/// 
+/// @param	x		Value to update
+/// @param	token	Useless argument, necessary for interface correction.
+/// 
+/// @return The input value 'x' incremented by one.
+unsigned int autoIncrement (const unsigned int& x, const std::string& token)
+{
+	return (x + 1);
+}
+
+
+/// @brief	Auxiliary function to use in accumulate algorithm.
+/// 
+/// @param	x		Value to update.
+/// @param	token	Reference value to use in update
+/// 
+/// @return The size of input string 'token'.
+double autoSizeIncrement (const double& x, const std::string& token)
+{
+	return (x + token.size());
+}
 
 
 unsigned int Text::nWords () const
 {
-	unsigned int n = 0;
-
 	boost::char_separator<char> delimiters("+*/= ,:¡!.;()¿?\"'[]{}<>\\|");
 	boost::tokenizer< boost::char_separator<char> > tokenizer(data_, delimiters);
 
-	for( boost::tokenizer< boost::char_separator<char> >::iterator i = tokenizer.begin(); i != tokenizer.end(); ++i)
-		++n;
-
-	return n;
-};
-
+	return std::accumulate (tokenizer.begin(), tokenizer.end(), 0, autoIncrement);
+}
 
 double Text::averageWordSize () const
 {
-	double wordSize	= 0.0;
-	unsigned int n	= 0;
-
 	boost::char_separator<char> delimiters("+*/= ,:¡!.;()¿?\"'[]{}<>\\|");
 	boost::tokenizer< boost::char_separator<char> > tokenizer(data_, delimiters);
 
-	for( boost::tokenizer< boost::char_separator<char> >::iterator i = tokenizer.begin(); i != tokenizer.end(); ++i)
-	{
-		++n;
-		wordSize += i->size();
-	}
-
-	if ( wordSize > 0.0 )
-		return wordSize / n;
+	unsigned int n	= this->nWords();
+	if ( n > 0 )
+		return std::accumulate (tokenizer.begin(), tokenizer.end(), 0.0, autoSizeIncrement) / n;
 	else
-		return wordSize;
-};
+		return std::accumulate (tokenizer.begin(), tokenizer.end(), 0.0, autoSizeIncrement);
+}
 

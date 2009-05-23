@@ -13,6 +13,7 @@ class Text;
 
 
 ///	@brief		Classification algorithm based on the KNN paradigm.
+///
 ///	@details	This class implements the ClassificationAlgorithm class using the KNN paradigm for classifying and/or training purposes. The number of
 ///	neighbours to take into account is set in the class constructor, as well as the necessary dataset.
 /// 

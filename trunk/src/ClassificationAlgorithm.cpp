@@ -3,7 +3,7 @@
 
 #include "ClassificationAlgorithm.hpp"
 
-ClassificationAlgorithm::ClassificationAlgorithm () {};
+ClassificationAlgorithm::ClassificationAlgorithm () {}
 
-ClassificationAlgorithm::~ClassificationAlgorithm () {};
+ClassificationAlgorithm::~ClassificationAlgorithm () {}
 

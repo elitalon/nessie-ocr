@@ -33,8 +33,8 @@ class Statistics;
 ///	points in a feature space. Depending on the location of these points the patterns are classified as one character or another. This subsystem is managed through
 /// the Classifier class and its derived classes. As you can see below, a Classifier object is actually a parameter you should specify in NessieOcr's constructor.
 ///
-///	@details	In the end, <em>postprocessing</em> builds a meaningful text by inserting blank spaces between characters to separate the words. Management of this subsystem
-///	is not supported currently.
+///	@details	In the end, <em>postprocessing</em> builds a meaningful text by inserting blank spaces between characters to separate the words. Management of this
+///	subsystem is not supported currently.
 ///
 /// @see		Statistics, Preprocessor, FeatureExtractor, Classifier
 ///

@@ -47,13 +47,10 @@ void Region::addCoordinates (const PixelCoordinates& coordinates)
 
 void Region::normalizeCoordinates ()
 {
-	unsigned int x0 = topLeftmostPixelCoordinates_.first;
-	unsigned int y0 = topLeftmostPixelCoordinates_.second;
-
 	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 	{
-		i->first	= i->first	- x0;
-		i->second	= i->second	- y0;
+		i->first	= i->first	- topLeftmostPixelCoordinates_.first;
+		i->second	= i->second	- topLeftmostPixelCoordinates_.second;
 	}
 
 	if ( size_ > 1 )

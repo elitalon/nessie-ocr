@@ -9,10 +9,10 @@
 
 
 /// @brief		Exception raised by a NessieOcr object.
-/// 
+///
 /// @details	This class derives from std::exception class, so that all the exceptions either from this library or the STL itself
 /// can be caught using a reference to an std::exception> object.
-/// 
+///
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-10-03
 class NessieException : public std::exception
@@ -28,7 +28,7 @@ class NessieException : public std::exception
 		virtual ~NessieException () throw ();
 
 		///	@brief	Get a message that explains the exception raised.
-		/// 
+		///
 		/// @return	Message that explains the situation that caused the exception.
 		virtual const char* what () const throw();
 
@@ -54,7 +54,7 @@ class NessieException : public std::exception
 inline const char* NessieException::what () const throw()
 {
 	return what_.data();
-};
+}
 
 #endif
 

@@ -14,7 +14,7 @@ AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 
 CPPFLAGS="$CPPFLAGS `Magick++-config --cppflags`";
-CXXFLAGS="$CXXFLAGS -g -O2 -Wall -W -Wextra -ansi -pipe -pthread";
+CXXFLAGS="$CXXFLAGS `Magick++-config --cxxflags`";
 LDFLAGS="$LDFLAGS `Magick++-config --ldflags`";
 LIBS="$LIBS `Magick++-config --libs`";
 

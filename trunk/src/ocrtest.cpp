@@ -11,6 +11,7 @@
 #include "Text.hpp"
 
 #include <boost/program_options.hpp>
+#include <boost/timer.hpp>
 #include <iostream>
 #include <fstream>
 #include <memory>
@@ -82,6 +83,8 @@ int main (int argc, char *argv[])
 		return 1;
 	}
 
+	boost::timer timer;
+	timer.restart();
 
 	// Load dataset
 	std::auto_ptr<Dataset> dataset;
@@ -103,8 +106,6 @@ int main (int argc, char *argv[])
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-
-
 	// Define the classifier
 	std::auto_ptr<Classifier> classifier;
 	try
@@ -124,6 +125,7 @@ int main (int argc, char *argv[])
 		// Load reference text for training
 		if ( passedOptions.count("training") )
 		{
+			/*
 			std::ifstream inputFile( passedOptions["training"].as<std::string>().data() );
 			if ( not inputFile.is_open() || not inputFile.good() )
 			{
@@ -132,9 +134,9 @@ int main (int argc, char *argv[])
 			}
 
 			std::string text;
+			std::string line;
 			while ( inputFile.good() )
 			{   
-				std::string line;
 				getline(inputFile, line);
 
 				if (!line.empty())
@@ -152,6 +154,7 @@ int main (int argc, char *argv[])
 			Clip pressClip(image, 0, 0, image.rows(), image.columns());
 
 			ocr.train(classifier, pressClip, text);
+		
 			// Create BMP images for patterns
 			if ( passedOptions.count("create-patterns") )
 				ocr.exportPatternImages();
@@ -159,32 +162,39 @@ int main (int argc, char *argv[])
 			// Show statistics
 			if ( passedOptions.count("statistics") )
 				ocr.printStatistics();
+			*/
 		}
 		else
 		{
 			for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
 			{
-				Magick::Image image( *i );
+				Magick::Image image(*i);
 				if ( image.magick() == "PDF" )
 				{
 					image.resolutionUnits(Magick::PixelsPerInchResolution);
 					image.density("800x800");
 					image.read( *i );
 				}
+	
 				Clip pressClip(image, 0, 0, image.rows(), image.columns());
+				
+				Text text( ocr.recognize(pressClip, classifier) );
+				//if ( !text.data().empty() )
+				//	std::cout << text.data() << std::endl << std::endl;
 
-				Text text(ocr.recognize(pressClip, classifier));
-				std::cout << text.data() << std::endl << std::endl;
-				std::cout << "Número total de palabras : " << text.nWords() << std::endl;
-				std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
-
+				/*
 				// Create BMP images for patterns
 				if ( passedOptions.count("create-patterns") )
 					ocr.exportPatternImages();
 
 				// Show statistics
 				if ( passedOptions.count("statistics") )
+				{
+					std::cout << "Número total de palabras : " << text.nWords() << std::endl;
+					std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
 					ocr.printStatistics();
+				}
+				*/
 			}
 		}
 	}
@@ -193,6 +203,7 @@ int main (int argc, char *argv[])
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
+	std::cout << timer.elapsed() << std::endl;
 	return 0;
 }
 

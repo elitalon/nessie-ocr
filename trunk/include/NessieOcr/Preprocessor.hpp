@@ -9,6 +9,7 @@ class Pattern;
 #include "Clip.hpp"
 #include "PreprocessorStatistics.hpp"
 #include <vector>
+#include <deque>
 #include <list>
 #include <utility>
 
@@ -135,7 +136,7 @@ class Preprocessor
 		///
 		///	@param		visited		A vector of boolean values that tell which pixels have been visited during the regions extraction process.
 		/// @param[out] delimiters	A list of LineDelimiter objects to store the result.
-		void findLineDelimiters (const std::vector<bool>& visited, std::list<LineDelimiter>& delimiters) const;
+		void findLineDelimiters (const std::deque<bool>& visited, std::list<LineDelimiter>& delimiters) const;
 
 		/// @brief	Merge every pair of regions that are vertically overlapped, assuming they are accents isolated from their characters.
 		/// 
@@ -158,17 +159,17 @@ class Preprocessor
 inline const PreprocessorStatistics& Preprocessor::statistics () const
 {
 	return statistics_;
-};
+}
 
 inline const std::vector<Pattern>& Preprocessor::patterns() const
 {
 	return patterns_;
-};
+}
 
 inline const double& Preprocessor::averageCharacterHeight () const
 {
 	return averageCharacterHeight_;
-};
+}
 
 #endif
 

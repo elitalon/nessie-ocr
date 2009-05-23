@@ -28,10 +28,10 @@ NessieOcr::NessieOcr ()
 	preprocessingStatistics_(0),
 	featureExtractionStatistics_(0),
 	classificationStatistics_(0)
-{};
+{}
 
 
-NessieOcr::~NessieOcr() {};
+NessieOcr::~NessieOcr() {}
 
 
 const Text& NessieOcr::recognize (const Clip& pressClip, const std::auto_ptr<Classifier>& classifier)
@@ -40,12 +40,12 @@ const Text& NessieOcr::recognize (const Clip& pressClip, const std::auto_ptr<Cla
 		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
 
 	doPreprocessing(pressClip);
-	doFeatureExtraction();
-	doClassification(classifier);
-	doPostprocessing();
+	//doFeatureExtraction();
+	//doClassification(classifier);
+	//doPostprocessing();
 
 	return text_;
-};
+}
 
 
 void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Clip& pressClip, const std::string& text )
@@ -67,7 +67,7 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Clip& 
 		classifier->performTraining(featureVectors_, characters_, referenceText);
 	
 	classificationStatistics_.reset (new ClassifierStatistics(classifier->statistics()) );
-};
+}
 
 
 void NessieOcr::exportPatternImages () const
@@ -81,7 +81,7 @@ void NessieOcr::exportPatternImages () const
 
 		i->writeToOutputImage(filename.str(), true);
 	}
-};
+}
 
 
 void NessieOcr::printStatistics () const
@@ -100,57 +100,44 @@ void NessieOcr::printStatistics () const
 		classificationStatistics_->print();
 	else
 		std::cout << std::endl << "There is no statistics for the classification stage." << std::endl;
-};
+}
 
 
 void NessieOcr::doPreprocessing (const Clip& pressClip)
 {
-	spaceLocations_.clear();
-	patterns_.clear();
-	featureVectors_.clear();
-	characters_.clear();
-	text_.clear();
-
 	Preprocessor preprocessor(pressClip);
-	preprocessor.removeNoiseByLinearFiltering();
-	preprocessor.applyGlobalThresholding();
-	preprocessor.removeNoiseByTemplateMatching();
-	spaceLocations_ = preprocessor.isolateRegions();
-	preprocessor.correctSlanting();
+	//preprocessor.removeNoiseByLinearFiltering();
+	//preprocessor.applyGlobalThresholding();
+	//preprocessor.removeNoiseByTemplateMatching();
+	//spaceLocations_ = preprocessor.isolateRegions();
+	//preprocessor.correctSlanting();
 
-	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
+	//text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
 	
-	preprocessor.buildPatterns();
-	preprocessor.skeletonizePatterns();
-	patterns_ = preprocessor.patterns();
+	//preprocessor.buildPatterns();
+	//preprocessor.skeletonizePatterns();
+	//patterns_ = preprocessor.patterns();
 
-	preprocessingStatistics_.reset ( new PreprocessorStatistics(preprocessor.statistics()) );
-};
+	//preprocessingStatistics_.reset ( new PreprocessorStatistics(preprocessor.statistics()) );
+}
 
 
 void NessieOcr::doFeatureExtraction ()
 {
-	featureVectors_.clear();
-	characters_.clear();
-	text_.clear();
-
-	FeatureExtractor featureExtractor(patterns_);
-	featureExtractor.computeMoments();
+	FeatureExtractor featureExtractor;
+	featureExtractor.computeMoments(patterns_);
 	featureVectors_ = featureExtractor.featureVectors();
 
 	featureExtractionStatistics_.reset ( new FeatureExtractorStatistics(featureExtractor.statistics()) );
-};
+}
 
 
 void NessieOcr::doClassification (const std::auto_ptr<Classifier>& classifier)
 {
-	characters_.clear();
-	text_.clear();
-
 	characters_ = classifier->performClassification(featureVectors_);
 
 	classificationStatistics_.reset ( new ClassifierStatistics(classifier->statistics()) );
-};
+}
 
 
 void NessieOcr::doPostprocessing ()
@@ -191,5 +178,5 @@ void NessieOcr::doPostprocessing ()
 		pattern = "\\s+";
 		text_.assign(regex_replace(brokenText, pattern, " "));
 	}
-};
+}
 

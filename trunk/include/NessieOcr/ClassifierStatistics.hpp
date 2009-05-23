@@ -8,7 +8,7 @@
 #include <memory>
 
 
-/// @brief	Statistical data gathered during the classification stage of the text recognition process.
+/// @brief	Statistical of classification stage.
 ///
 ///	@see	Statistics
 ///
@@ -69,23 +69,23 @@ inline void ClassifierStatistics::updateTotalTime ()
 
 	if ( classificationTime_.get() != 0 )
 		totalTime_ += *classificationTime_.get();
-};
+}
 
 inline void ClassifierStatistics::classificationTime (const double& elapsedTime)
 {
 	classificationTime_.reset(new double(elapsedTime));
 	updateTotalTime();
-};
+}
 
 inline void ClassifierStatistics::hitRate (const double& rate)
 {
 	hitRate_.reset(new double(rate));
-};
+}
 
 inline void ClassifierStatistics::missRate (const double& rate)
 {
 	missRate_.reset(new double(rate));
-};
+}
 
 #endif
 

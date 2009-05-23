@@ -9,6 +9,7 @@
 
 
 ///	@brief		Dataset built by retrieving the data from a plain text file in the filesystem.
+///
 ///	@details	The file must provide the information about samples according to the following format. The first line must be a single number
 ///	that defines the number of features stored, i.e. the number of fields that every feature vector must have. Then, the following lines are
 ///	the samples themselves, with one sample per line. Every sample must have exactly a number of fields according to the definition in the first
@@ -33,7 +34,8 @@ class PlainTextDataset : public Dataset
 	public:
 
 		///	@brief		Constructor.
-		/// @details	This constructor loads a dataset from a file, 		///
+		/// @details	This constructor loads a dataset from a file
+		///
 		/// @param		filename	Path in the filesystem to the file containing the dataset.
 		///
 		/// @pre		The file passed must have the number of features in its first line.
@@ -57,11 +59,6 @@ class PlainTextDataset : public Dataset
 		///
 		///	@param	n	Row in the dataset where remove the sample.
 		void removeSample (const unsigned int& n);
-
-		///	@brief	Clone a PlainTextDataset object.
-		///
-		///	@return	A pointer to a Dataset object.
-		Dataset* clone () const;
 
 	private:
 
