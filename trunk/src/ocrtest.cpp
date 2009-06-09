@@ -174,7 +174,6 @@ int main (int argc, char *argv[])
 				
 				Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
 				
-				/*
 				if ( !text.data().empty() )
 					std::cout << text.data() << std::endl << std::endl;
 
@@ -189,7 +188,6 @@ int main (int argc, char *argv[])
 					std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
 					ocr.printStatistics();
 				}
-				*/
 			}
 		}
 	}
