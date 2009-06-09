@@ -11,8 +11,9 @@
 
 ///	@brief		Set of pixels that defines a pattern to be recognized as a character in classification stage.
 ///
-///	@details	A pattern is a matrix of binary pixels that holds a region found in the preprocessing stage. Thus, it is composed of ink pixels,
-///	i.e. the region pixels, and a number of background pixels to fill the holes in the matrix that do not belong to the region.
+///	@details	A pattern is a matrix of binary pixels that represents a character found in the preprocessing stage. Thus, it is composed of ink pixels,
+///	and a number of background pixels to fill the holes in the matrix that do not belong to the character. Every pattern has a fixed size, since a
+///	pre-requisite for an optimal classification is that patterns must be normalized to constant width and height.
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-02-02
@@ -64,6 +65,16 @@ class Pattern
 		/// @return	The coordinates of the centroid as a pair of integers.
 		std::pair<unsigned int, unsigned int> centroid () const;
 
+		/// @brief	Computes the area of a pattern, i.e. the number of ink pixels it has.
+		/// 
+		/// @return	Area of the pattern in pixels.
+		unsigned int area () const;
+
+		///	@brief	Clean the pattern by deleting every pixel of ink.
+		///	
+		///	@post	Every pixel is set to background, i.e. to zero.
+		void clean ();
+
 		/// @brief	Create a new image in the filesystem using Magick++ with the pattern drawn.
 		///
 		/// @param	outputFile		A string with the image name in the filesystem.
@@ -88,27 +99,31 @@ class Pattern
 inline unsigned int& Pattern::at (const unsigned int& x, const unsigned int& y)
 {
 	return pixels_.at(x * width_ + y);
-};
+}
 
 inline const unsigned int& Pattern::at (const unsigned int& x, const unsigned int& y) const
 {
 	return pixels_.at(x * width_ + y);
-};
+}
 
 inline const unsigned int& Pattern::width () const
 {
 	return width_;
-};
+}
 
 inline const unsigned int& Pattern::height () const
 {
 	return height_;
-};
+}
 
 inline const unsigned int& Pattern::size () const
 {
 	return size_;
-};
+}
 		
+inline void Pattern::clean ()
+{
+	pixels_.assign(size_, 0);
+}
 #endif
 

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: PlainTextDataset.hpp File Reference</title>
+<title>NessieOcr: Preprocessor.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -63,41 +63,87 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>PlainTextDataset.hpp File Reference</h1>Declaration of <a class="el" href="a00015.html" title="Dataset built by retrieving the data from a plain text file in the filesystem.">PlainTextDataset</a> class.  
+<h1>Preprocessor.cpp File Reference</h1>Definition of <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> class.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &quot;<a class="el" href="a00070.html">Dataset.hpp</a>&quot;</code><br>
-<code>#include &lt;string&gt;</code><br>
+<code>#include &quot;<a class="el" href="a00079.html">Preprocessor.hpp</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="a00076.html">Pattern.hpp</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="a00074.html">NessieException.hpp</a>&quot;</code><br>
+<code>#include &lt;boost/timer.hpp&gt;</code><br>
+<code>#include &lt;set&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
+<code>#include &lt;numeric&gt;</code><br>
+<code>#include &lt;functional&gt;</code><br>
+<code>#include &lt;cmath&gt;</code><br>
+<code>#include &lt;iostream&gt;</code><br>
 
 <p>
 <div class="dynheader">
-Include dependency graph for PlainTextDataset.hpp:</div>
+Include dependency graph for Preprocessor.cpp:</div>
 <div class="dynsection">
-<p><center><img src="a00132.png" border="0" usemap="#PlainTextDataset.hpp_map" alt=""></center>
-<map name="PlainTextDataset.hpp_map">
-<area shape="rect" href="a00031.html" title="Declaration of Dataset class." alt="" coords="5,81,93,105"></map>
+<p><center><img src="a00130.png" border="0" usemap="#Preprocessor.cpp_map" alt=""></center>
+<map name="Preprocessor.cpp_map">
+<area shape="rect" href="a00053.html" title="Declaration of Preprocessor class." alt="" coords="5,81,123,105"><area shape="rect" href="a00047.html" title="Declaration of Pattern class." alt="" coords="147,81,229,105"><area shape="rect" href="a00042.html" title="Declaration of NessieException class." alt="" coords="253,81,389,105"></map>
 </div>
-
-<p>
-<div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dynsection">
-<p><center><img src="a00133.png" border="0" usemap="#PlainTextDataset.hppdep_map" alt=""></center>
-<map name="PlainTextDataset.hppdep_map">
-<area shape="rect" href="a00048.html" title="Implementation of a command line program for testing purposes." alt="" coords="5,81,85,105"><area shape="rect" href="a00051.html" title="Definition of PlainTextDataset class." alt="" coords="109,81,245,105"></map>
-</div>
-
-<p>
-<a href="a00081.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
-<tr><td colspan="2"><br><h2>Classes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html">PlainTextDataset</a></td></tr>
+<tr><td colspan="2"><br><h2>Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00052.html#9d445e70186d25a9e0089c068a507b35">computeOtsuOptimalThreshold</a> (const std::vector&lt; unsigned char &gt; &amp;clip, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="a00005.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a plain text file in the filesystem.  <a href="a00015.html#_details">More...</a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the optimal threshold value in a press clip following the Otsu's algorithm.  <a href="#9d445e70186d25a9e0089c068a507b35"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+Definition of <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> class. 
+<p>
+<hr><h2>Function Documentation</h2>
+<a class="anchor" name="9d445e70186d25a9e0089c068a507b35"></a><!-- doxytag: member="Preprocessor.cpp::computeOtsuOptimalThreshold" ref="9d445e70186d25a9e0089c068a507b35" args="(const std::vector&lt; unsigned char &gt; &amp;clip, const unsigned int &amp;height, const unsigned int &amp;width)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char computeOtsuOptimalThreshold           </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; unsigned char &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>clip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>width</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:53 2009 for NessieOcr by&nbsp;
+<div class="memdoc">
+
+<p>
+Computes the optimal threshold value in a press clip following the Otsu's algorithm. 
+<p>
+The strategy proposed by N. Otsu in "A Threshold Selection Method from Gray-Level Histograms" (1979) maximises the likelihood that the threshold is chosen so as to split the image between and object and its background. An optimal threshold is selected by the discriminant criterion, namely, so as to maximize the separability of the resultant classes in gray levels. The procedure is very simple, utilizing only the zeroth- and the first-order cumulative moments of the gray-level histogram.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>clip</em>&nbsp;</td><td>The input press clip. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Clip height in pixels. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>Clip width in pixels.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A unsigned char with the optimal threshold value in a scale of [0,255]. </dd></dl>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:45 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

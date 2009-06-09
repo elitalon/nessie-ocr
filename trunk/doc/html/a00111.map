@@ -1,6 +1,2 @@
-<area shape="rect" href="$a00032.html" title="Definition of FeatureExtractor class." alt="" coords="5,81,139,105">
-<area shape="rect" href="$a00036.html" title="Definition of FeatureVector class." alt="" coords="163,81,283,105">
-<area shape="rect" href="$a00038.html" title="Definition of KnnClassificationAlgorithm class." alt="" coords="251,156,443,180">
-<area shape="rect" href="$a00040.html" title="Definition of KnnClassifier class." alt="" coords="520,156,635,180">
-<area shape="rect" href="$a00046.html" title="Implementation of NessieOcr class." alt="" coords="469,81,568,105">
-<area shape="rect" href="$a00031.html" title="Declaration of Dataset class." alt="" coords="357,81,445,105">
+<area shape="rect" href="$a00040.html" title="Declaration of MySqlDataset class." alt="" coords="5,81,125,105">
+<area shape="rect" href="$a00042.html" title="Declaration of NessieException class." alt="" coords="149,81,285,105">

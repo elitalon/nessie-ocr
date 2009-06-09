@@ -64,18 +64,24 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Pattern Member List</h1>This is the complete list of members for <a class="el" href="a00014.html">Pattern</a>, including all inherited members.<p><table>
-  <tr class="memlist"><td><a class="el" href="a00014.html#b871f7fe4402f4a85e9000142af6c3fe">at</a>(const unsigned int &amp;x, const unsigned int &amp;y)</td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#4db26402a3d034707a6840aba19b37aa">at</a>(const unsigned int &amp;x, const unsigned int &amp;y) const </td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#6b68a8e768946a755c4be160bc9de91d">centroid</a>() const </td><td><a class="el" href="a00014.html">Pattern</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#47965f659aec8df4af1970f1b3b1dabb">height</a>() const </td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#95f42b0f1717d9e6c2d831e87d27f83c">Pattern</a>()</td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#556fb0da03c53d1b5dd2c65f71bd702c">planeSize</a>()</td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#9b1e427a988877e74de08d8b6c957ddc">size</a>() const </td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#f576b39ce0513ccb60a016dce5c27de4">width</a>() const </td><td><a class="el" href="a00014.html">Pattern</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00014.html#f39af1cd08cd55a2a5aff289a4cf815d">writeToOutputImage</a>(const std::string &amp;outputFile, const bool &amp;invert=false) const </td><td><a class="el" href="a00014.html">Pattern</a></td><td></td></tr>
+<h1>PostgreSqlDataset Member List</h1>This is the complete list of members for <a class="el" href="a00015.html">PostgreSqlDataset</a>, including all inherited members.<p><table>
+  <tr class="memlist"><td><a class="el" href="a00015.html#57481d14c68e08d46794aaeaaae35d25">addSample</a>(const Sample &amp;sample)</td><td><a class="el" href="a00015.html">PostgreSqlDataset</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#4ceae5eaf79ece96939b50f2b890bc27">at</a>(const unsigned int &amp;n) const </td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#ecaee990ce9d07085198bf32509a3507">character</a>(const unsigned int &amp;code) const </td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#a8ec00731bc31069b93719b22d90546d">classes_</a></td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#06b9132afd07f5dd8147a7530a137e56">code</a>(const std::string &amp;character) const </td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#2ef0a4a688a218d55ef061c6df659a4a">Dataset</a>()</td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#efecdda5323a818fca5c9206eb76dc23">features</a>() const </td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#2b2952fe46a49eb27822c7f683c30285">features_</a></td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00015.html#99261cb23ebf08f888826b4fd44bc23c">PostgreSqlDataset</a>(const std::string &amp;database, const std::string &amp;username, const std::string &amp;password)</td><td><a class="el" href="a00015.html">PostgreSqlDataset</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00015.html#e43f7840d1a8152d02d72cb01ecbed06">removeSample</a>(const unsigned int &amp;n)</td><td><a class="el" href="a00015.html">PostgreSqlDataset</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#251b5cebd112449fc91d00179d61ab48">size</a>() const </td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#5c866bcb920dbaf42c6dfcbd0bf123f9">size_</a></td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00004.html#7f38b79ccbf9ada90d68d3a50250b193">~Dataset</a>()</td><td><a class="el" href="a00004.html">Dataset</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00015.html#5c447dbd74f97569d9ac556e47188242">~PostgreSqlDataset</a>()</td><td><a class="el" href="a00015.html">PostgreSqlDataset</a></td><td><code> [virtual]</code></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:55 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

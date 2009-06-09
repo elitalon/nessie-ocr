@@ -14,8 +14,8 @@ class Dataset;
 
 ///	@brief		Classifier of NessieOcr based on the KNN paradigm.
 /// 
-///	@details	This class implements the Classifier class using the KNN paradigm. A KNN classifier only needs as input parameters the number of neighbours and
-///	a dataset.
+///	@details	This class implements the Classifier class using the KNN paradigm. A KNN classifier only needs as input parameters the number
+///	of neighbours and a dataset.
 /// 
 /// @see		Classifier, Dataset, FeatureVector, Text
 ///

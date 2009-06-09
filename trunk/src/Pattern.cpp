@@ -4,6 +4,7 @@
 #include "Pattern.hpp"
 #include <Magick++.h>
 #include <cmath>
+#include <algorithm>
 
 
 Pattern::Pattern ()
@@ -11,25 +12,25 @@ Pattern::Pattern ()
 	height_(Pattern::planeSize()),
 	width_(Pattern::planeSize()),
 	size_(Pattern::planeSize() * Pattern::planeSize())
-{};
+{}
 
 
 std::pair<unsigned int, unsigned int> Pattern::centroid () const
 {
-	unsigned int area = 0;
 	unsigned int m10 = 0;
 	unsigned int m01 = 0;
 
+	// Compute moments of first order
 	for ( unsigned int i = 0; i < height_; ++i )
 	{
 		for (unsigned int j = 0; j < width_; ++j )
 		{
-			area += pixels_.at(i * width_ + j);
 			m10 += i * pixels_.at(i * width_ + j);
 			m01 += j * pixels_.at(i * width_ + j);
 		}
 	}
 
+	unsigned int area = this->area();
 	if ( area == 0 )
 		area = 1;
 
@@ -37,18 +38,27 @@ std::pair<unsigned int, unsigned int> Pattern::centroid () const
 	m01 = round( m01 / area );
 
 	return std::pair<unsigned int, unsigned int>(m10,m01);
-};
+}
+
+
+unsigned int Pattern::area () const
+{
+	return std::count(pixels_.begin(), pixels_.end(), 1);
+}
 
 
 void Pattern::writeToOutputImage (const std::string& outputFile, const bool& invert) const
 {
+	// Create an empty Image
 	Magick::Image outputImage = Magick::Image(Magick::Geometry(width_, height_), Magick::ColorGray(1.0));
 	outputImage.type( Magick::GrayscaleType );
 
+	// Create a view over the image
 	Magick::Pixels view(outputImage);
 	Magick::PixelPacket *originPixel = view.get(0, 0, width_, height_);
 	Magick::PixelPacket *pixel;
 
+	// Assign values to the image
 	for ( unsigned int i = 0; i < view.rows(); ++i )
 	{
 		for ( unsigned int j = 0; j < view.columns(); ++j )
@@ -62,8 +72,9 @@ void Pattern::writeToOutputImage (const std::string& outputFile, const bool& inv
 		}
 	}
 
+	// Write changes to disc
 	view.sync();
 	outputImage.syncPixels();
 	outputImage.write(outputFile);
-};
+}
 

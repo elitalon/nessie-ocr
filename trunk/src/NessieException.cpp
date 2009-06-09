@@ -12,17 +12,3 @@ NessieException::NessieException (const std::string& what)
 
 NessieException::~NessieException () throw() {}
 
-
-void NessieException::addInfo (const std::string& info) throw()
-{
-	this->addInfo(info.data());
-}
-
-
-void NessieException::addInfo (const char* info) throw()
-{
-	std::string additionalMessage(info);
-
-	what_.append(additionalMessage);
-}
-

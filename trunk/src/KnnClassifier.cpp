@@ -30,11 +30,7 @@ std::vector<std::string> KnnClassifier::performClassification (const std::vector
 
 	std::vector<std::string> characters( classificationAlgorithm_->classify(featureVectors) );
 
-	try
-	{
-		statistics_.classificationTime(timer.elapsed());
-	}
-	catch(...) {}
+	statistics_.classificationTime(timer.elapsed());
 
 	return characters;
 }
@@ -50,11 +46,7 @@ void KnnClassifier::performTraining (const std::vector<FeatureVector>& featureVe
 
 	double hitRate = classificationAlgorithm_->train(featureVectors, characters, referenceText);
 
-	try
-	{
-		statistics_.hitRate(hitRate);
-		statistics_.missRate(100.0 - hitRate);
-	}
-	catch(...) {}
+	statistics_.hitRate(hitRate);
+	statistics_.missRate(100.0 - hitRate);
 }
 

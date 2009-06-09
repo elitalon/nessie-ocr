@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: NessieOcr.cpp File Reference</title>
+<title>NessieOcr: Pattern.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -63,38 +63,30 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>NessieOcr.cpp File Reference</h1>Implementation of <a class="el" href="a00013.html" title="Manager of the optical character recognition process.">NessieOcr</a> class.  
+<h1>Pattern.cpp File Reference</h1>Definition of <a class="el" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> class.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &quot;<a class="el" href="a00078.html">NessieException.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00079.html">NessieOcr.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00069.html">Clip.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00067.html">Classifier.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00080.html">Pattern.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00074.html">FeatureVector.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00084.html">PreprocessorStatistics.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00073.html">FeatureExtractorStatistics.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00068.html">ClassifierStatistics.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00083.html">Preprocessor.hpp</a>&quot;</code><br>
-<code>#include &quot;<a class="el" href="a00072.html">FeatureExtractor.hpp</a>&quot;</code><br>
-<code>#include &lt;boost/regex.hpp&gt;</code><br>
-<code>#include &lt;sstream&gt;</code><br>
-<code>#include &lt;iostream&gt;</code><br>
+<code>#include &quot;<a class="el" href="a00076.html">Pattern.hpp</a>&quot;</code><br>
+<code>#include &lt;Magick++.h&gt;</code><br>
+<code>#include &lt;cmath&gt;</code><br>
+<code>#include &lt;algorithm&gt;</code><br>
 
 <p>
 <div class="dynheader">
-Include dependency graph for NessieOcr.cpp:</div>
+Include dependency graph for Pattern.cpp:</div>
 <div class="dynsection">
-<p><center><img src="a00124.png" border="0" usemap="#NessieOcr.cpp_map" alt=""></center>
-<map name="NessieOcr.cpp_map">
-<area shape="rect" href="a00045.html" title="Declaration of NessieException class." alt="" coords="5,81,141,105"><area shape="rect" href="a00047.html" title="Declaration of NessieOcr class." alt="" coords="165,81,267,105"><area shape="rect" href="a00029.html" title="Declaration of Clip class." alt="" coords="544,156,611,180"><area shape="rect" href="a00025.html" title="Declaration of Classifier class." alt="" coords="291,81,387,105"><area shape="rect" href="a00027.html" title="Declaration of ClassifierStatistics class." alt="" coords="269,156,413,180"><area shape="rect" href="a00050.html" title="Declaration of Pattern class." alt="" coords="512,81,595,105"><area shape="rect" href="a00037.html" title="Declaration of FeatureVector class." alt="" coords="619,81,739,105"><area shape="rect" href="a00058.html" title="Declaration of PreprocessorStatistics class." alt="" coords="752,156,917,180"><area shape="rect" href="a00035.html" title="Declaration of FeatureExtractorStatistics class." alt="" coords="967,156,1151,180"><area shape="rect" href="a00056.html" title="Declaration of Preprocessor class." alt="" coords="763,81,880,105"><area shape="rect" href="a00033.html" title="Declaration of FeatureExtractor class." alt="" coords="1005,81,1139,105"></map>
+<p><center><img src="a00121.png" border="0" usemap="#Pattern.cpp_map" alt=""></center>
+<map name="Pattern.cpp_map">
+<area shape="rect" href="a00047.html" title="Declaration of Pattern class." alt="" coords="5,81,88,105"></map>
 </div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+Definition of <a class="el" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> class. 
+<p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:53 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:45 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

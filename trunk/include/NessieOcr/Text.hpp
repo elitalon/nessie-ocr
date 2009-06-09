@@ -8,6 +8,11 @@
 
 
 /// @brief		Text extracted from a press clip after character recognition.
+///
+///	@details	This class stores a postprocessed text that has been recognized by NessieOcr and some associated atributes.
+///	This text does not match the original text in the newspapers, since all the punctuation sign and miscellaneous characters are removed.
+///	Simply put, this text is only composed of words separated by a single white space. This is done since this class is intended to be used
+///	by an article classifier in a higher level.
 /// 
 /// @author	Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-30

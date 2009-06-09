@@ -11,6 +11,12 @@ class Text;
 #include <string>
 
 ///	@brief		Algorithm used by NessieOcr in the classification stage.
+///
+///	@details	This class declares an abstract class that allows the definition of multiple classification algorithms, so that
+///	a set of feature vectors can be classified using several paradigms. A ClassificationAlgorithm object is declared internally
+///	within the Classifier class, since it is not allowed to modify the algorithm of a Classifier object.
+///
+///	@see	Classifier, FeatureVector, Text
 /// 
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-04-29 
@@ -28,7 +34,7 @@ class ClassificationAlgorithm
 		/// 
 		/// @param	featureVectors	An array of feature vectors.
 		/// 
-		/// @return An array of characters, one character per feature vector passes.
+		/// @return An array of characters, one character per feature vector.
 		virtual std::vector<std::string> classify (const std::vector<FeatureVector>& featureVectors) const = 0;
 		
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.

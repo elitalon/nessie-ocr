@@ -50,29 +50,18 @@ class FeatureExtractor
 		FeatureExtractorStatistics		statistics_;		///< Statistics about the execution of algorithms.
 
 		std::vector<FeatureVector>		featureVectors_;	///< An array of feature vectors arranged for further classification.
-
-		///	@brief	Compute the standard image moment of order (p + q) of a pattern.
-		///
-		/// @param	pattern	Input pattern.
-		/// @param	p		Order in the x-axis.
-		/// @param	q		Order in the y-axis.
-		///	@param	xc		X-axis coordinate of the pattern's centroid.
-		///	@param	yc		Y-axis coordinate of the pattern's centroid.
-		/// 
-		/// @return	The result of computing the moment of order (n + m).
-		double imageMoment (const Pattern& pattern, const unsigned int& p, const unsigned int& q, const double& xc=0.0, const double& yc=0.0) const;
 };
 
 
 inline const std::vector<FeatureVector>& FeatureExtractor::featureVectors () const
 {
 	return featureVectors_;
-};
+}
 
 inline const FeatureExtractorStatistics& FeatureExtractor::statistics () const
 {
 	return statistics_;
-};
+}
 
 #endif
 

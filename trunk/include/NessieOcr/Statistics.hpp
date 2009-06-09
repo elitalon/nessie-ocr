@@ -5,7 +5,7 @@
 #define _STATISTICS_H
 
 
-/// @brief		Statistics gathered during the text recognition process.
+/// @brief		Statistics gathered during NessieOcr execution stages.
 ///
 /// @details	This abstract base class provides a common interface for every stage of NessieOcr, allowing its redefinition so that derived classes
 ///	can be customized according to the stage they belong. The statitical data is gathered mostly in internal algorithms, and provides time results
@@ -25,7 +25,12 @@ class Statistics
 		/// @brief	Destructor.
 		virtual ~Statistics ();
 
-		/// @brief	Print the statistics.
+		///	@brief	Get the total elapsed time.
+		///
+		///	@return Elapsed time in seconds.
+		virtual const double& totalTime () const;
+		
+		/// @brief	Print the statistics to the standard output.
 		virtual void print () const = 0;
 
 	protected:
@@ -37,6 +42,11 @@ class Statistics
 		/// @post	#totalTime_ is set by summing all the individual timers.
 		virtual void updateTotalTime () = 0;
 };
+
+inline const double& Statistics::totalTime () const
+{
+	return totalTime_;
+}
 
 #endif
 

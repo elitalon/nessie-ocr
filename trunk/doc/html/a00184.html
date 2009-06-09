@@ -64,21 +64,18 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>FeatureVector Member List</h1>This is the complete list of members for <a class="el" href="a00008.html">FeatureVector</a>, including all inherited members.<p><table>
-  <tr class="memlist"><td><a class="el" href="a00008.html#befee1fb8cf23956c07a4df8b2fc1edb">at</a>(const unsigned int &amp;n)</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#0bd1fad60b18740189dde5e54cf1e885">at</a>(const unsigned int &amp;n) const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#6fe2c9d558623f94fdbb7dac653a69f5">clear</a>()</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#c3e33132c9eaca6ff30bcf21ea27d3f3">computeEuclideanDistance</a>(const FeatureVector &amp;featureVector) const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#2a3ec2b56837886aa56040e64bda8b86">FeatureVector</a>()</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#ab161bb5d9efdc4e74cd375eea65ff5a">FeatureVector</a>(const unsigned int &amp;n)</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#a372a9185d83db2283947d50a2913db0">operator*</a>(const FeatureVector &amp;featureVector) const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#58a2309387bd18d956e16c148585352a">operator+</a>(const FeatureVector &amp;featureVector) const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#fa1a86fbb34177281854406deea435ab">operator-</a>(const FeatureVector &amp;featureVector) const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#43c8513a501ddbd01cb02047f2730c9c">reset</a>()</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#747c566a31accf96ee43e047122e86cd">resize</a>(const unsigned int &amp;n)</td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00008.html#4e3bd39520fdd8afbefa90ed203d512b">size</a>() const </td><td><a class="el" href="a00008.html">FeatureVector</a></td><td><code> [inline]</code></td></tr>
+<h1>KnnClassifier Member List</h1>This is the complete list of members for <a class="el" href="a00009.html">KnnClassifier</a>, including all inherited members.<p><table>
+  <tr class="memlist"><td><a class="el" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573">classificationAlgorithm_</a></td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#e6132b100c96a4f3d8ad3885b5acb28e">Classifier</a>()</td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00009.html#02ed13dc455d2febc01021c4e9b72ba1">KnnClassifier</a>(const unsigned int &amp;nNeighbours, Dataset *const dataset)</td><td><a class="el" href="a00009.html">KnnClassifier</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00009.html#67350f136aca9f03d8328861db374613">performClassification</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)</td><td><a class="el" href="a00009.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00009.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">performTraining</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)</td><td><a class="el" href="a00009.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a>() const </td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#7831f2accc6c1e98ba11ba5ee67f6d0c">~Classifier</a>()</td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00009.html#bfb8bf17893ee64371cc3dab7b1a1dc1">~KnnClassifier</a>()</td><td><a class="el" href="a00009.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:54 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

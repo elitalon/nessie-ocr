@@ -1,0 +1,3 @@
+<area shape="rect" href="$a00010.html" title="Dataset built by retrieving the data from a MySQL database." alt="" coords="5,292,128,484">
+<area shape="rect" href="$a00014.html" title="Dataset built by retrieving the data from a plain text file in the filesystem." alt="" coords="152,328,288,448">
+<area shape="rect" href="$a00015.html" title="Dataset built by retrieving the data from a PostgreSQL database." alt="" coords="312,292,459,484">

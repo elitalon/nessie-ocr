@@ -10,7 +10,7 @@
 
 /// @brief		Exception raised by a NessieOcr object.
 ///
-/// @details	This class derives from std::exception class, so that all the exceptions either from this library or the STL itself
+/// @details	This class derives from std::exception class, so that all the exceptions either from NessieOcr or the STL itself
 /// can be caught using a reference to an std::exception> object.
 ///
 /// @author	Eliezer Talón (elitalon@gmail.com)
@@ -29,22 +29,9 @@ class NessieException : public std::exception
 
 		///	@brief	Get a message that explains the exception raised.
 		///
-		/// @return	Message that explains the situation that caused the exception.
+		/// @return	A string with the message.
 		virtual const char* what () const throw();
 
-		///	@brief	Add additional information to explain the exception occurred.
-		///
-		///	@param	info	Additional information regarding the exception raised.
-		///
-		///	@post	The info is appended to the end of the message passed in constructor.
-		virtual void addInfo (const std::string& info) throw();
-
-		///	@brief	Add additional information to explain the exception occurred.
-		///
-		///	@param	info	Additional information regarding the exception raised.
-		///
-		///	@post	The info is appended to the end of the message passed in constructor.
-		virtual void addInfo (const char* info) throw();
 
 	private:
 

@@ -8,9 +8,14 @@
 #include <memory>
 
 
-/// @brief	Statistics of feature extraction stage.
+
+///	@brief		Feature extraction stage statistics of NessieOcr.
 ///
-///	@see	Statistics
+///	@details	This class stores all the statistical data gathered during execution of methods of the feature extraction stage. Data can be write or read,
+///	although a client program should be only interested in reading values. The statistical data	is automatically set whenever a method from a
+///	FeatureExtractor object is called, but only the fields that method uses.
+///
+///	@see		Statistics, FeatureExtractor
 ///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2009-01-12
@@ -35,6 +40,11 @@ class FeatureExtractorStatistics : public Statistics
 		///	@param	elapsedTime	Elapsed time in seconds.
 		void momentsComputingTime (const double& elapsedTime);
 
+		///	@brief	Get the elapsed time while computing the image moments of patterns.
+		///
+		///	@return	Elapsed time in seconds.
+		double momentsComputingTime () const;
+
 		/// @brief	Print the statistics gathered.
 		void print () const;
 
@@ -54,13 +64,18 @@ inline void FeatureExtractorStatistics::updateTotalTime ()
 	totalTime_ = 0.0;
 
 	if ( momentsComputingTime_.get() != 0 )
-		totalTime_ += *momentsComputingTime_.get();
+		totalTime_ += *momentsComputingTime_;
 }
 
 inline void FeatureExtractorStatistics::momentsComputingTime (const double& elapsedTime)
 {
 	momentsComputingTime_.reset(new double(elapsedTime));
 	updateTotalTime();
+}
+
+inline double FeatureExtractorStatistics::momentsComputingTime () const
+{
+	return *momentsComputingTime_;
 }
 
 #endif

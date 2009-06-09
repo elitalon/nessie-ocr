@@ -104,6 +104,7 @@ int main (int argc, char *argv[])
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
+
 	// Define the classifier
 	std::auto_ptr<Classifier> classifier;
 	try
@@ -115,7 +116,7 @@ int main (int argc, char *argv[])
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-
+	
 	// Create the OCR
 	NessieOcr ocr;
 	try
@@ -123,7 +124,6 @@ int main (int argc, char *argv[])
 		// Load reference text for training
 		if ( passedOptions.count("training") )
 		{
-			/*
 			std::ifstream inputFile( passedOptions["training"].as<std::string>().data() );
 			if ( not inputFile.is_open() || not inputFile.good() )
 			{
@@ -159,7 +159,6 @@ int main (int argc, char *argv[])
 			// Show statistics
 			if ( passedOptions.count("statistics") )
 				ocr.printStatistics();
-			*/
 		}
 		else
 		{
@@ -174,10 +173,11 @@ int main (int argc, char *argv[])
 				}
 				
 				Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
-				//if ( !text.data().empty() )
-				//	std::cout << text.data() << std::endl << std::endl;
-
+				
 				/*
+				if ( !text.data().empty() )
+					std::cout << text.data() << std::endl << std::endl;
+
 				// Create BMP images for patterns
 				if ( passedOptions.count("create-patterns") )
 					ocr.exportPatternImages();

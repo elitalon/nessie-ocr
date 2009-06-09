@@ -44,8 +44,6 @@ class Classifier
 		/// @param	featureVectors	An array of feature vectors to classify.
 		///
 		///	@return	An array of std::string objects with the characters found, one character per vector element.
-		///
-		///	@post	The recognized characters become also available through the Classifier::characters() method.
 		virtual std::vector<std::string> performClassification (const std::vector<FeatureVector>& featureVectors) = 0;
 
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.

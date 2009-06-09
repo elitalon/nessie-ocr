@@ -40,9 +40,9 @@ const Text& NessieOcr::recognize (const Magick::Image& page, const unsigned int&
 		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
 
 	doPreprocessing(page, x, y, height, width);
-	//doFeatureExtraction();
-	//doClassification(classifier);
-	//doPostprocessing();
+	doFeatureExtraction();
+	doClassification(classifier);
+	doPostprocessing();
 
 	return text_;
 }
@@ -65,7 +65,7 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick
 
 	if ( characters_.size() == referenceText.size() )
 		classifier->performTraining(featureVectors_, characters_, referenceText);
-	
+
 	classificationStatistics_.reset (new ClassifierStatistics(classifier->statistics()) );
 }
 
@@ -73,7 +73,7 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick
 void NessieOcr::exportPatternImages () const
 {
 	unsigned int patternNo = 0;
-	
+
 	for ( std::vector<Pattern>::const_iterator i = patterns_.begin(); i != patterns_.end(); ++i )
 	{
 		std::ostringstream filename;
@@ -90,12 +90,12 @@ void NessieOcr::printStatistics () const
 		preprocessingStatistics_->print();
 	else
 		std::cout << std::endl << "There is no statistics for the preprocessing stage." << std::endl;
-	
+
 	if ( featureExtractionStatistics_.get() != 0 )
 		featureExtractionStatistics_->print();
 	else
 		std::cout << std::endl << "There is no statistics for the feature extraction stage." << std::endl;
-	
+
 	if ( classificationStatistics_.get() != 0 )
 		classificationStatistics_->print();
 	else
@@ -105,20 +105,20 @@ void NessieOcr::printStatistics () const
 
 void NessieOcr::doPreprocessing (const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width)
 {
-	//Preprocessor preprocessor(pressClip);
-	//preprocessor.removeNoiseByLinearFiltering();
-	//preprocessor.applyGlobalThresholding();
-	//preprocessor.removeNoiseByTemplateMatching();
-	//spaceLocations_ = preprocessor.isolateRegions();
-	//preprocessor.correctSlanting();
+	Preprocessor preprocessor(page, x, y, height, width);
+	preprocessor.removeNoiseByLinearFiltering();
+	preprocessor.applyGlobalThresholding();
+	preprocessor.removeNoiseByTemplateMatching();
+	std::ostringstream filename;
+	spaceLocations_ = preprocessor.isolateRegions();
 
-	//text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
-	
-	//preprocessor.buildPatterns();
-	//preprocessor.skeletonizePatterns();
-	//patterns_ = preprocessor.patterns();
+	text_.averageCharacterHeight(preprocessor.averageCharacterHeight());
 
-	//preprocessingStatistics_.reset ( new PreprocessorStatistics(preprocessor.statistics()) );
+	preprocessor.buildPatterns();
+	preprocessor.skeletonizePatterns();
+	patterns_ = preprocessor.patterns();
+
+	preprocessingStatistics_.reset ( new PreprocessorStatistics(preprocessor.statistics()) );
 }
 
 
@@ -147,32 +147,26 @@ void NessieOcr::doPostprocessing ()
 	if ( characters_.size() > 0 )
 	{
 		for ( std::vector<unsigned int>::reverse_iterator i = spaceLocations_.rbegin(); i != spaceLocations_.rend(); ++i )
-		{
-			try
-			{
-				characters_.insert(characters_.begin() + *i, " ");
-			}
-			catch (...) {}
-		}
+			characters_.insert(characters_.begin() + *i, " ");
 
 		for ( std::vector<std::string>::iterator i = characters_.begin(); i != characters_.end(); ++i )
 			text_.append(*i);
-	
+
 		// Remove broken words due to line breaks
 		std::string brokenText(text_.data());
 		boost::regex pattern("-\\s*[,.]?\\s*");
 		text_.assign(regex_replace(brokenText, pattern, ""));
-		
+
 		// Remove non-alphanumeric characters
 		brokenText = text_.data();
 		pattern = "[\\?¿,;.:\\!+*/=<>'\\()\\{}\\[\\]|]+";
 		text_.assign(regex_replace(brokenText, pattern, ""));
-	
+
 		// This character must be removed in a separate pattern
 		brokenText = text_.data();
 		pattern = "¡+";
 		text_.assign(regex_replace(brokenText, pattern, ""));
-		
+
 		// Remove innecesary spaces
 		brokenText = text_.data();
 		pattern = "\\s+";

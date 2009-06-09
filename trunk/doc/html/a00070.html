@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: Dataset.hpp Source File</title>
+<title>NessieOcr: FeatureVector.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,74 +61,87 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Dataset.hpp</h1><a href="a00031.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>FeatureVector.hpp</h1><a href="a00034.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_DATASET_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _DATASET_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_FEATUREVECTOR_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _FEATUREVECTOR_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;utility&gt;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include "<a class="code" href="a00037.html" title="Declaration of FeatureVector class.">FeatureVector.hpp</a>"</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 
-<a name="l00019"></a><a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c">00019</a> <span class="keyword">typedef</span> std::pair&lt;FeatureVector, unsigned int&gt; <a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>;
-<a name="l00020"></a>00020 
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 
+<a name="l00018"></a><a class="code" href="a00007.html">00018</a> <span class="keyword">class </span><a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020     <span class="keyword">public</span>:
 <a name="l00021"></a>00021 
-<a name="l00034"></a><a class="code" href="a00005.html">00034</a> <span class="keyword">class </span><a class="code" href="a00005.html" title="Data set of characters encoded as feature vectors.">Dataset</a>
-<a name="l00035"></a>00035 {
-<a name="l00036"></a>00036     <span class="keyword">public</span>:
-<a name="l00037"></a>00037 
-<a name="l00039"></a>00039         <span class="keyword">explicit</span> <a class="code" href="a00005.html#2ef0a4a688a218d55ef061c6df659a4a" title="Constructor.">Dataset</a> ();
+<a name="l00025"></a>00025         <a class="code" href="a00007.html#2a3ec2b56837886aa56040e64bda8b86" title="Constructor.">FeatureVector</a> ();
+<a name="l00026"></a>00026         
+<a name="l00032"></a>00032         <span class="keyword">explicit</span> <a class="code" href="a00007.html#2a3ec2b56837886aa56040e64bda8b86" title="Constructor.">FeatureVector</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00033"></a>00033 
+<a name="l00039"></a>00039         <span class="keywordtype">double</span>&amp; <a class="code" href="a00007.html#befee1fb8cf23956c07a4df8b2fc1edb" title="Allow read-and-write access to a certain feature.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
 <a name="l00040"></a>00040 
-<a name="l00042"></a>00042         <span class="keyword">virtual</span> <a class="code" href="a00005.html#7f38b79ccbf9ada90d68d3a50250b193" title="Destructor.">~Dataset</a> ();
-<a name="l00043"></a>00043 
-<a name="l00049"></a>00049         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp;  <a class="code" href="a00005.html#4ceae5eaf79ece96939b50f2b890bc27" title="Allow read-only access to a sample in the dataset.">at</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n) <span class="keyword">const</span>;
-<a name="l00050"></a>00050 
-<a name="l00054"></a>00054         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00005.html#251b5cebd112449fc91d00179d61ab48" title="Get the number of samples in the dataset.">size</a> () <span class="keyword">const</span>;
-<a name="l00055"></a>00055 
-<a name="l00059"></a>00059         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00005.html#efecdda5323a818fca5c9206eb76dc23" title="Get the number of features per sample.">features</a> () <span class="keyword">const</span>;
-<a name="l00060"></a>00060 
-<a name="l00066"></a>00066         <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00005.html#06b9132afd07f5dd8147a7530a137e56" title="Get the code associated to the character passed.">code</a> (<span class="keyword">const</span> std::string&amp; <a class="code" href="a00005.html#ecaee990ce9d07085198bf32509a3507" title="Get the character associated to the code passed.">character</a>) <span class="keyword">const</span>;
-<a name="l00067"></a>00067 
-<a name="l00073"></a>00073         <span class="keyword">virtual</span> std::string <a class="code" href="a00005.html#ecaee990ce9d07085198bf32509a3507" title="Get the character associated to the code passed.">character</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; code) <span class="keyword">const</span>;
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="a00007.html#befee1fb8cf23956c07a4df8b2fc1edb" title="Allow read-and-write access to a certain feature.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n) <span class="keyword">const</span>;
+<a name="l00047"></a>00047 
+<a name="l00055"></a>00055         <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> <a class="code" href="a00007.html#58a2309387bd18d956e16c148585352a" title="Compute the sum of two feature vectors.">operator+ </a>(<span class="keyword">const</span> <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector) <span class="keyword">const</span>;
+<a name="l00056"></a>00056 
+<a name="l00064"></a>00064         <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> <a class="code" href="a00007.html#fa1a86fbb34177281854406deea435ab" title="Compute the subtraction of two feature vectors.">operator- </a>(<span class="keyword">const</span> <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector) <span class="keyword">const</span>;
+<a name="l00065"></a>00065 
+<a name="l00073"></a>00073         <span class="keywordtype">double</span> <a class="code" href="a00007.html#a372a9185d83db2283947d50a2913db0" title="Compute the dot product of two feature vectors.">operator* </a>(<span class="keyword">const</span> <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector) <span class="keyword">const</span>;
 <a name="l00074"></a>00074 
-<a name="l00082"></a>00082         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00005.html#65e42c7d35bd3270115455c3a6bc7b6f" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample) = 0;
-<a name="l00083"></a>00083 
-<a name="l00087"></a>00087         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00005.html#d4fa59997c016c2f9ff6ff7d3fe90f4d" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n) = 0;
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089     <span class="keyword">protected</span>:
-<a name="l00090"></a>00090 
-<a name="l00091"></a><a class="code" href="a00005.html#8774177ef709ce626031df1f8c1521c7">00091</a>         std::vector&lt;Sample&gt;                 <a class="code" href="a00005.html#8774177ef709ce626031df1f8c1521c7" title="Samples of the dataset.">samples_</a>;   
-<a name="l00092"></a>00092 
-<a name="l00093"></a><a class="code" href="a00005.html#a8ec00731bc31069b93719b22d90546d">00093</a>         std::map&lt;std::string, unsigned int&gt; <a class="code" href="a00005.html#a8ec00731bc31069b93719b22d90546d" title="Map of classes that associates a character with its code.">classes_</a>;   
-<a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="a00005.html#5c866bcb920dbaf42c6dfcbd0bf123f9">00095</a>         <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                   <a class="code" href="a00005.html#5c866bcb920dbaf42c6dfcbd0bf123f9" title="Number of samples.">size_</a>;      
+<a name="l00078"></a>00078         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00007.html#4e3bd39520fdd8afbefa90ed203d512b" title="Get the number of features held.">size</a> () <span class="keyword">const</span>;
+<a name="l00079"></a>00079         
+<a name="l00083"></a>00083         <span class="keywordtype">void</span> <a class="code" href="a00007.html#6fe2c9d558623f94fdbb7dac653a69f5" title="Clear the vector content.">clear</a> ();
+<a name="l00084"></a>00084         
+<a name="l00088"></a>00088         <span class="keywordtype">void</span> <a class="code" href="a00007.html#43c8513a501ddbd01cb02047f2730c9c" title="Reset the vector content.">reset</a> ();
+<a name="l00089"></a>00089         
+<a name="l00095"></a>00095         <span class="keywordtype">void</span> <a class="code" href="a00007.html#747c566a31accf96ee43e047122e86cd" title="Resize the vector to the specified size.">resize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
 <a name="l00096"></a>00096 
-<a name="l00097"></a><a class="code" href="a00005.html#2b2952fe46a49eb27822c7f683c30285">00097</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                        <a class="code" href="a00005.html#2b2952fe46a49eb27822c7f683c30285" title="Number of features per sample.">features_</a>;  
-<a name="l00098"></a>00098 };
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 
-<a name="l00101"></a><a class="code" href="a00005.html#4ceae5eaf79ece96939b50f2b890bc27">00101</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00031.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; <a class="code" href="a00005.html#4ceae5eaf79ece96939b50f2b890bc27" title="Allow read-only access to a sample in the dataset.">Dataset::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n)<span class="keyword"> const</span>
-<a name="l00102"></a>00102 <span class="keyword"></span>{
-<a name="l00103"></a>00103     <span class="keywordflow">return</span> <a class="code" href="a00005.html#8774177ef709ce626031df1f8c1521c7" title="Samples of the dataset.">samples_</a>.at(n);
-<a name="l00104"></a>00104 }
+<a name="l00102"></a>00102         <span class="keywordtype">double</span> <a class="code" href="a00007.html#c3e33132c9eaca6ff30bcf21ea27d3f3" title="Compute the Euclidean distance with the input vector.">computeEuclideanDistance</a> (<span class="keyword">const</span> <a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector) <span class="keyword">const</span>;
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104     <span class="keyword">private</span>:
 <a name="l00105"></a>00105 
-<a name="l00106"></a><a class="code" href="a00005.html#251b5cebd112449fc91d00179d61ab48">00106</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00005.html#251b5cebd112449fc91d00179d61ab48" title="Get the number of samples in the dataset.">Dataset::size</a> ()<span class="keyword"> const</span>
-<a name="l00107"></a>00107 <span class="keyword"></span>{
-<a name="l00108"></a>00108     <span class="keywordflow">return</span> <a class="code" href="a00005.html#5c866bcb920dbaf42c6dfcbd0bf123f9" title="Number of samples.">size_</a>;
-<a name="l00109"></a>00109 }
+<a name="l00106"></a>00106         std::vector&lt;double&gt; features_;  
+<a name="l00107"></a>00107         
+<a name="l00108"></a>00108         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>        size_;      
+<a name="l00109"></a>00109 };
 <a name="l00110"></a>00110 
-<a name="l00111"></a><a class="code" href="a00005.html#efecdda5323a818fca5c9206eb76dc23">00111</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00005.html#efecdda5323a818fca5c9206eb76dc23" title="Get the number of features per sample.">Dataset::features</a> ()<span class="keyword"> const</span>
-<a name="l00112"></a>00112 <span class="keyword"></span>{
-<a name="l00113"></a>00113     <span class="keywordflow">return</span> <a class="code" href="a00005.html#2b2952fe46a49eb27822c7f683c30285" title="Number of features per sample.">features_</a>;
-<a name="l00114"></a>00114 }
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
+<a name="l00111"></a>00111 
+<a name="l00112"></a><a class="code" href="a00007.html#befee1fb8cf23956c07a4df8b2fc1edb">00112</a> <span class="keyword">inline</span> <span class="keywordtype">double</span>&amp; <a class="code" href="a00007.html#befee1fb8cf23956c07a4df8b2fc1edb" title="Allow read-and-write access to a certain feature.">FeatureVector::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;n)
+<a name="l00113"></a>00113 {
+<a name="l00114"></a>00114     <span class="keywordflow">return</span> features_.at(n);
+<a name="l00115"></a>00115 }
+<a name="l00116"></a>00116 
+<a name="l00117"></a><a class="code" href="a00007.html#0bd1fad60b18740189dde5e54cf1e885">00117</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="a00007.html#befee1fb8cf23956c07a4df8b2fc1edb" title="Allow read-and-write access to a certain feature.">FeatureVector::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;n)<span class="keyword"> const</span>
+<a name="l00118"></a>00118 <span class="keyword"></span>{
+<a name="l00119"></a>00119     <span class="keywordflow">return</span> features_.at(n);
+<a name="l00120"></a>00120 }
+<a name="l00121"></a>00121 
+<a name="l00122"></a><a class="code" href="a00007.html#4e3bd39520fdd8afbefa90ed203d512b">00122</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00007.html#4e3bd39520fdd8afbefa90ed203d512b" title="Get the number of features held.">FeatureVector::size</a> ()<span class="keyword"> const</span>
+<a name="l00123"></a>00123 <span class="keyword"></span>{
+<a name="l00124"></a>00124     <span class="keywordflow">return</span> size_;
+<a name="l00125"></a>00125 }
+<a name="l00126"></a>00126 
+<a name="l00127"></a><a class="code" href="a00007.html#6fe2c9d558623f94fdbb7dac653a69f5">00127</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00007.html#6fe2c9d558623f94fdbb7dac653a69f5" title="Clear the vector content.">FeatureVector::clear</a> ()
+<a name="l00128"></a>00128 {
+<a name="l00129"></a>00129     features_.clear();
+<a name="l00130"></a>00130     size_ = 0;
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00133"></a><a class="code" href="a00007.html#43c8513a501ddbd01cb02047f2730c9c">00133</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00007.html#43c8513a501ddbd01cb02047f2730c9c" title="Reset the vector content.">FeatureVector::reset</a> ()
+<a name="l00134"></a>00134 {
+<a name="l00135"></a>00135     features_.assign(size_, 0.0);
+<a name="l00136"></a>00136 }
+<a name="l00137"></a>00137 
+<a name="l00138"></a><a class="code" href="a00007.html#747c566a31accf96ee43e047122e86cd">00138</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00007.html#747c566a31accf96ee43e047122e86cd" title="Resize the vector to the specified size.">FeatureVector::resize</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n)
+<a name="l00139"></a>00139 {
+<a name="l00140"></a>00140     size_ = n;
+<a name="l00141"></a>00141     <a class="code" href="a00007.html#43c8513a501ddbd01cb02047f2730c9c" title="Reset the vector content.">reset</a>();
+<a name="l00142"></a>00142 }
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="preprocessor">#endif</span>
+<a name="l00145"></a>00145 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:51 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

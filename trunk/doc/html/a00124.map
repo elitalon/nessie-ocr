@@ -1,11 +1,2 @@
-<area shape="rect" href="$a00045.html" title="Declaration of NessieException class." alt="" coords="5,81,141,105">
-<area shape="rect" href="$a00047.html" title="Declaration of NessieOcr class." alt="" coords="165,81,267,105">
-<area shape="rect" href="$a00029.html" title="Declaration of Clip class." alt="" coords="544,156,611,180">
-<area shape="rect" href="$a00025.html" title="Declaration of Classifier class." alt="" coords="291,81,387,105">
-<area shape="rect" href="$a00027.html" title="Declaration of ClassifierStatistics class." alt="" coords="269,156,413,180">
-<area shape="rect" href="$a00050.html" title="Declaration of Pattern class." alt="" coords="512,81,595,105">
-<area shape="rect" href="$a00037.html" title="Declaration of FeatureVector class." alt="" coords="619,81,739,105">
-<area shape="rect" href="$a00058.html" title="Declaration of PreprocessorStatistics class." alt="" coords="752,156,917,180">
-<area shape="rect" href="$a00035.html" title="Declaration of FeatureExtractorStatistics class." alt="" coords="967,156,1151,180">
-<area shape="rect" href="$a00056.html" title="Declaration of Preprocessor class." alt="" coords="763,81,880,105">
-<area shape="rect" href="$a00033.html" title="Declaration of FeatureExtractor class." alt="" coords="1005,81,1139,105">
+<area shape="rect" href="$a00049.html" title="Declaration of PlainTextDataset class." alt="" coords="5,81,141,105">
+<area shape="rect" href="$a00042.html" title="Declaration of NessieException class." alt="" coords="165,81,301,105">

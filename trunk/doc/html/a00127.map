@@ -1,6 +1,2 @@
-<area shape="rect" href="$a00047.html" title="Declaration of NessieOcr class." alt="" coords="416,81,517,105">
-<area shape="rect" href="$a00064.html" title="Declaration of Text class." alt="" coords="293,156,360,180">
-<area shape="rect" href="$a00029.html" title="Declaration of Clip class." alt="" coords="83,81,149,105">
-<area shape="rect" href="$a00054.html" title="Declaration of PostgreSqlDataset class." alt="" coords="523,156,669,180">
-<area shape="rect" href="$a00052.html" title="Declaration of PlainTextDataset class." alt="" coords="693,156,829,180">
-<area shape="rect" href="$a00041.html" title="Declaration of KnnClassifier class." alt="" coords="173,81,291,105">
+<area shape="rect" href="$a00051.html" title="Declaration of PostgreSqlDataset class." alt="" coords="5,81,152,105">
+<area shape="rect" href="$a00042.html" title="Declaration of NessieException class." alt="" coords="176,81,312,105">

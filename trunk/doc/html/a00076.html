@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: KnnClassifier.hpp Source File</title>
+<title>NessieOcr: Pattern.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,37 +61,88 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>KnnClassifier.hpp</h1><a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Pattern.hpp</h1><a href="a00047.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_KNN_CLASSIFIER_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _KNN_CLASSIFIER_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_PATTERN_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _PATTERN_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="a00008.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>;
-<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="a00021.html" title="Text extracted from a press clip after character recognition.">Text</a>;
-<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="a00005.html" title="Data set of characters encoded as feature vectors.">Dataset</a>;
-<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="a00025.html" title="Declaration of Classifier class.">Classifier.hpp</a>"</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 
-<a name="l00024"></a><a class="code" href="a00010.html">00024</a> <span class="keyword">class </span><a class="code" href="a00010.html" title="Classifier of NessieOcr based on the KNN paradigm.">KnnClassifier</a> : <span class="keyword">public</span> <a class="code" href="a00002.html" title="Classifier of the OCR process.">Classifier</a>
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026     <span class="keyword">public</span>:
-<a name="l00027"></a>00027 
-<a name="l00034"></a>00034         <span class="keyword">explicit</span> <a class="code" href="a00010.html#02ed13dc455d2febc01021c4e9b72ba1" title="Constructor.">KnnClassifier</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; nNeighbours, <a class="code" href="a00005.html" title="Data set of characters encoded as feature vectors.">Dataset</a>* <span class="keyword">const</span> dataset);
-<a name="l00035"></a>00035 
-<a name="l00037"></a>00037         <span class="keyword">virtual</span> <a class="code" href="a00010.html#bfb8bf17893ee64371cc3dab7b1a1dc1" title="Destructor.">~KnnClassifier</a> ();
-<a name="l00038"></a>00038 
-<a name="l00044"></a>00044         std::vector&lt;std::string&gt; <a class="code" href="a00010.html#67350f136aca9f03d8328861db374613" title="Classify each feature vector passed into its most probably class (character).">performClassification</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors);
-<a name="l00045"></a>00045 
-<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="a00010.html#7c290e7a015b3d3f8ad92a8ec8dc0b09" title="Train the classifier, comparing each classification decision with a reference text...">performTraining</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="a00021.html" title="Text extracted from a press clip after character recognition.">Text</a>&amp; referenceText);
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;utility&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a>00011 
+<a name="l00020"></a><a class="code" href="a00013.html">00020</a> <span class="keyword">class </span><a class="code" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022     <span class="keyword">public</span>:
+<a name="l00023"></a>00023 
+<a name="l00025"></a>00025         <span class="keyword">explicit</span> <a class="code" href="a00013.html#95f42b0f1717d9e6c2d831e87d27f83c" title="Constructor.">Pattern</a> ();
+<a name="l00026"></a>00026 
+<a name="l00033"></a>00033         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#b871f7fe4402f4a85e9000142af6c3fe" title="Allow read-and-write access to a pixel in the pattern.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);
+<a name="l00034"></a>00034 
+<a name="l00041"></a>00041         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#b871f7fe4402f4a85e9000142af6c3fe" title="Allow read-and-write access to a pixel in the pattern.">at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y) <span class="keyword">const</span>;
+<a name="l00042"></a>00042 
+<a name="l00046"></a>00046         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#47965f659aec8df4af1970f1b3b1dabb" title="Get the height of the pattern.">height</a> () <span class="keyword">const</span>;
+<a name="l00047"></a>00047 
+<a name="l00051"></a>00051         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#f576b39ce0513ccb60a016dce5c27de4" title="Get the width of the pattern.">width</a> () <span class="keyword">const</span>;
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#9b1e427a988877e74de08d8b6c957ddc" title="Get the number of pixels in the pattern.">size</a> () <span class="keyword">const</span>;
+<a name="l00057"></a>00057 
+<a name="l00061"></a><a class="code" href="a00013.html#556fb0da03c53d1b5dd2c65f71bd702c">00061</a>         <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00013.html#556fb0da03c53d1b5dd2c65f71bd702c" title="Get the side size of the standard plane used for every pattern.">planeSize</a> () { <span class="keywordflow">return</span> 35; };
+<a name="l00062"></a>00062         
+<a name="l00066"></a>00066         std::pair&lt;unsigned int, unsigned int&gt; <a class="code" href="a00013.html#6b68a8e768946a755c4be160bc9de91d" title="Computes the centroid of a pattern using geometric moments.">centroid</a> () <span class="keyword">const</span>;
+<a name="l00067"></a>00067 
+<a name="l00071"></a>00071         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00013.html#844fa8255487728d5ca825f120c19c56" title="Computes the area of a pattern, i.e.">area</a> () <span class="keyword">const</span>;
+<a name="l00072"></a>00072 
+<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="a00013.html#65daed03eafb58a21f92cff5c8c20167" title="Clean the pattern by deleting every pixel of ink.">clean</a> ();
+<a name="l00077"></a>00077 
+<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="a00013.html#f39af1cd08cd55a2a5aff289a4cf815d" title="Create a new image in the filesystem using Magick++ with the pattern drawn.">writeToOutputImage</a> (<span class="keyword">const</span> std::string&amp; outputFile, <span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; invert=<span class="keyword">false</span>) <span class="keyword">const</span>;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087     <span class="keyword">private</span>:
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         std::vector&lt;unsigned int&gt;   pixels_;    
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                height_;    
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                width_;     
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                size_;      
+<a name="l00096"></a>00096 };
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="a00013.html#b871f7fe4402f4a85e9000142af6c3fe">00099</a> <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#b871f7fe4402f4a85e9000142af6c3fe" title="Allow read-and-write access to a pixel in the pattern.">Pattern::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y)
+<a name="l00100"></a>00100 {
+<a name="l00101"></a>00101     <span class="keywordflow">return</span> pixels_.at(x * width_ + y);
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
+<a name="l00104"></a><a class="code" href="a00013.html#4db26402a3d034707a6840aba19b37aa">00104</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#b871f7fe4402f4a85e9000142af6c3fe" title="Allow read-and-write access to a pixel in the pattern.">Pattern::at</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y)<span class="keyword"> const</span>
+<a name="l00105"></a>00105 <span class="keyword"></span>{
+<a name="l00106"></a>00106     <span class="keywordflow">return</span> pixels_.at(x * width_ + y);
+<a name="l00107"></a>00107 }
+<a name="l00108"></a>00108 
+<a name="l00109"></a><a class="code" href="a00013.html#f576b39ce0513ccb60a016dce5c27de4">00109</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#f576b39ce0513ccb60a016dce5c27de4" title="Get the width of the pattern.">Pattern::width</a> ()<span class="keyword"> const</span>
+<a name="l00110"></a>00110 <span class="keyword"></span>{
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> width_;
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00114"></a><a class="code" href="a00013.html#47965f659aec8df4af1970f1b3b1dabb">00114</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#47965f659aec8df4af1970f1b3b1dabb" title="Get the height of the pattern.">Pattern::height</a> ()<span class="keyword"> const</span>
+<a name="l00115"></a>00115 <span class="keyword"></span>{
+<a name="l00116"></a>00116     <span class="keywordflow">return</span> height_;
+<a name="l00117"></a>00117 }
+<a name="l00118"></a>00118 
+<a name="l00119"></a><a class="code" href="a00013.html#9b1e427a988877e74de08d8b6c957ddc">00119</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a00013.html#9b1e427a988877e74de08d8b6c957ddc" title="Get the number of pixels in the pattern.">Pattern::size</a> ()<span class="keyword"> const</span>
+<a name="l00120"></a>00120 <span class="keyword"></span>{
+<a name="l00121"></a>00121     <span class="keywordflow">return</span> size_;
+<a name="l00122"></a>00122 }
+<a name="l00123"></a>00123         
+<a name="l00124"></a><a class="code" href="a00013.html#65daed03eafb58a21f92cff5c8c20167">00124</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00013.html#65daed03eafb58a21f92cff5c8c20167" title="Clean the pattern by deleting every pixel of ink.">Pattern::clean</a> ()
+<a name="l00125"></a>00125 {
+<a name="l00126"></a>00126     pixels_.assign(size_, 0);
+<a name="l00127"></a>00127 }
+<a name="l00128"></a>00128 <span class="preprocessor">#endif</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:51 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

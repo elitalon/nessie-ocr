@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: Preprocessor Class Reference</title>
+<title>NessieOcr: PreprocessorStatistics Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,120 +64,206 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Preprocessor Class Reference</h1><!-- doxytag: class="Preprocessor" --><a class="el" href="a00017.html" title="Preprocessor of the OCR process.">Preprocessor</a> of the OCR process.  
+<h1>PreprocessorStatistics Class Reference</h1><!-- doxytag: class="PreprocessorStatistics" --><!-- doxytag: inherits="Statistics" -->Preprocessing stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00083.html">Preprocessor.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00080.html">PreprocessorStatistics.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Collaboration diagram for Preprocessor:</div>
+Inheritance diagram for PreprocessorStatistics:</div>
 <div class="dynsection">
-<p><center><img src="a00222.png" border="0" usemap="#a00223" alt="Collaboration graph"></center>
-<map name="a00223">
-<area shape="rect" href="a00018.html" title="Statistics of preprocessing stage." alt="" coords="277,7,475,551"><area shape="rect" href="a00004.html" title="Press clip of a newspaper page." alt="" coords="640,175,787,383"></map>
+<p><center><img src="a00216.png" border="0" usemap="#a00217" alt="Inheritance graph"></center>
+<map name="a00217">
+<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="53,7,184,140"></map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
+<div class="dynheader">
+Collaboration diagram for PreprocessorStatistics:</div>
+<div class="dynsection">
+<p><center><img src="a00218.png" border="0" usemap="#a00219" alt="Collaboration graph"></center>
+<map name="a00219">
+<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="5,7,136,140"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00224.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00220.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d5bdc15c2c4ad5e638a82926fcaa45c1">Preprocessor</a> (const <a class="el" href="a00004.html">Clip</a> &amp;pressClip)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d5546ee1767c5da79fceb17bccea85aa"></a><!-- doxytag: member="PreprocessorStatistics::PreprocessorStatistics" ref="d5546ee1767c5da79fceb17bccea85aa" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d5546ee1767c5da79fceb17bccea85aa">PreprocessorStatistics</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#d5bdc15c2c4ad5e638a82926fcaa45c1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; <a class="el" href="a00014.html">Pattern</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#f675a33328b938dd5cf0527f9fa4175d">patterns</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8da4ffc131ff1b2e28c26bd910b2ae33"></a><!-- doxytag: member="PreprocessorStatistics::PreprocessorStatistics" ref="8da4ffc131ff1b2e28c26bd910b2ae33" args="(const PreprocessorStatistics &amp;statistics)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#8da4ffc131ff1b2e28c26bd910b2ae33">PreprocessorStatistics</a> (const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;statistics)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the patterns found, if any, in the last segmentation process.  <a href="#f675a33328b938dd5cf0527f9fa4175d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="a00018.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#760ecd922ae5ad557edcf5f3d9be2a19">statistics</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy constructor. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ac2c3087a67a3209f51de4e31d873b1d"></a><!-- doxytag: member="PreprocessorStatistics::~PreprocessorStatistics" ref="ac2c3087a67a3209f51de4e31d873b1d" args="()" -->
+virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ac2c3087a67a3209f51de4e31d873b1d">~PreprocessorStatistics</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics about the preprocessing stage.  <a href="#760ecd922ae5ad557edcf5f3d9be2a19"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#67b0301b7bba87bd525311f12d343ccf">removeNoiseByLinearFiltering</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0d08a60f8ddc9441a2d8e9028d27fa0b"></a><!-- doxytag: member="PreprocessorStatistics::operator=" ref="0d08a60f8ddc9441a2d8e9028d27fa0b" args="(const PreprocessorStatistics &amp;statistics)" -->
+<a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0d08a60f8ddc9441a2d8e9028d27fa0b">operator=</a> (const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;statistics)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply an averaging filter mask (linear filtering) over the press clip to remove noise and smooth character borders.  <a href="#67b0301b7bba87bd525311f12d343ccf"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3a751b1343980bbfd3337d962a8e7db3">applyGlobalThresholding</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Assignment operator. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#df14af297774c874fa81b02543d96ddf">clipSize</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a global thresholding algorithm over the press clip.  <a href="#3a751b1343980bbfd3337d962a8e7db3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#f294c82a3cfa6eaae90a1e273ee0168c">removeNoiseByTemplateMatching</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the press clip size in number of pixels.  <a href="#df14af297774c874fa81b02543d96ddf"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#b3038cc788decc5ced78d5725e20d2f8">clipSize</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply four 3x3 matching templates over the press clip to remove noise and smooth character borders.  <a href="#f294c82a3cfa6eaae90a1e273ee0168c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#14634e957ee922b170cf893efacca138">isolateRegions</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the press clip size in number of pixels.  <a href="#b3038cc788decc5ced78d5725e20d2f8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#cbd29d227ffdd48c507a4ff3b50da82f">optimalThreshold</a> (const unsigned char &amp;threshold)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a segmentation process over the press clip to isolate every region of ink pixels.  <a href="#14634e957ee922b170cf893efacca138"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the optimal threshold used to binarize the press clip.  <a href="#cbd29d227ffdd48c507a4ff3b50da82f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#c549914af70cc729859f47cb697cc16e">optimalThreshold</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Correct the slanting of every region extracted from press clip.  <a href="#1be36c8dc2dc249cb7e896f9dbbffc3c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ae658f27ef4d1a2e6f25ba7f2280e110">buildPatterns</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the optimal threshold used to binarize the press clip.  <a href="#c549914af70cc729859f47cb697cc16e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#6c0241a095970df6a6a79c819ac5a782">nRegions</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build an array of patterns using the regions extracted during the segmentation of the press clip.  <a href="#ae658f27ef4d1a2e6f25ba7f2280e110"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3ad29f0062a8bea65a571f91084f4c0f">skeletonizePatterns</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the number of regions found after merging the accents.  <a href="#6c0241a095970df6a6a79c819ac5a782"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#df2bccddbeadffcb08ae84dfb4b30ec3">nRegions</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm.  <a href="#3ad29f0062a8bea65a571f91084f4c0f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#813eb754a76dc82aa994e2c6217b3ee0">averageCharacterHeight</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of regions found after merging the accents.  <a href="#df2bccddbeadffcb08ae84dfb4b30ec3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0e9862c35887081ce50ba7e47f4724b5">nLines</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the average character height.  <a href="#813eb754a76dc82aa994e2c6217b3ee0"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the number of lines found.  <a href="#0e9862c35887081ce50ba7e47f4724b5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#561fa69637256d0681780bf814a4c4d8">nLines</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of lines found.  <a href="#561fa69637256d0681780bf814a4c4d8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#bc964f3a02d9a896e1aec55fa1e5a27a">averageSpaceBetweenCharacters</a> (const double &amp;n)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average intercharacter space found in text.  <a href="#bc964f3a02d9a896e1aec55fa1e5a27a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#f4c05109697d9e083e02206fe869b498">averageSpaceBetweenCharacters</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average intercharacter space found in text.  <a href="#f4c05109697d9e083e02206fe869b498"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#31a05ddaf23044ac7358d0937cfba1c5">averageCharacterHeight</a> (const double &amp;n)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average character height found in text.  <a href="#31a05ddaf23044ac7358d0937cfba1c5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0fbd213881e9775d7fb5598cbf1ddafa">averageCharacterHeight</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character height found in text.  <a href="#0fbd213881e9775d7fb5598cbf1ddafa"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#5f737212c27e63b53b0a75c7b90b3b78">averageCharacterWidth</a> (const double &amp;n)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average character width found in text.  <a href="#5f737212c27e63b53b0a75c7b90b3b78"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#1ff76761715cb2845f5189288a907ed4">averageCharacterWidth</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character width found in text.  <a href="#1ff76761715cb2845f5189288a907ed4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d15c51527b8db7834e5feec7d98189d7">averagingFilteringTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the averaging filtering algorithm.  <a href="#d15c51527b8db7834e5feec7d98189d7"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d5296ba5dc5ed35ed9b139ccb125ca10">averagingFilteringTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the averaging filtering algorithm.  <a href="#d5296ba5dc5ed35ed9b139ccb125ca10"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#4ea4f1d85f8107087c6a748a2fa25556">globalThresholdingTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the global thresholding algorithm.  <a href="#4ea4f1d85f8107087c6a748a2fa25556"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#9f0ee978cc70e4745339a630c4f83c1e">globalThresholdingTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the global thresholding algorithm.  <a href="#9f0ee978cc70e4745339a630c4f83c1e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#19cb995b637ec62be16b237e97cc65e5">templateFilteringTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the template filtering algorithm.  <a href="#19cb995b637ec62be16b237e97cc65e5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#aec430387e4593ac1ff4c9b22d1868e6">templateFilteringTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the template filtering algorithm.  <a href="#aec430387e4593ac1ff4c9b22d1868e6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#e02437709a427ea35a3f067b42477a9e">segmentationTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the regions extraction algorithm.  <a href="#e02437709a427ea35a3f067b42477a9e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#75a1b9daf1c1439dc9d82adecc1673fe">segmentationTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the regions extraction algorithm.  <a href="#75a1b9daf1c1439dc9d82adecc1673fe"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#8ef54d640d738ce30c5e405e268b4d04">patternsBuildingTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while building an array of patterns from a list of regions.  <a href="#8ef54d640d738ce30c5e405e268b4d04"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#b8a45a9ab0b1c20d95f576dc43f331ec">patternsBuildingTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while building an array of patterns from a list of regions.  <a href="#b8a45a9ab0b1c20d95f576dc43f331ec"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3a6a0fe44965a288396d615bf1edba16">skeletonizationTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the skeletonization algorithm.  <a href="#3a6a0fe44965a288396d615bf1edba16"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#24eb449c67debf999ec08b8e86aae388">skeletonizationTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the skeletonization algorithm.  <a href="#24eb449c67debf999ec08b8e86aae388"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ae04f9e334a8f0a7cba5dad02833e7f9">slantingCorrectionTime</a> (const double &amp;elapsedTime)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the slanting correction algorithm.  <a href="#ae04f9e334a8f0a7cba5dad02833e7f9"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#e57c9245b2ff231df430d1935d60b863">slantingCorrectionTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the slanting correction algorithm.  <a href="#e57c9245b2ff231df430d1935d60b863"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3337f135bde27a43901f2930d76dd99a"></a><!-- doxytag: member="PreprocessorStatistics::print" ref="3337f135bde27a43901f2930d76dd99a" args="() const " -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3337f135bde27a43901f2930d76dd99a">print</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print the statistical data gathered to the standard output. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2">totalTime</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the total elapsed time.  <a href="#f4c2b3d79e782abfde2d22b405a9b9a2"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7256bc5d1785a0ef7c0cd21afbc53737"></a><!-- doxytag: member="PreprocessorStatistics::totalTime_" ref="7256bc5d1785a0ef7c0cd21afbc53737" args="" -->
+double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737">totalTime_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Total elapsed time within a stage. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the regions of interest from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, a list of regions is available through the Preprocessor::regions() method.<p>
-For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed in this order:<p>
-<ol type=1>
-<li>Smoothing and noise removal by averaging filters.</li><li>Global gray level thresholding.</li><li>Smoothing and noise removal by template filters.</li><li>Regions extraction and isolation.</li><li>Slant detection and correction.</li><li>Location of spaces between words.</li><li>Patterns building.</li><li>Skeletonization of patterns.</li></ol>
+Preprocessing stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>. 
 <p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00004.html" title="Press clip of a newspaper page.">Clip</a>, <a class="el" href="a00014.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>, <a class="el" href="a00018.html" title="Statistics of preprocessing stage.">PreprocessorStatistics</a></dd></dl>
+This class stores all the statistical data gathered during execution of methods of the preprocessing stage. Data can be write or read, although a client program should be only interested in reading values. The statistical data is automatically set whenever a method from a <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> object is called, but only the fields that method uses.<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>, <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-08 </dd></dl>
-<hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="d5bdc15c2c4ad5e638a82926fcaa45c1"></a><!-- doxytag: member="Preprocessor::Preprocessor" ref="d5bdc15c2c4ad5e638a82926fcaa45c1" args="(const Clip &amp;pressClip)" -->
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-12 </dd></dl>
+<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="0fbd213881e9775d7fb5598cbf1ddafa"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterHeight" ref="0fbd213881e9775d7fb5598cbf1ddafa" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Preprocessor::Preprocessor           </td>
+          <td class="memname">double PreprocessorStatistics::averageCharacterHeight           </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00004.html">Clip</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>pressClip</em>          </td>
+          <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [explicit]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Get the average character height found in text. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average height in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="31a05ddaf23044ac7358d0937cfba1c5"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterHeight" ref="31a05ddaf23044ac7358d0937cfba1c5" args="(const double &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::averageCharacterHeight           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the average character height found in text. 
+<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>pressClip</em>&nbsp;</td><td>A press clip over which apply all the preprocessing algorithms. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average height in pixels. </td></tr>
   </table>
 </dl>
 
 </div>
 </div><p>
-<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="3a751b1343980bbfd3337d962a8e7db3"></a><!-- doxytag: member="Preprocessor::applyGlobalThresholding" ref="3a751b1343980bbfd3337d962a8e7db3" args="()" -->
+<a class="anchor" name="1ff76761715cb2845f5189288a907ed4"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterWidth" ref="1ff76761715cb2845f5189288a907ed4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Preprocessor::applyGlobalThresholding           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal. The algorithm also assumes that gray levels in the press clip above the threshold belong to the background, while gray levels below belong to the ink.<p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="813eb754a76dc82aa994e2c6217b3ee0"></a><!-- doxytag: member="Preprocessor::averageCharacterHeight" ref="813eb754a76dc82aa994e2c6217b3ee0" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Preprocessor::averageCharacterHeight           </td>
+          <td class="memname">double PreprocessorStatistics::averageCharacterWidth           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -188,81 +274,45 @@ The algorithm uses the Otsu's method to find automatically the optimal threshold
 <div class="memdoc">
 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The average character height in pixels. </dd></dl>
+Get the average character width found in text. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average width in pixels. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="ae658f27ef4d1a2e6f25ba7f2280e110"></a><!-- doxytag: member="Preprocessor::buildPatterns" ref="ae658f27ef4d1a2e6f25ba7f2280e110" args="()" -->
+<a class="anchor" name="5f737212c27e63b53b0a75c7b90b3b78"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterWidth" ref="5f737212c27e63b53b0a75c7b90b3b78" args="(const double &amp;n)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Preprocessor::buildPatterns           </td>
+          <td class="memname">void PreprocessorStatistics::averageCharacterWidth           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be a list of regions available by executing the <a class="el" href="a00017.html#14634e957ee922b170cf893efacca138" title="Apply a segmentation process over the press clip to isolate every region of ink pixels...">Preprocessor::isolateRegions()</a> method.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The internal members are set, so that an array of patterns becomes available through <a class="el" href="a00017.html#f675a33328b938dd5cf0527f9fa4175d" title="Get the patterns found, if any, in the last segmentation process.">Preprocessor::patterns()</a> method. <p>
-The coordinates of regions are normalized. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="1be36c8dc2dc249cb7e896f9dbbffc3c"></a><!-- doxytag: member="Preprocessor::correctSlanting" ref="1be36c8dc2dc249cb7e896f9dbbffc3c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::correctSlanting           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
+Set the average character width found in text. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The internal list of regions must have been initialized by calling Preprocessor::extractRegions().</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The regions that present slanting are rotated as much as possible to be aligned with the Y-axis. </dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average width in pixels. </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
-<a class="anchor" name="14634e957ee922b170cf893efacca138"></a><!-- doxytag: member="Preprocessor::isolateRegions" ref="14634e957ee922b170cf893efacca138" args="()" -->
+<a class="anchor" name="f4c05109697d9e083e02206fe869b498"></a><!-- doxytag: member="PreprocessorStatistics::averageSpaceBetweenCharacters" ref="f4c05109697d9e083e02206fe869b498" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; unsigned int &gt; Preprocessor::isolateRegions           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-This method isolates every region of ink pixels in a press clip following a region flooding algorithm. Starting from an arbitrary pixel of ink, it connects its neighbouring ink pixels and builds a set of regions. This set is then post-processed to join accents and other punctuation signs to their final region. A final list is generated by sorting the set of regions by lines and columns, so that traversing the list forward is equivalent to reading the text from left to right and from up to down.<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of integers, each one represents the position where a blank space must be inserted when building the text in further post-processing.</dd></dl>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been thresholded. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f675a33328b938dd5cf0527f9fa4175d"></a><!-- doxytag: member="Preprocessor::patterns" ref="f675a33328b938dd5cf0527f9fa4175d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; <a class="el" href="a00014.html">Pattern</a> &gt; &amp; Preprocessor::patterns           </td>
+          <td class="memname">double PreprocessorStatistics::averageSpaceBetweenCharacters           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -273,78 +323,45 @@ This method isolates every region of ink pixels in a press clip following a regi
 <div class="memdoc">
 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of <a class="el" href="a00014.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> objects </dd></dl>
+Get the average intercharacter space found in text. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average space in pixels. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="67b0301b7bba87bd525311f12d343ccf"></a><!-- doxytag: member="Preprocessor::removeNoiseByLinearFiltering" ref="67b0301b7bba87bd525311f12d343ccf" args="()" -->
+<a class="anchor" name="bc964f3a02d9a896e1aec55fa1e5a27a"></a><!-- doxytag: member="PreprocessorStatistics::averageSpaceBetweenCharacters" ref="bc964f3a02d9a896e1aec55fa1e5a27a" args="(const double &amp;n)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Preprocessor::removeNoiseByLinearFiltering           </td>
+          <td class="memname">void PreprocessorStatistics::averageSpaceBetweenCharacters           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must be in grayscale mode.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The noise in the image is removed and the borders of characters are blurred. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f294c82a3cfa6eaae90a1e273ee0168c"></a><!-- doxytag: member="Preprocessor::removeNoiseByTemplateMatching" ref="f294c82a3cfa6eaae90a1e273ee0168c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::removeNoiseByTemplateMatching           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
+Set the average intercharacter space found in text. 
 <p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been converted to binary mode, i.e. 0 for background pixels and 1 for ink pixels.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The noise in the image is removed and the borders of characters are smoothed. </dd></dl>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average space in pixels. </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
-<a class="anchor" name="3ad29f0062a8bea65a571f91084f4c0f"></a><!-- doxytag: member="Preprocessor::skeletonizePatterns" ref="3ad29f0062a8bea65a571f91084f4c0f" args="()" -->
+<a class="anchor" name="d5296ba5dc5ed35ed9b139ccb125ca10"></a><!-- doxytag: member="PreprocessorStatistics::averagingFilteringTime" ref="d5296ba5dc5ed35ed9b139ccb125ca10" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Preprocessor::skeletonizePatterns           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be an array of patterns available by executing the <a class="el" href="a00017.html#ae658f27ef4d1a2e6f25ba7f2280e110" title="Build an array of patterns using the regions extracted during the segmentation of...">Preprocessor::buildPatterns()</a> method. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="760ecd922ae5ad557edcf5f3d9be2a19"></a><!-- doxytag: member="Preprocessor::statistics" ref="760ecd922ae5ad557edcf5f3d9be2a19" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00018.html">PreprocessorStatistics</a> &amp; Preprocessor::statistics           </td>
+          <td class="memname">double PreprocessorStatistics::averagingFilteringTime           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -355,12 +372,553 @@ This method isolates every region of ink pixels in a press clip following a regi
 <div class="memdoc">
 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00018.html" title="Statistics of preprocessing stage.">PreprocessorStatistics</a> object with all the statistics gathered. </dd></dl>
+Get the elapsed time while executing the averaging filtering algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="d15c51527b8db7834e5feec7d98189d7"></a><!-- doxytag: member="PreprocessorStatistics::averagingFilteringTime" ref="d15c51527b8db7834e5feec7d98189d7" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::averagingFilteringTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the averaging filtering algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b3038cc788decc5ced78d5725e20d2f8"></a><!-- doxytag: member="PreprocessorStatistics::clipSize" ref="b3038cc788decc5ced78d5725e20d2f8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PreprocessorStatistics::clipSize           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the press clip size in number of pixels. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels in the press clip. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="df14af297774c874fa81b02543d96ddf"></a><!-- doxytag: member="PreprocessorStatistics::clipSize" ref="df14af297774c874fa81b02543d96ddf" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::clipSize           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the press clip size in number of pixels. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of pixels in the press clip. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="9f0ee978cc70e4745339a630c4f83c1e"></a><!-- doxytag: member="PreprocessorStatistics::globalThresholdingTime" ref="9f0ee978cc70e4745339a630c4f83c1e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::globalThresholdingTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while executing the global thresholding algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4ea4f1d85f8107087c6a748a2fa25556"></a><!-- doxytag: member="PreprocessorStatistics::globalThresholdingTime" ref="4ea4f1d85f8107087c6a748a2fa25556" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::globalThresholdingTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the global thresholding algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="561fa69637256d0681780bf814a4c4d8"></a><!-- doxytag: member="PreprocessorStatistics::nLines" ref="561fa69637256d0681780bf814a4c4d8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PreprocessorStatistics::nLines           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of lines found. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of lines found. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="0e9862c35887081ce50ba7e47f4724b5"></a><!-- doxytag: member="PreprocessorStatistics::nLines" ref="0e9862c35887081ce50ba7e47f4724b5" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::nLines           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the number of lines found. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of lines found. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="df2bccddbeadffcb08ae84dfb4b30ec3"></a><!-- doxytag: member="PreprocessorStatistics::nRegions" ref="df2bccddbeadffcb08ae84dfb4b30ec3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int PreprocessorStatistics::nRegions           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of regions found after merging the accents. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of characters found. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="6c0241a095970df6a6a79c819ac5a782"></a><!-- doxytag: member="PreprocessorStatistics::nRegions" ref="6c0241a095970df6a6a79c819ac5a782" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::nRegions           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the number of regions found after merging the accents. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of characters found. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c549914af70cc729859f47cb697cc16e"></a><!-- doxytag: member="PreprocessorStatistics::optimalThreshold" ref="c549914af70cc729859f47cb697cc16e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char PreprocessorStatistics::optimalThreshold           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the optimal threshold used to binarize the press clip. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A gray level. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="cbd29d227ffdd48c507a4ff3b50da82f"></a><!-- doxytag: member="PreprocessorStatistics::optimalThreshold" ref="cbd29d227ffdd48c507a4ff3b50da82f" args="(const unsigned char &amp;threshold)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::optimalThreshold           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char &amp;&nbsp;</td>
+          <td class="paramname"> <em>threshold</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the optimal threshold used to binarize the press clip. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>threshold</em>&nbsp;</td><td>A gray level. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b8a45a9ab0b1c20d95f576dc43f331ec"></a><!-- doxytag: member="PreprocessorStatistics::patternsBuildingTime" ref="b8a45a9ab0b1c20d95f576dc43f331ec" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::patternsBuildingTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while building an array of patterns from a list of regions. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8ef54d640d738ce30c5e405e268b4d04"></a><!-- doxytag: member="PreprocessorStatistics::patternsBuildingTime" ref="8ef54d640d738ce30c5e405e268b4d04" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::patternsBuildingTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while building an array of patterns from a list of regions. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="75a1b9daf1c1439dc9d82adecc1673fe"></a><!-- doxytag: member="PreprocessorStatistics::segmentationTime" ref="75a1b9daf1c1439dc9d82adecc1673fe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::segmentationTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while executing the regions extraction algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e02437709a427ea35a3f067b42477a9e"></a><!-- doxytag: member="PreprocessorStatistics::segmentationTime" ref="e02437709a427ea35a3f067b42477a9e" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::segmentationTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the regions extraction algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="24eb449c67debf999ec08b8e86aae388"></a><!-- doxytag: member="PreprocessorStatistics::skeletonizationTime" ref="24eb449c67debf999ec08b8e86aae388" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::skeletonizationTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while executing the skeletonization algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3a6a0fe44965a288396d615bf1edba16"></a><!-- doxytag: member="PreprocessorStatistics::skeletonizationTime" ref="3a6a0fe44965a288396d615bf1edba16" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::skeletonizationTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the skeletonization algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e57c9245b2ff231df430d1935d60b863"></a><!-- doxytag: member="PreprocessorStatistics::slantingCorrectionTime" ref="e57c9245b2ff231df430d1935d60b863" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::slantingCorrectionTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while executing the slanting correction algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ae04f9e334a8f0a7cba5dad02833e7f9"></a><!-- doxytag: member="PreprocessorStatistics::slantingCorrectionTime" ref="ae04f9e334a8f0a7cba5dad02833e7f9" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::slantingCorrectionTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the slanting correction algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="aec430387e4593ac1ff4c9b22d1868e6"></a><!-- doxytag: member="PreprocessorStatistics::templateFilteringTime" ref="aec430387e4593ac1ff4c9b22d1868e6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PreprocessorStatistics::templateFilteringTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the elapsed time while executing the template filtering algorithm. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="19cb995b637ec62be16b237e97cc65e5"></a><!-- doxytag: member="PreprocessorStatistics::templateFilteringTime" ref="19cb995b637ec62be16b237e97cc65e5" args="(const double &amp;elapsedTime)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreprocessorStatistics::templateFilteringTime           </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>elapsedTime</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Set the elapsed time while executing the template filtering algorithm. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f4c2b3d79e782abfde2d22b405a9b9a2"></a><!-- doxytag: member="PreprocessorStatistics::totalTime" ref="f4c2b3d79e782abfde2d22b405a9b9a2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; Statistics::totalTime           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the total elapsed time. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:55 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

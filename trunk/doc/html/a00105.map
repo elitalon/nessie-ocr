@@ -1,2 +1,5 @@
-<area shape="rect" href="$a00032.html" title="Definition of FeatureExtractor class." alt="" coords="5,81,139,105">
-<area shape="rect" href="$a00046.html" title="Implementation of NessieOcr class." alt="" coords="163,81,261,105">
+<area shape="rect" href="$a00036.html" title="Declaration of KnnClassificationAlgorithm class." alt="" coords="5,81,197,105">
+<area shape="rect" href="$a00028.html" title="Declaration of Dataset class." alt="" coords="272,81,360,105">
+<area shape="rect" href="$a00034.html" title="Declaration of FeatureVector class." alt="" coords="381,156,501,180">
+<area shape="rect" href="$a00061.html" title="Declaration of Text class." alt="" coords="485,81,552,105">
+<area shape="rect" href="$a00042.html" title="Declaration of NessieException class." alt="" coords="576,81,712,105">

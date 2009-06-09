@@ -15,12 +15,11 @@
 typedef std::pair<unsigned int, unsigned int> PixelCoordinates;
 
 
-///	@brief		Set of ink pixels that defines an isolated region in the press clip.
+///	@brief		Set of pixel coordinates that defines an isolated region in the press clip.
 /// 
 /// @details	After preprocessing a press clip, a list of regions is available to build a set of patterns suitable for feature extraction and classification.
-///	Such a region, as stored in this class, contains only the absolute coordinates of ink pixels that belongs to it. In addition, it has a virtual pixel
-///	of ink, located on the top leftmost corner of the region, and the coordinates of its borders. Notice that every pair of coordinates that a method of this
-/// class returns means absolute values according to its global position in the underlying press clip.
+///	Such a region, as stored in this class, contains only the absolute coordinates of ink pixels that belongs to the region. In addition, it has a virtual pixel
+///	of ink, located on the top leftmost corner of the region, and the coordinates of its borders.
 /// 
 ///	@see		PixelCoordinates
 ///

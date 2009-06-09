@@ -37,6 +37,9 @@ class Statistics;
 ///
 /// @see		Statistics, Preprocessor, FeatureExtractor, Classifier
 ///
+///	@todo		Improve the usability of supervised training methods.
+///	@todo		Create a namespace and avoid access to private classes.
+///
 /// @author Eliezer Talón (elitalon@gmail.com)
 /// @date 2008-12-29
 class NessieOcr
@@ -82,7 +85,7 @@ class NessieOcr
 		void train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width, const std::string& text);
 
 		///	@brief		Export the patterns that have been built after a recognition or training stage.
-		///	@details	This methods creates a new image in the filesystem (BMP by default) for each pattern, using Magick++ library support.
+		///	@details	For each pattern found in the preprocessing stage, this method creates a new BMP image in the filesystem, using the Magick++ library support.
 		void exportPatternImages () const;
 
 		/// @brief	Print statistical data to standard output.
@@ -117,7 +120,7 @@ class NessieOcr
 		/// @param	width		Width of the press clip in pixels.
 		///
 		///	@post	An array of patterns becomes available through <em>patterns_</em> member.
-		///	@post	An array of position where spaces must be inserted when building the text becomes available through	<em>spaceLocations_</em> member.
+		///	@post	An array of positions where spaces must be inserted when building the text becomes available through <em>spaceLocations_</em> member.
 		void doPreprocessing (const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width);
 		
 		/// @brief	Execute the feature extraction stage.
@@ -142,3 +145,4 @@ class NessieOcr
 };
 
 #endif
+

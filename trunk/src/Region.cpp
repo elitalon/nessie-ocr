@@ -20,9 +20,11 @@ Region::Region ()
 
 void Region::addCoordinates (const PixelCoordinates& coordinates)
 {
+	// Add the coordinates
 	coordinates_.push_back( coordinates );
 	size_ = coordinates_.size();
 
+	// Update the rest of the members
 	if ( size_ > 1 )
 	{
 		topBorderRow_		= std::min( topBorderRow_, coordinates.first );
@@ -47,12 +49,14 @@ void Region::addCoordinates (const PixelCoordinates& coordinates)
 
 void Region::normalizeCoordinates ()
 {
+	// Shift coordinates
 	for ( std::vector<PixelCoordinates>::iterator i = coordinates_.begin(); i != coordinates_.end(); ++i )
 	{
 		i->first	= i->first	- topLeftmostPixelCoordinates_.first;
 		i->second	= i->second	- topLeftmostPixelCoordinates_.second;
 	}
 
+	// Update the rest of the members
 	if ( size_ > 1 )
 	{
 		std::vector<unsigned int> rowCoordinates(0);
@@ -95,9 +99,11 @@ Region Region::operator+ (const Region& region) const
 {
 	Region temp;
 
+	// Add coordinates from the first region
 	for ( std::vector<PixelCoordinates>::const_iterator i = this->coordinates_.begin(); i != coordinates_.end(); ++i )
 		temp.addCoordinates(*i);
 
+	// Add coordinates from the second region
 	for ( std::vector<PixelCoordinates>::const_iterator i = region.coordinates_.begin(); i != region.coordinates_.end(); ++i )
 		temp.addCoordinates(*i);
 
@@ -107,11 +113,11 @@ Region Region::operator+ (const Region& region) const
 
 bool Region::operator< (const Region& region) const
 {
-	if ( this->bottomBorderRow_ < region.topBorderRow_ )
+	if ( this->bottomBorderRow_ < region.topBorderRow_ )	// This region is above the region of reference
 		return true;
 	else
 	{
-		if ( region.bottomBorderRow_ < this->topBorderRow_ )
+		if ( region.bottomBorderRow_ < this->topBorderRow_ )	// This region is below the region of reference
 			return false;
 		else
 			return ( this->topLeftmostPixelCoordinates_.second < region.topLeftmostPixelCoordinates_.second );

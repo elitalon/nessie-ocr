@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: KnnClassificationAlgorithm.hpp File Reference</title>
+<title>NessieOcr: MySqlDataset.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -63,42 +63,32 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>KnnClassificationAlgorithm.hpp File Reference</h1>Declaration of <a class="el" href="a00009.html" title="Classification algorithm based on the KNN paradigm.">KnnClassificationAlgorithm</a> class.  
+<h1>MySqlDataset.cpp File Reference</h1>Definition of <a class="el" href="a00010.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> class.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &quot;<a class="el" href="a00066.html">ClassificationAlgorithm.hpp</a>&quot;</code><br>
-<code>#include &lt;vector&gt;</code><br>
-<code>#include &lt;string&gt;</code><br>
+<code>#include &quot;<a class="el" href="a00073.html">MySqlDataset.hpp</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="a00074.html">NessieException.hpp</a>&quot;</code><br>
+<code>#include &lt;mysql++/mysql++.h&gt;</code><br>
+<code>#include &lt;utility&gt;</code><br>
+<code>#include &lt;sstream&gt;</code><br>
+<code>#include &lt;exception&gt;</code><br>
 
 <p>
 <div class="dynheader">
-Include dependency graph for KnnClassificationAlgorithm.hpp:</div>
+Include dependency graph for MySqlDataset.cpp:</div>
 <div class="dynsection">
-<p><center><img src="a00113.png" border="0" usemap="#KnnClassificationAlgorithm.hpp_map" alt=""></center>
-<map name="KnnClassificationAlgorithm.hpp_map">
-<area shape="rect" href="a00023.html" title="Declaration of ClassificationAlgorithm class." alt="" coords="47,81,217,105"></map>
+<p><center><img src="a00111.png" border="0" usemap="#MySqlDataset.cpp_map" alt=""></center>
+<map name="MySqlDataset.cpp_map">
+<area shape="rect" href="a00040.html" title="Declaration of MySqlDataset class." alt="" coords="5,81,125,105"><area shape="rect" href="a00042.html" title="Declaration of NessieException class." alt="" coords="149,81,285,105"></map>
 </div>
-
-<p>
-<div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dynsection">
-<p><center><img src="a00114.png" border="0" usemap="#KnnClassificationAlgorithm.hppdep_map" alt=""></center>
-<map name="KnnClassificationAlgorithm.hppdep_map">
-<area shape="rect" href="a00038.html" title="Definition of KnnClassificationAlgorithm class." alt="" coords="5,81,197,105"><area shape="rect" href="a00040.html" title="Definition of KnnClassifier class." alt="" coords="221,81,336,105"></map>
-</div>
-
-<p>
-<a href="a00075.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
-<tr><td colspan="2"><br><h2>Classes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html">KnnClassificationAlgorithm</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classification algorithm based on the KNN paradigm.  <a href="a00009.html#_details">More...</a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
+Definition of <a class="el" href="a00010.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> class. 
+<p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat May 23 16:19:53 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:45 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
