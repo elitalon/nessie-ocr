@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: FeatureExtractorStatistics.hpp Source File</title>
+<title>NessieOcr: ClassifierStatistics.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,66 +61,97 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>FeatureExtractorStatistics.hpp</h1><a href="a00032.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>ClassifierStatistics.hpp</h1><a href="a00028.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_FEATURE_EXTRACTOR_STATISTICS_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _FEATURE_EXTRACTOR_STATISTICS_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_CLASSIFIER_STATISTICS_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _CLASSIFIER_STATISTICS_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="a00059.html" title="Declaration of Statistics class.">Statistics.hpp</a>"</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="a00063.html" title="Declaration of Statistics class.">Statistics.hpp</a>"</span>
 <a name="l00008"></a>00008 <span class="preprocessor">#include &lt;memory&gt;</span>
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 
-<a name="l00022"></a><a class="code" href="a00006.html">00022</a> <span class="keyword">class </span><a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a> : <span class="keyword">public</span> <a class="code" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>
-<a name="l00023"></a>00023 {
-<a name="l00024"></a>00024     <span class="keyword">public</span>:
-<a name="l00025"></a>00025 
-<a name="l00027"></a>00027         <span class="keyword">explicit</span> <a class="code" href="a00006.html#7d84885ee81ff35294ad6cb4698f62b6" title="Constructor.">FeatureExtractorStatistics</a> ();
-<a name="l00028"></a>00028 
-<a name="l00030"></a>00030         <a class="code" href="a00006.html#7d84885ee81ff35294ad6cb4698f62b6" title="Constructor.">FeatureExtractorStatistics</a> (<span class="keyword">const</span> <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; statistics);
-<a name="l00031"></a>00031 
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> <a class="code" href="a00006.html#8b805a01741e3e1ac801772b1947b510" title="Destructor.">~FeatureExtractorStatistics</a> ();
-<a name="l00034"></a>00034 
-<a name="l00036"></a>00036         <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; <a class="code" href="a00006.html#95a915ad796c0b2c7595cf6b848ab667" title="Assignment operator.">operator= </a>(<span class="keyword">const</span> <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; statistics);
-<a name="l00037"></a>00037 
-<a name="l00041"></a>00041         <span class="keywordtype">void</span> <a class="code" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1" title="Get the elapsed time while computing the image moments of patterns.">momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
-<a name="l00042"></a>00042 
-<a name="l00046"></a>00046         <span class="keywordtype">double</span> <a class="code" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1" title="Get the elapsed time while computing the image moments of patterns.">momentsComputingTime</a> () <span class="keyword">const</span>;
-<a name="l00047"></a>00047 
-<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="a00006.html#dca97bede22e0932f0eda0f983910483" title="Print the statistics gathered.">print</a> () <span class="keyword">const</span>;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <span class="keyword">private</span>:
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         std::auto_ptr&lt;double&gt;   momentsComputingTime_;  
-<a name="l00054"></a>00054 
-<a name="l00058"></a>00058         <span class="keywordtype">void</span> updateTotalTime ();
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
+<a name="l00021"></a><a class="code" href="a00003.html">00021</a> <span class="keyword">class </span><a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a> : <span class="keyword">public</span> <a class="code" href="a00021.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>
+<a name="l00022"></a>00022 {
+<a name="l00023"></a>00023     <span class="keyword">public</span>:
+<a name="l00024"></a>00024 
+<a name="l00026"></a>00026         <span class="keyword">explicit</span> <a class="code" href="a00003.html#34bdefb1f3def1348c36906e6906f412" title="Constructor.">ClassifierStatistics</a> ();
+<a name="l00027"></a>00027 
+<a name="l00029"></a>00029         <a class="code" href="a00003.html#34bdefb1f3def1348c36906e6906f412" title="Constructor.">ClassifierStatistics</a> (<span class="keyword">const</span> <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>&amp; statistics);
+<a name="l00030"></a>00030 
+<a name="l00032"></a>00032         <span class="keyword">virtual</span> <a class="code" href="a00003.html#9c5610f2bd08d5faee8a7dab5fdbcd12" title="Destructor.">~ClassifierStatistics</a> ();
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035         <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>&amp; <a class="code" href="a00003.html#2e47c8f6fe037a3e15aae6bcc2ade578" title="Assignment operator.">operator= </a>(<span class="keyword">const</span> <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>&amp; statistics);
+<a name="l00036"></a>00036 
+<a name="l00040"></a>00040         <span class="keywordtype">void</span> <a class="code" href="a00003.html#36c0c07d17e28fb4e171359ded9563f9" title="Get the elapsed time while classifying the feature vectors.">classificationTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime);
+<a name="l00041"></a>00041 
+<a name="l00045"></a>00045         <span class="keywordtype">double</span> <a class="code" href="a00003.html#36c0c07d17e28fb4e171359ded9563f9" title="Get the elapsed time while classifying the feature vectors.">classificationTime</a> ();
+<a name="l00046"></a>00046 
+<a name="l00050"></a>00050         <span class="keywordtype">void</span> <a class="code" href="a00003.html#9db3afe0f585c4e76d419bf93f295710" title="Get the hit rate within training stage.">hitRate</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rate);
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055         <span class="keywordtype">double</span> <a class="code" href="a00003.html#9db3afe0f585c4e76d419bf93f295710" title="Get the hit rate within training stage.">hitRate</a> ();
+<a name="l00056"></a>00056 
+<a name="l00060"></a>00060         <span class="keywordtype">void</span> <a class="code" href="a00003.html#bda503f4fae39b62344639965c2cc78a" title="Get the miss rate within training stage.">missRate</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rate);
 <a name="l00061"></a>00061 
-<a name="l00062"></a>00062 <span class="keyword">inline</span> <span class="keywordtype">void</span> FeatureExtractorStatistics::updateTotalTime ()
-<a name="l00063"></a>00063 {
-<a name="l00064"></a>00064     <a class="code" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a> = 0.0;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <span class="keywordflow">if</span> ( momentsComputingTime_.get() != 0 )
-<a name="l00067"></a>00067         <a class="code" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a> += *momentsComputingTime_;
-<a name="l00068"></a>00068 }
+<a name="l00065"></a>00065         <span class="keywordtype">double</span> <a class="code" href="a00003.html#bda503f4fae39b62344639965c2cc78a" title="Get the miss rate within training stage.">missRate</a> ();
+<a name="l00066"></a>00066 
+<a name="l00068"></a>00068         <span class="keywordtype">void</span> <a class="code" href="a00003.html#b55518e38247ef594c826159e3511569" title="Print the statistics gathered.">print</a> () <span class="keyword">const</span>;
 <a name="l00069"></a>00069 
-<a name="l00070"></a><a class="code" href="a00006.html#ede3e00e2967532af5a699b84366447e">00070</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1" title="Get the elapsed time while computing the image moments of patterns.">FeatureExtractorStatistics::momentsComputingTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
-<a name="l00071"></a>00071 {
-<a name="l00072"></a>00072     momentsComputingTime_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(elapsedTime));
-<a name="l00073"></a>00073     updateTotalTime();
-<a name="l00074"></a>00074 }
+<a name="l00070"></a>00070     <span class="keyword">private</span>:
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         std::auto_ptr&lt;double&gt;       classificationTime_;    
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074         std::auto_ptr&lt;double&gt;       hitRate_;               
 <a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1">00076</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1" title="Get the elapsed time while computing the image moments of patterns.">FeatureExtractorStatistics::momentsComputingTime</a> ()<span class="keyword"> const</span>
-<a name="l00077"></a>00077 <span class="keyword"></span>{
-<a name="l00078"></a>00078     <span class="keywordflow">return</span> *momentsComputingTime_;
-<a name="l00079"></a>00079 }
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="preprocessor">#endif</span>
-<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00076"></a>00076         std::auto_ptr&lt;double&gt;       missRate_;              
+<a name="l00077"></a>00077 
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> updateTotalTime ();
+<a name="l00082"></a>00082 };
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="keyword">inline</span> <span class="keywordtype">void</span> ClassifierStatistics::updateTotalTime ()
+<a name="l00086"></a>00086 {
+<a name="l00087"></a>00087     <a class="code" href="a00021.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a> = 0.0;
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089     <span class="keywordflow">if</span> ( classificationTime_.get() != 0 )
+<a name="l00090"></a>00090         <a class="code" href="a00021.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a> += *classificationTime_;
+<a name="l00091"></a>00091 }
+<a name="l00092"></a>00092 
+<a name="l00093"></a><a class="code" href="a00003.html#682816bdc2c233368d690023e109aea4">00093</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00003.html#36c0c07d17e28fb4e171359ded9563f9" title="Get the elapsed time while classifying the feature vectors.">ClassifierStatistics::classificationTime</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; elapsedTime)
+<a name="l00094"></a>00094 {
+<a name="l00095"></a>00095     classificationTime_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(elapsedTime));
+<a name="l00096"></a>00096     updateTotalTime();
+<a name="l00097"></a>00097 }
+<a name="l00098"></a>00098 
+<a name="l00099"></a><a class="code" href="a00003.html#36c0c07d17e28fb4e171359ded9563f9">00099</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="a00003.html#36c0c07d17e28fb4e171359ded9563f9" title="Get the elapsed time while classifying the feature vectors.">ClassifierStatistics::classificationTime</a> ()
+<a name="l00100"></a>00100 {
+<a name="l00101"></a>00101     <span class="keywordflow">return</span> *classificationTime_;
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
+<a name="l00104"></a><a class="code" href="a00003.html#cf0dae4a1bb50b6dcd110b98886e3157">00104</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00003.html#9db3afe0f585c4e76d419bf93f295710" title="Get the hit rate within training stage.">ClassifierStatistics::hitRate</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rate)
+<a name="l00105"></a>00105 {
+<a name="l00106"></a>00106     hitRate_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(rate));
+<a name="l00107"></a>00107 }
+<a name="l00108"></a>00108 
+<a name="l00109"></a><a class="code" href="a00003.html#9db3afe0f585c4e76d419bf93f295710">00109</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="a00003.html#9db3afe0f585c4e76d419bf93f295710" title="Get the hit rate within training stage.">ClassifierStatistics::hitRate</a> ()
+<a name="l00110"></a>00110 {
+<a name="l00111"></a>00111     <span class="keywordflow">return</span> *hitRate_;
+<a name="l00112"></a>00112 }
+<a name="l00113"></a>00113 
+<a name="l00114"></a><a class="code" href="a00003.html#ab9e855e2e2b98e8f3de1672b8e6d1a9">00114</a> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00003.html#bda503f4fae39b62344639965c2cc78a" title="Get the miss rate within training stage.">ClassifierStatistics::missRate</a> (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; rate)
+<a name="l00115"></a>00115 {
+<a name="l00116"></a>00116     missRate_.reset(<span class="keyword">new</span> <span class="keywordtype">double</span>(rate));
+<a name="l00117"></a>00117 }
+<a name="l00118"></a>00118 
+<a name="l00119"></a><a class="code" href="a00003.html#bda503f4fae39b62344639965c2cc78a">00119</a> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="a00003.html#bda503f4fae39b62344639965c2cc78a" title="Get the miss rate within training stage.">ClassifierStatistics::missRate</a> ()
+<a name="l00120"></a>00120 {
+<a name="l00121"></a>00121     <span class="keywordflow">return</span> *missRate_;
+<a name="l00122"></a>00122 }
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 <span class="preprocessor">#endif</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

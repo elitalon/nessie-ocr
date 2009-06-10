@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: Region Class Reference</title>
+<title>NessieOcr: Preprocessor Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,232 +64,138 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Region Class Reference</h1><!-- doxytag: class="Region" -->Set of pixel coordinates that defines an isolated region in the press clip.  
+<h1>Preprocessor Class Reference</h1><!-- doxytag: class="Preprocessor" --><a class="el" href="a00018.html" title="Preprocessor of NessieOcr.">Preprocessor</a> of <a class="el" href="a00014.html" title="Manager of the optical character recognition process.">NessieOcr</a>.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00081.html">Region.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00084.html">Preprocessor.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Collaboration diagram for Region:</div>
+Collaboration diagram for Preprocessor:</div>
 <div class="dynsection">
-<p><center><img src="a00221.png" border="0" usemap="#a00222" alt="Collaboration graph"></center>
+<p><center><img src="a00227.png" border="0" usemap="#a00228" alt="Collaboration graph"></center>
+<map name="a00228">
+<area shape="rect" href="a00019.html" title="Preprocessing stage statistics of NessieOcr." alt="" coords="481,148,708,897"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00223.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00229.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8796c9b4ac95da7f7ca4f374673800c"></a><!-- doxytag: member="Region::Region" ref="a8796c9b4ac95da7f7ca4f374673800c" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a8796c9b4ac95da7f7ca4f374673800c">Region</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#36b23b336f846e10ce8b2022ade99d28">Preprocessor</a> (const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#fd480d88401cee03be25b4667381f40f">at</a> (const unsigned int &amp;index)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#36b23b336f846e10ce8b2022ade99d28"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; <a class="el" href="a00015.html">Pattern</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#f675a33328b938dd5cf0527f9fa4175d">patterns</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to the coordinates of a pixel in the region.  <a href="#fd480d88401cee03be25b4667381f40f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#aad017ee8b650d4868a41d2722851ced">at</a> (const unsigned int &amp;index) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the patterns found, if any, in the last segmentation process.  <a href="#f675a33328b938dd5cf0527f9fa4175d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="a00019.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#760ecd922ae5ad557edcf5f3d9be2a19">statistics</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to the coordinates of a pixel in the region.  <a href="#aad017ee8b650d4868a41d2722851ced"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="a00018.html">Region</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#3985afe70bbd6e546d456a99db47ca14">operator+</a> (const <a class="el" href="a00018.html">Region</a> &amp;region) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics regarding the preprocessing stage.  <a href="#760ecd922ae5ad557edcf5f3d9be2a19"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#67b0301b7bba87bd525311f12d343ccf">removeNoiseByLinearFiltering</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a region to the current one.  <a href="#3985afe70bbd6e546d456a99db47ca14"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#10878c058c3568e5583588342fe80e5a">operator&lt;</a> (const <a class="el" href="a00018.html">Region</a> &amp;region) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply an averaging filter over the press clip to remove noise and smooth character borders.  <a href="#67b0301b7bba87bd525311f12d343ccf"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#3a751b1343980bbfd3337d962a8e7db3">applyGlobalThresholding</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Evaluate if a region position is less than another, according to their position in text when reading from up to down and left to right.  <a href="#10878c058c3568e5583588342fe80e5a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#c2fa3f432d7af689b6796d85749393d5">height</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a global thresholding algorithm over the press clip.  <a href="#3a751b1343980bbfd3337d962a8e7db3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#f294c82a3cfa6eaae90a1e273ee0168c">removeNoiseByTemplateMatching</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the height of the region.  <a href="#c2fa3f432d7af689b6796d85749393d5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#1dd30124f6c019dcb159e0df25fc98b1">width</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply four 3x3 templates over the press clip to remove additional noise and smooth character borders.  <a href="#f294c82a3cfa6eaae90a1e273ee0168c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#14634e957ee922b170cf893efacca138">isolateRegions</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the width of the region.  <a href="#1dd30124f6c019dcb159e0df25fc98b1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#3a5ab9b7f6d60b845475309be2298f04">size</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a segmentation process over the press clip to isolate every region of ink pixels.  <a href="#14634e957ee922b170cf893efacca138"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#ae658f27ef4d1a2e6f25ba7f2280e110">buildPatterns</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of pixels in the region.  <a href="#3a5ab9b7f6d60b845475309be2298f04"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#6f88e4969c3d0af80b31d84478a39c5a">topLeftmostPixelCoordinates</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build an array of normalized patterns using the regions of ink pixels extracted from the press clip.  <a href="#ae658f27ef4d1a2e6f25ba7f2280e110"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#3ad29f0062a8bea65a571f91084f4c0f">skeletonizePatterns</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the coordinates of the top leftmost pixel.  <a href="#6f88e4969c3d0af80b31d84478a39c5a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#486fc08319b36d4761722c6fadfcbf7e">topBorderRow</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm.  <a href="#3ad29f0062a8bea65a571f91084f4c0f"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the X-axis coordinate of the top pixel in the region.  <a href="#486fc08319b36d4761722c6fadfcbf7e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#5aed45a8517e8e70d5c9ae749b08eb0b">bottomBorderRow</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Correct the slanting of every region extracted from press clip.  <a href="#1be36c8dc2dc249cb7e896f9dbbffc3c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#813eb754a76dc82aa994e2c6217b3ee0">averageCharacterHeight</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the X-axis coordinate of the bottom pixel in the region.  <a href="#5aed45a8517e8e70d5c9ae749b08eb0b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#5172ac8ca95c70526f2fc9773fed337e">leftBorderColumn</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character height.  <a href="#813eb754a76dc82aa994e2c6217b3ee0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#cc1c13caf9885170dea6d9e8b7442b29">writeClipToOutputImage</a> (const std::string &amp;outputFile, const double &amp;scalingFactor=1.0) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the Y-axis coordinate of the leftmost pixel in the region.  <a href="#5172ac8ca95c70526f2fc9773fed337e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#d0920c13d811d653ada191d13f9e6cbc">rightBorderColumn</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the Y-axis coordinate of the rightmost pixel in the region.  <a href="#d0920c13d811d653ada191d13f9e6cbc"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#5f5345fe4660595a77c9f578e4aad9b3">addCoordinates</a> (const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;coordinates)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a pair of pixel coordinates to the region.  <a href="#5f5345fe4660595a77c9f578e4aad9b3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#6e612a6f629dff916adaf293bd4a9494">normalizeCoordinates</a> ()</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Normalize the coordinates of every pixel.  <a href="#6e612a6f629dff916adaf293bd4a9494"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a new image in the filesystem using Magick++ facilities, reflecting the current state of the press clip.  <a href="#cc1c13caf9885170dea6d9e8b7442b29"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Set of pixel coordinates that defines an isolated region in the press clip. 
+<a class="el" href="a00018.html" title="Preprocessor of NessieOcr.">Preprocessor</a> of <a class="el" href="a00014.html" title="Manager of the optical character recognition process.">NessieOcr</a>. 
 <p>
-After preprocessing a press clip, a list of regions is available to build a set of patterns suitable for feature extraction and classification. Such a region, as stored in this class, contains only the absolute coordinates of ink pixels that belongs to the region. In addition, it has a virtual pixel of ink, located on the top leftmost corner of the region, and the coordinates of its borders.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12" title="Internal representation of pixel coordinates in a 2D coordinates system.">PixelCoordinates</a></dd></dl>
+This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the characters from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, an array of patterns is available through the <a class="el" href="a00018.html#f675a33328b938dd5cf0527f9fa4175d" title="Get the patterns found, if any, in the last segmentation process.">patterns()</a> method.<p>
+For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed in this order:<p>
+<ol type=1>
+<li>Smoothing and noise removal using the averaging filter.</li><li>Global gray level thresholding.</li><li>Smoothing and noise removal using the template matching filter.</li><li>Regions extraction and isolation.</li><li>Patterns building.</li><li>Skeletonization of patterns.</li><li>Slant detection and correction.</li></ol>
+<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00015.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>, <a class="el" href="a00019.html" title="Preprocessing stage statistics of NessieOcr.">PreprocessorStatistics</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-19 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-08 </dd></dl>
+<hr><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" name="36b23b336f846e10ce8b2022ade99d28"></a><!-- doxytag: member="Preprocessor::Preprocessor" ref="36b23b336f846e10ce8b2022ade99d28" args="(const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Preprocessor::Preprocessor           </td>
+          <td>(</td>
+          <td class="paramtype">const Magick::Image &amp;&nbsp;</td>
+          <td class="paramname"> <em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>width</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Constructor. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>page</em>&nbsp;</td><td>Underlying image representing a newspaper page. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-axis coordinate of the row where the top leftmost pixel of the press clip is. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of the column where the top leftmost pixel of the press clip is. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Height of the press clip in pixels. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>Width of the press clip in pixels.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The Image object is copied into an internal structure. </dd></dl>
+
+</div>
+</div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="5f5345fe4660595a77c9f578e4aad9b3"></a><!-- doxytag: member="Region::addCoordinates" ref="5f5345fe4660595a77c9f578e4aad9b3" args="(const PixelCoordinates &amp;coordinates)" -->
+<a class="anchor" name="3a751b1343980bbfd3337d962a8e7db3"></a><!-- doxytag: member="Preprocessor::applyGlobalThresholding" ref="3a751b1343980bbfd3337d962a8e7db3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Region::addCoordinates           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>coordinates</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Add a pair of pixel coordinates to the region. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>coordinates</em>&nbsp;</td><td>Coordinates of the pixel.</td></tr>
-  </table>
-</dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The pair of coordinates is added to the region, and the points of reference are updated. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="aad017ee8b650d4868a41d2722851ced"></a><!-- doxytag: member="Region::at" ref="aad017ee8b650d4868a41d2722851ced" args="(const unsigned int &amp;index) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::at           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>index</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Allow read-only access to the coordinates of a pixel in the region. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="fd480d88401cee03be25b4667381f40f"></a><!-- doxytag: member="Region::at" ref="fd480d88401cee03be25b4667381f40f" args="(const unsigned int &amp;index)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::at           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>index</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Allow read-and-write access to the coordinates of a pixel in the region. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>The position of a pair of coordinates.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A pair of coordinates. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="5aed45a8517e8e70d5c9ae749b08eb0b"></a><!-- doxytag: member="Region::bottomBorderRow" ref="5aed45a8517e8e70d5c9ae749b08eb0b" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::bottomBorderRow           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the X-axis coordinate of the bottom pixel in the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>X-axis coordinate of the bottom pixel. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="c2fa3f432d7af689b6796d85749393d5"></a><!-- doxytag: member="Region::height" ref="c2fa3f432d7af689b6796d85749393d5" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::height           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the height of the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Height of the region in pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="5172ac8ca95c70526f2fc9773fed337e"></a><!-- doxytag: member="Region::leftBorderColumn" ref="5172ac8ca95c70526f2fc9773fed337e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::leftBorderColumn           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the Y-axis coordinate of the leftmost pixel in the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Y-axis coordinate of the leftmost pixel. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="6e612a6f629dff916adaf293bd4a9494"></a><!-- doxytag: member="Region::normalizeCoordinates" ref="6e612a6f629dff916adaf293bd4a9494" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Region::normalizeCoordinates           </td>
+          <td class="memname">void Preprocessor::applyGlobalThresholding           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -300,180 +206,260 @@ Get the Y-axis coordinate of the leftmost pixel in the region.
 <div class="memdoc">
 
 <p>
-Normalize the coordinates of every pixel. 
+Apply a global thresholding algorithm over the press clip. 
 <p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The coordinates are translated so that the top leftmost pixel is located at (0,0). </dd></dl>
+The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal.<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="3985afe70bbd6e546d456a99db47ca14"></a><!-- doxytag: member="Region::operator+" ref="3985afe70bbd6e546d456a99db47ca14" args="(const Region &amp;region) const " -->
+<a class="anchor" name="813eb754a76dc82aa994e2c6217b3ee0"></a><!-- doxytag: member="Preprocessor::averageCharacterHeight" ref="813eb754a76dc82aa994e2c6217b3ee0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00018.html">Region</a> Region::operator+           </td>
+          <td class="memname">const double &amp; Preprocessor::averageCharacterHeight           </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00018.html">Region</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>region</em>          </td>
+          <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Add a region to the current one. 
+Get the average character height. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average character height in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ae658f27ef4d1a2e6f25ba7f2280e110"></a><!-- doxytag: member="Preprocessor::buildPatterns" ref="ae658f27ef4d1a2e6f25ba7f2280e110" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::buildPatterns           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Build an array of normalized patterns using the regions of ink pixels extracted from the press clip. 
+<p>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be a list of regions available by calling <a class="el" href="a00018.html#14634e957ee922b170cf893efacca138" title="Apply a segmentation process over the press clip to isolate every region of ink pixels...">isolateRegions()</a>. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="1be36c8dc2dc249cb7e896f9dbbffc3c"></a><!-- doxytag: member="Preprocessor::correctSlanting" ref="1be36c8dc2dc249cb7e896f9dbbffc3c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::correctSlanting           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Correct the slanting of every region extracted from press clip. 
+<p>
+This method corrects the slanting by computing the angle for which the input pattern presents at least one column with more ink pixels than any column in the original pattern.<p>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be an array of patterns available by calling <a class="el" href="a00018.html#ae658f27ef4d1a2e6f25ba7f2280e110" title="Build an array of normalized patterns using the regions of ink pixels extracted from...">buildPatterns()</a>.</dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The regions that present slanting are rotated as much as possible to be aligned with the Y-axis. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="14634e957ee922b170cf893efacca138"></a><!-- doxytag: member="Preprocessor::isolateRegions" ref="14634e957ee922b170cf893efacca138" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; Preprocessor::isolateRegions           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Apply a segmentation process over the press clip to isolate every region of ink pixels. 
+<p>
+This method isolates every region of ink pixels in a press clip following a flooding algorithm. Starting from an arbitrary pixel of ink, the algorithm explores the neighbourhood adding new ink pixels to the region until a boundary of background pixels is found. Then, the algorithm selects another pixel and begins the process, until every ink pixel has been assigned to a region. As a result, a list of regions is built.<p>
+The list of regions is post-processed in order to find disconnected region that must be merged, e.g. accents and other punctuation signs to their characters. Finally, the list is sorted by lines and columns, so that traversing the list from the beginning is equivalent to reading the text from left to right and from up to down.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of integers, each one represents the position where a blank space must be inserted when building the text in further post-processing.</dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been thresholded by calling <a class="el" href="a00018.html#3a751b1343980bbfd3337d962a8e7db3" title="Apply a global thresholding algorithm over the press clip.">applyGlobalThresholding()</a>. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f675a33328b938dd5cf0527f9fa4175d"></a><!-- doxytag: member="Preprocessor::patterns" ref="f675a33328b938dd5cf0527f9fa4175d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="a00015.html">Pattern</a> &gt; &amp; Preprocessor::patterns           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the patterns found, if any, in the last segmentation process. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of <a class="el" href="a00015.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> objects. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="67b0301b7bba87bd525311f12d343ccf"></a><!-- doxytag: member="Preprocessor::removeNoiseByLinearFiltering" ref="67b0301b7bba87bd525311f12d343ccf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::removeNoiseByLinearFiltering           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Apply an averaging filter over the press clip to remove noise and smooth character borders. 
+<p>
+This method follows a linear filtering approach to remove noise and smooth the press clip, in which the value of an output pixel is a linear combination of the values of the pixels in the input pixel's neighbourhood. A pixel's neighbourhood is a set of pixels defined by their locations relative to that pixel. Normally, this algorithm should be applied a predefined number of times, otherwise all the important features could disappear.<p>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must be in grayscale mode. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f294c82a3cfa6eaae90a1e273ee0168c"></a><!-- doxytag: member="Preprocessor::removeNoiseByTemplateMatching" ref="f294c82a3cfa6eaae90a1e273ee0168c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::removeNoiseByTemplateMatching           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Apply four 3x3 templates over the press clip to remove additional noise and smooth character borders. 
+<p>
+This method passes over the templates over the entire clip, and this process is repeated until there is no change. These masks begin scanning in the lower right corner of the image and process each row movin upward row by row. The pixel in the center of the mask is the target. If the pixels in its neighbourhood do not match the template, the pixel is removed.<p>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been converted to binary mode by calling <a class="el" href="a00018.html#3a751b1343980bbfd3337d962a8e7db3" title="Apply a global thresholding algorithm over the press clip.">applyGlobalThresholding()</a>. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="3ad29f0062a8bea65a571f91084f4c0f"></a><!-- doxytag: member="Preprocessor::skeletonizePatterns" ref="3ad29f0062a8bea65a571f91084f4c0f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::skeletonizePatterns           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm. 
+<p>
+This algorithm has two steps, which are successively applied to the patterns. In each step contour points of the pattern that can be deleted are identified. Contour points are defined as points that have ink, and they have at least one 8-neighbour pixel value equal to the background.<p>
+In the first step every contour point that can be deleted is flagged only if four conditions are satisfied. In the second step additional pixels are flagged if another four conditions are satisfied. A pixel is not removed until a whole step has been applied. Both steps are repeated until there is no change in the image.<p>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be an array of patterns available by calling <a class="el" href="a00018.html#ae658f27ef4d1a2e6f25ba7f2280e110" title="Build an array of normalized patterns using the regions of ink pixels extracted from...">buildPatterns()</a>. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="760ecd922ae5ad557edcf5f3d9be2a19"></a><!-- doxytag: member="Preprocessor::statistics" ref="760ecd922ae5ad557edcf5f3d9be2a19" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00019.html">PreprocessorStatistics</a> &amp; Preprocessor::statistics           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the statistics regarding the preprocessing stage. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00019.html" title="Preprocessing stage statistics of NessieOcr.">PreprocessorStatistics</a> object with all the statistics gathered at the time of calling. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="cc1c13caf9885170dea6d9e8b7442b29"></a><!-- doxytag: member="Preprocessor::writeClipToOutputImage" ref="cc1c13caf9885170dea6d9e8b7442b29" args="(const std::string &amp;outputFile, const double &amp;scalingFactor=1.0) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Preprocessor::writeClipToOutputImage           </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>outputFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;&nbsp;</td>
+          <td class="paramname"> <em>scalingFactor</em> = <code>1.0</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Create a new image in the filesystem using Magick++ facilities, reflecting the current state of the press clip. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>region</em>&nbsp;</td><td><a class="el" href="a00018.html" title="Set of pixel coordinates that defines an isolated region in the press clip.">Region</a> whose coordinates are going to be added.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>scalingFactor</em>&nbsp;</td><td>Top limit of the source image color scale to use in the output image (i.e. 1 for [0..1], 255 for [0..255], etc.).</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00018.html" title="Set of pixel coordinates that defines an isolated region in the press clip.">Region</a> object as a result of joining the pixel coordinates of both regions. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="10878c058c3568e5583588342fe80e5a"></a><!-- doxytag: member="Region::operator&lt;" ref="10878c058c3568e5583588342fe80e5a" args="(const Region &amp;region) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Region::operator&lt;           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00018.html">Region</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>region</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Evaluate if a region position is less than another, according to their position in text when reading from up to down and left to right. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>region</em>&nbsp;</td><td><a class="el" href="a00018.html" title="Set of pixel coordinates that defines an isolated region in the press clip.">Region</a> of reference.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the current region is placed before than <em>region</em> in a press clip, false otherwise. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="d0920c13d811d653ada191d13f9e6cbc"></a><!-- doxytag: member="Region::rightBorderColumn" ref="d0920c13d811d653ada191d13f9e6cbc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::rightBorderColumn           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the Y-axis coordinate of the rightmost pixel in the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Y-axis coordinate of the rightmost pixel. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="3a5ab9b7f6d60b845475309be2298f04"></a><!-- doxytag: member="Region::size" ref="3a5ab9b7f6d60b845475309be2298f04" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::size           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the number of pixels in the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="486fc08319b36d4761722c6fadfcbf7e"></a><!-- doxytag: member="Region::topBorderRow" ref="486fc08319b36d4761722c6fadfcbf7e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::topBorderRow           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the X-axis coordinate of the top pixel in the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>X-axis coordinate of the top pixel. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="6f88e4969c3d0af80b31d84478a39c5a"></a><!-- doxytag: member="Region::topLeftmostPixelCoordinates" ref="6f88e4969c3d0af80b31d84478a39c5a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00057.html#9939bc17b96b3c3b16ef61505ab06a12">PixelCoordinates</a> &amp; Region::topLeftmostPixelCoordinates           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the coordinates of the top leftmost pixel. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A PixelCoordinates object with the coordinates of the top leftmost pixel. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="1dd30124f6c019dcb159e0df25fc98b1"></a><!-- doxytag: member="Region::width" ref="1dd30124f6c019dcb159e0df25fc98b1" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Region::width           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the width of the region. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Width of the region in pixels. </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -11,6 +11,7 @@ libnessieocr_la_SOURCES	= ClassificationAlgorithm.cpp \
 						  Classifier.cpp \
 						  ClassifierStatistics.cpp \
 						  Dataset.cpp \
+						  DatasetEngine.cpp \
 						  FeatureExtractor.cpp \
 						  FeatureExtractorStatistics.cpp \
 						  FeatureVector.cpp \

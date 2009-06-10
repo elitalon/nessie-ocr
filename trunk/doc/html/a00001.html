@@ -64,21 +64,21 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>ClassificationAlgorithm Class Reference</h1><!-- doxytag: class="ClassificationAlgorithm" -->Algorithm used by <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a> in the classification stage.  
+<h1>ClassificationAlgorithm Class Reference</h1><!-- doxytag: class="ClassificationAlgorithm" -->Algorithm used by <a class="el" href="a00014.html" title="Manager of the optical character recognition process.">NessieOcr</a> in the classification stage.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00063.html">ClassificationAlgorithm.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00067.html">ClassificationAlgorithm.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
 Inheritance diagram for ClassificationAlgorithm:</div>
 <div class="dynsection">
-<p><center><img src="a00144.png" border="0" usemap="#a00145" alt="Inheritance graph"></center>
-<map name="a00145">
-<area shape="rect" href="a00008.html" title="Classification algorithm based on the KNN paradigm." alt="" coords="5,175,197,308"></map>
+<p><center><img src="a00152.png" border="0" usemap="#a00153" alt="Inheritance graph"></center>
+<map name="a00153">
+<area shape="rect" href="a00010.html" title="Classification algorithm based on the KNN paradigm." alt="" coords="5,175,197,308"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00146.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00154.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="1a748a961b66c60039eae5d953b2207e"></a><!-- doxytag: member="ClassificationAlgorithm::ClassificationAlgorithm" ref="1a748a961b66c60039eae5d953b2207e" args="()" -->
@@ -89,18 +89,18 @@ Inheritance diagram for ClassificationAlgorithm:</div>
 virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#049cd02b064f23619bc8bbf96dbbe22b">~ClassificationAlgorithm</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#442a4eb2f495482a164d45965d6bd70b">classify</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors) const =0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#442a4eb2f495482a164d45965d6bd70b">classify</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors) const =0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classify a set of feature vectors into their most probably classes.  <a href="#442a4eb2f495482a164d45965d6bd70b"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#3ba939700df1f0dbbcbfbd0a53f9a3d6">train</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00020.html">Text</a> &amp;referenceText)=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#3ba939700df1f0dbbcbfbd0a53f9a3d6">train</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00022.html">Text</a> &amp;referenceText)=0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#3ba939700df1f0dbbcbfbd0a53f9a3d6"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Algorithm used by <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a> in the classification stage. 
+Algorithm used by <a class="el" href="a00014.html" title="Manager of the optical character recognition process.">NessieOcr</a> in the classification stage. 
 <p>
 This class declares an abstract class that allows the definition of multiple classification algorithms, so that a set of feature vectors can be classified using several paradigms. A <a class="el" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage.">ClassificationAlgorithm</a> object is declared internally within the <a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> class, since it is not allowed to modify the algorithm of a <a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> object.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a>, <a class="el" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="a00020.html" title="Text extracted from a press clip after character recognition.">Text</a></dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a>, <a class="el" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-04-29 </dd></dl>
 <hr><h2>Member Function Documentation</h2>
@@ -111,7 +111,7 @@ This class declares an abstract class that allows the definition of multiple cla
         <tr>
           <td class="memname">virtual std::vector&lt;std::string&gt; ClassificationAlgorithm::classify           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>featureVectors</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td> const<code> [pure virtual]</code></td>
@@ -130,7 +130,7 @@ Classify a set of feature vectors into their most probably classes.
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of characters, one character per feature vector. </dd></dl>
 
-<p>Implemented in <a class="el" href="a00008.html#a03c853fec79230280ffeeb64849b9db">KnnClassificationAlgorithm</a>.</p>
+<p>Implemented in <a class="el" href="a00010.html#a03c853fec79230280ffeeb64849b9db">KnnClassificationAlgorithm</a>.</p>
 
 </div>
 </div><p>
@@ -141,7 +141,7 @@ Classify a set of feature vectors into their most probably classes.
         <tr>
           <td class="memname">virtual double ClassificationAlgorithm::train           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>featureVectors</em>, </td>
         </tr>
         <tr>
@@ -153,7 +153,7 @@ Classify a set of feature vectors into their most probably classes.
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00020.html">Text</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="a00022.html">Text</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>referenceText</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -177,12 +177,12 @@ Train the classifier, comparing each classification decision with a reference te
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>The hit rate achieved after training (e.g. 0,9 for 90%). </dd></dl>
 
-<p>Implemented in <a class="el" href="a00008.html#0e1312aa9a1898c6c70ef628b18b1f58">KnnClassificationAlgorithm</a>.</p>
+<p>Implemented in <a class="el" href="a00010.html#0e1312aa9a1898c6c70ef628b18b1f58">KnnClassificationAlgorithm</a>.</p>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:45 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

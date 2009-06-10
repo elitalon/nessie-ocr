@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: PreprocessorStatistics Class Reference</title>
+<title>NessieOcr: PostgreSqlDataset Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,843 +64,278 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>PreprocessorStatistics Class Reference</h1><!-- doxytag: class="PreprocessorStatistics" --><!-- doxytag: inherits="Statistics" -->Preprocessing stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>.  
+<h1>PostgreSqlDataset Class Reference</h1><!-- doxytag: class="PostgreSqlDataset" --><!-- doxytag: inherits="Dataset" --><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a PostgreSQL database.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00080.html">PreprocessorStatistics.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00083.html">PostgreSqlDataset.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Inheritance diagram for PreprocessorStatistics:</div>
+Inheritance diagram for PostgreSqlDataset:</div>
 <div class="dynsection">
-<p><center><img src="a00216.png" border="0" usemap="#a00217" alt="Inheritance graph"></center>
-<map name="a00217">
-<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="53,7,184,140"></map>
+<p><center><img src="a00221.png" border="0" usemap="#a00222" alt="Inheritance graph"></center>
+<map name="a00222">
+<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="17,5,140,243"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
-Collaboration diagram for PreprocessorStatistics:</div>
+Collaboration diagram for PostgreSqlDataset:</div>
 <div class="dynsection">
-<p><center><img src="a00218.png" border="0" usemap="#a00219" alt="Collaboration graph"></center>
-<map name="a00219">
-<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="5,7,136,140"></map>
+<p><center><img src="a00223.png" border="0" usemap="#a00224" alt="Collaboration graph"></center>
+<map name="a00224">
+<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="5,5,128,243"><area shape="rect" title="STL class." alt="" coords="403,87,475,161"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00220.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00225.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d5546ee1767c5da79fceb17bccea85aa"></a><!-- doxytag: member="PreprocessorStatistics::PreprocessorStatistics" ref="d5546ee1767c5da79fceb17bccea85aa" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d5546ee1767c5da79fceb17bccea85aa">PreprocessorStatistics</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#99261cb23ebf08f888826b4fd44bc23c">PostgreSqlDataset</a> (const std::string &amp;database, const std::string &amp;username, const std::string &amp;password)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8da4ffc131ff1b2e28c26bd910b2ae33"></a><!-- doxytag: member="PreprocessorStatistics::PreprocessorStatistics" ref="8da4ffc131ff1b2e28c26bd910b2ae33" args="(const PreprocessorStatistics &amp;statistics)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#8da4ffc131ff1b2e28c26bd910b2ae33">PreprocessorStatistics</a> (const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;statistics)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ac2c3087a67a3209f51de4e31d873b1d"></a><!-- doxytag: member="PreprocessorStatistics::~PreprocessorStatistics" ref="ac2c3087a67a3209f51de4e31d873b1d" args="()" -->
-virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ac2c3087a67a3209f51de4e31d873b1d">~PreprocessorStatistics</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#99261cb23ebf08f888826b4fd44bc23c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5c447dbd74f97569d9ac556e47188242"></a><!-- doxytag: member="PostgreSqlDataset::~PostgreSqlDataset" ref="5c447dbd74f97569d9ac556e47188242" args="()" -->
+virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#5c447dbd74f97569d9ac556e47188242">~PostgreSqlDataset</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0d08a60f8ddc9441a2d8e9028d27fa0b"></a><!-- doxytag: member="PreprocessorStatistics::operator=" ref="0d08a60f8ddc9441a2d8e9028d27fa0b" args="(const PreprocessorStatistics &amp;statistics)" -->
-<a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0d08a60f8ddc9441a2d8e9028d27fa0b">operator=</a> (const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;statistics)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#57481d14c68e08d46794aaeaaae35d25">addSample</a> (const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;sample)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Assignment operator. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#df14af297774c874fa81b02543d96ddf">clipSize</a> (const unsigned int &amp;n)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a sample to the dataset.  <a href="#57481d14c68e08d46794aaeaaae35d25"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#e43f7840d1a8152d02d72cb01ecbed06">removeSample</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the press clip size in number of pixels.  <a href="#df14af297774c874fa81b02543d96ddf"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#b3038cc788decc5ced78d5725e20d2f8">clipSize</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#e43f7840d1a8152d02d72cb01ecbed06"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#4ceae5eaf79ece96939b50f2b890bc27">at</a> (const unsigned int &amp;n) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the press clip size in number of pixels.  <a href="#b3038cc788decc5ced78d5725e20d2f8"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#cbd29d227ffdd48c507a4ff3b50da82f">optimalThreshold</a> (const unsigned char &amp;threshold)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const long unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#251b5cebd112449fc91d00179d61ab48">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the optimal threshold used to binarize the press clip.  <a href="#cbd29d227ffdd48c507a4ff3b50da82f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#c549914af70cc729859f47cb697cc16e">optimalThreshold</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of samples in the dataset.  <a href="#251b5cebd112449fc91d00179d61ab48"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#efecdda5323a818fca5c9206eb76dc23">features</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the optimal threshold used to binarize the press clip.  <a href="#c549914af70cc729859f47cb697cc16e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#6c0241a095970df6a6a79c819ac5a782">nRegions</a> (const unsigned int &amp;n)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#06b9132afd07f5dd8147a7530a137e56">code</a> (const std::string &amp;character) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the number of regions found after merging the accents.  <a href="#6c0241a095970df6a6a79c819ac5a782"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#df2bccddbeadffcb08ae84dfb4b30ec3">nRegions</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ecaee990ce9d07085198bf32509a3507">character</a> (const unsigned int &amp;code) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of regions found after merging the accents.  <a href="#df2bccddbeadffcb08ae84dfb4b30ec3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0e9862c35887081ce50ba7e47f4724b5">nLines</a> (const unsigned int &amp;n)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the number of lines found.  <a href="#0e9862c35887081ce50ba7e47f4724b5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#561fa69637256d0681780bf814a4c4d8">nLines</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of lines found.  <a href="#561fa69637256d0681780bf814a4c4d8"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#bc964f3a02d9a896e1aec55fa1e5a27a">averageSpaceBetweenCharacters</a> (const double &amp;n)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average intercharacter space found in text.  <a href="#bc964f3a02d9a896e1aec55fa1e5a27a"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#f4c05109697d9e083e02206fe869b498">averageSpaceBetweenCharacters</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average intercharacter space found in text.  <a href="#f4c05109697d9e083e02206fe869b498"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#31a05ddaf23044ac7358d0937cfba1c5">averageCharacterHeight</a> (const double &amp;n)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average character height found in text.  <a href="#31a05ddaf23044ac7358d0937cfba1c5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#0fbd213881e9775d7fb5598cbf1ddafa">averageCharacterHeight</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character height found in text.  <a href="#0fbd213881e9775d7fb5598cbf1ddafa"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#5f737212c27e63b53b0a75c7b90b3b78">averageCharacterWidth</a> (const double &amp;n)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the average character width found in text.  <a href="#5f737212c27e63b53b0a75c7b90b3b78"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#1ff76761715cb2845f5189288a907ed4">averageCharacterWidth</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character width found in text.  <a href="#1ff76761715cb2845f5189288a907ed4"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d15c51527b8db7834e5feec7d98189d7">averagingFilteringTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the averaging filtering algorithm.  <a href="#d15c51527b8db7834e5feec7d98189d7"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#d5296ba5dc5ed35ed9b139ccb125ca10">averagingFilteringTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the averaging filtering algorithm.  <a href="#d5296ba5dc5ed35ed9b139ccb125ca10"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#4ea4f1d85f8107087c6a748a2fa25556">globalThresholdingTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the global thresholding algorithm.  <a href="#4ea4f1d85f8107087c6a748a2fa25556"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#9f0ee978cc70e4745339a630c4f83c1e">globalThresholdingTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the global thresholding algorithm.  <a href="#9f0ee978cc70e4745339a630c4f83c1e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#19cb995b637ec62be16b237e97cc65e5">templateFilteringTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the template filtering algorithm.  <a href="#19cb995b637ec62be16b237e97cc65e5"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#aec430387e4593ac1ff4c9b22d1868e6">templateFilteringTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the template filtering algorithm.  <a href="#aec430387e4593ac1ff4c9b22d1868e6"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#e02437709a427ea35a3f067b42477a9e">segmentationTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the regions extraction algorithm.  <a href="#e02437709a427ea35a3f067b42477a9e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#75a1b9daf1c1439dc9d82adecc1673fe">segmentationTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the regions extraction algorithm.  <a href="#75a1b9daf1c1439dc9d82adecc1673fe"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#8ef54d640d738ce30c5e405e268b4d04">patternsBuildingTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while building an array of patterns from a list of regions.  <a href="#8ef54d640d738ce30c5e405e268b4d04"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#b8a45a9ab0b1c20d95f576dc43f331ec">patternsBuildingTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while building an array of patterns from a list of regions.  <a href="#b8a45a9ab0b1c20d95f576dc43f331ec"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3a6a0fe44965a288396d615bf1edba16">skeletonizationTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the skeletonization algorithm.  <a href="#3a6a0fe44965a288396d615bf1edba16"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#24eb449c67debf999ec08b8e86aae388">skeletonizationTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the skeletonization algorithm.  <a href="#24eb449c67debf999ec08b8e86aae388"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#ae04f9e334a8f0a7cba5dad02833e7f9">slantingCorrectionTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while executing the slanting correction algorithm.  <a href="#ae04f9e334a8f0a7cba5dad02833e7f9"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#e57c9245b2ff231df430d1935d60b863">slantingCorrectionTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while executing the slanting correction algorithm.  <a href="#e57c9245b2ff231df430d1935d60b863"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="3337f135bde27a43901f2930d76dd99a"></a><!-- doxytag: member="PreprocessorStatistics::print" ref="3337f135bde27a43901f2930d76dd99a" args="() const " -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00017.html#3337f135bde27a43901f2930d76dd99a">print</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print the statistical data gathered to the standard output. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2">totalTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the total elapsed time.  <a href="#f4c2b3d79e782abfde2d22b405a9b9a2"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7256bc5d1785a0ef7c0cd21afbc53737"></a><!-- doxytag: member="PreprocessorStatistics::totalTime_" ref="7256bc5d1785a0ef7c0cd21afbc53737" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737">totalTime_</a></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8774177ef709ce626031df1f8c1521c7"></a><!-- doxytag: member="PostgreSqlDataset::samples_" ref="8774177ef709ce626031df1f8c1521c7" args="" -->
+std::vector&lt; <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Total elapsed time within a stage. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Samples of the dataset. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8ec00731bc31069b93719b22d90546d"></a><!-- doxytag: member="PostgreSqlDataset::classes_" ref="a8ec00731bc31069b93719b22d90546d" args="" -->
+std::map&lt; std::string, <br class="typebreak">
+unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a8ec00731bc31069b93719b22d90546d">classes_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Map of classes that associates a character with its code. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5c866bcb920dbaf42c6dfcbd0bf123f9"></a><!-- doxytag: member="PostgreSqlDataset::size_" ref="5c866bcb920dbaf42c6dfcbd0bf123f9" args="" -->
+long unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#5c866bcb920dbaf42c6dfcbd0bf123f9">size_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of samples. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2b2952fe46a49eb27822c7f683c30285"></a><!-- doxytag: member="PostgreSqlDataset::features_" ref="2b2952fe46a49eb27822c7f683c30285" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#2b2952fe46a49eb27822c7f683c30285">features_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of features per sample. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Preprocessing stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>. 
+<a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a PostgreSQL database. 
 <p>
-This class stores all the statistical data gathered during execution of methods of the preprocessing stage. Data can be write or read, although a client program should be only interested in reading values. The statistical data is automatically set whenever a method from a <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> object is called, but only the fields that method uses.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>, <a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a></dd></dl>
+The database must contain two tables named <em>samples</em> and <em>classes</em>. The table <em>classes</em> stores the characters that can be recognized. It must contain three columns: id_class, label and asciiCode. The <em>id_class</em> column must be an integer and will act as the primary key. The <em>label</em> column must be a variable-length array of two characters. Finally, the <em>asciiCode</em> column must be an integer. A posible definition for this table is acomplished with the following SQL statement:<p>
+<div class="fragment"><pre class="fragment">        CREATE TABLE classes (
+            id_class    serial      PRIMARY KEY,
+            label       varchar(2)  NOT NULL,
+            asciiCode   integer     NOT NULL
+        );
+</pre></div><p>
+The table <em>samples</em> stores the features of every trained sample using the classifier. It must contain a column named <em>id_sample</em>, an integer which will act as the primary key, a foreign key named <em>id_class</em> which points to the 'classes' table, and a variable number of feature columns, which are numbers whose only constraint is that their name must have the letter <em>m</em> and two digits from 0 to 9. A posible definition for this table is acomplished with the following SQL statement:<p>
+<div class="fragment"><pre class="fragment">        CREATE TABLE samples (
+            id_sample   serial  PRIMARY KEY,
+            m00         numeric NOT NULL DEFAULT 0.0,
+            m10         numeric NOT NULL DEFAULT 0.0,
+            m01         numeric NOT NULL DEFAULT 0.0,
+            m20         numeric NOT NULL DEFAULT 0.0,
+            m02         numeric NOT NULL DEFAULT 0.0,
+            id_class    integer REFERENCES classes
+        );
+</pre></div><p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-12 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-13 </dd></dl>
+<hr><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" name="99261cb23ebf08f888826b4fd44bc23c"></a><!-- doxytag: member="PostgreSqlDataset::PostgreSqlDataset" ref="99261cb23ebf08f888826b4fd44bc23c" args="(const std::string &amp;database, const std::string &amp;username, const std::string &amp;password)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PostgreSqlDataset::PostgreSqlDataset           </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>database</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>username</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>password</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Constructor. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>database</em>&nbsp;</td><td>Name of the database to connect. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>username</em>&nbsp;</td><td>Username to use in the database connection. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>password</em>&nbsp;</td><td>User password.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A connection with the PostgreSQL database is stablished using the given parameters.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="0fbd213881e9775d7fb5598cbf1ddafa"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterHeight" ref="0fbd213881e9775d7fb5598cbf1ddafa" args="() const " -->
+<a class="anchor" name="57481d14c68e08d46794aaeaaae35d25"></a><!-- doxytag: member="PostgreSqlDataset::addSample" ref="57481d14c68e08d46794aaeaaae35d25" args="(const Sample &amp;sample)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double PreprocessorStatistics::averageCharacterHeight           </td>
+          <td class="memname">void PostgreSqlDataset::addSample           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>sample</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the average character height found in text. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average height in pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="31a05ddaf23044ac7358d0937cfba1c5"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterHeight" ref="31a05ddaf23044ac7358d0937cfba1c5" args="(const double &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::averageCharacterHeight           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the average character height found in text. 
+Add a sample to the dataset. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average height in pixels. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>Sample to add.</td></tr>
   </table>
 </dl>
-
-</div>
-</div><p>
-<a class="anchor" name="1ff76761715cb2845f5189288a907ed4"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterWidth" ref="1ff76761715cb2845f5189288a907ed4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::averageCharacterWidth           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the average character width found in text. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average width in pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="5f737212c27e63b53b0a75c7b90b3b78"></a><!-- doxytag: member="PreprocessorStatistics::averageCharacterWidth" ref="5f737212c27e63b53b0a75c7b90b3b78" args="(const double &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::averageCharacterWidth           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the average character width found in text. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is appended to the end of the dataset.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average width in pixels. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
   </table>
 </dl>
 
+<p>Implements <a class="el" href="a00004.html#65e42c7d35bd3270115455c3a6bc7b6f">Dataset</a>.</p>
+
 </div>
 </div><p>
-<a class="anchor" name="f4c05109697d9e083e02206fe869b498"></a><!-- doxytag: member="PreprocessorStatistics::averageSpaceBetweenCharacters" ref="f4c05109697d9e083e02206fe869b498" args="() const " -->
+<a class="anchor" name="4ceae5eaf79ece96939b50f2b890bc27"></a><!-- doxytag: member="PostgreSqlDataset::at" ref="4ceae5eaf79ece96939b50f2b890bc27" args="(const unsigned int &amp;n) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double PreprocessorStatistics::averageSpaceBetweenCharacters           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the average intercharacter space found in text. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average space in pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="bc964f3a02d9a896e1aec55fa1e5a27a"></a><!-- doxytag: member="PreprocessorStatistics::averageSpaceBetweenCharacters" ref="bc964f3a02d9a896e1aec55fa1e5a27a" args="(const double &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::averageSpaceBetweenCharacters           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the average intercharacter space found in text. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Average space in pixels. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="d5296ba5dc5ed35ed9b139ccb125ca10"></a><!-- doxytag: member="PreprocessorStatistics::averagingFilteringTime" ref="d5296ba5dc5ed35ed9b139ccb125ca10" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::averagingFilteringTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the averaging filtering algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="d15c51527b8db7834e5feec7d98189d7"></a><!-- doxytag: member="PreprocessorStatistics::averagingFilteringTime" ref="d15c51527b8db7834e5feec7d98189d7" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::averagingFilteringTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the averaging filtering algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="b3038cc788decc5ced78d5725e20d2f8"></a><!-- doxytag: member="PreprocessorStatistics::clipSize" ref="b3038cc788decc5ced78d5725e20d2f8" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int PreprocessorStatistics::clipSize           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the press clip size in number of pixels. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels in the press clip. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="df14af297774c874fa81b02543d96ddf"></a><!-- doxytag: member="PreprocessorStatistics::clipSize" ref="df14af297774c874fa81b02543d96ddf" args="(const unsigned int &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::clipSize           </td>
+          <td class="memname">const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp; Dataset::at           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
           <td class="paramname"> <em>n</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Set the press clip size in number of pixels. 
+Allow read-only access to a sample in the dataset. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of pixels in the press clip. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where the required sample is.</td></tr>
   </table>
 </dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Sample at given position. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="9f0ee978cc70e4745339a630c4f83c1e"></a><!-- doxytag: member="PreprocessorStatistics::globalThresholdingTime" ref="9f0ee978cc70e4745339a630c4f83c1e" args="() const " -->
+<a class="anchor" name="ecaee990ce9d07085198bf32509a3507"></a><!-- doxytag: member="PostgreSqlDataset::character" ref="ecaee990ce9d07085198bf32509a3507" args="(const unsigned int &amp;code) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double PreprocessorStatistics::globalThresholdingTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the global thresholding algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="4ea4f1d85f8107087c6a748a2fa25556"></a><!-- doxytag: member="PreprocessorStatistics::globalThresholdingTime" ref="4ea4f1d85f8107087c6a748a2fa25556" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::globalThresholdingTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the global thresholding algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="561fa69637256d0681780bf814a4c4d8"></a><!-- doxytag: member="PreprocessorStatistics::nLines" ref="561fa69637256d0681780bf814a4c4d8" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int PreprocessorStatistics::nLines           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the number of lines found. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of lines found. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="0e9862c35887081ce50ba7e47f4724b5"></a><!-- doxytag: member="PreprocessorStatistics::nLines" ref="0e9862c35887081ce50ba7e47f4724b5" args="(const unsigned int &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::nLines           </td>
+          <td class="memname">std::string Dataset::character           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
+          <td class="paramname"> <em>code</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Set the number of lines found. 
+Get the character associated to the code passed. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of lines found. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>code</em>&nbsp;</td><td>A valid code.</td></tr>
   </table>
 </dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The character associated to the code or an empty string if there is no association. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="df2bccddbeadffcb08ae84dfb4b30ec3"></a><!-- doxytag: member="PreprocessorStatistics::nRegions" ref="df2bccddbeadffcb08ae84dfb4b30ec3" args="() const " -->
+<a class="anchor" name="06b9132afd07f5dd8147a7530a137e56"></a><!-- doxytag: member="PostgreSqlDataset::code" ref="06b9132afd07f5dd8147a7530a137e56" args="(const std::string &amp;character) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int PreprocessorStatistics::nRegions           </td>
+          <td class="memname">unsigned int Dataset::code           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the number of regions found after merging the accents. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of characters found. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="6c0241a095970df6a6a79c819ac5a782"></a><!-- doxytag: member="PreprocessorStatistics::nRegions" ref="6c0241a095970df6a6a79c819ac5a782" args="(const unsigned int &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::nRegions           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the number of regions found after merging the accents. 
+Get the code associated to the character passed. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of characters found. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A valid character.</td></tr>
   </table>
 </dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The code associated to the character or 256 if there is no association. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="c549914af70cc729859f47cb697cc16e"></a><!-- doxytag: member="PreprocessorStatistics::optimalThreshold" ref="c549914af70cc729859f47cb697cc16e" args="() const " -->
+<a class="anchor" name="efecdda5323a818fca5c9206eb76dc23"></a><!-- doxytag: member="PostgreSqlDataset::features" ref="efecdda5323a818fca5c9206eb76dc23" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char PreprocessorStatistics::optimalThreshold           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the optimal threshold used to binarize the press clip. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A gray level. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="cbd29d227ffdd48c507a4ff3b50da82f"></a><!-- doxytag: member="PreprocessorStatistics::optimalThreshold" ref="cbd29d227ffdd48c507a4ff3b50da82f" args="(const unsigned char &amp;threshold)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::optimalThreshold           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned char &amp;&nbsp;</td>
-          <td class="paramname"> <em>threshold</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the optimal threshold used to binarize the press clip. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>threshold</em>&nbsp;</td><td>A gray level. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="b8a45a9ab0b1c20d95f576dc43f331ec"></a><!-- doxytag: member="PreprocessorStatistics::patternsBuildingTime" ref="b8a45a9ab0b1c20d95f576dc43f331ec" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::patternsBuildingTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while building an array of patterns from a list of regions. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="8ef54d640d738ce30c5e405e268b4d04"></a><!-- doxytag: member="PreprocessorStatistics::patternsBuildingTime" ref="8ef54d640d738ce30c5e405e268b4d04" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::patternsBuildingTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while building an array of patterns from a list of regions. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="75a1b9daf1c1439dc9d82adecc1673fe"></a><!-- doxytag: member="PreprocessorStatistics::segmentationTime" ref="75a1b9daf1c1439dc9d82adecc1673fe" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::segmentationTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the regions extraction algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="e02437709a427ea35a3f067b42477a9e"></a><!-- doxytag: member="PreprocessorStatistics::segmentationTime" ref="e02437709a427ea35a3f067b42477a9e" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::segmentationTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the regions extraction algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="24eb449c67debf999ec08b8e86aae388"></a><!-- doxytag: member="PreprocessorStatistics::skeletonizationTime" ref="24eb449c67debf999ec08b8e86aae388" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::skeletonizationTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the skeletonization algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="3a6a0fe44965a288396d615bf1edba16"></a><!-- doxytag: member="PreprocessorStatistics::skeletonizationTime" ref="3a6a0fe44965a288396d615bf1edba16" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::skeletonizationTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the skeletonization algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="e57c9245b2ff231df430d1935d60b863"></a><!-- doxytag: member="PreprocessorStatistics::slantingCorrectionTime" ref="e57c9245b2ff231df430d1935d60b863" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::slantingCorrectionTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the slanting correction algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="ae04f9e334a8f0a7cba5dad02833e7f9"></a><!-- doxytag: member="PreprocessorStatistics::slantingCorrectionTime" ref="ae04f9e334a8f0a7cba5dad02833e7f9" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::slantingCorrectionTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the slanting correction algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="aec430387e4593ac1ff4c9b22d1868e6"></a><!-- doxytag: member="PreprocessorStatistics::templateFilteringTime" ref="aec430387e4593ac1ff4c9b22d1868e6" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double PreprocessorStatistics::templateFilteringTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the elapsed time while executing the template filtering algorithm. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="19cb995b637ec62be16b237e97cc65e5"></a><!-- doxytag: member="PreprocessorStatistics::templateFilteringTime" ref="19cb995b637ec62be16b237e97cc65e5" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PreprocessorStatistics::templateFilteringTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while executing the template filtering algorithm. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
-  </table>
-</dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f4c2b3d79e782abfde2d22b405a9b9a2"></a><!-- doxytag: member="PreprocessorStatistics::totalTime" ref="f4c2b3d79e782abfde2d22b405a9b9a2" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Statistics::totalTime           </td>
+          <td class="memname">const unsigned int &amp; Dataset::features           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -911,14 +346,70 @@ Set the elapsed time while executing the template filtering algorithm.
 <div class="memdoc">
 
 <p>
-Get the total elapsed time. 
+Get the number of features per sample. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features per sample. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e43f7840d1a8152d02d72cb01ecbed06"></a><!-- doxytag: member="PostgreSqlDataset::removeSample" ref="e43f7840d1a8152d02d72cb01ecbed06" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PostgreSqlDataset::removeSample           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Remove a sample from the dataset. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="a00004.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">Dataset</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="251b5cebd112449fc91d00179d61ab48"></a><!-- doxytag: member="PostgreSqlDataset::size" ref="251b5cebd112449fc91d00179d61ab48" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const long unsigned int &amp; Dataset::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of samples in the dataset. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of samples in the dataset. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -2,6 +2,7 @@ nobase_include_HEADERS = NessieOcr/ClassificationAlgorithm.hpp \
 						 NessieOcr/Classifier.hpp \
 						 NessieOcr/ClassifierStatistics.hpp \
 						 NessieOcr/Dataset.hpp \
+						 NessieOcr/DatasetEngine.hpp \
 						 NessieOcr/FeatureExtractor.hpp \
 						 NessieOcr/FeatureExtractorStatistics.hpp \
 						 NessieOcr/FeatureVector.hpp \

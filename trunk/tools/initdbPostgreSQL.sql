@@ -8,7 +8,6 @@ COMMENT ON TABLE classes IS 'Classes of characters assumed in classification sta
 
 CREATE TABLE samples (
 	id_sample	serial	PRIMARY KEY,
-	m00			numeric	NOT NULL DEFAULT 0.0,
 	m10			numeric	NOT NULL DEFAULT 0.0,
 	m01			numeric	NOT NULL DEFAULT 0.0,
 	m11			numeric	NOT NULL DEFAULT 0.0,
@@ -23,18 +22,6 @@ CREATE TABLE samples (
 	m13			numeric	NOT NULL DEFAULT 0.0,
 	m32			numeric	NOT NULL DEFAULT 0.0,
 	m23			numeric	NOT NULL DEFAULT 0.0,
-	m33			numeric	NOT NULL DEFAULT 0.0,
-	m40			numeric	NOT NULL DEFAULT 0.0,
-	m04			numeric	NOT NULL DEFAULT 0.0,
-	m41			numeric	NOT NULL DEFAULT 0.0,
-	m14			numeric	NOT NULL DEFAULT 0.0,
-	m42			numeric	NOT NULL DEFAULT 0.0,
-	m24			numeric	NOT NULL DEFAULT 0.0,
-	m43			numeric	NOT NULL DEFAULT 0.0,
-	m34			numeric	NOT NULL DEFAULT 0.0,
-	m44			numeric	NOT NULL DEFAULT 0.0,
-	m50			numeric	NOT NULL DEFAULT 0.0,
-	m05			numeric	NOT NULL DEFAULT 0.0,
 	id_class	integer	REFERENCES classes
 );
 CREATE INDEX iClass ON samples(id_class);

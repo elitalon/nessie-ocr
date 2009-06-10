@@ -6,7 +6,7 @@
 
 class FeatureVector;
 class Text;
-class Dataset;
+class DatasetEngine;
 #include "Classifier.hpp"
 #include <string>
 #include <vector>
@@ -28,10 +28,10 @@ class KnnClassifier : public Classifier
 		///	@brief		Constructor.
 		///
 		///	@param		nNeighbours	Number of neighbours to search for every sample.
-		///	@param		dataset		Dataset to use in classification and training methods.
+		///	@param		engine		Dataset engine to use in classification and training methods.
 		///
 		///	@warning	The dataset is only used by the class. A KnnClassifier object is not responsible of deallocating the dataset.
-		explicit KnnClassifier (const unsigned int& nNeighbours, Dataset* const dataset);
+		explicit KnnClassifier (const unsigned int& nNeighbours, DatasetEngine engine);
 
 		///	@brief	Destructor.
 		virtual ~KnnClassifier ();

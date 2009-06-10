@@ -67,25 +67,25 @@ window.onload = initDynSections;
 <h1>Classifier Class Reference</h1><!-- doxytag: class="Classifier" --><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> of the OCR process.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00064.html">Classifier.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00068.html">Classifier.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
 Inheritance diagram for Classifier:</div>
 <div class="dynsection">
-<p><center><img src="a00147.png" border="0" usemap="#a00148" alt="Inheritance graph"></center>
-<map name="a00148">
-<area shape="rect" href="a00009.html" title="Classifier of NessieOcr based on the KNN paradigm." alt="" coords="8,203,163,323"></map>
+<p><center><img src="a00155.png" border="0" usemap="#a00156" alt="Inheritance graph"></center>
+<map name="a00156">
+<area shape="rect" href="a00011.html" title="Classifier of NessieOcr based on the KNN paradigm." alt="" coords="8,203,163,323"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Classifier:</div>
 <div class="dynsection">
-<p><center><img src="a00149.png" border="0" usemap="#a00150" alt="Collaboration graph"></center>
-<map name="a00150">
+<p><center><img src="a00157.png" border="0" usemap="#a00158" alt="Collaboration graph"></center>
+<map name="a00158">
 <area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="5,79,176,199"><area shape="rect" href="a00003.html" title="Classification stage statistics of NessieOcr." alt="" coords="200,5,344,272"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00151.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00159.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e6132b100c96a4f3d8ad3885b5acb28e"></a><!-- doxytag: member="Classifier::Classifier" ref="e6132b100c96a4f3d8ad3885b5acb28e" args="()" -->
@@ -100,17 +100,17 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <a class="el" href="a00003.html">ClassifierStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics regarding the classification stage.  <a href="#265a12730a3fb6bdbbd53d3f97466502"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#0e305866df409a318d8b8a4ea6a7f858">performClassification</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors)=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#0e305866df409a318d8b8a4ea6a7f858">performClassification</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors)=0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classify each feature vector passed into its most probably class (character).  <a href="#0e305866df409a318d8b8a4ea6a7f858"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#1615ad7c13e54de1488d31a4ab3cd62b">performTraining</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00020.html">Text</a> &amp;referenceText)=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#1615ad7c13e54de1488d31a4ab3cd62b">performTraining</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00022.html">Text</a> &amp;referenceText)=0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#1615ad7c13e54de1488d31a4ab3cd62b"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7d5d16d95fc5685221f4d99444b703aa"></a><!-- doxytag: member="Classifier::statistics_" ref="7d5d16d95fc5685221f4d99444b703aa" args="" -->
 <a class="el" href="a00003.html">ClassifierStatistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a> about the classification of feature vectors. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="a00021.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a> about the classification of feature vectors. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="16ed33c24d275a6c4d9028d8ebf38573"></a><!-- doxytag: member="Classifier::classificationAlgorithm_" ref="16ed33c24d275a6c4d9028d8ebf38573" args="" -->
 <a class="el" href="a00001.html">ClassificationAlgorithm</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573">classificationAlgorithm_</a></td></tr>
 
@@ -119,8 +119,8 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 <a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> of the OCR process. 
 <p>
-This class represents the classification stage of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>, providing an interface to encapsulate different classification paradigms. When performing a classification, its task is to match every feature vector passed to the most probably character. When performing a training, its task is to compare the classified characters with a reference text, fixing the wrong decisions.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage.">ClassificationAlgorithm</a>, <a class="el" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>, <a class="el" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="a00020.html" title="Text extracted from a press clip after character recognition.">Text</a></dd></dl>
+This class represents the classification stage of <a class="el" href="a00014.html" title="Manager of the optical character recognition process.">NessieOcr</a>, providing an interface to encapsulate different classification paradigms. When performing a classification, its task is to match every feature vector passed to the most probably character. When performing a training, its task is to compare the classified characters with a reference text, fixing the wrong decisions.<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage.">ClassificationAlgorithm</a>, <a class="el" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>, <a class="el" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a></dd></dl>
 <dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Implement new paradigms of classification (neural networks, support vector machines,...).</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
 <dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-09 </dd></dl>
@@ -132,7 +132,7 @@ This class represents the classification stage of <a class="el" href="a00012.htm
         <tr>
           <td class="memname">virtual std::vector&lt;std::string&gt; Classifier::performClassification           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>featureVectors</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [pure virtual]</code></td>
@@ -151,7 +151,7 @@ Classify each feature vector passed into its most probably class (character).
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of std::string objects with the characters found, one character per vector element. </dd></dl>
 
-<p>Implemented in <a class="el" href="a00009.html#67350f136aca9f03d8328861db374613">KnnClassifier</a>.</p>
+<p>Implemented in <a class="el" href="a00011.html#67350f136aca9f03d8328861db374613">KnnClassifier</a>.</p>
 
 </div>
 </div><p>
@@ -162,7 +162,7 @@ Classify each feature vector passed into its most probably class (character).
         <tr>
           <td class="memname">virtual void Classifier::performTraining           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
           <td class="paramname"> <em>featureVectors</em>, </td>
         </tr>
         <tr>
@@ -174,7 +174,7 @@ Classify each feature vector passed into its most probably class (character).
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00020.html">Text</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="a00022.html">Text</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>referenceText</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -197,7 +197,7 @@ Train the classifier, comparing each classification decision with a reference te
   </table>
 </dl>
 
-<p>Implemented in <a class="el" href="a00009.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">KnnClassifier</a>.</p>
+<p>Implemented in <a class="el" href="a00011.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">KnnClassifier</a>.</p>
 
 </div>
 </div><p>
@@ -224,7 +224,7 @@ Get the statistics regarding the classification stage.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:45 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -4,6 +4,7 @@
 #if !defined(_KNN_CLASSIFICATION_PARADIGM_H)
 #define _KNN_CLASSIFICATION_PARADIGM_H
 
+class DatasetEngine;
 class Dataset;
 class FeatureVector;
 class Text;
@@ -26,15 +27,15 @@ class KnnClassificationAlgorithm : public ClassificationAlgorithm
 		///	@brief		Constructor
 		///
 		///	@param		kNeighbours	Number of neighbours to take when classifying.
-		/// @param		dataset		A dataset with previously trained samples.
+		/// @param		engine		A dataset engine information to load a dataset.
 		///
 		///	@pre		The dataset must not be empty or set to a null value.
 		///
 		///	@warning	A client program or function must be aware since this class only uses the dataset and does not manage it.
-		explicit KnnClassificationAlgorithm (const unsigned int& kNeighbours, Dataset* const dataset);
+		explicit KnnClassificationAlgorithm (const unsigned int& kNeighbours, DatasetEngine engine);
 
 		///	@brief	Destructor
-		virtual ~KnnClassificationAlgorithm ();
+		~KnnClassificationAlgorithm ();
 
 		/// @brief		Classify a set of feature vectors into their most probably classes.
 		/// 

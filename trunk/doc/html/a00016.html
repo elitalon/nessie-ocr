@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: Preprocessor Class Reference</title>
+<title>NessieOcr: PlainTextDataset Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,110 +64,102 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>Preprocessor Class Reference</h1><!-- doxytag: class="Preprocessor" --><a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>.  
+<h1>PlainTextDataset Class Reference</h1><!-- doxytag: class="PlainTextDataset" --><!-- doxytag: inherits="Dataset" --><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a plain text file in the filesystem.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00079.html">Preprocessor.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00082.html">PlainTextDataset.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Collaboration diagram for Preprocessor:</div>
+Inheritance diagram for PlainTextDataset:</div>
 <div class="dynsection">
-<p><center><img src="a00213.png" border="0" usemap="#a00214" alt="Collaboration graph"></center>
-<map name="a00214">
-<area shape="rect" href="a00017.html" title="Preprocessing stage statistics of NessieOcr." alt="" coords="481,148,708,897"></map>
+<p><center><img src="a00216.png" border="0" usemap="#a00217" alt="Inheritance graph"></center>
+<map name="a00217">
+<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="12,5,135,243"></map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
+<div class="dynheader">
+Collaboration diagram for PlainTextDataset:</div>
+<div class="dynsection">
+<p><center><img src="a00218.png" border="0" usemap="#a00219" alt="Collaboration graph"></center>
+<map name="a00219">
+<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="5,5,128,243"><area shape="rect" title="STL class." alt="" coords="152,87,224,161"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00215.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00220.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#36b23b336f846e10ce8b2022ade99d28">Preprocessor</a> (const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#02ba8290b4e8e3a2cf29396a4421f278">PlainTextDataset</a> (const std::string &amp;filename)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#36b23b336f846e10ce8b2022ade99d28"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const std::vector&lt; <a class="el" href="a00013.html">Pattern</a> &gt; &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#f675a33328b938dd5cf0527f9fa4175d">patterns</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#02ba8290b4e8e3a2cf29396a4421f278"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="0ac0a2bd238b7a8bbde59dad44a8b519"></a><!-- doxytag: member="PlainTextDataset::~PlainTextDataset" ref="0ac0a2bd238b7a8bbde59dad44a8b519" args="()" -->
+virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#0ac0a2bd238b7a8bbde59dad44a8b519">~PlainTextDataset</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the patterns found, if any, in the last segmentation process.  <a href="#f675a33328b938dd5cf0527f9fa4175d"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#760ecd922ae5ad557edcf5f3d9be2a19">statistics</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#3850b9c76eef875fd56e1b82d2bb3043">addSample</a> (const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;sample)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics regarding the preprocessing stage.  <a href="#760ecd922ae5ad557edcf5f3d9be2a19"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#67b0301b7bba87bd525311f12d343ccf">removeNoiseByLinearFiltering</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Addsa sample to the dataset.  <a href="#3850b9c76eef875fd56e1b82d2bb3043"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#599b3113630ba0d975a72530fa075d77">removeSample</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply an averaging filter over the press clip to remove noise and smooth character borders.  <a href="#67b0301b7bba87bd525311f12d343ccf"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#3a751b1343980bbfd3337d962a8e7db3">applyGlobalThresholding</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#599b3113630ba0d975a72530fa075d77"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#4ceae5eaf79ece96939b50f2b890bc27">at</a> (const unsigned int &amp;n) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a global thresholding algorithm over the press clip.  <a href="#3a751b1343980bbfd3337d962a8e7db3"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#f294c82a3cfa6eaae90a1e273ee0168c">removeNoiseByTemplateMatching</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const long unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#251b5cebd112449fc91d00179d61ab48">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply four 3x3 templates over the press clip to remove additional noise and smooth character borders.  <a href="#f294c82a3cfa6eaae90a1e273ee0168c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#14634e957ee922b170cf893efacca138">isolateRegions</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of samples in the dataset.  <a href="#251b5cebd112449fc91d00179d61ab48"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#efecdda5323a818fca5c9206eb76dc23">features</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Apply a segmentation process over the press clip to isolate every region of ink pixels.  <a href="#14634e957ee922b170cf893efacca138"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#ae658f27ef4d1a2e6f25ba7f2280e110">buildPatterns</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#06b9132afd07f5dd8147a7530a137e56">code</a> (const std::string &amp;character) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build an array of normalized patterns using the regions of ink pixels extracted from the press clip.  <a href="#ae658f27ef4d1a2e6f25ba7f2280e110"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#3ad29f0062a8bea65a571f91084f4c0f">skeletonizePatterns</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ecaee990ce9d07085198bf32509a3507">character</a> (const unsigned int &amp;code) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm.  <a href="#3ad29f0062a8bea65a571f91084f4c0f"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#1be36c8dc2dc249cb7e896f9dbbffc3c">correctSlanting</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8774177ef709ce626031df1f8c1521c7"></a><!-- doxytag: member="PlainTextDataset::samples_" ref="8774177ef709ce626031df1f8c1521c7" args="" -->
+std::vector&lt; <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Correct the slanting of every region extracted from press clip.  <a href="#1be36c8dc2dc249cb7e896f9dbbffc3c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#813eb754a76dc82aa994e2c6217b3ee0">averageCharacterHeight</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Samples of the dataset. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8ec00731bc31069b93719b22d90546d"></a><!-- doxytag: member="PlainTextDataset::classes_" ref="a8ec00731bc31069b93719b22d90546d" args="" -->
+std::map&lt; std::string, <br class="typebreak">
+unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a8ec00731bc31069b93719b22d90546d">classes_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the average character height.  <a href="#813eb754a76dc82aa994e2c6217b3ee0"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#cc1c13caf9885170dea6d9e8b7442b29">writeClipToOutputImage</a> (const std::string &amp;outputFile, const double &amp;scalingFactor=1.0) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Map of classes that associates a character with its code. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5c866bcb920dbaf42c6dfcbd0bf123f9"></a><!-- doxytag: member="PlainTextDataset::size_" ref="5c866bcb920dbaf42c6dfcbd0bf123f9" args="" -->
+long unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#5c866bcb920dbaf42c6dfcbd0bf123f9">size_</a></td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a new image in the filesystem using Magick++ facilities, reflecting the current state of the press clip.  <a href="#cc1c13caf9885170dea6d9e8b7442b29"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of samples. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2b2952fe46a49eb27822c7f683c30285"></a><!-- doxytag: member="PlainTextDataset::features_" ref="2b2952fe46a49eb27822c7f683c30285" args="" -->
+unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#2b2952fe46a49eb27822c7f683c30285">features_</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of features per sample. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-<a class="el" href="a00016.html" title="Preprocessor of NessieOcr.">Preprocessor</a> of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>. 
+<a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a plain text file in the filesystem. 
 <p>
-This class encapsulates all the algorithms related to the preprocessing stage of the OCR process. Its task is to extract the characters from a press clip, enhance them and clean the result by smoothing and noise removal. In the very end of the process, an array of patterns is available through the <a class="el" href="a00016.html#f675a33328b938dd5cf0527f9fa4175d" title="Get the patterns found, if any, in the last segmentation process.">patterns()</a> method.<p>
-For an optimal preprocessing, it is strongly recommended that the following algorithms will be executed in this order:<p>
-<ol type=1>
-<li>Smoothing and noise removal using the averaging filter.</li><li>Global gray level thresholding.</li><li>Smoothing and noise removal using the template matching filter.</li><li>Regions extraction and isolation.</li><li>Patterns building.</li><li>Skeletonization of patterns.</li><li>Slant detection and correction.</li></ol>
-<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>, <a class="el" href="a00017.html" title="Preprocessing stage statistics of NessieOcr.">PreprocessorStatistics</a></dd></dl>
+The file must provide the information about samples according to the following format. The first line must be a single number that defines the number of features stored, i.e. the number of fields that every feature vector must have. Then, the following lines are the samples themselves, with one sample per line. Every sample must have exactly a number of fields according to the definition in the first line, and then and additional number that tells the class where the feature vector belongs to. The <em>feature</em> fields must have a floating point format: both the integer and decimal parts are required and separated by a point. The <em>class</em> field must be an integer. An example of a valid data set could be this:<p>
+<div class="fragment"><pre class="fragment"> 4
+ 0.1 0.3 1.3 2.4 3
+ 1.5 2.8 6.2 2.4 1
+ 3.3 1.2 0.9 1.1 3
+ 0.1 0.3 1.3 2.4 3
+</pre></div><p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-08 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-13 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="36b23b336f846e10ce8b2022ade99d28"></a><!-- doxytag: member="Preprocessor::Preprocessor" ref="36b23b336f846e10ce8b2022ade99d28" args="(const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width)" -->
+<a class="anchor" name="02ba8290b4e8e3a2cf29396a4421f278"></a><!-- doxytag: member="PlainTextDataset::PlainTextDataset" ref="02ba8290b4e8e3a2cf29396a4421f278" args="(const std::string &amp;filename)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Preprocessor::Preprocessor           </td>
+          <td class="memname">PlainTextDataset::PlainTextDataset           </td>
           <td>(</td>
-          <td class="paramtype">const Magick::Image &amp;&nbsp;</td>
-          <td class="paramname"> <em>page</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>width</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [explicit]</code></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>filename</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -176,290 +168,216 @@ For an optimal preprocessing, it is strongly recommended that the following algo
 <p>
 Constructor. 
 <p>
+This constructor loads a dataset from a file<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>page</em>&nbsp;</td><td>Underlying image representing a newspaper page. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-axis coordinate of the row where the top leftmost pixel of the press clip is. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of the column where the top leftmost pixel of the press clip is. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>height</em>&nbsp;</td><td>Height of the press clip in pixels. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>Width of the press clip in pixels.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>filename</em>&nbsp;</td><td>Path in the filesystem to the file containing the dataset.</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The Image object is copied into an internal structure. </dd></dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The file passed must have the number of features in its first line.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="3a751b1343980bbfd3337d962a8e7db3"></a><!-- doxytag: member="Preprocessor::applyGlobalThresholding" ref="3a751b1343980bbfd3337d962a8e7db3" args="()" -->
+<a class="anchor" name="3850b9c76eef875fd56e1b82d2bb3043"></a><!-- doxytag: member="PlainTextDataset::addSample" ref="3850b9c76eef875fd56e1b82d2bb3043" args="(const Sample &amp;sample)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Preprocessor::applyGlobalThresholding           </td>
+          <td class="memname">void PlainTextDataset::addSample           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>sample</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Apply a global thresholding algorithm over the press clip. 
-<p>
-The algorithm uses the Otsu's method to find automatically the optimal threshold for the press clip. Then, it compares each pixel gray level with that threshold and transforms the source clip into a binary image. As a result, the final histogram is bimodal.<p>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel in the press clip belonging to the background has a gray level value of 0, while every pixel of ink has a gray level of 1. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="813eb754a76dc82aa994e2c6217b3ee0"></a><!-- doxytag: member="Preprocessor::averageCharacterHeight" ref="813eb754a76dc82aa994e2c6217b3ee0" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Preprocessor::averageCharacterHeight           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the average character height. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Average character height in pixels. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="ae658f27ef4d1a2e6f25ba7f2280e110"></a><!-- doxytag: member="Preprocessor::buildPatterns" ref="ae658f27ef4d1a2e6f25ba7f2280e110" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::buildPatterns           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Build an array of normalized patterns using the regions of ink pixels extracted from the press clip. 
-<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be a list of regions available by calling <a class="el" href="a00016.html#14634e957ee922b170cf893efacca138" title="Apply a segmentation process over the press clip to isolate every region of ink pixels...">isolateRegions()</a>. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="1be36c8dc2dc249cb7e896f9dbbffc3c"></a><!-- doxytag: member="Preprocessor::correctSlanting" ref="1be36c8dc2dc249cb7e896f9dbbffc3c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::correctSlanting           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Correct the slanting of every region extracted from press clip. 
-<p>
-This method corrects the slanting by computing the angle for which the input pattern presents at least one column with more ink pixels than any column in the original pattern.<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be an array of patterns available by calling <a class="el" href="a00016.html#ae658f27ef4d1a2e6f25ba7f2280e110" title="Build an array of normalized patterns using the regions of ink pixels extracted from...">buildPatterns()</a>.</dd></dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The regions that present slanting are rotated as much as possible to be aligned with the Y-axis. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="14634e957ee922b170cf893efacca138"></a><!-- doxytag: member="Preprocessor::isolateRegions" ref="14634e957ee922b170cf893efacca138" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; unsigned int &gt; Preprocessor::isolateRegions           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Apply a segmentation process over the press clip to isolate every region of ink pixels. 
-<p>
-This method isolates every region of ink pixels in a press clip following a flooding algorithm. Starting from an arbitrary pixel of ink, the algorithm explores the neighbourhood adding new ink pixels to the region until a boundary of background pixels is found. Then, the algorithm selects another pixel and begins the process, until every ink pixel has been assigned to a region. As a result, a list of regions is built.<p>
-The list of regions is post-processed in order to find disconnected region that must be merged, e.g. accents and other punctuation signs to their characters. Finally, the list is sorted by lines and columns, so that traversing the list from the beginning is equivalent to reading the text from left to right and from up to down.<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of integers, each one represents the position where a blank space must be inserted when building the text in further post-processing.</dd></dl>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been thresholded by calling <a class="el" href="a00016.html#3a751b1343980bbfd3337d962a8e7db3" title="Apply a global thresholding algorithm over the press clip.">applyGlobalThresholding()</a>. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f675a33328b938dd5cf0527f9fa4175d"></a><!-- doxytag: member="Preprocessor::patterns" ref="f675a33328b938dd5cf0527f9fa4175d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt; <a class="el" href="a00013.html">Pattern</a> &gt; &amp; Preprocessor::patterns           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the patterns found, if any, in the last segmentation process. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of <a class="el" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> objects. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="67b0301b7bba87bd525311f12d343ccf"></a><!-- doxytag: member="Preprocessor::removeNoiseByLinearFiltering" ref="67b0301b7bba87bd525311f12d343ccf" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::removeNoiseByLinearFiltering           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Apply an averaging filter over the press clip to remove noise and smooth character borders. 
-<p>
-This method follows a linear filtering approach to remove noise and smooth the press clip, in which the value of an output pixel is a linear combination of the values of the pixels in the input pixel's neighbourhood. A pixel's neighbourhood is a set of pixels defined by their locations relative to that pixel. Normally, this algorithm should be applied a predefined number of times, otherwise all the important features could disappear.<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must be in grayscale mode. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f294c82a3cfa6eaae90a1e273ee0168c"></a><!-- doxytag: member="Preprocessor::removeNoiseByTemplateMatching" ref="f294c82a3cfa6eaae90a1e273ee0168c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::removeNoiseByTemplateMatching           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Apply four 3x3 templates over the press clip to remove additional noise and smooth character borders. 
-<p>
-This method passes over the templates over the entire clip, and this process is repeated until there is no change. These masks begin scanning in the lower right corner of the image and process each row movin upward row by row. The pixel in the center of the mask is the target. If the pixels in its neighbourhood do not match the template, the pixel is removed.<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The press clip must have been converted to binary mode by calling <a class="el" href="a00016.html#3a751b1343980bbfd3337d962a8e7db3" title="Apply a global thresholding algorithm over the press clip.">applyGlobalThresholding()</a>. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="3ad29f0062a8bea65a571f91084f4c0f"></a><!-- doxytag: member="Preprocessor::skeletonizePatterns" ref="3ad29f0062a8bea65a571f91084f4c0f" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::skeletonizePatterns           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Reduce the patterns to their fundamental skeleton using the Zhang-Suen algorithm. 
-<p>
-This algorithm has two steps, which are successively applied to the patterns. In each step contour points of the pattern that can be deleted are identified. Contour points are defined as points that have ink, and they have at least one 8-neighbour pixel value equal to the background.<p>
-In the first step every contour point that can be deleted is flagged only if four conditions are satisfied. In the second step additional pixels are flagged if another four conditions are satisfied. A pixel is not removed until a whole step has been applied. Both steps are repeated until there is no change in the image.<p>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>There must be an array of patterns available by calling <a class="el" href="a00016.html#ae658f27ef4d1a2e6f25ba7f2280e110" title="Build an array of normalized patterns using the regions of ink pixels extracted from...">buildPatterns()</a>. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="760ecd922ae5ad557edcf5f3d9be2a19"></a><!-- doxytag: member="Preprocessor::statistics" ref="760ecd922ae5ad557edcf5f3d9be2a19" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00017.html">PreprocessorStatistics</a> &amp; Preprocessor::statistics           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the statistics regarding the preprocessing stage. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00017.html" title="Preprocessing stage statistics of NessieOcr.">PreprocessorStatistics</a> object with all the statistics gathered at the time of calling. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="cc1c13caf9885170dea6d9e8b7442b29"></a><!-- doxytag: member="Preprocessor::writeClipToOutputImage" ref="cc1c13caf9885170dea6d9e8b7442b29" args="(const std::string &amp;outputFile, const double &amp;scalingFactor=1.0) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Preprocessor::writeClipToOutputImage           </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>outputFile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>scalingFactor</em> = <code>1.0</code></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Create a new image in the filesystem using Magick++ facilities, reflecting the current state of the press clip. 
+Addsa sample to the dataset. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>scalingFactor</em>&nbsp;</td><td>Top limit of the source image color scale to use in the output image (i.e. 1 for [0..1], 255 for [0..255], etc.).</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>Sample to add.</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent. </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is appended to the end of the dataset.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="a00004.html#65e42c7d35bd3270115455c3a6bc7b6f">Dataset</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="4ceae5eaf79ece96939b50f2b890bc27"></a><!-- doxytag: member="PlainTextDataset::at" ref="4ceae5eaf79ece96939b50f2b890bc27" args="(const unsigned int &amp;n) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00030.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp; Dataset::at           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Allow read-only access to a sample in the dataset. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where the required sample is.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Sample at given position. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ecaee990ce9d07085198bf32509a3507"></a><!-- doxytag: member="PlainTextDataset::character" ref="ecaee990ce9d07085198bf32509a3507" args="(const unsigned int &amp;code) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Dataset::character           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>code</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the character associated to the code passed. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>code</em>&nbsp;</td><td>A valid code.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The character associated to the code or an empty string if there is no association. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="06b9132afd07f5dd8147a7530a137e56"></a><!-- doxytag: member="PlainTextDataset::code" ref="06b9132afd07f5dd8147a7530a137e56" args="(const std::string &amp;character) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Dataset::code           </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the code associated to the character passed. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A valid character.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The code associated to the character or 256 if there is no association. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="efecdda5323a818fca5c9206eb76dc23"></a><!-- doxytag: member="PlainTextDataset::features" ref="efecdda5323a818fca5c9206eb76dc23" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Dataset::features           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of features per sample. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features per sample. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="599b3113630ba0d975a72530fa075d77"></a><!-- doxytag: member="PlainTextDataset::removeSample" ref="599b3113630ba0d975a72530fa075d77" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlainTextDataset::removeSample           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Remove a sample from the dataset. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample. </td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="a00004.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">Dataset</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="251b5cebd112449fc91d00179d61ab48"></a><!-- doxytag: member="PlainTextDataset::size" ref="251b5cebd112449fc91d00179d61ab48" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const long unsigned int &amp; Dataset::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of samples in the dataset. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of samples in the dataset. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

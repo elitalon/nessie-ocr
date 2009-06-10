@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: MySqlDataset.hpp Source File</title>
+<title>NessieOcr: FeatureExtractor.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,48 +61,52 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>MySqlDataset.hpp</h1><a href="a00040.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>FeatureExtractor.hpp</h1><a href="a00034.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_MYSQL_DATASET_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _MYSQL_DATASET_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_FEATURE_EXTRACTOR_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _FEATURE_EXTRACTOR_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="a00028.html" title="Declaration of Dataset class.">Dataset.hpp</a>"</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00010"></a>00010 
+<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>;
+<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="a00015.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>;
+<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="a00036.html" title="Declaration of FeatureExtractorStatistics class.">FeatureExtractorStatistics.hpp</a>"</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00011"></a>00011 
-<a name="l00051"></a><a class="code" href="a00010.html">00051</a> <span class="keyword">class </span><a class="code" href="a00010.html" title="Dataset built by retrieving the data from a MySQL database.">MySqlDataset</a> : <span class="keyword">public</span> <a class="code" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a>
-<a name="l00052"></a>00052 {
-<a name="l00053"></a>00053     <span class="keyword">public</span>:
-<a name="l00054"></a>00054     
-<a name="l00064"></a>00064         <span class="keyword">explicit</span> <a class="code" href="a00010.html#0921d1bc0bde9c91900ddd02c08c0550" title="Constructor.">MySqlDataset</a> (<span class="keyword">const</span> std::string&amp; database, <span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password);
+<a name="l00012"></a>00012 
+<a name="l00024"></a><a class="code" href="a00007.html">00024</a> <span class="keyword">class </span><a class="code" href="a00007.html" title="FeatureExtractor of the OCR process.">FeatureExtractor</a>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026     <span class="keyword">public</span>:
+<a name="l00027"></a>00027 
+<a name="l00029"></a>00029         <span class="keyword">explicit</span> <a class="code" href="a00007.html#58c705d663551bfa7baea3d75614311f" title="Constructor.">FeatureExtractor</a> ();
+<a name="l00030"></a>00030 
+<a name="l00034"></a>00034         <span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="a00007.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">featureVectors</a> () <span class="keyword">const</span>;
+<a name="l00035"></a>00035 
+<a name="l00039"></a>00039         <span class="keyword">const</span> <a class="code" href="a00008.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; <a class="code" href="a00007.html#b1b93ff45d510e5fecab7c2db692c22c" title="Get the statistics about the feature extraction stage.">statistics</a> () <span class="keyword">const</span>;
+<a name="l00040"></a>00040 
+<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="a00007.html#4b5e9b17a624a85945e775394f201ba6" title="Compute the image moments from the internal patterns.">computeMoments</a> (<span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; patterns);
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048     <span class="keyword">private</span>:
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050         <a class="code" href="a00008.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>      statistics_;        
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         std::vector&lt;FeatureVector&gt;      featureVectors_;    
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 
+<a name="l00056"></a><a class="code" href="a00007.html#030c43b9f2755ffdf117bc31d77c6265">00056</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="a00007.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">FeatureExtractor::featureVectors</a> ()<span class="keyword"> const</span>
+<a name="l00057"></a>00057 <span class="keyword"></span>{
+<a name="l00058"></a>00058     <span class="keywordflow">return</span> featureVectors_;
+<a name="l00059"></a>00059 }
+<a name="l00060"></a>00060 
+<a name="l00061"></a><a class="code" href="a00007.html#b1b93ff45d510e5fecab7c2db692c22c">00061</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00008.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; <a class="code" href="a00007.html#b1b93ff45d510e5fecab7c2db692c22c" title="Get the statistics about the feature extraction stage.">FeatureExtractor::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00062"></a>00062 <span class="keyword"></span>{
+<a name="l00063"></a>00063     <span class="keywordflow">return</span> statistics_;
+<a name="l00064"></a>00064 }
 <a name="l00065"></a>00065 
-<a name="l00067"></a>00067         <span class="keyword">virtual</span> <a class="code" href="a00010.html#a9758216a8aafd4a749413bca58f724a" title="Destructor.">~MySqlDataset</a> ();
-<a name="l00068"></a>00068 
-<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="a00010.html#6a7189ef3357fe3dc5bc251239ac05ee" title="Add a sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="a00028.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
-<a name="l00077"></a>00077 
-<a name="l00083"></a>00083         <span class="keywordtype">void</span> <a class="code" href="a00010.html#5d7c1ff7811edacb08744efa4d9d03e0" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="keyword">private</span>:
-<a name="l00086"></a>00086         
-<a name="l00087"></a>00087         std::string                             database_;          
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089         std::string                             username_;          
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091         std::string                             password_;          
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093         std::vector&lt;unsigned int&gt;               sampleIds_;         
-<a name="l00094"></a>00094         
-<a name="l00095"></a>00095         std::map&lt;unsigned int, unsigned int&gt;    classIds_;          
-<a name="l00096"></a>00096         
-<a name="l00097"></a>00097         std::string                             featureColumns_;    
-<a name="l00098"></a>00098 };
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="preprocessor">#endif</span>
-<a name="l00101"></a>00101 <span class="preprocessor"></span>
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

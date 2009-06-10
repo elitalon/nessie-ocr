@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: FeatureExtractorStatistics Class Reference</title>
+<title>NessieOcr: DatasetEngineType Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,146 +64,76 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>FeatureExtractorStatistics Class Reference</h1><!-- doxytag: class="FeatureExtractorStatistics" --><!-- doxytag: inherits="Statistics" -->Feature extraction stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>.  
+<h1>DatasetEngineType Class Reference</h1><!-- doxytag: class="DatasetEngineType" -->Identifier of the engine that is used to manage the dataset.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00069.html">FeatureExtractorStatistics.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00072.html">DatasetEngine.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Inheritance diagram for FeatureExtractorStatistics:</div>
+Collaboration diagram for DatasetEngineType:</div>
 <div class="dynsection">
-<p><center><img src="a00167.png" border="0" usemap="#a00168" alt="Inheritance graph"></center>
-<map name="a00168">
-<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="32,7,163,140"></map>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
-<div class="dynheader">
-Collaboration diagram for FeatureExtractorStatistics:</div>
-<div class="dynsection">
-<p><center><img src="a00169.png" border="0" usemap="#a00170" alt="Collaboration graph"></center>
-<map name="a00170">
-<area shape="rect" href="a00019.html" title="Statistics gathered during NessieOcr execution stages." alt="" coords="5,7,136,140"></map>
+<p><center><img src="a00175.png" border="0" usemap="#a00176" alt="Collaboration graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00171.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00177.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7d84885ee81ff35294ad6cb4698f62b6"></a><!-- doxytag: member="FeatureExtractorStatistics::FeatureExtractorStatistics" ref="7d84885ee81ff35294ad6cb4698f62b6" args="()" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#7d84885ee81ff35294ad6cb4698f62b6">FeatureExtractorStatistics</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#4e75f8725006d986b6fca7962cfb7c94">operator==</a> (const <a class="el" href="a00006.html">DatasetEngineType</a> &amp;engine) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="e8bd355e4e454ae12089ef8c13e9d938"></a><!-- doxytag: member="FeatureExtractorStatistics::FeatureExtractorStatistics" ref="e8bd355e4e454ae12089ef8c13e9d938" args="(const FeatureExtractorStatistics &amp;statistics)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#e8bd355e4e454ae12089ef8c13e9d938">FeatureExtractorStatistics</a> (const <a class="el" href="a00006.html">FeatureExtractorStatistics</a> &amp;statistics)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Equality operator overloading.  <a href="#4e75f8725006d986b6fca7962cfb7c94"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="bc9aa36d4fac3ce6af4fe54fe6d0689b"></a><!-- doxytag: member="DatasetEngineType::PlainText" ref="bc9aa36d4fac3ce6af4fe54fe6d0689b" args="()" -->
+static <a class="el" href="a00006.html">DatasetEngineType</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#bc9aa36d4fac3ce6af4fe54fe6d0689b">PlainText</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Copy constructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8b805a01741e3e1ac801772b1947b510"></a><!-- doxytag: member="FeatureExtractorStatistics::~FeatureExtractorStatistics" ref="8b805a01741e3e1ac801772b1947b510" args="()" -->
-virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#8b805a01741e3e1ac801772b1947b510">~FeatureExtractorStatistics</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the unique identifier of a plain-text-based dataset engine. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5e533c3fb8d9436a346b1204827484c7"></a><!-- doxytag: member="DatasetEngineType::MySql" ref="5e533c3fb8d9436a346b1204827484c7" args="()" -->
+static <a class="el" href="a00006.html">DatasetEngineType</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#5e533c3fb8d9436a346b1204827484c7">MySql</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="95a915ad796c0b2c7595cf6b848ab667"></a><!-- doxytag: member="FeatureExtractorStatistics::operator=" ref="95a915ad796c0b2c7595cf6b848ab667" args="(const FeatureExtractorStatistics &amp;statistics)" -->
-<a class="el" href="a00006.html">FeatureExtractorStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#95a915ad796c0b2c7595cf6b848ab667">operator=</a> (const <a class="el" href="a00006.html">FeatureExtractorStatistics</a> &amp;statistics)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the unique identifier of a MySQL-based dataset engine. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="042fb7e8b81b7a4f7a69af55b9566d0d"></a><!-- doxytag: member="DatasetEngineType::PostgreSql" ref="042fb7e8b81b7a4f7a69af55b9566d0d" args="()" -->
+static <a class="el" href="a00006.html">DatasetEngineType</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#042fb7e8b81b7a4f7a69af55b9566d0d">PostgreSql</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Assignment operator. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#ede3e00e2967532af5a699b84366447e">momentsComputingTime</a> (const double &amp;elapsedTime)</td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set the elapsed time while computing the image moments of patterns.  <a href="#ede3e00e2967532af5a699b84366447e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#5dfa83be3546c002886b4b59b7cdaea1">momentsComputingTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the elapsed time while computing the image moments of patterns.  <a href="#5dfa83be3546c002886b4b59b7cdaea1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="dca97bede22e0932f0eda0f983910483"></a><!-- doxytag: member="FeatureExtractorStatistics::print" ref="dca97bede22e0932f0eda0f983910483" args="() const " -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html#dca97bede22e0932f0eda0f983910483">print</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Print the statistics gathered. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2">totalTime</a> () const </td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the total elapsed time.  <a href="#f4c2b3d79e782abfde2d22b405a9b9a2"></a><br></td></tr>
-<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7256bc5d1785a0ef7c0cd21afbc53737"></a><!-- doxytag: member="FeatureExtractorStatistics::totalTime_" ref="7256bc5d1785a0ef7c0cd21afbc53737" args="" -->
-double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737">totalTime_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Total elapsed time within a stage. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the unique identifier of a PostgreSQL-based dataset engine. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Feature extraction stage statistics of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a>. 
+Identifier of the engine that is used to manage the dataset. 
 <p>
-This class stores all the statistical data gathered during execution of methods of the feature extraction stage. Data can be write or read, although a client program should be only interested in reading values. The statistical data is automatically set whenever a method from a <a class="el" href="a00005.html" title="FeatureExtractor of the OCR process.">FeatureExtractor</a> object is called, but only the fields that method uses.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>, <a class="el" href="a00005.html" title="FeatureExtractor of the OCR process.">FeatureExtractor</a></dd></dl>
+This class provides a simple ID mechanism to identify the type of the dataset engine whose initialization information is stored in a <a class="el" href="a00005.html" title="Engine that is used to manage the dataset.">DatasetEngine</a> object.<p>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00005.html" title="Engine that is used to manage the dataset.">DatasetEngine</a></dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-01-12 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-06-10 </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="5dfa83be3546c002886b4b59b7cdaea1"></a><!-- doxytag: member="FeatureExtractorStatistics::momentsComputingTime" ref="5dfa83be3546c002886b4b59b7cdaea1" args="() const " -->
+<a class="anchor" name="4e75f8725006d986b6fca7962cfb7c94"></a><!-- doxytag: member="DatasetEngineType::operator==" ref="4e75f8725006d986b6fca7962cfb7c94" args="(const DatasetEngineType &amp;engine) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double FeatureExtractorStatistics::momentsComputingTime           </td>
+          <td class="memname">bool DatasetEngineType::operator==           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const <a class="el" href="a00006.html">DatasetEngineType</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>engine</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the elapsed time while computing the image moments of patterns. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="ede3e00e2967532af5a699b84366447e"></a><!-- doxytag: member="FeatureExtractorStatistics::momentsComputingTime" ref="ede3e00e2967532af5a699b84366447e" args="(const double &amp;elapsedTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FeatureExtractorStatistics::momentsComputingTime           </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&nbsp;</td>
-          <td class="paramname"> <em>elapsedTime</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Set the elapsed time while computing the image moments of patterns. 
+Equality operator overloading. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>elapsedTime</em>&nbsp;</td><td>Elapsed time in seconds. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>engine</em>&nbsp;</td><td><a class="el" href="a00006.html" title="Identifier of the engine that is used to manage the dataset.">DatasetEngineType</a> object to compare with.</td></tr>
   </table>
 </dl>
-
-</div>
-</div><p>
-<a class="anchor" name="f4c2b3d79e782abfde2d22b405a9b9a2"></a><!-- doxytag: member="FeatureExtractorStatistics::totalTime" ref="f4c2b3d79e782abfde2d22b405a9b9a2" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double &amp; Statistics::totalTime           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the total elapsed time. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Elapsed time in seconds. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if both identifiers are equal, false otherwise. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

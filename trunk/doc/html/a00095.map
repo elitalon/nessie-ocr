@@ -1,6 +1,1 @@
-<area shape="rect" href="$a00027.html" title="Definition of Dataset class." alt="" coords="5,81,91,105">
-<area shape="rect" href="$a00035.html" title="Definition of KnnClassificationAlgorithm class." alt="" coords="115,81,307,105">
-<area shape="rect" href="$a00037.html" title="Definition of KnnClassifier class." alt="" coords="331,81,445,105">
-<area shape="rect" href="$a00040.html" title="Declaration of MySqlDataset class." alt="" coords="469,81,589,105">
-<area shape="rect" href="$a00049.html" title="Declaration of PlainTextDataset class." alt="" coords="613,81,749,105">
-<area shape="rect" href="$a00051.html" title="Declaration of PostgreSqlDataset class." alt="" coords="773,81,920,105">
+<area shape="rect" href="$a00028.html" title="Declaration of ClassifierStatistics class." alt="" coords="5,81,149,105">

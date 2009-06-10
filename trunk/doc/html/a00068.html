@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: FeatureExtractor.hpp Source File</title>
+<title>NessieOcr: Classifier.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,52 +61,51 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>FeatureExtractor.hpp</h1><a href="a00030.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>Classifier.hpp</h1><a href="a00026.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_FEATURE_EXTRACTOR_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _FEATURE_EXTRACTOR_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_CLASSIFIER_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _CLASSIFIER_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>;
-<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="a00013.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>;
-<a name="l00009"></a>00009 <span class="preprocessor">#include "<a class="code" href="a00032.html" title="Declaration of FeatureExtractorStatistics class.">FeatureExtractorStatistics.hpp</a>"</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012 
-<a name="l00024"></a><a class="code" href="a00005.html">00024</a> <span class="keyword">class </span><a class="code" href="a00005.html" title="FeatureExtractor of the OCR process.">FeatureExtractor</a>
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026     <span class="keyword">public</span>:
-<a name="l00027"></a>00027 
-<a name="l00029"></a>00029         <span class="keyword">explicit</span> <a class="code" href="a00005.html#58c705d663551bfa7baea3d75614311f" title="Constructor.">FeatureExtractor</a> ();
+<a name="l00007"></a>00007 <span class="keyword">class </span><a class="code" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>;
+<a name="l00008"></a>00008 <span class="keyword">class </span><a class="code" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a>;
+<a name="l00009"></a>00009 <span class="keyword">class </span><a class="code" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage.">ClassificationAlgorithm</a>;
+<a name="l00010"></a>00010 <span class="preprocessor">#include "<a class="code" href="a00028.html" title="Declaration of ClassifierStatistics class.">ClassifierStatistics.hpp</a>"</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 
+<a name="l00027"></a><a class="code" href="a00002.html">00027</a> <span class="keyword">class </span><a class="code" href="a00002.html" title="Classifier of the OCR process.">Classifier</a>
+<a name="l00028"></a>00028 {
+<a name="l00029"></a>00029     <span class="keyword">public</span>:
 <a name="l00030"></a>00030 
-<a name="l00034"></a>00034         <span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="a00005.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">featureVectors</a> () <span class="keyword">const</span>;
-<a name="l00035"></a>00035 
-<a name="l00039"></a>00039         <span class="keyword">const</span> <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; <a class="code" href="a00005.html#b1b93ff45d510e5fecab7c2db692c22c" title="Get the statistics about the feature extraction stage.">statistics</a> () <span class="keyword">const</span>;
-<a name="l00040"></a>00040 
-<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="a00005.html#4b5e9b17a624a85945e775394f201ba6" title="Compute the image moments from the internal patterns.">computeMoments</a> (<span class="keyword">const</span> std::vector&lt;Pattern&gt;&amp; patterns);
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048     <span class="keyword">private</span>:
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>      statistics_;        
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052         std::vector&lt;FeatureVector&gt;      featureVectors_;    
-<a name="l00053"></a>00053 };
-<a name="l00054"></a>00054 
+<a name="l00032"></a>00032         <span class="keyword">explicit</span> <a class="code" href="a00002.html#e6132b100c96a4f3d8ad3885b5acb28e" title="Constructor.">Classifier</a> ();
+<a name="l00033"></a>00033 
+<a name="l00035"></a>00035         <span class="keyword">virtual</span> <a class="code" href="a00002.html#7831f2accc6c1e98ba11ba5ee67f6d0c" title="Destructor.">~Classifier</a> ();
+<a name="l00036"></a>00036 
+<a name="l00040"></a>00040         <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>&amp; <a class="code" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">statistics</a> () <span class="keyword">const</span>;
+<a name="l00041"></a>00041 
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> std::vector&lt;std::string&gt; <a class="code" href="a00002.html#0e305866df409a318d8b8a4ea6a7f858" title="Classify each feature vector passed into its most probably class (character).">performClassification</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors) = 0;
+<a name="l00048"></a>00048 
+<a name="l00054"></a>00054         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00002.html#1615ad7c13e54de1488d31a4ab3cd62b" title="Train the classifier, comparing each classification decision with a reference text...">performTraining</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a>&amp; referenceText) = 0;
 <a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="a00005.html#030c43b9f2755ffdf117bc31d77c6265">00056</a> <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; <a class="code" href="a00005.html#030c43b9f2755ffdf117bc31d77c6265" title="Get the feature vectors built from the patterns.">FeatureExtractor::featureVectors</a> ()<span class="keyword"> const</span>
-<a name="l00057"></a>00057 <span class="keyword"></span>{
-<a name="l00058"></a>00058     <span class="keywordflow">return</span> featureVectors_;
-<a name="l00059"></a>00059 }
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="a00005.html#b1b93ff45d510e5fecab7c2db692c22c">00061</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00006.html" title="Feature extraction stage statistics of NessieOcr.">FeatureExtractorStatistics</a>&amp; <a class="code" href="a00005.html#b1b93ff45d510e5fecab7c2db692c22c" title="Get the statistics about the feature extraction stage.">FeatureExtractor::statistics</a> ()<span class="keyword"> const</span>
-<a name="l00062"></a>00062 <span class="keyword"></span>{
-<a name="l00063"></a>00063     <span class="keywordflow">return</span> statistics_;
-<a name="l00064"></a>00064 }
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00056"></a>00056     <span class="keyword">protected</span>:
+<a name="l00057"></a>00057 
+<a name="l00058"></a><a class="code" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">00058</a>         <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>        <a class="code" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa" title="Statistics about the classification of feature vectors.">statistics_</a>;                
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573">00060</a>         <a class="code" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage.">ClassificationAlgorithm</a>*    <a class="code" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573" title="Concrete classification algorithm to be used.">classificationAlgorithm_</a>;   
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 
+<a name="l00064"></a><a class="code" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502">00064</a> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a>&amp; <a class="code" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502" title="Get the statistics regarding the classification stage.">Classifier::statistics</a> ()<span class="keyword"> const</span>
+<a name="l00065"></a>00065 <span class="keyword"></span>{
+<a name="l00066"></a>00066     <span class="keywordflow">return</span> <a class="code" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa" title="Statistics about the classification of feature vectors.">statistics_</a>;
+<a name="l00067"></a>00067 }
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

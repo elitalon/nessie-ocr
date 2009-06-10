@@ -64,15 +64,18 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>NessieOcr Member List</h1>This is the complete list of members for <a class="el" href="a00012.html">NessieOcr</a>, including all inherited members.<p><table>
-  <tr class="memlist"><td><a class="el" href="a00012.html#0b571117c702a32c851a07baa7e3c965">exportPatternImages</a>() const </td><td><a class="el" href="a00012.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00012.html#38b73367c74767bdec9986c0cd119d4d">NessieOcr</a>()</td><td><a class="el" href="a00012.html">NessieOcr</a></td><td><code> [explicit]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00012.html#4238fabd5c03487eb98e9b6c2a48f737">printStatistics</a>() const </td><td><a class="el" href="a00012.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00012.html#106ae2ac39507a688628bd1a6f8c815d">recognize</a>(const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width, const std::auto_ptr&lt; Classifier &gt; &amp;classifier)</td><td><a class="el" href="a00012.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00012.html#be23e4db05523dd61697b2837ef86265">train</a>(const std::auto_ptr&lt; Classifier &gt; &amp;classifier, const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width, const std::string &amp;text)</td><td><a class="el" href="a00012.html">NessieOcr</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00012.html#1ec62ac7f69401516018fac35593e816">~NessieOcr</a>()</td><td><a class="el" href="a00012.html">NessieOcr</a></td><td></td></tr>
+<h1>KnnClassifier Member List</h1>This is the complete list of members for <a class="el" href="a00011.html">KnnClassifier</a>, including all inherited members.<p><table>
+  <tr class="memlist"><td><a class="el" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573">classificationAlgorithm_</a></td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#e6132b100c96a4f3d8ad3885b5acb28e">Classifier</a>()</td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00011.html#9ef06d3be45e730cf7c50f3140300596">KnnClassifier</a>(const unsigned int &amp;nNeighbours, DatasetEngine engine)</td><td><a class="el" href="a00011.html">KnnClassifier</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00011.html#67350f136aca9f03d8328861db374613">performClassification</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)</td><td><a class="el" href="a00011.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00011.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">performTraining</a>(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)</td><td><a class="el" href="a00011.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a>() const </td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00002.html#7831f2accc6c1e98ba11ba5ee67f6d0c">~Classifier</a>()</td><td><a class="el" href="a00002.html">Classifier</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00011.html#bfb8bf17893ee64371cc3dab7b1a1dc1">~KnnClassifier</a>()</td><td><a class="el" href="a00011.html">KnnClassifier</a></td><td><code> [virtual]</code></td></tr>
 </table></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

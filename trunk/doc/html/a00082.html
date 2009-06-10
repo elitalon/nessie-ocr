@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: Statistics.hpp Source File</title>
+<title>NessieOcr: PlainTextDataset.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -61,41 +61,36 @@ window.onload = initDynSections;
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>Statistics.hpp</h1><a href="a00059.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<h1>PlainTextDataset.hpp</h1><a href="a00053.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_STATISTICS_H)</span>
-<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _STATISTICS_H</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#if !defined(_PLAIN_TEXT_DATASET_H)</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#define _PLAIN_TEXT_DATASET_H</span>
 <a name="l00006"></a>00006 <span class="preprocessor"></span>
-<a name="l00007"></a>00007 
-<a name="l00018"></a><a class="code" href="a00019.html">00018</a> <span class="keyword">class </span><a class="code" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a>
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     <span class="keyword">public</span>:
-<a name="l00021"></a>00021 
-<a name="l00023"></a>00023         <span class="keyword">explicit</span> <a class="code" href="a00019.html#60ddd90a571ed4c3ce8c0f6317a36d63" title="Constructor.">Statistics</a> ();
-<a name="l00024"></a>00024 
-<a name="l00026"></a>00026         <span class="keyword">virtual</span> <a class="code" href="a00019.html#b68ede75479e44d5c35b78ec1284065b" title="Destructor.">~Statistics</a> ();
-<a name="l00027"></a>00027 
-<a name="l00031"></a>00031         <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2" title="Get the total elapsed time.">totalTime</a> () <span class="keyword">const</span>;
-<a name="l00032"></a>00032         
-<a name="l00034"></a>00034         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00019.html#b5b3a9a0914c4dbcbcb629840b07b8aa" title="Print the statistics to the standard output.">print</a> () <span class="keyword">const</span> = 0;
+<a name="l00007"></a>00007 <span class="preprocessor">#include "<a class="code" href="a00030.html" title="Declaration of Dataset class.">Dataset.hpp</a>"</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a>00010 
+<a name="l00032"></a><a class="code" href="a00016.html">00032</a> <span class="keyword">class </span><a class="code" href="a00016.html" title="Dataset built by retrieving the data from a plain text file in the filesystem.">PlainTextDataset</a> : <span class="keyword">public</span> <a class="code" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a>
+<a name="l00033"></a>00033 {
+<a name="l00034"></a>00034     <span class="keyword">public</span>:
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036     <span class="keyword">protected</span>:
-<a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737">00038</a>         <span class="keywordtype">double</span> <a class="code" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a>;  
-<a name="l00039"></a>00039 
-<a name="l00043"></a>00043         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00019.html#35b1215322e040d1d88fac405b1b91f1" title="Update the total elapsed time within a stage.">updateTotalTime</a> () = 0;
-<a name="l00044"></a>00044 };
+<a name="l00044"></a>00044         <span class="keyword">explicit</span> <a class="code" href="a00016.html#02ba8290b4e8e3a2cf29396a4421f278" title="Constructor.">PlainTextDataset</a> (<span class="keyword">const</span> std::string&amp; filename);
 <a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2">00046</a> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code" href="a00019.html#f4c2b3d79e782abfde2d22b405a9b9a2" title="Get the total elapsed time.">Statistics::totalTime</a> ()<span class="keyword"> const</span>
-<a name="l00047"></a>00047 <span class="keyword"></span>{
-<a name="l00048"></a>00048     <span class="keywordflow">return</span> <a class="code" href="a00019.html#7256bc5d1785a0ef7c0cd21afbc53737" title="Total elapsed time within a stage.">totalTime_</a>;
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="preprocessor">#endif</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span>
+<a name="l00047"></a>00047         <span class="keyword">virtual</span> <a class="code" href="a00016.html#0ac0a2bd238b7a8bbde59dad44a8b519" title="Destructor.">~PlainTextDataset</a> ();
+<a name="l00048"></a>00048 
+<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="a00016.html#3850b9c76eef875fd56e1b82d2bb3043" title="Addsa sample to the dataset.">addSample</a> (<span class="keyword">const</span> <a class="code" href="a00030.html#a2dc1592be8cd31d4395d016917d941c" title="Internal representation of a sample in a dataset.">Sample</a>&amp; sample);
+<a name="l00057"></a>00057 
+<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="a00016.html#599b3113630ba0d975a72530fa075d77" title="Remove a sample from the dataset.">removeSample</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; n);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063     <span class="keyword">private</span>:
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065         std::string filename_;  
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:44 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

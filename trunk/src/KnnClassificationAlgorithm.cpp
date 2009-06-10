@@ -2,7 +2,11 @@
 /// @brief Definition of KnnClassificationAlgorithm class
 
 #include "KnnClassificationAlgorithm.hpp"
+#include "DatasetEngine.hpp"
 #include "Dataset.hpp"
+#include "PlainTextDataset.hpp"
+#include "MySqlDataset.hpp"
+#include "PostgreSqlDataset.hpp"
 #include "FeatureVector.hpp"
 #include "Text.hpp"
 #include "NessieException.hpp"
@@ -11,17 +15,30 @@
 #include <sstream>
 
 
-KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNeighbours, Dataset* const dataset)
+KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNeighbours, DatasetEngine engine)
 :	ClassificationAlgorithm(),
 	kNeighbours_(kNeighbours),
-	dataset_(dataset)
+	dataset_(0)
 {
-	if ( dataset == 0 )
-		throw NessieException ("KnnClassificationAlgorithm::KnnClassificationAlgorithm() : The dataset is set to a null value.");
+	if ( engine.type() == DatasetEngineType::PlainText() )
+		dataset_ = new PlainTextDataset (engine.filename());
+
+#if defined(_WITH_POSTGRESQL_DATASET_)
+	if ( engine.type() == DatasetEngineType::PostgreSql() )
+		dataset_ = new PostgreSqlDataset  (engine.database(), engine.username(), engine.password());
+#endif
+
+#if defined(_WITH_MYSQL_DATASET_)
+	if ( engine.type() == DatasetEngineType::MySql() )
+		dataset_ = new MySqlDataset (engine.database(), engine.username(), engine.password());
+#endif
 }
 
 
-KnnClassificationAlgorithm::~KnnClassificationAlgorithm () {}
+KnnClassificationAlgorithm::~KnnClassificationAlgorithm ()
+{
+	delete dataset_;
+}
 
 
 std::vector<std::string> KnnClassificationAlgorithm::classify (const std::vector<FeatureVector>& featureVectors) const

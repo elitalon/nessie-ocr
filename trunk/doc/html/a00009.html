@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: KnnClassifier Class Reference</title>
+<title>NessieOcr: FeatureVector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,85 +64,99 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>KnnClassifier Class Reference</h1><!-- doxytag: class="KnnClassifier" --><!-- doxytag: inherits="Classifier" --><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a> based on the KNN paradigm.  
+<h1>FeatureVector Class Reference</h1><!-- doxytag: class="FeatureVector" -->Array of characteristic features that identifies a pattern.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00072.html">KnnClassifier.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00075.html">FeatureVector.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Inheritance diagram for KnnClassifier:</div>
+Collaboration diagram for FeatureVector:</div>
 <div class="dynsection">
-<p><center><img src="a00180.png" border="0" usemap="#a00181" alt="Inheritance graph"></center>
-<map name="a00181">
-<area shape="rect" href="a00002.html" title="Classifier of the OCR process." alt="" coords="5,5,165,155"></map>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
-<div class="dynheader">
-Collaboration diagram for KnnClassifier:</div>
-<div class="dynsection">
-<p><center><img src="a00182.png" border="0" usemap="#a00183" alt="Collaboration graph"></center>
-<map name="a00183">
-<area shape="rect" href="a00002.html" title="Classifier of the OCR process." alt="" coords="5,5,165,155"></map>
+<p><center><img src="a00186.png" border="0" usemap="#a00187" alt="Collaboration graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00184.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00188.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#02ed13dc455d2febc01021c4e9b72ba1">KnnClassifier</a> (const unsigned int &amp;nNeighbours, <a class="el" href="a00004.html">Dataset</a> *const dataset)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#2a3ec2b56837886aa56040e64bda8b86">FeatureVector</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#02ed13dc455d2febc01021c4e9b72ba1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="bfb8bf17893ee64371cc3dab7b1a1dc1"></a><!-- doxytag: member="KnnClassifier::~KnnClassifier" ref="bfb8bf17893ee64371cc3dab7b1a1dc1" args="()" -->
-virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#bfb8bf17893ee64371cc3dab7b1a1dc1">~KnnClassifier</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#2a3ec2b56837886aa56040e64bda8b86"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#ab161bb5d9efdc4e74cd375eea65ff5a">FeatureVector</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">std::vector&lt; std::string &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#67350f136aca9f03d8328861db374613">performClassification</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#ab161bb5d9efdc4e74cd375eea65ff5a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#befee1fb8cf23956c07a4df8b2fc1edb">at</a> (const unsigned int &amp;n)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Classify each feature vector passed into its most probably class (character).  <a href="#67350f136aca9f03d8328861db374613"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#7c290e7a015b3d3f8ad92a8ec8dc0b09">performTraining</a> (const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00020.html">Text</a> &amp;referenceText)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to a certain feature.  <a href="#befee1fb8cf23956c07a4df8b2fc1edb"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#0bd1fad60b18740189dde5e54cf1e885">at</a> (const unsigned int &amp;n) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#7c290e7a015b3d3f8ad92a8ec8dc0b09"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <br class="typebreak">
-<a class="el" href="a00003.html">ClassifierStatistics</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#265a12730a3fb6bdbbd53d3f97466502">statistics</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a certain feature.  <a href="#0bd1fad60b18740189dde5e54cf1e885"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="a00009.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#58a2309387bd18d956e16c148585352a">operator+</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the statistics regarding the classification stage.  <a href="#265a12730a3fb6bdbbd53d3f97466502"></a><br></td></tr>
-<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7d5d16d95fc5685221f4d99444b703aa"></a><!-- doxytag: member="KnnClassifier::statistics_" ref="7d5d16d95fc5685221f4d99444b703aa" args="" -->
-<a class="el" href="a00003.html">ClassifierStatistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the sum of two feature vectors.  <a href="#58a2309387bd18d956e16c148585352a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="a00009.html">FeatureVector</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#fa1a86fbb34177281854406deea435ab">operator-</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="a00019.html" title="Statistics gathered during NessieOcr execution stages.">Statistics</a> about the classification of feature vectors. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="16ed33c24d275a6c4d9028d8ebf38573"></a><!-- doxytag: member="KnnClassifier::classificationAlgorithm_" ref="16ed33c24d275a6c4d9028d8ebf38573" args="" -->
-<a class="el" href="a00001.html">ClassificationAlgorithm</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#16ed33c24d275a6c4d9028d8ebf38573">classificationAlgorithm_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the subtraction of two feature vectors.  <a href="#fa1a86fbb34177281854406deea435ab"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#a372a9185d83db2283947d50a2913db0">operator*</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Concrete classification algorithm to be used. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the dot product of two feature vectors.  <a href="#a372a9185d83db2283947d50a2913db0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#4e3bd39520fdd8afbefa90ed203d512b">size</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features held.  <a href="#4e3bd39520fdd8afbefa90ed203d512b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#6fe2c9d558623f94fdbb7dac653a69f5">clear</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clear the vector content.  <a href="#6fe2c9d558623f94fdbb7dac653a69f5"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#43c8513a501ddbd01cb02047f2730c9c">reset</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reset the vector content.  <a href="#43c8513a501ddbd01cb02047f2730c9c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#747c566a31accf96ee43e047122e86cd">resize</a> (const unsigned int &amp;n)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Resize the vector to the specified size.  <a href="#747c566a31accf96ee43e047122e86cd"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#c3e33132c9eaca6ff30bcf21ea27d3f3">computeEuclideanDistance</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector) const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the Euclidean distance with the input vector.  <a href="#c3e33132c9eaca6ff30bcf21ea27d3f3"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-<a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> of <a class="el" href="a00012.html" title="Manager of the optical character recognition process.">NessieOcr</a> based on the KNN paradigm. 
+Array of characteristic features that identifies a pattern. 
 <p>
-This class implements the <a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> class using the KNN paradigm. A KNN classifier only needs as input parameters the number of neighbours and a dataset.<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a>, <a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a>, <a class="el" href="a00007.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>, <a class="el" href="a00020.html" title="Text extracted from a press clip after character recognition.">Text</a></dd></dl>
+This class stores a set of features computed from a pattern where the character's pixels has been mapped.<p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement another method to compute distance between vectors (e.g. the Mahalanobis distance).</dd></dl>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-04-29 </dd></dl>
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-04 </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="02ed13dc455d2febc01021c4e9b72ba1"></a><!-- doxytag: member="KnnClassifier::KnnClassifier" ref="02ed13dc455d2febc01021c4e9b72ba1" args="(const unsigned int &amp;nNeighbours, Dataset *const dataset)" -->
+<a class="anchor" name="2a3ec2b56837886aa56040e64bda8b86"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="2a3ec2b56837886aa56040e64bda8b86" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">KnnClassifier::KnnClassifier           </td>
+          <td class="memname">FeatureVector::FeatureVector           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Constructor. 
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty feature vector of zero size is initialized. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ab161bb5d9efdc4e74cd375eea65ff5a"></a><!-- doxytag: member="FeatureVector::FeatureVector" ref="ab161bb5d9efdc4e74cd375eea65ff5a" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FeatureVector::FeatureVector           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>nNeighbours</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00004.html">Dataset</a> *const &nbsp;</td>
-          <td class="paramname"> <em>dataset</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [explicit]</code></td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -153,116 +167,293 @@ Constructor.
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>nNeighbours</em>&nbsp;</td><td>Number of neighbours to search for every sample. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>dataset</em>&nbsp;</td><td><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> to use in classification and training methods.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of features to store in the vector.</td></tr>
   </table>
 </dl>
-<dl class="warning" compact><dt><b>Warning:</b></dt><dd>The dataset is only used by the class. A <a class="el" href="a00009.html" title="Classifier of NessieOcr based on the KNN paradigm.">KnnClassifier</a> object is not responsible of deallocating the dataset. </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>An empty feature vector of size <em>n</em> is initialized to 0.0. </dd></dl>
 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="67350f136aca9f03d8328861db374613"></a><!-- doxytag: member="KnnClassifier::performClassification" ref="67350f136aca9f03d8328861db374613" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors)" -->
+<a class="anchor" name="0bd1fad60b18740189dde5e54cf1e885"></a><!-- doxytag: member="FeatureVector::at" ref="0bd1fad60b18740189dde5e54cf1e885" args="(const unsigned int &amp;n) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::string &gt; KnnClassifier::performClassification           </td>
+          <td class="memname">const double &amp; FeatureVector::at           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>featureVectors</em>          </td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Classify each feature vector passed into its most probably class (character). 
+Allow read-only access to a certain feature. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors to classify.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Position inside the vector where the feature is.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>An array of std::string objects with the characters found, one character per vector in the array passed. </dd></dl>
-
-<p>Implements <a class="el" href="a00002.html#0e305866df409a318d8b8a4ea6a7f858">Classifier</a>.</p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The feature at given position. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="7c290e7a015b3d3f8ad92a8ec8dc0b09"></a><!-- doxytag: member="KnnClassifier::performTraining" ref="7c290e7a015b3d3f8ad92a8ec8dc0b09" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)" -->
+<a class="anchor" name="befee1fb8cf23956c07a4df8b2fc1edb"></a><!-- doxytag: member="FeatureVector::at" ref="befee1fb8cf23956c07a4df8b2fc1edb" args="(const unsigned int &amp;n)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void KnnClassifier::performTraining           </td>
+          <td class="memname">double &amp; FeatureVector::at           </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="a00007.html">FeatureVector</a> &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>featureVectors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&nbsp;</td>
-          <td class="paramname"> <em>characters</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00020.html">Text</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>referenceText</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [virtual]</code></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Train the classifier, comparing each classification decision with a reference text. 
+Allow read-and-write access to a certain feature. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors that matches the array of characters previously classified. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>An array of std::string objects with classified characters for training. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>referenceText</em>&nbsp;</td><td>A text to compare with the classificatios results to control the training decision.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Position inside the vector where the feature is.</td></tr>
   </table>
 </dl>
-<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The size of all input parameters must be equal. </dd></dl>
-
-<p>Implements <a class="el" href="a00002.html#1615ad7c13e54de1488d31a4ab3cd62b">Classifier</a>.</p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The feature at given position. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="265a12730a3fb6bdbbd53d3f97466502"></a><!-- doxytag: member="KnnClassifier::statistics" ref="265a12730a3fb6bdbbd53d3f97466502" args="() const " -->
+<a class="anchor" name="6fe2c9d558623f94fdbb7dac653a69f5"></a><!-- doxytag: member="FeatureVector::clear" ref="6fe2c9d558623f94fdbb7dac653a69f5" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00003.html">ClassifierStatistics</a> &amp; Classifier::statistics           </td>
+          <td class="memname">void FeatureVector::clear           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the statistics regarding the classification stage. 
+Clear the vector content. 
 <p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00003.html" title="Classification stage statistics of NessieOcr.">ClassifierStatistics</a> object. </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The features are removed and the size becomes 0. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="c3e33132c9eaca6ff30bcf21ea27d3f3"></a><!-- doxytag: member="FeatureVector::computeEuclideanDistance" ref="c3e33132c9eaca6ff30bcf21ea27d3f3" args="(const FeatureVector &amp;featureVector) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double FeatureVector::computeEuclideanDistance           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Compute the Euclidean distance with the input vector. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector of reference.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The Euclidean distance between this vector and the input vector. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="a372a9185d83db2283947d50a2913db0"></a><!-- doxytag: member="FeatureVector::operator*" ref="a372a9185d83db2283947d50a2913db0" args="(const FeatureVector &amp;featureVector) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double FeatureVector::operator*           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Compute the dot product of two feature vectors. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to multiplicate.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The result of multiplicating both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="58a2309387bd18d956e16c148585352a"></a><!-- doxytag: member="FeatureVector::operator+" ref="58a2309387bd18d956e16c148585352a" args="(const FeatureVector &amp;featureVector) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00009.html">FeatureVector</a> FeatureVector::operator+           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Compute the sum of two feature vectors. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to sum.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of summing both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="fa1a86fbb34177281854406deea435ab"></a><!-- doxytag: member="FeatureVector::operator&#45;" ref="fa1a86fbb34177281854406deea435ab" args="(const FeatureVector &amp;featureVector) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00009.html">FeatureVector</a> FeatureVector::operator-           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Compute the subtraction of two feature vectors. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>Feature vector to subtract.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>A <a class="el" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a> object as a result of subtracting both feature vectors.</dd></dl>
+<dl compact><dt><b>Exceptions:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00013.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="43c8513a501ddbd01cb02047f2730c9c"></a><!-- doxytag: member="FeatureVector::reset" ref="43c8513a501ddbd01cb02047f2730c9c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeatureVector::reset           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Reset the vector content. 
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The features are set to 0.0 but the vector size remains equal. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="747c566a31accf96ee43e047122e86cd"></a><!-- doxytag: member="FeatureVector::resize" ref="747c566a31accf96ee43e047122e86cd" args="(const unsigned int &amp;n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FeatureVector::resize           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>n</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Resize the vector to the specified size. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Number of features to store in the vector.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The previous features are removed and an new vector of size <em>n</em> is initialized to 0.0. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4e3bd39520fdd8afbefa90ed203d512b"></a><!-- doxytag: member="FeatureVector::size" ref="4e3bd39520fdd8afbefa90ed203d512b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; FeatureVector::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of features held. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features held. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

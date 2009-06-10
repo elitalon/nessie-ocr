@@ -3,8 +3,7 @@
 
 #include <Magick++.h>
 #include "NessieOcr.hpp"
-#include "PostgreSqlDataset.hpp"
-#include "PlainTextDataset.hpp"
+#include "DatasetEngine.hpp"
 #include "KnnClassifier.hpp"
 #include "Text.hpp"
 
@@ -66,7 +65,7 @@ int main (int argc, char *argv[])
 	// Show help message
 	if ( passedOptions.count("help") )
 	{
-		std::cout << std::endl << "Usage: tester [options] <image>" << std::endl;
+		std::cout << std::endl << "Usage: ocrtest [options] <image>" << std::endl;
 		std::cout << visibleOptions << std::endl;
 		return 0;
 	}
@@ -75,41 +74,30 @@ int main (int argc, char *argv[])
 	// Test program arguments
 	if ( !passedOptions.count("image") )
 	{
-		std::cerr << "tester: Missing image file." << std::endl;
-		std::cerr << std::endl << "Usage: tester [options] <image>" << std::endl;
+		std::cerr << "ocrtest: Missing image file." << std::endl;
+		std::cerr << std::endl << "Usage: ocrtest [options] <image>" << std::endl;
 		std::cerr << visibleOptions << std::endl;
 		return 1;
 	}
 
-	boost::timer timer;
-	timer.restart();
-
-	// Load dataset
-	std::auto_ptr<Dataset> dataset;
-	try
-	{
-		if ( passedOptions.count("file") )
-			dataset.reset( new PlainTextDataset(passedOptions["file"].as<std::string>()) );
-		else
-		{
-			std::string databaseName( passedOptions["database"].as<std::string>() );
-			std::string databaseUser( passedOptions["user"].as<std::string>() );
-			std::string databasePassword( passedOptions["password"].as<std::string>() );
-
-			dataset.reset( new PostgreSqlDataset(databaseName, databaseUser, databasePassword) );
-		}
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return 1;
-	}
-
+		
 	// Define the classifier
 	std::auto_ptr<Classifier> classifier;
 	try
 	{
-		classifier.reset( new KnnClassifier(passedOptions["knn"].as<unsigned int>(), dataset.get()) );
+		if ( passedOptions.count("file") )
+		{
+			std::string filename (passedOptions["file"].as<std::string>());
+			classifier.reset( new KnnClassifier(passedOptions["knn"].as<unsigned int>(), DatasetEngine::PlainText(filename)) );
+		}
+		else
+		{
+			std::string database ( passedOptions["database"].as<std::string>() );
+			std::string username ( passedOptions["user"].as<std::string>() );
+			std::string password ( passedOptions["password"].as<std::string>() );
+
+			classifier.reset( new KnnClassifier(passedOptions["knn"].as<unsigned int>(), DatasetEngine::PostgreSql(database, username, password)) );
+		}
 	}
 	catch (std::exception& e)
 	{
@@ -127,7 +115,7 @@ int main (int argc, char *argv[])
 			std::ifstream inputFile( passedOptions["training"].as<std::string>().data() );
 			if ( not inputFile.is_open() || not inputFile.good() )
 			{
-				std::cerr << "tester: The file passed for training is not valid." << std::endl;
+				std::cerr << "ocrtest: The file passed for training is not valid." << std::endl;
 				return 1;
 			}
 
@@ -152,10 +140,6 @@ int main (int argc, char *argv[])
 
 			ocr.train(classifier, image, 0, 0, image.rows(), image.columns(), text);
 		
-			// Create BMP images for patterns
-			if ( passedOptions.count("create-patterns") )
-				ocr.exportPatternImages();
-
 			// Show statistics
 			if ( passedOptions.count("statistics") )
 				ocr.printStatistics();
@@ -177,10 +161,6 @@ int main (int argc, char *argv[])
 				if ( !text.data().empty() )
 					std::cout << text.data() << std::endl << std::endl;
 
-				// Create BMP images for patterns
-				if ( passedOptions.count("create-patterns") )
-					ocr.exportPatternImages();
-
 				// Show statistics
 				if ( passedOptions.count("statistics") )
 				{
@@ -190,12 +170,15 @@ int main (int argc, char *argv[])
 				}
 			}
 		}
+		
+		// Create BMP images for patterns
+		if ( passedOptions.count("create-patterns") )
+			ocr.exportPatternImages();
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-	std::cout << timer.elapsed() << std::endl;
 	return 0;
 }

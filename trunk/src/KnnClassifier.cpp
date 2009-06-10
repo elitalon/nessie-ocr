@@ -4,23 +4,23 @@
 #include "KnnClassifier.hpp"
 #include "KnnClassificationAlgorithm.hpp"
 #include "Text.hpp"
-#include "Dataset.hpp"
+#include "DatasetEngine.hpp"
 #include "FeatureVector.hpp"
 #include "NessieException.hpp"
 #include <boost/timer.hpp>
 
 
-KnnClassifier::KnnClassifier (const unsigned int& nNeighbours, Dataset* const dataset)
+KnnClassifier::KnnClassifier (const unsigned int& nNeighbours, DatasetEngine engine)
 :	Classifier()
 {
-	if ( dataset == 0 )
-		throw NessieException ("KnnClassifier::KnnClassifier() : The dataset is set to a null value.");
-
-	classificationAlgorithm_ = new KnnClassificationAlgorithm(nNeighbours, dataset);
+	classificationAlgorithm_ = new KnnClassificationAlgorithm(nNeighbours, engine);
 }
 
 
-KnnClassifier::~KnnClassifier () {};
+KnnClassifier::~KnnClassifier ()
+{
+	delete classificationAlgorithm_;
+}
 
 
 std::vector<std::string> KnnClassifier::performClassification (const std::vector<FeatureVector>& featureVectors)

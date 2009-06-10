@@ -51,6 +51,7 @@ if test "$with_mysql" != 'no'; then
 	AC_LANG_POP([C++])
 
 	have_mysql='yes'
+	AC_DEFINE(_WITH_MYSQL_DATASET_)
 fi
 AM_CONDITIONAL(WITH_MYSQL, test "$have_mysql" = 'yes')
 
@@ -64,6 +65,7 @@ if test "$with_postgres" != 'no'; then
 	AC_LANG_POP([C++])
 
 	have_postgres='yes'
+	AC_DEFINE(_WITH_POSTGRESQL_DATASET_)
 fi
 AM_CONDITIONAL(WITH_POSTGRESQL, test "$have_postgres" = 'yes')
 

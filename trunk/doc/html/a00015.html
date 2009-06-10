@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>NessieOcr: PostgreSqlDataset Class Reference</title>
+<title>NessieOcr: Pattern Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -64,352 +64,336 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>PostgreSqlDataset Class Reference</h1><!-- doxytag: class="PostgreSqlDataset" --><!-- doxytag: inherits="Dataset" --><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a PostgreSQL database.  
+<h1>Pattern Class Reference</h1><!-- doxytag: class="Pattern" -->Set of pixels that defines a pattern to be recognized as a character in classification stage.  
 <a href="#_details">More...</a>
 <p>
-<code>#include &lt;<a class="el" href="a00078.html">PostgreSqlDataset.hpp</a>&gt;</code>
+<code>#include &lt;<a class="el" href="a00081.html">Pattern.hpp</a>&gt;</code>
 <p>
 <div class="dynheader">
-Inheritance diagram for PostgreSqlDataset:</div>
+Collaboration diagram for Pattern:</div>
 <div class="dynsection">
-<p><center><img src="a00207.png" border="0" usemap="#a00208" alt="Inheritance graph"></center>
-<map name="a00208">
-<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="17,5,140,243"></map>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
-<div class="dynheader">
-Collaboration diagram for PostgreSqlDataset:</div>
-<div class="dynsection">
-<p><center><img src="a00209.png" border="0" usemap="#a00210" alt="Collaboration graph"></center>
-<map name="a00210">
-<area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="5,5,128,243"><area shape="rect" title="STL class." alt="" coords="403,87,475,161"></map>
+<p><center><img src="a00213.png" border="0" usemap="#a00214" alt="Collaboration graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
-<a href="a00211.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<a href="a00215.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#99261cb23ebf08f888826b4fd44bc23c">PostgreSqlDataset</a> (const std::string &amp;database, const std::string &amp;username, const std::string &amp;password)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="95f42b0f1717d9e6c2d831e87d27f83c"></a><!-- doxytag: member="Pattern::Pattern" ref="95f42b0f1717d9e6c2d831e87d27f83c" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#95f42b0f1717d9e6c2d831e87d27f83c">Pattern</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor.  <a href="#99261cb23ebf08f888826b4fd44bc23c"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5c447dbd74f97569d9ac556e47188242"></a><!-- doxytag: member="PostgreSqlDataset::~PostgreSqlDataset" ref="5c447dbd74f97569d9ac556e47188242" args="()" -->
-virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#5c447dbd74f97569d9ac556e47188242">~PostgreSqlDataset</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Constructor. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#b871f7fe4402f4a85e9000142af6c3fe">at</a> (const unsigned int &amp;x, const unsigned int &amp;y)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructor. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#57481d14c68e08d46794aaeaaae35d25">addSample</a> (const <a class="el" href="a00028.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;sample)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-and-write access to a pixel in the pattern.  <a href="#b871f7fe4402f4a85e9000142af6c3fe"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#4db26402a3d034707a6840aba19b37aa">at</a> (const unsigned int &amp;x, const unsigned int &amp;y) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Add a sample to the dataset.  <a href="#57481d14c68e08d46794aaeaaae35d25"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#e43f7840d1a8152d02d72cb01ecbed06">removeSample</a> (const unsigned int &amp;n)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a pixel in the pattern.  <a href="#4db26402a3d034707a6840aba19b37aa"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#47965f659aec8df4af1970f1b3b1dabb">height</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Remove a sample from the dataset.  <a href="#e43f7840d1a8152d02d72cb01ecbed06"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const <a class="el" href="a00028.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#4ceae5eaf79ece96939b50f2b890bc27">at</a> (const unsigned int &amp;n) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the height of the pattern.  <a href="#47965f659aec8df4af1970f1b3b1dabb"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#f576b39ce0513ccb60a016dce5c27de4">width</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Allow read-only access to a sample in the dataset.  <a href="#4ceae5eaf79ece96939b50f2b890bc27"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const long unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#251b5cebd112449fc91d00179d61ab48">size</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the width of the pattern.  <a href="#f576b39ce0513ccb60a016dce5c27de4"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#9b1e427a988877e74de08d8b6c957ddc">size</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of samples in the dataset.  <a href="#251b5cebd112449fc91d00179d61ab48"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual const unsigned int &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#efecdda5323a818fca5c9206eb76dc23">features</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of pixels in the pattern.  <a href="#9b1e427a988877e74de08d8b6c957ddc"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::pair&lt; unsigned int, <br class="typebreak">
+unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#6b68a8e768946a755c4be160bc9de91d">centroid</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the number of features per sample.  <a href="#efecdda5323a818fca5c9206eb76dc23"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#06b9132afd07f5dd8147a7530a137e56">code</a> (const std::string &amp;character) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the centroid of a pattern using geometric moments.  <a href="#6b68a8e768946a755c4be160bc9de91d"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#844fa8255487728d5ca825f120c19c56">area</a> () const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the code associated to the character passed.  <a href="#06b9132afd07f5dd8147a7530a137e56"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ecaee990ce9d07085198bf32509a3507">character</a> (const unsigned int &amp;code) const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Computes the area of a pattern, i.e.  <a href="#844fa8255487728d5ca825f120c19c56"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#65daed03eafb58a21f92cff5c8c20167">clean</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the character associated to the code passed.  <a href="#ecaee990ce9d07085198bf32509a3507"></a><br></td></tr>
-<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8774177ef709ce626031df1f8c1521c7"></a><!-- doxytag: member="PostgreSqlDataset::samples_" ref="8774177ef709ce626031df1f8c1521c7" args="" -->
-std::vector&lt; <a class="el" href="a00028.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#8774177ef709ce626031df1f8c1521c7">samples_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clean the pattern by deleting every pixel of ink.  <a href="#65daed03eafb58a21f92cff5c8c20167"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#f39af1cd08cd55a2a5aff289a4cf815d">writeToOutputImage</a> (const std::string &amp;outputFile, const bool &amp;invert=false) const </td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Samples of the dataset. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="a8ec00731bc31069b93719b22d90546d"></a><!-- doxytag: member="PostgreSqlDataset::classes_" ref="a8ec00731bc31069b93719b22d90546d" args="" -->
-std::map&lt; std::string, <br class="typebreak">
-unsigned int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a8ec00731bc31069b93719b22d90546d">classes_</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a new image in the filesystem using Magick++ with the pattern drawn.  <a href="#f39af1cd08cd55a2a5aff289a4cf815d"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#556fb0da03c53d1b5dd2c65f71bd702c">planeSize</a> ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Map of classes that associates a character with its code. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="5c866bcb920dbaf42c6dfcbd0bf123f9"></a><!-- doxytag: member="PostgreSqlDataset::size_" ref="5c866bcb920dbaf42c6dfcbd0bf123f9" args="" -->
-long unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#5c866bcb920dbaf42c6dfcbd0bf123f9">size_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of samples. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2b2952fe46a49eb27822c7f683c30285"></a><!-- doxytag: member="PostgreSqlDataset::features_" ref="2b2952fe46a49eb27822c7f683c30285" args="" -->
-unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#2b2952fe46a49eb27822c7f683c30285">features_</a></td></tr>
-
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Number of features per sample. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the side size of the standard plane used for every pattern.  <a href="#556fb0da03c53d1b5dd2c65f71bd702c"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-<a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a> built by retrieving the data from a PostgreSQL database. 
+Set of pixels that defines a pattern to be recognized as a character in classification stage. 
 <p>
-The database must contain two tables named <em>samples</em> and <em>classes</em>. The table <em>classes</em> stores the characters that can be recognized. It must contain three columns: id_class, label and asciiCode. The <em>id_class</em> column must be an integer and will act as the primary key. The <em>label</em> column must be a variable-length array of two characters. Finally, the <em>asciiCode</em> column must be an integer. A posible definition for this table is acomplished with the following SQL statement:<p>
-<div class="fragment"><pre class="fragment">        CREATE TABLE classes (
-            id_class    serial      PRIMARY KEY,
-            label       varchar(2)  NOT NULL,
-            asciiCode   integer     NOT NULL
-        );
-</pre></div><p>
-The table <em>samples</em> stores the features of every trained sample using the classifier. It must contain a column named <em>id_sample</em>, an integer which will act as the primary key, a foreign key named <em>id_class</em> which points to the 'classes' table, and a variable number of feature columns, which are numbers whose only constraint is that their name must have the letter <em>m</em> and two digits from 0 to 9. A posible definition for this table is acomplished with the following SQL statement:<p>
-<div class="fragment"><pre class="fragment">        CREATE TABLE samples (
-            id_sample   serial  PRIMARY KEY,
-            m00         numeric NOT NULL DEFAULT 0.0,
-            m10         numeric NOT NULL DEFAULT 0.0,
-            m01         numeric NOT NULL DEFAULT 0.0,
-            m20         numeric NOT NULL DEFAULT 0.0,
-            m02         numeric NOT NULL DEFAULT 0.0,
-            id_class    integer REFERENCES classes
-        );
-</pre></div><p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a></dd></dl>
+A pattern is a matrix of binary pixels that represents a character found in the preprocessing stage. Thus, it is composed of ink pixels, and a number of background pixels to fill the holes in the matrix that do not belong to the character. Every pattern has a fixed size, since a pre-requisite for an optimal classification is that patterns must be normalized to constant width and height.<p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>Eliezer Talón (<a href="mailto:elitalon@gmail.com">elitalon@gmail.com</a>) </dd></dl>
-<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-13 </dd></dl>
-<hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="99261cb23ebf08f888826b4fd44bc23c"></a><!-- doxytag: member="PostgreSqlDataset::PostgreSqlDataset" ref="99261cb23ebf08f888826b4fd44bc23c" args="(const std::string &amp;database, const std::string &amp;username, const std::string &amp;password)" -->
+<dl class="date" compact><dt><b>Date:</b></dt><dd>2009-02-02 </dd></dl>
+<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="844fa8255487728d5ca825f120c19c56"></a><!-- doxytag: member="Pattern::area" ref="844fa8255487728d5ca825f120c19c56" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">PostgreSqlDataset::PostgreSqlDataset           </td>
+          <td class="memname">unsigned int Pattern::area           </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>database</em>, </td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Computes the area of a pattern, i.e. 
+<p>
+the number of ink pixels it has.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Area of the pattern in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4db26402a3d034707a6840aba19b37aa"></a><!-- doxytag: member="Pattern::at" ref="4db26402a3d034707a6840aba19b37aa" args="(const unsigned int &amp;x, const unsigned int &amp;y) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Pattern::at           </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>username</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>password</em></td><td>&nbsp;</td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [explicit]</code></td>
+          <td></td><td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Constructor. 
+Allow read-only access to a pixel in the pattern. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>database</em>&nbsp;</td><td>Name of the database to connect. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>username</em>&nbsp;</td><td>Username to use in the database connection. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>password</em>&nbsp;</td><td>User password.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-axis coordinate of pixel. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of pixel.</td></tr>
   </table>
 </dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A connection with the PostgreSQL database is stablished using the given parameters.</dd></dl>
-<dl compact><dt><b>Exceptions:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00011.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
-  </table>
-</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Gray level of a pixel at given coordinates. </dd></dl>
 
 </div>
 </div><p>
-<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="57481d14c68e08d46794aaeaaae35d25"></a><!-- doxytag: member="PostgreSqlDataset::addSample" ref="57481d14c68e08d46794aaeaaae35d25" args="(const Sample &amp;sample)" -->
+<a class="anchor" name="b871f7fe4402f4a85e9000142af6c3fe"></a><!-- doxytag: member="Pattern::at" ref="b871f7fe4402f4a85e9000142af6c3fe" args="(const unsigned int &amp;x, const unsigned int &amp;y)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PostgreSqlDataset::addSample           </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00028.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp;&nbsp;</td>
-          <td class="paramname"> <em>sample</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Add a sample to the dataset. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>sample</em>&nbsp;</td><td>Sample to add.</td></tr>
-  </table>
-</dl>
-<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The sample is appended to the end of the dataset.</dd></dl>
-<dl compact><dt><b>Exceptions:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00011.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
-  </table>
-</dl>
-
-<p>Implements <a class="el" href="a00004.html#65e42c7d35bd3270115455c3a6bc7b6f">Dataset</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="4ceae5eaf79ece96939b50f2b890bc27"></a><!-- doxytag: member="PostgreSqlDataset::at" ref="4ceae5eaf79ece96939b50f2b890bc27" args="(const unsigned int &amp;n) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00028.html#a2dc1592be8cd31d4395d016917d941c">Sample</a> &amp; Dataset::at           </td>
+          <td class="memname">unsigned int &amp; Pattern::at           </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
+          <td class="paramname"> <em>x</em>, </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Allow read-only access to a sample in the dataset. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where the required sample is.</td></tr>
-  </table>
-</dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Sample at given position. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="ecaee990ce9d07085198bf32509a3507"></a><!-- doxytag: member="PostgreSqlDataset::character" ref="ecaee990ce9d07085198bf32509a3507" args="(const unsigned int &amp;code) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">std::string Dataset::character           </td>
-          <td>(</td>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>code</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual, inherited]</code></td>
+          <td class="paramname"> <em>y</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the character associated to the code passed. 
+Allow read-and-write access to a pixel in the pattern. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>code</em>&nbsp;</td><td>A valid code.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>x</em>&nbsp;</td><td>X-axis coordinate of pixel. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>y</em>&nbsp;</td><td>Y-axis coordinate of pixel.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The character associated to the code or an empty string if there is no association. </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Gray level of a pixel at given coordinates. </dd></dl>
 
 </div>
 </div><p>
-<a class="anchor" name="06b9132afd07f5dd8147a7530a137e56"></a><!-- doxytag: member="PostgreSqlDataset::code" ref="06b9132afd07f5dd8147a7530a137e56" args="(const std::string &amp;character) const " -->
+<a class="anchor" name="6b68a8e768946a755c4be160bc9de91d"></a><!-- doxytag: member="Pattern::centroid" ref="6b68a8e768946a755c4be160bc9de91d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int Dataset::code           </td>
+          <td class="memname">std::pair&lt; unsigned int, unsigned int &gt; Pattern::centroid           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Computes the centroid of a pattern using geometric moments. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The coordinates of the centroid as a pair of integers. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="65daed03eafb58a21f92cff5c8c20167"></a><!-- doxytag: member="Pattern::clean" ref="65daed03eafb58a21f92cff5c8c20167" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pattern::clean           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Clean the pattern by deleting every pixel of ink. 
+<p>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>Every pixel is set to background, i.e. to zero. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="47965f659aec8df4af1970f1b3b1dabb"></a><!-- doxytag: member="Pattern::height" ref="47965f659aec8df4af1970f1b3b1dabb" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Pattern::height           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the height of the pattern. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Height of the pattern in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="556fb0da03c53d1b5dd2c65f71bd702c"></a><!-- doxytag: member="Pattern::planeSize" ref="556fb0da03c53d1b5dd2c65f71bd702c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static unsigned int Pattern::planeSize           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the side size of the standard plane used for every pattern. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Side size in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="9b1e427a988877e74de08d8b6c957ddc"></a><!-- doxytag: member="Pattern::size" ref="9b1e427a988877e74de08d8b6c957ddc" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Pattern::size           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the number of pixels in the pattern. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of pixels in the pattern. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f576b39ce0513ccb60a016dce5c27de4"></a><!-- doxytag: member="Pattern::width" ref="f576b39ce0513ccb60a016dce5c27de4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int &amp; Pattern::width           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Get the width of the pattern. 
+<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>Width of the pattern in pixels. </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="f39af1cd08cd55a2a5aff289a4cf815d"></a><!-- doxytag: member="Pattern::writeToOutputImage" ref="f39af1cd08cd55a2a5aff289a4cf815d" args="(const std::string &amp;outputFile, const bool &amp;invert=false) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pattern::writeToOutputImage           </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&nbsp;</td>
-          <td class="paramname"> <em>character</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual, inherited]</code></td>
+          <td class="paramname"> <em>outputFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>invert</em> = <code>false</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-Get the code associated to the character passed. 
+Create a new image in the filesystem using Magick++ with the pattern drawn. 
 <p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A valid character.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>outputFile</em>&nbsp;</td><td>A string with the image name in the filesystem. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>invert</em>&nbsp;</td><td>A boolean value that decides whether to invert the pixel values or not.</td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>The code associated to the character or 256 if there is no association. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="efecdda5323a818fca5c9206eb76dc23"></a><!-- doxytag: member="PostgreSqlDataset::features" ref="efecdda5323a818fca5c9206eb76dc23" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int &amp; Dataset::features           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the number of features per sample. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of features per sample. </dd></dl>
-
-</div>
-</div><p>
-<a class="anchor" name="e43f7840d1a8152d02d72cb01ecbed06"></a><!-- doxytag: member="PostgreSqlDataset::removeSample" ref="e43f7840d1a8152d02d72cb01ecbed06" args="(const unsigned int &amp;n)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PostgreSqlDataset::removeSample           </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
-          <td class="paramname"> <em>n</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Remove a sample from the dataset. 
-<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>n</em>&nbsp;</td><td>Row in the dataset where remove the sample.</td></tr>
-  </table>
-</dl>
-<dl compact><dt><b>Exceptions:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="a00011.html" title="Exception raised by a NessieOcr object.">NessieException</a></em>&nbsp;</td><td></td></tr>
-  </table>
-</dl>
-
-<p>Implements <a class="el" href="a00004.html#d4fa59997c016c2f9ff6ff7d3fe90f4d">Dataset</a>.</p>
-
-</div>
-</div><p>
-<a class="anchor" name="251b5cebd112449fc91d00179d61ab48"></a><!-- doxytag: member="PostgreSqlDataset::size" ref="251b5cebd112449fc91d00179d61ab48" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const long unsigned int &amp; Dataset::size           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-Get the number of samples in the dataset. 
-<p>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>Number of samples in the dataset. </dd></dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>A new image file is created in the filesystem. The image type is assigned according to the file extension provided in the filename (e.g. "foo.png" selects PNG as the image type). Otherwise the image type is Magick++'s implementation-dependent. </dd></dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Jun 9 19:56:46 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jun 10 19:26:19 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
