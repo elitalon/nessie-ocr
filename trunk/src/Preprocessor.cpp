@@ -721,11 +721,12 @@ std::vector<unsigned int> Preprocessor::findSpacesBetweenWords ()
 
 		while ( j != line.end() )
 		{
-			int distanceBetweenRegions = static_cast<int>((*i)->leftBorderColumn()) - static_cast<int>((*j)->rightBorderColumn()) + 1;
+			int distanceBetweenRegions = static_cast<int>((*j)->leftBorderColumn()) - static_cast<int>((*i)->rightBorderColumn()) + 1;
 
-			if ( distanceBetweenRegions > (averageSpaceBetweenCharacters_ / 0.7) )
+			if ( distanceBetweenRegions > (averageSpaceBetweenCharacters_ / 0.5) )
 				spaces.push_back(spaceLocation);
 
+			++spaceLocation;
 			advance (i, 1);
 			advance (j, 1);
 		}
