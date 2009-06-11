@@ -35,17 +35,17 @@ LIBS="$LIBS -L/usr/local/lib";
 
 
 # Check for Boost libraries
-BOOST_PROGRAM_OPTIONS=`find /usr/lib -name *boost_program_options*dylib -type l | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
+BOOST_PROGRAM_OPTIONS=`find /usr/lib -name *boost_program_options* -type l | tail -n 1 | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
 if test -z "$BOOST_PROGRAM_OPTIONS"; then
-	BOOST_PROGRAM_OPTIONS=`find /usr/local/lib -name *boost_program_options*dylib -type l | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
+	BOOST_PROGRAM_OPTIONS=`find /usr/local/lib -name *boost_program_options* -type l | tail -n 1 | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
 	if test -z "$BOOST_PROGRAM_OPTIONS"; then
 		AC_MSG_ERROR(Unable to find Boost's program_options dynamic library.)
 	fi
 fi
 
-BOOST_REGEX=`find /usr/lib -name *boost_regex*dylib -type l | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
+BOOST_REGEX=`find /usr/lib -name *boost_regex* -type  l| tail -n 1 | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
 if test -z "$BOOST_REGEX"; then
-	BOOST_REGEX=`find /usr/local/lib -name *boost_regex*dylib -type l | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
+	BOOST_REGEX=`find /usr/local/lib -name *boost_regex* -type l | tail -n 1 | sed 's/.*lib\/lib\(.*\)\..*/\1/'` 
 	if test -z "$BOOST_REGEX"; then
 		AC_MSG_ERROR(Unable to find Boost's regex dynamic library.)
 	fi
