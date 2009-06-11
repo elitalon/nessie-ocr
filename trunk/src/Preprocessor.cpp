@@ -202,11 +202,11 @@ void Preprocessor::applyGlobalThresholding ()
 
 	// Compute the background gray level and its complementary gray level for the ink
 	unsigned int backgroundAverageGrayLevel = 0;
-	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_ + 0);
-	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_ + clipWidth_);
-	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + 0);
-	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + (clipWidth_-1));
-	backgroundAverageGrayLevel = backgroundAverageGrayLevel / 4;
+	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_ + 0);								// (0,0)
+	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_+ (clipWidth_-1));					// (0,W)
+	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + 0);				// (H,0)
+	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + (clipWidth_-1));	// (H,W)
+	backgroundAverageGrayLevel /= 4;
 
 	unsigned char ink, background;
 	if ( backgroundAverageGrayLevel <= threshold )
