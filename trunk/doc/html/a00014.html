@@ -95,6 +95,9 @@ Collaboration diagram for NessieOcr:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#be23e4db05523dd61697b2837ef86265">train</a> (const std::auto_ptr&lt; <a class="el" href="a00002.html">Classifier</a> &gt; &amp;classifier, const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width, const std::string &amp;text)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train a classifier according to a reference set of characters.  <a href="#be23e4db05523dd61697b2837ef86265"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#cf9bec5540816ae8fc872baef8340297">train</a> (const std::auto_ptr&lt; <a class="el" href="a00002.html">Classifier</a> &gt; &amp;classifier, const Magick::Image &amp;pattern, const unsigned int &amp;asciiCode)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train a classifier according to a reference pattern and its ASCII code.  <a href="#cf9bec5540816ae8fc872baef8340297"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#0b571117c702a32c851a07baa7e3c965">exportPatternImages</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Export the patterns that have been built after a recognition or training stage.  <a href="#0b571117c702a32c851a07baa7e3c965"></a><br></td></tr>
@@ -206,6 +209,53 @@ This method executes sequentially every recognition stage: preprocessing, featur
 
 </div>
 </div><p>
+<a class="anchor" name="cf9bec5540816ae8fc872baef8340297"></a><!-- doxytag: member="NessieOcr::train" ref="cf9bec5540816ae8fc872baef8340297" args="(const std::auto_ptr&lt; Classifier &gt; &amp;classifier, const Magick::Image &amp;pattern, const unsigned int &amp;asciiCode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NessieOcr::train           </td>
+          <td>(</td>
+          <td class="paramtype">const std::auto_ptr&lt; <a class="el" href="a00002.html">Classifier</a> &gt; &amp;&nbsp;</td>
+          <td class="paramname"> <em>classifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Magick::Image &amp;&nbsp;</td>
+          <td class="paramname"> <em>pattern</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>asciiCode</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Train a classifier according to a reference pattern and its ASCII code. 
+<p>
+This method performs an automatic training of a classifier, comparing a single pattern with an ASCII code. The pattern must have <a class="el" href="a00015.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a>:planeSize() height and width, and must have been previously extracted from a press clip, probably calling <a class="el" href="a00014.html#106ae2ac39507a688628bd1a6f8c815d" title="Extract the text from a press clip.">NessieOcr::recognize</a> and then <a class="el" href="a00014.html#0b571117c702a32c851a07baa7e3c965" title="Export the patterns that have been built after a recognition or training stage.">NessieOcr::exportPatternImages</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>classifier</em>&nbsp;</td><td><a class="el" href="a00002.html" title="Classifier of the OCR process.">Classifier</a> that must be used in the classification stage. The KNN classifier with K=1 is the default option. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pattern</em>&nbsp;</td><td>Underlying image representing a pattern. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>asciiCode</em>&nbsp;</td><td>Reference ASCII code to compare with the classification result.</td></tr>
+  </table>
+</dl>
+<dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The dataset handled by <em>classifier</em> is updated according to the training decisions. </dd></dl>
+<dl class="warning" compact><dt><b>Warning:</b></dt><dd><em>classifier</em> is not copied but only used internally. Be careful when using threads. </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="be23e4db05523dd61697b2837ef86265"></a><!-- doxytag: member="NessieOcr::train" ref="be23e4db05523dd61697b2837ef86265" args="(const std::auto_ptr&lt; Classifier &gt; &amp;classifier, const Magick::Image &amp;page, const unsigned int &amp;x, const unsigned int &amp;y, const unsigned int &amp;height, const unsigned int &amp;width, const std::string &amp;text)" -->
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +332,7 @@ This method performs an automatic training of a classifier, comparing the set of
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri Jun 12 16:52:34 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:55 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

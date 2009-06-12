@@ -84,6 +84,20 @@ class NessieOcr
 		///	@warning	<em>classifier</em> is not copied but only used internally. Be careful when using threads.
 		void train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& page, const unsigned int& x, const unsigned int& y, const unsigned int& height, const unsigned int& width, const std::string& text);
 
+		/// @brief		Train a classifier according to a reference pattern and its ASCII code.
+		///	@details	This method performs an automatic training of a classifier, comparing a single pattern with an ASCII code. The pattern must have
+		///	Pattern:planeSize() height and width, and must have been previously extracted from a press clip, probably calling NessieOcr::recognize and then
+		///	NessieOcr::exportPatternImages.
+		/// 
+		///	@param		classifier	Classifier that must be used in the classification stage. The KNN classifier with K=1 is the default option.
+		/// @param		pattern		Underlying image representing a pattern.
+		/// @param		asciiCode	Reference ASCII code to compare with the classification result.
+		/// 
+		///	@post		The dataset handled by <em>classifier</em> is updated according to the training decisions.
+		///	@warning	<em>classifier</em> is not copied but only used internally. Be careful when using threads.
+		void train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& pattern, const unsigned int& asciiCode);
+
+
 		///	@brief		Export the patterns that have been built after a recognition or training stage.
 		///	@details	For each pattern found in the preprocessing stage, this method creates a new BMP image in the filesystem, using the Magick++ library support.
 		void exportPatternImages () const;

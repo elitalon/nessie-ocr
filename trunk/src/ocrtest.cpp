@@ -9,8 +9,10 @@
 
 #include <boost/program_options.hpp>
 #include <boost/timer.hpp>
+#include <boost/regex.hpp>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <memory>
 #include <string>
 #include <vector>
@@ -32,7 +34,8 @@ int main (int argc, char *argv[])
 		("database,d",			po::value<std::string>()->default_value("db_nessieocr"), "Use a database as classification dataset. Superseded by the --file option.")
 		("user,u",				po::value<std::string>()->default_value("nessieocr"), "Database user.")
 		("password,p",			po::value<std::string>()->default_value("nessieocr"), "Database user's password.")
-		("training,t",			po::value<std::string>(), "Use a plain text file as reference text to execute a training stage.")
+		("text-training,t",		po::value<std::string>(), "Use a plain text file as reference text to execute a training.")
+		("auto-training,a",		"Use the image names without extension as the ASCII code to execute a training. E.g. 65.bmp means A.")
 		("knn,k",				po::value<unsigned int>()->default_value(1), "Maximum number of neighbours when using the KNN algorithm.")
 		("create-patterns,c",	"Create an output BMP image for each pattern found in the input image.")
 		("statistics,s",		"Show statistical data regarding the OCR process.")
@@ -109,8 +112,7 @@ int main (int argc, char *argv[])
 	NessieOcr ocr;
 	try
 	{
-		// Load reference text for training
-		if ( passedOptions.count("training") )
+		if ( passedOptions.count("text-training") )
 		{
 			std::ifstream inputFile( passedOptions["training"].as<std::string>().data() );
 			if ( not inputFile.is_open() || not inputFile.good() )
@@ -118,7 +120,8 @@ int main (int argc, char *argv[])
 				std::cerr << "ocrtest: The file passed for training is not valid." << std::endl;
 				return 1;
 			}
-
+			
+			// Load reference text for training using a set of characters extracted from a clip
 			std::string text;
 			std::string line;
 			while ( inputFile.good() )
@@ -139,34 +142,70 @@ int main (int argc, char *argv[])
 			}
 
 			ocr.train(classifier, image, 0, 0, image.rows(), image.columns(), text);
-		
+
 			// Show statistics
 			if ( passedOptions.count("statistics") )
 				ocr.printStatistics();
 		}
 		else
 		{
-			for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
+			if ( passedOptions.count("auto-training") )
 			{
-				Magick::Image image(*i);
-				if ( image.magick() == "PDF" )
+				// Execute a training using the image name as the reference ASCII code.
+				for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
 				{
-					image.resolutionUnits(Magick::PixelsPerInchResolution);
-					image.density("800x800");
-					image.read( *i );
-				}
-				
-				Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
-				
-				if ( !text.data().empty() )
-					std::cout << text.data() << std::endl << std::endl;
+					// Extrac image name
+					boost::regex pattern("^/?(\\w+\\/)*(\\w+)(\\.\\w+)?$");
+					boost::smatch m;
+					regex_match(*i, m, pattern);
+					
+					// Get the ASCII code
+					std::istringstream imageName(m[2]);
+					unsigned int asciiCode;
+					imageName >> asciiCode;
 
-				// Show statistics
-				if ( passedOptions.count("statistics") )
+					// Load the image
+					Magick::Image image(*i);
+					if ( image.magick() == "PDF" )
+					{
+						image.resolutionUnits(Magick::PixelsPerInchResolution);
+						image.density("800x800");
+						image.read( *i );
+					}
+
+					// Execute training
+					ocr.train(classifier, *i, asciiCode);
+
+					// Show statistics
+					if ( passedOptions.count("statistics") )
+						ocr.printStatistics();
+				}
+			}
+			else
+			{
+				// Load image and recognize text
+				for( std::vector<std::string>::iterator i = inputImages.begin(); i != inputImages.end(); ++i )
 				{
-					std::cout << "Número total de palabras : " << text.nWords() << std::endl;
-					std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
-					ocr.printStatistics();
+					Magick::Image image(*i);
+					if ( image.magick() == "PDF" )
+					{
+						image.resolutionUnits(Magick::PixelsPerInchResolution);
+						image.density("800x800");
+						image.read( *i );
+					}
+
+					Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
+
+					if ( !text.data().empty() )
+						std::cout << text.data() << std::endl << std::endl;
+
+					// Show statistics
+					if ( passedOptions.count("statistics") )
+					{
+						std::cout << "Número total de palabras : " << text.nWords() << std::endl;
+						std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
+						ocr.printStatistics();
+					}
 				}
 			}
 		}

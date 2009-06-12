@@ -70,6 +70,12 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick
 }
 
 
+void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& pattern, const unsigned int& asciiCode)
+{
+
+}
+
+
 void NessieOcr::exportPatternImages () const
 {
 	unsigned int patternNo = 0;
