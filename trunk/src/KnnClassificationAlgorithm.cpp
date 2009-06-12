@@ -20,8 +20,11 @@ KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNei
 	kNeighbours_(kNeighbours),
 	dataset_(0)
 {
-	if ( engine.type() == DatasetEngineType::PlainText() )
-		dataset_ = new PlainTextDataset (engine.filename());
+#if !defined(_WITH_POSTGRESQL_DATASET_) && !defined(_WITH_MYSQL_DATASET_)
+	if ( engine.type() == DatasetEngineType::PostgreSql() || engine.type() == DatasetEngineType::MySql() )
+		throw NessieException("KnnClassificationAlgorithm::KnnClassificationAlgorithm() : A database-based dataset has been requested, but this program has not been \
+compiled with database support. Try to use a plain-text-based dataset or recompile the program.");
+#endif
 
 #if defined(_WITH_POSTGRESQL_DATASET_)
 	if ( engine.type() == DatasetEngineType::PostgreSql() )
@@ -32,6 +35,9 @@ KnnClassificationAlgorithm::KnnClassificationAlgorithm (const unsigned int& kNei
 	if ( engine.type() == DatasetEngineType::MySql() )
 		dataset_ = new MySqlDataset (engine.database(), engine.username(), engine.password());
 #endif
+	
+	if ( engine.type() == DatasetEngineType::PlainText() )
+		dataset_ = new PlainTextDataset (engine.filename());
 }
 
 

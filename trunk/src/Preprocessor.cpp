@@ -203,7 +203,7 @@ void Preprocessor::applyGlobalThresholding ()
 	// Compute the background gray level and its complementary gray level for the ink
 	unsigned int backgroundAverageGrayLevel = 0;
 	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_ + 0);								// (0,0)
-	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_+ (clipWidth_-1));					// (0,W)
+	backgroundAverageGrayLevel += clip_.at(0 * clipWidth_ + (clipWidth_-1));				// (0,W)
 	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + 0);				// (H,0)
 	backgroundAverageGrayLevel += clip_.at((clipHeight_-1) * clipWidth_ + (clipWidth_-1));	// (H,W)
 	backgroundAverageGrayLevel /= 4;
@@ -753,7 +753,6 @@ void Preprocessor::buildPatterns ()
 	for( RegionLines::iterator k = inlineRegions_.begin(); k != inlineRegions_.end(); ++k )
 	{
 		std::list<RegionIterator> line(k->second);
-
 		for( std::list<RegionIterator>::iterator i = line.begin(); i != line.end(); ++i )
 		{
 			(*i)->normalizeCoordinates();
@@ -782,18 +781,21 @@ void Preprocessor::buildPatterns ()
 
 			Region normalizedRegion;
 
-			// Merge subregions if preprocessing splitted the original region
-			if ( temporalPreprocessor.regions_.size() > 1 )
+			if ( ! temporalPreprocessor.regions_.empty() )
 			{
-				for ( RegionIterator j = temporalPreprocessor.regions_.begin(); j != temporalPreprocessor.regions_.end(); ++j )
-					normalizedRegion = normalizedRegion + *j;
+				// Merge subregions if preprocessing splitted the original region
+				if ( temporalPreprocessor.regions_.size() > 1 )
+				{
+					for ( RegionIterator j = temporalPreprocessor.regions_.begin(); j != temporalPreprocessor.regions_.end(); ++j )
+						normalizedRegion = normalizedRegion + *j;
 
-				temporalPreprocessor.regions_.clear();
-				temporalPreprocessor.regions_.push_back(normalizedRegion);
+					temporalPreprocessor.regions_.clear();
+					temporalPreprocessor.regions_.push_back(normalizedRegion);
+				}
+				else
+					normalizedRegion = temporalPreprocessor.regions_.front();
 			}
-			else
-				normalizedRegion = temporalPreprocessor.regions_.front();
-
+			
 			// Build the pattern
 			pattern.clean();
 			for ( unsigned int i = 0; i < normalizedRegion.size(); ++i )
@@ -1028,7 +1030,7 @@ void Preprocessor::correctSlanting ()
 				if ( row->second.size() > columnPixelMaximalCount )
 					columnPixelMaximalCount = row->second.size();
 			}
-			
+
 			columnPixelMaximalCounts.at(angle) = columnPixelMaximalCount;
 		}
 
