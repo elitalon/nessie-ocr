@@ -251,6 +251,8 @@ This method performs an automatic training of a classifier, comparing a single p
     <tr><td valign="top"></td><td valign="top"><em>asciiCode</em>&nbsp;</td><td>Reference ASCII code to compare with the classification result.</td></tr>
   </table>
 </dl>
+<dl class="pre" compact><dt><b>Precondition:</b></dt><dd>The input image must be in binary mode, i.e. a gray level of 0 means ink and a gray level of 1 means background. <p>
+The input image must have the dimensions expected by the <a class="el" href="a00015.html" title="Set of pixels that defines a pattern to be recognized as a character in classification...">Pattern</a> class, as returned by <a class="el" href="a00015.html#556fb0da03c53d1b5dd2c65f71bd702c" title="Get the side size of the standard plane used for every pattern.">Pattern::planeSize()</a> method. </dd></dl>
 <dl class="post" compact><dt><b>Postcondition:</b></dt><dd>The dataset handled by <em>classifier</em> is updated according to the training decisions. </dd></dl>
 <dl class="warning" compact><dt><b>Warning:</b></dt><dd><em>classifier</em> is not copied but only used internally. Be careful when using threads. </dd></dl>
 
@@ -332,7 +334,7 @@ This method performs an automatic training of a classifier, comparing the set of
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:55 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 14 19:35:57 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

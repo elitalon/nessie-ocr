@@ -74,14 +74,14 @@ Inheritance diagram for KnnClassificationAlgorithm:</div>
 <div class="dynsection">
 <p><center><img src="a00189.png" border="0" usemap="#a00190" alt="Inheritance graph"></center>
 <map name="a00190">
-<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="16,5,187,125"></map>
+<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="16,7,187,140"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for KnnClassificationAlgorithm:</div>
 <div class="dynsection">
 <p><center><img src="a00191.png" border="0" usemap="#a00192" alt="Collaboration graph"></center>
 <map name="a00192">
-<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="5,205,176,325"><area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="325,147,448,384"></map>
+<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="5,199,176,332"><area shape="rect" href="a00004.html" title="Data set of characters encoded as feature vectors." alt="" coords="325,147,448,384"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -101,6 +101,9 @@ Collaboration diagram for KnnClassificationAlgorithm:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#0e1312aa9a1898c6c70ef628b18b1f58">train</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00022.html">Text</a> &amp;referenceText)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#0e1312aa9a1898c6c70ef628b18b1f58"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a322af7bd0d8c599fc3b275c8b84ceda">train</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector, const std::string &amp;character, const unsigned int &amp;asciiCode)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing the classification decision for a single pattern with an ASCII code.  <a href="#a322af7bd0d8c599fc3b275c8b84ceda"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Classification algorithm based on the KNN paradigm. 
@@ -179,6 +182,53 @@ Classify a set of feature vectors into their most probably classes.
 
 </div>
 </div><p>
+<a class="anchor" name="a322af7bd0d8c599fc3b275c8b84ceda"></a><!-- doxytag: member="KnnClassificationAlgorithm::train" ref="a322af7bd0d8c599fc3b275c8b84ceda" args="(const FeatureVector &amp;featureVector, const std::string &amp;character, const unsigned int &amp;asciiCode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double KnnClassificationAlgorithm::train           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>asciiCode</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Train the classifier, comparing the classification decision for a single pattern with an ASCII code. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>A feature vector that matches a character previously classified. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A std::string object with sample character. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>asciiCode</em>&nbsp;</td><td>An ASCII code to compare with the classification result.</td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The hit rate achieved after training (e.g. 0,9 for 90%). </dd></dl>
+
+<p>Implements <a class="el" href="a00001.html#58feb6051736f626bc7e386ec69f9e95">ClassificationAlgorithm</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="0e1312aa9a1898c6c70ef628b18b1f58"></a><!-- doxytag: member="KnnClassificationAlgorithm::train" ref="0e1312aa9a1898c6c70ef628b18b1f58" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)" -->
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +279,7 @@ Train the classifier, comparing each classification decision with a reference te
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:55 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 14 19:35:57 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

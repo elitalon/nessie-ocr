@@ -74,14 +74,14 @@ Inheritance diagram for Classifier:</div>
 <div class="dynsection">
 <p><center><img src="a00155.png" border="0" usemap="#a00156" alt="Inheritance graph"></center>
 <map name="a00156">
-<area shape="rect" href="a00011.html" title="Classifier of NessieOcr based on the KNN paradigm." alt="" coords="8,203,163,323"></map>
+<area shape="rect" href="a00011.html" title="Classifier of NessieOcr based on the KNN paradigm." alt="" coords="8,220,163,353"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Classifier:</div>
 <div class="dynsection">
 <p><center><img src="a00157.png" border="0" usemap="#a00158" alt="Collaboration graph"></center>
 <map name="a00158">
-<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="5,79,176,199"><area shape="rect" href="a00003.html" title="Classification stage statistics of NessieOcr." alt="" coords="200,5,344,272"></map>
+<area shape="rect" href="a00001.html" title="Algorithm used by NessieOcr in the classification stage." alt="" coords="5,72,176,205"><area shape="rect" href="a00003.html" title="Classification stage statistics of NessieOcr." alt="" coords="200,5,344,272"></map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -106,6 +106,9 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#1615ad7c13e54de1488d31a4ab3cd62b">performTraining</a> (const std::vector&lt; <a class="el" href="a00009.html">FeatureVector</a> &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const <a class="el" href="a00022.html">Text</a> &amp;referenceText)=0</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing each classification decision with a reference text.  <a href="#1615ad7c13e54de1488d31a4ab3cd62b"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#c7d152019f936d08954e3c3be5ef8afb">performTraining</a> (const <a class="el" href="a00009.html">FeatureVector</a> &amp;featureVector, const std::string &amp;character, const unsigned int &amp;asciiCode)=0</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Train the classifier, comparing the classification decision for a single pattern with an ASCII code.  <a href="#c7d152019f936d08954e3c3be5ef8afb"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="7d5d16d95fc5685221f4d99444b703aa"></a><!-- doxytag: member="Classifier::statistics_" ref="7d5d16d95fc5685221f4d99444b703aa" args="" -->
 <a class="el" href="a00003.html">ClassifierStatistics</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html#7d5d16d95fc5685221f4d99444b703aa">statistics_</a></td></tr>
@@ -155,6 +158,52 @@ Classify each feature vector passed into its most probably class (character).
 
 </div>
 </div><p>
+<a class="anchor" name="c7d152019f936d08954e3c3be5ef8afb"></a><!-- doxytag: member="Classifier::performTraining" ref="c7d152019f936d08954e3c3be5ef8afb" args="(const FeatureVector &amp;featureVector, const std::string &amp;character, const unsigned int &amp;asciiCode)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Classifier::performTraining           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00009.html">FeatureVector</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>featureVector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;&nbsp;</td>
+          <td class="paramname"> <em>asciiCode</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Train the classifier, comparing the classification decision for a single pattern with an ASCII code. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>featureVector</em>&nbsp;</td><td>A feature vector that matches a character previously classified. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>character</em>&nbsp;</td><td>A std::string object with sample character. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>asciiCode</em>&nbsp;</td><td>An ASCII code to compare with the classification result. </td></tr>
+  </table>
+</dl>
+
+<p>Implemented in <a class="el" href="a00011.html#59a97d8195fbe5dedd6fbc298e76a5e5">KnnClassifier</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="1615ad7c13e54de1488d31a4ab3cd62b"></a><!-- doxytag: member="Classifier::performTraining" ref="1615ad7c13e54de1488d31a4ab3cd62b" args="(const std::vector&lt; FeatureVector &gt; &amp;featureVectors, const std::vector&lt; std::string &gt; &amp;characters, const Text &amp;referenceText)=0" -->
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +241,7 @@ Train the classifier, comparing each classification decision with a reference te
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>featureVectors</em>&nbsp;</td><td>An array of feature vectors that matches the array of characters previously classified. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>An array of std::string objects with sample characters to train. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>characters</em>&nbsp;</td><td>An array of std::string objects with sample characters. </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>referenceText</em>&nbsp;</td><td>A text to compare with the classification results character by character. </td></tr>
   </table>
 </dl>
@@ -224,7 +273,7 @@ Get the statistics regarding the classification stage.
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:55 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 14 19:35:57 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

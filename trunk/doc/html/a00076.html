@@ -88,17 +88,19 @@ window.onload = initDynSections;
 <a name="l00046"></a>00046 
 <a name="l00057"></a>00057         <span class="keywordtype">double</span> <a class="code" href="a00010.html#0e1312aa9a1898c6c70ef628b18b1f58" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a>&amp; referenceText);
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="keyword">private</span>:
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    kNeighbours_;   
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063         <a class="code" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a>*        dataset_;       
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00066"></a>00066         <span class="keywordtype">double</span> <a class="code" href="a00010.html#0e1312aa9a1898c6c70ef628b18b1f58" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> <a class="code" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> std::string&amp; character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; asciiCode);
+<a name="l00067"></a>00067         
+<a name="l00068"></a>00068     <span class="keyword">private</span>:
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>    kNeighbours_;   
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072         <a class="code" href="a00004.html" title="Data set of characters encoded as feature vectors.">Dataset</a>*        dataset_;       
+<a name="l00073"></a>00073 };
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="preprocessor">#endif</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:53 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 14 19:35:55 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -84,12 +84,14 @@ window.onload = initDynSections;
 <a name="l00038"></a>00038         <span class="keyword">virtual</span> std::vector&lt;std::string&gt; <a class="code" href="a00001.html#442a4eb2f495482a164d45965d6bd70b" title="Classify a set of feature vectors into their most probably classes.">classify</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors) <span class="keyword">const</span> = 0;
 <a name="l00039"></a>00039         
 <a name="l00047"></a>00047         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="a00001.html#3ba939700df1f0dbbcbfbd0a53f9a3d6" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> std::vector&lt;FeatureVector&gt;&amp; featureVectors, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; characters, <span class="keyword">const</span> <a class="code" href="a00022.html" title="Text extracted from a press clip after character recognition.">Text</a>&amp; referenceText) = 0;
-<a name="l00048"></a>00048 };
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span>
+<a name="l00048"></a>00048         
+<a name="l00056"></a>00056         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="a00001.html#3ba939700df1f0dbbcbfbd0a53f9a3d6" title="Train the classifier, comparing each classification decision with a reference text...">train</a> (<span class="keyword">const</span> <a class="code" href="a00009.html" title="Array of characteristic features that identifies a pattern.">FeatureVector</a>&amp; featureVector, <span class="keyword">const</span> std::string&amp; character, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; asciiCode) = 0;
+<a name="l00057"></a>00057 };
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sat Jun 13 14:28:53 2009 for NessieOcr by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Jun 14 19:35:55 2009 for NessieOcr by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
