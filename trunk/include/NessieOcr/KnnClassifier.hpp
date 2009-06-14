@@ -51,6 +51,13 @@ class KnnClassifier : public Classifier
 		///
 		///	@pre	The size of all input parameters must be equal.
 		void performTraining (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText);
+		
+		/// @brief	Train the classifier, comparing the classification decision for a single pattern with an ASCII code.
+		///
+		///	@param	featureVector	A feature vector that matches a character previously classified.
+		/// @param	character		A std::string object with sample character.
+		/// @param	asciiCode		An ASCII code to compare with the classification result.
+		void performTraining (const FeatureVector& featureVector, const std::string& character, const unsigned int& asciiCode);
 };
 
 #endif

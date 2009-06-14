@@ -156,3 +156,30 @@ double KnnClassificationAlgorithm::train (const std::vector<FeatureVector>& feat
 	return (hits / characters.size()) * 100;
 }
 
+
+double KnnClassificationAlgorithm::train (const FeatureVector& featureVector, const std::string& character, const unsigned int& asciiCode)
+{
+	if ( dataset_->features() != featureVector.size() )
+		throw NessieException ("KnnClassificationAlgorithm::train() : The number of features stored in the dataset is different from the one expected by the program.");
+
+	if ( dataset_->character(asciiCode).empty() )
+		throw NessieException ("KnnClassificationAlgorithm::train() : The ASCII code passed is invalid.");
+
+	double hits = 0.0;
+
+	try
+	{
+		if ( dataset_->code(character) == asciiCode )
+			hits += 1.0;
+		
+		if ( asciiCode != 256 )
+			dataset_->addSample(Sample(featureVector, asciiCode));
+	}
+	catch (std::exception& e)
+	{
+		std::string message(e.what());
+		throw NessieException ("KnnClassificationAlgorithm::train() : Training of character " + character + " could not be completed. " + message);
+	}
+
+	return (hits * 100);
+}

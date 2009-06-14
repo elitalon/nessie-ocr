@@ -61,8 +61,6 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick
 	Text referenceText;
 	referenceText.assign(regex_replace(text, pattern, ""));
 
-	std::cout << std::endl << "Size of reference text: " << referenceText.size() << std::endl;
-
 	if ( characters_.size() == referenceText.size() )
 		classifier->performTraining(featureVectors_, characters_, referenceText);
 
@@ -72,7 +70,39 @@ void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick
 
 void NessieOcr::train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& pattern, const unsigned int& asciiCode)
 {
+	if ( classifier.get() == 0 )
+		throw NessieException ("NessieOcr::train() : The classifier is set to a null value. Please, provide a valid classifier.");
 
+	// Build pattern from the input image
+	if ( pattern.columns() > Pattern::planeSize() )
+		throw NessieException ("Preprocessor::Preprocessor() : The input image width cannot be wider than the default pattern width.");
+
+	if ( pattern.rows() > Pattern::planeSize() )
+		throw NessieException ("Preprocessor::Preprocessor() : The input image height cannot be wider than the default pattern height.");
+
+	Magick::Pixels imageView(const_cast<Magick::Image&>(pattern));
+	Magick::PixelPacket *pixels = imageView.get(0, 0, pattern.columns(), pattern.rows());
+	Pattern p;
+
+	for ( unsigned int i = 0; i < imageView.rows(); ++i )
+	{
+		for ( unsigned int j = 0; j < imageView.columns(); ++j )
+		{
+			Magick::ColorGray graylevel(*pixels++);
+			p.at(i,j) = ( graylevel.shade() == 0.0 )?1:0;
+		}
+	}
+
+	patterns_.clear();
+	patterns_.push_back(p);
+
+	// Extract features from the pattern
+	doFeatureExtraction();
+
+	// Classify and train the pattern
+	characters_ = classifier->performClassification(featureVectors_);
+	classifier->performTraining(featureVectors_.front(), characters_.front(), asciiCode);
+	classificationStatistics_.reset (new ClassifierStatistics(classifier->statistics()) );
 }
 
 
@@ -150,7 +180,7 @@ void NessieOcr::doPostprocessing ()
 {
 	text_.clear();
 
-	if ( characters_.size() > 0 )
+	if ( !characters_.empty() )
 	{
 		for ( std::vector<unsigned int>::reverse_iterator i = spaceLocations_.rbegin(); i != spaceLocations_.rend(); ++i )
 			characters_.insert(characters_.begin() + *i, " ");

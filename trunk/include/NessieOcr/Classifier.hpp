@@ -49,9 +49,16 @@ class Classifier
 		/// @brief	Train the classifier, comparing each classification decision with a reference text.
 		///
 		///	@param	featureVectors	An array of feature vectors that matches the array of characters previously classified.
-		/// @param	characters		An array of std::string objects with sample characters to train.
+		/// @param	characters		An array of std::string objects with sample characters.
 		/// @param	referenceText	A text to compare with the classification results character by character.
 		virtual void performTraining (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText) = 0;
+		
+		/// @brief	Train the classifier, comparing the classification decision for a single pattern with an ASCII code.
+		///
+		///	@param	featureVector	A feature vector that matches a character previously classified.
+		/// @param	character		A std::string object with sample character.
+		/// @param	asciiCode		An ASCII code to compare with the classification result.
+		virtual void performTraining (const FeatureVector& featureVector, const std::string& character, const unsigned int& asciiCode) = 0;
 
 	protected:
 

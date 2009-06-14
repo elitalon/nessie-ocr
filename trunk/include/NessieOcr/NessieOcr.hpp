@@ -93,6 +93,8 @@ class NessieOcr
 		/// @param		pattern		Underlying image representing a pattern.
 		/// @param		asciiCode	Reference ASCII code to compare with the classification result.
 		/// 
+		///	@pre		The input image must be in binary mode, i.e. a gray level of 0 means ink and a gray level of 1 means background.
+		///	@pre		The input image must have the dimensions expected by the Pattern class, as returned by Pattern::planeSize() method.
 		///	@post		The dataset handled by <em>classifier</em> is updated according to the training decisions.
 		///	@warning	<em>classifier</em> is not copied but only used internally. Be careful when using threads.
 		void train (const std::auto_ptr<Classifier>& classifier, const Magick::Image& pattern, const unsigned int& asciiCode);

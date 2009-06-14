@@ -27,7 +27,7 @@ PostgreSqlDataset::PostgreSqlDataset (const std::string& database, const std::st
 													FROM information_schema.columns\
 													WHERE table_name = 'samples' AND column_name LIKE 'm__'");
 
-		if ( registers.size() == 0 )
+		if ( registers.empty() )
 			throw NessieException ("The table 'samples' has not any feature column.");
 		
 		for ( pqxx::result::const_iterator i = registers.begin(); i != registers.end(); ++i )

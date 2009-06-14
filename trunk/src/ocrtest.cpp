@@ -114,7 +114,7 @@ int main (int argc, char *argv[])
 	{
 		if ( passedOptions.count("text-training") )
 		{
-			std::ifstream inputFile( passedOptions["training"].as<std::string>().data() );
+			std::ifstream inputFile( passedOptions["text-training"].as<std::string>().data() );
 			if ( not inputFile.is_open() || not inputFile.good() )
 			{
 				std::cerr << "ocrtest: The file passed for training is not valid." << std::endl;

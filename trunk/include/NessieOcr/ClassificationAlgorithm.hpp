@@ -45,6 +45,15 @@ class ClassificationAlgorithm
 		///
 		///	@return	The hit rate achieved after training (e.g. 0,9 for 90%).
 		virtual double train (const std::vector<FeatureVector>& featureVectors, const std::vector<std::string>& characters, const Text& referenceText) = 0;
+		
+		/// @brief	Train the classifier, comparing the classification decision for a single pattern with an ASCII code.
+		///
+		///	@param	featureVector	A feature vector that matches a character previously classified.
+		/// @param	character		A std::string object with sample character.
+		/// @param	asciiCode		An ASCII code to compare with the classification result.
+		///
+		///	@return	The hit rate achieved after training (e.g. 0,9 for 90%).
+		virtual double train (const FeatureVector& featureVector, const std::string& character, const unsigned int& asciiCode) = 0;
 };
 
 #endif

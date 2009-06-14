@@ -50,3 +50,11 @@ void KnnClassifier::performTraining (const std::vector<FeatureVector>& featureVe
 	statistics_.missRate(100.0 - hitRate);
 }
 
+
+void KnnClassifier::performTraining (const FeatureVector& featureVector, const std::string& character, const unsigned int& asciiCode)
+{
+	double hitRate = classificationAlgorithm_->train(featureVector, character, asciiCode);
+
+	statistics_.hitRate(hitRate);
+	statistics_.missRate(100.0 - hitRate);
+}
