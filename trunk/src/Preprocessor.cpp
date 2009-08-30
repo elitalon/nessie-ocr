@@ -783,7 +783,7 @@ void Preprocessor::buildPatterns ()
 
 			if ( ! temporalPreprocessor.regions_.empty() )
 			{
-				// Merge subregions if preprocessing splitted the original region
+				// Merge subregions if preprocessing split the original region
 				if ( temporalPreprocessor.regions_.size() > 1 )
 				{
 					for ( RegionIterator j = temporalPreprocessor.regions_.begin(); j != temporalPreprocessor.regions_.end(); ++j )
