@@ -72,10 +72,10 @@ AC_ARG_WITH([mysql],
 # Check for MySQL database drivers
 have_mysql='no'
 if test "$with_mysql" != 'no'; then
-	CPPFLAGS="-I/usr/include/mysql $CPPFLAGS";
-	LIBS="$LIBS -lmysqlpp -lmysqlclient"
+	CPPFLAGS="$CPPFLAGS -I/usr/include/mysql -I/usr/local/mysql/include";
+	LIBS="$LIBS -L/usr/local/mysql/lib/ -lmysqlpp -lmysqlclient"
 
-	AC_CHECK_HEADER([mysql/mysql.h], [], AC_MSG_ERROR(Missing 'mysql' package.))
+	AC_CHECK_HEADER([mysql.h], [], AC_MSG_ERROR(Missing 'mysql' package.))
 	AC_CHECK_HEADER([mysql++/mysql++.h], [], AC_MSG_ERROR(Missing 'mysql++' package.))
 
 	have_mysql='yes'
