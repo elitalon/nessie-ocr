@@ -15,7 +15,7 @@ ClassifierStatistics::ClassifierStatistics ()
 
 
 ClassifierStatistics::ClassifierStatistics (const ClassifierStatistics& statistics)
-:	Statistics(),	// Invoke base class copy constructor.
+:	Statistics(statistics),	// Invoke base class copy constructor.
 	classificationTime_(0),
 	hitRate_(0),
 	missRate_(0)
@@ -65,6 +65,6 @@ void ClassifierStatistics::print () const
 	if ( missRate_.get() != 0 )
 		std::cout << "  - Miss rate                     : " << std::setprecision(2) << std::fixed << *missRate_ << " %" << std::endl;
 
-	std::cout << "  - Total elapsed time            : " << totalTime_ << " s" << std::endl;
+	std::cout << "  - Total elapsed time            : " << std::setprecision(6) << totalTime_ << " s" << std::endl;
 }
 

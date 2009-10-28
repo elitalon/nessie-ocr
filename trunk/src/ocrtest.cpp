@@ -197,13 +197,13 @@ int main (int argc, char *argv[])
 					Text text( ocr.recognize(image, 0, 0, image.rows(), image.columns(), classifier) );
 
 					if ( !text.data().empty() )
-						std::cout << text.data() << std::endl << std::endl;
+						std::cout << std::endl << text.data() << std::endl << std::endl;
 
 					// Show statistics
 					if ( passedOptions.count("statistics") )
 					{
-						std::cout << "Número total de palabras : " << text.nWords() << std::endl;
-						std::cout << "Tamaño medio por palabra : " << text.averageWordSize() << std::endl;
+						std::cout << "Total word count  : " << text.nWords() << std::endl;
+						std::cout << "Average word size : " << text.averageWordSize() << std::endl;
 						ocr.printStatistics();
 					}
 				}

@@ -770,9 +770,10 @@ void Preprocessor::buildPatterns ()
 				pixel	= originPixel + ((*i)->at(j).first * view.columns() + (*i)->at(j).second);
 				*pixel	= Magick::ColorGray (0.0);
 			}
+			
 			view.sync();
 			image.syncPixels();
-			image.sample( Magick::Geometry(Pattern::planeSize(), Pattern::planeSize()) );
+			image.scale( Magick::Geometry(Pattern::planeSize(), Pattern::planeSize()) );
 
 			// Preprocess the normalized region
 			Preprocessor temporalPreprocessor (image, 0, 0, image.rows(), image.columns());
@@ -780,7 +781,6 @@ void Preprocessor::buildPatterns ()
 			temporalPreprocessor.isolateRegions();
 
 			Region normalizedRegion;
-
 			if ( ! temporalPreprocessor.regions_.empty() )
 			{
 				// Merge subregions if preprocessing split the original region

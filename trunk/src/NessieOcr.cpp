@@ -125,17 +125,17 @@ void NessieOcr::printStatistics () const
 	if ( preprocessingStatistics_.get() != 0 )
 		preprocessingStatistics_->print();
 	else
-		std::cout << std::endl << "There is no statistics for the preprocessing stage." << std::endl;
+		std::cout << std::endl << "There are no statistics for the preprocessing stage." << std::endl;
 
 	if ( featureExtractionStatistics_.get() != 0 )
 		featureExtractionStatistics_->print();
 	else
-		std::cout << std::endl << "There is no statistics for the feature extraction stage." << std::endl;
+		std::cout << std::endl << "There are no statistics for the feature extraction stage." << std::endl;
 
 	if ( classificationStatistics_.get() != 0 )
 		classificationStatistics_->print();
 	else
-		std::cout << std::endl << "There is no statistics for the classification stage." << std::endl;
+		std::cout << std::endl << "There are no statistics for the classification stage." << std::endl;
 }
 
 
