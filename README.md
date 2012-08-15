@@ -14,7 +14,7 @@ starting configuration:
 * `COPYING.txt` for copying conditions.
 * `INSTALL.md` for compilation and installation instructions.
 * `NEWS.md` for a list of major changes in the current release.
-* `THANKS.md` for a list of contributors.
+* `AUTHORS.md` for a list of contributors.
 
 NessieOCR library comes with documentation in HTML format. You can
 find it under the directory 'doc/html'.
